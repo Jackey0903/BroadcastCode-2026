@@ -1,0 +1,99 @@
+{
+  "TrainingJobName": "team02-gpu-validation-20261005",
+  "TrainingJobArn": "arn:aws:sagemaker:us-east-1:962768510637:training-job/team02-gpu-validation-20261005",
+  "ModelArtifacts": {
+    "S3ModelArtifacts": "s3://broadcastcodeteam02validat-validationfiles90399d95-bkiuvmxz0loi/gpu/output/team02-gpu-validation-20261005/output/model.tar.gz"
+  },
+  "TrainingJobStatus": "Completed",
+  "SecondaryStatus": "Completed",
+  "HyperParameters": {
+    "sagemaker_container_log_level": "20",
+    "sagemaker_program": "\"gpu_check.py\"",
+    "sagemaker_region": "\"us-east-1\"",
+    "sagemaker_submit_directory": "\"s3://broadcastcodeteam02validat-validationfiles90399d95-bkiuvmxz0loi/gpu/source.tar.gz\""
+  },
+  "AlgorithmSpecification": {
+    "TrainingImage": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:2.9.0-gpu-py312-cu130-ubuntu22.04-sagemaker",
+    "TrainingInputMode": "File",
+    "EnableSageMakerMetricsTimeSeries": false
+  },
+  "RoleArn": "arn:aws:iam::962768510637:role/NBAHackathonWorkloadRole",
+  "InputDataConfig": [],
+  "OutputDataConfig": {
+    "KmsKeyId": "",
+    "S3OutputPath": "s3://broadcastcodeteam02validat-validationfiles90399d95-bkiuvmxz0loi/gpu/output",
+    "CompressionType": "GZIP"
+  },
+  "ResourceConfig": {
+    "InstanceType": "ml.g4dn.xlarge",
+    "InstanceCount": 1,
+    "VolumeSizeInGB": 10
+  },
+  "StoppingCondition": {
+    "MaxRuntimeInSeconds": 300
+  },
+  "CreationTime": "2026-10-05 23:53:58.525000+08:00",
+  "TrainingStartTime": "2026-10-05 23:56:18.281000+08:00",
+  "TrainingEndTime": "2026-10-05 23:59:37.626000+08:00",
+  "LastModifiedTime": "2026-10-05 23:59:38.165000+08:00",
+  "SecondaryStatusTransitions": [
+    {
+      "Status": "Starting",
+      "StartTime": "2026-10-05 23:53:58.525000+08:00",
+      "EndTime": "2026-10-05 23:53:59.445000+08:00",
+      "StatusMessage": "Starting the training job"
+    },
+    {
+      "Status": "Pending",
+      "StartTime": "2026-10-05 23:53:59.445000+08:00",
+      "EndTime": "2026-10-05 23:56:18.281000+08:00",
+      "StatusMessage": "Preparing the instances for training"
+    },
+    {
+      "Status": "Downloading",
+      "StartTime": "2026-10-05 23:56:18.281000+08:00",
+      "EndTime": "2026-10-05 23:59:09.839000+08:00",
+      "StatusMessage": "Downloading the training image"
+    },
+    {
+      "Status": "Training",
+      "StartTime": "2026-10-05 23:59:09.839000+08:00",
+      "EndTime": "2026-10-05 23:59:25.238000+08:00",
+      "StatusMessage": "Training image download completed. Training in progress."
+    },
+    {
+      "Status": "Uploading",
+      "StartTime": "2026-10-05 23:59:25.238000+08:00",
+      "EndTime": "2026-10-05 23:59:37.626000+08:00",
+      "StatusMessage": "Uploading generated training model"
+    },
+    {
+      "Status": "Completed",
+      "StartTime": "2026-10-05 23:59:37.626000+08:00",
+      "EndTime": "2026-10-05 23:59:37.626000+08:00",
+      "StatusMessage": "Training job completed"
+    }
+  ],
+  "EnableNetworkIsolation": false,
+  "EnableInterContainerTrafficEncryption": false,
+  "EnableManagedSpotTraining": false,
+  "TrainingTimeInSeconds": 199,
+  "BillableTimeInSeconds": 199,
+  "ProfilingStatus": "Disabled",
+  "ResponseMetadata": {
+    "RequestId": "13dde423-6466-46c1-9b86-42d879687346",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "x-amzn-requestid": "13dde423-6466-46c1-9b86-42d879687346",
+      "strict-transport-security": "max-age=47304000; includeSubDomains",
+      "x-frame-options": "DENY",
+      "content-security-policy": "frame-ancestors 'none'",
+      "cache-control": "no-cache, no-store, must-revalidate",
+      "x-content-type-options": "nosniff",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "2734",
+      "date": "Mon, 05 Oct 2026 16:01:59 GMT"
+    },
+    "RetryAttempts": 0
+  }
+}

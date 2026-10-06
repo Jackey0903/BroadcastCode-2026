@@ -1,0 +1,8 @@
+{
+  "name": "broadcastcode-team02-readiness",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {"synth": "cdk synth", "deploy": "cdk deploy --profile nba"},
+  "dependencies": {"aws-cdk-lib": "2.272.0", "constructs": "10.8.1"},
+  "devDependencies": {"aws-cdk": "2.1144.0"}
+}

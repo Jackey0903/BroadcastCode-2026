@@ -1,0 +1,30 @@
+{
+  "checked_on": "2026-10-06",
+  "check_type": "read_only_development_readiness",
+  "aws_identity": {
+    "command": "aws sts get-caller-identity --profile nba --region us-east-1",
+    "success": true,
+    "account": "962768510637",
+    "assumed_role": "NBAHackathonParticipantRole"
+  },
+  "portal": {
+    "url": "https://du5imhgxabl0d.cloudfront.net/portal",
+    "observed_team": "Team02",
+    "github_repository_connected": false,
+    "repository_ui": "Connect GitHub repo"
+  },
+  "local": {
+    "node_version": "v22.22.0",
+    "ffmpeg_version": "8.0.1",
+    "git_repository_initialized": false
+  },
+  "cloud_functional_tests_repeated": false,
+  "new_cloud_resources_created": false,
+  "paid_model_or_gpu_calls_made": false,
+  "limitations": [
+    "This identity check does not prove every AWS API is available.",
+    "Historical functional tests are recorded separately.",
+    "The formal Web-to-AgentCore and video-to-burned-MP4-to-Web paths are not complete.",
+    "Practice permissions after 2026-10-08 09:00 Asia/Shanghai still need confirmation."
+  ]
+}

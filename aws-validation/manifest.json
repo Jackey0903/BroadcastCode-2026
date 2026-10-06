@@ -1,0 +1,13 @@
+{
+  "account": "962768510637",
+  "region": "us-east-1",
+  "profile": "nba",
+  "stack": "BroadcastCodeTeam02Validation20261005",
+  "bucket": "broadcastcodeteam02validat-validationfiles90399d95-bkiuvmxz0loi",
+  "gpu_job": "team02-gpu-validation-20261005",
+  "agent_name": "Team02Validation20261005",
+  "workload_role": "arn:aws:iam::962768510637:role/NBAHackathonWorkloadRole",
+  "agent_id": "Team02Validation20261005-xuFxH1AIO6",
+  "agent_arn": "arn:aws:bedrock-agentcore:us-east-1:962768510637:runtime/Team02Validation20261005-xuFxH1AIO6",
+  "runtime_session": "f36c36bb-10f4-4670-9824-0b1cce1870d2"
+}

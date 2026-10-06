@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>BroadcastCode · 赛前连通测试</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="masthead">
+        <a class="brand" href="./" aria-label="BroadcastCode 测试台首页"><span class="brand-mark" aria-hidden="true">B<span>•</span></span><span>BroadcastCode<small>READINESS LAB / TEAM 02</small></span></a>
+        <span class="test-label">赛前连通测试</span>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <p class="eyebrow">FROM A REAL RUN TO A PLAYABLE VIDEO</p>
+          <h1 id="page-title">跑通一次，<br class="mobile-break">看见真实结果。</h1>
+          <p class="intro-copy">选择公开练习样片，启动 Agent 分析与叠字处理，在这里查看进度、核对观察，并播放返回的完整成片。</p>
+          <div class="scope-note"><span aria-hidden="true">i</span><p>这是赛前链路测试，尚未接入官方深度指标，也不是最终参赛产品。画面观察来自本次模型处理，需要结合来源帧复核。</p></div>
+        </section>
+
+        <div class="workspace">
+          <aside class="control-column">
+            <section class="panel environment-panel" aria-labelledby="environment-title">
+              <div class="section-top"><h2 id="environment-title">连接环境</h2><button id="refresh-status" type="button" class="text-button">重新检查</button></div>
+              <p id="environment-status" class="status-line" role="status"><span class="status-dot checking" aria-hidden="true"></span><span id="environment-label">正在检查服务…</span></p>
+              <dl id="environment-fields" class="meta-list"></dl>
+              <p id="environment-note" class="muted small">页面只在服务实际响应后开放处理入口。</p>
+              <details id="environment-details" class="technical-details" hidden><summary>环境响应</summary><pre id="environment-json"></pre></details>
+            </section>
+
+            <section class="panel sample-panel" aria-labelledby="sample-title">
+              <p class="section-number">01 / INPUT</p>
+              <h2 id="sample-title">选择练习样片</h2>
+              <form id="job-form">
+                <fieldset id="sample-options">
+                  <legend class="sr-only">公开练习视频</legend>
+                  <label class="sample-card"><input type="radio" name="sample" value="flagg" checked><span class="sample-copy"><strong>弗拉格 · 2 月 1 日</strong><span>公开练习样片 / 约 21.55 秒</span></span><span class="sample-state" data-sample="flagg"></span></label>
+                  <label class="sample-card"><input type="radio" name="sample" value="amen"><span class="sample-copy"><strong>阿门 · 1 月 4 日</strong><span>公开练习样片 / 约 22.89 秒</span></span><span class="sample-state" data-sample="amen"></span></label>
+                </fieldset>
+                <button id="start-job" type="submit" class="primary-button" disabled><span id="start-label">启动实际处理</span><span aria-hidden="true">↗</span></button>
+                <p class="small muted">点击后会真实调用服务并生成新任务；处理期间按钮会锁定，避免重复提交。</p>
+              </form>
+            </section>
+
+            <section class="panel job-panel" aria-labelledby="job-title">
+              <div class="section-top"><p class="section-number">02 / RUN</p><span id="job-status" class="state-tag">尚未启动</span></div>
+              <h2 id="job-title">任务进度</h2>
+              <p id="job-stage" class="stage-text" role="status" aria-live="polite">等待选择样片并启动。</p>
+              <p id="poll-state" class="small muted">任务开始后，自动刷新真实处理状态。</p>
+              <dl id="run-fields" class="meta-list" hidden>
+                <div><dt>Job ID</dt><dd id="job-id">—</dd></div>
+                <div><dt>Run ID</dt><dd id="run-id">—</dd></div>
+                <div><dt>最近响应</dt><dd id="last-updated">—</dd></div>
+              </dl>
+              <div id="job-actions" class="action-row" hidden><button id="refresh-job" type="button" class="secondary-button">重新查询此任务</button><button id="copy-run-id" type="button" class="text-button">复制 Run ID</button></div>
+              <div id="message-box" class="message-box" role="alert" hidden><strong id="message-title"></strong><p id="message-body"></p><details id="message-details" hidden><summary>错误详情</summary><pre id="message-raw"></pre></details></div>
+              <details id="job-details" class="technical-details" hidden><summary>本次任务原始响应</summary><pre id="job-json"></pre></details>
+            </section>
+          </aside>
+
+          <div class="result-column">
+            <section class="panel output-panel" aria-labelledby="output-title">
+              <div class="output-heading"><div><p class="section-number">03 / OUTPUT</p><h2 id="output-title">完整烧录成片</h2></div><a id="video-link" class="secondary-button" target="_blank" rel="noopener noreferrer" hidden>打开 MP4 <span aria-hidden="true">↗</span></a></div>
+              <div class="video-shell">
+                <div id="video-placeholder" class="video-placeholder"><span class="play-outline" aria-hidden="true">▷</span><strong>等待本次处理结果</strong><p>服务返回可播放的视频后，将在这里显示。</p><span class="video-format">完整练习视频 · 文字已烧录到画面</span></div>
+                <video id="output-video" controls playsinline preload="metadata" aria-label="本次处理的完整增强视频" hidden></video>
+              </div>
+              <p id="video-note" class="small muted output-note">这里播放服务返回的 MP4；页面不会用临时图层代替烧录结果。</p>
+            </section>
+
+            <section class="panel analysis-panel" aria-labelledby="analysis-title">
+              <div class="section-top"><h2 id="analysis-title">本次画面观察</h2><span class="subtle-tag">模型观察 · 待复核</span></div>
+              <p id="analysis-empty" class="empty-copy">启动任务后显示 Agent 实际返回的内容。不会预填篮球结论或官方指标。</p>
+              <p id="analysis-summary" class="analysis-summary" hidden></p>
+              <ul id="observation-list" class="observation-list"></ul>
+              <div id="analysis-extra" class="formatted-data" hidden></div>
+            </section>
+
+            <section class="panel evidence-panel" aria-labelledby="evidence-title">
+              <div class="section-top"><h2 id="evidence-title">来源帧与时间</h2><span class="subtle-tag">原片时间</span></div>
+              <p id="evidence-empty" class="empty-copy">服务返回的来源帧及其时间将在这里出现。</p>
+              <div id="evidence-list" class="evidence-grid"></div>
+              <p class="small muted evidence-note">时间按服务返回展示，不由页面推测。只有标明成片时间或确认保留原片时轴时，才提供视频跳转。</p>
+            </section>
+          </div>
+        </div>
+      </main>
+
+      <footer><span>BroadcastCode · 赛前连通测试</span><span>Web → AgentCore → 烧录处理 → S3 → 网页播放</span></footer>
+    </div>
+    <noscript><p class="noscript">请启用 JavaScript，以便启动任务和查看处理状态。</p></noscript>
+  </body>
+</html>

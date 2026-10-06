@@ -1,0 +1,30 @@
+{
+  "agentRuntimeName": "Team02Validation20261005",
+  "agentRuntimeArtifact": {
+    "codeConfiguration": {
+      "code": {
+        "s3": {
+          "bucket": "broadcastcodeteam02validat-validationfiles90399d95-bkiuvmxz0loi",
+          "prefix": "agent/agent.zip"
+        }
+      },
+      "runtime": "PYTHON_3_12",
+      "entryPoint": [
+        "agent.py"
+      ]
+    }
+  },
+  "roleArn": "arn:aws:iam::962768510637:role/NBAHackathonWorkloadRole",
+  "networkConfiguration": {
+    "networkMode": "PUBLIC"
+  },
+  "lifecycleConfiguration": {
+    "idleRuntimeSessionTimeout": 60,
+    "maxLifetime": 600
+  },
+  "description": "Temporary Team02 functional validation",
+  "clientToken": "team02-validation-20261005-agent-runtime",
+  "tags": {
+    "Purpose": "BroadcastCodeTeam02Validation"
+  }
+}

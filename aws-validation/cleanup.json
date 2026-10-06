@@ -1,0 +1,16 @@
+{
+  "gpu_job_completed": true,
+  "gpu_billable_seconds": 199,
+  "agent_runtime_removed": true,
+  "agent_workload_identity_removed": true,
+  "agent_log_groups_removed": 1,
+  "gpu_log_streams_removed": 1,
+  "temporary_bucket_objects_removed": 4,
+  "temporary_bucket_removed": true,
+  "temporary_lambda_removed": true,
+  "temporary_table_removed": true,
+  "temporary_cloudfront_removed": true,
+  "temporary_role_removed": true,
+  "published_test_template_removed": true,
+  "cdk_stack_removed": true
+}

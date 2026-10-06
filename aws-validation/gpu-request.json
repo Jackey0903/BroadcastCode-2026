@@ -1,0 +1,31 @@
+{
+  "TrainingJobName": "team02-gpu-validation-20261005",
+  "RoleArn": "arn:aws:iam::962768510637:role/NBAHackathonWorkloadRole",
+  "AlgorithmSpecification": {
+    "TrainingImage": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:2.9.0-gpu-py312-cu130-ubuntu22.04-sagemaker",
+    "TrainingInputMode": "File"
+  },
+  "HyperParameters": {
+    "sagemaker_program": "\"gpu_check.py\"",
+    "sagemaker_submit_directory": "\"s3://broadcastcodeteam02validat-validationfiles90399d95-bkiuvmxz0loi/gpu/source.tar.gz\"",
+    "sagemaker_region": "\"us-east-1\"",
+    "sagemaker_container_log_level": "20"
+  },
+  "ResourceConfig": {
+    "InstanceType": "ml.g4dn.xlarge",
+    "InstanceCount": 1,
+    "VolumeSizeInGB": 10
+  },
+  "OutputDataConfig": {
+    "S3OutputPath": "s3://broadcastcodeteam02validat-validationfiles90399d95-bkiuvmxz0loi/gpu/output"
+  },
+  "StoppingCondition": {
+    "MaxRuntimeInSeconds": 300
+  },
+  "Tags": [
+    {
+      "Key": "Purpose",
+      "Value": "BroadcastCodeTeam02Validation"
+    }
+  ]
+}

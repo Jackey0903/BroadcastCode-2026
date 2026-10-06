@@ -1,0 +1,19 @@
+{
+  "protocol_version": "team02-readiness-v1",
+  "request_id": "readiness-example-001",
+  "video": {
+    "id": "official-training-example",
+    "name": "官方训练片段",
+    "s3_uri": "s3://REPLACE_WITH_READINESS_BUCKET/inputs/training.mp4",
+    "duration_ms": 22000,
+    "width": 1920,
+    "height": 1080
+  },
+  "frames": [
+    {
+      "timestamp_ms": 15000,
+      "s3_uri": "s3://REPLACE_WITH_READINESS_BUCKET/inputs/frame-15000.jpg",
+      "format": "jpeg"
+    }
+  ]
+}

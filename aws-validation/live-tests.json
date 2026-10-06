@@ -1,0 +1,23 @@
+{
+  "account": "962768510637",
+  "region": "us-east-1",
+  "lambda_s3_dynamodb": {
+    "status": "SERVICE_CHECK_OK",
+    "s3_read": true,
+    "dynamodb_read_write": true
+  },
+  "lambda_logs": "START RequestId: 0b80e0d3-bc3e-4ecb-bf41-3f9cbdb247c7 Version: $LATEST\n{\"status\": \"SERVICE_CHECK_OK\", \"s3_read\": true, \"dynamodb_read_write\": true}\nEND RequestId: 0b80e0d3-bc3e-4ecb-bf41-3f9cbdb247c7\nREPORT RequestId: 0b80e0d3-bc3e-4ecb-bf41-3f9cbdb247c7\tDuration: 3549.85 ms\tBilled Duration: 3849 ms\tMemory Size: 128 MB\tMax Memory Used: 100 MB\tInit Duration: 298.88 ms\t\n",
+  "cloudfront": {
+    "status": "success",
+    "http_status": 200,
+    "url": "https://d2cw7gwcmc6u41.cloudfront.net/index.html"
+  },
+  "agentcore": {
+    "status": "success",
+    "response": {
+      "status": "AGENT_CHECK_OK",
+      "model_response": "AGENT_CHECK_OK"
+    }
+  },
+  "agentcore_session_stopped": true
+}

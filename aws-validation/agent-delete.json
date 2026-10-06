@@ -1,0 +1,18 @@
+{
+  "ResponseMetadata": {
+    "RequestId": "a2276a41-57fc-448d-baaf-1b58e4b196dc",
+    "HTTPStatusCode": 202,
+    "HTTPHeaders": {
+      "date": "Mon, 05 Oct 2026 15:57:16 GMT",
+      "content-type": "application/json",
+      "content-length": "76",
+      "connection": "keep-alive",
+      "x-amzn-requestid": "a2276a41-57fc-448d-baaf-1b58e4b196dc",
+      "x-amz-apigw-id": "ExxSjEG8oAMEt3A=",
+      "x-amzn-trace-id": "Root=1-6ac3c8dc-786625470de9108018d9f7bb"
+    },
+    "RetryAttempts": 0
+  },
+  "status": "DELETING",
+  "agentRuntimeId": "Team02Validation20261005-xuFxH1AIO6"
+}

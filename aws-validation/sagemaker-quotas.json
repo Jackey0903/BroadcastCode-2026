@@ -1,0 +1,1792 @@
+[
+  {
+    "name": "ml.g6.16xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-913947FA"
+  },
+  {
+    "name": "ml.g5.4xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-DB4D51CF"
+  },
+  {
+    "name": "ml.g4dn.16xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-57998C77"
+  },
+  {
+    "name": "ml.g5.16xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-0D323AED"
+  },
+  {
+    "name": "ml.g4dn.2xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-C35F807B"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g5.16xlarge instances",
+    "quota": 1.0,
+    "code": "L-1B49FD35"
+  },
+  {
+    "name": "ml.g4dn.12xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-BA5C7A54"
+  },
+  {
+    "name": "ml.g5.2xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-822C5A39"
+  },
+  {
+    "name": "ml.g5.16xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-E3DCB664"
+  },
+  {
+    "name": "ml.g6.2xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-BC684567"
+  },
+  {
+    "name": "ml.g6e.8xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-72017957"
+  },
+  {
+    "name": "ml.trn1.2xlarge for training warm pool usage",
+    "quota": 0.0,
+    "code": "L-AA6A4B7A"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g5.2xlarge instances",
+    "quota": 1.0,
+    "code": "L-F73C7DB9"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g4dn.2xlarge instances",
+    "quota": 2.0,
+    "code": "L-138F29A9"
+  },
+  {
+    "name": "ml.g6.4xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-5C991C75"
+  },
+  {
+    "name": "ml.g4dn.xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-4C5C5CA8"
+  },
+  {
+    "name": "ml.g5.24xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-FA6AE909"
+  },
+  {
+    "name": "ml.g5.8xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-B9080C32"
+  },
+  {
+    "name": "ml.g5.24xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-BC6B3288"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g4dn.8xlarge instances",
+    "quota": 1.0,
+    "code": "L-FE7F1F85"
+  },
+  {
+    "name": "ml.g6.8xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-B0F91871"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g4dn.2xlarge instance",
+    "quota": 1.0,
+    "code": "L-E5775070"
+  },
+  {
+    "name": "ml.g6e.12xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-6AB46401"
+  },
+  {
+    "name": "ml.g5.12xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-C6383286"
+  },
+  {
+    "name": "ml.g6e.8xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-AF730FBA"
+  },
+  {
+    "name": "ml.g6e.xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-DE7D3776"
+  },
+  {
+    "name": "ml.g6e.4xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-C7DCB657"
+  },
+  {
+    "name": "ml.g6.xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-6F0EC0FD"
+  },
+  {
+    "name": "ml.g5.48xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-6100AC7F"
+  },
+  {
+    "name": "ml.g6e.24xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-CCEE4B8C"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g4dn.4xlarge instance",
+    "quota": 0.0,
+    "code": "L-0E846ECD"
+  },
+  {
+    "name": "ml.g6.2xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-A1025C0C"
+  },
+  {
+    "name": "ml.g6.12xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-8BC5FA3F"
+  },
+  {
+    "name": "ml.g6.16xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-73EC964F"
+  },
+  {
+    "name": "ml.g6e.xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-B0729CB4"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g4dn.12xlarge instances",
+    "quota": 0.0,
+    "code": "L-9694914A"
+  },
+  {
+    "name": "ml.g4dn.16xlarge for endpoint usage",
+    "quota": 0.0,
+    "code": "L-8679F6F3"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g4dn.4xlarge instances",
+    "quota": 1.0,
+    "code": "L-0DB30DD8"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g5.12xlarge instances",
+    "quota": 1.0,
+    "code": "L-8D2ED7BF"
+  },
+  {
+    "name": "ml.g6e.8xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-3FD7013E"
+  },
+  {
+    "name": "ml.g6.24xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-513D1D07"
+  },
+  {
+    "name": "ml.g5.8xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-DD18D5D6"
+  },
+  {
+    "name": "ml.g6e.12xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-432B3C23"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6e.8xlarge instances",
+    "quota": 1.0,
+    "code": "L-C252BCE1"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g5.48xlarge instances",
+    "quota": 0.0,
+    "code": "L-AA7135D4"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g4dn.16xlarge instances",
+    "quota": 0.0,
+    "code": "L-0FEC7BB1"
+  },
+  {
+    "name": "ml.g5.16xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-86822EDB"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6e.xlarge instances",
+    "quota": 1.0,
+    "code": "L-09E63FAF"
+  },
+  {
+    "name": "ml.trn1.2xlarge for endpoint usage",
+    "quota": 0.0,
+    "code": "L-5C911603"
+  },
+  {
+    "name": "ml.g5.48xlarge for endpoint usage",
+    "quota": 0.0,
+    "code": "L-0100B823"
+  },
+  {
+    "name": "ml.g6.48xlarge for training job usage",
+    "quota": 0.0,
+    "code": "L-8CCF67BD"
+  },
+  {
+    "name": "ml.g6e.4xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-AE77DC5F"
+  },
+  {
+    "name": "ml.g5.24xlarge for training warm pool usage",
+    "quota": 0.0,
+    "code": "L-6F46EF71"
+  },
+  {
+    "name": "ml.g6.24xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-148FBB89"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6e.4xlarge instances",
+    "quota": 1.0,
+    "code": "L-7FC7DB15"
+  },
+  {
+    "name": "ml.g6.xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-82E81781"
+  },
+  {
+    "name": "ml.g5.4xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-42E4149B"
+  },
+  {
+    "name": "ml.g6e.2xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-2E2B5B49"
+  },
+  {
+    "name": "ml.g4dn.12xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-07BEB181"
+  },
+  {
+    "name": "ml.g6e.12xlarge for spot training job usage",
+    "quota": 1.0,
+    "code": "L-C1031CE4"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6.24xlarge instances",
+    "quota": 0.0,
+    "code": "L-86F70267"
+  },
+  {
+    "name": "RSessionGateway Apps running on ml.p3.2xlarge instance",
+    "quota": 0.0,
+    "code": "L-ADBE66E5"
+  },
+  {
+    "name": "ml.g6e.8xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-EECC878E"
+  },
+  {
+    "name": "ml.g6.24xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-3BE68F11"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6.16xlarge instances",
+    "quota": 1.0,
+    "code": "L-0EA47E2A"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g4dn.8xlarge instances",
+    "quota": 1.0,
+    "code": "L-F59A72DA"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g4dn.16xlarge instance",
+    "quota": 0.0,
+    "code": "L-D9B45548"
+  },
+  {
+    "name": "ml.g6e.8xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-69F95BD9"
+  },
+  {
+    "name": "ml.g4dn.12xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-ED8F1994"
+  },
+  {
+    "name": "ml.g5.xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-0973A7D7"
+  },
+  {
+    "name": "ml.g5.xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-BE792A7A"
+  },
+  {
+    "name": "ml.g6e.12xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-A15DF696"
+  },
+  {
+    "name": "ml.g6e.12xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-F70A2467"
+  },
+  {
+    "name": "ml.g6.4xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-07B51BA0"
+  },
+  {
+    "name": "ml.g6e.48xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-177AF1AD"
+  },
+  {
+    "name": "ml.g6.12xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-540196E8"
+  },
+  {
+    "name": "ml.g5.12xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-EC374A06"
+  },
+  {
+    "name": "ml.g6.2xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-F63839BF"
+  },
+  {
+    "name": "ml.g5.8xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-1619F5B7"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6.4xlarge instances",
+    "quota": 1.0,
+    "code": "L-692B8304"
+  },
+  {
+    "name": "ml.g4dn.4xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-2908B1E9"
+  },
+  {
+    "name": "ml.g4dn.8xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-96866D65"
+  },
+  {
+    "name": "ml.g4dn.xlarge for spot training job usage",
+    "quota": 1.0,
+    "code": "L-944F78BB"
+  },
+  {
+    "name": "ml.g4dn.8xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-C2F8103D"
+  },
+  {
+    "name": "ml.g4dn.8xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-9C72BEE2"
+  },
+  {
+    "name": "ml.g5.12xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-95233547"
+  },
+  {
+    "name": "ml.g4dn.4xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-EAB0CBAB"
+  },
+  {
+    "name": "ml.g6.12xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-0E9335FF"
+  },
+  {
+    "name": "ml.g6.48xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-B896E0F0"
+  },
+  {
+    "name": "ml.g5.xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-DE07CBDF"
+  },
+  {
+    "name": "ml.g5.12xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-03E19172"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6.12xlarge instances",
+    "quota": 1.0,
+    "code": "L-962247BA"
+  },
+  {
+    "name": "ml.g6.12xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-7DC6CDE9"
+  },
+  {
+    "name": "ml.g6e.16xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-C1AEC017"
+  },
+  {
+    "name": "ml.g6e.24xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-CE130130"
+  },
+  {
+    "name": "ml.g6.16xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-A9527A17"
+  },
+  {
+    "name": "ml.g5.xlarge for endpoint usage",
+    "quota": 2.0,
+    "code": "L-1928E07B"
+  },
+  {
+    "name": "ml.g6e.xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-BDE9EBA6"
+  },
+  {
+    "name": "ml.g4dn.4xlarge for spot training job usage",
+    "quota": 1.0,
+    "code": "L-246C5638"
+  },
+  {
+    "name": "ml.g4dn.12xlarge for notebook instance usage",
+    "quota": 0.0,
+    "code": "L-47461EBA"
+  },
+  {
+    "name": "ml.g5.2xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-19973BE2"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6.24xlarge instances",
+    "quota": 0.0,
+    "code": "L-8ACE1754"
+  },
+  {
+    "name": "ml.g6e.12xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-F88734E1"
+  },
+  {
+    "name": "ml.g5.2xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-2D6DEB3C"
+  },
+  {
+    "name": "ml.g4dn.2xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-41C11899"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g5.48xlarge instance",
+    "quota": 0.0,
+    "code": "L-94E271A3"
+  },
+  {
+    "name": "ml.g6.8xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-9CD2705A"
+  },
+  {
+    "name": "RSessionGateway Apps running on ml.g4dn.2xlarge instance",
+    "quota": 1.0,
+    "code": "L-7FD92B01"
+  },
+  {
+    "name": "ml.g6.48xlarge for endpoint usage",
+    "quota": 0.0,
+    "code": "L-28FEB563"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6e.4xlarge instances",
+    "quota": 1.0,
+    "code": "L-86B65D1A"
+  },
+  {
+    "name": "ml.g5.2xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-12740493"
+  },
+  {
+    "name": "ml.g6.8xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-40A7DC79"
+  },
+  {
+    "name": "ml.g5.48xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-C87FF004"
+  },
+  {
+    "name": "ml.g6e.8xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-51DC12F9"
+  },
+  {
+    "name": "ml.g6.24xlarge for training job usage",
+    "quota": 0.0,
+    "code": "L-B0E221DE"
+  },
+  {
+    "name": "ml.g6.4xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-E71BCC55"
+  },
+  {
+    "name": "ml.g6e.xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-BEAEADC8"
+  },
+  {
+    "name": "ml.g6e.xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-1E3225F6"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g4dn.2xlarge instances",
+    "quota": 2.0,
+    "code": "L-EE75DBCF"
+  },
+  {
+    "name": "ml.g6.48xlarge for training warm pool usage",
+    "quota": 0.0,
+    "code": "L-FD73C65F"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6e.12xlarge instances",
+    "quota": 1.0,
+    "code": "L-D36E23E0"
+  },
+  {
+    "name": "ml.g5.2xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-CAEE7DB7"
+  },
+  {
+    "name": "ml.g4dn.8xlarge for spot training job usage",
+    "quota": 1.0,
+    "code": "L-15F329FB"
+  },
+  {
+    "name": "ml.g4dn.8xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-769E114F"
+  },
+  {
+    "name": "ml.g6.48xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-6B08BAE2"
+  },
+  {
+    "name": "ml.g4dn.12xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-6C7C4F4E"
+  },
+  {
+    "name": "ml.g4dn.4xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-31522FA6"
+  },
+  {
+    "name": "ml.g6.48xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-FAFAD311"
+  },
+  {
+    "name": "ml.g6.4xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-DFB10FDE"
+  },
+  {
+    "name": "ml.g6e.16xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-2930A179"
+  },
+  {
+    "name": "RSessionGateway Apps running on ml.g4dn.12xlarge instance",
+    "quota": 0.0,
+    "code": "L-5392B59D"
+  },
+  {
+    "name": "ml.g5.xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-E8917BB7"
+  },
+  {
+    "name": "ml.g6.8xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-CDC3B509"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6.16xlarge instances",
+    "quota": 1.0,
+    "code": "L-B984C7D5"
+  },
+  {
+    "name": "ml.g6e.2xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-6B5E5FD1"
+  },
+  {
+    "name": "ml.g4dn.2xlarge for notebook instance usage",
+    "quota": 2.0,
+    "code": "L-1C2E1B03"
+  },
+  {
+    "name": "ml.g6.2xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-1211C97B"
+  },
+  {
+    "name": "ml.g5.24xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-8345B953"
+  },
+  {
+    "name": "ml.g5.12xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-65C4BD00"
+  },
+  {
+    "name": "ml.g6e.24xlarge for training warm pool usage",
+    "quota": 0.0,
+    "code": "L-2C0E8383"
+  },
+  {
+    "name": "ml.g5.12xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-24E5A1B2"
+  },
+  {
+    "name": "ml.g4dn.xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-3F53BF0F"
+  },
+  {
+    "name": "ml.g6.8xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-7CAFE77E"
+  },
+  {
+    "name": "ml.g5.4xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-88E48241"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g4dn.xlarge instances",
+    "quota": 4.0,
+    "code": "L-39F81BFB"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6.xlarge instances",
+    "quota": 1.0,
+    "code": "L-AABA5942"
+  },
+  {
+    "name": "ml.g6.xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-A886A53A"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6.4xlarge instances",
+    "quota": 1.0,
+    "code": "L-05D004A9"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g4dn.16xlarge instances",
+    "quota": 0.0,
+    "code": "L-5DB40C3B"
+  },
+  {
+    "name": "ml.g6e.2xlarge for spot training job usage",
+    "quota": 1.0,
+    "code": "L-29512C0F"
+  },
+  {
+    "name": "ml.g4dn.4xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-762E95F4"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g5.4xlarge instance",
+    "quota": 0.0,
+    "code": "L-DCE2AE7E"
+  },
+  {
+    "name": "ml.g4dn.4xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-B1C4D018"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g4dn.xlarge instances",
+    "quota": 4.0,
+    "code": "L-98BFB21C"
+  },
+  {
+    "name": "ml.g5.12xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-5F0C4D2F"
+  },
+  {
+    "name": "ml.g6.xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-56AE9D73"
+  },
+  {
+    "name": "RSessionGateway Apps running on ml.g4dn.xlarge instance",
+    "quota": 1.0,
+    "code": "L-050981C0"
+  },
+  {
+    "name": "ml.g6e.8xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-812CA1D8"
+  },
+  {
+    "name": "ml.g6.12xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-50B5B169"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g5.8xlarge instance",
+    "quota": 0.0,
+    "code": "L-76D497CD"
+  },
+  {
+    "name": "ml.g4dn.16xlarge for notebook instance usage",
+    "quota": 0.0,
+    "code": "L-64067773"
+  },
+  {
+    "name": "ml.g4dn.2xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-180A6F2D"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6e.2xlarge instances",
+    "quota": 1.0,
+    "code": "L-014DC4EC"
+  },
+  {
+    "name": "ml.g6e.16xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-68515813"
+  },
+  {
+    "name": "ml.g4dn.xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-2F1EB012"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g5.16xlarge instances",
+    "quota": 1.0,
+    "code": "L-E3646D22"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6.8xlarge instances",
+    "quota": 1.0,
+    "code": "L-6362B48D"
+  },
+  {
+    "name": "ml.g6e.24xlarge for training job usage",
+    "quota": 0.0,
+    "code": "L-3AE4911A"
+  },
+  {
+    "name": "ml.g6.8xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-8CB3A099"
+  },
+  {
+    "name": "ml.g6.48xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-19BBECED"
+  },
+  {
+    "name": "ml.g6.16xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-ED9E485B"
+  },
+  {
+    "name": "ml.g5.16xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-962705EA"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6e.24xlarge instances",
+    "quota": 0.0,
+    "code": "L-5B6F63A4"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6.48xlarge instances",
+    "quota": 0.0,
+    "code": "L-125B7142"
+  },
+  {
+    "name": "ml.g4dn.12xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-7BD2C9FA"
+  },
+  {
+    "name": "ml.g5.48xlarge for training job usage",
+    "quota": 0.0,
+    "code": "L-6BC98A55"
+  },
+  {
+    "name": "ml.g5.8xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-6F69996E"
+  },
+  {
+    "name": "ml.g6.4xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-8BF5F502"
+  },
+  {
+    "name": "ml.g5.2xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-23412DF7"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g4dn.12xlarge instances",
+    "quota": 0.0,
+    "code": "L-E3DFC4E9"
+  },
+  {
+    "name": "ml.g6.4xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-1474CE56"
+  },
+  {
+    "name": "ml.g5.48xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-52C8D816"
+  },
+  {
+    "name": "ml.g6.xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-49E4D2AB"
+  },
+  {
+    "name": "ml.g5.12xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-29508C65"
+  },
+  {
+    "name": "ml.g4dn.16xlarge for spot training job usage",
+    "quota": 1.0,
+    "code": "L-AD4C1352"
+  },
+  {
+    "name": "RSessionGateway Apps running on ml.g4dn.8xlarge instance",
+    "quota": 0.0,
+    "code": "L-A9165189"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g4dn.12xlarge instance",
+    "quota": 0.0,
+    "code": "L-09D3DD58"
+  },
+  {
+    "name": "ml.g6e.xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-0808490E"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6.48xlarge instances",
+    "quota": 0.0,
+    "code": "L-EE5A3114"
+  },
+  {
+    "name": "ml.g6.xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-99881E10"
+  },
+  {
+    "name": "ml.g6e.4xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-9C8CF3DC"
+  },
+  {
+    "name": "ml.g5.24xlarge for training job usage",
+    "quota": 0.0,
+    "code": "L-ED7BD217"
+  },
+  {
+    "name": "ml.g5.24xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-4ACAC7A4"
+  },
+  {
+    "name": "ml.g6e.48xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-23E57EB1"
+  },
+  {
+    "name": "ml.p3.2xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-45F58E7E"
+  },
+  {
+    "name": "ml.g6e.xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-9398D219"
+  },
+  {
+    "name": "ml.g5.4xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-127D4C65"
+  },
+  {
+    "name": "ml.trn1.2xlarge for notebook instance usage",
+    "quota": 0.0,
+    "code": "L-DFF5258D"
+  },
+  {
+    "name": "ml.g4dn.8xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-213CD3BC"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6e.2xlarge instances",
+    "quota": 1.0,
+    "code": "L-582AE722"
+  },
+  {
+    "name": "ml.g6.xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-D470D954"
+  },
+  {
+    "name": "ml.g6e.16xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-CC5DE39F"
+  },
+  {
+    "name": "ml.g5.2xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-7B0277D0"
+  },
+  {
+    "name": "ml.g5.xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-4645950E"
+  },
+  {
+    "name": "ml.g6.2xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-D371F6EE"
+  },
+  {
+    "name": "ml.g5.2xlarge for endpoint usage",
+    "quota": 2.0,
+    "code": "L-9614C779"
+  },
+  {
+    "name": "ml.g6e.48xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-5B9B8573"
+  },
+  {
+    "name": "ml.g6.16xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-8D196E75"
+  },
+  {
+    "name": "ml.g6.4xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-03304C28"
+  },
+  {
+    "name": "ml.g5.8xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-5D8382CB"
+  },
+  {
+    "name": "ml.g6e.2xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-D1AFBF6F"
+  },
+  {
+    "name": "ml.g4dn.12xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-CB4A3655"
+  },
+  {
+    "name": "ml.g6e.4xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-945D83D8"
+  },
+  {
+    "name": "ml.g6.24xlarge for endpoint usage",
+    "quota": 0.0,
+    "code": "L-6A3E5D65"
+  },
+  {
+    "name": "ml.g5.48xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-339123BF"
+  },
+  {
+    "name": "ml.g4dn.16xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-C960C80D"
+  },
+  {
+    "name": "ml.g6.8xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-DBF210E3"
+  },
+  {
+    "name": "ml.g6e.12xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-4ABE1E63"
+  },
+  {
+    "name": "ml.g5.4xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-FE869B40"
+  },
+  {
+    "name": "ml.g6e.12xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-60313EA3"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g5.24xlarge instance",
+    "quota": 0.0,
+    "code": "L-9D9F9978"
+  },
+  {
+    "name": "ml.g5.xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-135CF62D"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g5.8xlarge instances",
+    "quota": 1.0,
+    "code": "L-12798BAE"
+  },
+  {
+    "name": "ml.g6e.2xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-75A970F1"
+  },
+  {
+    "name": "ml.g4dn.2xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-FDB7A21A"
+  },
+  {
+    "name": "ml.g6e.24xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-3296ED98"
+  },
+  {
+    "name": "ml.g6.16xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-C8B8462D"
+  },
+  {
+    "name": "ml.g5.8xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-40E8018C"
+  },
+  {
+    "name": "ml.g4dn.xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-31C211B7"
+  },
+  {
+    "name": "ml.g6e.2xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-56245D0D"
+  },
+  {
+    "name": "ml.g4dn.2xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-C2495BC4"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6e.48xlarge instances",
+    "quota": 0.0,
+    "code": "L-AF19906B"
+  },
+  {
+    "name": "ml.g6.12xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-0A29AACF"
+  },
+  {
+    "name": "ml.g5.4xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-C1B9A48D"
+  },
+  {
+    "name": "RSessionGateway Apps running on ml.g4dn.16xlarge instance",
+    "quota": 0.0,
+    "code": "L-144A2794"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g5.xlarge instances",
+    "quota": 1.0,
+    "code": "L-988CE6C5"
+  },
+  {
+    "name": "ml.g6.xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-8B83C3A5"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g5.12xlarge instances",
+    "quota": 1.0,
+    "code": "L-55671A7C"
+  },
+  {
+    "name": "ml.g6e.12xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-A97F0519"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g4dn.xlarge instance",
+    "quota": 1.0,
+    "code": "L-F3C955A3"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g5.48xlarge instances",
+    "quota": 0.0,
+    "code": "L-83AB5D73"
+  },
+  {
+    "name": "RSessionGateway Apps running on ml.g4dn.4xlarge instance",
+    "quota": 0.0,
+    "code": "L-A7B1AACC"
+  },
+  {
+    "name": "ml.g4dn.4xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-3408A20D"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.p3.2xlarge instances",
+    "quota": 0.0,
+    "code": "L-199FCA12"
+  },
+  {
+    "name": "ml.g6e.48xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-B475E421"
+  },
+  {
+    "name": "ml.g4dn.16xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-47F095C9"
+  },
+  {
+    "name": "ml.g4dn.xlarge for endpoint usage",
+    "quota": 2.0,
+    "code": "L-B67CFA0C"
+  },
+  {
+    "name": "ml.g6.8xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-8ACE3F87"
+  },
+  {
+    "name": "ml.trn1.2xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-74F2FC79"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6.2xlarge instances",
+    "quota": 1.0,
+    "code": "L-E4515972"
+  },
+  {
+    "name": "ml.g6.16xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-15A99B7E"
+  },
+  {
+    "name": "ml.g6.24xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-4B55E427"
+  },
+  {
+    "name": "ml.g5.xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-B6D80D9C"
+  },
+  {
+    "name": "ml.g4dn.2xlarge for spot training job usage",
+    "quota": 1.0,
+    "code": "L-0496610F"
+  },
+  {
+    "name": "ml.g5.16xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-001EDCEF"
+  },
+  {
+    "name": "ml.g4dn.4xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-529379E4"
+  },
+  {
+    "name": "ml.g6e.4xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-98A71395"
+  },
+  {
+    "name": "ml.g6.4xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-BA5B2FC5"
+  },
+  {
+    "name": "ml.g5.8xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-44E32710"
+  },
+  {
+    "name": "ml.g5.4xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-8A6C3F0E"
+  },
+  {
+    "name": "ml.p3.2xlarge for notebook instance usage",
+    "quota": 2.0,
+    "code": "L-1F4A5AAB"
+  },
+  {
+    "name": "ml.g6e.4xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-B257AB01"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g5.2xlarge instance",
+    "quota": 0.0,
+    "code": "L-4918D123"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6.2xlarge instances",
+    "quota": 1.0,
+    "code": "L-92D1521D"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6e.8xlarge instances",
+    "quota": 1.0,
+    "code": "L-834BF903"
+  },
+  {
+    "name": "ml.g6.16xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-F08861C2"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g4dn.8xlarge instance",
+    "quota": 0.0,
+    "code": "L-D267F635"
+  },
+  {
+    "name": "ml.g5.24xlarge for endpoint usage",
+    "quota": 0.0,
+    "code": "L-6821867B"
+  },
+  {
+    "name": "ml.g4dn.16xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-B6A7569B"
+  },
+  {
+    "name": "ml.g6.12xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-D8830406"
+  },
+  {
+    "name": "ml.g6.24xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-61C1E88D"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g5.2xlarge instances",
+    "quota": 1.0,
+    "code": "L-DF589F40"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g5.xlarge instances",
+    "quota": 1.0,
+    "code": "L-8C616CCB"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g5.4xlarge instances",
+    "quota": 1.0,
+    "code": "L-81940D85"
+  },
+  {
+    "name": "ml.g4dn.xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-955074FD"
+  },
+  {
+    "name": "ml.g6e.xlarge for spot training job usage",
+    "quota": 1.0,
+    "code": "L-1DE24427"
+  },
+  {
+    "name": "ml.g6.12xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-2C06E55A"
+  },
+  {
+    "name": "ml.g6e.2xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-CAF39894"
+  },
+  {
+    "name": "ml.g6.12xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-954CE822"
+  },
+  {
+    "name": "ml.g6e.16xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-BE9444D9"
+  },
+  {
+    "name": "ml.g6.2xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-5E232B14"
+  },
+  {
+    "name": "ml.g6e.24xlarge for endpoint usage",
+    "quota": 0.0,
+    "code": "L-AE407E8B"
+  },
+  {
+    "name": "ml.g6e.24xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-1AE80ECF"
+  },
+  {
+    "name": "ml.g4dn.12xlarge for spot training job usage",
+    "quota": 1.0,
+    "code": "L-199558F0"
+  },
+  {
+    "name": "ml.g5.4xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-13C9BAB3"
+  },
+  {
+    "name": "ml.g6.2xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-98BDE811"
+  },
+  {
+    "name": "ml.g4dn.8xlarge for endpoint usage",
+    "quota": 0.0,
+    "code": "L-7D28AD75"
+  },
+  {
+    "name": "ml.g4dn.8xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-3118B7E1"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g5.16xlarge instance",
+    "quota": 0.0,
+    "code": "L-E66E2C21"
+  },
+  {
+    "name": "ml.g6e.4xlarge for spot training job usage",
+    "quota": 1.0,
+    "code": "L-5E2EB366"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.p3.2xlarge instances",
+    "quota": 0.0,
+    "code": "L-1356CD75"
+  },
+  {
+    "name": "ml.g6.xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-20A2026F"
+  },
+  {
+    "name": "ml.g6e.2xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-F8D7F460"
+  },
+  {
+    "name": "ml.trn1.2xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-AA22B8B9"
+  },
+  {
+    "name": "ml.g5.12xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-B013C051"
+  },
+  {
+    "name": "ml.g6e.4xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-8AB02F72"
+  },
+  {
+    "name": "ml.g6.48xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-9C33052B"
+  },
+  {
+    "name": "ml.g6.24xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-DBE0C398"
+  },
+  {
+    "name": "ml.g5.8xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-065D610E"
+  },
+  {
+    "name": "ml.g5.2xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-596C3331"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6.12xlarge instances",
+    "quota": 1.0,
+    "code": "L-F63BAB3A"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6e.48xlarge instances",
+    "quota": 0.0,
+    "code": "L-5F7EBBE8"
+  },
+  {
+    "name": "ml.g6e.48xlarge for endpoint usage",
+    "quota": 0.0,
+    "code": "L-E0C458EA"
+  },
+  {
+    "name": "ml.trn1.2xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-9B0F550F"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g4dn.4xlarge instances",
+    "quota": 1.0,
+    "code": "L-A63CA0EB"
+  },
+  {
+    "name": "ml.g6e.48xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-CC51C2FF"
+  },
+  {
+    "name": "ml.g6e.16xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-C7BEBCB1"
+  },
+  {
+    "name": "ml.g6e.48xlarge for training job usage",
+    "quota": 0.0,
+    "code": "L-0DA2E7B0"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g5.24xlarge instances",
+    "quota": 0.0,
+    "code": "L-DA7C9B9C"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6e.16xlarge instances",
+    "quota": 1.0,
+    "code": "L-243B2C0A"
+  },
+  {
+    "name": "ml.g6e.16xlarge for spot training job usage",
+    "quota": 1.0,
+    "code": "L-5E942007"
+  },
+  {
+    "name": "ml.g5.24xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-28F860BB"
+  },
+  {
+    "name": "ml.g6.24xlarge for training warm pool usage",
+    "quota": 0.0,
+    "code": "L-1DDB8D50"
+  },
+  {
+    "name": "ml.g4dn.16xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-D79647DB"
+  },
+  {
+    "name": "ml.g6e.xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-673ED3E0"
+  },
+  {
+    "name": "ml.g6.48xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-CC5B8B01"
+  },
+  {
+    "name": "ml.g6.2xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-8F92321F"
+  },
+  {
+    "name": "ml.g5.16xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-F6B8A3A3"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g5.12xlarge instance",
+    "quota": 0.0,
+    "code": "L-037F309A"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g5.4xlarge instances",
+    "quota": 1.0,
+    "code": "L-F8AE8304"
+  },
+  {
+    "name": "ml.g5.16xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-9FAC65F7"
+  },
+  {
+    "name": "ml.g6e.16xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-CBD538A0"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6.xlarge instances",
+    "quota": 1.0,
+    "code": "L-B8C1F9B8"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6e.12xlarge instances",
+    "quota": 1.0,
+    "code": "L-7D7D7FDC"
+  },
+  {
+    "name": "ml.g6e.8xlarge for spot training job usage",
+    "quota": 1.0,
+    "code": "L-2E243138"
+  },
+  {
+    "name": "ml.g5.xlarge for training warm pool usage",
+    "quota": 1.0,
+    "code": "L-8E6F4665"
+  },
+  {
+    "name": "ml.g6.8xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-FB830EC3"
+  },
+  {
+    "name": "ml.p3.2xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-1623D0BE"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g5.24xlarge instances",
+    "quota": 0.0,
+    "code": "L-F087CCFC"
+  },
+  {
+    "name": "ml.g6e.24xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-DD719846"
+  },
+  {
+    "name": "ml.g6e.48xlarge for training warm pool usage",
+    "quota": 0.0,
+    "code": "L-2AD5EFDD"
+  },
+  {
+    "name": "ml.g5.16xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-AC014CFB"
+  },
+  {
+    "name": "ml.g5.8xlarge for training job usage",
+    "quota": 1.0,
+    "code": "L-43F5FC95"
+  },
+  {
+    "name": "ml.g6e.8xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-96A28D02"
+  },
+  {
+    "name": "ml.g6e.4xlarge for endpoint usage",
+    "quota": 1.0,
+    "code": "L-93531071"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6e.16xlarge instances",
+    "quota": 1.0,
+    "code": "L-1B0FA8BF"
+  },
+  {
+    "name": "ml.g6.2xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-1FF397C6"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.p3.2xlarge instance",
+    "quota": 0.0,
+    "code": "L-9D41067A"
+  },
+  {
+    "name": "ml.g6e.48xlarge for spot training job usage",
+    "quota": 0.0,
+    "code": "L-8497E1A4"
+  },
+  {
+    "name": "ml.g6.16xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-4B99D021"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6e.xlarge instances",
+    "quota": 1.0,
+    "code": "L-A4021168"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.trn1.2xlarge instances",
+    "quota": 0.0,
+    "code": "L-97623E1D"
+  },
+  {
+    "name": "ml.g4dn.2xlarge for endpoint usage",
+    "quota": 2.0,
+    "code": "L-EA346344"
+  },
+  {
+    "name": "ml.g5.24xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-EED7F51C"
+  },
+  {
+    "name": "ml.g6e.24xlarge for transform job usage",
+    "quota": 0.0,
+    "code": "L-DEFA0B4D"
+  },
+  {
+    "name": "ml.g5.4xlarge for processing job usage",
+    "quota": 0.0,
+    "code": "L-0A6E4205"
+  },
+  {
+    "name": "ml.g6e.2xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-9072E86E"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g6.8xlarge instances",
+    "quota": 1.0,
+    "code": "L-804C2AFF"
+  },
+  {
+    "name": "ml.g4dn.xlarge for notebook instance usage",
+    "quota": 4.0,
+    "code": "L-D8B97089"
+  },
+  {
+    "name": "Studio KernelGateway Apps running on ml.g5.xlarge instance",
+    "quota": 0.0,
+    "code": "L-60470224"
+  },
+  {
+    "name": "Studio CodeEditor Apps running on ml.g6e.24xlarge instances",
+    "quota": 0.0,
+    "code": "L-AE9BB280"
+  },
+  {
+    "name": "ml.g5.48xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-D7D95295"
+  },
+  {
+    "name": "ml.g6e.16xlarge for cluster usage",
+    "quota": 0.0,
+    "code": "L-AA91CB2D"
+  },
+  {
+    "name": "ml.g5.48xlarge for training warm pool usage",
+    "quota": 0.0,
+    "code": "L-7D217E5D"
+  },
+  {
+    "name": "Studio JupyterLab Apps running on ml.g5.8xlarge instances",
+    "quota": 1.0,
+    "code": "L-19B6BAFC"
+  },
+  {
+    "name": "ml.g5.16xlarge for cluster spot instance usage",
+    "quota": 0.0,
+    "code": "L-BCC8C118"
+  },
+  {
+    "name": "ml.g6.4xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-FE7F0B12"
+  },
+  {
+    "name": "ml.g5.48xlarge for notebook instance usage",
+    "quota": 1.0,
+    "code": "L-D266139B"
+  }
+]

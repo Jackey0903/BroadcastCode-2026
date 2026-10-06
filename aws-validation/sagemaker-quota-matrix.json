@@ -1,0 +1,290 @@
+[
+  {
+    "instance": "ml.g4dn.xlarge",
+    "Endpoint": 2.0,
+    "Training": 1.0,
+    "Spot": 1.0,
+    "Notebook": 4.0,
+    "Processing": 0.0,
+    "JupyterLab": 4.0
+  },
+  {
+    "instance": "ml.g4dn.2xlarge",
+    "Endpoint": 2.0,
+    "Training": 1.0,
+    "Spot": 1.0,
+    "Notebook": 2.0,
+    "Processing": 0.0,
+    "JupyterLab": 2.0
+  },
+  {
+    "instance": "ml.g4dn.4xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 1.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g4dn.8xlarge",
+    "Endpoint": 0.0,
+    "Training": 1.0,
+    "Spot": 1.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g4dn.12xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 1.0,
+    "Notebook": 0.0,
+    "Processing": 0.0,
+    "JupyterLab": 0.0
+  },
+  {
+    "instance": "ml.g4dn.16xlarge",
+    "Endpoint": 0.0,
+    "Training": 1.0,
+    "Spot": 1.0,
+    "Notebook": 0.0,
+    "Processing": 0.0,
+    "JupyterLab": 0.0
+  },
+  {
+    "instance": "ml.g5.xlarge",
+    "Endpoint": 2.0,
+    "Training": 1.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g5.2xlarge",
+    "Endpoint": 2.0,
+    "Training": 1.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g5.4xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g5.8xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g5.12xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g5.16xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g5.24xlarge",
+    "Endpoint": 0.0,
+    "Training": 0.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 0.0
+  },
+  {
+    "instance": "ml.g5.48xlarge",
+    "Endpoint": 0.0,
+    "Training": 0.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 0.0
+  },
+  {
+    "instance": "ml.g6.xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g6.2xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g6.4xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g6.8xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g6.12xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g6.16xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g6.24xlarge",
+    "Endpoint": 0.0,
+    "Training": 0.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 0.0
+  },
+  {
+    "instance": "ml.g6.48xlarge",
+    "Endpoint": 0.0,
+    "Training": 0.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 0.0
+  },
+  {
+    "instance": "ml.g6e.xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 1.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g6e.2xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 1.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g6e.4xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 1.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g6e.8xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 1.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g6e.12xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 1.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g6e.16xlarge",
+    "Endpoint": 1.0,
+    "Training": 1.0,
+    "Spot": 1.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 1.0
+  },
+  {
+    "instance": "ml.g6e.24xlarge",
+    "Endpoint": 0.0,
+    "Training": 0.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 0.0
+  },
+  {
+    "instance": "ml.g6e.48xlarge",
+    "Endpoint": 0.0,
+    "Training": 0.0,
+    "Spot": 0.0,
+    "Notebook": 1.0,
+    "Processing": 0.0,
+    "JupyterLab": 0.0
+  },
+  {
+    "instance": "ml.p3.2xlarge",
+    "Endpoint": 1.0,
+    "Training": null,
+    "Spot": null,
+    "Notebook": 2.0,
+    "Processing": null,
+    "JupyterLab": 0.0
+  },
+  {
+    "instance": "ml.trn1.2xlarge",
+    "Endpoint": 0.0,
+    "Training": 1.0,
+    "Spot": 0.0,
+    "Notebook": 0.0,
+    "Processing": null,
+    "JupyterLab": null
+  }
+]

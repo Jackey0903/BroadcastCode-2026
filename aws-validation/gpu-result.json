@@ -1,0 +1,9 @@
+{
+  "status": "GPU_CHECK_OK",
+  "gpu_name": "Tesla T4",
+  "gpu_memory_bytes": 15637086208,
+  "torch_version": "2.9.0+cu130",
+  "cuda_version": "13.0",
+  "matrix_result": 128.0,
+  "nvidia_smi": "Tesla T4, 15360 MiB"
+}

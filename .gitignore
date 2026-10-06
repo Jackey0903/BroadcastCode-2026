@@ -1,0 +1,31 @@
+# Local operating system files
+.DS_Store
+
+# Dependencies and generated CDK / Python artifacts
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+cdk.out/
+aws-validation/agent-package/
+aws-validation/agent.zip
+aws-validation/source.tar.gz
+aws-validation/outputs.json
+
+# Downloaded source videos and local media analysis
+/data/
+/readiness-lab/build/
+/readiness-lab/agent/.build-check/
+/readiness-lab/outputs.json
+
+# Local credentials and environment secrets
+.aws/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Organizer account notices contain login passwords; keep locally only
+/BroadcastCode 12h 黑客松｜Portal 账号开通通知，请及时完成登录测试.pdf
+/BroadcastCode 12h 黑客松｜Portal 登录地址更正通知.pdf

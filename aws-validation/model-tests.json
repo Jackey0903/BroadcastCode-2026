@@ -1,0 +1,30 @@
+{
+  "global.anthropic.claude-sonnet-4-6": {
+    "status": "success",
+    "response": [
+      {
+        "text": "**Red**"
+      }
+    ],
+    "usage": {
+      "inputTokens": 23,
+      "outputTokens": 6,
+      "totalTokens": 29,
+      "cacheReadInputTokens": 0,
+      "cacheWriteInputTokens": 0
+    }
+  },
+  "qwen.qwen3-vl-235b-a22b": {
+    "status": "success",
+    "response": [
+      {
+        "text": "Red"
+      }
+    ],
+    "usage": {
+      "inputTokens": 85,
+      "outputTokens": 2,
+      "totalTokens": 87
+    }
+  }
+}
