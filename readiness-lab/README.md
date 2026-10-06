@@ -2,6 +2,8 @@
 
 这是赛前准备工程，不是正式参赛成品，也不是主办方统一评测协议。它部署真正的 AgentCore Runtime，使用真实练习视频和模型响应，验证浏览器触发、完整视频烧录、上传与播放。资源保留用于继续开发，历史 `aws-validation/` 的资源已删除。
 
+最新结论见[赛前准备实测报告](赛前准备实测报告-20261006.md)，[在线练习入口](https://d2x8td5d05xg8h.cloudfront.net)已跑通两段完整视频。原始机器证据在 [e2e-results.json](e2e-results.json)，浏览器播放和字幕视觉检查在 [browser-observations.json](browser-observations.json)。Portal 已锁定私有仓库 `Jackey0903/BroadcastCode`，默认 `main`，不需要重新绑定。
+
 ## 结构
 
 ```mermaid
@@ -38,6 +40,7 @@ python3 -m venv .venv
 .venv/bin/python -m unittest discover -s agent -p 'test_*.py'
 .venv/bin/python -m unittest discover -s worker -p 'test_*.py'
 .venv/bin/python -m unittest discover -s api -p 'test_*.py'
+node web/test-app.cjs
 npx cdk synth --profile nba
 npx cdk deploy --profile nba --outputs-file outputs.json
 .venv/bin/python upload_inputs.py
@@ -45,7 +48,9 @@ npx cdk deploy --profile nba --outputs-file outputs.json
 
 账号必须为 `962768510637`、角色 `NBAHackathonParticipantRole`。`upload_inputs.py` 依赖本地之前下载的官方练习包及抽帧（`data/reference/`，不提交大视频）。克隆到新电脑后需按[公开样片核查](../docs/research/公开训练样片核查.md)恢复该素材，不能只复制失效的历史 S3 URI。网页地址由 `outputs.json` 给出；该文件被忽略，最新测试证据会另存到仓库。
 
-FFmpeg 来自 npm 官方注册表 `@ffmpeg-installer/linux-x64@4.1.0`，FFprobe 来自 `ffprobe-static@3.1.0`；中文字体为 Noto CJK 官方仓库，附其 OFL 许可证。二进制包及依赖不提交，哈希保存在本地 `build/tool-sha256.json`。CDK 使用当前注册表版本 2.272.0 / CLI 2.1144.0；该 CDK 包内置的 brace-expansion 有 npm 安全告警且无法自动修复。它只在受控本地基础设施构建中使用，不在网页或 Lambda 执行用户输入；待上游更新后重新核验。
+FFmpeg 来自 npm 官方注册表 `@ffmpeg-installer/linux-x64@4.1.0`，FFprobe 来自 `ffprobe-static@3.1.0`；中文字体为 Noto CJK 官方仓库，附其 OFL 许可证。二进制包及依赖不提交，已核对的哈希提交在 [tool-fingerprints.json](tool-fingerprints.json)，打包时必须与它一致；本地结果为 `build/tool-sha256.json`。CDK 使用当前注册表版本 2.272.0 / CLI 2.1144.0；该 CDK 包内置的 brace-expansion 有 npm 安全告警且无法自动修复。它只在受控本地基础设施构建中使用，不在网页或 Lambda 执行用户输入；待上游更新后重新核验。
+
+独立复核已有任务可运行 `.venv/bin/python verify_runs.py <jobId> ...`，本机 PATH 需有适用于本机系统的 `ffmpeg` 与 `ffprobe`（云端 Linux 二进制不适用于 macOS）。脚本会下载并检查已有成片，不启动模型任务；只有 [browser-observations.json](browser-observations.json) 已记录且成片哈希相同的人工观察，才合并为视觉/完整播放通过。新任务默认未做视觉验收。
 
 ## 测试与外部依赖
 

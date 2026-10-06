@@ -1,0 +1,6 @@
+{
+  "layer/bin/ffmpeg": "6d0c625dbd3f604ed2618981ba6fee7e29678855ab741d654cfc9effb0226624",
+  "layer/bin/ffprobe": "e3624d8ff953c7e2f1f3e3ee24bfa64399bcb3bd5c302b2216d3f794b31bbbf6",
+  "layer/fonts/LICENSE.txt": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+  "layer/fonts/NotoSansCJKsc-Regular.otf": "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b"
+}

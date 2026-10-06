@@ -47,8 +47,9 @@ class FakeTable:
 
 
 class FakeAgent:
-    def __init__(self, fail=False, stop_fail=False, wrong_time=False):
+    def __init__(self, fail=False, stop_fail=False, wrong_time=False, source_times=None):
         self.fail, self.stop_fail, self.wrong_time = fail, stop_fail, wrong_time
+        self.source_times = source_times
         self.calls = self.stops = 0
 
     def invoke_agent_runtime(self, **kwargs):
@@ -59,7 +60,7 @@ class FakeAgent:
         return {"response": io.BytesIO(json.dumps({
             "protocol_version": PROTOCOL, "request_id": request["request_id"], "video": request["video"], "status": "completed",
             "observation": "画面中可见白衣与深衣球员。", "subtitle": "观察球员相对位置",
-            "source_frame_times_ms": [999 if self.wrong_time else 15000],
+            "source_frame_times_ms": self.source_times if self.source_times is not None else [999 if self.wrong_time else 15000],
             "inference_source": "bedrock_converse", "model_id": "offline-fake-model", "usage": {"inputTokens": 99},
         }).encode())}
 
@@ -111,6 +112,42 @@ class WorkerTests(unittest.TestCase):
         self.assertEqual(table.item["status"], "failed")
         self.assertEqual(s3.uploads, [])
         self.assertEqual(agent.stops, 1)
+
+    def test_clip_summary_caption_lists_every_cited_frame_without_adding_uncited_frames(self):
+        cases = [
+            ([3000, 6000, 15000, 18000], [0, 3000, 6000, 9000, 15000, 18000],
+             22000, "AI片段摘要 · 引用帧秒数：3,6,15,18"),
+            ([100001, 200002, 300003, 400004, 500005, 599999],
+             [100001, 200002, 300003, 400004, 500005, 599999],
+             600000, "AI片段摘要 · 引用帧秒数：100.001,200.002,300.003,400.004,500.005,599.999"),
+        ]
+        for cited, supplied, duration, expected_header in cases:
+            with self.subTest(cited=cited):
+                s3, table, agent = FakeS3(), FakeTable(), FakeAgent(source_times=cited)
+                entry = s3.samples["flagg"]
+                entry["video"]["duration_ms"] = duration
+                entry["frames"] = [{"timestamp_ms": timestamp, "s3_uri": f"s3://{BUCKET}/frames/{timestamp}.jpg",
+                                    "format": "jpeg"} for timestamp in supplied]
+                captions = []
+
+                def capture_renderer(source, output, subtitle, context):
+                    captions.append(subtitle.read_text(encoding="utf-8"))
+                    fake_renderer(source, output, subtitle, context)
+
+                result = run_job({"jobId": "job-1", "sample": "flagg"}, s3, table, agent, CONFIG,
+                                 renderer=capture_renderer,
+                                 inspector=lambda path, context: {"durationMs": duration, "width": 1280, "height": 720})
+                self.assertEqual(result["status"], "completed")
+                self.assertEqual(captions, [expected_header + "\n观察球员相对位置"])
+                analysis = json.loads(s3.objects["outputs/job-1/analysis.json"])
+                self.assertEqual(analysis["source_frame_times_ms"], cited)
+
+    def test_oversized_or_duplicate_citation_list_is_not_rendered(self):
+        for cited in ([15000] * 7, [15000, 15000]):
+            with self.subTest(cited=cited):
+                result, s3, table, agent = self.run_case(agent=FakeAgent(source_times=cited))
+                self.assertEqual(result["status"], "failed")
+                self.assertEqual(s3.uploads, [])
 
     def test_bad_source_hash_prevents_model_spend(self):
         s3 = FakeS3()

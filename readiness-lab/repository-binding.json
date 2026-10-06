@@ -1,0 +1,19 @@
+{
+  "verified_at": "2026-10-06T08:07:52.158443+00:00",
+  "team": "Team02",
+  "repository": "Jackey0903/BroadcastCode",
+  "private": true,
+  "default_branch": "main",
+  "portal_url": "https://du5imhgxabl0d.cloudfront.net/portal",
+  "portal_verified_text": [
+    "Your repository is locked in:",
+    "Jackey0903/BroadcastCode",
+    "The repository can no longer be changed. Contact the organizers if this is wrong."
+  ],
+  "github_app": "nba-aws-hackathon-agent",
+  "installation_id": 142013677,
+  "permissions": "read code and metadata",
+  "selected_repository_only": "Jackey0903/BroadcastCode",
+  "previous_draftcode_access_removed": true,
+  "entry_url_submitted": false
+}

@@ -28,5 +28,7 @@ for filename,url in [
     if not target.exists():urllib.request.urlretrieve(url,target)
 manifest={str(p.relative_to(build)):hashlib.sha256(p.read_bytes()).hexdigest()
     for p in sorted((build/'layer').rglob('*')) if p.is_file()}
+expected=json.loads((HERE/'tool-fingerprints.json').read_text())
+if manifest!=expected:raise RuntimeError('Media tool/font hashes differ from the reviewed asset fingerprints')
 (build/'tool-sha256.json').write_text(json.dumps(manifest,indent=2))
 print('Local deployment assets prepared. Resource deployment is a separate step.')

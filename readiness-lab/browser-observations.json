@@ -1,0 +1,38 @@
+{
+  "recordedAt": "2026-10-06T08:27:29.276447+00:00",
+  "method": "Native Chrome controls observed with computer-use accessibility state and screenshots; independent downloaded MP4 frame inspected visually. This file records manual observations, not an automated video-quality judgment.",
+  "runs": [
+    {
+      "jobId": "030eb6203d694a9d9e8a97c25755f9c1",
+      "outputSha256": "c22fa563c389bfd996487b00da4e127bf86f0fd0063693b6adc27fcb64954952",
+      "startedViaBrowserButton": true,
+      "browserPlaybackVerified": true,
+      "browserEndTimeSeconds": 21.548,
+      "burnedCaptionVisuallyVerified": true,
+      "downloadedMp4Frame": "evidence/flagg-baseline-burned-caption.jpg",
+      "observations": "Chrome played the generated MP4 to its end; the Play control returned. The Chinese caption is present in independently decoded MP4 pixels."
+    },
+    {
+      "jobId": "4da872a6dac44ad49607b98865c43705",
+      "outputSha256": "d320c4decc90f3a1b26b12bf25a1240e96f8511d050cfed82c3e8833469013b7",
+      "startedViaBrowserButton": true,
+      "browserPlaybackVerified": true,
+      "browserEndTimeSeconds": 22.895,
+      "burnedCaptionVisuallyVerified": true,
+      "downloadedMp4Frame": "evidence/amen-baseline-burned-caption.jpg",
+      "observations": "Chrome played the generated MP4 to its end; the Play control returned. The Chinese caption is present in independently decoded MP4 pixels.",
+      "pageRefreshRestoredJob": true
+    },
+    {
+      "jobId": "ee73d53f044543599cf010460b44dc26",
+      "outputSha256": "fb0d845cde3eab13a392b93982b3908212bbf81aff67ff4a48383b18c23c24d2",
+      "startedViaBrowserButton": true,
+      "browserPlaybackVerified": true,
+      "browserEndTimeSeconds": 21.548,
+      "burnedCaptionVisuallyVerified": true,
+      "downloadedMp4Frame": "evidence/flagg-revised-burned-caption.jpg",
+      "captionFormat": "AI片段摘要 · 引用帧秒数：3,6,15,18",
+      "observations": "Chrome played the generated MP4 to 21.548 seconds and the Play control returned. Independently decoded MP4 frame shows every cited frame second in the permanent caption."
+    }
+  ]
+}

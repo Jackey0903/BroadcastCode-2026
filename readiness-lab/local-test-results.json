@@ -1,0 +1,28 @@
+{
+  "scope": "local protocol, rendering contract and failure-handling tests; cloud and browser checks recorded separately",
+  "suites": [
+    {
+      "name": "Agent",
+      "command": ".venv/bin/python -m unittest discover -s agent -p 'test_*.py'",
+      "passed": 6
+    },
+    {
+      "name": "Worker",
+      "command": ".venv/bin/python -m unittest discover -s worker -p 'test_*.py'",
+      "passed": 10
+    },
+    {
+      "name": "API",
+      "command": ".venv/bin/python -m unittest discover -s api -p 'test_*.py'",
+      "passed": 10
+    },
+    {
+      "name": "Web",
+      "command": "node web/test-app.cjs",
+      "passed": 6
+    }
+  ],
+  "totalPassed": 32,
+  "failed": 0,
+  "recordedAt": "2026-10-06T08:25:49.857066+00:00"
+}

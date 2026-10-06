@@ -1,0 +1,48 @@
+{
+  "checked_at_utc": "2026-10-06T08:09:55.427661+00:00",
+  "profile": "nba",
+  "request_region": "us-east-1",
+  "identity": {
+    "Account": "962768510637",
+    "Arn": "arn:aws:sts::962768510637:assumed-role/NBAHackathonParticipantRole/botocore-session-1791274192"
+  },
+  "official_practice_deadline": {
+    "local_time": "2026-10-08 09:00",
+    "timezone": "Asia/Shanghai",
+    "utc_time": "2026-10-08T01:00:00Z",
+    "source": "AI接手说明.md section 5; notification deadline previously transcribed, password PDF not opened"
+  },
+  "policies": [
+    {
+      "policy_name": "NBAHackathonParticipantRole/TrustPolicy",
+      "type": "role_trust",
+      "date_conditions": []
+    },
+    {
+      "policy_name": "ParticipantGuardrails",
+      "type": "role_inline",
+      "date_conditions": []
+    },
+    {
+      "policy_name": "PowerUserAccess",
+      "type": "role_attached_managed",
+      "date_conditions": []
+    },
+    {
+      "policy_name": "NBAHackathonParticipantBoundary",
+      "type": "organizer_required_workload_boundary",
+      "attached_to_participant_role": false,
+      "date_conditions": []
+    }
+  ],
+  "read_errors": [],
+  "scope": "Read-only current participant role trust policy, inline policies, attached managed policies and the role permissions boundary when discoverable; no credentials or full policy documents saved. Also read the known organizer-required NBAHackathonParticipantBoundary for workload roles; it is not attached to the participant role itself.",
+  "role_permissions_boundary": null,
+  "date_condition_count": 0,
+  "limitations": [
+    "Only currently readable IAM role policies were checked; AWS Organizations SCPs, caller/source-role policies, session policies, SSO assignment expiry, portal entitlement timers and future policy changes were not inspected.",
+    "Current successful STS identity confirms only present authentication; absence of a visible date condition does not establish renewal or access after the official deadline.",
+    "Policy date values may be time gates rather than account expiry; effects and comparison operators must be interpreted together."
+  ],
+  "conclusion": "No explicit date condition was found in the policies that were readable. The official practice deadline cannot be confirmed or contradicted by this snapshot; renewal remains unconfirmed."
+}

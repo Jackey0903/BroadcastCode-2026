@@ -1,0 +1,23 @@
+{
+  "ApiBoundary": "arn:aws:iam::962768510637:policy/NBAHackathonParticipantBoundary",
+  "WorkerBoundary": "arn:aws:iam::962768510637:policy/NBAHackathonParticipantBoundary",
+  "BucketPublicAccessBlock": {
+    "BlockPublicAcls": true,
+    "IgnorePublicAcls": true,
+    "BlockPublicPolicy": true,
+    "RestrictPublicBuckets": true
+  },
+  "directFunctionUrl": {
+    "status": 403,
+    "expected": 403
+  },
+  "directS3Object": {
+    "status": 403,
+    "expected": 403
+  },
+  "StackStatus": "UPDATE_COMPLETE",
+  "AgentRuntimeStatus": "READY",
+  "checkedAt": "2026-10-06T08:26:52.459910+00:00",
+  "WorkerLastModified": "2026-10-06T08:24:00.000+0000",
+  "WorkerUpdateStatus": "Successful"
+}

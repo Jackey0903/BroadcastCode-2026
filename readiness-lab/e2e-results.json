@@ -1,0 +1,224 @@
+{
+  "verifiedAt": "2026-10-06T08:26:13.684371+00:00",
+  "website": "https://d2x8td5d05xg8h.cloudfront.net",
+  "stack": "BroadcastCodeTeam02Readiness20261006",
+  "deployment": {
+    "Table": "BroadcastCodeTeam02Readiness20261006-JobsDF1CC2D4-1UUVEAFH573UX",
+    "Bucket": "broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba",
+    "Distribution": "E1V3WLDERKO59T",
+    "Worker": "BroadcastCodeTeam02Readiness2026100-Worker11F36D0F-WEGXmSKusoc0",
+    "RuntimeArn": "arn:aws:bedrock-agentcore:us-east-1:962768510637:runtime/Team02Readiness20261006-btpD1PFAGy",
+    "Website": "https://d2x8td5d05xg8h.cloudfront.net",
+    "Api": "BroadcastCodeTeam02Readiness20261006-ApiF70053CD-NgEHGOd1LjZM",
+    "WorkerLogs": "BroadcastCodeTeam02Readiness20261006-WorkerLogsC1193B08-fCn22Y5MM7cW"
+  },
+  "httpChecks": [
+    {
+      "path": "/api/status",
+      "status": 200,
+      "samples": [
+        "flagg",
+        "amen"
+      ]
+    },
+    {
+      "path": "/api/jobs/invalid",
+      "status": 400,
+      "expected": 400
+    },
+    {
+      "path": "/api/jobs/00000000000000000000000000000000",
+      "status": 404,
+      "expected": 404
+    },
+    {
+      "path": "/api/jobs",
+      "status": 400,
+      "expected": 400
+    }
+  ],
+  "runs": [
+    {
+      "jobId": "030eb6203d694a9d9e8a97c25755f9c1",
+      "sample": "flagg",
+      "status": "completed",
+      "videoUrl": "https://d2x8td5d05xg8h.cloudfront.net/outputs/030eb6203d694a9d9e8a97c25755f9c1/enhanced.mp4",
+      "analysisUrl": "https://d2x8td5d05xg8h.cloudfront.net/outputs/030eb6203d694a9d9e8a97c25755f9c1/analysis.json",
+      "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:962768510637:runtime/Team02Readiness20261006-btpD1PFAGy",
+      "modelId": "global.anthropic.claude-sonnet-4-6",
+      "usage": {
+        "inputTokens": 5170.0,
+        "cacheWriteInputTokens": 0.0,
+        "totalTokens": 5339.0,
+        "outputTokens": 169.0,
+        "cacheReadInputTokens": 0.0
+      },
+      "summary": "在第四节比赛时间从1:49倒数至1:34、比分DAL 103比HOU 107的情况下，多名深色球衣（DAL）与白色球衣（HOU）球员分布于半场内外，最后一帧（18000ms）可见多名球员在油漆区附近形成身体接触的密集站位，篮球可见于篮筐附近上方。",
+      "subtitle": "第四节末段双方球员在油漆区附近密集站位",
+      "durationSeconds": 21.548005,
+      "sourceDurationSeconds": 21.548118,
+      "outputSha256": "c22fa563c389bfd996487b00da4e127bf86f0fd0063693b6adc27fcb64954952",
+      "outputBytes": 8287438,
+      "videoCodec": "h264",
+      "width": 1280,
+      "height": 720,
+      "audioPresent": true,
+      "rangeStatus": 206,
+      "elapsedSeconds": 46.36,
+      "evidence": [
+        {
+          "description": "实际送入模型的来源帧",
+          "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-03s.jpg",
+          "timeSeconds": 3.0
+        },
+        {
+          "timeSeconds": 6.0,
+          "description": "实际送入模型的来源帧",
+          "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-06s.jpg"
+        },
+        {
+          "timeSeconds": 15.0,
+          "description": "实际送入模型的来源帧",
+          "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-15s.jpg"
+        },
+        {
+          "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-18s.jpg",
+          "description": "实际送入模型的来源帧",
+          "timeSeconds": 18.0
+        }
+      ],
+      "sourceFrameTimesMs": [
+        3000.0,
+        6000.0,
+        15000.0,
+        18000.0
+      ],
+      "browserPlaybackVerified": true,
+      "burnedCaptionVisuallyVerified": true,
+      "startedViaBrowserButton": true,
+      "browserEndTimeSeconds": 21.548,
+      "visualEvidence": "browser-observations.json"
+    },
+    {
+      "jobId": "4da872a6dac44ad49607b98865c43705",
+      "sample": "amen",
+      "status": "completed",
+      "videoUrl": "https://d2x8td5d05xg8h.cloudfront.net/outputs/4da872a6dac44ad49607b98865c43705/enhanced.mp4",
+      "analysisUrl": "https://d2x8td5d05xg8h.cloudfront.net/outputs/4da872a6dac44ad49607b98865c43705/analysis.json",
+      "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:962768510637:runtime/Team02Readiness20261006-btpD1PFAGy",
+      "modelId": "global.anthropic.claude-sonnet-4-6",
+      "usage": {
+        "cacheWriteInputTokens": 0.0,
+        "outputTokens": 167.0,
+        "inputTokens": 5170.0,
+        "cacheReadInputTokens": 0.0,
+        "totalTokens": 5337.0
+      },
+      "summary": "在timestamp_ms=18000帧中，穿白色1号球衣的球员在三分线附近持球跳起，手臂上举呈出手姿态，对面一名穿黑色球衣的防守球员手臂伸出试图干扰，此时比分显示Rockets 60、Mavericks 63，第三节剩余7:27，投篮时钟显示1.6秒。",
+      "subtitle": "白队1号三分线附近跳起出手，防守球员伸臂干扰",
+      "durationSeconds": 22.895011,
+      "sourceDurationSeconds": 22.894875,
+      "outputSha256": "d320c4decc90f3a1b26b12bf25a1240e96f8511d050cfed82c3e8833469013b7",
+      "outputBytes": 12458513,
+      "videoCodec": "h264",
+      "width": 1280,
+      "height": 720,
+      "audioPresent": true,
+      "rangeStatus": 206,
+      "elapsedSeconds": 47.77,
+      "evidence": [
+        {
+          "description": "实际送入模型的来源帧",
+          "timeSeconds": 3.0,
+          "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/amen-03s.jpg"
+        },
+        {
+          "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/amen-06s.jpg",
+          "timeSeconds": 6.0,
+          "description": "实际送入模型的来源帧"
+        },
+        {
+          "timeSeconds": 15.0,
+          "description": "实际送入模型的来源帧",
+          "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/amen-15s.jpg"
+        },
+        {
+          "description": "实际送入模型的来源帧",
+          "timeSeconds": 18.0,
+          "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/amen-18s.jpg"
+        }
+      ],
+      "sourceFrameTimesMs": [
+        18000.0
+      ],
+      "browserPlaybackVerified": true,
+      "burnedCaptionVisuallyVerified": true,
+      "startedViaBrowserButton": true,
+      "browserEndTimeSeconds": 22.895,
+      "pageRefreshRestoredJob": true,
+      "visualEvidence": "browser-observations.json"
+    },
+    {
+      "jobId": "ee73d53f044543599cf010460b44dc26",
+      "sample": "flagg",
+      "status": "completed",
+      "videoUrl": "https://d2x8td5d05xg8h.cloudfront.net/outputs/ee73d53f044543599cf010460b44dc26/enhanced.mp4",
+      "analysisUrl": "https://d2x8td5d05xg8h.cloudfront.net/outputs/ee73d53f044543599cf010460b44dc26/analysis.json",
+      "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:962768510637:runtime/Team02Readiness20261006-btpD1PFAGy",
+      "modelId": "global.anthropic.claude-sonnet-4-6",
+      "usage": {
+        "totalTokens": 5349.0,
+        "cacheReadInputTokens": 0.0,
+        "outputTokens": 179.0,
+        "inputTokens": 5170.0,
+        "cacheWriteInputTokens": 0.0
+      },
+      "summary": "在第四节比赛时间从1:49倒数至1:34、比分DAL 103比HOU 107的情况下，多名穿深色球衣（DAL）和白色球衣（HOU）的球员分布在HOU半场油漆区附近，其中timestamp_ms=18000帧可见多名球员在油漆区内形成身体接触的拥挤站位，球可见于篮筐附近区域。",
+      "subtitle": "第四节末段双方球员在油漆区形成拥挤站位",
+      "durationSeconds": 21.548005,
+      "sourceDurationSeconds": 21.548118,
+      "outputSha256": "fb0d845cde3eab13a392b93982b3908212bbf81aff67ff4a48383b18c23c24d2",
+      "outputBytes": 8333227,
+      "videoCodec": "h264",
+      "width": 1280,
+      "height": 720,
+      "audioPresent": true,
+      "rangeStatus": 206,
+      "elapsedSeconds": 48.86,
+      "evidence": [
+        {
+          "timeSeconds": 3.0,
+          "description": "实际送入模型的来源帧",
+          "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-03s.jpg"
+        },
+        {
+          "description": "实际送入模型的来源帧",
+          "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-06s.jpg",
+          "timeSeconds": 6.0
+        },
+        {
+          "timeSeconds": 15.0,
+          "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-15s.jpg",
+          "description": "实际送入模型的来源帧"
+        },
+        {
+          "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-18s.jpg",
+          "description": "实际送入模型的来源帧",
+          "timeSeconds": 18.0
+        }
+      ],
+      "sourceFrameTimesMs": [
+        3000.0,
+        6000.0,
+        15000.0,
+        18000.0
+      ],
+      "browserPlaybackVerified": true,
+      "burnedCaptionVisuallyVerified": true,
+      "startedViaBrowserButton": true,
+      "browserEndTimeSeconds": 21.548,
+      "captionFormat": "AI片段摘要 · 引用帧秒数：3,6,15,18",
+      "visualEvidence": "browser-observations.json"
+    }
+  ]
+}

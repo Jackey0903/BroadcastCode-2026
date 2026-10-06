@@ -96,8 +96,9 @@ def validate_agent_result(result, request):
             raise JobError(f"invalid AgentCore {key}")
     times = result.get("source_frame_times_ms")
     permitted = {frame["timestamp_ms"] for frame in request["frames"]}
-    if (not isinstance(times, list) or not times
-            or any(not isinstance(t, (int, float)) or isinstance(t, bool) or not math.isfinite(t) or t not in permitted for t in times)):
+    if (not isinstance(times, list) or not 1 <= len(times) <= 6
+            or any(not isinstance(t, (int, float)) or isinstance(t, bool) or not math.isfinite(t) or t not in permitted for t in times)
+            or len(set(times)) != len(times)):
         raise JobError("AgentCore cited an unavailable source frame")
     if result.get("inference_source") != "bedrock_converse" or not result.get("model_id"):
         raise JobError("AgentCore result lacks real model-call provenance")
@@ -220,8 +221,9 @@ def run_job(message, s3, table, agentcore, config, context=None, renderer=render
             agent_result = validate_agent_result(json.loads(raw), request)
             update_job(table, job_id, stage="rendering")
             subtitle_file = work / "subtitle.txt"
-            evidence_time = agent_result["source_frame_times_ms"][0] / 1000
-            caption = f"AI画面观察 · 依据 {evidence_time:.2f} 秒帧\n" + "\n".join(textwrap.wrap(agent_result["subtitle"], width=40))
+            evidence_seconds = ",".join(f"{timestamp / 1000:.3f}".rstrip("0").rstrip(".")
+                                        for timestamp in agent_result["source_frame_times_ms"])
+            caption = f"AI片段摘要 · 引用帧秒数：{evidence_seconds}\n" + "\n".join(textwrap.wrap(agent_result["subtitle"], width=40))
             subtitle_file.write_text(caption, encoding="utf-8")
             renderer(source, output, subtitle_file, context)
             media = inspector(output, context)
