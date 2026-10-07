@@ -4,23 +4,36 @@
 
 ## 1. 用户要完成什么，目前做到哪里
 
-用户于 10 月 7 日明确要求**及时推送源码到私有 GitHub，并做本地存档**，替代 10 月 6 日“暂不推送”的安排。后续每个可验证的阶段都应提交、推送、核对远端，再通过 `scripts/archive-source.py` 保存源码压缩包和完整 Git bundle；不要把云服务器作为源码的唯一保存位置。详见[源码保存与恢复](docs/源码保存与恢复.md)。本条授权不包含上传密码、凭证或强制改写 Git 历史。
+用户最新已授权开始产品开发。本轮实现 **关键一拍 / THE HIDDEN PLAY**，[线上入口](https://d2x8td5d05xg8h.cloudfront.net/product/)、[工程说明](product/README.md)、[产品实测记录](product/evidence/README.md)、[5 分钟讲解](product/PITCH.md)。包括观众选择注意对象、慢速回看、官方 xFG 与出手点位、可点证据，以及 AgentCore 真实工具调用生成完整 MP4。新成片的完成与播放状态按产品实测记录，不用旧练习通过记录替代。
+
+本轮最新用户提供的 AGENTS 要求新增开发暂不推送，与此前及时推送指令冲突；已请求澄清，尚无新答复前**只提交本地并存档，不执行 git push**。准备工程此前已推送是既有事实。源码和媒体的本地归档见[源码保存与恢复](docs/源码保存与恢复.md)。
 
 10 月 6 日再次通过已登录浏览器读取 Quick Start 第十节，明确支持赛前配置环境、CDK 最小栈、网页调用 Agent 和练习视频烧录播放；整套赛前产品能否直接带入正式比赛仍无明确许可或禁止条文，不因源码保存位置或 AWS 权限开放而推断获准。
 
-用户准备参加 NBA / AWS BroadcastCode「深度赛场」12h 黑客松，希望先理解规则、接通账号并确认服务和 GPU 真正可用，再推进作品开发。规则和方案研究已完成，最新一轮已按用户要求补齐真实网页、Agent 和完整视频练习流程，并完成私有仓库绑定；正式篮球产品尚未完成。
+用户准备参加 NBA / AWS BroadcastCode「深度赛场」12h 黑客松，希望先理解规则、接通账号并确认服务和 GPU 真正可用，再推进作品开发。规则和方案研究已完成，最新一轮已按用户要求补齐真实网页、Agent 和完整视频练习流程，并完成私有仓库绑定；产品原型已在 product/ 开发，当前验收见产品记录，正式输入适配尚未完成。
 
 用户随后提供学长[饶珈源的主页](https://jyrao.github.io/)，说明自己曾在该 AI for Sports 组实习，希望分析研究借鉴与交流机会。已完成[相关研究与复用路径核查](docs/上交AI4Sports研究借鉴与交流建议.md)：优先关注 BasketballSkills 的证据与工具编排，以及 BasketEvent 的篮球事件候选能力。没有联系作者、获取内部代码、安装运行研究模型或把研究组件接入产品。
 
-**用户随后纠正交流重点：面向评委的黑客松产品原型，需要可借鉴的创新点，而非科研积累或模型复用。** 当前优先参考[产品创新与学长交流提纲](docs/产品创新与学长交流提纲.md)：把观众参与、人物焦点切换、关键动作揭示与证据回看组合为短体验。建议仍处于讨论阶段；不要将用户这次纠正理解为选定方案或授权向学长发送消息。
+**用户随后纠正交流重点：面向评委的黑客松产品原型，需要可借鉴的创新点，而非科研积累或模型复用。** 当前优先参考[产品创新与学长交流提纲](docs/产品创新与学长交流提纲.md)：把观众参与、人物焦点切换、关键动作揭示与证据回看组合为短体验。该交互核心现已实现，但研究模型复用仍未进行；不要将用户这次纠正理解为选定方案或授权向学长发送消息。
 
 用户又要求重读手册并按评分完成准备。当前已通过 CDK 真实部署 `readiness-lab/`：CloudFront 网页经 Lambda API、SQS 和视频 Worker 调用 AgentCore/Claude，烧录完整 MP4 并回传 S3 供网页播放，DynamoDB 保留任务状态。32 项离线测试通过。弗拉格任务 `030eb6203d694a9d9e8a97c25755f9c1`（21.548 秒）和阿门任务 `4da872a6dac44ad49607b98865c43705`（22.895 秒）均完成，且均在浏览器播放到末尾；两份下载成片的哈希、媒体时长、音轨、HTTP Range 206 和永久字幕均通过核验。详见[本轮实测报告](readiness-lab/赛前准备实测报告-20261006.md)、[练习工程说明](readiness-lab/README.md)和[评分与准备状态](docs/评分导向开发决策与准备状态-20261006.md)。
 
 最终作品应形成真实流程：**官方比赛视频与数据 → AgentCore 中的 Agent 识别和解释关键事件、战术 → 带时间和来源的标注 → 烧录到原视频并导出完整增强成片 → CloudFront 交互网页**。重点是篮球解读准确、画面表达清楚、网页可操作，并符合部署与提交要求。
 
-[当前练习入口](https://d2x8td5d05xg8h.cloudfront.net)对应 Stack `BroadcastCodeTeam02Readiness20261006`，资源保留供继续开发。旧 `aws-validation/` 的临时资源仍已删除。10 份 NBA 官网真实参考 JSON 已复制到[仓库 fixtures](readiness-lab/fixtures/official/)，克隆后可读取，但未证明对应训练片中的具体 eventId。[关键一拍推荐方案](docs/关键一拍-冲冠产品与技术方案.md)的正式篮球解释、官方数据对齐和招牌交互仍待实现；练习字幕只是稀疏图像模型观察，不能当成最终参赛作品或官方评分认证。
+[当前练习入口](https://d2x8td5d05xg8h.cloudfront.net)对应 Stack `BroadcastCodeTeam02Readiness20261006`，资源保留供继续开发。旧 `aws-validation/` 的临时资源仍已删除。10 份 NBA 官网真实参考 JSON 已复制到[仓库 fixtures](readiness-lab/fixtures/official/)，克隆后可读取，本轮 product/ 已独立匹配两段公开练习片：弗拉格 event 666 / xFG 51.0%，阿门 event 396 / xFG 44.5%，连接键为 PBP actionNumber；AI 助手编辑的视频锚点及所有核对字段有来源记录。[关键一拍推荐方案](docs/关键一拍-冲冠产品与技术方案.md)中的核心篮球故事、官方数据对齐和招牌交互已进入产品实现；未实现的扩展仍为建议；练习字幕只是稀疏图像模型观察，不能当成最终参赛作品或官方评分认证。
 
 目录原位置为 `/Users/jack/work/BroadcastCode`，内部链接使用相对路径。本目录已初始化 Git 并推送到私有仓库 [Jackey0903/BroadcastCode](https://github.com/Jackey0903/BroadcastCode)，默认分支 `main`。Portal 浏览器已确认仓库 locked in；赛事 App 仅获该仓库的代码和元数据读取权限，见[绑定证据](readiness-lab/repository-binding.json)。绑定不可自行更换；当前练习 URL 尚未作为正式作品提交。
+
+最终产品版本：85 项产品离线测试通过。最终展示任务为 Flagg `81a74837370e46a890cbacb2069074e6`、Amen `ce008e75d25d4e2e8e88b57412f6c762`；失败历史及最终验收见[产品证据](product/evidence/README.md)。
+
+### 1.1 当前产品接手重点
+
+- 从 `product/` 构建部署，复用现有 Stack，不要从 readiness-lab/ 覆盖新代码；不新建另一份相同资源。
+- `product/data/stories.json` 是编辑策展入口；浏览选择并未传给生成器，创作 Agent 自主选角度。不要冒充自动识别所有视频事件。
+- `product/data/match_events.py` 根据公开官方逐回合记录、逐次出手数据与编辑视频锚点核对；`actionNumber == eventId`，不是 actionId。
+- `product/agent/` 实际读图、读官方来源，再由后续模型轮次给出章节；生成文字的数字受到限制，官方数值由程序原样引用。`product/worker/` 二次校验后烧录完整成片。
+- 产品输入目前只有两段登记样片；协议 `product-story-v1` 是内部协议。不能声称支持任意上传或已通过主办方机器重跑。
+- 媒体和构建产物不进入 Git；本地存档脚本会按哈希收录已验收新成片。不得上传账号通知 PDF 或 AWS 缓存。
 
 ## 2. 阅读资料与证据层级
 
@@ -31,9 +44,9 @@
 |[练习工程说明](readiness-lab/README.md)|当前 CDK、Agent、异步视频流水线、复现条件与保留/清理边界|
 |[官方来源核查](readiness-lab/official-source-audit.md)|10 份官网 JSON 的来源、哈希、字段陷阱和空值；可克隆副本在 `readiness-lab/fixtures/official/`|
 |[仓库绑定证据](readiness-lab/repository-binding.json)|私有仓库、默认 main、Portal locked in、App 限定单仓库只读代码和元数据|
-|[源码保存与恢复](docs/源码保存与恢复.md)|及时推送和本地存档的最新用户要求、可验证的备份与恢复步骤|
+|[源码保存与恢复](docs/源码保存与恢复.md)|本轮先本地保存、待重新授权再推送；备份与恢复步骤|
 |[账号期限核查](readiness-lab/account-expiry-audit.json)|可见 IAM 策略未见时间条件；不代表 10 月 8 日以后续期|
-|[关键一拍推荐方案](docs/关键一拍-冲冠产品与技术方案.md)|本轮推荐开发基线，尚未实现|
+|[关键一拍推荐方案](docs/关键一拍-冲冠产品与技术方案.md)|历史设计基线；当前实现和测试以 product/ 为准|
 |[上交 AI for Sports 研究借鉴](docs/上交AI4Sports研究借鉴与交流建议.md)|BasketballSkills、BasketEvent 与跨项目借鉴核查；包括作者交流问题和最小接入实验建议，尚未实际复用|
 |[公开训练样片核查](docs/research/公开训练样片核查.md)|两段视频的媒体信息、实际画面、标注难点与叙事建议；不是完整战术标注|
 |[比赛规则与需求分析](BroadcastCode-比赛规则与需求分析.md)|已按最新指南更新硬性要求、评分、时间安排、建议和剩余未知项；是规则主文档|

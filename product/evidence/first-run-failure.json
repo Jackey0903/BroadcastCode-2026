@@ -1,0 +1,33 @@
+{
+  "jobId": "66888586da31447681c9b9f6ede79c84",
+  "sample": "flagg",
+  "status": "failed",
+  "recordedAt": "2026-10-07T11:11:17.989099+00:00",
+  "observation": "Browser submitted story job. Model actually read six images and official event. Validation rejected generated numeric prose on rounds 2 and 3; Agent returned HTTP 502 before completing. No video presented as successful. Diagnostic and token-budget repair under way.",
+  "traceObserved": [
+    {
+      "round": 1,
+      "tool": "inspect_frames",
+      "status": "succeeded",
+      "frameCount": 6
+    },
+    {
+      "round": 1,
+      "tool": "read_official_event",
+      "status": "succeeded",
+      "eventId": 666
+    },
+    {
+      "round": 2,
+      "tool": "validate_story",
+      "status": "rejected",
+      "reason": "summary: keep numbers in source metrics, not generated text"
+    },
+    {
+      "round": 3,
+      "tool": "validate_story",
+      "status": "rejected",
+      "reason": "chapter.caption: keep numbers in source metrics, not generated text"
+    }
+  ]
+}

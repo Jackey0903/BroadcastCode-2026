@@ -29,3 +29,7 @@ aws-validation/outputs.json
 # Organizer account notices contain login passwords; keep locally only
 /BroadcastCode 12h 黑客松｜Portal 账号开通通知，请及时完成登录测试.pdf
 /BroadcastCode 12h 黑客松｜Portal 登录地址更正通知.pdf
+
+# Product build outputs and generated media
+/product/build/
+/product/outputs.json

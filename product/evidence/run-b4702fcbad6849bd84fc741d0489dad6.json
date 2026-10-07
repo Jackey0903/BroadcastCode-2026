@@ -1,0 +1,1180 @@
+{
+  "verifiedAt": "2026-10-07T11:25:51.071587+00:00",
+  "jobId": "b4702fcbad6849bd84fc741d0489dad6",
+  "sample": "flagg",
+  "mode": "story",
+  "videoUrl": "https://d2x8td5d05xg8h.cloudfront.net/product/outputs/b4702fcbad6849bd84fc741d0489dad6/enhanced.mp4",
+  "analysisUrl": "https://d2x8td5d05xg8h.cloudfront.net/product/outputs/b4702fcbad6849bd84fc741d0489dad6/analysis.json",
+  "outputSha256": "25f13800b341860891da81d6ee370c0a287500aec4db7abbef029b56c78cc711",
+  "bytes": 9998024,
+  "durationSeconds": 21.548005,
+  "width": 1280,
+  "height": 900,
+  "audioPresent": true,
+  "rangeStatus": 206,
+  "modelId": "global.anthropic.claude-sonnet-4-6",
+  "usage": {
+    "outputTokens": 3816.0,
+    "inputTokens": 67552.0,
+    "totalTokens": 71368.0
+  },
+  "elapsedSeconds": 86.43,
+  "browserPlaybackVerified": true,
+  "burnedOverlayVisuallyVerified": true,
+  "analysis": {
+    "source": {
+      "sha256": "17854595cb9c3cac02331f9dc58f1b98a629a32b6491d60a16aec2d6fe811880",
+      "association": "curated_practice_video_mapping_not_automatic_event_matching",
+      "manifest": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/product/data/stories.json"
+    },
+    "scope": "product_story_protocol_not_organizer_evaluation_schema",
+    "protocol_version": "product-story-v1",
+    "observations": [
+      {
+        "text": "比分板显示独行侠落后，时钟仍在走。",
+        "timeSeconds": 0.0,
+        "evidenceIds": [
+          "frame-3000"
+        ]
+      },
+      {
+        "timeSeconds": 9.0,
+        "text": "深衣持球者向禁区方向推进，防守人随之移动。",
+        "evidenceIds": [
+          "flagg-frame-9",
+          "frame-12000",
+          "flagg-roster"
+        ]
+      },
+      {
+        "timeSeconds": 15.5,
+        "text": "起跳这一帧，正面防守人双臂举起，出手在防守面前完成。",
+        "evidenceIds": [
+          "frame-15500",
+          "frame-16000",
+          "frame-17000",
+          "flagg-frame-16-5"
+        ]
+      },
+      {
+        "text": "官方记录命中；官方指标与实际结果一起读懂这次出手机会。",
+        "evidenceIds": [
+          "frame-18000",
+          "flagg-pbp-666",
+          "flagg-xfg-666"
+        ],
+        "timeSeconds": 17.5
+      }
+    ],
+    "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:962768510637:runtime/Team02Readiness20261006-btpD1PFAGy",
+    "runId": "b4702fcbad6849bd84fc741d0489dad6",
+    "plan": {
+      "metrics": [
+        {
+          "revealAt": 18.5,
+          "rawValue": 0.51,
+          "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843",
+          "display": "51.0%",
+          "eventId": 666.0,
+          "unit": "ratio",
+          "label": "预期投篮命中率",
+          "evidenceId": "flagg-xfg-666",
+          "definition": "NBA 官方对本次出手机会的概率型参考值；不是这个球员的个人命中率或胜率。",
+          "id": "flagg-shot-metric",
+          "gameId": "0022500701",
+          "barRatio": 0.51,
+          "playerId": "1642843"
+        }
+      ],
+      "title": "弗拉格：从外线到篮下",
+      "summary": "末节落后局面下，深衣持球者从外线推进，穿越防守抵达篮下，在正面防守人双臂举起时完成挑篮，官方记录命中。",
+      "perspective": "player",
+      "chapters": [
+        {
+          "id": "ch1",
+          "caption": "比分板显示独行侠落后，时钟仍在走。",
+          "start": 0.0,
+          "end": 9.0,
+          "title": "末节落后局面",
+          "evidenceIds": [
+            "frame-3000"
+          ],
+          "focus": "比分板与场上站位"
+        },
+        {
+          "title": "持球推进",
+          "evidenceIds": [
+            "flagg-frame-9",
+            "frame-12000",
+            "flagg-roster"
+          ],
+          "focus": "深衣持球者路线",
+          "id": "ch2",
+          "end": 15.5,
+          "start": 9.0,
+          "caption": "深衣持球者向禁区方向推进，防守人随之移动。"
+        },
+        {
+          "id": "ch3",
+          "evidenceIds": [
+            "frame-15500",
+            "frame-16000",
+            "frame-17000",
+            "flagg-frame-16-5"
+          ],
+          "caption": "起跳这一帧，正面防守人双臂举起，出手在防守面前完成。",
+          "focus": "起跳时球与防守人位置",
+          "start": 15.5,
+          "title": "慢看这一拍",
+          "end": 17.5
+        },
+        {
+          "title": "结果与出手机会",
+          "end": 21.548,
+          "caption": "官方记录命中；官方指标与实际结果一起读懂这次出手机会。",
+          "id": "ch4",
+          "evidenceIds": [
+            "frame-18000",
+            "flagg-pbp-666",
+            "flagg-xfg-666"
+          ],
+          "focus": "官方数据与比分变化",
+          "start": 17.5
+        }
+      ],
+      "associationMethod": "curated_practice_video_mapping_not_automatic_event_matching"
+    },
+    "trace": [
+      {
+        "requestId": "b4702fcbad6849bd84fc741d0489dad6",
+        "round": 1.0,
+        "elapsedMs": 672.0,
+        "tool": "inspect_frames",
+        "step": 1.0,
+        "status": "succeeded",
+        "input": {
+          "frame_ids": [
+            "frame-3000",
+            "frame-12000",
+            "frame-15500",
+            "frame-16000",
+            "frame-17000",
+            "frame-18000"
+          ]
+        },
+        "toolUseId": "tooluse_s9FIN0fDvquc1OaLaoNLFf",
+        "result": {
+          "frames": [
+            {
+              "sha256": "62b4f476790c855eec4af78395f8f4769b6b1ce94fa6d251bb53b965e4a2e9a7",
+              "id": "frame-3000",
+              "timestamp_ms": 3000.0,
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/flagg-03s.jpg",
+              "bytes": 191151.0
+            },
+            {
+              "timestamp_ms": 12000.0,
+              "bytes": 208127.0,
+              "id": "frame-12000",
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/flagg-12s.jpg",
+              "sha256": "cdb7e27e969801573b67a5a63ef1014cf808e4f56ad1d23d967fdec13765016b"
+            },
+            {
+              "id": "frame-15500",
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/flagg-15.5s.jpg",
+              "sha256": "687495fbe7688aa3d9c26897ee8db55f155d3ae69aa5b5d9072742ba7936b3c3",
+              "timestamp_ms": 15500.0,
+              "bytes": 203239.0
+            },
+            {
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/flagg-16.0s.jpg",
+              "id": "frame-16000",
+              "sha256": "c356696da4fc9c1968dc8bd16b5f30552a83cf41472d493d39c13a3afcb2c963",
+              "bytes": 196694.0,
+              "timestamp_ms": 16000.0
+            },
+            {
+              "bytes": 200085.0,
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/flagg-17.0s.jpg",
+              "sha256": "b915b99b43c11215ab9dcda42ec89f28b6d875f37624f1eec159c5f854e7b8e6",
+              "id": "frame-17000",
+              "timestamp_ms": 17000.0
+            },
+            {
+              "timestamp_ms": 18000.0,
+              "sha256": "f09e3a409a23cfe683f0e86665c91cc21e2f16c41820664d882ebf9d6c6e1e77",
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/flagg-18s.jpg",
+              "bytes": 206361.0,
+              "id": "frame-18000"
+            }
+          ],
+          "sourceType": "actual_s3_image_bytes"
+        }
+      },
+      {
+        "round": 1.0,
+        "tool": "read_official_event",
+        "result": {
+          "provenance": {
+            "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/product/data/stories.json",
+            "sha256": "17854595cb9c3cac02331f9dc58f1b98a629a32b6491d60a16aec2d6fe811880",
+            "association": "curated_practice_video_mapping_not_automatic_event_matching"
+          },
+          "evidence": [
+            {
+              "frameUrl": "/frames/flagg-00.2s.jpg",
+              "humanExpertReviewed": false,
+              "videoTime": 0.2,
+              "scoreboard": {
+                "score": {
+                  "HOU": 107.0,
+                  "DAL": 103.0
+                },
+                "clock": "1:51"
+              },
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "kind": "observation",
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "body": "第四节，独行侠落后四分。",
+              "title": "画面 · 0.2 秒",
+              "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "sourceUrl": "/samples/flagg.mp4#t=0.2",
+              "id": "flagg-frame-0-2"
+            },
+            {
+              "kind": "observation",
+              "videoTime": 9.0,
+              "scoreboard": {
+                "clock": "1:43"
+              },
+              "body": "深衣 32 号持球，附近有深衣 21 号及白衣防守人。",
+              "title": "画面 · 9 秒",
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "frameUrl": "/frames/flagg-09s.jpg",
+              "id": "flagg-frame-9",
+              "sourceUrl": "/samples/flagg.mp4#t=9",
+              "humanExpertReviewed": false
+            },
+            {
+              "title": "画面 · 15.5 秒",
+              "humanExpertReviewed": false,
+              "kind": "observation",
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "sourceUrl": "/samples/flagg.mp4#t=15.5",
+              "videoTime": 15.5,
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "frameUrl": "/frames/flagg-15.5s.jpg",
+              "scoreboard": {
+                "clock": "1:36"
+              },
+              "id": "flagg-frame-15-5",
+              "body": "32 号已推进到禁区附近，防守人在其身前和侧后方。",
+              "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。"
+            },
+            {
+              "title": "画面 · 16.5 秒",
+              "videoTime": 16.5,
+              "scoreboard": {
+                "clock": "1:35"
+              },
+              "humanExpertReviewed": false,
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "body": "32 号在篮下起跳，正面白衣防守人双臂举起。",
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "frameUrl": "/frames/flagg-16.5s.jpg",
+              "sourceUrl": "/samples/flagg.mp4#t=16.5",
+              "id": "flagg-frame-16-5",
+              "kind": "observation",
+              "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。"
+            },
+            {
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "kind": "observation",
+              "body": "球已离开出手者双手；底部和篮架时钟存在显示差异。",
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "sourceUrl": "/samples/flagg.mp4#t=17",
+              "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "humanExpertReviewed": false,
+              "scoreboard": {
+                "clock": "1:35"
+              },
+              "videoTime": 17.0,
+              "title": "画面 · 17 秒",
+              "frameUrl": "/frames/flagg-17.0s.jpg",
+              "id": "flagg-frame-17"
+            },
+            {
+              "kind": "observation",
+              "title": "画面 · 21 秒",
+              "frameUrl": "/frames/flagg-21s.jpg",
+              "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "scoreboard": {
+                "clock": "1:34",
+                "score": {
+                  "DAL": 105.0,
+                  "HOU": 107.0
+                }
+              },
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "videoTime": 21.0,
+              "humanExpertReviewed": false,
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "sourceUrl": "/samples/flagg.mp4#t=21",
+              "body": "比分更新，火箭准备继续进攻。",
+              "id": "flagg-frame-21"
+            },
+            {
+              "kind": "official",
+              "body": "末节 1:34，弗拉格突破挑篮命中两分，独行侠追至 105 比 107。",
+              "eventId": 666.0,
+              "sourceUrl": "https://www.nba.com/game/dal-vs-hou-0022500701/play-by-play",
+              "period": 4.0,
+              "actionNumber": 666.0,
+              "videoTime": 18.5,
+              "id": "flagg-pbp-666",
+              "title": "NBA 官方逐回合记录",
+              "officialClock": "1:34",
+              "sourcePath": "playByPlay.actions[actionNumber=666 & isFieldGoal=1]",
+              "sourceLabel": "NBA.com · Play-by-Play",
+              "playerId": "1642843",
+              "videoTimeMeaning": "编辑选择的数据揭示节点，不是官方出手时钟的逐帧换算。",
+              "actionId": 498.0,
+              "gameId": "0022500701"
+            },
+            {
+              "videoTime": 18.5,
+              "playerId": "1642843",
+              "value": 0.51,
+              "eventId": 666.0,
+              "body": "NBA 中国官网这次出手的原始数值为 0.51，换算显示为 51.0%。这是机会质量的参考，不是球员的个人命中保证。",
+              "unit": "ratio",
+              "sourceLabel": "NBA 中国 · 逐次出手数据",
+              "id": "flagg-xfg-666",
+              "sourcePath": "data.shotList[eventId=666].value",
+              "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843",
+              "kind": "official",
+              "definitionUrl": "https://china.nba.cn/inside-the-game/glossary",
+              "title": "这次出手的预期投篮命中率",
+              "display": "51.0%",
+              "gameId": "0022500701"
+            },
+            {
+              "title": "本场身份与号码核对",
+              "sourceLabel": "NBA.com · 本场名单",
+              "sourcePath": "game.homeTeamPlayers / game.awayTeamPlayers",
+              "kind": "official",
+              "gameId": "0022500701",
+              "body": "NBA 本场名单：独行侠 32 号为库珀·弗拉格，与所查看画面号码一致。",
+              "playerId": "1642843",
+              "id": "flagg-roster",
+              "sourceUrl": "https://www.nba.com/game/dal-vs-hou-0022500701/play-by-play"
+            }
+          ],
+          "metrics": [
+            {
+              "rawValue": 0.51,
+              "display": "51.0%",
+              "eventId": 666.0,
+              "definition": "NBA 官方对本次出手机会的概率型参考值；不是这个球员的个人命中率或胜率。",
+              "gameId": "0022500701",
+              "playerId": "1642843",
+              "revealAt": 18.5,
+              "barRatio": 0.51,
+              "label": "预期投篮命中率",
+              "id": "flagg-shot-metric",
+              "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843",
+              "evidenceId": "flagg-xfg-666",
+              "unit": "ratio"
+            }
+          ],
+          "storyOptions": [
+            {
+              "label": "持球的弗拉格",
+              "evidenceIds": [
+                "flagg-frame-9",
+                "flagg-frame-15-5",
+                "flagg-frame-16-5",
+                "flagg-roster"
+              ],
+              "focusTime": 15.5,
+              "description": "从外线推进到篮下，再看起跳时球与防守人的相对位置。",
+              "id": "player"
+            },
+            {
+              "id": "defender",
+              "focusTime": 16.5,
+              "label": "篮下的防守人",
+              "evidenceIds": [
+                "flagg-frame-16-5",
+                "flagg-frame-17"
+              ],
+              "description": "把目光放在篮下：弗拉格起跳时，正面防守人双臂举起，终结动作就在防守面前完成。"
+            },
+            {
+              "label": "这一球的数据",
+              "focusTime": 18.5,
+              "id": "data",
+              "evidenceIds": [
+                "flagg-pbp-666",
+                "flagg-xfg-666",
+                "flagg-frame-21"
+              ],
+              "description": "这球得到两分。再看官方的预期投篮命中率，把已经发生的结果和这次机会的质量一起读懂。"
+            }
+          ],
+          "officialEvent": {
+            "actionId": 498.0,
+            "method": "AI 助手实际查看抽帧后编辑锚定球员号码、节次、时钟区间与前后比分；确定性程序唯一匹配 NBA.com 出手，再以 gpShot.eventId = PBP.actionNumber 关联，并交叉校验球员、节次、命中及两分类型。",
+            "actionNumber": 666.0,
+            "bindingFile": "event-bindings.json",
+            "playerId": "1642843",
+            "period": 4.0,
+            "eventId": 666.0,
+            "made": true,
+            "verified": true,
+            "shotValue": 2.0,
+            "description": "末节 1:34，弗拉格突破挑篮命中两分，独行侠追至 105 比 107。",
+            "clock": "1:34",
+            "locationLimitation": "官网出手点位，不是视频像素或逐帧轨迹；当前产品未把这些点位贴到球员脚下。",
+            "evidenceUrls": [
+              "https://www.nba.com/game/dal-vs-hou-0022500701/play-by-play",
+              "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843"
+            ],
+            "shotLocation": {
+              "locX": "89",
+              "side": "right",
+              "locY": "55"
+            },
+            "gameId": "0022500701",
+            "expectedFg": 0.51
+          },
+          "chapterSuggestions": [
+            {
+              "evidenceIds": [
+                "flagg-frame-0-2"
+              ],
+              "title": "先看局面",
+              "kind": "observation",
+              "caption": "末节，独行侠落后四分。",
+              "id": "context",
+              "end": 9.0,
+              "start": 0.0
+            },
+            {
+              "start": 9.0,
+              "end": 15.4,
+              "title": "从外线到篮下",
+              "caption": "弗拉格持球推进，身前仍有防守。",
+              "kind": "observation",
+              "evidenceIds": [
+                "flagg-frame-9",
+                "flagg-frame-15-5",
+                "flagg-roster"
+              ],
+              "id": "approach"
+            },
+            {
+              "end": 17.4,
+              "id": "key-beat",
+              "evidenceIds": [
+                "flagg-frame-16-5"
+              ],
+              "title": "慢看这一拍",
+              "start": 15.4,
+              "caption": "起跳这一帧，正面防守人双臂举起。",
+              "kind": "observation"
+            },
+            {
+              "caption": "官方确认两分命中；机会质量与结果分开看。",
+              "kind": "official",
+              "evidenceIds": [
+                "flagg-pbp-666",
+                "flagg-xfg-666",
+                "flagg-frame-21"
+              ],
+              "id": "record",
+              "end": 21.548118,
+              "start": 17.4,
+              "title": "用数据回看机会"
+            }
+          ]
+        },
+        "requestId": "b4702fcbad6849bd84fc741d0489dad6",
+        "input": {},
+        "step": 2.0,
+        "toolUseId": "tooluse_EAl4VUpSOBsyEDlJD1Llce",
+        "status": "succeeded",
+        "elapsedMs": 37.0
+      },
+      {
+        "round": 2.0,
+        "status": "rejected",
+        "tool": "validate_story",
+        "result": {
+          "error": "summary: numeric phrase '3' is not allowed; describe visible conditions without quantities"
+        },
+        "elapsedMs": 2.0,
+        "toolUseId": "tooluse_OppN4ESyTnifEPHSXNT4Tn",
+        "step": 3.0,
+        "requestId": "b4702fcbad6849bd84fc741d0489dad6",
+        "input": {
+          "plan": {
+            "perspective": "player",
+            "summary": "末节落后局面下，深衣32号从外线持球推进，穿越防守人群抵达篮下，在正面防守人双臂举起时完成挑篮，官方记录命中。",
+            "title": "弗拉格：从外线到篮下",
+            "chapters": [
+              {
+                "end": 9.0,
+                "title": "末节落后局面",
+                "caption": "比分板显示独行侠落后，时钟仍在走。",
+                "focus": "比分板与场上站位",
+                "evidenceIds": [
+                  "frame-3000"
+                ],
+                "id": "ch1",
+                "start": 0.0
+              },
+              {
+                "focus": "深衣32号持球路线",
+                "start": 9.0,
+                "caption": "深衣32号持球，向禁区方向推进，防守人随之移动。",
+                "title": "持球推进",
+                "id": "ch2",
+                "end": 15.5,
+                "evidenceIds": [
+                  "flagg-frame-9",
+                  "frame-12000",
+                  "flagg-roster"
+                ]
+              },
+              {
+                "focus": "起跳时球与防守人位置",
+                "start": 15.5,
+                "id": "ch3",
+                "title": "慢看这一拍",
+                "caption": "32号抵达篮下起跳，正面防守人双臂举起，出手在防守面前完成。",
+                "evidenceIds": [
+                  "frame-15500",
+                  "frame-16000",
+                  "frame-17000",
+                  "flagg-frame-16-5"
+                ],
+                "end": 17.5
+              },
+              {
+                "title": "结果与机会质量",
+                "id": "ch4",
+                "start": 17.5,
+                "end": 21.548,
+                "caption": "官方记录命中；预期命中率数据与实际结果一起读懂这次机会。",
+                "evidenceIds": [
+                  "frame-18000",
+                  "flagg-pbp-666",
+                  "flagg-xfg-666"
+                ],
+                "focus": "官方数据与比分变化"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "result": {
+          "error": "summary: numeric phrase '3' is not allowed; describe visible conditions without quantities"
+        },
+        "elapsedMs": 0.0,
+        "input": {
+          "plan": {
+            "perspective": "player",
+            "chapters": [
+              {
+                "caption": "比分板显示独行侠落后，时钟仍在走。",
+                "id": "ch1",
+                "title": "末节落后局面",
+                "focus": "比分板与场上站位",
+                "end": 9.0,
+                "evidenceIds": [
+                  "frame-3000"
+                ],
+                "start": 0.0
+              },
+              {
+                "evidenceIds": [
+                  "flagg-frame-9",
+                  "frame-12000",
+                  "flagg-roster"
+                ],
+                "end": 15.5,
+                "caption": "深衣32号持球，向禁区方向推进，防守人随之移动。",
+                "start": 9.0,
+                "focus": "深衣32号持球路线",
+                "id": "ch2",
+                "title": "持球推进"
+              },
+              {
+                "focus": "起跳时球与防守人位置",
+                "caption": "起跳这一帧，正面防守人双臂举起，出手在防守面前完成。",
+                "end": 17.5,
+                "id": "ch3",
+                "evidenceIds": [
+                  "frame-15500",
+                  "frame-16000",
+                  "frame-17000",
+                  "flagg-frame-16-5"
+                ],
+                "start": 15.5,
+                "title": "慢看这一拍"
+              },
+              {
+                "id": "ch4",
+                "start": 17.5,
+                "title": "结果与机会质量",
+                "end": 21.548,
+                "caption": "官方记录命中；预期命中率数据与实际结果一起读懂这次机会。",
+                "evidenceIds": [
+                  "frame-18000",
+                  "flagg-pbp-666",
+                  "flagg-xfg-666"
+                ],
+                "focus": "官方数据与比分变化"
+              }
+            ],
+            "title": "弗拉格：从外线到篮下",
+            "summary": "末节落后局面下，深衣32号从外线持球推进，穿越防守人群抵达篮下，在正面防守人双臂举起时完成挑篮，官方记录命中。"
+          }
+        },
+        "status": "rejected",
+        "requestId": "b4702fcbad6849bd84fc741d0489dad6",
+        "round": 3.0,
+        "step": 4.0,
+        "tool": "validate_story",
+        "toolUseId": "tooluse_A31vsnm3rF4ivHrdAvQd6e"
+      },
+      {
+        "elapsedMs": 1.0,
+        "round": 4.0,
+        "toolUseId": "tooluse_GmuiKFvTXtD4KvZDKzZaQB",
+        "tool": "validate_story",
+        "result": {
+          "error": "chapter.caption: probability/contribution phrase '命中率' must be left to copied official metric labels"
+        },
+        "status": "rejected",
+        "step": 5.0,
+        "input": {
+          "plan": {
+            "summary": "末节落后局面下，深衣持球者从外线推进，穿越防守抵达篮下，在正面防守人双臂举起时完成挑篮，官方记录命中。",
+            "perspective": "player",
+            "title": "弗拉格：从外线到篮下",
+            "chapters": [
+              {
+                "title": "末节落后局面",
+                "end": 9.0,
+                "focus": "比分板与场上站位",
+                "caption": "比分板显示独行侠落后，时钟仍在走。",
+                "evidenceIds": [
+                  "frame-3000"
+                ],
+                "id": "ch1",
+                "start": 0.0
+              },
+              {
+                "start": 9.0,
+                "title": "持球推进",
+                "end": 15.5,
+                "evidenceIds": [
+                  "flagg-frame-9",
+                  "frame-12000",
+                  "flagg-roster"
+                ],
+                "caption": "深衣持球者向禁区方向推进，防守人随之移动。",
+                "focus": "深衣持球者路线",
+                "id": "ch2"
+              },
+              {
+                "title": "慢看这一拍",
+                "caption": "起跳这一帧，正面防守人双臂举起，出手在防守面前完成。",
+                "end": 17.5,
+                "focus": "起跳时球与防守人位置",
+                "id": "ch3",
+                "start": 15.5,
+                "evidenceIds": [
+                  "frame-15500",
+                  "frame-16000",
+                  "frame-17000",
+                  "flagg-frame-16-5"
+                ]
+              },
+              {
+                "start": 17.5,
+                "title": "结果与机会质量",
+                "evidenceIds": [
+                  "frame-18000",
+                  "flagg-pbp-666",
+                  "flagg-xfg-666"
+                ],
+                "caption": "官方记录命中；预期命中率数据与实际结果一起读懂这次机会。",
+                "focus": "官方数据与比分变化",
+                "end": 21.548,
+                "id": "ch4"
+              }
+            ]
+          }
+        },
+        "requestId": "b4702fcbad6849bd84fc741d0489dad6"
+      },
+      {
+        "result": {
+          "validation": {
+            "protocol": "product-story-v1",
+            "chapterCount": 4.0,
+            "passed": true,
+            "sourceDurationMs": 21548.118,
+            "scope": "Structural and provenance validation; not an independent factual or basketball-accuracy certification",
+            "inspectedFrameIds": [
+              "frame-12000",
+              "frame-15500",
+              "frame-16000",
+              "frame-17000",
+              "frame-18000",
+              "frame-3000"
+            ],
+            "checks": [
+              "known_evidence_ids",
+              "cited_frames_actually_inspected",
+              "source_time_bounds",
+              "nonoverlapping_chapters",
+              "no_model_authored_numbers",
+              "official_metrics_copied_verbatim"
+            ]
+          },
+          "passed": true
+        },
+        "status": "succeeded",
+        "tool": "validate_story",
+        "requestId": "b4702fcbad6849bd84fc741d0489dad6",
+        "round": 5.0,
+        "input": {
+          "plan": {
+            "chapters": [
+              {
+                "focus": "比分板与场上站位",
+                "title": "末节落后局面",
+                "caption": "比分板显示独行侠落后，时钟仍在走。",
+                "end": 9.0,
+                "id": "ch1",
+                "start": 0.0,
+                "evidenceIds": [
+                  "frame-3000"
+                ]
+              },
+              {
+                "end": 15.5,
+                "caption": "深衣持球者向禁区方向推进，防守人随之移动。",
+                "title": "持球推进",
+                "start": 9.0,
+                "focus": "深衣持球者路线",
+                "id": "ch2",
+                "evidenceIds": [
+                  "flagg-frame-9",
+                  "frame-12000",
+                  "flagg-roster"
+                ]
+              },
+              {
+                "end": 17.5,
+                "caption": "起跳这一帧，正面防守人双臂举起，出手在防守面前完成。",
+                "focus": "起跳时球与防守人位置",
+                "start": 15.5,
+                "id": "ch3",
+                "title": "慢看这一拍",
+                "evidenceIds": [
+                  "frame-15500",
+                  "frame-16000",
+                  "frame-17000",
+                  "flagg-frame-16-5"
+                ]
+              },
+              {
+                "title": "结果与出手机会",
+                "evidenceIds": [
+                  "frame-18000",
+                  "flagg-pbp-666",
+                  "flagg-xfg-666"
+                ],
+                "end": 21.548,
+                "caption": "官方记录命中；官方指标与实际结果一起读懂这次出手机会。",
+                "start": 17.5,
+                "focus": "官方数据与比分变化",
+                "id": "ch4"
+              }
+            ],
+            "summary": "末节落后局面下，深衣持球者从外线推进，穿越防守抵达篮下，在正面防守人双臂举起时完成挑篮，官方记录命中。",
+            "title": "弗拉格：从外线到篮下",
+            "perspective": "player"
+          }
+        },
+        "step": 6.0,
+        "toolUseId": "tooluse_WSoUI9r8BIF7YAPoS25RCL",
+        "elapsedMs": 1.0
+      }
+    ],
+    "runtimeSessionId": "a9ef16f1-91c0-408f-9bb0-4278d13f13b2",
+    "sourceVideo": {
+      "name": "训练_弗拉格2月1日.mp4",
+      "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/samples/flagg.mp4",
+      "id": "flagg",
+      "duration_ms": 21548.118,
+      "sha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+      "height": 1080.0,
+      "width": 1920.0
+    },
+    "validation": {
+      "checks": [
+        "known_evidence_ids",
+        "cited_frames_actually_inspected",
+        "source_time_bounds",
+        "nonoverlapping_chapters",
+        "no_model_authored_numbers",
+        "official_metrics_copied_verbatim"
+      ],
+      "sourceDurationMs": 21548.118,
+      "protocol": "product-story-v1",
+      "inspectedFrameIds": [
+        "frame-12000",
+        "frame-15500",
+        "frame-16000",
+        "frame-17000",
+        "frame-18000",
+        "frame-3000"
+      ],
+      "scope": "Structural and provenance validation; not an independent factual or basketball-accuracy certification",
+      "passed": true,
+      "chapterCount": 4.0
+    },
+    "videoUrl": "https://d2x8td5d05xg8h.cloudfront.net/product/outputs/b4702fcbad6849bd84fc741d0489dad6/enhanced.mp4",
+    "videoPath": "product/outputs/b4702fcbad6849bd84fc741d0489dad6/enhanced.mp4",
+    "evidence": [
+      {
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "humanExpertReviewed": false,
+        "kind": "observation",
+        "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "description": "第四节，独行侠落后四分。",
+        "sourceUrl": "/samples/flagg.mp4#t=0.2",
+        "body": "第四节，独行侠落后四分。",
+        "scoreboard": {
+          "score": {
+            "HOU": 107.0,
+            "DAL": 103.0
+          },
+          "clock": "1:51"
+        },
+        "frameUrl": "/frames/flagg-00.2s.jpg",
+        "videoTime": 0.2,
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "id": "flagg-frame-0-2",
+        "title": "画面 · 0.2 秒"
+      },
+      {
+        "kind": "observation",
+        "humanExpertReviewed": false,
+        "description": "深衣 32 号持球，附近有深衣 21 号及白衣防守人。",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "title": "画面 · 9 秒",
+        "sourceUrl": "/samples/flagg.mp4#t=9",
+        "scoreboard": {
+          "clock": "1:43"
+        },
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "body": "深衣 32 号持球，附近有深衣 21 号及白衣防守人。",
+        "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "frameUrl": "/frames/flagg-09s.jpg",
+        "id": "flagg-frame-9",
+        "videoTime": 9.0
+      },
+      {
+        "title": "画面 · 15.5 秒",
+        "scoreboard": {
+          "clock": "1:36"
+        },
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "id": "flagg-frame-15-5",
+        "sourceUrl": "/samples/flagg.mp4#t=15.5",
+        "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "description": "32 号已推进到禁区附近，防守人在其身前和侧后方。",
+        "frameUrl": "/frames/flagg-15.5s.jpg",
+        "kind": "observation",
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "body": "32 号已推进到禁区附近，防守人在其身前和侧后方。",
+        "videoTime": 15.5,
+        "humanExpertReviewed": false
+      },
+      {
+        "description": "32 号在篮下起跳，正面白衣防守人双臂举起。",
+        "body": "32 号在篮下起跳，正面白衣防守人双臂举起。",
+        "sourceUrl": "/samples/flagg.mp4#t=16.5",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "humanExpertReviewed": false,
+        "kind": "observation",
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "videoTime": 16.5,
+        "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "scoreboard": {
+          "clock": "1:35"
+        },
+        "title": "画面 · 16.5 秒",
+        "frameUrl": "/frames/flagg-16.5s.jpg",
+        "id": "flagg-frame-16-5"
+      },
+      {
+        "id": "flagg-frame-17",
+        "body": "球已离开出手者双手；底部和篮架时钟存在显示差异。",
+        "humanExpertReviewed": false,
+        "description": "球已离开出手者双手；底部和篮架时钟存在显示差异。",
+        "kind": "observation",
+        "frameUrl": "/frames/flagg-17.0s.jpg",
+        "videoTime": 17.0,
+        "sourceUrl": "/samples/flagg.mp4#t=17",
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "scoreboard": {
+          "clock": "1:35"
+        },
+        "title": "画面 · 17 秒",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧"
+      },
+      {
+        "id": "flagg-frame-21",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "sourceUrl": "/samples/flagg.mp4#t=21",
+        "videoTime": 21.0,
+        "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "scoreboard": {
+          "score": {
+            "DAL": 105.0,
+            "HOU": 107.0
+          },
+          "clock": "1:34"
+        },
+        "description": "比分更新，火箭准备继续进攻。",
+        "frameUrl": "/frames/flagg-21s.jpg",
+        "humanExpertReviewed": false,
+        "title": "画面 · 21 秒",
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "body": "比分更新，火箭准备继续进攻。",
+        "kind": "observation"
+      },
+      {
+        "period": 4.0,
+        "eventId": 666.0,
+        "title": "NBA 官方逐回合记录",
+        "body": "末节 1:34，弗拉格突破挑篮命中两分，独行侠追至 105 比 107。",
+        "actionNumber": 666.0,
+        "videoTime": 18.5,
+        "kind": "official",
+        "videoTimeMeaning": "编辑选择的数据揭示节点，不是官方出手时钟的逐帧换算。",
+        "gameId": "0022500701",
+        "sourceUrl": "https://www.nba.com/game/dal-vs-hou-0022500701/play-by-play",
+        "actionId": 498.0,
+        "playerId": "1642843",
+        "description": "末节 1:34，弗拉格突破挑篮命中两分，独行侠追至 105 比 107。",
+        "sourcePath": "playByPlay.actions[actionNumber=666 & isFieldGoal=1]",
+        "sourceLabel": "NBA.com · Play-by-Play",
+        "id": "flagg-pbp-666",
+        "officialClock": "1:34"
+      },
+      {
+        "description": "NBA 中国官网这次出手的原始数值为 0.51，换算显示为 51.0%。这是机会质量的参考，不是球员的个人命中保证。",
+        "title": "这次出手的预期投篮命中率",
+        "value": 0.51,
+        "id": "flagg-xfg-666",
+        "eventId": 666.0,
+        "display": "51.0%",
+        "sourceLabel": "NBA 中国 · 逐次出手数据",
+        "kind": "official",
+        "playerId": "1642843",
+        "sourcePath": "data.shotList[eventId=666].value",
+        "gameId": "0022500701",
+        "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843",
+        "unit": "ratio",
+        "body": "NBA 中国官网这次出手的原始数值为 0.51，换算显示为 51.0%。这是机会质量的参考，不是球员的个人命中保证。",
+        "videoTime": 18.5,
+        "definitionUrl": "https://china.nba.cn/inside-the-game/glossary"
+      },
+      {
+        "kind": "official",
+        "body": "NBA 本场名单：独行侠 32 号为库珀·弗拉格，与所查看画面号码一致。",
+        "sourceUrl": "https://www.nba.com/game/dal-vs-hou-0022500701/play-by-play",
+        "id": "flagg-roster",
+        "sourceLabel": "NBA.com · 本场名单",
+        "gameId": "0022500701",
+        "title": "本场身份与号码核对",
+        "playerId": "1642843",
+        "sourcePath": "game.homeTeamPlayers / game.awayTeamPlayers",
+        "description": "NBA 本场名单：独行侠 32 号为库珀·弗拉格，与所查看画面号码一致。"
+      },
+      {
+        "videoTime": 3.0,
+        "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-03s.jpg",
+        "id": "frame-3000",
+        "title": "本次实际输入帧",
+        "description": "本次实际输入帧",
+        "sourceLabel": "原始视频抽帧",
+        "timestampMs": 3000.0,
+        "kind": "video_frame",
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/flagg-03s.jpg",
+        "timeSeconds": 3.0
+      },
+      {
+        "kind": "video_frame",
+        "videoTime": 12.0,
+        "id": "frame-12000",
+        "timeSeconds": 12.0,
+        "title": "本次实际输入帧",
+        "description": "本次实际输入帧",
+        "timestampMs": 12000.0,
+        "sourceLabel": "原始视频抽帧",
+        "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-12s.jpg",
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/flagg-12s.jpg"
+      },
+      {
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/flagg-15.5s.jpg",
+        "title": "本次实际输入帧",
+        "kind": "video_frame",
+        "id": "frame-15500",
+        "videoTime": 15.5,
+        "description": "本次实际输入帧",
+        "timestampMs": 15500.0,
+        "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-15.5s.jpg",
+        "sourceLabel": "原始视频抽帧",
+        "timeSeconds": 15.5
+      },
+      {
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/flagg-16.0s.jpg",
+        "id": "frame-16000",
+        "sourceLabel": "原始视频抽帧",
+        "title": "本次实际输入帧",
+        "timestampMs": 16000.0,
+        "videoTime": 16.0,
+        "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-16.0s.jpg",
+        "description": "本次实际输入帧",
+        "kind": "video_frame",
+        "timeSeconds": 16.0
+      },
+      {
+        "sourceLabel": "原始视频抽帧",
+        "kind": "video_frame",
+        "videoTime": 17.0,
+        "title": "本次实际输入帧",
+        "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-17.0s.jpg",
+        "timestampMs": 17000.0,
+        "timeSeconds": 17.0,
+        "id": "frame-17000",
+        "description": "本次实际输入帧",
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/flagg-17.0s.jpg"
+      },
+      {
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/flagg-18s.jpg",
+        "sourceLabel": "原始视频抽帧",
+        "videoTime": 18.0,
+        "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/flagg-18s.jpg",
+        "timeSeconds": 18.0,
+        "description": "本次实际输入帧",
+        "title": "本次实际输入帧",
+        "timestampMs": 18000.0,
+        "id": "frame-18000",
+        "kind": "video_frame"
+      }
+    ],
+    "outputVideo": {
+      "url": "https://d2x8td5d05xg8h.cloudfront.net/product/outputs/b4702fcbad6849bd84fc741d0489dad6/enhanced.mp4",
+      "width": 1280.0,
+      "durationMs": 21572.0,
+      "height": 900.0,
+      "audioStreams": 1.0,
+      "sha256": "25f13800b341860891da81d6ee370c0a287500aec4db7abbef029b56c78cc711",
+      "bytes": 9998024.0
+    },
+    "renderContract": {
+      "sourcePicture": {
+        "width": 1280.0,
+        "x": 0.0,
+        "y": 76.0,
+        "height": 720.0
+      },
+      "originalAudioPreserved": true,
+      "height": 900.0,
+      "width": 1280.0,
+      "overlaysOutsideSourcePicture": true
+    },
+    "preservesSourceTimeline": true,
+    "analysisUrl": "https://d2x8td5d05xg8h.cloudfront.net/product/outputs/b4702fcbad6849bd84fc741d0489dad6/analysis.json",
+    "elapsedSeconds": 86.43,
+    "sample": "flagg",
+    "source_frame_times_ms": [
+      3000.0,
+      12000.0,
+      15500.0,
+      16000.0,
+      17000.0,
+      18000.0
+    ],
+    "mode": "story",
+    "officialEvent": {
+      "expectedFg": 0.51,
+      "verified": true,
+      "made": true,
+      "actionId": 498.0,
+      "shotValue": 2.0,
+      "playerId": "1642843",
+      "description": "末节 1:34，弗拉格突破挑篮命中两分，独行侠追至 105 比 107。",
+      "bindingFile": "event-bindings.json",
+      "shotLocation": {
+        "locY": "55",
+        "side": "right",
+        "locX": "89"
+      },
+      "gameId": "0022500701",
+      "evidenceUrls": [
+        "https://www.nba.com/game/dal-vs-hou-0022500701/play-by-play",
+        "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843"
+      ],
+      "eventId": 666.0,
+      "period": 4.0,
+      "clock": "1:34",
+      "actionNumber": 666.0,
+      "method": "AI 助手实际查看抽帧后编辑锚定球员号码、节次、时钟区间与前后比分；确定性程序唯一匹配 NBA.com 出手，再以 gpShot.eventId = PBP.actionNumber 关联，并交叉校验球员、节次、命中及两分类型。",
+      "locationLimitation": "官网出手点位，不是视频像素或逐帧轨迹；当前产品未把这些点位贴到球员脚下。"
+    },
+    "usage": {
+      "outputTokens": 3816.0,
+      "inputTokens": 67552.0,
+      "totalTokens": 71368.0
+    },
+    "inferenceSource": "bedrock_converse_tool_loop",
+    "summary": "末节落后局面下，深衣持球者从外线推进，穿越防守抵达篮下，在正面防守人双臂举起时完成挑篮，官方记录命中。",
+    "modelId": "global.anthropic.claude-sonnet-4-6"
+  },
+  "browserVerification": {
+    "at": "2026-10-07T11:27:56.024665+00:00",
+    "browser": "Google Chrome on macOS",
+    "entry": "https://d2x8td5d05xg8h.cloudfront.net/product/?story=flagg&job=b4702fcbad6849bd84fc741d0489dad6",
+    "action": "Clicked actual generated video Play, observed audio-playing state, later observed Play button and video progress at full 21.548 seconds",
+    "endTimeSeconds": 21.548
+  },
+  "visualVerification": {
+    "framesSeconds": [
+      3,
+      18
+    ],
+    "observed": "Permanent Chinese title/chapter caption, official 51.0% bar and event 666 visible in downloaded MP4; original picture and scoreboard unobscured in added top/bottom bands. Original audio stream preserved.",
+    "scope": "AI assistant visual inspection; not human basketball expert or official scoring certification"
+  },
+  "buildProvenance": {
+    "agentZipSha256": "e60ed20473e320ad010b0c2b1feb37bd3aa1a05b9ec662e516d3343ea8e834be",
+    "model": "global.anthropic.claude-sonnet-4-6",
+    "note": "Build used for this actual run; later source changes do not rewrite historical model output."
+  }
+}

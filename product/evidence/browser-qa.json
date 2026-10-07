@@ -1,0 +1,91 @@
+{
+  "checkedAt": "2026-10-07T12:07:00.567224+00:00",
+  "browser": "Google Chrome via native CUA",
+  "url": "https://d2x8td5d05xg8h.cloudfront.net/product/",
+  "checks": [
+    {
+      "name": "Watch source Flagg from start to end",
+      "passed": true,
+      "endSeconds": 21.5481
+    },
+    {
+      "name": "Amen defender choice and reveal",
+      "passed": true
+    },
+    {
+      "name": "Amen compare evidence frame click pauses source at exact timestamp",
+      "passed": true,
+      "timesSeconds": [
+        17.5,
+        18
+      ]
+    },
+    {
+      "name": "Flagg defender choice and frame click",
+      "passed": true,
+      "timesSeconds": [
+        16.5
+      ]
+    },
+    {
+      "name": "Switch original to enhanced preserving paused time",
+      "passed": true,
+      "timeSeconds": 16.5
+    },
+    {
+      "name": "Official metric and event evidence visible",
+      "passed": true,
+      "sample": "amen",
+      "xfg": 0.445,
+      "eventId": 396
+    },
+    {
+      "name": "Real browser job submitted without hidden duplicate",
+      "passed": true,
+      "jobId": "c6c9429c9c05434988bb2d57d5a25c61"
+    },
+    {
+      "name": "Newest Amen enhanced video plays from start through end with audio",
+      "passed": true,
+      "jobId": "c6c9429c9c05434988bb2d57d5a25c61",
+      "endSeconds": 22.895
+    },
+    {
+      "name": "Earlier accepted Flagg enhanced video plays through end with audio",
+      "passed": true,
+      "jobId": "b4702fcbad6849bd84fc741d0489dad6",
+      "endSeconds": 21.548
+    },
+    {
+      "name": "Page restores job, honest failure and no blind resubmit",
+      "passed": true
+    },
+    {
+      "name": "Restored Amen job keeps sample radio aligned",
+      "passed": true
+    },
+    {
+      "name": "Theater entry and Escape exit",
+      "passed": true,
+      "note": "Final enhanced-video aspect-fit observed in Chrome; full frame and media controls remain in viewport."
+    },
+    {
+      "name": "Both enhanced showcase links published; Amen points to accepted current output",
+      "passed": true,
+      "jobId": "c6c9429c9c05434988bb2d57d5a25c61"
+    },
+    {
+      "name": "Final deployed Flagg video complete playback with audio",
+      "passed": true,
+      "jobId": "81a74837370e46a890cbacb2069074e6",
+      "endSeconds": 21.548
+    },
+    {
+      "name": "Final deployed Amen video complete playback with audio",
+      "passed": true,
+      "jobId": "ce008e75d25d4e2e8e88b57412f6c762",
+      "endSeconds": 22.895
+    }
+  ],
+  "scope": "Observed browser behavior for two registered practice samples; not arbitrary-input evaluation. Responsive/mobile rules have offline coverage, not a mobile-device certification."
+}

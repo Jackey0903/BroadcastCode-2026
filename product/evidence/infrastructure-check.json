@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-07T12:00:36.230435+00:00",
+  "region": "us-east-1",
+  "account": "962768510637",
+  "stack": "BroadcastCodeTeam02Readiness20261006",
+  "deploymentStatus": "UPDATE_COMPLETE",
+  "allCreatedRolesHaveBoundary": true,
+  "roles": [
+    "ApiServiceRole1BD550DA",
+    "WorkerServiceRole8543584E"
+  ],
+  "bootstrapRun": false,
+  "retainedStackReused": true,
+  "deadLetterMaxReceiveCount": 2,
+  "templateSha256": "8c4407b4fcc0e2c47fc090c91d93bdcc7167408e9271b023de13e42224debdde",
+  "agentSourceMatchesBuiltArtifact": true,
+  "agentZipSha256": "c6f8902dcf2501a3ba540d26023f43ab2b9c90dcb204c100c42f329cd0aec092"
+}

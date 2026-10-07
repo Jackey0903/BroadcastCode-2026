@@ -1,0 +1,58 @@
+{
+  "runAt": "2026-10-07T11:58:56.877800+00:00",
+  "product": {
+    "agent": 19,
+    "worker": 8,
+    "api": 12,
+    "data": 16,
+    "web": 30,
+    "total": 85,
+    "passed": 85
+  },
+  "legacyReadiness": {
+    "agent": 6,
+    "worker": 10,
+    "api": 10,
+    "web": 6,
+    "total": 32,
+    "passed": 32
+  },
+  "cloudCallsDuringTests": false,
+  "scope": "Offline behavior and adversarial regression tests, not an organizer score or arbitrary-video accuracy result",
+  "criticalRegressions": [
+    "Tool results must reach a subsequent model round before validation",
+    "Generated Chinese decimal/fraction/probability claims rejected",
+    "Failure to persist terminal state returns SQS batchItemFailures",
+    "Cited frame timestamp must overlap the chapter",
+    "Actual validated plan must equal render plan",
+    "Source probability identity and value copied and cross-checked",
+    "Legacy readiness result cannot masquerade as product completion",
+    "Browser POST is not blindly retried",
+    "UTF-8 body hash matches CloudFront origin signing requirement",
+    "Collect every plan text violation in one rejection with exact chapter indexes and complete numeric phrases",
+    "Reject unsupported known causal/static claims and source-unlisted court locations",
+    "Reject ungrounded UI layout direction claims in generated captions",
+    "Exact two-frame comparison switches to source and pauses at evidence timestamp",
+    "Restore sample radio from current job without overriding next choice after completion"
+  ],
+  "sourceHashes": {
+    "product/agent/readiness_agent.py": "e0fc659d15244e892cfc06f8a98c16a0097e5fa814b912c0a309c9a1a8d9bc65",
+    "product/agent/build_package.py": "6194d5bf5fcf3b8ab80ca72beb321f1c874d95a0ceb33f1f5c384acccf65d4d4",
+    "product/agent/story_contract.py": "b9454aa667f3198f704b0da42e1c97619bb144ded564e603d63d75ee96b819dc",
+    "product/agent/test_story.py": "e6026a49f4ad27862aee328b612d9507900bec5312ee404889f20344a553d10a",
+    "product/agent/main.py": "319eebd9379acb15263089f1a3c838157e08dfface97005172b968f2c6b8240f",
+    "product/agent/story_agent.py": "7449c50e4cd8aa3d97eae6e1d1cb05de55215d9a690d0cfba9708b0288ffee78",
+    "product/worker/handler.py": "91df56189f5f3b939359211ac148a0166eaf41630ab63ef40e44759b22dabaf4",
+    "product/worker/readiness_worker.py": "716ce796f15b0ba5da1d83197f058a5415cb60e00d8caebb51c9376003c3b8f5",
+    "product/worker/test_product_worker.py": "621b6e334ea2d1287274ec97873b8a4d3777c162be3c590b7450b2ee91d28b2b",
+    "product/api/test_handler.py": "612e4bc2a03f84e3b99af8d3f002115a8ddb7223b8677311874a77fb3c9efdf2",
+    "product/api/handler.py": "40446313a3aaf80068f63bb857a8928bf23a828597b9d6fc400e9a096005a608",
+    "product/data/test_match_events.py": "846ca18b9228762e9cfbaa1bb2ba68f29aa5925ab53017801dfdc68ed82656a0",
+    "product/data/build_stories.py": "a76a2b0a55ce37cc0e74e564183aaa3b1891ead5e6959e5ee1e72b5be3056fa2",
+    "product/data/match_events.py": "b6cf878a79ed03cb07a55c1454278f50710ba9b1afeb65de92799304998ec5ac",
+    "product/web/index.html": "3b77a0127950103e3593985d190dc165de1c03528ed0f08ab053f97e3ff1d866",
+    "product/web/styles.css": "d253118ffc2b900366970165eef14c3c4b7458c79329e4c7127492816fbd9fbf",
+    "product/web/app.js": "089498a309df7e75a24f235a7193b11c5504e54c954cf7f2951cade8c4fa1462",
+    "product/web/test-app.cjs": "545101e5c6add4c038b5f5a0b36ef22e5346590cdf170a9d015b2486e9f4cee6"
+  }
+}

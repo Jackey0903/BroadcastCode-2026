@@ -1,0 +1,92 @@
+# 关键一拍 · THE HIDDEN PLAY
+
+一个把“看见进球”推进到“看懂这次出手”的篮球视频产品。观众先看原片并选择关注点，再通过章节回放、官方出手数据和可点击证据发现关键细节。AgentCore 上的智能体按工具返回的证据组织故事，确定性渲染器输出带永久标注的完整 MP4。
+
+## 产品主线与评分对应
+
+**先看进球，再看懂这一拍。** 观看区让评委先选关注对象，慢放同一回合的关键时刻，再看官方 xFG 与可点击来源。创作区展示一次真实的证据读取、叙事组织和完整成片，不把预写案例或装饰性的流程动画当作 Agent 执行。
+
+|需要赢得的判断|产品给出的证据|
+|---|---|
+|这东西值得球迷使用|观众选择改变揭示文案、回看节点与高亮证据；两个故事各有明确问题|
+|篮球内容与数据可信|画面观察、官方数值、编辑解释分开标注；具体事件、比分变化、身份与来源可核对|
+|技术真正工作|AgentCore 实际读图与读取官方快照，后续模型轮次给出章节；原始执行记录、模型用量和成片哈希可查|
+|展示完整且有视觉记忆点|统一纸色/墨色/青柠视觉、两张关键帧并排核对、慢放、原片/成片切换、官方出手图和永久标注 MP4|
+|系统可重跑、可恢复|CDK、版本锁定、队列任务、失败状态、死信队列与本地源码/媒体存档|
+
+这些是冲刺初赛准确性/交互及决赛视觉/深度的实现选择，不是预估分数或获奖保证。正式机器 35 分仍需拿到官方 schema 后适配并用新输入验证。
+
+```mermaid
+flowchart LR
+  W[CloudFront 交互网页] --> API[Lambda 任务接口]
+  API --> Q[SQS 队列]
+  API <--> D[DynamoDB 任务状态]
+  Q --> R[视频 Worker]
+  R --> A[AgentCore 智能体]
+  A --> B[Bedrock Claude]
+  A --> E[真实帧与官方事件快照]
+  A --> V[章节与引用校验]
+  V --> R
+  R --> M[FFmpeg 完整视频烧录]
+  M --> S[S3 视频与生成记录]
+  S --> W
+  R --> D
+```
+
+## 当前开发结构
+
+- `web/`：无需打包的交互前端，故事揭示、章节回放、原片/成片切换与真实创作任务。
+- `data/stories.json`：两段公开练习片的策展案例与来源；不冒充正式赛事评测输入。
+- `data/match_events.py`：基于官方记录和已标注视频锚点的事件核对。AI 辅助编辑的锚点和机器校验各自标注。
+- `research/`：官方事件响应摘录、视频映射依据与核查报告。
+- `agent/`：AgentCore Python 入口、Bedrock 工具循环及共同验证契约。
+- `worker/`：队列任务、调用智能体、时间化标注、完整视频渲染与媒体检查。
+- `api/`：同源异步任务接口。只接受两个登记样片，并限制公共运行次数。
+- `app.js` / `cdk.json`：更新保留的 `BroadcastCodeTeam02Readiness20261006`，保持既有资源 ID。不要同时从两个版本部署。
+
+## 本地准备与部署
+
+使用既有 `nba` 配置，首先核验目标账号 `962768510637`、角色 `NBAHackathonParticipantRole`。资源区域固定 `us-east-1`，不执行 bootstrap。
+
+```sh
+npm ci --prefix product
+# 仅首次需要：准备固定版本 SDK、FFmpeg 和字体，详见 readiness-lab/README.md。
+readiness-lab/.venv/bin/python product/scripts/build.py
+cd product
+npx cdk diff --profile nba
+npx cdk deploy --profile nba --require-approval never --outputs-file outputs.json
+cd ..
+readiness-lab/.venv/bin/python product/scripts/publish.py
+```
+
+CDK 必须保留权限边界 `NBAHackathonParticipantBoundary`。源码在本机；云端仅是部署实例。构建产物和视频不提交 Git；依赖锁定文件、部署定义、来源证据与测试提交源码管理。
+
+`publish.py` 向同一受控桶发布页面、案例与用于模型观察的六个关键帧。原始练习片由之前的 `readiness-lab/upload_inputs.py` 登记；新机器应按练习工程说明取得公开视频并校验哈希。不要无目的重新运行历史云验证或清理脚本。
+
+## 内部接口（非官方评测协议）
+
+- `GET /api/status`：当前服务和登记样片。
+- `POST /api/jobs`，JSON `{"sample":"flagg","mode":"story"}`：返回 `jobId`。
+- `GET /api/jobs/{jobId}`：状态、真实错误或完成后的 `videoUrl`、`analysisUrl`、分析与验证信息。
+
+CloudFront 的 Lambda IAM 源要求 POST 携带**请求体原始 UTF-8 字节**的 `x-amz-content-sha256`；前端完成这一计算，不持有 AWS 凭证。一次 POST 失败不得盲目重试；按已有 jobId 查询，避免重复计费。原有不带 `mode` 的请求继续走练习流程。
+
+展示案例的视频时间保持原片时间轴。官方出手点位不是逐帧轨迹；故事解读不是因果证明。`xFG` 是该次出手的预期命中率，不是球员赛季命中率、胜率或结果保证。预先由 AI 辅助编辑的案例与模型新生成结果分别标明，不用预写工具轨迹冒充真实执行。
+
+## 从代码重跑
+
+浏览器按钮和命令行使用同一个真实异步接口。下面的命令会启动一次新的模型推理与视频渲染，计入公共运行次数；不得为了读取结果反复提交。
+
+```sh
+python3 product/scripts/run_sample.py --sample amen --wait
+# 只读取并核验已完成任务，不重新生成：
+python3 product/scripts/verify_run.py <真实jobId>
+```
+
+`run_sample.py` 对创建任务只发送一次 POST，后续只查询原编号，真实结果写入被 Git 忽略的 `product/build/client-jobs/`。`verify_run.py` 独立下载 MP4、核对 SHA-256、时长、音轨和 HTTP Range；`--promote` 仅在人工/AI 复核内容后使用，用来选为观看区成片。保留失败记录，不能把一次技术完成自动视为篮球内容正确。
+
+## 复现与交付边界
+
+这是基于主办方公开两段练习视频的产品原型。正式评测 schema、正式素材映射、赛前成果复用边界与账号到期后的安排仍以组委会通知为准。正式提交前必须用实际新输入验收，不能把两个案例通过等同于任意比赛视频均可用。
+
+实际任务、内容拒收、部署与媒体核验见 [产品验收记录](evidence/README.md)。当前已有弗拉格成功成片；旧阿门任务技术通过但内容拒收，新阿门已完成内容复核、媒体核验、浏览器完整播放与字幕图表视觉核对。弗拉格最新复测失败正在诊断，不将历史成功视为全部最新版本已通过。

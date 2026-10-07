@@ -1,0 +1,303 @@
+{
+  "version": "nba-event-bindings-v1",
+  "results": {
+    "flagg": {
+      "verified": true,
+      "status": "verified",
+      "candidates": [
+        {
+          "actionNumber": 666,
+          "actionId": 498,
+          "clock": "PT01M34.00S",
+          "checks": {
+            "uniquePbpEvent": true,
+            "team": true,
+            "made": true,
+            "shotValue": true,
+            "scoreAfter": true,
+            "scoreBefore": true,
+            "uniqueEventIdJoin": true,
+            "shotGame": true,
+            "shotPlayer": true,
+            "shotPeriod": true,
+            "shotMade": true,
+            "shotType": true,
+            "metricRange": true
+          },
+          "errors": [],
+          "passed": true,
+          "matched": {
+            "eventId": 666,
+            "actionId": 498,
+            "gameId": "0022500701",
+            "playerId": "1642843",
+            "period": 4,
+            "clock": "PT01M34.00S",
+            "expectedFg": 0.51,
+            "made": true,
+            "shotValue": 2,
+            "description": "Flagg 5' Driving Finger Roll Layup (34 PTS)",
+            "scoreBefore": {
+              "home": 107,
+              "away": 103
+            },
+            "scoreAfter": {
+              "home": 107,
+              "away": 105
+            },
+            "officialShot": {
+              "shotDesc": "突破挑篮",
+              "value": 0.51,
+              "newsId": "2602011154510302",
+              "gameId": "0022500701",
+              "eventId": 666,
+              "playerId": "1642843",
+              "shotType": "2分投篮",
+              "success": 1,
+              "period": 4,
+              "gameClock": "",
+              "side": "right",
+              "locX": "89",
+              "locY": "55"
+            },
+            "officialPlayByPlay": {
+              "actionNumber": 666,
+              "clock": "PT01M34.00S",
+              "period": 4,
+              "teamId": 1610612742,
+              "teamTricode": "DAL",
+              "personId": 1642843,
+              "playerName": "Flagg",
+              "playerNameI": "C. Flagg",
+              "xLegacy": 28,
+              "yLegacy": 46,
+              "shotDistance": 5,
+              "shotResult": "Made",
+              "isFieldGoal": 1,
+              "scoreHome": "107",
+              "scoreAway": "105",
+              "pointsTotal": 212,
+              "location": "v",
+              "description": "Flagg 5' Driving Finger Roll Layup (34 PTS)",
+              "actionType": "Made Shot",
+              "subType": "Driving Finger Roll Layup Shot",
+              "videoAvailable": 1,
+              "shotValue": 2,
+              "actionId": 498
+            }
+          }
+        }
+      ],
+      "errors": [],
+      "matched": {
+        "eventId": 666,
+        "actionId": 498,
+        "gameId": "0022500701",
+        "playerId": "1642843",
+        "period": 4,
+        "clock": "PT01M34.00S",
+        "expectedFg": 0.51,
+        "made": true,
+        "shotValue": 2,
+        "description": "Flagg 5' Driving Finger Roll Layup (34 PTS)",
+        "scoreBefore": {
+          "home": 107,
+          "away": 103
+        },
+        "scoreAfter": {
+          "home": 107,
+          "away": 105
+        },
+        "officialShot": {
+          "shotDesc": "突破挑篮",
+          "value": 0.51,
+          "newsId": "2602011154510302",
+          "gameId": "0022500701",
+          "eventId": 666,
+          "playerId": "1642843",
+          "shotType": "2分投篮",
+          "success": 1,
+          "period": 4,
+          "gameClock": "",
+          "side": "right",
+          "locX": "89",
+          "locY": "55"
+        },
+        "officialPlayByPlay": {
+          "actionNumber": 666,
+          "clock": "PT01M34.00S",
+          "period": 4,
+          "teamId": 1610612742,
+          "teamTricode": "DAL",
+          "personId": 1642843,
+          "playerName": "Flagg",
+          "playerNameI": "C. Flagg",
+          "xLegacy": 28,
+          "yLegacy": 46,
+          "shotDistance": 5,
+          "shotResult": "Made",
+          "isFieldGoal": 1,
+          "scoreHome": "107",
+          "scoreAway": "105",
+          "pointsTotal": 212,
+          "location": "v",
+          "description": "Flagg 5' Driving Finger Roll Layup (34 PTS)",
+          "actionType": "Made Shot",
+          "subType": "Driving Finger Roll Layup Shot",
+          "videoAvailable": 1,
+          "shotValue": 2,
+          "actionId": 498
+        }
+      }
+    },
+    "amen": {
+      "verified": true,
+      "status": "verified",
+      "candidates": [
+        {
+          "actionNumber": 396,
+          "actionId": 285,
+          "clock": "PT07M25.00S",
+          "checks": {
+            "uniquePbpEvent": true,
+            "team": true,
+            "made": true,
+            "shotValue": true,
+            "scoreAfter": true,
+            "scoreBefore": true,
+            "uniqueEventIdJoin": true,
+            "shotGame": true,
+            "shotPlayer": true,
+            "shotPeriod": true,
+            "shotMade": true,
+            "shotType": true,
+            "metricRange": true
+          },
+          "errors": [],
+          "passed": true,
+          "matched": {
+            "eventId": 396,
+            "actionId": 285,
+            "gameId": "0022500491",
+            "playerId": "1641708",
+            "period": 3,
+            "clock": "PT07M25.00S",
+            "expectedFg": 0.445,
+            "made": true,
+            "shotValue": 2,
+            "description": "Thompson 13' Pullup Jump Shot (14 PTS) (Durant 5 AST)",
+            "scoreBefore": {
+              "home": 63,
+              "away": 60
+            },
+            "scoreAfter": {
+              "home": 63,
+              "away": 62
+            },
+            "officialShot": {
+              "shotDesc": "急停跳投",
+              "value": 0.445,
+              "newsId": null,
+              "gameId": "0022500491",
+              "eventId": 396,
+              "playerId": "1641708",
+              "shotType": "2分投篮",
+              "success": 1,
+              "period": 3,
+              "gameClock": "",
+              "side": "left",
+              "locX": "19",
+              "locY": "46"
+            },
+            "officialPlayByPlay": {
+              "actionNumber": 396,
+              "clock": "PT07M25.00S",
+              "period": 3,
+              "teamId": 1610612745,
+              "teamTricode": "HOU",
+              "personId": 1641708,
+              "playerName": "Thompson",
+              "playerNameI": "A. Thompson",
+              "xLegacy": 17,
+              "yLegacy": 129,
+              "shotDistance": 13,
+              "shotResult": "Made",
+              "isFieldGoal": 1,
+              "scoreHome": "63",
+              "scoreAway": "62",
+              "pointsTotal": 125,
+              "location": "v",
+              "description": "Thompson 13' Pullup Jump Shot (14 PTS) (Durant 5 AST)",
+              "actionType": "Made Shot",
+              "subType": "Pullup Jump shot",
+              "videoAvailable": 1,
+              "shotValue": 2,
+              "actionId": 285
+            }
+          }
+        }
+      ],
+      "errors": [],
+      "matched": {
+        "eventId": 396,
+        "actionId": 285,
+        "gameId": "0022500491",
+        "playerId": "1641708",
+        "period": 3,
+        "clock": "PT07M25.00S",
+        "expectedFg": 0.445,
+        "made": true,
+        "shotValue": 2,
+        "description": "Thompson 13' Pullup Jump Shot (14 PTS) (Durant 5 AST)",
+        "scoreBefore": {
+          "home": 63,
+          "away": 60
+        },
+        "scoreAfter": {
+          "home": 63,
+          "away": 62
+        },
+        "officialShot": {
+          "shotDesc": "急停跳投",
+          "value": 0.445,
+          "newsId": null,
+          "gameId": "0022500491",
+          "eventId": 396,
+          "playerId": "1641708",
+          "shotType": "2分投篮",
+          "success": 1,
+          "period": 3,
+          "gameClock": "",
+          "side": "left",
+          "locX": "19",
+          "locY": "46"
+        },
+        "officialPlayByPlay": {
+          "actionNumber": 396,
+          "clock": "PT07M25.00S",
+          "period": 3,
+          "teamId": 1610612745,
+          "teamTricode": "HOU",
+          "personId": 1641708,
+          "playerName": "Thompson",
+          "playerNameI": "A. Thompson",
+          "xLegacy": 17,
+          "yLegacy": 129,
+          "shotDistance": 13,
+          "shotResult": "Made",
+          "isFieldGoal": 1,
+          "scoreHome": "63",
+          "scoreAway": "62",
+          "pointsTotal": 125,
+          "location": "v",
+          "description": "Thompson 13' Pullup Jump Shot (14 PTS) (Durant 5 AST)",
+          "actionType": "Made Shot",
+          "subType": "Pullup Jump shot",
+          "videoAvailable": 1,
+          "shotValue": 2,
+          "actionId": 285
+        }
+      }
+    }
+  }
+}

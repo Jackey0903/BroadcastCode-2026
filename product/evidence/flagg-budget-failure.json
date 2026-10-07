@@ -1,0 +1,86 @@
+{
+  "jobId": "b0ee8c7d681c4eb9a340c376bd55c37a",
+  "sample": "flagg",
+  "status": "failed",
+  "runtimeSessionId": "15d11188-c563-41d1-83a9-ae1d77ffffb4",
+  "evidenceSource": {
+    "type": "read_only_cloudwatch_runtime_log_review",
+    "region": "us-east-1",
+    "logGroup": "/aws/bedrock-agentcore/runtimes/Team02Readiness20261006-btpD1PFAGy-DEFAULT",
+    "logStream": "2026/10/07/[runtime-logs-15d11188-c563-41d1-83a9-ae1d77ffffb4]0fffbbfa-bea2-4df2-8b8b-dd62e1e3ebfe"
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "result": "inspect_frames and read_official_event succeeded",
+      "cumulativeTotalTokens": 3240
+    },
+    {
+      "round": 2,
+      "result": "validate_story rejected",
+      "field": "title",
+      "trigger": "外线",
+      "cumulativeTotalTokens": 18432
+    },
+    {
+      "round": 3,
+      "result": "validate_story rejected",
+      "field": "summary",
+      "triggerReported": "3",
+      "actualNumericPhrase": "32号",
+      "cumulativeTotalTokens": 35638
+    },
+    {
+      "round": 4,
+      "result": "validate_story rejected",
+      "field": "chapter.caption",
+      "triggerReported": "3",
+      "actualNumericPhrase": "32号",
+      "cumulativeTotalTokens": 54174
+    },
+    {
+      "round": 5,
+      "result": "validate_story rejected",
+      "field": "chapter.caption",
+      "triggerReported": "3",
+      "actualNumericPhrase": "32号",
+      "cumulativeTotalTokens": 74063
+    },
+    {
+      "round": 6,
+      "result": "budget rejected after model call, before tool execution",
+      "exceeded": [
+        "total_tokens"
+      ],
+      "cumulativeTotalTokens": 95305
+    }
+  ],
+  "finalUsage": {
+    "inputTokens": 89399,
+    "outputTokens": 5906,
+    "totalTokens": 95305
+  },
+  "elapsedSeconds": 48.57,
+  "limits": {
+    "totalTokens": 90000,
+    "outputTokens": 6000,
+    "seconds": 170,
+    "rounds": 6
+  },
+  "runtimeFailure": {
+    "httpStatus": 502,
+    "errorType": "ModelOutputError",
+    "reason": "story budget exhausted (after_model_call, round 6): total_tokens"
+  },
+  "diagnosis": "Validation returned the first failing prose field. The model repaired only some fields across repeated rounds; the opening chapter retained 32号 and an unsupported location, while a later chapter retained a metric label. Repeated full conversation/image context exceeded the cumulative token cap. Source reads and model calls succeeded; these logs do not indicate an IAM failure.",
+  "localFix": "Collect all prose violations in one response, with chapter index/id/field and complete matched numeric phrases. Require one comprehensive revision. Reject guessed metric layout positions. Keep all existing budgets unchanged.",
+  "verificationBoundary": "This is a retained failed-run diagnosis. Offline regression tests validate error aggregation and recovery with a scripted model; a new real cloud run is required to verify the fix. No generated artifact has been edited to turn this run into a success.",
+  "subsequentVerification": {
+    "jobId": "81a74837370e46a890cbacb2069074e6",
+    "status": "completed",
+    "rounds": 3,
+    "totalTokens": 36265,
+    "elapsedSeconds": 62.81,
+    "budgetUnchanged": true
+  }
+}

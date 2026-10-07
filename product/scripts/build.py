@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+"""Build product deployment assets locally, preserving the readiness lab source."""
+import hashlib
+import importlib.util
+import json
+from pathlib import Path
+import shutil
+import zipfile
+
+ROOT = Path(__file__).resolve().parents[2]
+HERE = ROOT / 'product'
+BUILD = HERE / 'build'
+BUILD.mkdir(exist_ok=True)
+expected = json.loads((ROOT / 'readiness-lab/tool-fingerprints.json').read_text())
+for relative, digest in expected.items():
+    path = ROOT / 'readiness-lab/build' / relative
+    if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
+        raise SystemExit('Verified media tools missing. Run readiness-lab/prepare_build.py first.')
+
+sdk_files = []
+for module in ('boto3', 'botocore', 's3transfer', 'jmespath', 'dateutil', 'urllib3', 'six'):
+    spec = importlib.util.find_spec(module)
+    if spec is None or spec.origin is None:
+        raise SystemExit('Use readiness-lab/.venv/bin/python or install the pinned requirements first.')
+    origin = Path(spec.origin)
+    if spec.submodule_search_locations:
+        for path in sorted(origin.parent.rglob('*')):
+            if path.is_file() and '__pycache__' not in path.parts and path.suffix not in ('.pyc', '.pyo'):
+                sdk_files.append((path, path.relative_to(origin.parent.parent).as_posix()))
+    else:
+        sdk_files.append((origin, origin.name))
+
+with zipfile.ZipFile(BUILD / 'agent.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
+    for path, relative in sdk_files:
+        archive.write(path, relative)
+    for path in sorted((HERE / 'agent').glob('*.py')):
+        if not path.name.startswith('test_'):
+            archive.write(path, path.name)
+
+worker = BUILD / 'worker'
+if worker.exists():
+    shutil.rmtree(worker)
+worker.mkdir()
+for path, relative in sdk_files:
+    target = worker / relative
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(path, target)
+shutil.copyfile(HERE / 'agent/story_contract.py', worker / 'story_contract.py')
+for path in sorted((HERE / 'worker').glob('*.py')):
+    if not path.name.startswith('test_'):
+        shutil.copyfile(path, worker / path.name)
+print(json.dumps({'agentBytes': (BUILD / 'agent.zip').stat().st_size,
+                  'workerFiles': len(list(worker.rglob('*'))), 'mediaToolHashesVerified': True}))

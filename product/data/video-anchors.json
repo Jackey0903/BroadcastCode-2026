@@ -1,0 +1,38 @@
+{
+  "version": "reviewed-clip-anchors-v1",
+  "annotationMethod": "AI 助手实际查看本地抽帧后逐项记录并选择关键帧；是编辑锚定，不是自动 OCR、逐帧跟踪或人工专家签字认证。",
+  "anchors": [
+    {
+      "sample": "flagg", "gameId": "0022500701", "playerId": "1642843", "teamId": 1610612742, "jerseyNumber": "32", "period": 4,
+      "clipClockStartSeconds": 111, "clipClockEndSeconds": 94,
+      "scoreBefore": {"home": 107, "away": 103}, "scoreAfter": {"home": 107, "away": 105}, "made": true, "shotValue": 2,
+      "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+      "localVideo": "data/reference/train_video/train_video/训练_弗拉格2月1日.mp4",
+      "durationSeconds": 21.548118,
+      "frames": [
+        {"videoTime": 0.2, "file": "flagg-00.2s.jpg", "clock": "1:51", "score": {"DAL": 103, "HOU": 107}, "observation": "第四节，独行侠落后四分。"},
+        {"videoTime": 9, "file": "flagg-09s.jpg", "clock": "1:43", "observation": "深衣 32 号持球，附近有深衣 21 号及白衣防守人。"},
+        {"videoTime": 15.5, "file": "flagg-15.5s.jpg", "clock": "1:36", "observation": "32 号已推进到禁区附近，防守人在其身前和侧后方。"},
+        {"videoTime": 16.5, "file": "flagg-16.5s.jpg", "clock": "1:35", "observation": "32 号在篮下起跳，正面白衣防守人双臂举起。"},
+        {"videoTime": 17, "file": "flagg-17.0s.jpg", "clock": "1:35", "observation": "球已离开出手者双手；底部和篮架时钟存在显示差异。"},
+        {"videoTime": 21, "file": "flagg-21s.jpg", "clock": "1:34", "score": {"DAL": 105, "HOU": 107}, "observation": "比分更新，火箭准备继续进攻。"}
+      ]
+    },
+    {
+      "sample": "amen", "gameId": "0022500491", "playerId": "1641708", "teamId": 1610612745, "jerseyNumber": "1", "period": 3,
+      "clipClockStartSeconds": 465, "clipClockEndSeconds": 444,
+      "scoreBefore": {"home": 63, "away": 60}, "scoreAfter": {"home": 63, "away": 62}, "made": true, "shotValue": 2,
+      "annotationMethod": "AI 助手查看 0、15、16、17.5、18、21 秒抽帧，记录号码、节次、比赛时钟及比分；17.5 秒为编辑选定慢看节点，非精确离手帧。",
+      "localVideo": "data/reference/train_video/train_video/训练_阿门1月4日 .mp4",
+      "durationSeconds": 22.894875,
+      "frames": [
+        {"videoTime": 0, "file": "amen-00s.jpg", "clock": "7:45", "score": {"HOU": 60, "DAL": 63}, "observation": "第三节，火箭落后三分。"},
+        {"videoTime": 15, "file": "amen-15s.jpg", "clock": "7:30", "shotClock": "4.5", "observation": "白衣 7 号持球，深衣 00 号在正面，3 号靠近。"},
+        {"videoTime": 16, "file": "amen-16.0s.jpg", "clock": "7:29", "shotClock": "3.5", "observation": "白衣 1 号持球，球已从先前的 7 号手中转移。"},
+        {"videoTime": 17.5, "file": "amen-17.5s.jpg", "clock": "7:27", "shotClock": "2.1", "observation": "深衣 00 号已起跳，白衣 1 号仍持球。"},
+        {"videoTime": 18, "file": "amen-18s.jpg", "clock": "7:27", "shotClock": "1.6", "observation": "白衣 1 号起跳投篮，深衣 00 号正在下落。"},
+        {"videoTime": 21, "file": "amen-21s.jpg", "clock": "7:24", "score": {"HOU": 62, "DAL": 63}, "observation": "火箭得分更新为 62，独行侠仍为 63。"}
+      ]
+    }
+  ]
+}

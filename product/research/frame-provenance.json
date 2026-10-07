@@ -1,0 +1,90 @@
+{
+  "version": "reviewed-frames-v1",
+  "method": "AI 助手实际查看本地抽帧后逐项记录并选择关键帧；是编辑锚定，不是自动 OCR、逐帧跟踪或人工专家签字认证。",
+  "frames": [
+    {
+      "sample": "flagg",
+      "videoTime": 0.2,
+      "file": "data/reference/frames/flagg-00.2s.jpg",
+      "sha256": "9549e289a2f6f2aa4c2f40aee696750ad4269619acac349eb17376f18b38de21",
+      "bytes": 183572
+    },
+    {
+      "sample": "flagg",
+      "videoTime": 9,
+      "file": "data/reference/frames/flagg-09s.jpg",
+      "sha256": "8c6c47d0edf25d1d0a584fa1f05506d2e73d9cb0624689aa1066da93795389dd",
+      "bytes": 205602
+    },
+    {
+      "sample": "flagg",
+      "videoTime": 15.5,
+      "file": "data/reference/frames/flagg-15.5s.jpg",
+      "sha256": "687495fbe7688aa3d9c26897ee8db55f155d3ae69aa5b5d9072742ba7936b3c3",
+      "bytes": 203239
+    },
+    {
+      "sample": "flagg",
+      "videoTime": 16.5,
+      "file": "data/reference/frames/flagg-16.5s.jpg",
+      "sha256": "1c0acae0ef157566cdd73045fa13e0e943ae3f6cf66ed2eb56b6235f99c09c01",
+      "bytes": 215650
+    },
+    {
+      "sample": "flagg",
+      "videoTime": 17,
+      "file": "data/reference/frames/flagg-17.0s.jpg",
+      "sha256": "b915b99b43c11215ab9dcda42ec89f28b6d875f37624f1eec159c5f854e7b8e6",
+      "bytes": 200085
+    },
+    {
+      "sample": "flagg",
+      "videoTime": 21,
+      "file": "data/reference/frames/flagg-21s.jpg",
+      "sha256": "ef7dd61b8ef78f03244265ad9b4a7350c47ab414500e70ce0c86352e425158df",
+      "bytes": 195091
+    },
+    {
+      "sample": "amen",
+      "videoTime": 0,
+      "file": "data/reference/frames/amen-00s.jpg",
+      "sha256": "d15cca0502396684dbe924c58bd3531c4015fa5e98723377db3ae7e04ea72f5c",
+      "bytes": 216113
+    },
+    {
+      "sample": "amen",
+      "videoTime": 15,
+      "file": "data/reference/frames/amen-15s.jpg",
+      "sha256": "5075aba9e9cf1566011d1aefb2cd79d823a777721c5b8821205427f7b4f506bb",
+      "bytes": 247922
+    },
+    {
+      "sample": "amen",
+      "videoTime": 16,
+      "file": "data/reference/frames/amen-16.0s.jpg",
+      "sha256": "ac04d79d2d1c04bab2f82ce4a0c672a3c6f06bfe9294bc9e839919eed70793d1",
+      "bytes": 236224
+    },
+    {
+      "sample": "amen",
+      "videoTime": 17.5,
+      "file": "data/reference/frames/amen-17.5s.jpg",
+      "sha256": "d514a20a52ba2ddfe9d9ba949d44fefa39e342b967deb77bbee3e949c669450e",
+      "bytes": 230053
+    },
+    {
+      "sample": "amen",
+      "videoTime": 18,
+      "file": "data/reference/frames/amen-18s.jpg",
+      "sha256": "cd662b57258d6b0d3435b9e413b9bafe73633749c785fdc898cbfab04c47b3ba",
+      "bytes": 231039
+    },
+    {
+      "sample": "amen",
+      "videoTime": 21,
+      "file": "data/reference/frames/amen-21s.jpg",
+      "sha256": "811439829c00323146e4480d4f5c763035859a6fde9e7c758c05a175387a31af",
+      "bytes": 250866
+    }
+  ]
+}

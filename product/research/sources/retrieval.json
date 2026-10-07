@@ -1,0 +1,62 @@
+[
+  {
+    "name": "pbp-flagg",
+    "url": "https://cdn.nba.com/static/json/liveData/playbyplay/playbyplay_0022500701.json",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "name": "pbp-amen",
+    "url": "https://cdn.nba.com/static/json/liveData/playbyplay/playbyplay_0022500491.json",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "name": "gpshot-flagg",
+    "url": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843",
+    "httpStatus": 200,
+    "bytes": 5712,
+    "sha256": "95238bb31f32bd07c5588b0e26331fc0f1a12181567e339150058d23826d265d",
+    "retrievedAt": "2026-10-07T10:32:28.876045+00:00",
+    "shotCount": 23
+  },
+  {
+    "name": "gpshot-amen",
+    "url": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500491&playerId=1641708",
+    "httpStatus": 200,
+    "bytes": 4429,
+    "sha256": "4b75a51aa4620ce879850dc30ade9246b25bf5c47d4957a3f769c527c7ceccf7",
+    "retrievedAt": "2026-10-07T10:32:28.872378+00:00",
+    "shotCount": 18
+  },
+  {
+    "name": "pbp-cn-flagg",
+    "url": "https://api.nba.cn/sib/v2/pbp/details?gameId=0022500701&period=4",
+    "error": "HTTP Error 400: Bad Request"
+  },
+  {
+    "name": "pbp-cn-amen",
+    "url": "https://api.nba.cn/sib/v2/pbp/details?gameId=0022500491&period=3",
+    "error": "HTTP Error 400: Bad Request"
+  },
+  {
+    "name": "nba-page-flagg",
+    "url": "https://www.nba.com/game/dal-vs-hou-0022500701/play-by-play",
+    "httpStatus": 200,
+    "bytes": 527682,
+    "htmlSha256": "f6bc78bdaa728511feb9023bde779029b16bdfdf190f1f1a13801d7140e78e7a",
+    "retrievedAt": "2026-10-07T10:34:28.885071+00:00",
+    "note": "Saved a factual subset of __NEXT_DATA__.props.pageProps (game identity/roster and full playByPlay); full HTML not retained. htmlSha256 records received HTML bytes.",
+    "snapshotSha256": "dbd87ba3499154bbd0d867e9e16783c37e7d78c8a161d6b57c586cac8e0d7ad1",
+    "snapshotBytes": 361668
+  },
+  {
+    "name": "nba-page-amen",
+    "url": "https://www.nba.com/game/hou-vs-dal-0022500491/play-by-play",
+    "httpStatus": 200,
+    "bytes": 509660,
+    "htmlSha256": "9efe1fa86a1b820feabe8eb13cbb4648caee751e448f05483c2acb889f0fc7da",
+    "retrievedAt": "2026-10-07T10:34:28.947126+00:00",
+    "note": "Saved a factual subset of __NEXT_DATA__.props.pageProps (game identity/roster and full playByPlay); full HTML not retained. htmlSha256 records received HTML bytes.",
+    "snapshotSha256": "6d9a2facb00088e01e1dd5f344ee40fce6bc1e1059dd9e9e6161d9e207181f74",
+    "snapshotBytes": 342198
+  }
+]

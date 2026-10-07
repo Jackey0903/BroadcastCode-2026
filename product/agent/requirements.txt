@@ -1,0 +1,2 @@
+# Same SDK release used by the successful earlier runtime validation.
+boto3==1.43.108

@@ -5,6 +5,7 @@ import argparse
 from datetime import datetime
 import hashlib
 import json
+import re
 from pathlib import Path
 import subprocess
 import tarfile
@@ -66,11 +67,22 @@ def main():
             "data/reference/train_video/train_video/训练_弗拉格2月1日.mp4",
             "data/reference/train_video/train_video/训练_阿门1月4日 .mp4",
             "data/reference/train-video-metadata.json",
-            *[f"data/reference/frames/{sample}-{second:02d}s.jpg"
-              for sample in ("flagg", "amen") for second in (3, 6, 15, 18)],
+            *[str(path.relative_to(repo)) for path in sorted((repo / "data/reference/frames").glob("*.jpg"))
+              if re.fullmatch(r"(?:flagg|amen)-[0-9]+(?:\.[0-9]+)?s\.jpg", path.name)],
             "readiness-lab/build/verified/flagg.mp4",
             "readiness-lab/build/verified/amen.mp4",
         ]
+        # Only completed, independently verified product renders are eligible.
+        for evidence in sorted((repo / "product/evidence").glob("run-*.json")):
+            record = json.loads(evidence.read_text())
+            job_id = record.get("jobId", "")
+            if not re.fullmatch(r"[0-9a-f]{32}", job_id):
+                continue
+            relative = f"product/build/verified/{job_id}/enhanced.mp4"
+            source = repo / relative
+            if source.is_file() and hashlib.sha256(source.read_bytes()).hexdigest() != record.get("outputSha256"):
+                raise RuntimeError("Product render hash differs from its verified run evidence.")
+            media_paths.append(relative)
         media_archive = snapshot / "practice-media.tar"
         with tarfile.open(media_archive, "w") as target:
             for relative in media_paths:

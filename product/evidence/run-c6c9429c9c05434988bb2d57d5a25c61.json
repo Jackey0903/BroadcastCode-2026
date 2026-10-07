@@ -1,0 +1,1060 @@
+{
+  "verifiedAt": "2026-10-07T11:50:47.199908+00:00",
+  "jobId": "c6c9429c9c05434988bb2d57d5a25c61",
+  "sample": "amen",
+  "mode": "story",
+  "videoUrl": "https://d2x8td5d05xg8h.cloudfront.net/product/outputs/c6c9429c9c05434988bb2d57d5a25c61/enhanced.mp4",
+  "analysisUrl": "https://d2x8td5d05xg8h.cloudfront.net/product/outputs/c6c9429c9c05434988bb2d57d5a25c61/analysis.json",
+  "outputSha256": "eff70c803fe723f6f7c81829ea386da00eb40747dde7b24f6d6235c903f7271e",
+  "bytes": 14989010,
+  "durationSeconds": 22.895011,
+  "width": 1280,
+  "height": 900,
+  "audioPresent": true,
+  "rangeStatus": 206,
+  "modelId": "global.anthropic.claude-sonnet-4-6",
+  "usage": {
+    "outputTokens": 2783.0,
+    "totalTokens": 53321.0,
+    "inputTokens": 50538.0
+  },
+  "elapsedSeconds": 72.8,
+  "browserPlaybackVerified": true,
+  "burnedOverlayVisuallyVerified": true,
+  "analysis": {
+    "videoPath": "product/outputs/c6c9429c9c05434988bb2d57d5a25c61/enhanced.mp4",
+    "scope": "product_story_protocol_not_organizer_evaluation_schema",
+    "observations": [
+      {
+        "text": "白衣持球人推进，防守人贴近跟防。",
+        "evidenceIds": [
+          "frame-15000",
+          "frame-16000",
+          "amen-roster"
+        ],
+        "timeSeconds": 15.0
+      },
+      {
+        "timeSeconds": 16.8,
+        "text": "防守人已起跳，持球人仍握球；随后持球人起跳出手，防守人正在下落。",
+        "evidenceIds": [
+          "frame-17500",
+          "frame-18000",
+          "amen-roster"
+        ]
+      },
+      {
+        "text": "官方确认跳投命中，并记录助攻；出手机会质量见下方指标。",
+        "timeSeconds": 18.5,
+        "evidenceIds": [
+          "amen-pbp-396",
+          "amen-xfg-396"
+        ]
+      }
+    ],
+    "outputVideo": {
+      "bytes": 14989010.0,
+      "url": "https://d2x8td5d05xg8h.cloudfront.net/product/outputs/c6c9429c9c05434988bb2d57d5a25c61/enhanced.mp4",
+      "height": 900.0,
+      "width": 1280.0,
+      "durationMs": 22919.0,
+      "audioStreams": 1.0,
+      "sha256": "eff70c803fe723f6f7c81829ea386da00eb40747dde7b24f6d6235c903f7271e"
+    },
+    "renderContract": {
+      "width": 1280.0,
+      "originalAudioPreserved": true,
+      "height": 900.0,
+      "sourcePicture": {
+        "y": 76.0,
+        "height": 720.0,
+        "x": 0.0,
+        "width": 1280.0
+      },
+      "overlaysOutsideSourcePicture": true
+    },
+    "videoUrl": "https://d2x8td5d05xg8h.cloudfront.net/product/outputs/c6c9429c9c05434988bb2d57d5a25c61/enhanced.mp4",
+    "runId": "c6c9429c9c05434988bb2d57d5a25c61",
+    "usage": {
+      "outputTokens": 2783.0,
+      "totalTokens": 53321.0,
+      "inputTokens": 50538.0
+    },
+    "mode": "story",
+    "trace": [
+      {
+        "status": "succeeded",
+        "requestId": "c6c9429c9c05434988bb2d57d5a25c61",
+        "toolUseId": "tooluse_wYrfFT0mm5uZKXWt5ONMBK",
+        "input": {
+          "frame_ids": [
+            "frame-12000",
+            "frame-15000",
+            "frame-16000",
+            "frame-17000",
+            "frame-17500",
+            "frame-18000"
+          ]
+        },
+        "step": 1.0,
+        "elapsedMs": 527.0,
+        "tool": "inspect_frames",
+        "round": 1.0,
+        "result": {
+          "sourceType": "actual_s3_image_bytes",
+          "frames": [
+            {
+              "id": "frame-12000",
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/amen-12s.jpg",
+              "timestamp_ms": 12000.0,
+              "bytes": 230431.0,
+              "sha256": "4d4fcac53a2cd9fe6ad7fa586a31115c1ad1d6d714ef3ec3e54fd3d10a11f753"
+            },
+            {
+              "timestamp_ms": 15000.0,
+              "id": "frame-15000",
+              "sha256": "5075aba9e9cf1566011d1aefb2cd79d823a777721c5b8821205427f7b4f506bb",
+              "bytes": 247922.0,
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/amen-15s.jpg"
+            },
+            {
+              "bytes": 236224.0,
+              "id": "frame-16000",
+              "sha256": "ac04d79d2d1c04bab2f82ce4a0c672a3c6f06bfe9294bc9e839919eed70793d1",
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/amen-16.0s.jpg",
+              "timestamp_ms": 16000.0
+            },
+            {
+              "sha256": "a4dcc62a9565e9c6aec94d06d521b9350ba666b5d0620eee69ff689e81e77c74",
+              "bytes": 222494.0,
+              "id": "frame-17000",
+              "timestamp_ms": 17000.0,
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/amen-17.0s.jpg"
+            },
+            {
+              "timestamp_ms": 17500.0,
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/amen-17.5s.jpg",
+              "id": "frame-17500",
+              "bytes": 230053.0,
+              "sha256": "d514a20a52ba2ddfe9d9ba949d44fefa39e342b967deb77bbee3e949c669450e"
+            },
+            {
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/amen-18s.jpg",
+              "bytes": 231039.0,
+              "sha256": "cd662b57258d6b0d3435b9e413b9bafe73633749c785fdc898cbfab04c47b3ba",
+              "id": "frame-18000",
+              "timestamp_ms": 18000.0
+            }
+          ]
+        }
+      },
+      {
+        "toolUseId": "tooluse_g1HrdZI2YTPWc4i7UKSEog",
+        "input": {},
+        "elapsedMs": 24.0,
+        "status": "succeeded",
+        "round": 1.0,
+        "tool": "read_official_event",
+        "result": {
+          "provenance": {
+            "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/product/data/stories.json",
+            "sha256": "e34b74219259c221ab07c0d0df41b5275c94799ad3e9cafd6030d1344f9811df",
+            "association": "curated_practice_video_mapping_not_automatic_event_matching"
+          },
+          "officialEvent": {
+            "evidenceUrls": [
+              "https://www.nba.com/game/hou-vs-dal-0022500491/play-by-play",
+              "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500491&playerId=1641708"
+            ],
+            "actionNumber": 396.0,
+            "description": "第三节 7:25，阿门·汤普森急停跳投命中两分，官方记录杜兰特助攻；火箭追至 62 比 63。",
+            "expectedFg": 0.445,
+            "bindingFile": "event-bindings.json",
+            "method": "AI 助手实际查看抽帧后编辑锚定球员号码、节次、时钟区间与前后比分；确定性程序唯一匹配 NBA.com 出手，再以 gpShot.eventId = PBP.actionNumber 关联，并交叉校验球员、节次、命中及两分类型。",
+            "gameId": "0022500491",
+            "verified": true,
+            "playerId": "1641708",
+            "actionId": 285.0,
+            "eventId": 396.0,
+            "made": true,
+            "shotLocation": {
+              "locX": "19",
+              "locY": "46",
+              "side": "left"
+            },
+            "locationLimitation": "官网出手点位，不是视频像素或逐帧轨迹；当前产品未把这些点位贴到球员脚下。",
+            "period": 3.0,
+            "clock": "7:25",
+            "shotValue": 2.0
+          },
+          "evidence": [
+            {
+              "videoTime": 0.0,
+              "scoreboard": {
+                "clock": "7:45",
+                "score": {
+                  "HOU": 60.0,
+                  "DAL": 63.0
+                }
+              },
+              "sourceUrl": "/samples/amen.mp4#t=0",
+              "annotationMethod": "AI 助手查看 0、15、16、17.5、18、21 秒抽帧，记录号码、节次、比赛时钟及比分；17.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "humanExpertReviewed": false,
+              "id": "amen-frame-0",
+              "body": "第三节，火箭落后三分。",
+              "frameUrl": "/frames/amen-00s.jpg",
+              "kind": "observation",
+              "title": "画面 · 0 秒",
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip"
+            },
+            {
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "annotationMethod": "AI 助手查看 0、15、16、17.5、18、21 秒抽帧，记录号码、节次、比赛时钟及比分；17.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "kind": "observation",
+              "body": "白衣 7 号持球，深衣 00 号在正面，3 号靠近。",
+              "frameUrl": "/frames/amen-15s.jpg",
+              "id": "amen-frame-15",
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "title": "画面 · 15 秒",
+              "humanExpertReviewed": false,
+              "videoTime": 15.0,
+              "scoreboard": {
+                "clock": "7:30",
+                "shotClock": "4.5"
+              },
+              "sourceUrl": "/samples/amen.mp4#t=15"
+            },
+            {
+              "annotationMethod": "AI 助手查看 0、15、16、17.5、18、21 秒抽帧，记录号码、节次、比赛时钟及比分；17.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "kind": "observation",
+              "body": "白衣 1 号持球，球已从先前的 7 号手中转移。",
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "videoTime": 16.0,
+              "frameUrl": "/frames/amen-16.0s.jpg",
+              "sourceUrl": "/samples/amen.mp4#t=16",
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "humanExpertReviewed": false,
+              "scoreboard": {
+                "shotClock": "3.5",
+                "clock": "7:29"
+              },
+              "id": "amen-frame-16",
+              "title": "画面 · 16 秒"
+            },
+            {
+              "videoTime": 17.5,
+              "frameUrl": "/frames/amen-17.5s.jpg",
+              "kind": "observation",
+              "humanExpertReviewed": false,
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "scoreboard": {
+                "clock": "7:27",
+                "shotClock": "2.1"
+              },
+              "annotationMethod": "AI 助手查看 0、15、16、17.5、18、21 秒抽帧，记录号码、节次、比赛时钟及比分；17.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "id": "amen-frame-17-5",
+              "body": "深衣 00 号已起跳，白衣 1 号仍持球。",
+              "title": "画面 · 17.5 秒",
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "sourceUrl": "/samples/amen.mp4#t=17.5"
+            },
+            {
+              "frameUrl": "/frames/amen-18s.jpg",
+              "annotationMethod": "AI 助手查看 0、15、16、17.5、18、21 秒抽帧，记录号码、节次、比赛时钟及比分；17.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "kind": "observation",
+              "body": "白衣 1 号起跳投篮，深衣 00 号正在下落。",
+              "videoTime": 18.0,
+              "id": "amen-frame-18",
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "sourceUrl": "/samples/amen.mp4#t=18",
+              "humanExpertReviewed": false,
+              "scoreboard": {
+                "shotClock": "1.6",
+                "clock": "7:27"
+              },
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "title": "画面 · 18 秒"
+            },
+            {
+              "videoTime": 21.0,
+              "title": "画面 · 21 秒",
+              "kind": "observation",
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "id": "amen-frame-21",
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "frameUrl": "/frames/amen-21s.jpg",
+              "body": "火箭得分更新为 62，独行侠仍为 63。",
+              "sourceUrl": "/samples/amen.mp4#t=21",
+              "annotationMethod": "AI 助手查看 0、15、16、17.5、18、21 秒抽帧，记录号码、节次、比赛时钟及比分；17.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "scoreboard": {
+                "score": {
+                  "DAL": 63.0,
+                  "HOU": 62.0
+                },
+                "clock": "7:24"
+              },
+              "humanExpertReviewed": false
+            },
+            {
+              "playerId": "1641708",
+              "actionId": 285.0,
+              "officialClock": "7:25",
+              "videoTime": 19.5,
+              "kind": "official",
+              "gameId": "0022500491",
+              "sourcePath": "playByPlay.actions[actionNumber=396 & isFieldGoal=1]",
+              "title": "NBA 官方逐回合记录",
+              "id": "amen-pbp-396",
+              "sourceLabel": "NBA.com · Play-by-Play",
+              "actionNumber": 396.0,
+              "sourceUrl": "https://www.nba.com/game/hou-vs-dal-0022500491/play-by-play",
+              "eventId": 396.0,
+              "period": 3.0,
+              "videoTimeMeaning": "编辑选择的数据揭示节点，不是官方出手时钟的逐帧换算。",
+              "body": "第三节 7:25，阿门·汤普森急停跳投命中两分，官方记录杜兰特助攻；火箭追至 62 比 63。"
+            },
+            {
+              "gameId": "0022500491",
+              "videoTime": 19.5,
+              "eventId": 396.0,
+              "id": "amen-xfg-396",
+              "sourceLabel": "NBA 中国 · 逐次出手数据",
+              "definitionUrl": "https://china.nba.cn/inside-the-game/glossary",
+              "display": "44.5%",
+              "playerId": "1641708",
+              "title": "这次出手的预期投篮命中率",
+              "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500491&playerId=1641708",
+              "sourcePath": "data.shotList[eventId=396].value",
+              "value": 0.445,
+              "body": "NBA 中国官网这次出手的原始数值为 0.445，换算显示为 44.5%。这是机会质量的参考，不是球员的个人命中保证。",
+              "kind": "official",
+              "unit": "ratio"
+            },
+            {
+              "id": "amen-roster",
+              "gameId": "0022500491",
+              "body": "NBA 本场名单：火箭 1 号为阿门·汤普森，7 号为凯文·杜兰特；独行侠 00 号为马克斯·克里斯蒂。",
+              "title": "本场身份与号码核对",
+              "sourceLabel": "NBA.com · 本场名单",
+              "sourceUrl": "https://www.nba.com/game/hou-vs-dal-0022500491/play-by-play",
+              "sourcePath": "game.homeTeamPlayers / game.awayTeamPlayers",
+              "playerId": "1641708",
+              "kind": "official"
+            }
+          ],
+          "storyOptions": [
+            {
+              "description": "球从杜兰特来到阿门手中。先看阿门接球后的推进，再看他与防守人的起跳顺序。",
+              "evidenceIds": [
+                "amen-frame-15",
+                "amen-frame-16",
+                "amen-roster"
+              ],
+              "focusTime": 16.0,
+              "id": "player",
+              "label": "接球的阿门"
+            },
+            {
+              "evidenceIds": [
+                "amen-frame-17-5",
+                "amen-frame-18",
+                "amen-roster"
+              ],
+              "description": "克里斯蒂已经起跳，阿门还把球握在手里。接着看阿门起跳出手，两人的节奏在这里错开。",
+              "id": "defender",
+              "label": "先起跳的防守人",
+              "focusTime": 17.5
+            },
+            {
+              "focusTime": 19.5,
+              "label": "这一球的数据",
+              "evidenceIds": [
+                "amen-pbp-396",
+                "amen-xfg-396",
+                "amen-frame-21"
+              ],
+              "id": "data",
+              "description": "阿门投进两分，杜兰特记一次助攻。再看预期投篮命中率，为这次进攻补上机会质量这一层信息。"
+            }
+          ],
+          "metrics": [
+            {
+              "definition": "NBA 官方对本次出手机会的概率型参考值；不是这个球员的个人命中率或胜率。",
+              "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500491&playerId=1641708",
+              "evidenceId": "amen-xfg-396",
+              "barRatio": 0.445,
+              "rawValue": 0.445,
+              "revealAt": 19.5,
+              "id": "amen-shot-metric",
+              "unit": "ratio",
+              "label": "预期投篮命中率",
+              "display": "44.5%",
+              "gameId": "0022500491",
+              "eventId": 396.0,
+              "playerId": "1641708"
+            }
+          ],
+          "chapterSuggestions": [
+            {
+              "end": 15.0,
+              "caption": "第三节，火箭落后三分。",
+              "kind": "observation",
+              "id": "context",
+              "title": "先看局面",
+              "evidenceIds": [
+                "amen-frame-0"
+              ],
+              "start": 0.0
+            },
+            {
+              "start": 15.0,
+              "end": 16.8,
+              "title": "球来到阿门手中",
+              "evidenceIds": [
+                "amen-frame-15",
+                "amen-frame-16",
+                "amen-roster"
+              ],
+              "kind": "observation",
+              "id": "transfer",
+              "caption": "持球人发生变化，进攻时钟所剩不多。"
+            },
+            {
+              "id": "key-beat",
+              "title": "慢看这一拍",
+              "start": 16.8,
+              "evidenceIds": [
+                "amen-frame-17-5",
+                "amen-frame-18"
+              ],
+              "end": 18.5,
+              "caption": "防守人先起跳时，阿门仍持球。",
+              "kind": "observation"
+            },
+            {
+              "start": 18.5,
+              "title": "用数据回看机会",
+              "caption": "官方确认跳投命中，并记录杜兰特助攻。",
+              "id": "record",
+              "evidenceIds": [
+                "amen-pbp-396",
+                "amen-xfg-396",
+                "amen-frame-21"
+              ],
+              "end": 22.894875,
+              "kind": "official"
+            }
+          ],
+          "allowedCourtLocations": []
+        },
+        "step": 2.0,
+        "requestId": "c6c9429c9c05434988bb2d57d5a25c61"
+      },
+      {
+        "input": {
+          "plan": {
+            "summary": "进攻时钟告急，持球人接球后推进。防守人先行起跳，持球人此时仍握球；随后持球人起跳出手，防守人已在下落。官方确认这一球命中。",
+            "title": "先起跳的防守人",
+            "chapters": [
+              {
+                "start": 15.0,
+                "end": 16.8,
+                "caption": "白衣七号持球，深衣防守人贴近；随后球转移至白衣一号手中。",
+                "focus": "持球人与防守人",
+                "evidenceIds": [
+                  "frame-15000",
+                  "frame-16000",
+                  "amen-roster"
+                ],
+                "id": "ch1",
+                "title": "球来到阿门手中"
+              },
+              {
+                "focus": "起跳先后顺序",
+                "id": "ch2",
+                "caption": "防守人已起跳，持球人仍握球；随后持球人起跳出手，防守人正在下落。",
+                "end": 18.5,
+                "title": "慢看这一拍",
+                "evidenceIds": [
+                  "frame-17500",
+                  "frame-18000",
+                  "amen-roster"
+                ],
+                "start": 16.8
+              },
+              {
+                "start": 18.5,
+                "title": "官方记录与机会质量",
+                "focus": "官方结果与指标",
+                "caption": "官方确认跳投命中，并记录助攻；预期投篮命中率见下方数据。",
+                "evidenceIds": [
+                  "amen-pbp-396",
+                  "amen-xfg-396"
+                ],
+                "id": "ch3",
+                "end": 22.894
+              }
+            ],
+            "perspective": "defender"
+          }
+        },
+        "tool": "validate_story",
+        "elapsedMs": 2.0,
+        "status": "rejected",
+        "result": {
+          "error": "chapter.caption: numeric phrase '七号' is not allowed; describe visible conditions without quantities"
+        },
+        "step": 3.0,
+        "requestId": "c6c9429c9c05434988bb2d57d5a25c61",
+        "round": 2.0,
+        "toolUseId": "tooluse_m7UF5qOHOIedXbMhXyiolC"
+      },
+      {
+        "tool": "validate_story",
+        "result": {
+          "error": "chapter.caption: probability/contribution phrase '命中率' must be left to copied official metric labels"
+        },
+        "requestId": "c6c9429c9c05434988bb2d57d5a25c61",
+        "round": 3.0,
+        "input": {
+          "plan": {
+            "title": "先起跳的防守人",
+            "chapters": [
+              {
+                "title": "球来到阿门手中",
+                "evidenceIds": [
+                  "frame-15000",
+                  "frame-16000",
+                  "amen-roster"
+                ],
+                "end": 16.8,
+                "focus": "持球人与防守人",
+                "id": "ch1",
+                "start": 15.0,
+                "caption": "白衣持球人推进，防守人贴近跟防。"
+              },
+              {
+                "title": "慢看这一拍",
+                "caption": "防守人已起跳，持球人仍握球；随后持球人起跳出手，防守人正在下落。",
+                "focus": "起跳先后顺序",
+                "start": 16.8,
+                "end": 18.5,
+                "evidenceIds": [
+                  "frame-17500",
+                  "frame-18000",
+                  "amen-roster"
+                ],
+                "id": "ch2"
+              },
+              {
+                "focus": "官方结果与指标",
+                "evidenceIds": [
+                  "amen-pbp-396",
+                  "amen-xfg-396"
+                ],
+                "caption": "官方确认跳投命中，并记录助攻；预期投篮命中率见下方。",
+                "end": 22.894,
+                "id": "ch3",
+                "start": 18.5,
+                "title": "官方记录与机会质量"
+              }
+            ],
+            "summary": "进攻时钟告急，持球人接球后推进。防守人先行起跳，持球人此时仍握球；随后持球人起跳出手，防守人已在下落。官方确认这一球命中。",
+            "perspective": "defender"
+          }
+        },
+        "toolUseId": "tooluse_xXgly8I485keoNZkZkqRtf",
+        "status": "rejected",
+        "elapsedMs": 0.0,
+        "step": 4.0
+      },
+      {
+        "tool": "validate_story",
+        "toolUseId": "tooluse_C98u6u3OwEaLaPqeaXsGnQ",
+        "requestId": "c6c9429c9c05434988bb2d57d5a25c61",
+        "status": "succeeded",
+        "result": {
+          "validation": {
+            "passed": true,
+            "inspectedFrameIds": [
+              "frame-12000",
+              "frame-15000",
+              "frame-16000",
+              "frame-17000",
+              "frame-17500",
+              "frame-18000"
+            ],
+            "protocol": "product-story-v1",
+            "sourceDurationMs": 22894.875,
+            "chapterCount": 3.0,
+            "scope": "Structural and provenance validation; not an independent factual or basketball-accuracy certification",
+            "checks": [
+              "known_evidence_ids",
+              "cited_frames_actually_inspected",
+              "source_time_bounds",
+              "nonoverlapping_chapters",
+              "no_model_authored_numbers",
+              "official_metrics_copied_verbatim",
+              "known_causal_static_phrases_rejected",
+              "court_location_vocabulary_from_source_text"
+            ]
+          },
+          "passed": true
+        },
+        "input": {
+          "plan": {
+            "chapters": [
+              {
+                "evidenceIds": [
+                  "frame-15000",
+                  "frame-16000",
+                  "amen-roster"
+                ],
+                "end": 16.8,
+                "caption": "白衣持球人推进，防守人贴近跟防。",
+                "focus": "持球人与防守人",
+                "id": "ch1",
+                "start": 15.0,
+                "title": "球来到阿门手中"
+              },
+              {
+                "evidenceIds": [
+                  "frame-17500",
+                  "frame-18000",
+                  "amen-roster"
+                ],
+                "title": "慢看这一拍",
+                "focus": "起跳先后顺序",
+                "id": "ch2",
+                "caption": "防守人已起跳，持球人仍握球；随后持球人起跳出手，防守人正在下落。",
+                "end": 18.5,
+                "start": 16.8
+              },
+              {
+                "end": 22.894,
+                "caption": "官方确认跳投命中，并记录助攻；出手机会质量见下方指标。",
+                "id": "ch3",
+                "start": 18.5,
+                "title": "官方记录与机会质量",
+                "evidenceIds": [
+                  "amen-pbp-396",
+                  "amen-xfg-396"
+                ],
+                "focus": "官方结果与指标"
+              }
+            ],
+            "summary": "进攻时钟告急，持球人接球后推进。防守人先行起跳，持球人此时仍握球；随后持球人起跳出手，防守人已在下落。官方确认这一球命中。",
+            "perspective": "defender",
+            "title": "先起跳的防守人"
+          }
+        },
+        "round": 4.0,
+        "step": 5.0,
+        "elapsedMs": 0.0
+      }
+    ],
+    "evidence": [
+      {
+        "id": "amen-frame-0",
+        "annotationMethod": "AI 助手查看 0、15、16、17.5、18、21 秒抽帧，记录号码、节次、比赛时钟及比分；17.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "scoreboard": {
+          "clock": "7:45",
+          "score": {
+            "HOU": 60.0,
+            "DAL": 63.0
+          }
+        },
+        "frameUrl": "/frames/amen-00s.jpg",
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "humanExpertReviewed": false,
+        "title": "画面 · 0 秒",
+        "kind": "observation",
+        "sourceUrl": "/samples/amen.mp4#t=0",
+        "body": "第三节，火箭落后三分。",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "videoTime": 0.0,
+        "description": "第三节，火箭落后三分。"
+      },
+      {
+        "scoreboard": {
+          "clock": "7:30",
+          "shotClock": "4.5"
+        },
+        "annotationMethod": "AI 助手查看 0、15、16、17.5、18、21 秒抽帧，记录号码、节次、比赛时钟及比分；17.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "description": "白衣 7 号持球，深衣 00 号在正面，3 号靠近。",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "frameUrl": "/frames/amen-15s.jpg",
+        "kind": "observation",
+        "videoTime": 15.0,
+        "id": "amen-frame-15",
+        "sourceUrl": "/samples/amen.mp4#t=15",
+        "humanExpertReviewed": false,
+        "body": "白衣 7 号持球，深衣 00 号在正面，3 号靠近。",
+        "title": "画面 · 15 秒"
+      },
+      {
+        "frameUrl": "/frames/amen-16.0s.jpg",
+        "kind": "observation",
+        "title": "画面 · 16 秒",
+        "sourceUrl": "/samples/amen.mp4#t=16",
+        "body": "白衣 1 号持球，球已从先前的 7 号手中转移。",
+        "videoTime": 16.0,
+        "annotationMethod": "AI 助手查看 0、15、16、17.5、18、21 秒抽帧，记录号码、节次、比赛时钟及比分；17.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "humanExpertReviewed": false,
+        "scoreboard": {
+          "shotClock": "3.5",
+          "clock": "7:29"
+        },
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "description": "白衣 1 号持球，球已从先前的 7 号手中转移。",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "id": "amen-frame-16"
+      },
+      {
+        "title": "画面 · 17.5 秒",
+        "videoTime": 17.5,
+        "scoreboard": {
+          "shotClock": "2.1",
+          "clock": "7:27"
+        },
+        "id": "amen-frame-17-5",
+        "frameUrl": "/frames/amen-17.5s.jpg",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "annotationMethod": "AI 助手查看 0、15、16、17.5、18、21 秒抽帧，记录号码、节次、比赛时钟及比分；17.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "kind": "observation",
+        "humanExpertReviewed": false,
+        "description": "深衣 00 号已起跳，白衣 1 号仍持球。",
+        "body": "深衣 00 号已起跳，白衣 1 号仍持球。",
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "sourceUrl": "/samples/amen.mp4#t=17.5"
+      },
+      {
+        "body": "白衣 1 号起跳投篮，深衣 00 号正在下落。",
+        "title": "画面 · 18 秒",
+        "scoreboard": {
+          "clock": "7:27",
+          "shotClock": "1.6"
+        },
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "kind": "observation",
+        "description": "白衣 1 号起跳投篮，深衣 00 号正在下落。",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "sourceUrl": "/samples/amen.mp4#t=18",
+        "videoTime": 18.0,
+        "frameUrl": "/frames/amen-18s.jpg",
+        "humanExpertReviewed": false,
+        "id": "amen-frame-18",
+        "annotationMethod": "AI 助手查看 0、15、16、17.5、18、21 秒抽帧，记录号码、节次、比赛时钟及比分；17.5 秒为编辑选定慢看节点，非精确离手帧。"
+      },
+      {
+        "scoreboard": {
+          "clock": "7:24",
+          "score": {
+            "HOU": 62.0,
+            "DAL": 63.0
+          }
+        },
+        "humanExpertReviewed": false,
+        "title": "画面 · 21 秒",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "description": "火箭得分更新为 62，独行侠仍为 63。",
+        "id": "amen-frame-21",
+        "sourceUrl": "/samples/amen.mp4#t=21",
+        "body": "火箭得分更新为 62，独行侠仍为 63。",
+        "videoTime": 21.0,
+        "kind": "observation",
+        "frameUrl": "/frames/amen-21s.jpg",
+        "annotationMethod": "AI 助手查看 0、15、16、17.5、18、21 秒抽帧，记录号码、节次、比赛时钟及比分；17.5 秒为编辑选定慢看节点，非精确离手帧。"
+      },
+      {
+        "kind": "official",
+        "playerId": "1641708",
+        "videoTimeMeaning": "编辑选择的数据揭示节点，不是官方出手时钟的逐帧换算。",
+        "sourceUrl": "https://www.nba.com/game/hou-vs-dal-0022500491/play-by-play",
+        "sourceLabel": "NBA.com · Play-by-Play",
+        "sourcePath": "playByPlay.actions[actionNumber=396 & isFieldGoal=1]",
+        "gameId": "0022500491",
+        "description": "第三节 7:25，阿门·汤普森急停跳投命中两分，官方记录杜兰特助攻；火箭追至 62 比 63。",
+        "period": 3.0,
+        "videoTime": 19.5,
+        "title": "NBA 官方逐回合记录",
+        "id": "amen-pbp-396",
+        "eventId": 396.0,
+        "actionNumber": 396.0,
+        "body": "第三节 7:25，阿门·汤普森急停跳投命中两分，官方记录杜兰特助攻；火箭追至 62 比 63。",
+        "officialClock": "7:25",
+        "actionId": 285.0
+      },
+      {
+        "sourceLabel": "NBA 中国 · 逐次出手数据",
+        "gameId": "0022500491",
+        "kind": "official",
+        "title": "这次出手的预期投篮命中率",
+        "playerId": "1641708",
+        "definitionUrl": "https://china.nba.cn/inside-the-game/glossary",
+        "unit": "ratio",
+        "value": 0.445,
+        "id": "amen-xfg-396",
+        "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500491&playerId=1641708",
+        "videoTime": 19.5,
+        "body": "NBA 中国官网这次出手的原始数值为 0.445，换算显示为 44.5%。这是机会质量的参考，不是球员的个人命中保证。",
+        "sourcePath": "data.shotList[eventId=396].value",
+        "description": "NBA 中国官网这次出手的原始数值为 0.445，换算显示为 44.5%。这是机会质量的参考，不是球员的个人命中保证。",
+        "display": "44.5%",
+        "eventId": 396.0
+      },
+      {
+        "playerId": "1641708",
+        "gameId": "0022500491",
+        "sourcePath": "game.homeTeamPlayers / game.awayTeamPlayers",
+        "kind": "official",
+        "description": "NBA 本场名单：火箭 1 号为阿门·汤普森，7 号为凯文·杜兰特；独行侠 00 号为马克斯·克里斯蒂。",
+        "body": "NBA 本场名单：火箭 1 号为阿门·汤普森，7 号为凯文·杜兰特；独行侠 00 号为马克斯·克里斯蒂。",
+        "sourceLabel": "NBA.com · 本场名单",
+        "title": "本场身份与号码核对",
+        "id": "amen-roster",
+        "sourceUrl": "https://www.nba.com/game/hou-vs-dal-0022500491/play-by-play"
+      },
+      {
+        "videoTime": 12.0,
+        "kind": "video_frame",
+        "id": "frame-12000",
+        "sourceLabel": "原始视频抽帧",
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/amen-12s.jpg",
+        "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/amen-12s.jpg",
+        "timestampMs": 12000.0,
+        "title": "本次实际输入帧",
+        "description": "本次实际输入帧",
+        "timeSeconds": 12.0
+      },
+      {
+        "videoTime": 15.0,
+        "id": "frame-15000",
+        "timeSeconds": 15.0,
+        "description": "本次实际输入帧",
+        "timestampMs": 15000.0,
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/amen-15s.jpg",
+        "kind": "video_frame",
+        "title": "本次实际输入帧",
+        "sourceLabel": "原始视频抽帧",
+        "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/amen-15s.jpg"
+      },
+      {
+        "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/amen-16.0s.jpg",
+        "videoTime": 16.0,
+        "timestampMs": 16000.0,
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/amen-16.0s.jpg",
+        "description": "本次实际输入帧",
+        "sourceLabel": "原始视频抽帧",
+        "title": "本次实际输入帧",
+        "id": "frame-16000",
+        "kind": "video_frame",
+        "timeSeconds": 16.0
+      },
+      {
+        "title": "本次实际输入帧",
+        "kind": "video_frame",
+        "videoTime": 17.0,
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/amen-17.0s.jpg",
+        "sourceLabel": "原始视频抽帧",
+        "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/amen-17.0s.jpg",
+        "description": "本次实际输入帧",
+        "timeSeconds": 17.0,
+        "id": "frame-17000",
+        "timestampMs": 17000.0
+      },
+      {
+        "sourceLabel": "原始视频抽帧",
+        "kind": "video_frame",
+        "videoTime": 17.5,
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/amen-17.5s.jpg",
+        "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/amen-17.5s.jpg",
+        "title": "本次实际输入帧",
+        "description": "本次实际输入帧",
+        "id": "frame-17500",
+        "timestampMs": 17500.0,
+        "timeSeconds": 17.5
+      },
+      {
+        "kind": "video_frame",
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/frames/amen-18s.jpg",
+        "videoTime": 18.0,
+        "title": "本次实际输入帧",
+        "timestampMs": 18000.0,
+        "id": "frame-18000",
+        "timeSeconds": 18.0,
+        "sourceLabel": "原始视频抽帧",
+        "description": "本次实际输入帧",
+        "frameUrl": "https://d2x8td5d05xg8h.cloudfront.net/frames/amen-18s.jpg"
+      }
+    ],
+    "validation": {
+      "inspectedFrameIds": [
+        "frame-12000",
+        "frame-15000",
+        "frame-16000",
+        "frame-17000",
+        "frame-17500",
+        "frame-18000"
+      ],
+      "scope": "Structural and provenance validation; not an independent factual or basketball-accuracy certification",
+      "protocol": "product-story-v1",
+      "checks": [
+        "known_evidence_ids",
+        "cited_frames_actually_inspected",
+        "source_time_bounds",
+        "nonoverlapping_chapters",
+        "no_model_authored_numbers",
+        "official_metrics_copied_verbatim",
+        "known_causal_static_phrases_rejected",
+        "court_location_vocabulary_from_source_text"
+      ],
+      "chapterCount": 3.0,
+      "sourceDurationMs": 22894.875,
+      "passed": true
+    },
+    "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:962768510637:runtime/Team02Readiness20261006-btpD1PFAGy",
+    "modelId": "global.anthropic.claude-sonnet-4-6",
+    "sourceVideo": {
+      "duration_ms": 22894.875,
+      "id": "amen",
+      "width": 1920.0,
+      "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/samples/amen.mp4",
+      "sha256": "7ec745f5f1e75b0c6d6dd27d409875f67c2ac3ab76c73f7123794c96be5aee22",
+      "name": "训练_阿门1月4日 .mp4",
+      "height": 1080.0
+    },
+    "analysisUrl": "https://d2x8td5d05xg8h.cloudfront.net/product/outputs/c6c9429c9c05434988bb2d57d5a25c61/analysis.json",
+    "elapsedSeconds": 72.8,
+    "sample": "amen",
+    "source": {
+      "sha256": "e34b74219259c221ab07c0d0df41b5275c94799ad3e9cafd6030d1344f9811df",
+      "association": "curated_practice_video_mapping_not_automatic_event_matching",
+      "manifest": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-obihaykkmuba/product/data/stories.json"
+    },
+    "preservesSourceTimeline": true,
+    "officialEvent": {
+      "actionId": 285.0,
+      "description": "第三节 7:25，阿门·汤普森急停跳投命中两分，官方记录杜兰特助攻；火箭追至 62 比 63。",
+      "shotValue": 2.0,
+      "shotLocation": {
+        "locX": "19",
+        "side": "left",
+        "locY": "46"
+      },
+      "actionNumber": 396.0,
+      "period": 3.0,
+      "locationLimitation": "官网出手点位，不是视频像素或逐帧轨迹；当前产品未把这些点位贴到球员脚下。",
+      "expectedFg": 0.445,
+      "verified": true,
+      "gameId": "0022500491",
+      "eventId": 396.0,
+      "clock": "7:25",
+      "method": "AI 助手实际查看抽帧后编辑锚定球员号码、节次、时钟区间与前后比分；确定性程序唯一匹配 NBA.com 出手，再以 gpShot.eventId = PBP.actionNumber 关联，并交叉校验球员、节次、命中及两分类型。",
+      "playerId": "1641708",
+      "bindingFile": "event-bindings.json",
+      "made": true,
+      "evidenceUrls": [
+        "https://www.nba.com/game/hou-vs-dal-0022500491/play-by-play",
+        "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500491&playerId=1641708"
+      ]
+    },
+    "protocol_version": "product-story-v1",
+    "source_frame_times_ms": [
+      12000.0,
+      15000.0,
+      16000.0,
+      17000.0,
+      17500.0,
+      18000.0
+    ],
+    "summary": "进攻时钟告急，持球人接球后推进。防守人先行起跳，持球人此时仍握球；随后持球人起跳出手，防守人已在下落。官方确认这一球命中。",
+    "plan": {
+      "perspective": "defender",
+      "summary": "进攻时钟告急，持球人接球后推进。防守人先行起跳，持球人此时仍握球；随后持球人起跳出手，防守人已在下落。官方确认这一球命中。",
+      "title": "先起跳的防守人",
+      "metrics": [
+        {
+          "eventId": 396.0,
+          "display": "44.5%",
+          "label": "预期投篮命中率",
+          "gameId": "0022500491",
+          "playerId": "1641708",
+          "id": "amen-shot-metric",
+          "unit": "ratio",
+          "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500491&playerId=1641708",
+          "revealAt": 19.5,
+          "definition": "NBA 官方对本次出手机会的概率型参考值；不是这个球员的个人命中率或胜率。",
+          "rawValue": 0.445,
+          "evidenceId": "amen-xfg-396",
+          "barRatio": 0.445
+        }
+      ],
+      "chapters": [
+        {
+          "focus": "持球人与防守人",
+          "id": "ch1",
+          "title": "球来到阿门手中",
+          "end": 16.8,
+          "start": 15.0,
+          "caption": "白衣持球人推进，防守人贴近跟防。",
+          "evidenceIds": [
+            "frame-15000",
+            "frame-16000",
+            "amen-roster"
+          ]
+        },
+        {
+          "title": "慢看这一拍",
+          "start": 16.8,
+          "evidenceIds": [
+            "frame-17500",
+            "frame-18000",
+            "amen-roster"
+          ],
+          "end": 18.5,
+          "caption": "防守人已起跳，持球人仍握球；随后持球人起跳出手，防守人正在下落。",
+          "id": "ch2",
+          "focus": "起跳先后顺序"
+        },
+        {
+          "start": 18.5,
+          "caption": "官方确认跳投命中，并记录助攻；出手机会质量见下方指标。",
+          "title": "官方记录与机会质量",
+          "focus": "官方结果与指标",
+          "evidenceIds": [
+            "amen-pbp-396",
+            "amen-xfg-396"
+          ],
+          "end": 22.894,
+          "id": "ch3"
+        }
+      ],
+      "associationMethod": "curated_practice_video_mapping_not_automatic_event_matching"
+    },
+    "runtimeSessionId": "30c667fc-f09f-426d-9eb6-bcc1c0c27fac",
+    "inferenceSource": "bedrock_converse_tool_loop"
+  },
+  "contentReview": {
+    "acceptedForShowcase": true,
+    "reviewer": "AI assistant; not human expert certification",
+    "reviewedAt": "2026-10-07T11:52:46.948891+00:00",
+    "findings": [
+      "Reviewed actual 18-second render against observed source frames; defender-first and shooter-later ordering is supported.",
+      "Official event 396, xFG 0.445 and final result preserved.",
+      "No unsupported arc-top, deliberate deception, static-motion or opened-space claims in this new plan."
+    ],
+    "minorPresentationIssue": "Final caption says 下方指标 while burned metric is top-right; does not change metric value or basketball claim."
+  },
+  "browserVerification": {
+    "verifiedAt": "2026-10-07T11:53:13.554721+00:00",
+    "browser": "native Google Chrome via CUA",
+    "startedAtSeconds": 0,
+    "endedAtSeconds": 22.895,
+    "audioPlayingStateObserved": true,
+    "source": "actual browser-created job c6c9429c9c05434988bb2d57d5a25c61, no prerecorded substitution"
+  }
+}
