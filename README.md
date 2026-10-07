@@ -1,6 +1,6 @@
 # BroadcastCode「深度赛场」黑客松准备资料
 
-最后整理：2026-10-06（北京时间）。队伍：Team02。
+最后整理：2026-10-07（北京时间）。队伍：Team02。
 
 本项目的目标是参加 NBA / AWS BroadcastCode 12h 黑客松：用官方比赛视频和数据驱动 AI Agent 分析关键事件与战术，将真实数据标注烧录成完整增强视频，并通过 CloudFront 交互网页交付评委体验；解说可选。
 
@@ -52,6 +52,8 @@
 - 指南个别 GPU、Nova Lite、旧 Claude 前缀示例与本队后续通知和实测冲突；依 [核准更新](docs/2026-10-06-正式指南核准更新.md) 处理，保留既有 SageMaker 和模型白名单限制。
 
 ## 分享和迁移
+
+用户已于 10 月 7 日要求**每个可验证阶段及时推送源码，并保留本地存档**，替代此前暂不推送的安排。源码、部署代码、依赖锁定文件及接手文档持续保存到私有 GitHub；推送并核对远端后运行 `python3 scripts/archive-source.py`，在本机仓库旁的 `BroadcastCode-backups/` 保存 Git 历史和源码压缩包。服务器销毁后，从仓库或本地存档恢复并重新部署。详见[源码保存与恢复](docs/源码保存与恢复.md)。
 
 本目录已初始化 Git，远端为私有仓库 [Jackey0903/BroadcastCode](https://github.com/Jackey0903/BroadcastCode)，默认分支 `main`，已完成推送与 Portal 锁定绑定。赛事 GitHub App 仅获该仓库的代码和元数据读取权限。绑定不可自行更换；如有错误须联系组委会，不要重新绑定其他仓库。当前练习 URL 尚未作为正式作品提交，详见[绑定记录](readiness-lab/repository-binding.json)。
 

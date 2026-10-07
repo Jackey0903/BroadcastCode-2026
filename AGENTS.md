@@ -4,6 +4,8 @@
 
 ## 当前状态
 
+- 用户于 2026-10-07 明确要求源码及时推送私有 GitHub，并保留本地存档，**替代此前“暂不推送”的安排**。每完成一个可验证的开发阶段，同步源码、依赖锁定文件、CDK、必要配置样例与接手文档，检查无凭证后提交并推送到 `Jackey0903/BroadcastCode`；核对远端提交一致，再运行 `python3 scripts/archive-source.py` 生成本地源码与 Git 历史存档。不要只把源码留在可能销毁的云服务器，也不要等到比赛结束才推送。此授权不包含强制推送、重写历史或上传凭证。保存与恢复步骤见[源码存档说明](docs/源码保存与恢复.md)。赛前开发成果能否在正式比赛原样复用仍需主办方确认；当前 AWS 权限不构成赛事规则许可。
+
 - 最新终极指南与新版 Quick Start 已读取；规则、账号和历史服务/GPU 验证已完成。旧 `aws-validation/` 资源已删除，其 URL、ARN、桶名仅作历史证据。
 - 本轮已通过 CDK 部署 `readiness-lab/` 练习流水线：CloudFront → Lambda API → SQS → 视频 Worker → AgentCore/Claude → 完整 MP4 → S3/CloudFront，含 DynamoDB 任务状态。[当前入口](https://d2x8td5d05xg8h.cloudfront.net)对应 Stack `BroadcastCodeTeam02Readiness20261006` **保留**，不要按旧测试清理结论删除新资源。先读[本轮实测报告](readiness-lab/赛前准备实测报告-20261006.md)和[工程说明](readiness-lab/README.md)。
 - 弗拉格任务 `030eb6203d694a9d9e8a97c25755f9c1`（21.548 秒）与阿门任务 `4da872a6dac44ad49607b98865c43705`（22.895 秒）均完成，成片均在浏览器播放到末尾；独立下载、哈希、媒体时长、音轨、HTTP Range 206 和永久字幕检查通过。32 项离线测试通过。练习字幕为稀疏图像的模型观察，不是已对齐的官方深度数据；练习工程不是正式参赛产品或评分认证。
