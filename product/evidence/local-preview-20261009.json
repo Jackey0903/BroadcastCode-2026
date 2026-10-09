@@ -1,0 +1,119 @@
+{
+  "checkedAt": "2026-10-09T16:04:54.807088+08:00",
+  "scope": "loopback-only local preview; historical inference replay; no cloud contact or new generation",
+  "url": "http://127.0.0.1:4173/product/",
+  "issues": [],
+  "serviceReady": false,
+  "historicalJobs": [
+    {
+      "jobId": "81a74837370e46a890cbacb2069074e6",
+      "sample": "flagg",
+      "verifiedAt": "2026-10-07T12:02:10.035692+00:00"
+    },
+    {
+      "jobId": "ce008e75d25d4e2e8e88b57412f6c762",
+      "sample": "amen",
+      "verifiedAt": "2026-10-07T12:03:25.789662+00:00"
+    }
+  ],
+  "mediaChecks": [
+    {
+      "sample": "flagg",
+      "kind": "original",
+      "path": "/samples/flagg.mp4",
+      "httpStatus": 200,
+      "bytes": 83907519,
+      "sha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+      "sha256Matches": true,
+      "rangeStatus": 206,
+      "rangeMatches": true,
+      "headStatus": 200,
+      "headNoBody": true
+    },
+    {
+      "sample": "flagg",
+      "kind": "enhanced",
+      "path": "/product/outputs/81a74837370e46a890cbacb2069074e6/enhanced.mp4",
+      "httpStatus": 200,
+      "bytes": 9997821,
+      "sha256": "e1b390b689d43b48bdbfb6054111e34b1b785697f16b3b9e90f8aff6afbdf3d9",
+      "sha256Matches": true,
+      "rangeStatus": 206,
+      "rangeMatches": true,
+      "headStatus": 200,
+      "headNoBody": true
+    },
+    {
+      "sample": "amen",
+      "kind": "original",
+      "path": "/samples/amen.mp4",
+      "httpStatus": 200,
+      "bytes": 87308125,
+      "sha256": "7ec745f5f1e75b0c6d6dd27d409875f67c2ac3ab76c73f7123794c96be5aee22",
+      "sha256Matches": true,
+      "rangeStatus": 206,
+      "rangeMatches": true,
+      "headStatus": 200,
+      "headNoBody": true
+    },
+    {
+      "sample": "amen",
+      "kind": "enhanced",
+      "path": "/product/outputs/ce008e75d25d4e2e8e88b57412f6c762/enhanced.mp4",
+      "httpStatus": 200,
+      "bytes": 14989055,
+      "sha256": "8b0a20d36e5f63898e3c36676f3d491164ae77fe3aafc292b15fb6f7d178033f",
+      "sha256Matches": true,
+      "rangeStatus": 206,
+      "rangeMatches": true,
+      "headStatus": 200,
+      "headNoBody": true
+    }
+  ],
+  "originalAnalysisPreserved": true,
+  "entryRedirect": {
+    "status": 301,
+    "location": "/product/?story=amen"
+  },
+  "latestServerCheckedAt": "2026-10-09T16:12:44.934375+08:00",
+  "localFrames": 26,
+  "browserObservations": {
+    "browser": "Google Chrome via native accessibility UI",
+    "scope": "Local playback/attention reveal/history entry observed before final wording changes; final wording changes covered by offline behavior tests",
+    "enhancedPlayback": [
+      {
+        "sample": "flagg",
+        "jobId": "81a74837370e46a890cbacb2069074e6",
+        "playedToSeconds": 21.548,
+        "audioPlaybackStateObserved": true
+      },
+      {
+        "sample": "amen",
+        "jobId": "ce008e75d25d4e2e8e88b57412f6c762",
+        "playedToSeconds": 22.895,
+        "audioPlaybackStateObserved": true
+      }
+    ],
+    "flaggAttentionReveal": "defender",
+    "flaggFrameClick": {
+      "selectedSeconds": 16.5,
+      "originalVersionSelected": true,
+      "paused": true
+    },
+    "historyEntry": {
+      "sample": "amen",
+      "historicalLabelVisible": true,
+      "noNewInferenceNoticeVisible": true,
+      "generateButtonDisabled": true,
+      "actualSummaryVisible": true
+    },
+    "technicalDetailsExpansionVerified": false,
+    "remainingBrowserCheck": "Detailed trace expansion was interrupted by concurrent browser use; analysis payload identity and trace rendering passed HTTP/unit checks."
+  },
+  "sourceHashes": {
+    "product/scripts/serve.py": "77c6de64a2e248d2a29b08197ab4734cddd7fd17bdd5505fe800b8408b1201c0",
+    "product/web/app.js": "4d7b7eb0d459683a23a47ae5f5929cdfbbad5f8891f0524513c982ff56f40e6e",
+    "product/web/index.html": "f2bd42ce832e5efa02711f82464e7d7e45be7efc45422263e8c9dc7d3b0443e6",
+    "product/web/styles.css": "74eab49ac94373b78c189dfa09ff5bc9efcadd57b927cbe58da8a8eca621e841"
+  }
+}

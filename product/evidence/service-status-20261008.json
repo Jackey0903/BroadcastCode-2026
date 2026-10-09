@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-10-08T03:06:50.327345+00:00",
+  "scope": "Read-only verification; no login reset, deployment, resource creation or deletion",
+  "practiceDeadlineBeijing": "2026-10-08 09:00",
+  "aws": {
+    "profile": "nba",
+    "region": "us-east-1",
+    "targetAccount": "962768510637",
+    "targetRole": "NBAHackathonParticipantRole",
+    "identityCheck": "AccessDenied while refreshing target role via sts:AssumeRole",
+    "stackCheck": "Blocked by the same AssumeRole AccessDenied",
+    "sourceSessionWasAcceptedBySTS": true,
+    "resourceDeletionStatus": "unknown; role access denied"
+  },
+  "website": {
+    "url": "https://d2x8td5d05xg8h.cloudfront.net/product/?story=flagg",
+    "httpsCheck": "SSL unexpected EOF; no HTTP response from product, manifest and API",
+    "localDns": "No usable address returned",
+    "googlePublicDnsA": {
+      "Status": 0,
+      "Answer": null,
+      "classification": "NOERROR with no A answer (NODATA), not NXDOMAIN"
+    },
+    "portalControl": "https://du5imhgxabl0d.cloudfront.net/portal returned HTTP 200 through current proxy; portal hostname has public A answers",
+    "interpretation": "Product hosting endpoint unavailable; consistent with expiry and disabling/cleanup, but administrator action and deletion are not independently confirmed"
+  },
+  "preservation": {
+    "sourceCommit": "e86e61c6569519507c616d137eff5b52c533f73b",
+    "backupDirectory": "/Users/jack/work/BroadcastCode-backups/20261007-200820-821765-e86e61c65695",
+    "backupFilesExist": true,
+    "previousBackupRestoreVerified": true,
+    "contains": [
+      "repository.bundle",
+      "source.tar.gz",
+      "practice-media.tar",
+      "manifest.json"
+    ]
+  },
+  "nextDependency": "Organizer must confirm re-opening/new credentials and resource lifecycle before cloud recovery. Local source and preserved media remain usable."
+}

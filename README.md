@@ -1,12 +1,16 @@
 # BroadcastCode「深度赛场」黑客松准备资料
 
-最后整理：2026-10-07（北京时间）。队伍：Team02。
+**2026-10-09 本地开发：** 已恢复独立于云服务的[本地预览](http://127.0.0.1:4173/product/)。原片、已验收增强成片、关键帧及真实历史 Agent 记录均从本机读取；新的推理暂不可用。本轮状态与优先事项见[本地开发进度](docs/本地开发进度-20261009.md)，100 项离线测试通过。
+
+**2026-10-08 11:06（北京时间）状态更新：** `nba` 接入参赛角色实测被 STS AssumeRole AccessDenied 拒绝；产品网页不可访问，公共 DNS 没有返回其 A 地址，主办方 Portal 仍响应。与通知中的 10 月 8 日 09:00 练习权限到期相符，但后台资源是否删除、正式权限何时重开仍未确认。源码及成片独立备份存在；详见[只读核查](product/evidence/service-status-20261008.json)。
+
+最后整理：2026-10-09（北京时间）。队伍：Team02。
 
 本项目的目标是参加 NBA / AWS BroadcastCode 12h 黑客松：用官方比赛视频和数据驱动 AI Agent 分析关键事件与战术，将真实数据标注烧录成完整增强视频，并通过 CloudFront 交互网页交付评委体验；解说可选。
 
 **已开始实现「关键一拍 / THE HIDDEN PLAY」产品：** [在线体验](https://d2x8td5d05xg8h.cloudfront.net/product/)包含观看原片、选择关注点、关键动作慢放、官方出手数据与证据回看，以及真实 Agent 创作入口。产品工程在 [product/](product/README.md)，现场讲解在 [5 分钟演示脚本](product/PITCH.md)。两段公开练习片已与官方具体出手唯一匹配；两段均已有真实 Agent 生成并完整播放的增强成片；最新回归与内容验收状态以[产品证据](product/evidence/README.md)为准。
 
-原[练习入口](https://d2x8td5d05xg8h.cloudfront.net)仍保留。两者复用 Stack `BroadcastCodeTeam02Readiness20261006`，后续应从 `product/` 部署，避免旧工程覆盖新功能。旧 `aws-validation/` 对应资源已删除。正式评测协议与新素材适配仍待完成。
+原[练习入口](https://d2x8td5d05xg8h.cloudfront.net)与产品此前复用 Stack `BroadcastCodeTeam02Readiness20261006`，后续应从 `product/` 部署，避免旧工程覆盖新功能。旧 `aws-validation/` 对应资源已删除。正式评测协议与新素材适配仍待完成。
 
 ## 给新 AI 的阅读顺序
 
@@ -24,7 +28,7 @@
 
 [AGENTS.md](AGENTS.md) 为后续编程代理提供操作约束。原始培训材料在 [赛前培训会议纪要及逐字稿](<BroadcastCode「深度赛场」赛事 · 赛前培训直播 会议纪要.md>)；口头说明和纪要中的转写不能替代最新正式指南。
 
-最终产品版本：**85 项产品离线测试通过**；弗拉格与阿门均已有真实 Agent 生成、独立媒体验证和浏览器完整播放的展示成片。查看[产品验收记录](product/evidence/README.md)及其版本边界。
+10 月 7 日最后部署的产品版本：**85 项产品离线测试通过**；弗拉格与阿门均已有真实 Agent 生成、独立媒体验证和浏览器完整播放的展示成片。查看[产品验收记录](product/evidence/README.md)及其版本边界。
 
 ## 当前进度
 
@@ -34,15 +38,15 @@
 |关键一拍产品|已实现交互前端、工具型 Agent、官方数据关联和完整成片渲染；实测状态见产品证据|
 |上交 AI for Sports 研究借鉴|已核查 BasketballSkills、BasketEvent 等论文及公开实现；交流问题已整理，尚未联系作者或运行模型|
 |正确 Team Portal 登录与队伍账号切换|已成功，CLI 配置为 `nba`|
-|当前 CDK 练习流水线|AgentCore、CloudFront、Lambda API、SQS、视频 Worker、S3、DynamoDB 已真实部署，资源保留|
+|CDK 练习流水线|截至 10 月 7 日已真实部署；10 月 8 日权限被拒绝，当前资源是否保留无法核查|
 |Claude Sonnet 4.6、Qwen3-VL|文本及图片调用已成功；其他模型不能据此视为开放|
-|AgentCore Runtime|当前练习网页通过异步任务真实调用 Runtime 与 Claude，并生成完整 MP4|
+|AgentCore Runtime|10 月 7 日真实调用并生成完整 MP4；本地目前回看历史结果|
 |SageMaker GPU|`ml.g4dn.xlarge` Training 的 T4 CUDA 运算成功|
-|资源状态|旧 `aws-validation/` 已清理；新 `BroadcastCodeTeam02Readiness20261006` 保留；无保留 GPU 作业|
+|资源状态|旧 `aws-validation/` 已清理；新 Stack 原计划保留，但到期后实际状态未知；本队未保留 GPU 作业|
 |公开训练样片|两段已下载并检查媒体信息、26 张关键帧；合计约 44.44 秒，见[核查报告](docs/research/公开训练样片核查.md)|
 |官网深度数据参考|10 份真实 JSON 已保存并复制到[可随仓库克隆的 fixtures](readiness-lab/fixtures/official/)；另有 product/ 中的两段样片事件映射，仍不是正式评测 schema|
 |练习完整成片|弗拉格和阿门两段均生成完整 MP4、浏览器播放到末尾并核对永久字幕；产品招牌交互已实现，正式评测输入仍待适配|
-|离线验证|旧练习 32 项通过；产品新增测试见最新实测，不等于官方评分认证|
+|离线验证|10 月 9 日本地产品 100 项通过；旧练习 32 项为历史记录，不等于官方评分认证|
 |私有参赛仓库和 Portal 绑定|[Jackey0903/BroadcastCode](https://github.com/Jackey0903/BroadcastCode) 已推送、Portal 已锁定；[绑定证据](readiness-lab/repository-binding.json)|
 
 服务和配额结论是 **2026-10-05 至 10-06 的实测快照**。后续会话先核对当前身份、权限有效期和主办方更新，再部署。练习账号通知写明权限至 **2026-10-08 09:00**；[本轮 IAM 只读核查](readiness-lab/account-expiry-audit.json)未发现可见时间条件，但这不能证明续期，正式比赛账号安排仍需组委会确认。
@@ -57,7 +61,7 @@
 
 ## 分享和迁移
 
-源码、部署定义和交接材料都保存在本地。当前最新用户提供的约束要求新增开发暂不推送，与此前“及时推送”要求存在冲突；已请求澄清，未收到新的答复前，本轮只做本地提交和存档。此前准备工程已推送为既有事实。通过 `scripts/archive-source.py` 在仓库旁的 `BroadcastCode-backups/` 保存并验证源码、Git 历史与白名单媒体，详见[源码保存与恢复](docs/源码保存与恢复.md)。
+源码、部署定义和交接材料都保存在本地。10 月 9 日用户明确先在本地开发；本轮只做本地提交和存档，未经新的明确授权不推送。此前准备工程已推送为既有事实。通过 `scripts/archive-source.py` 在仓库旁的 `BroadcastCode-backups/` 保存并验证源码、Git 历史与白名单媒体，详见[源码保存与恢复](docs/源码保存与恢复.md)。
 
 本目录已初始化 Git，远端为私有仓库 [Jackey0903/BroadcastCode](https://github.com/Jackey0903/BroadcastCode)，默认分支 `main`，已完成推送与 Portal 锁定绑定。赛事 GitHub App 仅获该仓库的代码和元数据读取权限。绑定不可自行更换；如有错误须联系组委会，不要重新绑定其他仓库。当前练习 URL 尚未作为正式作品提交，详见[绑定记录](readiness-lab/repository-binding.json)。
 
@@ -67,4 +71,4 @@
 
 可以把下面这段话交给下一位 AI：
 
-> 请先阅读 README.md、AGENTS.md、AI接手说明.md 和 readiness-lab/赛前准备实测报告-20261006.md。私有仓库已绑定，当前练习流水线及新 Stack 保留，旧 aws-validation 资源已删除；产品实现与验收详见 product/README.md、product/evidence/README.md；正式协议适配未完成。在当前用户授权范围内继续推进，不重复绑定仓库、不自动清理保留资源、不执行 CDK bootstrap、不使用默认 AWS 账号或上传账号密码。
+> 请先阅读 README.md、AGENTS.md、AI接手说明.md 和 readiness-lab/赛前准备实测报告-20261006.md。私有仓库已绑定，历史云端流水线已验收，10 月 8 日练习权限被拒绝且新 Stack 存续未知；当前本地预览可用，旧 aws-validation 资源已删除；产品实现与验收详见 product/README.md、product/evidence/README.md；正式协议适配未完成。在当前用户授权范围内继续推进，不重复绑定仓库、不自动清理保留资源、不执行 CDK bootstrap、不使用默认 AWS 账号或上传账号密码。

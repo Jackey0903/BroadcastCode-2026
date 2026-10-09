@@ -1,12 +1,16 @@
 # BroadcastCode Team02：AI 接手说明
 
-整理时间：2026-10-07，北京时间。本文记录前期对话落实到本地文件和测试证据的结果，便于新的 AI 或新电脑继续工作。它不包含账号密码、访问密钥或会话令牌。
+**2026-10-09 本地开发更新：** 本地预览已改为无云依赖，启动 `python3 product/scripts/serve.py` 后访问 http://127.0.0.1:4173/product/。两段原片、最终增强 MP4、关键帧和历史工具记录均可读取；没有重新调用 Agent。100 项离线测试通过，正式协议适配与新素材验证仍未完成，详见[本地开发进度](docs/本地开发进度-20261009.md)。本轮只做本地提交和存档。
+
+**2026-10-08 11:06（北京时间）状态更新：** `nba` 接入参赛角色实测被 STS AssumeRole AccessDenied 拒绝；产品网页不可访问，公共 DNS 没有返回其 A 地址，主办方 Portal 仍响应。与通知中的 10 月 8 日 09:00 练习权限到期相符，但后台资源是否删除、正式权限何时重开仍未确认。源码及成片独立备份存在；详见[只读核查](product/evidence/service-status-20261008.json)。
+
+整理时间：2026-10-09，北京时间。本文记录前期对话落实到本地文件和测试证据的结果，便于新的 AI 或新电脑继续工作。它不包含账号密码、访问密钥或会话令牌。
 
 ## 1. 用户要完成什么，目前做到哪里
 
 用户最新已授权开始产品开发。本轮实现 **关键一拍 / THE HIDDEN PLAY**，[线上入口](https://d2x8td5d05xg8h.cloudfront.net/product/)、[工程说明](product/README.md)、[产品实测记录](product/evidence/README.md)、[5 分钟讲解](product/PITCH.md)。包括观众选择注意对象、慢速回看、官方 xFG 与出手点位、可点证据，以及 AgentCore 真实工具调用生成完整 MP4。新成片的完成与播放状态按产品实测记录，不用旧练习通过记录替代。
 
-本轮最新用户提供的 AGENTS 要求新增开发暂不推送，与此前及时推送指令冲突；已请求澄清，尚无新答复前**只提交本地并存档，不执行 git push**。准备工程此前已推送是既有事实。源码和媒体的本地归档见[源码保存与恢复](docs/源码保存与恢复.md)。
+10 月 9 日用户明确先在本地开发，本轮**只提交本地并存档，不执行 git push**；后续推送须取得新的明确授权。准备工程此前已推送是既有事实。源码和媒体的本地归档见[源码保存与恢复](docs/源码保存与恢复.md)。
 
 10 月 6 日再次通过已登录浏览器读取 Quick Start 第十节，明确支持赛前配置环境、CDK 最小栈、网页调用 Agent 和练习视频烧录播放；整套赛前产品能否直接带入正式比赛仍无明确许可或禁止条文，不因源码保存位置或 AWS 权限开放而推断获准。
 
@@ -20,11 +24,11 @@
 
 最终作品应形成真实流程：**官方比赛视频与数据 → AgentCore 中的 Agent 识别和解释关键事件、战术 → 带时间和来源的标注 → 烧录到原视频并导出完整增强成片 → CloudFront 交互网页**。重点是篮球解读准确、画面表达清楚、网页可操作，并符合部署与提交要求。
 
-[当前练习入口](https://d2x8td5d05xg8h.cloudfront.net)对应 Stack `BroadcastCodeTeam02Readiness20261006`，资源保留供继续开发。旧 `aws-validation/` 的临时资源仍已删除。10 份 NBA 官网真实参考 JSON 已复制到[仓库 fixtures](readiness-lab/fixtures/official/)，克隆后可读取，本轮 product/ 已独立匹配两段公开练习片：弗拉格 event 666 / xFG 51.0%，阿门 event 396 / xFG 44.5%，连接键为 PBP actionNumber；AI 助手编辑的视频锚点及所有核对字段有来源记录。[关键一拍推荐方案](docs/关键一拍-冲冠产品与技术方案.md)中的核心篮球故事、官方数据对齐和招牌交互已进入产品实现；未实现的扩展仍为建议；练习字幕只是稀疏图像模型观察，不能当成最终参赛作品或官方评分认证。
+[当前练习入口](https://d2x8td5d05xg8h.cloudfront.net)对应 Stack `BroadcastCodeTeam02Readiness20261006`，原计划保留供继续开发；10 月 8 日到期后无法核查是否删除，当前使用本地预览。旧 `aws-validation/` 的临时资源仍已删除。10 份 NBA 官网真实参考 JSON 已复制到[仓库 fixtures](readiness-lab/fixtures/official/)，克隆后可读取，本轮 product/ 已独立匹配两段公开练习片：弗拉格 event 666 / xFG 51.0%，阿门 event 396 / xFG 44.5%，连接键为 PBP actionNumber；AI 助手编辑的视频锚点及所有核对字段有来源记录。[关键一拍推荐方案](docs/关键一拍-冲冠产品与技术方案.md)中的核心篮球故事、官方数据对齐和招牌交互已进入产品实现；未实现的扩展仍为建议；练习字幕只是稀疏图像模型观察，不能当成最终参赛作品或官方评分认证。
 
 目录原位置为 `/Users/jack/work/BroadcastCode`，内部链接使用相对路径。本目录已初始化 Git 并推送到私有仓库 [Jackey0903/BroadcastCode](https://github.com/Jackey0903/BroadcastCode)，默认分支 `main`。Portal 浏览器已确认仓库 locked in；赛事 App 仅获该仓库的代码和元数据读取权限，见[绑定证据](readiness-lab/repository-binding.json)。绑定不可自行更换；当前练习 URL 尚未作为正式作品提交。
 
-最终产品版本：85 项产品离线测试通过。最终展示任务为 Flagg `81a74837370e46a890cbacb2069074e6`、Amen `ce008e75d25d4e2e8e88b57412f6c762`；失败历史及最终验收见[产品证据](product/evidence/README.md)。
+10 月 7 日云端产品版本：85 项产品离线测试通过。最终展示任务为 Flagg `81a74837370e46a890cbacb2069074e6`、Amen `ce008e75d25d4e2e8e88b57412f6c762`；失败历史及最终验收见[产品证据](product/evidence/README.md)。
 
 ### 1.1 当前产品接手重点
 

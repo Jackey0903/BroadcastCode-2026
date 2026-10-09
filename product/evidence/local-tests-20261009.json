@@ -1,0 +1,99 @@
+{
+  "checkedAt": "2026-10-09T16:11:24.725765+08:00",
+  "scope": "local offline tests; no new cloud inference or deployment",
+  "results": [
+    {
+      "component": "agent",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "product/agent",
+        "-p",
+        "test_*.py"
+      ],
+      "passed": true,
+      "tests": 19,
+      "seconds": 0.06
+    },
+    {
+      "component": "worker",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "product/worker",
+        "-p",
+        "test_*.py"
+      ],
+      "passed": true,
+      "tests": 8,
+      "seconds": 0.09
+    },
+    {
+      "component": "api",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "product/api",
+        "-p",
+        "test_*.py"
+      ],
+      "passed": true,
+      "tests": 12,
+      "seconds": 0.05
+    },
+    {
+      "component": "data",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "product/data",
+        "-p",
+        "test_*.py"
+      ],
+      "passed": true,
+      "tests": 16,
+      "seconds": 0.07
+    },
+    {
+      "component": "scripts",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "product/scripts",
+        "-p",
+        "test_*.py"
+      ],
+      "passed": true,
+      "tests": 11,
+      "seconds": 5.8
+    },
+    {
+      "component": "web",
+      "command": [
+        "node",
+        "--test",
+        "product/web/test-app.cjs"
+      ],
+      "passed": true,
+      "tests": 34,
+      "seconds": 0.24
+    }
+  ],
+  "totalTests": 100,
+  "allPassed": true
+}

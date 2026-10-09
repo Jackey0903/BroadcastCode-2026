@@ -60,7 +60,7 @@ function fixture(status = 200, body = {}) {
   const seam = "  loadStories().then(()=>{restoreJob();});";
   assert.ok(source.includes(seam));
   vm.createContext(sandbox);
-  vm.runInContext(source.replace(seam, "  globalThis.audit={state,api,checkService,renderJob,pollJob,setMedia,renderOfficial,reveal,keyTime,normalise,renderRunFacts,loadStories,submitJob,syncCreate,renderFrameComparison};"), sandbox);
+  vm.runInContext(source.replace(seam, "  globalThis.audit={state,api,checkService,renderJob,pollJob,setMedia,renderOfficial,reveal,keyTime,normalise,renderRunFacts,loadStories,submitJob,syncCreate,renderFrameComparison,configurePreview,openHistory};"), sandbox);
   Object.assign(sandbox.audit.state, { jobId: JOB, jobSample: "flagg", serviceReady: true, pollStart: Date.now() });
   return { ...sandbox.audit, get, requests, timers, storage, input, amen, currentUrl: () => currentUrl };
 }
@@ -195,4 +195,34 @@ test("refreshing a finished task preserves the next sample selected by the user"
   run.amen.checked=false;run.input.checked=true;run.syncCreate();
   run.renderJob(completed({sample:"amen"}));
   assert.equal(run.input.checked,true);assert.equal(run.amen.checked,false);assert.equal(run.state.jobSample,"amen");assert.equal(run.get("generate-button").disabled,false);
+});
+
+test("offline status disables new generation and offers only valid historical jobs", async () => {
+  const run=fixture(200,{status:"offline",ready:false,modes:[],samples:[{id:"flagg",available:false}],preview:{mode:"offline",historical:true,jobs:[{jobId:JOB,sample:"flagg"},{jobId:"../../secret",sample:"amen"},{jobId:JOB,sample:"unknown"}]}});
+  await run.checkService();
+  assert.equal(run.state.serviceReady,false);assert.equal(run.state.offline,true);
+  assert.equal(run.get("generate-button").disabled,true);assert.equal(run.get("local-preview-notice").hidden,false);
+  assert.match(run.get("service-status").textContent,/本地历史回看/);assert.match(run.get("creation-note").textContent,/已保存/);
+  assert.equal(run.get("local-history-actions").children.length,1);
+  await run.submitJob({preventDefault(){}});assert.equal(run.requests.length,1);assert.equal(run.requests[0].url,"/api/status");
+});
+test("historical output is labeled as a prior run while retaining original tool evidence", () => {
+  const run=fixture();const data=completed({preview:{historical:true,notice:"10 月 7 日真实生成的历史结果；本地回看，没有发起新推理。"},analysis:{protocol_version:"product-story-v1",model_id:"real-model",trace:[{tool:"inspect_frames",result:{frames:[{id:"real-frame"}]}}]}});
+  run.renderJob(data);
+  assert.equal(run.get("job-badge").textContent,"历史成片");assert.match(run.get("job-message").textContent,/没有发起新推理/);
+  assert.match(run.get("run-trace").textContent,/实际读取 1 帧/);assert.match(run.get("actual-json").textContent,/real-frame/);
+});
+test("opening a historical record only queries its existing ID without posting a task", async () => {
+  const run=fixture(200,completed({sample:"amen"}));run.state.offline=true;
+  run.openHistory({jobId:JOB,sample:"amen"});
+  for(let i=0;i<10&&run.state.polling;i++)await Promise.resolve();
+  assert.equal(run.requests.length,1);assert.equal(run.requests[0].url,`/api/jobs/${JOB}`);assert.equal(run.requests[0].options.method,undefined);
+  assert.equal(run.state.busy,false);assert.equal(run.amen.checked,true);assert.equal(run.get("generate-button").disabled,true);
+});
+test("playback completion names the actual original or enhanced version", () => {
+  for(const [version,label] of [["source","原片"],["enhanced","增强成片"]]){
+    const run=fixture();run.state.story=story();run.state.phase="watch";run.state.version=version;
+    run.get("story-video").listeners.ended();
+    assert.equal(run.state.phase,"choose");assert.equal(run.get("page-announcement").textContent,`${label}播放结束。现在选择你的关注点。`);
+  }
 });

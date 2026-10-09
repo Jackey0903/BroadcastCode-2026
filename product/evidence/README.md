@@ -1,8 +1,12 @@
 # 关键一拍 · 产品验收记录
 
-更新日期：2026-10-07。本页记录产品原型的实际验收状态；历史成功、内容拒收和新版本复测分别保留。线上入口为[关键一拍](https://d2x8td5d05xg8h.cloudfront.net/product/)。
+**2026-10-08 11:06（北京时间）状态更新：** `nba` 接入参赛角色实测被 STS AssumeRole AccessDenied 拒绝；产品网页不可访问，公共 DNS 没有返回其 A 地址，主办方 Portal 仍响应。与通知中的 10 月 8 日 09:00 练习权限到期相符，但后台资源是否删除、正式权限何时重开仍未确认。源码及成片独立备份存在；详见[只读核查](service-status-20261008.json)。
+
+更新日期：2026-10-09。本页记录产品原型的实际验收状态；历史成功、内容拒收和新版本复测分别保留。线上入口为[关键一拍](https://d2x8td5d05xg8h.cloudfront.net/product/)。
 
 **当前结论：最后部署版本已分别真实生成两段完整成片，85 项产品离线测试通过。** 最终弗拉格任务 `81a74837370e46a890cbacb2069074e6` 与阿门任务 `ce008e75d25d4e2e8e88b57412f6c762` 已完成独立下载、哈希、时长、音轨、Range 206 和内容复核；具体浏览器完成状态见对应 JSON 与[交互验收](browser-qa.json)。成功范围仅为两个登记的练习案例。
+
+**10 月 9 日本地状态：** 无云依赖的预览已恢复。当前 100 项离线测试全部通过（Agent 19 / Worker 8 / API 12 / 数据 16 / Web 34 / 本地预览 11），见[测试记录](local-tests-20261009.json)。两原片与两最终成片的本地 HTTP、SHA-256、Range 206 与 HEAD 检查见[预览核查](local-preview-20261009.json)。本轮回看真实历史工具记录，没有新推理或部署；正式新输入仍待验收。
 
 ## 实际任务与验收结论
 
@@ -51,6 +55,7 @@ python3 -m unittest discover -s product/agent -p 'test_*.py' -v
 python3 -m unittest discover -s product/worker -p 'test_*.py' -v
 python3 -m unittest discover -s product/api -p 'test_*.py' -v
 python3 -m unittest discover -s product/data -p 'test_*.py' -v
+python3 -m unittest discover -s product/scripts -p 'test_*.py' -v
 node --test product/web/test-app.cjs
 ```
 
