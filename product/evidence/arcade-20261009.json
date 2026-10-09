@@ -1,0 +1,107 @@
+{
+ "record": "arcade-visual-system-20261009",
+ "recordedAt": "2026-10-09T21:15:42+08:00",
+ "baseCommit": "e39e2eb2ce989114ab2520ba349d9c1540fc1b0e",
+ "scope": "前端视觉与文案：主产品 product/web 与俯视战术板 product/court-lab 统一为像素街机 × 极简黑场系统；中英双语短标签，删减说明性长句。未改 app.js、lab.js、viewer.js 的行为，未改数据、Agent、Worker 或 CDK。",
+ "notChanged": [
+  "product/web/app.js",
+  "product/court-lab/lab.js",
+  "product/court-lab/viewer.js",
+  "product/data/*",
+  "product/agent/*",
+  "product/worker/*",
+  "已验收 MP4 与其 SHA-256"
+ ],
+ "tests": {
+  "total": 193,
+  "passed": 193,
+  "suites": {
+   "agent": {
+    "tests": 19,
+    "passed": 19
+   },
+   "worker": {
+    "tests": 8,
+    "passed": 8
+   },
+   "api": {
+    "tests": 12,
+    "passed": 12
+   },
+   "data": {
+    "tests": 16,
+    "passed": 16
+   },
+   "scripts": {
+    "tests": 13,
+    "passed": 13
+   },
+   "test-app.cjs": {
+    "tests": 34,
+    "passed": 34
+   },
+   "test-atmosphere.cjs": {
+    "tests": 10,
+    "passed": 10
+   },
+   "test-arcade.cjs": {
+    "tests": 9,
+    "passed": 9
+   },
+   "test_court_viewer.js": {
+    "tests": 61,
+    "passed": 61
+   },
+   "test_court_dataset.js": {
+    "tests": 7,
+    "passed": 7
+   },
+   "test_court_endpoint.js": {
+    "tests": 4,
+    "passed": 4
+   }
+  }
+ },
+ "sourceSha256": {
+  "product/web/index.html": "8cf3a00c34c793c375dbacf2644611c6314296897d472f1821851f32d2ed669d",
+  "product/web/arcade.css": "92804a132e4454d216484717c4e745b1135fdc23739249a88f4d578c0d8c2d9f",
+  "product/web/arcade.js": "55204339c959a34b0ea5b6476ea41088225653b1c68138bc469a90635d8a0388",
+  "product/web/test-arcade.cjs": "cc35e7ac875b8bf88c962acc9f5e565822d17ceef3cc60130eccbddd0ed407bb",
+  "product/court-lab/index.html": "9cf3228eaddda2dfe0729cff692fa9a9329d39a36531fefcd7cdb218960c034b",
+  "product/court-lab/lab.css": "bab30e8c7b3cbc4935546290a5d9bef3cd95fab054c3cfb495d65c8f05357ea8",
+  "product/scripts/serve.py": "a356eb0ef37a6ddc818be417848775948df6417d2d143d384a031523208175b3",
+  "product/scripts/test_serve.py": "54d94e9a3c5d9031aa6fc6de90b2b393056e0167a48f3bb128e07fd1b326d391"
+ },
+ "browserChecks": {
+  "method": "本机无头 Chrome（DevTools 协议）1440×900，连接 127.0.0.1:4174 本地预览；无云端请求、无新推理",
+  "checked": [
+   "首屏像素字标由 FusionPixel12 字形光栅化并溶解浮现；球场带运球-投篮-入网循环在离屏/后台/减少动态时暂停或静帧",
+   "影片室：卡带式案例切换、LED 记分条、原片/成片切换保留时点、½ 慢放、剧场模式",
+   "关注点菜单选中态与光标、揭示面板、并排两帧定位并暂停（17.5 / 18.0 秒）、官方 xFG 44.5% 能量条与出手点位",
+   "视频列吸顶：阅读右栏官方数据与依据时视频保持可见，时间轴底边不被裁切",
+   "创作工作台：本地历史记录展开、工具轨迹与原始响应折叠",
+   "俯视战术板：同一刊头与色板；持球人金色标记、深/白队配色、最近位置虚线、半场/全场切换与球员筛选保持原逻辑"
+  ],
+  "consoleErrors": 0,
+  "screenshots": [
+   "arcade-20261009/01-hero.jpg",
+   "arcade-20261009/02-focus.jpg",
+   "arcade-20261009/03-reveal-official.jpg",
+   "arcade-20261009/04-studio.jpg",
+   "arcade-20261009/05-court-view.jpg"
+  ]
+ },
+ "provenanceKept": [
+  "画面观察 / 官方数据 / 篮球解读 图例",
+  "编辑选帧",
+  "增强成片模式下的 Agent 生成说明（version-note）",
+  "EDITORIAL SCHEMATIC · 战术示意回放 · 非官方追踪数据",
+  "DATA NOTES 折叠区全文"
+ ],
+ "knownGaps": [
+  "两份已验收成片内的烧录配色仍为旧柠檬绿 #cefa58，与网页橙色不一致；须在下次真实渲染前由开发侧修改 worker/handler.py 的 render_story 配色并重新验收，不可本地重渲替换已验收成片",
+  "styles.css、broadcast.css、atmosphere.js 不再被主页面加载，保留以免影响 test-atmosphere 等既有测试；可在之后连同测试一并清理",
+  "仅桌面布局做过截图核查；窄屏保留基础降级",
+  "这是视觉与交互核查，不是官方评分、人类篮球专家认证或新输入验证"
+ ]
+}

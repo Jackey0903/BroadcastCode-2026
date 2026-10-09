@@ -26,6 +26,8 @@ class PreviewTest(unittest.TestCase):
         self.write("product/web/styles.css", b"body{}")
         self.write("product/web/broadcast.css", b"/* retro */")
         self.write("product/web/atmosphere.js", b"/* points */")
+        self.write("product/web/arcade.css", b"/* arcade */")
+        self.write("product/web/arcade.js", b"/* pixels */")
         self.write("product/web/assets/grain.svg", b"<svg/>")
         self.write("product/web/assets/fonts/OFL.txt", b"SIL OPEN FONT LICENSE")
         self.write("product/web/assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2", b"font")
@@ -118,6 +120,8 @@ class PreviewTest(unittest.TestCase):
         for name, mime, expected in (
             ("broadcast.css", "text/css", b"/* retro */"),
             ("atmosphere.js", "text/javascript", b"/* points */"),
+            ("arcade.css", "text/css", b"/* arcade */"),
+            ("arcade.js", "text/javascript", b"/* pixels */"),
             ("assets/grain.svg", "image/svg+xml", b"<svg/>"),
             ("assets/fonts/OFL.txt", "text/plain", b"SIL OPEN FONT LICENSE"),
             ("assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2", "font/woff2", b"font"),

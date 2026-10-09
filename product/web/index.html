@@ -3,96 +3,179 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#22231f">
+  <meta name="theme-color" content="#07080b">
+  <meta name="color-scheme" content="dark">
   <meta name="description" content="回到决定一球的瞬间。真实比赛画面、可核对的数据，以及你可能漏看的那个细节。">
   <title>关键一拍 — THE HIDDEN PLAY</title>
-  <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./broadcast.css">
+  <link rel="preload" href="./assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./arcade.css">
   <script src="./app.js" defer></script>
-  <script src="./atmosphere.js" defer></script>
+  <script src="./arcade.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">跳到主要内容</a>
+
   <header class="masthead">
     <a class="brand" href="./" aria-label="关键一拍首页">
-      <svg class="brand-symbol" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="3" y="3" width="34" height="34" rx="17" stroke="currentColor" stroke-width="2"/><path d="M3 20h34M20 3v34M8 8c13 4 11 20 24 24M32 8C19 12 21 28 8 32" stroke="currentColor" stroke-width="1.5"/></svg>
-      <span>关键一拍<small>THE HIDDEN PLAY</small></span>
+      <svg class="brand-symbol" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path class="px-leather" d="M2 0h2v1H2zM5 0h1v1H5zM1 1h3v1H1zM5 1h2v1H5zM0 2h4v2H0zM5 2h3v2H5zM0 5h4v1H0zM5 5h3v1H5zM1 6h3v1H1zM5 6h2v1H5zM2 7h2v1H2zM5 7h1v1H5z"/><path class="px-seam" d="M4 0h1v8H4zM0 4h8v1H0z"/><path class="px-shine" d="M2 1h1v1H2zM1 2h1v1H1z"/></svg>
+      <span class="brand-name">关键一拍<small>THE HIDDEN PLAY</small></span>
     </a>
     <nav class="main-nav" aria-label="主要导航">
-      <button type="button" class="nav-link active" data-view="watch" aria-current="page">观看故事 <span>01</span></button>
-      <button type="button" class="nav-link" data-view="create">创作工作台 <span>02</span></button>
+      <button type="button" class="nav-link active" data-view="watch" aria-current="page"><b>WATCH</b><span>观看</span></button>
+      <button type="button" class="nav-link" data-view="create"><b>STUDIO</b><span>创作</span></button>
     </nav>
-    <div class="edition"><span class="edition-dot"></span>NBA × AWS<small>BROADCASTCODE / TEAM 02</small></div>
+    <div class="edition"><span class="edition-dot" aria-hidden="true"></span>NBA × AWS<small>TEAM 02</small></div>
   </header>
   <aside id="local-preview-notice" class="local-preview-notice" role="status" hidden></aside>
 
   <main id="main-content">
     <section id="watch-view" class="view" aria-label="观看比赛故事">
-      <div class="intro retro-hero">
-        <div class="intro-copy">
-          <p class="eyebrow hero-kicker"><span aria-hidden="true">✳</span> THE BASKETBALL FILM LAB <span class="hero-edition">/ VOL. 02</span></p>
-          <h1 class="hero-wordmark" aria-label="关键一拍 — THE HIDDEN PLAY"><span class="wordmark-line"><small>THE</small> HIDDEN</span><span class="wordmark-line wordmark-outline">PLAY<span class="wordmark-star" aria-hidden="true">✳</span></span></h1>
-          <div class="hero-caption"><strong>再看一拍，看懂比赛。</strong><p>真实画面、官方数据，还有你漏看的细节。</p><a class="hero-jump" href="#film-room">进入影片室 <span aria-hidden="true">↘</span></a></div>
-          <div class="hero-signals" aria-label="体验内容"><span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3l11 7-11 7z"/></svg>画面回看</span><span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 15V9m7 6V3m7 12V6M1 18h18"/></svg>官方数据</span><span><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="4" width="16" height="12" rx="1"/><path d="M6 4v12M14 4v12M2 8h4m8 0h4M2 12h4m8 0h4"/></svg>AI 成片</span></div>
+      <div class="arcade-hero" data-arcade-hero>
+        <p class="hero-kicker"><span>NBA × AWS</span><span>BROADCASTCODE 2026</span><span>TEAM 02</span></p>
+        <h1 class="arcade-title">
+          <span class="sr-only">关键一拍 — THE HIDDEN PLAY</span>
+          <span class="mark-row"><canvas class="mark mark-primary" data-pixel-text="关键一拍" data-palette="fire" data-depth="1" data-fill=".7" data-max="12" aria-hidden="true"></canvas></span>
+          <span class="mark-row"><canvas class="mark mark-secondary" data-pixel-text="THE HIDDEN PLAY" data-palette="chalk" data-depth="1" data-fill=".5" data-max="6" aria-hidden="true"></canvas></span>
+          <span class="mark-fallback" aria-hidden="true"><b>关键一拍</b><small>THE HIDDEN PLAY</small></span>
+        </h1>
+        <p class="hero-line"><strong>再看一拍，看懂比赛。</strong><span>REAL FOOTAGE · OFFICIAL DATA · THE BEAT YOU MISSED</span></p>
+        <div class="hero-actions">
+          <a class="press-start" href="#film-room"><i class="px-cursor" aria-hidden="true"></i><span>PRESS START</span><small>进入影片室</small></a>
+          <ul class="hero-signals" aria-label="体验内容">
+            <li><svg viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 0h1v7H1zM2 1h1v5H2zM3 2h1v3H3zM4 3h1v1H4z"/></svg>REPLAY</li>
+            <li><svg viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 6h7v1H0zM1 3h1v3H1zM3 0h1v6H3zM5 2h1v4H5z"/></svg>OFFICIAL DATA</li>
+            <li><svg viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 1h7v1H0zM0 5h7v1H0zM0 2h1v3H0zM6 2h1v3H6zM2 3h1v1H2zM4 3h1v1H4z"/></svg>AI FILM</li>
+          </ul>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="hero-art-grid"></div>
-          <svg class="court-blueprint" viewBox="0 0 420 240" fill="none"><path d="M12 29h396v182H12zM210 29v182"/><circle cx="210" cy="120" r="29"/><path d="M12 81h55v78H12m396-78h-55v78h55M67 92a28 28 0 0 1 0 56m286-56a28 28 0 0 0 0 56M12 44h23a88 88 0 0 1 0 152H12m396-152h-23a88 88 0 0 0 0 152h23"/><path class="court-rim" d="M28 111v18m364-18v18"/><circle class="court-rim" cx="34" cy="120" r="5"/><circle class="court-rim" cx="386" cy="120" r="5"/></svg>
-          <canvas id="hero-particles" aria-hidden="true"></canvas>
-          <span class="art-coordinate art-coordinate-top">BASKETBALL / COURT VISION</span><span class="art-coordinate art-coordinate-bottom">LOOK. NOTICE. UNDERSTAND.</span><span class="art-cross art-cross-one">+</span><span class="art-cross art-cross-two">+</span>
-        </div>
-        <span class="hero-vertical" aria-hidden="true">关键一拍 / THE HIDDEN PLAY</span>
       </div>
+      <div class="court-band" aria-hidden="true"><canvas id="arcade-court"></canvas></div>
 
       <div id="data-notice" class="inline-notice" role="status" hidden></div>
-      <div class="case-header"><p class="eyebrow">THE FILM ROOM <span>/ 影片室</span></p><span id="case-count" class="mono">加载案例…</span></div>
+      <div class="case-header"><p class="eyebrow">THE FILM ROOM <span>影片室</span></p><span id="case-count" class="mono">加载案例…</span></div>
       <div id="story-selector" class="story-selector" role="group" aria-label="选择比赛案例"></div>
 
       <section id="film-room" class="film-room" aria-labelledby="story-title">
         <div class="screen-column">
-          <div class="broadcast-strip"><span class="broadcast-identity"><span class="replay-tag">REPLAY</span><span id="story-kicker">NBA · THE HIDDEN PLAY</span></span><span id="story-game" class="mono"></span></div>
+          <div class="broadcast-strip">
+            <span class="broadcast-identity"><span class="replay-tag">REPLAY</span><span id="story-kicker">NBA · THE HIDDEN PLAY</span></span>
+            <span id="story-game" class="mono"></span>
+          </div>
           <div class="screen-wrap" id="screen-wrap">
             <video id="story-video" controls playsinline preload="metadata" aria-label="当前案例比赛视频"></video>
-            <div id="video-empty" class="video-empty"><span class="empty-court" aria-hidden="true"></span><p>正在准备比赛画面</p></div>
+            <div id="video-empty" class="video-empty"><span class="empty-court" aria-hidden="true"></span><p>LOADING</p></div>
             <div id="video-alert" class="video-alert" role="alert" hidden></div>
             <div id="chapter-caption" class="chapter-caption" hidden><span id="caption-kind"></span><p id="caption-text"></p></div>
           </div>
           <div class="screen-toolbar">
-            <div class="version-switch" role="group" aria-label="选择视频版本"><button type="button" id="source-mode" class="active" aria-pressed="true">原始画面</button><button type="button" id="enhanced-mode" aria-pressed="false" disabled>完整增强成片</button></div>
-            <div class="playback-tools"><button type="button" id="slow-motion" aria-pressed="false" title="切换 0.5 倍慢放">½ <span>慢放</span></button><button type="button" id="theater-toggle" aria-pressed="false" title="切换剧场模式（T）"><span aria-hidden="true">⛶</span> <span>剧场</span></button></div>
+            <div class="version-switch" role="group" aria-label="选择视频版本"><button type="button" id="source-mode" class="active" aria-pressed="true"><b>ORIGINAL</b>原片</button><button type="button" id="enhanced-mode" aria-pressed="false" disabled><b>ENHANCED</b>成片</button></div>
+            <div class="playback-tools"><button type="button" id="slow-motion" aria-pressed="false" title="0.5 倍慢放"><b aria-hidden="true">½</b>SLOW</button><button type="button" id="theater-toggle" aria-pressed="false" title="剧场模式（T）"><b aria-hidden="true">⛶</b>THEATER</button></div>
           </div>
-          <p id="version-note" class="version-note">原片与增强成片保持同一播放时点。增强成片含永久烧录标注。</p>
-          <a id="court-lab-link" class="court-lab-launch" href="/product/court-lab/" hidden><span><strong>换个角度，看这一回合。</strong><small>俯视战术示意 · 依据关键帧编辑 · 同步回放</small></span><span aria-hidden="true">↗</span></a>
+          <p id="version-note" class="version-note">原片与增强成片保持同一播放时点。</p>
+          <a id="court-lab-link" class="court-lab-launch" href="/product/court-lab/" hidden><span><b>COURT VIEW</b><small>俯视战术板 · 编辑示意 · 同步回放</small></span><i class="px-arrow" aria-hidden="true"></i></a>
 
-          <div class="timeline-heading"><span class="eyebrow">THE KEY MOMENTS <span>/ 关键时刻</span></span><span id="playback-clock" class="mono">00:00 / 00:00</span></div>
+          <div class="timeline-heading"><span class="eyebrow">KEY MOMENTS</span><span id="playback-clock" class="mono">00:00 / 00:00</span></div>
           <div id="chapter-timeline" class="chapter-timeline" role="group" aria-label="跳转到故事章节"></div>
-          <div class="story-footer"><span class="mono">真实比赛画面 · 可回溯依据</span><a id="source-download" class="text-link" download>打开原片 ↗</a></div>
+          <div class="story-footer"><a id="source-download" class="text-link" download>打开原片 ↗</a></div>
         </div>
 
         <aside class="story-panel">
-          <div class="story-heading"><span id="story-index" class="story-index mono">PLAY 01</span><h2 id="story-title">每一球，都值得再看。</h2><p id="story-subtitle">从一次关注，发现比赛里更丰富的细节。</p></div>
-          <div class="journey" aria-label="观看步骤"><span id="step-watch" class="active"><b>01</b> 看原片</span><span id="step-choose"><b>02</b> 选视角</span><span id="step-reveal"><b>03</b> 看关键</span></div>
-          <div id="attention-intro" class="attention-intro"><p>先让画面说话。</p><span>看完这一回合，再选一个你想关注的人。</span><button type="button" id="watch-original" class="button-primary"><span>播放原片</span><span aria-hidden="true">↗</span></button><button type="button" id="enter-choice" class="quiet-button">直接选择关注点 →</button></div>
-          <div id="attention-choice" class="attention-choice" hidden><p class="eyebrow">YOUR PERSPECTIVE</p><h3 id="hook-question">这次进攻，你最先关注谁？</h3><div id="choice-options" class="choice-options" role="group" aria-label="选择你的关注点"></div><p class="choice-footnote">没有标准答案。换个关注点，看看漏掉了什么。</p><button type="button" id="reveal-play" class="button-primary" disabled><span>揭示关键一拍</span><span aria-hidden="true">↗</span></button></div>
-          <div id="reveal-panel" class="reveal-panel" hidden><p class="eyebrow">THE HIDDEN PLAY</p><h3 id="reveal-title"></h3><p id="reveal-body"></p><button type="button" id="replay-key" class="button-primary"><span>回到关键时刻</span><span aria-hidden="true">↺</span></button><button type="button" id="change-perspective" class="quiet-button">换一个关注点 →</button><section id="frame-comparison" class="frame-comparison" aria-labelledby="frame-comparison-title" hidden><div class="comparison-heading"><h4 id="frame-comparison-title">并排看这一拍</h4><span class="mono">TWO FRAMES</span></div><div id="comparison-frames" class="comparison-frames" role="group" aria-label="点击关键帧，定位原片并暂停"></div><p class="comparison-note">编辑选帧 · 点击画面，定位原片并暂停核对。</p></section></div>
-          <div class="panel-tabs" role="tablist" aria-label="故事资料"><button type="button" id="tab-story" role="tab" aria-selected="true" aria-controls="detail-story" data-panel="story">故事</button><button type="button" id="tab-official" role="tab" aria-selected="false" aria-controls="detail-official" tabindex="-1" data-panel="official">官方数据</button><button type="button" id="tab-evidence" role="tab" aria-selected="false" aria-controls="detail-evidence" tabindex="-1" data-panel="evidence">依据 <span id="evidence-count">0</span></button></div>
+          <div class="story-heading"><span id="story-index" class="story-index mono">PLAY 01</span><h2 id="story-title">每一球，都值得再看。</h2><p id="story-subtitle"></p></div>
+          <div class="journey" aria-label="观看步骤"><span id="step-watch" class="active"><b>01</b>WATCH</span><span id="step-choose"><b>02</b>FOCUS</span><span id="step-reveal"><b>03</b>REVEAL</span></div>
+
+          <div id="attention-intro" class="attention-intro">
+            <p>先让画面说话。</p>
+            <button type="button" id="watch-original" class="button-primary"><b class="en">PLAY</b><span>播放原片</span><i class="px-arrow" aria-hidden="true"></i></button>
+            <button type="button" id="enter-choice" class="quiet-button"><b>SKIP</b>直接选关注点</button>
+          </div>
+
+          <div id="attention-choice" class="attention-choice" hidden>
+            <p class="eyebrow">CHOOSE YOUR FOCUS</p>
+            <h3 id="hook-question">这次进攻，你最先关注谁？</h3>
+            <div id="choice-options" class="choice-options" role="group" aria-label="选择你的关注点"></div>
+            <p class="choice-footnote">NO WRONG ANSWER · 没有标准答案</p>
+            <button type="button" id="reveal-play" class="button-primary" disabled><b class="en">REVEAL</b><span>揭示关键一拍</span><i class="px-arrow" aria-hidden="true"></i></button>
+          </div>
+
+          <div id="reveal-panel" class="reveal-panel" hidden>
+            <p class="eyebrow">THE HIDDEN PLAY</p>
+            <h3 id="reveal-title"></h3>
+            <p id="reveal-body"></p>
+            <button type="button" id="replay-key" class="button-primary"><b class="en">REPLAY ½</b><span>回到关键时刻</span><i class="px-replay" aria-hidden="true"></i></button>
+            <button type="button" id="change-perspective" class="quiet-button"><b>RETRY</b>换个关注点</button>
+            <section id="frame-comparison" class="frame-comparison" aria-labelledby="frame-comparison-title" hidden>
+              <div class="comparison-heading"><h4 id="frame-comparison-title">TWO FRAMES</h4><span>并排看这一拍</span></div>
+              <div id="comparison-frames" class="comparison-frames" role="group" aria-label="点击关键帧，定位原片并暂停"></div>
+              <p class="comparison-note">编辑选帧 · 点击定位原片</p>
+            </section>
+          </div>
+
+          <div class="panel-tabs" role="tablist" aria-label="故事资料">
+            <button type="button" id="tab-story" role="tab" aria-selected="true" aria-controls="detail-story" data-panel="story">STORY</button>
+            <button type="button" id="tab-official" role="tab" aria-selected="false" aria-controls="detail-official" tabindex="-1" data-panel="official">OFFICIAL</button>
+            <button type="button" id="tab-evidence" role="tab" aria-selected="false" aria-controls="detail-evidence" tabindex="-1" data-panel="evidence">SOURCES <span id="evidence-count">0</span></button>
+          </div>
           <div id="detail-story" class="detail-panel" role="tabpanel" aria-labelledby="tab-story"><p id="takeaway" class="takeaway"></p><div class="legend"><span><i class="kind-dot observation"></i>画面观察</span><span><i class="kind-dot official"></i>官方数据</span><span><i class="kind-dot interpretation"></i>篮球解读</span></div><div id="chapter-details"></div></div>
           <div id="detail-official" class="detail-panel" role="tabpanel" aria-labelledby="tab-official" hidden></div>
           <div id="detail-evidence" class="detail-panel" role="tabpanel" aria-labelledby="tab-evidence" hidden></div>
         </aside>
       </section>
-      <div class="closing-line"><span>LOOK AGAIN.</span><p>有些精彩，在球进之前就已经发生。</p><button type="button" data-view="create">制作自己的解读 <span aria-hidden="true">↗</span></button></div>
+
+      <div class="closing-line">
+        <span class="closing-mark">LOOK AGAIN.</span>
+        <p>有些精彩，在球进之前就已经发生。</p>
+        <button type="button" data-view="create"><b>STUDIO</b><i class="px-arrow" aria-hidden="true"></i></button>
+      </div>
     </section>
 
     <section id="create-view" class="view create-view" aria-labelledby="create-title" hidden>
-      <div class="studio-intro"><p class="eyebrow">THE EDITING ROOM / 创作工作台</p><h1 id="create-title">下一次解读，<br><i>由你发起。</i></h1><p id="studio-description">选择一段比赛，让 Agent 读取画面、组织解读，<br>把这次处理的结果烧录进完整视频。</p></div>
+      <div class="studio-intro">
+        <p class="eyebrow">THE EDITING ROOM <span>创作工作台</span></p>
+        <h1 id="create-title">下一次解读，<br><i>由你发起。</i></h1>
+        <p id="studio-description">选一段比赛，Agent 读画面、组织解读，烧录进完整视频。</p>
+      </div>
       <div class="studio-grid">
-        <form id="create-form" class="create-form"><div class="section-number mono">01 / SELECT YOUR FILM</div><h2>选择比赛片段</h2><div id="create-samples" class="create-samples"></div><div class="service-line"><span id="service-dot" class="service-dot"></span><span id="service-status">检查创作服务…</span><button type="button" id="check-service" class="text-link">重新检查</button></div><button type="submit" id="generate-button" class="button-primary" disabled><span id="generate-label">生成新的增强成片</span><span aria-hidden="true">↗</span></button><p id="creation-note" class="form-note">每次启动都会实际处理素材；完成后可播放、下载并查看这次生成的依据。</p><section id="local-history" class="local-history" aria-labelledby="local-history-title" hidden><p class="eyebrow">LOCAL ARCHIVE</p><h3 id="local-history-title">回看真实生成记录</h3><p>10 月 7 日已验收的两次创作。<br>保留原始分析与工具记录，当前只回看本地文件。</p><div id="local-history-actions"></div></section></form>
-        <section class="generation" aria-labelledby="generation-title"><div class="generation-head"><span class="section-number mono">02 / MAKE IT VISIBLE</span><span id="job-badge" class="job-badge">等待创作</span></div><h2 id="generation-title">从画面，到理解。</h2><p id="job-message" class="job-message" role="status" aria-live="polite">选好片段后，启动一次真实生成。</p><div class="generation-stages" aria-label="任务状态"><span data-stage="queued"><b>01</b> 任务提交</span><span data-stage="processing"><b>02</b> 画面解读与烧录</span><span data-stage="completed"><b>03</b> 成片就绪</span></div><div id="job-error" class="job-error" role="alert" hidden></div><div id="job-reference" class="job-reference" hidden><span class="mono">JOB <span id="job-id"></span></span><button type="button" id="refresh-job" class="text-link">重新查询</button></div><div id="generation-placeholder" class="generation-placeholder"><span class="outline-play" aria-hidden="true">▷</span><p>你的下一部解读，在这里出现。</p><span>显示本次服务返回的结果</span></div><video id="generated-video" controls playsinline preload="metadata" aria-label="本次生成的完整增强成片" hidden></video><div id="generation-actions" class="generation-actions" hidden><a id="generated-download" class="button-primary" download><span>打开完整 MP4</span><span aria-hidden="true">↗</span></a><a id="generated-analysis-link" class="text-link" target="_blank" rel="noopener noreferrer" hidden>原始分析 ↗</a></div><div id="actual-analysis" class="actual-analysis" hidden><p id="actual-analysis-label" class="eyebrow">THIS RUN / 本次解读</p><p id="actual-summary"></p><div id="actual-observations"></div></div><details id="technical-details" class="technical-details" hidden><summary>处理记录与技术依据</summary><div id="run-facts" class="run-facts"></div><ol id="run-trace" class="run-trace"></ol><p id="run-validation" class="run-validation"></p><details class="raw-response"><summary>查看原始响应</summary><pre id="actual-json"></pre></details></details></section>
+        <form id="create-form" class="create-form">
+          <div class="section-number mono">01 / SELECT YOUR FILM</div>
+          <div id="create-samples" class="create-samples"></div>
+          <div class="service-line"><span id="service-dot" class="service-dot"></span><span id="service-status">CHECKING…</span><button type="button" id="check-service" class="text-link">RETRY</button></div>
+          <button type="submit" id="generate-button" class="button-primary" disabled><b class="en">GENERATE</b><span id="generate-label">生成新的增强成片</span><i class="px-arrow" aria-hidden="true"></i></button>
+          <p id="creation-note" class="form-note"></p>
+          <section id="local-history" class="local-history" aria-labelledby="local-history-title" hidden>
+            <p class="eyebrow">LOCAL ARCHIVE</p>
+            <h3 id="local-history-title">真实生成记录</h3>
+            <p>2026.10.07 · AgentCore 实际运行</p>
+            <div id="local-history-actions"></div>
+          </section>
+        </form>
+
+        <section class="generation" aria-labelledby="generation-title">
+          <div class="generation-head"><span class="section-number mono">02 / MAKE IT VISIBLE</span><span id="job-badge" class="job-badge">STANDBY</span></div>
+          <h2 id="generation-title">从画面，到理解。</h2>
+          <p id="job-message" class="job-message" role="status" aria-live="polite"></p>
+          <div class="generation-stages" aria-label="任务状态"><span data-stage="queued"><b>01</b>SUBMIT</span><span data-stage="processing"><b>02</b>READ · BURN</span><span data-stage="completed"><b>03</b>READY</span></div>
+          <div id="job-error" class="job-error" role="alert" hidden></div>
+          <div id="job-reference" class="job-reference" hidden><span class="mono">JOB <span id="job-id"></span></span><button type="button" id="refresh-job" class="text-link">REFRESH</button></div>
+          <div id="generation-placeholder" class="generation-placeholder"><i class="px-cursor" aria-hidden="true"></i><p>STANDBY</p><span>成片会出现在这里</span></div>
+          <video id="generated-video" controls playsinline preload="metadata" aria-label="本次生成的完整增强成片" hidden></video>
+          <div id="generation-actions" class="generation-actions" hidden><a id="generated-download" class="button-primary" download><b class="en">MP4</b><span>完整成片</span><i class="px-arrow" aria-hidden="true"></i></a><a id="generated-analysis-link" class="text-link" target="_blank" rel="noopener noreferrer" hidden>RAW JSON <i class="px-arrow" aria-hidden="true"></i></a></div>
+          <div id="actual-analysis" class="actual-analysis" hidden><p id="actual-analysis-label" class="eyebrow">THIS RUN</p><p id="actual-summary"></p><div id="actual-observations"></div></div>
+          <details id="technical-details" class="technical-details" hidden>
+            <summary>AGENT TRACE <span>处理记录</span></summary>
+            <div id="run-facts" class="run-facts"></div>
+            <ol id="run-trace" class="run-trace"></ol>
+            <p id="run-validation" class="run-validation"></p>
+            <details class="raw-response"><summary>RAW RESPONSE <span>原始响应</span></summary><pre id="actual-json"></pre></details>
+          </details>
+        </section>
       </div>
     </section>
     <div id="page-announcement" class="sr-only" role="status" aria-live="polite"></div>
   </main>
-  <footer class="site-footer"><a href="./" class="footer-brand">THE HIDDEN PLAY<span>关键一拍</span></a><p>真实画面 / 清楚解读 / 有据可查</p><span class="mono">BROADCASTCODE · TEAM 02</span></footer>
+
+  <footer class="site-footer">
+    <a href="./" class="footer-brand">THE HIDDEN PLAY<span>关键一拍</span></a>
+    <p>REAL FOOTAGE · OFFICIAL DATA · TRACEABLE</p>
+    <span class="mono">NBA × AWS · TEAM 02</span>
+  </footer>
 </body>
 </html>
