@@ -1,5 +1,7 @@
 # BroadcastCode Team02：AI 接手说明
 
+**最新分工：** 当前功能暂时保持这一版，Claude 负责前端美化与可视化；待改动同步完成后再推送 GitHub，当前不提前推送。前端接手入口见[Claude 说明](docs/Claude前端接手说明.md)。
+
 **10 月 9 日最新全片俯视功能：** 用户要求补足全片站位、避免对象消失，并显示持球人。`product/court-lab/` 已扩展至 0–21.548118 秒，31 个真实 PTS 锚帧 × 10 匿名 ID、9 段球权和 8 个示意球点。源帧足点 estimated；身体/场地及早段粗略布局 inferred/image:null；全部 reviewed:false。过去位置以 last-known 空心点保留，不计当前更新，不延长轨迹或覆盖原片；未入镜不未来倒填。持球链 D5→出手命中→W3→击地传球→W2，W4 接球猜测已拒收。支持全片、半速、半场/全场、筛选、跟随持球、1秒/3秒/整段轨迹及阶段跳转。184 项测试和整段实际播放见[最新证据](product/evidence/court-full-20261009.json)，[复现说明](product/court-lab/README.md)。旧三秒证据仅作历史。不是自动追踪或官方数据，没有云端/Agent/增强成片接入；本轮只本地提交存档，未推送。
 
 **2026-10-09 本地开发更新：** 本地预览已改为无云依赖，启动 `python3 product/scripts/serve.py` 后访问 http://127.0.0.1:4173/product/。两段原片、最终增强 MP4、关键帧和历史工具记录均可读取；没有重新调用 Agent。随后复用旧项目素材完成[桌面视觉更新](docs/前端视觉更新与旧素材复用-20261009.md)，111 项离线测试通过。正式协议适配与新素材验证仍未完成，详见[本地开发进度](docs/本地开发进度-20261009.md)。本轮只做本地提交和存档。
@@ -12,7 +14,7 @@
 
 用户最新已授权开始产品开发。本轮实现 **关键一拍 / THE HIDDEN PLAY**，[线上入口](https://d2x8td5d05xg8h.cloudfront.net/product/)、[工程说明](product/README.md)、[产品实测记录](product/evidence/README.md)、[5 分钟讲解](product/PITCH.md)。包括观众选择注意对象、慢速回看、官方 xFG 与出手点位、可点证据，以及 AgentCore 真实工具调用生成完整 MP4。新成片的完成与播放状态按产品实测记录，不用旧练习通过记录替代。
 
-10 月 9 日用户明确先在本地开发，本轮**只提交本地并存档，不执行 git push**；后续推送须取得新的明确授权。准备工程此前已推送是既有事实。源码和媒体的本地归档见[源码保存与恢复](docs/源码保存与恢复.md)。
+10 月 9 日用户明确先在本地开发，本轮**只提交本地并存档，不执行 git push**；最新安排为 Claude 前端改动同步完成后再推送，当前不提前执行。准备工程此前已推送是既有事实。源码和媒体的本地归档见[源码保存与恢复](docs/源码保存与恢复.md)。
 
 10 月 6 日再次通过已登录浏览器读取 Quick Start 第十节，明确支持赛前配置环境、CDK 最小栈、网页调用 Agent 和练习视频烧录播放；整套赛前产品能否直接带入正式比赛仍无明确许可或禁止条文，不因源码保存位置或 AWS 权限开放而推断获准。
 
@@ -52,7 +54,7 @@
 |[练习工程说明](readiness-lab/README.md)|当前 CDK、Agent、异步视频流水线、复现条件与保留/清理边界|
 |[官方来源核查](readiness-lab/official-source-audit.md)|10 份官网 JSON 的来源、哈希、字段陷阱和空值；可克隆副本在 `readiness-lab/fixtures/official/`|
 |[仓库绑定证据](readiness-lab/repository-binding.json)|私有仓库、默认 main、Portal locked in、App 限定单仓库只读代码和元数据|
-|[源码保存与恢复](docs/源码保存与恢复.md)|本轮先本地保存、待重新授权再推送；备份与恢复步骤|
+|[源码保存与恢复](docs/源码保存与恢复.md)|先本地保存、待前端同步完成后再推送；备份与恢复步骤|
 |[账号期限核查](readiness-lab/account-expiry-audit.json)|可见 IAM 策略未见时间条件；不代表 10 月 8 日以后续期|
 |[关键一拍推荐方案](docs/关键一拍-冲冠产品与技术方案.md)|历史设计基线；当前实现和测试以 product/ 为准|
 |[上交 AI for Sports 研究借鉴](docs/上交AI4Sports研究借鉴与交流建议.md)|BasketballSkills、BasketEvent 与跨项目借鉴核查；包括作者交流问题和最小接入实验建议，尚未实际复用|
