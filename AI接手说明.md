@@ -1,6 +1,6 @@
 # BroadcastCode Team02：AI 接手说明
 
-**2026-10-09 本地开发更新：** 本地预览已改为无云依赖，启动 `python3 product/scripts/serve.py` 后访问 http://127.0.0.1:4173/product/。两段原片、最终增强 MP4、关键帧和历史工具记录均可读取；没有重新调用 Agent。100 项离线测试通过，正式协议适配与新素材验证仍未完成，详见[本地开发进度](docs/本地开发进度-20261009.md)。本轮只做本地提交和存档。
+**2026-10-09 本地开发更新：** 本地预览已改为无云依赖，启动 `python3 product/scripts/serve.py` 后访问 http://127.0.0.1:4173/product/。两段原片、最终增强 MP4、关键帧和历史工具记录均可读取；没有重新调用 Agent。随后复用旧项目素材完成[桌面视觉更新](docs/前端视觉更新与旧素材复用-20261009.md)，111 项离线测试通过。正式协议适配与新素材验证仍未完成，详见[本地开发进度](docs/本地开发进度-20261009.md)。本轮只做本地提交和存档。
 
 **2026-10-08 11:06（北京时间）状态更新：** `nba` 接入参赛角色实测被 STS AssumeRole AccessDenied 拒绝；产品网页不可访问，公共 DNS 没有返回其 A 地址，主办方 Portal 仍响应。与通知中的 10 月 8 日 09:00 练习权限到期相符，但后台资源是否删除、正式权限何时重开仍未确认。源码及成片独立备份存在；详见[只读核查](product/evidence/service-status-20261008.json)。
 
@@ -32,6 +32,7 @@
 
 ### 1.1 当前产品接手重点
 
+- 用户最新要求专注桌面评委展示，优先复用 `/Users/jack/draftcode` 素材，不采用外部 skill 方案。当前风格为暖纸、深墨、篮球橙；`web/broadcast.css`、`web/atmosphere.js`、`web/assets/` 是新视觉层，字体授权与离屏暂停须保留。粒子/球场图仅为装饰，不是追踪或数据分析。
 - 从 `product/` 构建部署，复用现有 Stack，不要从 readiness-lab/ 覆盖新代码；不新建另一份相同资源。
 - `product/data/stories.json` 是编辑策展入口；浏览选择并未传给生成器，创作 Agent 自主选角度。不要冒充自动识别所有视频事件。
 - `product/data/match_events.py` 根据公开官方逐回合记录、逐次出手数据与编辑视频锚点核对；`actionNumber == eventId`，不是 actionId。

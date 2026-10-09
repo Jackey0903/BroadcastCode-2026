@@ -24,6 +24,11 @@ class PreviewTest(unittest.TestCase):
         self.write("product/web/index.html", b"<h1>Local product</h1>")
         self.write("product/web/app.js", b"/* local */")
         self.write("product/web/styles.css", b"body{}")
+        self.write("product/web/broadcast.css", b"/* retro */")
+        self.write("product/web/atmosphere.js", b"/* points */")
+        self.write("product/web/assets/grain.svg", b"<svg/>")
+        self.write("product/web/assets/fonts/OFL.txt", b"SIL OPEN FONT LICENSE")
+        self.write("product/web/assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2", b"font")
         self.write("data/reference/frames/flagg-16.5s.jpg", b"frame")
         self.write(SOURCES["flagg"], MEDIA)
         self.write(f"product/build/verified/{JOB}/enhanced.mp4", MEDIA)
@@ -103,6 +108,20 @@ class PreviewTest(unittest.TestCase):
         self.assertEqual(json.loads(body)["error"], "offline_preview")
         self.assertEqual(before, self.catalog.jobs)
         self.assertEqual(self.request("/api/jobs/unknown")[0], 404)
+
+    def test_visual_assets_are_local_and_have_browser_mime_types(self):
+        for name, mime, expected in (
+            ("broadcast.css", "text/css", b"/* retro */"),
+            ("atmosphere.js", "text/javascript", b"/* points */"),
+            ("assets/grain.svg", "image/svg+xml", b"<svg/>"),
+            ("assets/fonts/OFL.txt", "text/plain", b"SIL OPEN FONT LICENSE"),
+            ("assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2", "font/woff2", b"font"),
+        ):
+            with self.subTest(name=name):
+                status, headers, body = self.request("/product/" + name)
+                self.assertEqual(status, 200)
+                self.assertEqual(headers["Content-Type"].split(";")[0], mime)
+                self.assertEqual(body, expected)
 
     def test_original_and_enhanced_have_byte_exact_seekable_ranges(self):
         for path in ("/samples/flagg.mp4", f"/product/outputs/{JOB}/enhanced.mp4"):

@@ -43,7 +43,9 @@ class Catalog:
         self.files, self.jobs, self.issues = {}, {}, []
         self.manifest = json.loads((self.root / "product/data/stories.json").read_text())
         self.manifest["preview"] = {"mode": "offline", "historical": True}
-        for name in ("index.html", "app.js", "styles.css"):
+        for name in ("index.html", "app.js", "styles.css", "broadcast.css", "atmosphere.js",
+                     "assets/grain.svg", "assets/fonts/OFL.txt",
+                     "assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2"):
             file = checked_file(self.root, f"product/web/{name}")
             if file:
                 self.files[f"/product/{name}"] = file

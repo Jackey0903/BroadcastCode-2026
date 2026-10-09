@@ -37,7 +37,8 @@ def upload(source, key, content_type=None):
     uploaded.append(key)
 
 for path in sorted((HERE / 'web').rglob('*')):
-    if path.is_file() and path.suffix in ('.html', '.css', '.js', '.woff2', '.svg') and not path.name.startswith('test'):
+    is_font_license = path.relative_to(HERE / 'web').as_posix() == 'assets/fonts/OFL.txt'
+    if path.is_file() and (path.suffix in ('.html', '.css', '.js', '.woff2', '.svg') or is_font_license) and not path.name.startswith('test'):
         upload(path, 'product/' + path.relative_to(HERE / 'web').as_posix())
 for path in sorted((HERE / 'data').rglob('*.json')):
     upload(path, 'product/data/' + path.relative_to(HERE / 'data').as_posix(), 'application/json')

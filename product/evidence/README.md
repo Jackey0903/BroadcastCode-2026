@@ -8,6 +8,8 @@
 
 **10 月 9 日本地状态：** 无云依赖的预览已恢复。当前 100 项离线测试全部通过（Agent 19 / Worker 8 / API 12 / 数据 16 / Web 34 / 本地预览 11），见[测试记录](local-tests-20261009.json)。两原片与两最终成片的本地 HTTP、SHA-256、Range 206 与 HEAD 检查见[预览核查](local-preview-20261009.json)。本轮回看真实历史工具记录，没有新推理或部署；正式新输入仍待验收。
 
+**随后桌面视觉更新：** 最新 111 项离线测试通过（原交互 34、粒子 10、本地服务 12、其余产品 55），见[本轮记录](visual-redesign-20261009.json)。复用旧字体、纹理与局部 Canvas，加入篮球线稿和数据仪表细节；桌面布局、剧场与历史记录展开均有实际截图。查看[复用说明](../../docs/前端视觉更新与旧素材复用-20261009.md)。没有新云端推理或成片生成。
+
 ## 实际任务与验收结论
 
 |任务与记录|媒体与生成结果|浏览器与内容结论|使用状态|
@@ -57,6 +59,7 @@ python3 -m unittest discover -s product/api -p 'test_*.py' -v
 python3 -m unittest discover -s product/data -p 'test_*.py' -v
 python3 -m unittest discover -s product/scripts -p 'test_*.py' -v
 node --test product/web/test-app.cjs
+node --test product/web/test-atmosphere.cjs
 ```
 
 ## 仍未完成的范围

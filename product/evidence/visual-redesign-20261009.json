@@ -1,0 +1,158 @@
+{
+  "checkedAt": "2026-10-09T16:54:49+08:00",
+  "scope": "Local desktop frontend revision; no cloud call, deployment, new inference, Git push or MP4 regeneration.",
+  "designBasis": "User-supplied draftcode front-end assets; warm-paper retro basketball broadcast with local point-cloud canvas.",
+  "tests": {
+    "total": 111,
+    "allPassed": true,
+    "results": [
+      {
+        "component": "agent",
+        "command": "python3 -m unittest discover -s product/agent -p 'test_*.py'",
+        "tests": 19,
+        "passed": true
+      },
+      {
+        "component": "worker",
+        "command": "python3 -m unittest discover -s product/worker -p 'test_*.py'",
+        "tests": 8,
+        "passed": true
+      },
+      {
+        "component": "api",
+        "command": "python3 -m unittest discover -s product/api -p 'test_*.py'",
+        "tests": 12,
+        "passed": true
+      },
+      {
+        "component": "data",
+        "command": "python3 -m unittest discover -s product/data -p 'test_*.py'",
+        "tests": 16,
+        "passed": true
+      },
+      {
+        "component": "scripts",
+        "command": "python3 -m unittest discover -s product/scripts -p 'test_*.py'",
+        "tests": 12,
+        "passed": true
+      },
+      {
+        "component": "web",
+        "command": "node --test --test-reporter=spec product/web/test-app.cjs product/web/test-atmosphere.cjs",
+        "tests": 44,
+        "passed": true
+      }
+    ],
+    "webBreakdown": {
+      "existingInteractions": 34,
+      "atmosphere": 10
+    }
+  },
+  "browser": {
+    "surface": "Codex in-app browser via CUA",
+    "desktopViewports": [
+      {
+        "width": 1280,
+        "height": 900
+      },
+      {
+        "width": 1440,
+        "height": 1000
+      }
+    ],
+    "observed": {
+      "horizontalOverflow": false,
+      "localFontLoaded": true,
+      "canvasInitialized": true,
+      "perspectiveReveal": "Flagg / defender perspective and two actual comparison frames visible",
+      "comparisonFrame": {
+        "sample": "flagg",
+        "time": 16.5,
+        "version": "source",
+        "paused": true
+      },
+      "enhancedSwitch": {
+        "sample": "flagg",
+        "time": 16.5,
+        "rate": 0.5,
+        "paused": true,
+        "jobId": "81a74837370e46a890cbacb2069074e6"
+      },
+      "official": {
+        "flagg": {
+          "event": 666,
+          "xFGPercent": 51
+        },
+        "amen": {
+          "event": 396,
+          "xFGPercent": 44.5
+        }
+      },
+      "theater": "Entered and exited; real source video and controls visibly present. Time label contrast subsequently improved.",
+      "history": {
+        "sample": "amen",
+        "jobId": "ce008e75d25d4e2e8e88b57412f6c762",
+        "detailsExpanded": true,
+        "readFrames": 6,
+        "officialEvent": 396,
+        "elapsedSeconds": 59.4
+      },
+      "newGenerationDisabled": true,
+      "consoleErrorAndWarnSnapshot": []
+    },
+    "screenshots": [
+      {
+        "path": "visual-20261009/desktop-1440.jpg",
+        "note": "Final home, including court blueprint, particle basketball and feature labels.",
+        "sha256": "44659e1e250ce34983b67e258a27010f0b156ba2caac9a3e2f8660b6da8cb5da"
+      },
+      {
+        "path": "visual-20261009/desktop-1280.jpg",
+        "note": "1280 desktop layout captured during development, before removal of feature-label entrance animation.",
+        "sha256": "f7853834354a4e4307f69a74a888612f4cbe6452181c42056a50bfbaab6a429e"
+      },
+      {
+        "path": "visual-20261009/desktop-official.jpg",
+        "note": "Earlier revision: enhanced film at 16.5 seconds, official xFG and source comparison. Hero was offscreen during capture.",
+        "sha256": "fe50605995cf254e3d5ecb0445ec2a7a7faeb6d4e0fbfaa8f5ca385880279606"
+      },
+      {
+        "path": "visual-20261009/studio-1440.jpg",
+        "note": "Earlier revision: real archived Amen record and expanded actual tool trace.",
+        "sha256": "b2376c7f0c228afcdbbddca6629c120e7b8c3822242c0884f7f249f8114722aa"
+      },
+      {
+        "path": "visual-20261009/theater-1440.jpg",
+        "note": "Theater before final increase in timestamp contrast.",
+        "sha256": "ead4762555bf022d5c5a82c50b725414d4202c783d71f0aa2d91bb1871b8eeac"
+      }
+    ],
+    "limits": "Browsers were not exhaustively tested; no new full-video playback completion certification in this visual round. Prior full-play/media evidence remains separate. Mobile is not a delivery target."
+  },
+  "assets": {
+    "fontAndLicenseByteExactToOldProject": true,
+    "fontLicense": "../web/assets/fonts/OFL.txt",
+    "httpChecked": [
+      "broadcast.css",
+      "atmosphere.js",
+      "assets/grain.svg",
+      "assets/fonts/OFL.txt",
+      "assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2"
+    ],
+    "allHttp200AndBodyByteExact": true
+  },
+  "sourceSha256": {
+    "product/web/index.html": "5b499f446a2590a6116bb44c76c124506a7beb52666da47334c771c8c768efe0",
+    "product/web/app.js": "d69081489de4f1f1098921c718df52d4b53e8a8cf8f6118043f5d6217089595a",
+    "product/web/styles.css": "74eab49ac94373b78c189dfa09ff5bc9efcadd57b927cbe58da8a8eca621e841",
+    "product/web/broadcast.css": "34f066ff72974b09b6755d348bc5a7e5a94c12ba18219f3883a01a1ad2b9beba",
+    "product/web/atmosphere.js": "c61b44117c53173897a493be58e61f7a8abf4348a5e8c67d84132bb7e4aae912",
+    "product/web/assets/grain.svg": "bd396a4cfddf2ec4607ddbc0c06cd5bcf6db7f8ed3b3283935b66a4a26c3e525",
+    "product/web/assets/fonts/OFL.txt": "6f4007802d1f082674726446865a0a37b8fb38673dd347a77ca0b1b72d86aaf8",
+    "product/web/assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2": "e902e82f30d93f2f4a29a21f7b8c5d6565be0377663ceecda093b968d8ade4a5",
+    "product/scripts/serve.py": "2140553f0f2d6306a903070a0100d62e8973dc42b62db2a59a243302447ed974",
+    "product/scripts/publish.py": "110dc9b00570d4ee45158fbbf6e0f15ea0b255a8de4d6027b929b4575a463ee3",
+    "product/scripts/test_serve.py": "b113e06b7539423b285e24498a3816e5e0f4e956f2a7ab0319eb975d766fe1c9",
+    "product/web/test-atmosphere.cjs": "44600a8b0015b8fe54c45d458b6416f6bba22131f8f35655b918d7752d59241e"
+  }
+}
