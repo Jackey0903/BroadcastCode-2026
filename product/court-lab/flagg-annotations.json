@@ -15,8 +15,8 @@
     "origin": "left-baseline-near-sideline"
   },
   "presentation": "schematic",
-  "annotationMethod": "AI assistants viewed seven actual keyframes and manually edited approximate visible foot/ground positions. This is editorial visual annotation, not automated player detection or human expert review.",
-  "warning": "Only the seven keyframes have edited position anchors. Between adjacent visible anchors the webpage performs linear schematic interpolation; the intermediate route is not an observed or reconstructed player trajectory. Unknown/occluded positions remain null.",
+  "annotationMethod": "AI-edited source-frame tactical schematic: coarse body/floor court layouts in early frames; manual lane-corner foot projection and explicit ground inferences in later frames; no automatic tracking",
+  "warning": "全片低精度战术示意。画面脚点/地面编辑、身体场地推断和过去快照是不同依据；未知位置不补新坐标。匿名编号与持球阶段均为 AI 画面编辑，未经人类专家核准；不是官方逐帧坐标、自动跟踪、精确运动轨迹或官方深度数据。点之间为示意移动，空中脚和空中球不作为地面测量。端线外发球员仅以 x=0 端线图示表示。",
   "identities": [
     {
       "id": "W1",
@@ -80,6 +80,188 @@
     }
   ],
   "frames": [
+    {
+      "requestedTime": 0,
+      "t": 0.0,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-00.000s.jpg",
+      "imageSha256": "058a33465acd6c69549b0699a37e7cf50b19221509cf2d07112316f69821ce51",
+      "segment": "flagg-closeup-0",
+      "players": {
+        "W1": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "W2": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "W3": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "W4": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "W5": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "D1": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "D2": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "D3": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "D4": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "D5": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        }
+      },
+      "coordinateMethod": "no_space_observation",
+      "reviewed": false
+    },
+    {
+      "requestedTime": 0.067,
+      "t": 0.06673333333333334,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-00.067s.jpg",
+      "imageSha256": "2a26f1d6244e68b9570dd09c563fcc30c7abba162eecd697b3c577d0d150e987",
+      "segment": "flagg-wide-1",
+      "players": {
+        "W1": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "W2": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "W3": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "W4": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "W5": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "D1": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "D2": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "D3": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "D4": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        "D5": {
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "image": null,
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        }
+      },
+      "coordinateMethod": "no_space_observation",
+      "reviewed": false
+    },
     {
       "requestedTime": 9.0,
       "t": 8.992322222222223,
@@ -904,6 +1086,1579 @@
         "D3": "feet_not_clear_near_far_sideline"
       },
       "reviewed": false
+    },
+    {
+      "requestedTime": 13,
+      "t": 12.996333333333334,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-13.000s.jpg",
+      "imageSha256": "8e7abfd91a9c768fcf5cd2515ef5a733c44eb6fece6670330db3b6e11961c881",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual rough lane four corners per real source frame",
+        "imageToCourt": [
+          [
+            0.08447089195295543,
+            0.12892925613872142,
+            -78.42900026010982
+          ],
+          [
+            0.017888582764681,
+            -0.21389800405856077,
+            144.23726883630027
+          ],
+          [
+            -0.00010982241870691463,
+            0.0030142622692739232,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            350,
+            379
+          ],
+          [
+            787,
+            409
+          ],
+          [
+            686,
+            531
+          ],
+          [
+            176,
+            493
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0,
+            33
+          ],
+          [
+            19,
+            33
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        "independentValidation": false,
+        "accuracyMeasured": false
+      },
+      "feet": {
+        "W1": [
+          430,
+          573
+        ],
+        "W2": [
+          897,
+          562
+        ],
+        "W3": [
+          665,
+          365
+        ],
+        "W4": [
+          536,
+          439
+        ],
+        "W5": [
+          747,
+          391
+        ],
+        "D1": null,
+        "D2": [
+          949,
+          620
+        ],
+        "D3": [
+          936,
+          333
+        ],
+        "D4": [
+          469,
+          457
+        ],
+        "D5": [
+          857,
+          365
+        ]
+      },
+      "inferredImageAnchors": {
+        "D1": [
+          281,
+          653
+        ]
+      },
+      "inferenceReasons": {
+        "D1": "foreground foot hidden by audience and score graphic; rough ground position from lower-body scene"
+      },
+      "players": {},
+      "unknownReasons": {},
+      "unknownStatuses": {},
+      "reviewed": false
+    },
+    {
+      "requestedTime": 14,
+      "t": 13.997333333333334,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-14.000s.jpg",
+      "imageSha256": "acd4457d37c974e3431fa587a91733b468087adc4cab0160ebb4110314c2d984",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual rough lane four corners per real source frame",
+        "imageToCourt": [
+          [
+            0.0635545228143274,
+            0.10341074898602426,
+            -57.877703573115454
+          ],
+          [
+            0.011539848391420353,
+            -0.17447020743222008,
+            119.39024563284326
+          ],
+          [
+            -0.0001811460976339346,
+            0.002032160540685525,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            294,
+            379
+          ],
+          [
+            749,
+            412
+          ],
+          [
+            631,
+            534
+          ],
+          [
+            102,
+            497
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0,
+            33
+          ],
+          [
+            19,
+            33
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        "independentValidation": false,
+        "accuracyMeasured": false
+      },
+      "feet": {
+        "W1": [
+          390,
+          588
+        ],
+        "W2": [
+          801,
+          574
+        ],
+        "W3": [
+          667,
+          351
+        ],
+        "W4": [
+          480,
+          432
+        ],
+        "W5": [
+          812,
+          395
+        ],
+        "D1": null,
+        "D2": [
+          884,
+          629
+        ],
+        "D3": null,
+        "D4": [
+          298,
+          485
+        ],
+        "D5": [
+          1018,
+          368
+        ]
+      },
+      "inferredImageAnchors": {
+        "D1": [
+          351,
+          655
+        ]
+      },
+      "inferenceReasons": {
+        "D1": "foot below score graphic; coarse lower-body ground estimate"
+      },
+      "players": {
+        "D3": {
+          "x": 14,
+          "y": 48,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        }
+      },
+      "unknownReasons": {},
+      "unknownStatuses": {},
+      "reviewed": false
+    },
+    {
+      "requestedTime": 15,
+      "t": 14.998333333333337,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-15.000s.jpg",
+      "imageSha256": "543be97c33284b2c26bc960a0e776ffd032c120e70a15e167f18f53d76a1e9c6",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual rough lane four corners per real source frame",
+        "imageToCourt": [
+          [
+            0.0896143273281133,
+            0.1441297097860488,
+            -82.63934551774177
+          ],
+          [
+            0.0149286510772033,
+            -0.21818900262891464,
+            154.24181703399822
+          ],
+          [
+            -0.0001576782583517619,
+            0.0035559057803417073,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            311,
+            380
+          ],
+          [
+            761,
+            407
+          ],
+          [
+            656,
+            534
+          ],
+          [
+            118,
+            500
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0,
+            33
+          ],
+          [
+            19,
+            33
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        "independentValidation": false,
+        "accuracyMeasured": false
+      },
+      "feet": {
+        "W1": [
+          465,
+          565
+        ],
+        "W2": [
+          814,
+          585
+        ],
+        "W3": [
+          645,
+          347
+        ],
+        "W4": [
+          470,
+          448
+        ],
+        "W5": [
+          813,
+          382
+        ],
+        "D1": null,
+        "D2": null,
+        "D3": null,
+        "D4": [
+          261,
+          526
+        ],
+        "D5": [
+          948,
+          338
+        ]
+      },
+      "inferredImageAnchors": {
+        "D1": [
+          400,
+          646
+        ],
+        "D2": [
+          918,
+          653
+        ]
+      },
+      "inferenceReasons": {
+        "D1": "foot hidden by score graphic; coarse lower-body ground estimate",
+        "D2": "feet behind score graphic; coarse lower-body ground estimate"
+      },
+      "players": {
+        "D3": {
+          "x": 9,
+          "y": 48,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        }
+      },
+      "unknownReasons": {},
+      "unknownStatuses": {},
+      "reviewed": false
+    },
+    {
+      "requestedTime": 16,
+      "t": 15.999333333333334,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-16.000s.jpg",
+      "imageSha256": "d46bb956ad86c6e42c046c1d1dcaa120031498183464eeb912bb2b81ffad1c6f",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual rough lane four corners per real source frame",
+        "imageToCourt": [
+          [
+            0.14971376954741558,
+            0.24996852594077437,
+            -160.67094605616714
+          ],
+          [
+            0.03946457041747933,
+            -0.3514750319196115,
+            244.2980637259799
+          ],
+          [
+            0.00021526825420272407,
+            0.0063970789266934135,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            407,
+            399
+          ],
+          [
+            859,
+            425
+          ],
+          [
+            747,
+            552
+          ],
+          [
+            220,
+            511
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0,
+            33
+          ],
+          [
+            19,
+            33
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        "independentValidation": false,
+        "accuracyMeasured": false
+      },
+      "feet": {
+        "W1": [
+          499,
+          577
+        ],
+        "W2": [
+          914,
+          614
+        ],
+        "W3": [
+          624,
+          385
+        ],
+        "W4": [
+          451,
+          493
+        ],
+        "W5": [
+          768,
+          387
+        ],
+        "D1": [
+          778,
+          632
+        ],
+        "D2": [
+          1005,
+          674
+        ],
+        "D3": null,
+        "D4": [
+          417,
+          552
+        ],
+        "D5": [
+          692,
+          366
+        ]
+      },
+      "inferredImageAnchors": {},
+      "inferenceReasons": {},
+      "players": {
+        "D3": {
+          "x": 5,
+          "y": 48,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        }
+      },
+      "unknownReasons": {},
+      "unknownStatuses": {},
+      "reviewed": false
+    },
+    {
+      "requestedTime": 16.5,
+      "t": 16.499833333333335,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-16.500s.jpg",
+      "imageSha256": "ecbc640aff127f85ad73394fd857f07a6066c0df1aafe26b7bc8a9a88c630c82",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual rough lane four corners per real source frame",
+        "imageToCourt": [
+          [
+            0.09376360188997919,
+            0.1518815369457514,
+            -102.2767170169487
+          ],
+          [
+            0.025463431888576853,
+            -0.225956840926494,
+            162.93589349316878
+          ],
+          [
+            -3.3494151004175115e-05,
+            0.003798209957560922,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            438,
+            403
+          ],
+          [
+            914,
+            439
+          ],
+          [
+            800,
+            574
+          ],
+          [
+            242,
+            524
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0,
+            33
+          ],
+          [
+            19,
+            33
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        "independentValidation": false,
+        "accuracyMeasured": false
+      },
+      "feet": {
+        "W1": null,
+        "W2": [
+          1036,
+          629
+        ],
+        "W3": null,
+        "W4": [
+          490,
+          486
+        ],
+        "W5": [
+          736,
+          434
+        ],
+        "D1": [
+          947,
+          596
+        ],
+        "D2": [
+          1151,
+          686
+        ],
+        "D3": null,
+        "D4": [
+          516,
+          548
+        ],
+        "D5": null
+      },
+      "inferredImageAnchors": {
+        "W1": [
+          617,
+          575
+        ],
+        "W3": [
+          563,
+          443
+        ],
+        "D5": [
+          614,
+          431
+        ]
+      },
+      "inferenceReasons": {
+        "W1": "running airborne feet; approximate floor under body, not shoe pixel",
+        "W3": "jumping contest; approximate launch/landing area on floor",
+        "D5": "airborne layup; approximate launch/landing area, not airborne shoe projection"
+      },
+      "players": {
+        "D3": {
+          "x": 5,
+          "y": 48,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        }
+      },
+      "unknownReasons": {},
+      "unknownStatuses": {},
+      "reviewed": false
+    },
+    {
+      "requestedTime": 17,
+      "t": 17.000333333333334,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-17.000s.jpg",
+      "imageSha256": "cc73575561e9a4fd6cc46d48765a34c6ebc85169ce286045fa08acf15cb5bccb",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual rough lane four corners per real source frame",
+        "imageToCourt": [
+          [
+            0.0862469530246872,
+            0.13392819534727848,
+            -92.96369743951223
+          ],
+          [
+            0.027885970114213638,
+            -0.2211688493881253,
+            159.6511793996233
+          ],
+          [
+            0.00015858430220075056,
+            0.003289503373922601,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            435,
+            414
+          ],
+          [
+            959,
+            450
+          ],
+          [
+            838,
+            591
+          ],
+          [
+            244,
+            537
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0,
+            33
+          ],
+          [
+            19,
+            33
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        "independentValidation": false,
+        "accuracyMeasured": false
+      },
+      "feet": {
+        "W1": [
+          826,
+          551
+        ],
+        "W2": [
+          1177,
+          665
+        ],
+        "W3": null,
+        "W4": [
+          522,
+          507
+        ],
+        "W5": [
+          657,
+          462
+        ],
+        "D1": null,
+        "D2": null,
+        "D3": null,
+        "D4": [
+          631,
+          537
+        ],
+        "D5": null
+      },
+      "inferredImageAnchors": {
+        "W3": [
+          550,
+          475
+        ],
+        "D5": [
+          557,
+          479
+        ],
+        "D1": [
+          1185,
+          597
+        ]
+      },
+      "inferenceReasons": {
+        "W3": "landing feet hidden among players; coarse ground area",
+        "D5": "landing feet hidden among players; coarse ground area",
+        "D1": "feet crowded behind white1 near image border; rough lower-body floor estimate"
+      },
+      "players": {
+        "D3": {
+          "x": 4,
+          "y": 48,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        }
+      },
+      "unknownReasons": {
+        "D2": "outside current crop; retain only previous tactical snapshot in display"
+      },
+      "unknownStatuses": {
+        "D2": "offscreen"
+      },
+      "reviewed": false
+    },
+    {
+      "requestedTime": 17.5,
+      "t": 17.500833333333333,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-17.500s.jpg",
+      "imageSha256": "a315446a61e6e37b4103c17e96681d127a01470a921f9837439d499c1a0cf596",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual rough lane four corners per real source frame",
+        "imageToCourt": [
+          [
+            0.07938729809747598,
+            0.1118639200464435,
+            -80.71883959738368
+          ],
+          [
+            0.028091687962959765,
+            -0.1959477079960154,
+            144.27532767814944
+          ],
+          [
+            0.00028714600410860035,
+            0.0027746684647849177,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            432,
+            415
+          ],
+          [
+            988,
+            451
+          ],
+          [
+            864,
+            606
+          ],
+          [
+            246,
+            547
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0,
+            33
+          ],
+          [
+            19,
+            33
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        "independentValidation": false,
+        "accuracyMeasured": false
+      },
+      "feet": {
+        "W1": [
+          950,
+          533
+        ],
+        "W2": [
+          1196,
+          703
+        ],
+        "W3": null,
+        "W4": [
+          523,
+          535
+        ],
+        "W5": [
+          584,
+          468
+        ],
+        "D1": null,
+        "D2": null,
+        "D3": null,
+        "D4": [
+          645,
+          513
+        ],
+        "D5": [
+          442,
+          518
+        ]
+      },
+      "inferredImageAnchors": {
+        "W3": [
+          521,
+          484
+        ]
+      },
+      "inferenceReasons": {
+        "W3": "feet obscured behind white28 near basket; approximate visible-body floor area"
+      },
+      "players": {
+        "D3": {
+          "x": 5,
+          "y": 48,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        }
+      },
+      "unknownReasons": {
+        "D1": "outside current crop; retain only previous tactical snapshot in display",
+        "D2": "outside current crop; retain only previous tactical snapshot in display"
+      },
+      "unknownStatuses": {
+        "D1": "offscreen",
+        "D2": "offscreen"
+      },
+      "reviewed": false
+    },
+    {
+      "requestedTime": 17.75,
+      "t": 17.75107777777778,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-17.750s.jpg",
+      "imageSha256": "40a9a3979fb862d4430f2069b3c1f053b4e9e52e9cc0098eb51f406c4ba0c8d0",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual rough lane four corners per real source frame",
+        "imageToCourt": [
+          [
+            0.06662763022136307,
+            0.10067094493300843,
+            -70.86067323922252
+          ],
+          [
+            0.020537576955567936,
+            -0.16841705576141242,
+            128.3917790166594
+          ],
+          [
+            7.142642542265532e-05,
+            0.002461585352431148,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            438,
+            414
+          ],
+          [
+            1001,
+            455
+          ],
+          [
+            873,
+            610
+          ],
+          [
+            231,
+            551
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0,
+            33
+          ],
+          [
+            19,
+            33
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        "independentValidation": false,
+        "accuracyMeasured": false
+      },
+      "feet": {
+        "W1": [
+          1014,
+          516
+        ],
+        "W2": [
+          1210,
+          712
+        ],
+        "W3": null,
+        "W4": [
+          498,
+          551
+        ],
+        "W5": [
+          594,
+          475
+        ],
+        "D1": null,
+        "D2": null,
+        "D3": null,
+        "D4": [
+          638,
+          506
+        ],
+        "D5": [
+          435,
+          512
+        ]
+      },
+      "inferredImageAnchors": {
+        "W3": [
+          530,
+          485
+        ]
+      },
+      "inferenceReasons": {
+        "W3": "feet obscured behind white28 while collecting ball; rough floor area"
+      },
+      "players": {
+        "D3": {
+          "x": 5,
+          "y": 48,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        }
+      },
+      "unknownReasons": {
+        "D1": "outside current crop; retain only previous tactical snapshot in display",
+        "D2": "outside current crop; retain only previous tactical snapshot in display"
+      },
+      "unknownStatuses": {
+        "D1": "offscreen",
+        "D2": "offscreen"
+      },
+      "reviewed": false
+    },
+    {
+      "requestedTime": 18,
+      "t": 18.001333333333335,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-18.000s.jpg",
+      "imageSha256": "4ffa07440fbc009a3a6356a39c6fbb3fd325c4017a766634bd3c7f8e62405181",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual rough lane four corners per real source frame",
+        "imageToCourt": [
+          [
+            0.06470541801874613,
+            0.10101493316595622,
+            -70.16115542291668
+          ],
+          [
+            0.01911726138586411,
+            -0.16272705409914692,
+            126.23231945444704
+          ],
+          [
+            1.4466256788282197e-05,
+            0.0024906737131306445,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            438,
+            414
+          ],
+          [
+            1003,
+            457
+          ],
+          [
+            873,
+            613
+          ],
+          [
+            221,
+            553
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0,
+            33
+          ],
+          [
+            19,
+            33
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        "independentValidation": false,
+        "accuracyMeasured": false
+      },
+      "feet": {
+        "W1": [
+          1078,
+          493
+        ],
+        "W2": [
+          1161,
+          705
+        ],
+        "W3": [
+          453,
+          483
+        ],
+        "W4": [
+          500,
+          550
+        ],
+        "W5": [
+          579,
+          474
+        ],
+        "D1": null,
+        "D2": null,
+        "D3": null,
+        "D4": [
+          667,
+          501
+        ],
+        "D5": [
+          395,
+          532
+        ]
+      },
+      "inferredImageAnchors": {},
+      "inferenceReasons": {},
+      "players": {
+        "D3": {
+          "x": 4,
+          "y": 48,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        }
+      },
+      "unknownReasons": {
+        "D1": "outside current crop; retain only previous tactical snapshot in display",
+        "D2": "outside current crop; retain only previous tactical snapshot in display"
+      },
+      "unknownStatuses": {
+        "D1": "offscreen",
+        "D2": "offscreen"
+      },
+      "reviewed": false
+    },
+    {
+      "requestedTime": 19,
+      "t": 19.002333333333333,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-19.000s.jpg",
+      "imageSha256": "5db832fe030bfad86fc3c9ea6ffce2132a4476796f79d53a3b4d80e7125f0f5a",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual rough lane four corners per real source frame",
+        "imageToCourt": [
+          [
+            0.03271921632751502,
+            0.038288444638581394,
+            -26.43991140678766
+          ],
+          [
+            0.007499688598148726,
+            -0.11155604714946787,
+            79.18886122655124
+          ],
+          [
+            -5.8123255424665846e-05,
+            0.000361248440606016,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            340,
+            400
+          ],
+          [
+            930,
+            445
+          ],
+          [
+            799,
+            586
+          ],
+          [
+            175,
+            541
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0,
+            33
+          ],
+          [
+            19,
+            33
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        "independentValidation": false,
+        "accuracyMeasured": false
+      },
+      "feet": {
+        "W1": null,
+        "W2": [
+          1036,
+          688
+        ],
+        "W3": [
+          352,
+          464
+        ],
+        "W4": [
+          644,
+          560
+        ],
+        "W5": [
+          508,
+          477
+        ],
+        "D1": null,
+        "D2": null,
+        "D3": [
+          823,
+          333
+        ],
+        "D4": [
+          946,
+          511
+        ],
+        "D5": [
+          550,
+          558
+        ]
+      },
+      "inferredImageAnchors": {},
+      "inferenceReasons": {},
+      "players": {},
+      "unknownReasons": {
+        "W1": "outside current crop; retain only previous tactical snapshot in display",
+        "D1": "outside current crop; retain only previous tactical snapshot in display",
+        "D2": "outside current crop; retain only previous tactical snapshot in display"
+      },
+      "unknownStatuses": {
+        "W1": "offscreen",
+        "D1": "offscreen",
+        "D2": "offscreen"
+      },
+      "reviewed": false
+    },
+    {
+      "requestedTime": 20,
+      "t": 20.003333333333334,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-20.000s.jpg",
+      "imageSha256": "31146fb7c68bff5f93176792175f6580c5284c57ff7abad37c6c492b67593f7f",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual rough lane four corners per real source frame",
+        "imageToCourt": [
+          [
+            0.06937483674781399,
+            0.09386007324704242,
+            -56.520087585719025
+          ],
+          [
+            0.016877184048995693,
+            -0.1845520304322297,
+            123.87188774672259
+          ],
+          [
+            2.3820286893102257e-05,
+            0.0021279984982390692,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            306,
+            376
+          ],
+          [
+            781,
+            406
+          ],
+          [
+            681,
+            535
+          ],
+          [
+            145,
+            495
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0,
+            33
+          ],
+          [
+            19,
+            33
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        "independentValidation": false,
+        "accuracyMeasured": false
+      },
+      "feet": {
+        "W1": null,
+        "W2": [
+          632,
+          629
+        ],
+        "W3": null,
+        "W4": [
+          696,
+          533
+        ],
+        "W5": [
+          380,
+          462
+        ],
+        "D1": null,
+        "D2": null,
+        "D3": [
+          900,
+          381
+        ],
+        "D4": null,
+        "D5": [
+          663,
+          550
+        ]
+      },
+      "inferredImageAnchors": {},
+      "inferenceReasons": {},
+      "players": {
+        "W3": {
+          "x": 0,
+          "y": 25,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false,
+          "reason": "visible inbounder outside baseline; editorial tactical layout represents this at baseline x=0, not a measured foot projection"
+        },
+        "D4": {
+          "x": 35,
+          "y": 26,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false,
+          "reason": "body and leg partly visible at right edge; coarse court layout, foot contact cannot be isolated"
+        }
+      },
+      "unknownReasons": {
+        "W1": "outside current crop; retain only previous tactical snapshot in display",
+        "D1": "outside current crop; retain only previous tactical snapshot in display",
+        "D2": "outside current crop; retain only previous tactical snapshot in display"
+      },
+      "unknownStatuses": {
+        "W1": "offscreen",
+        "D1": "offscreen",
+        "D2": "offscreen"
+      },
+      "reviewed": false
+    },
+    {
+      "requestedTime": 21,
+      "t": 21.004333333333335,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-21.000s.jpg",
+      "imageSha256": "c4009ce2da48a88adcb5ecc7ab7195e441bdc2abb84aaf7df184c3ad8f33c940",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual rough lane four corners per real source frame",
+        "imageToCourt": [
+          [
+            0.08547742552794418,
+            0.13432166868676937,
+            -74.26767172299377
+          ],
+          [
+            0.015563064550828268,
+            -0.2169575692142452,
+            134.3439768387626
+          ],
+          [
+            -0.00018294762226460327,
+            0.002855977966889206,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            322,
+            348
+          ],
+          [
+            711,
+            375
+          ],
+          [
+            612,
+            485
+          ],
+          [
+            157,
+            453
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0,
+            33
+          ],
+          [
+            19,
+            33
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        "independentValidation": false,
+        "accuracyMeasured": false
+      },
+      "feet": {
+        "W1": null,
+        "W2": [
+          414,
+          562
+        ],
+        "W3": null,
+        "W4": [
+          798,
+          492
+        ],
+        "W5": [
+          326,
+          454
+        ],
+        "D1": null,
+        "D2": null,
+        "D3": [
+          1065,
+          401
+        ],
+        "D4": null,
+        "D5": [
+          526,
+          529
+        ]
+      },
+      "inferredImageAnchors": {},
+      "inferenceReasons": {},
+      "players": {
+        "W3": {
+          "x": 0,
+          "y": 25,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false,
+          "reason": "visible inbounder outside baseline; editorial tactical layout represents this at baseline x=0, not a measured foot projection"
+        }
+      },
+      "unknownReasons": {
+        "W1": "outside current crop; retain only previous tactical snapshot in display",
+        "D1": "outside current crop; retain only previous tactical snapshot in display",
+        "D2": "outside current crop; retain only previous tactical snapshot in display",
+        "D4": "outside current crop; retain only previous tactical snapshot in display"
+      },
+      "unknownStatuses": {
+        "W1": "offscreen",
+        "D1": "offscreen",
+        "D2": "offscreen",
+        "D4": "offscreen"
+      },
+      "reviewed": false
+    },
+    {
+      "requestedTime": 21.52,
+      "t": 21.521522222222224,
+      "imagePath": "product/build/court-lab/full-keyframes/flagg-21.520s.jpg",
+      "imageSha256": "428b8b1d96f04caf9183dea180650580f5e35b26c2f5236ba8140bf91c461fb8",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual rough lane four corners per real source frame",
+        "imageToCourt": [
+          [
+            0.4829478148526606,
+            0.9219912829005332,
+            -499.36804055765083
+          ],
+          [
+            0.0995381150572997,
+            -0.9558827469389098,
+            619.1969361884335
+          ],
+          [
+            6.024855228998135e-05,
+            0.02453850531258812,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            362,
+            352
+          ],
+          [
+            724,
+            372
+          ],
+          [
+            619,
+            483
+          ],
+          [
+            173,
+            451
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0,
+            33
+          ],
+          [
+            19,
+            33
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            0,
+            17
+          ]
+        ],
+        "independentValidation": false,
+        "accuracyMeasured": false
+      },
+      "feet": {
+        "W1": null,
+        "W2": [
+          278,
+          510
+        ],
+        "W3": null,
+        "W4": [
+          871,
+          486
+        ],
+        "W5": [
+          380,
+          448
+        ],
+        "D1": null,
+        "D2": null,
+        "D3": [
+          1138,
+          429
+        ],
+        "D4": null,
+        "D5": [
+          359,
+          511
+        ]
+      },
+      "inferredImageAnchors": {},
+      "inferenceReasons": {},
+      "players": {
+        "W3": {
+          "x": 0,
+          "y": 25,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false,
+          "reason": "visible inbounder outside baseline; editorial tactical layout represents this at baseline x=0, not a measured foot projection"
+        }
+      },
+      "unknownReasons": {
+        "W1": "outside current crop; retain only previous tactical snapshot in display",
+        "D1": "outside current crop; retain only previous tactical snapshot in display",
+        "D2": "outside current crop; retain only previous tactical snapshot in display",
+        "D4": "outside current crop; retain only previous tactical snapshot in display"
+      },
+      "unknownStatuses": {
+        "W1": "offscreen",
+        "D1": "offscreen",
+        "D2": "offscreen",
+        "D4": "offscreen"
+      },
+      "reviewed": false
     }
   ],
   "independentExpertReview": false,
@@ -916,5 +2671,91 @@
     "10s W4 moved to the visible planted right shoe.",
     "11.5s W3 and last two frames D3 remain unknown because feet are unclear.",
     "D1 remains unknown throughout; D2 appears only where a shoe/ground location is visible."
+  ],
+  "earlyAnnotationFile": "flagg-early-annotations.json",
+  "sourceDurationSeconds": 21.548118,
+  "window": [
+    0,
+    21.548118
+  ],
+  "schematic": {
+    "maxGapSeconds": 1.25,
+    "holdLastKnown": true,
+    "holdAcrossSegments": true
+  },
+  "scenes": [
+    {
+      "id": "flagg-closeup-0",
+      "start": 0,
+      "end": 0.06673333333333334,
+      "type": "closeup",
+      "label": "开场人物特写，尚无可用的球场快照"
+    },
+    {
+      "id": "flagg-wide-1",
+      "start": 0.06673333333333334,
+      "end": 21.548118,
+      "type": "wide",
+      "label": "连续侧视比赛画面；编辑站位和当前已知快照"
+    }
+  ],
+  "possessionAnnotationFile": "ball-possession-annotations.json",
+  "fullVideoExtension": {
+    "editedLateFrames": 13,
+    "earlyCourtLayouts": "flagg-early-annotations.json",
+    "preservedOriginal9To12SecondsFrames": 7,
+    "openingNoFutureBackfill": true,
+    "offscreenPolicy": "unknown coordinates remain null; renderer may retain only past known snapshot",
+    "rawProjectedOutlierPolicy": "no coordinate clamping; weak far-side calibration replaced with explicitly inferred editorial layout"
+  },
+  "ballDiagramPlans": [
+    {
+      "phase": "shot",
+      "from": [
+        7.2,
+        28.5
+      ],
+      "to": [
+        5.25,
+        25
+      ],
+      "reason": "court-schematic shot diagram from approximate edited shooter launch area to left rim; not airborne-ball measurement"
+    },
+    {
+      "phase": "score",
+      "from": [
+        5.25,
+        25
+      ],
+      "to": [
+        5.25,
+        25
+      ],
+      "reason": "court-schematic rim symbol during made basket; depth and airborne ball height are not represented"
+    },
+    {
+      "phase": "change",
+      "from": [
+        5.25,
+        25
+      ],
+      "to": [
+        5.95,
+        25.8
+      ],
+      "reason": "court-schematic possession change near rim; edited diagram only"
+    },
+    {
+      "phase": "pass",
+      "from": [
+        0,
+        25
+      ],
+      "to": [
+        11.5,
+        10
+      ],
+      "reason": "court-schematic inbound-pass diagram from edited baseline position to approximate receiver area; no observed airborne/bounce pixel projection"
+    }
   ]
 }

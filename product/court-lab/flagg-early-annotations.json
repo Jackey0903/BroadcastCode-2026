@@ -1,0 +1,736 @@
+{
+  "schema": "court-early-editorial-annotations-v1",
+  "sourceSha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+  "warning": "画面人体与场地线索的粗略编辑站位，仅战术示意；未进行足点标定，image为null；画外不补坐标。匿名编号跨帧手动关联，未经人类专家核对。",
+  "frames": [
+    {
+      "requestedTime": 0.2,
+      "actualTime": 0.20020000000000002,
+      "file": "product/build/court-lab/full-keyframes/flagg-00.200s.jpg",
+      "imageSha256": "3faf23a9a28872e1b745273a8f7851f422950ef2d2c3bd16abc3ebeec72587b4",
+      "segment": "wide",
+      "basis": "manual_source_frame_review",
+      "coordinateMethod": "approximate_editorial_court_layout; not homography measurement",
+      "players": {
+        "D1": {
+          "x": 35,
+          "y": 39,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D2": {
+          "x": 30,
+          "y": 9,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D3": {
+          "x": 42,
+          "y": 47,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D4": {
+          "x": 58,
+          "y": 33,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D5": {
+          "x": 73,
+          "y": 23,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W1": {
+          "x": 29,
+          "y": 34,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W2": {
+          "x": null,
+          "y": null,
+          "status": "offscreen",
+          "image": null,
+          "reviewed": false
+        },
+        "W3": {
+          "x": null,
+          "y": null,
+          "status": "offscreen",
+          "image": null,
+          "reviewed": false
+        },
+        "W4": {
+          "x": 25,
+          "y": 27,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W5": {
+          "x": 46,
+          "y": 24,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        }
+      }
+    },
+    {
+      "requestedTime": 1.0,
+      "actualTime": 1.0010000000000001,
+      "file": "product/build/court-lab/full-keyframes/flagg-01.000s.jpg",
+      "imageSha256": "6ca429e0fc32af4b6ebacc71ed9957ae1af752bb68ccc3761a49b6c0e3733d86",
+      "segment": "wide",
+      "basis": "manual_source_frame_review",
+      "coordinateMethod": "approximate_editorial_court_layout; not homography measurement",
+      "players": {
+        "D1": {
+          "x": 30,
+          "y": 38,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D2": {
+          "x": null,
+          "y": null,
+          "status": "offscreen",
+          "image": null,
+          "reviewed": false
+        },
+        "D3": {
+          "x": 33,
+          "y": 47,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D4": {
+          "x": 48,
+          "y": 33,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D5": {
+          "x": 67,
+          "y": 22,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W1": {
+          "x": 25,
+          "y": 37,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W2": {
+          "x": null,
+          "y": null,
+          "status": "offscreen",
+          "image": null,
+          "reviewed": false
+        },
+        "W3": {
+          "x": 20,
+          "y": 37,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W4": {
+          "x": 25,
+          "y": 25,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W5": {
+          "x": 41,
+          "y": 24,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        }
+      }
+    },
+    {
+      "requestedTime": 2.0,
+      "actualTime": 2.0020000000000002,
+      "file": "product/build/court-lab/full-keyframes/flagg-02.000s.jpg",
+      "imageSha256": "3bbb4a2617e33ec6832c3be1e70f3e551cb915e256a3c7bdaaecfcb33f6f1dbb",
+      "segment": "wide",
+      "basis": "manual_source_frame_review",
+      "coordinateMethod": "approximate_editorial_court_layout; not homography measurement",
+      "players": {
+        "D1": {
+          "x": 27,
+          "y": 38,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D2": {
+          "x": null,
+          "y": null,
+          "status": "offscreen",
+          "image": null,
+          "reviewed": false
+        },
+        "D3": {
+          "x": 25,
+          "y": 45,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D4": {
+          "x": 36,
+          "y": 34,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D5": {
+          "x": 60,
+          "y": 22,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W1": {
+          "x": 22,
+          "y": 42,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W2": {
+          "x": null,
+          "y": null,
+          "status": "offscreen",
+          "image": null,
+          "reviewed": false
+        },
+        "W3": {
+          "x": 21,
+          "y": 36,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W4": {
+          "x": 24,
+          "y": 26,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W5": {
+          "x": 38,
+          "y": 24,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        }
+      }
+    },
+    {
+      "requestedTime": 3.0,
+      "actualTime": 3.003,
+      "file": "product/build/court-lab/full-keyframes/flagg-03.000s.jpg",
+      "imageSha256": "c15d8eca673207c628f4c41db47e6e813f2366e40031100e16820611d0945d79",
+      "segment": "wide",
+      "basis": "manual_source_frame_review",
+      "coordinateMethod": "approximate_editorial_court_layout; not homography measurement",
+      "players": {
+        "D1": {
+          "x": 18,
+          "y": 41,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D2": {
+          "x": null,
+          "y": null,
+          "status": "offscreen",
+          "image": null,
+          "reviewed": false
+        },
+        "D3": {
+          "x": 10,
+          "y": 45,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D4": {
+          "x": 30,
+          "y": 34,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D5": {
+          "x": 53,
+          "y": 22,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W1": {
+          "x": 13,
+          "y": 40,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W2": {
+          "x": 13,
+          "y": 5,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W3": {
+          "x": 18,
+          "y": 37,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W4": {
+          "x": 22,
+          "y": 27,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W5": {
+          "x": 36,
+          "y": 24,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        }
+      }
+    },
+    {
+      "requestedTime": 4.0,
+      "actualTime": 4.0040000000000004,
+      "file": "product/build/court-lab/full-keyframes/flagg-04.000s.jpg",
+      "imageSha256": "c21547b6ade5efbda168f44db2d55860b3ab2c06d5257cddb0c8f34801622068",
+      "segment": "wide",
+      "basis": "manual_source_frame_review",
+      "coordinateMethod": "approximate_editorial_court_layout; not homography measurement",
+      "players": {
+        "D1": {
+          "x": 2,
+          "y": 25,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D2": {
+          "x": 16,
+          "y": 6,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D3": {
+          "x": 13,
+          "y": 46,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D4": {
+          "x": 28,
+          "y": 34,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D5": {
+          "x": 47,
+          "y": 23,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W1": {
+          "x": 6,
+          "y": 29,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W2": {
+          "x": 12,
+          "y": 6,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W3": {
+          "x": 18,
+          "y": 39,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W4": {
+          "x": 22,
+          "y": 27,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W5": {
+          "x": 34,
+          "y": 24,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        }
+      }
+    },
+    {
+      "requestedTime": 5.0,
+      "actualTime": 5.005,
+      "file": "product/build/court-lab/full-keyframes/flagg-05.000s.jpg",
+      "imageSha256": "85b888b54418855eba6f522cfddecf0c61ee4126830f8f4e5b7830b2d32e74e4",
+      "segment": "wide",
+      "basis": "manual_source_frame_review",
+      "coordinateMethod": "approximate_editorial_court_layout; not homography measurement",
+      "players": {
+        "D1": {
+          "x": 2,
+          "y": 13,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D2": {
+          "x": 19,
+          "y": 8,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D3": {
+          "x": 11,
+          "y": 48,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D4": {
+          "x": 28,
+          "y": 29,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D5": {
+          "x": 42,
+          "y": 23,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W1": {
+          "x": 7,
+          "y": 18,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W2": {
+          "x": 19,
+          "y": 10,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W3": {
+          "x": 15,
+          "y": 42,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W4": {
+          "x": 24,
+          "y": 29,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W5": {
+          "x": 34,
+          "y": 24,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        }
+      }
+    },
+    {
+      "requestedTime": 6.0,
+      "actualTime": 6.006011111111112,
+      "file": "product/build/court-lab/full-keyframes/flagg-06.000s.jpg",
+      "imageSha256": "f2f8d51c9f35d66f2eda22246aad397ec7fd372930b8ab8ba7b7ac44949fd30e",
+      "segment": "wide",
+      "basis": "manual_source_frame_review",
+      "coordinateMethod": "approximate_editorial_court_layout; not homography measurement",
+      "players": {
+        "D1": {
+          "x": 2,
+          "y": 9,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D2": {
+          "x": 17,
+          "y": 6,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D3": {
+          "x": 10,
+          "y": 49,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D4": {
+          "x": 29,
+          "y": 28,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D5": {
+          "x": 39,
+          "y": 28,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W1": {
+          "x": 7,
+          "y": 14,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W2": {
+          "x": 18,
+          "y": 9,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W3": {
+          "x": 13,
+          "y": 43,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W4": {
+          "x": 25,
+          "y": 31,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W5": {
+          "x": 33,
+          "y": 25,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        }
+      }
+    },
+    {
+      "requestedTime": 7.0,
+      "actualTime": 7.007011111111112,
+      "file": "product/build/court-lab/full-keyframes/flagg-07.000s.jpg",
+      "imageSha256": "47af6cdb18cc671a63a7c8e92c5c07ad017d5701bb208fd6d6879abf754454e1",
+      "segment": "wide",
+      "basis": "manual_source_frame_review",
+      "coordinateMethod": "approximate_editorial_court_layout; not homography measurement",
+      "players": {
+        "D1": {
+          "x": 2,
+          "y": 8,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D2": {
+          "x": 16,
+          "y": 4,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D3": {
+          "x": 9,
+          "y": 48,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D4": {
+          "x": 30,
+          "y": 24,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D5": {
+          "x": 37,
+          "y": 30,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W1": {
+          "x": 7,
+          "y": 13,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W2": {
+          "x": 16,
+          "y": 9,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W3": {
+          "x": 10,
+          "y": 39,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W4": {
+          "x": 24,
+          "y": 25,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W5": {
+          "x": 32,
+          "y": 25,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        }
+      }
+    },
+    {
+      "requestedTime": 8.0,
+      "actualTime": 8.008011111111111,
+      "file": "product/build/court-lab/full-keyframes/flagg-08.000s.jpg",
+      "imageSha256": "352c7ca2a1b4080d5d6fb7baf95cc9337636807f35881da5851c2608844bf58d",
+      "segment": "wide",
+      "basis": "manual_source_frame_review",
+      "coordinateMethod": "approximate_editorial_court_layout; not homography measurement",
+      "players": {
+        "D1": {
+          "x": 2,
+          "y": 5,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D2": {
+          "x": 15,
+          "y": 3,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D3": {
+          "x": 9,
+          "y": 48,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D4": {
+          "x": 27,
+          "y": 23,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "D5": {
+          "x": 36,
+          "y": 29,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W1": {
+          "x": 7,
+          "y": 12,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W2": {
+          "x": 15,
+          "y": 8,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W3": {
+          "x": 10,
+          "y": 38,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W4": {
+          "x": 22,
+          "y": 24,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        },
+        "W5": {
+          "x": 29,
+          "y": 27,
+          "status": "inferred",
+          "image": null,
+          "reviewed": false
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,456 @@
+{
+  "checkedAt": "2026-10-09T20:55:08.620311+08:00",
+  "baseCommit": "2443a77152148cf49aa46ac8525ff1a345eeceed",
+  "dataset": {
+    "path": "../court-lab/flagg.json",
+    "annotations": [
+      "../court-lab/flagg-annotations.json",
+      "../court-lab/flagg-early-annotations.json",
+      "../court-lab/ball-possession-annotations.json"
+    ],
+    "window": [
+      0,
+      21.548118
+    ],
+    "tracks": 10,
+    "anchorsPerTrack": 31,
+    "sha256": "0a27a869e2eb2a0106f17942e0fa4ec07c55baccd370ce6216c9f5c6187a134d",
+    "sourceSha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+    "schematic": {
+      "maxGapSeconds": 1.25,
+      "holdLastKnown": true,
+      "holdAcrossSegments": true
+    },
+    "scenes": [
+      {
+        "id": "flagg-closeup-0",
+        "start": 0,
+        "end": 0.06673333333333334,
+        "type": "closeup",
+        "label": "开场人物特写，尚无可用的球场快照"
+      },
+      {
+        "id": "flagg-wide-1",
+        "start": 0.06673333333333334,
+        "end": 21.548118,
+        "type": "wide",
+        "label": "连续侧视比赛画面；编辑站位和当前已知快照"
+      }
+    ],
+    "possession": [
+      {
+        "start": 0,
+        "end": 0.06673333333333334,
+        "holder": null,
+        "phase": "unknown",
+        "label": "人物特写 · 球未入镜",
+        "source": "editorial"
+      },
+      {
+        "start": 0.06673333333333334,
+        "end": 16.8,
+        "holder": "D5",
+        "phase": "held",
+        "label": "D5（深衣32）持球推进",
+        "source": "editorial"
+      },
+      {
+        "start": 16.8,
+        "end": 17.35,
+        "holder": null,
+        "phase": "shot",
+        "label": "出手 · 球在空中／篮圈附近",
+        "source": "editorial"
+      },
+      {
+        "start": 17.35,
+        "end": 17.65,
+        "holder": null,
+        "phase": "score",
+        "label": "命中 · 球穿网落下",
+        "source": "editorial"
+      },
+      {
+        "start": 17.65,
+        "end": 17.75,
+        "holder": "W3",
+        "phase": "change",
+        "label": "球权转换 · W3（白衣7）收球",
+        "source": "editorial"
+      },
+      {
+        "start": 17.75,
+        "end": 18.75,
+        "holder": "W3",
+        "phase": "held",
+        "label": "W3（白衣7）取球退向底线",
+        "source": "editorial"
+      },
+      {
+        "start": 18.75,
+        "end": 20.6,
+        "holder": "W3",
+        "phase": "held",
+        "label": "W3（白衣7）准备发球",
+        "source": "editorial"
+      },
+      {
+        "start": 20.6,
+        "end": 21.2,
+        "holder": null,
+        "phase": "pass",
+        "label": "击地发球 · W3 → W2",
+        "source": "editorial"
+      },
+      {
+        "start": 21.2,
+        "end": 21.548118,
+        "holder": "W2",
+        "phase": "held",
+        "label": "W2（白衣1）接球推进",
+        "source": "editorial"
+      }
+    ],
+    "sourceChecks": {
+      "sourceHashMatched": true,
+      "sourceFrameHashesChecked": 31,
+      "playerPoints": 310,
+      "statusCounts": {
+        "occluded": 36,
+        "inferred": 107,
+        "estimated": 139,
+        "offscreen": 28
+      },
+      "framesWithOnlyUnknownPositions": [
+        0,
+        0.06673333333333334
+      ],
+      "ballPoints": 8,
+      "possessionIntervals": 9,
+      "window": [
+        0,
+        21.548118
+      ],
+      "rawLateFrames": 13,
+      "original9to12Frames": 7,
+      "independentExpertReview": false,
+      "automaticTracking": false
+    },
+    "method": "AI-edited source-frame tactical schematic: coarse body/floor court layouts in early frames; manual lane-corner foot projection and explicit ground inferences in later frames; no automatic tracking",
+    "accuracyMeasured": false,
+    "independentExpertReview": false
+  },
+  "browser": {
+    "surface": "Codex in-app browser through CUA",
+    "viewport": {
+      "height": 768,
+      "width": 855
+    },
+    "fullPageScreenshots": true,
+    "observations": [
+      {
+        "label": "full-replay-end",
+        "ball": 1,
+        "ballNote": "W2（白衣1）接球推进 · 持球位置使用最近站位",
+        "clock": "00:21.548",
+        "count": "0 更新 / 10 最近位置",
+        "dots": 10,
+        "duration": 21.548118,
+        "error": null,
+        "ghosts": 10,
+        "holder": "W2 · 持球",
+        "holderHighlights": 1,
+        "paused": true,
+        "phase": "08 / 新的进攻开始",
+        "rate": 1,
+        "roster": 10,
+        "time": 21.548118,
+        "trails": 19,
+        "view": "full"
+      },
+      {
+        "label": "shot",
+        "ball": 1,
+        "ballNote": "出手 · 球在空中／篮圈附近",
+        "clock": "00:16.800",
+        "count": "9 更新 / 1 最近位置",
+        "dots": 10,
+        "duration": 21.548118,
+        "error": null,
+        "ghosts": 1,
+        "holder": "出手 · 球在空中",
+        "holderHighlights": 0,
+        "paused": true,
+        "phase": "04 / 出手",
+        "rate": 1,
+        "roster": 10,
+        "time": 16.8,
+        "trails": 39,
+        "view": "full"
+      },
+      {
+        "label": "inbound-pass",
+        "ball": 1,
+        "ballNote": "击地发球 · W3 → W2",
+        "clock": "00:20.600",
+        "count": "6 更新 / 4 最近位置",
+        "dots": 10,
+        "duration": 21.548118,
+        "error": null,
+        "ghosts": 4,
+        "holder": "传球中",
+        "holderHighlights": 0,
+        "paused": true,
+        "phase": "07 / 发球传递",
+        "rate": 1,
+        "roster": 10,
+        "time": 20.6,
+        "trails": 28,
+        "view": "full"
+      },
+      {
+        "label": "catch-W2",
+        "ball": 1,
+        "ballNote": "W2（白衣1）接球推进",
+        "clock": "00:21.200",
+        "count": "6 更新 / 4 最近位置",
+        "dots": 10,
+        "duration": 21.548118,
+        "error": null,
+        "ghosts": 4,
+        "holder": "W2 · 持球",
+        "holderHighlights": 1,
+        "paused": true,
+        "phase": "08 / 新的进攻开始",
+        "rate": 1,
+        "roster": 10,
+        "time": 21.2,
+        "trails": 19,
+        "view": "full"
+      },
+      {
+        "label": "before-pass-W3",
+        "ball": 1,
+        "ballNote": "击地发球 · W3 → W2",
+        "clock": "00:20.600",
+        "count": "6 更新 / 4 最近位置",
+        "dots": 10,
+        "duration": 21.548118,
+        "error": null,
+        "ghosts": 4,
+        "holder": "传球中",
+        "holderHighlights": 0,
+        "paused": true,
+        "phase": "07 / 发球传递",
+        "rate": 1,
+        "roster": 10,
+        "time": 20.384518,
+        "trails": 28,
+        "view": "full"
+      },
+      {
+        "label": "settled-before-pass-W3",
+        "ball": 1,
+        "ballNote": "W3（白衣7）准备发球",
+        "clock": "00:20.370",
+        "count": "6 更新 / 4 最近位置",
+        "dots": 10,
+        "duration": 21.548118,
+        "error": null,
+        "ghosts": 4,
+        "holder": "W3 · 持球",
+        "holderHighlights": 1,
+        "paused": true,
+        "phase": "06 / 底线发球准备",
+        "rate": 1,
+        "roster": 10,
+        "time": 20.384518,
+        "trails": 36,
+        "view": "full"
+      },
+      {
+        "label": "breakthrough-full-trail",
+        "ball": 1,
+        "ballNote": "D5（深衣32）持球推进",
+        "clock": "00:13.013",
+        "count": "10 更新 / 0 最近位置",
+        "dots": 10,
+        "duration": 21.548118,
+        "error": null,
+        "ghosts": 0,
+        "holder": "D5 · 持球",
+        "holderHighlights": 1,
+        "paused": true,
+        "phase": "03 / 向篮筐突破",
+        "rate": 1,
+        "roster": 10,
+        "time": 13.013,
+        "trails": 140,
+        "view": "half"
+      },
+      {
+        "label": "focused-full-trail",
+        "ball": 1,
+        "ballNote": "D5（深衣32）持球推进",
+        "clock": "00:13.013",
+        "count": "10 更新 / 0 最近位置",
+        "dots": 10,
+        "duration": 21.548118,
+        "error": null,
+        "ghosts": 0,
+        "holder": "D5 · 持球",
+        "holderHighlights": 1,
+        "paused": true,
+        "phase": "03 / 向篮筐突破",
+        "rate": 1,
+        "roster": 10,
+        "time": 13.013,
+        "trails": 15,
+        "view": "half"
+      },
+      {
+        "label": "paused-half-speed",
+        "ball": 1,
+        "ballNote": "D5（深衣32）持球推进",
+        "clock": "00:13.013",
+        "count": "10 更新 / 0 最近位置",
+        "dots": 10,
+        "duration": 21.548118,
+        "error": null,
+        "ghosts": 0,
+        "holder": "D5 · 持球",
+        "holderHighlights": 1,
+        "paused": true,
+        "phase": "03 / 向篮筐突破",
+        "rate": 0.5,
+        "roster": 10,
+        "time": 13.013,
+        "trails": 15,
+        "view": "half"
+      },
+      {
+        "label": "trails-hidden",
+        "ball": 1,
+        "ballNote": "D5（深衣32）持球推进",
+        "clock": "00:13.013",
+        "count": "10 更新 / 0 最近位置",
+        "dots": 10,
+        "duration": 21.548118,
+        "error": null,
+        "ghosts": 0,
+        "holder": "D5 · 持球",
+        "holderHighlights": 1,
+        "paused": true,
+        "phase": "03 / 向篮筐突破",
+        "rate": 1,
+        "roster": 10,
+        "time": 13.013,
+        "trails": 0,
+        "view": "half"
+      },
+      {
+        "label": "paused-restored",
+        "ball": 1,
+        "ballNote": "D5（深衣32）持球推进",
+        "clock": "00:13.013",
+        "count": "10 更新 / 0 最近位置",
+        "dots": 10,
+        "duration": 21.548118,
+        "error": null,
+        "ghosts": 0,
+        "holder": "D5 · 持球",
+        "holderHighlights": 1,
+        "paused": true,
+        "phase": "03 / 向篮筐突破",
+        "rate": 1,
+        "roster": 10,
+        "time": 13.013,
+        "trails": 15,
+        "view": "half"
+      }
+    ],
+    "notes": [
+      "Immediate keyboard-seek read had new currentTime but pre-seek DOM state; retained as a pending observation. Settled subsequent read confirms W3.",
+      "Paused decoded frame mediaTime can be within one frame of the seek target currentTime.",
+      "Desktop layout retains 880px minimum width; natural side-panel viewport was 671px. Full-page screenshots capture complete layout; no viewport override used."
+    ],
+    "console": []
+  },
+  "scope": "Local full-video editorial schematic, not official/automatic tracks. No AWS, new model inference, GPU, deployment, MP4 regeneration or Git push.",
+  "tests": {
+    "results": [
+      {
+        "component": "agent",
+        "command": "python3 -m unittest discover -s product/agent -p 'test_*.py'",
+        "tests": 19,
+        "passed": true
+      },
+      {
+        "component": "worker",
+        "command": "python3 -m unittest discover -s product/worker -p 'test_*.py'",
+        "tests": 8,
+        "passed": true
+      },
+      {
+        "component": "api",
+        "command": "python3 -m unittest discover -s product/api -p 'test_*.py'",
+        "tests": 12,
+        "passed": true
+      },
+      {
+        "component": "data",
+        "command": "python3 -m unittest discover -s product/data -p 'test_*.py'",
+        "tests": 16,
+        "passed": true
+      },
+      {
+        "component": "scripts",
+        "command": "python3 -m unittest discover -s product/scripts -p 'test_*.py'",
+        "tests": 13,
+        "passed": true
+      },
+      {
+        "component": "web",
+        "command": "node --test --test-reporter=spec product/web/test-app.cjs product/web/test-atmosphere.cjs",
+        "tests": 44,
+        "passed": true
+      },
+      {
+        "component": "court",
+        "command": "node --test --test-reporter=spec product/tests/test_court_viewer.js product/tests/test_court_endpoint.js product/tests/test_court_dataset.js",
+        "tests": 72,
+        "passed": true
+      }
+    ],
+    "total": 184,
+    "allPassed": true
+  },
+  "screenshots": [
+    "court-full-20261009/all-players.png",
+    "court-full-20261009/holder-trail.png"
+  ],
+  "fixes": [
+    "Expanded 3-second window to full verified 21.548118 seconds.",
+    "Retains past known positions as ghosts, with timestamp and no video-foot marker; never initializes from future frames.",
+    "Shows possession and ball schematic, removes possession highlight during shot/pass/change.",
+    "Only final clip endpoint preserves final W2 possession; all other phase boundaries remain half-open.",
+    "Replay and early advance return to full-court viewport to include backcourt ball handler."
+  ],
+  "limits": [
+    "No coordinates during opening closeup or before each actor's first source anchor.",
+    "Retained locations may be stale; labels and update/retained counts distinguish them.",
+    "Linear movement and ball routes are edited diagrams, not measured continuous trajectories or airborne ground projection.",
+    "The local feature supports this curated Flagg video only; it is not connected to AgentCore, cloud publication or enhanced MP4."
+  ],
+  "independentEngineeringReview": {
+    "scope": "read-only UI plus saved full dataset",
+    "blockingBugsFound": false,
+    "confirmed": [
+      "unknown initial positions are not filled from later frames",
+      "full-court opening keeps D5 x=73 visible",
+      "shot/pass/change do not falsely keep a possession ring",
+      "final video endpoint preserves W2 possession",
+      "ghost and schematic provenance remain visible"
+    ]
+  }
+}

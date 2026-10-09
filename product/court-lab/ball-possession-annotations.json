@@ -1,0 +1,826 @@
+{
+  "schema": "court-ball-possession-v1",
+  "storyId": "flagg",
+  "reviewedAt": "2026-10-09T20:40:20+0800",
+  "sourceVideo": {
+    "path": "data/reference/train_video/train_video/训练_弗拉格2月1日.mp4",
+    "sha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+    "durationSeconds": 21.548118,
+    "videoStreamDurationSeconds": 21.5382,
+    "lastDecodedFrameSeconds": 21.5215,
+    "declaredFrameRate": "60000/1001",
+    "frameCount": 1291,
+    "displayDimensions": [
+      1280,
+      720
+    ]
+  },
+  "actorMap": {
+    "D1": {
+      "team": "dark",
+      "jerseyNumber": "31",
+      "associationMethod": "editorial continuity and visible jersey, not automatic identity recognition"
+    },
+    "D2": {
+      "team": "dark",
+      "jerseyNumber": "00",
+      "associationMethod": "editorial continuity and visible jersey, not automatic identity recognition"
+    },
+    "D3": {
+      "team": "dark",
+      "jerseyNumber": "13",
+      "associationMethod": "editorial continuity and visible jersey, not automatic identity recognition"
+    },
+    "D4": {
+      "team": "dark",
+      "jerseyNumber": "21",
+      "associationMethod": "editorial continuity and visible jersey, not automatic identity recognition"
+    },
+    "D5": {
+      "team": "dark",
+      "jerseyNumber": "32",
+      "officialEventMatchedPlayer": "Flagg",
+      "associationMethod": "editorial continuity and visible jersey, not automatic identity recognition"
+    },
+    "W2": {
+      "team": "white",
+      "jerseyNumber": "1",
+      "associationMethod": "editorial continuity and visible jersey, not automatic identity recognition"
+    },
+    "W3": {
+      "team": "white",
+      "jerseyNumber": "7",
+      "associationMethod": "editorial continuity and visible jersey, not automatic identity recognition"
+    },
+    "W4": {
+      "team": "white",
+      "jerseyNumber": "28",
+      "associationMethod": "editorial continuity and visible jersey, not automatic identity recognition"
+    }
+  },
+  "actorMapBasis": "IDs align with the existing court-lab 9s editorial actor map; not a player-recognition model. White7/W3 and white1/W2 were rechecked after the basket. No player names inferred for other actors.",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.06673333333333334,
+      "state": "unknown",
+      "possessorActorId": null,
+      "team": null,
+      "ballVisible": false,
+      "evidenceTimes": [
+        0.0,
+        0.033,
+        0.05005
+      ],
+      "label": "人物特写 · 球未入镜",
+      "note": "片头只见白衣球员及裁判，不能由此推断持球人。",
+      "basis": "manual_video_review",
+      "source": "editorial",
+      "timeBasis": "source_video_seconds"
+    },
+    {
+      "start": 0.06673333333333334,
+      "end": 16.8,
+      "state": "held",
+      "possessorActorId": "D5",
+      "team": "dark",
+      "ballVisible": null,
+      "evidenceTimes": [
+        0.067,
+        0.1,
+        0.25,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        16.25,
+        16.5,
+        16.75
+      ],
+      "label": "D5（深衣32）持球推进",
+      "note": "held包括持球、运球和起跳收球。各1s采样和终结前加密帧支持同一深衣32持续控制；没有观察到前半传球，但未逐帧证实全部手球接触。运球时球可短暂不在手里，不能将其误标为传球。",
+      "basis": "manual_video_review",
+      "source": "editorial",
+      "timeBasis": "source_video_seconds"
+    },
+    {
+      "start": 16.8,
+      "end": 17.35,
+      "state": "shot_flight",
+      "possessorActorId": null,
+      "team": "dark",
+      "ballVisible": true,
+      "evidenceTimes": [
+        16.8,
+        16.85,
+        16.9,
+        16.95,
+        17.0,
+        17.25,
+        17.3
+      ],
+      "label": "出手 · 球在空中／篮圈附近",
+      "note": "16.80s的球已与D5手分离；17.30s仍在篮圈附近。空中球没有地面投影点或人为跑动轨迹。",
+      "shooterActorId": "D5",
+      "basis": "manual_video_review",
+      "source": "editorial",
+      "timeBasis": "source_video_seconds"
+    },
+    {
+      "start": 17.35,
+      "end": 17.65,
+      "state": "made_basket",
+      "possessorActorId": null,
+      "team": "dark",
+      "ballVisible": true,
+      "evidenceTimes": [
+        17.35,
+        17.4,
+        17.45,
+        17.5,
+        17.55,
+        17.6
+      ],
+      "label": "命中 · 球穿网落下",
+      "note": "抽帧见球穿过篮网，官方event666的Made结果另行支持结果，但其游戏时钟不能用于估计媒体时码。",
+      "shooterActorId": "D5",
+      "basis": "manual_video_review",
+      "source": "editorial",
+      "timeBasis": "source_video_seconds"
+    },
+    {
+      "start": 17.65,
+      "end": 17.75,
+      "state": "opponent_control",
+      "possessorActorId": "W3",
+      "team": "white",
+      "ballVisible": true,
+      "evidenceTimes": [
+        17.6,
+        17.65,
+        17.7,
+        17.75
+      ],
+      "label": "球权转换 · W3（白衣7）收球",
+      "note": "17.65s白7开始接触并收球，17.75s已明确控制。该短段是编辑转换提示，非自动球权识别。",
+      "basis": "manual_video_review",
+      "source": "editorial",
+      "timeBasis": "source_video_seconds"
+    },
+    {
+      "start": 17.75,
+      "end": 18.75,
+      "state": "held",
+      "possessorActorId": "W3",
+      "team": "white",
+      "ballVisible": null,
+      "evidenceTimes": [
+        17.75,
+        18.0,
+        18.25,
+        18.5,
+        18.75
+      ],
+      "label": "W3（白衣7）取球退向底线",
+      "note": "白7控制球并向底线移动；不能将此段误记为白28接球。",
+      "basis": "manual_video_review",
+      "source": "editorial",
+      "timeBasis": "source_video_seconds"
+    },
+    {
+      "start": 18.75,
+      "end": 20.6,
+      "state": "inbound",
+      "possessorActorId": "W3",
+      "team": "white",
+      "ballVisible": true,
+      "evidenceTimes": [
+        18.75,
+        19.0,
+        19.25,
+        19.5,
+        19.75,
+        20.0,
+        20.25,
+        20.5
+      ],
+      "label": "W3（白衣7）准备发球",
+      "note": "后半球一直可见于白7手中；白28没有接球。此项描述端线附近发球准备，不作站位或规则判罚。",
+      "basis": "manual_video_review",
+      "source": "editorial",
+      "timeBasis": "source_video_seconds"
+    },
+    {
+      "start": 20.6,
+      "end": 21.2,
+      "state": "pass_flight",
+      "possessorActorId": null,
+      "team": "white",
+      "ballVisible": null,
+      "evidenceTimes": [
+        20.6,
+        20.7,
+        20.75,
+        20.8,
+        20.9,
+        21.0,
+        21.1
+      ],
+      "label": "击地发球 · W3 → W2",
+      "note": "20.60s球与白7手分离，随后的抽帧显示向白1方向的击地球；21.10s尚未进入白1双手。中途短时被身体遮挡，不补造球路径。",
+      "passFromActorId": "W3",
+      "passToActorId": "W2",
+      "basis": "manual_video_review",
+      "source": "editorial",
+      "timeBasis": "source_video_seconds"
+    },
+    {
+      "start": 21.2,
+      "end": 21.548118,
+      "state": "held",
+      "possessorActorId": "W2",
+      "team": "white",
+      "ballVisible": null,
+      "evidenceTimes": [
+        21.2,
+        21.25,
+        21.5,
+        21.5215
+      ],
+      "label": "W2（白衣1）接球推进",
+      "note": "21.20s白1双手接球，后续继续推进；末帧约21.5215s，音轨延续到21.548118s，短尾沿最后已知状态。",
+      "basis": "manual_video_review",
+      "source": "editorial",
+      "timeBasis": "source_video_seconds"
+    }
+  ],
+  "suggestedUiSegments": [
+    {
+      "start": 0.0,
+      "end": 0.06673333333333334,
+      "holder": null,
+      "phase": "unknown",
+      "label": "人物特写 · 球未入镜",
+      "source": "editorial"
+    },
+    {
+      "start": 0.06673333333333334,
+      "end": 16.8,
+      "holder": "D5",
+      "phase": "held",
+      "label": "D5（深衣32）持球推进",
+      "source": "editorial"
+    },
+    {
+      "start": 16.8,
+      "end": 17.35,
+      "holder": null,
+      "phase": "shot",
+      "label": "出手 · 球在空中／篮圈附近",
+      "source": "editorial"
+    },
+    {
+      "start": 17.35,
+      "end": 17.65,
+      "holder": null,
+      "phase": "score",
+      "label": "命中 · 球穿网落下",
+      "source": "editorial"
+    },
+    {
+      "start": 17.65,
+      "end": 17.75,
+      "holder": "W3",
+      "phase": "change",
+      "label": "球权转换 · W3（白衣7）收球",
+      "source": "editorial"
+    },
+    {
+      "start": 17.75,
+      "end": 18.75,
+      "holder": "W3",
+      "phase": "held",
+      "label": "W3（白衣7）取球退向底线",
+      "source": "editorial"
+    },
+    {
+      "start": 18.75,
+      "end": 20.6,
+      "holder": "W3",
+      "phase": "held",
+      "label": "W3（白衣7）准备发球",
+      "source": "editorial"
+    },
+    {
+      "start": 20.6,
+      "end": 21.2,
+      "holder": null,
+      "phase": "pass",
+      "label": "击地发球 · W3 → W2",
+      "source": "editorial"
+    },
+    {
+      "start": 21.2,
+      "end": 21.548118,
+      "holder": "W2",
+      "phase": "held",
+      "label": "W2（白衣1）接球推进",
+      "source": "editorial"
+    }
+  ],
+  "intervalConvention": "start inclusive, end exclusive; final interval includes the media end",
+  "cameraSegments": [
+    {
+      "start": 0,
+      "end": 0.06673333333333334,
+      "type": "person_closeup",
+      "courtProjectionAvailable": false
+    },
+    {
+      "start": 0.06673333333333334,
+      "end": 21.548118,
+      "type": "continuous_side_court_wide_camera_pan_zoom",
+      "courtProjectionAvailable": "requires per-frame/manual calibration"
+    }
+  ],
+  "cameraAudit": "Frame3 still close-up, frame4 first wide. No later true cut found in 1s overview and dense key transitions; 14.965s previously detected brightness candidate is not a cut. This is manual visual review, not automatic shot detection.",
+  "transitionBrackets": [
+    {
+      "name": "closeup_to_wide",
+      "lastBeforeFrame": 3,
+      "firstAfterFrame": 4,
+      "lastBeforeSeconds": 0.050050000000000004,
+      "firstAfterSeconds": 0.06673333333333334,
+      "chosenBoundary": 0.06673333333333334,
+      "kind": "true_camera_cut"
+    },
+    {
+      "name": "D5_release",
+      "lastBeforeSample": 16.75,
+      "firstAfterSample": 16.8,
+      "chosenBoundary": 16.8,
+      "kind": "bracketed_manual_observation"
+    },
+    {
+      "name": "basket_net_entry",
+      "lastBeforeSample": 17.3,
+      "firstAfterSample": 17.35,
+      "chosenBoundary": 17.35,
+      "kind": "bracketed_manual_observation"
+    },
+    {
+      "name": "W3_first_ball_contact",
+      "lastBeforeSample": 17.6,
+      "firstAfterSample": 17.65,
+      "chosenBoundary": 17.65,
+      "kind": "bracketed_manual_observation"
+    },
+    {
+      "name": "W3_control_confirmed",
+      "lastBeforeSample": 17.65,
+      "firstAfterSample": 17.75,
+      "chosenBoundary": 17.75,
+      "kind": "editorial_transition_end"
+    },
+    {
+      "name": "W3_inbound_release",
+      "lastBeforeSample": 20.5,
+      "firstAfterSample": 20.6,
+      "chosenBoundary": 20.6,
+      "kind": "bracketed_manual_observation"
+    },
+    {
+      "name": "W2_reception",
+      "lastBeforeSample": 21.1,
+      "firstAfterSample": 21.2,
+      "chosenBoundary": 21.2,
+      "kind": "bracketed_manual_observation"
+    }
+  ],
+  "evidenceFrames": [
+    {
+      "requestedSeconds": 0.0,
+      "frameIndex": 0,
+      "ptsSecondsFromDeclaredFrameRate": 0.0,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-00.000s.jpg"
+    },
+    {
+      "requestedSeconds": 0.033,
+      "frameIndex": 2,
+      "ptsSecondsFromDeclaredFrameRate": 0.03336666666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-00.033s.jpg"
+    },
+    {
+      "requestedSeconds": 0.067,
+      "frameIndex": 4,
+      "ptsSecondsFromDeclaredFrameRate": 0.06673333333333334,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-00.067s.jpg"
+    },
+    {
+      "requestedSeconds": 0.1,
+      "frameIndex": 6,
+      "ptsSecondsFromDeclaredFrameRate": 0.10010000000000001,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-00.100s.jpg"
+    },
+    {
+      "requestedSeconds": 0.25,
+      "frameIndex": 15,
+      "ptsSecondsFromDeclaredFrameRate": 0.25025000000000003,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-00.250s.jpg"
+    },
+    {
+      "requestedSeconds": 1,
+      "frameIndex": 60,
+      "ptsSecondsFromDeclaredFrameRate": 1.0010000000000001,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-01.000s.jpg"
+    },
+    {
+      "requestedSeconds": 2,
+      "frameIndex": 120,
+      "ptsSecondsFromDeclaredFrameRate": 2.0020000000000002,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-02.000s.jpg"
+    },
+    {
+      "requestedSeconds": 3,
+      "frameIndex": 180,
+      "ptsSecondsFromDeclaredFrameRate": 3.003,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-03.000s.jpg"
+    },
+    {
+      "requestedSeconds": 4,
+      "frameIndex": 240,
+      "ptsSecondsFromDeclaredFrameRate": 4.0040000000000004,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-04.000s.jpg"
+    },
+    {
+      "requestedSeconds": 5,
+      "frameIndex": 300,
+      "ptsSecondsFromDeclaredFrameRate": 5.005,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-05.000s.jpg"
+    },
+    {
+      "requestedSeconds": 6,
+      "frameIndex": 360,
+      "ptsSecondsFromDeclaredFrameRate": 6.006,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-06.000s.jpg"
+    },
+    {
+      "requestedSeconds": 7,
+      "frameIndex": 420,
+      "ptsSecondsFromDeclaredFrameRate": 7.007000000000001,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-07.000s.jpg"
+    },
+    {
+      "requestedSeconds": 8,
+      "frameIndex": 480,
+      "ptsSecondsFromDeclaredFrameRate": 8.008000000000001,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-08.000s.jpg"
+    },
+    {
+      "requestedSeconds": 9,
+      "frameIndex": 539,
+      "ptsSecondsFromDeclaredFrameRate": 8.992316666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-09.000s.jpg"
+    },
+    {
+      "requestedSeconds": 10,
+      "frameIndex": 599,
+      "ptsSecondsFromDeclaredFrameRate": 9.993316666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-10.000s.jpg"
+    },
+    {
+      "requestedSeconds": 11,
+      "frameIndex": 659,
+      "ptsSecondsFromDeclaredFrameRate": 10.994316666666666,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-11.000s.jpg"
+    },
+    {
+      "requestedSeconds": 12,
+      "frameIndex": 719,
+      "ptsSecondsFromDeclaredFrameRate": 11.995316666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-12.000s.jpg"
+    },
+    {
+      "requestedSeconds": 13,
+      "frameIndex": 779,
+      "ptsSecondsFromDeclaredFrameRate": 12.996316666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-13.000s.jpg"
+    },
+    {
+      "requestedSeconds": 14,
+      "frameIndex": 839,
+      "ptsSecondsFromDeclaredFrameRate": 13.997316666666666,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-14.000s.jpg"
+    },
+    {
+      "requestedSeconds": 15,
+      "frameIndex": 899,
+      "ptsSecondsFromDeclaredFrameRate": 14.998316666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-15.000s.jpg"
+    },
+    {
+      "requestedSeconds": 16,
+      "frameIndex": 959,
+      "ptsSecondsFromDeclaredFrameRate": 15.999316666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-16.000s.jpg"
+    },
+    {
+      "requestedSeconds": 16.25,
+      "frameIndex": 974,
+      "ptsSecondsFromDeclaredFrameRate": 16.249566666666666,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-16.250s.jpg"
+    },
+    {
+      "requestedSeconds": 16.5,
+      "frameIndex": 989,
+      "ptsSecondsFromDeclaredFrameRate": 16.499816666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-16.500s.jpg"
+    },
+    {
+      "requestedSeconds": 16.75,
+      "frameIndex": 1004,
+      "ptsSecondsFromDeclaredFrameRate": 16.750066666666665,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-16.750s.jpg"
+    },
+    {
+      "requestedSeconds": 16.8,
+      "frameIndex": 1007,
+      "ptsSecondsFromDeclaredFrameRate": 16.800116666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-16.800s.jpg"
+    },
+    {
+      "requestedSeconds": 16.85,
+      "frameIndex": 1010,
+      "ptsSecondsFromDeclaredFrameRate": 16.850166666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-16.850s.jpg"
+    },
+    {
+      "requestedSeconds": 16.9,
+      "frameIndex": 1013,
+      "ptsSecondsFromDeclaredFrameRate": 16.900216666666665,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-16.900s.jpg"
+    },
+    {
+      "requestedSeconds": 16.95,
+      "frameIndex": 1016,
+      "ptsSecondsFromDeclaredFrameRate": 16.950266666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-16.950s.jpg"
+    },
+    {
+      "requestedSeconds": 17.0,
+      "frameIndex": 1019,
+      "ptsSecondsFromDeclaredFrameRate": 17.000316666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-17.000s.jpg"
+    },
+    {
+      "requestedSeconds": 17.25,
+      "frameIndex": 1034,
+      "ptsSecondsFromDeclaredFrameRate": 17.250566666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-17.250s.jpg"
+    },
+    {
+      "requestedSeconds": 17.3,
+      "frameIndex": 1037,
+      "ptsSecondsFromDeclaredFrameRate": 17.300616666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-17.300s.jpg"
+    },
+    {
+      "requestedSeconds": 17.35,
+      "frameIndex": 1040,
+      "ptsSecondsFromDeclaredFrameRate": 17.350666666666665,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-17.350s.jpg"
+    },
+    {
+      "requestedSeconds": 17.4,
+      "frameIndex": 1043,
+      "ptsSecondsFromDeclaredFrameRate": 17.400716666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-17.400s.jpg"
+    },
+    {
+      "requestedSeconds": 17.45,
+      "frameIndex": 1046,
+      "ptsSecondsFromDeclaredFrameRate": 17.450766666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-17.450s.jpg"
+    },
+    {
+      "requestedSeconds": 17.5,
+      "frameIndex": 1049,
+      "ptsSecondsFromDeclaredFrameRate": 17.500816666666665,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-17.500s.jpg"
+    },
+    {
+      "requestedSeconds": 17.55,
+      "frameIndex": 1052,
+      "ptsSecondsFromDeclaredFrameRate": 17.550866666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-17.550s.jpg"
+    },
+    {
+      "requestedSeconds": 17.6,
+      "frameIndex": 1055,
+      "ptsSecondsFromDeclaredFrameRate": 17.600916666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-17.600s.jpg"
+    },
+    {
+      "requestedSeconds": 17.65,
+      "frameIndex": 1058,
+      "ptsSecondsFromDeclaredFrameRate": 17.650966666666665,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-17.650s.jpg"
+    },
+    {
+      "requestedSeconds": 17.7,
+      "frameIndex": 1061,
+      "ptsSecondsFromDeclaredFrameRate": 17.701016666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-17.700s.jpg"
+    },
+    {
+      "requestedSeconds": 17.75,
+      "frameIndex": 1064,
+      "ptsSecondsFromDeclaredFrameRate": 17.751066666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-17.750s.jpg"
+    },
+    {
+      "requestedSeconds": 18.0,
+      "frameIndex": 1079,
+      "ptsSecondsFromDeclaredFrameRate": 18.001316666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-18.000s.jpg"
+    },
+    {
+      "requestedSeconds": 18.25,
+      "frameIndex": 1094,
+      "ptsSecondsFromDeclaredFrameRate": 18.251566666666665,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-18.250s.jpg"
+    },
+    {
+      "requestedSeconds": 18.5,
+      "frameIndex": 1109,
+      "ptsSecondsFromDeclaredFrameRate": 18.501816666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-18.500s.jpg"
+    },
+    {
+      "requestedSeconds": 18.75,
+      "frameIndex": 1124,
+      "ptsSecondsFromDeclaredFrameRate": 18.752066666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-18.750s.jpg"
+    },
+    {
+      "requestedSeconds": 19.0,
+      "frameIndex": 1139,
+      "ptsSecondsFromDeclaredFrameRate": 19.002316666666665,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-19.000s.jpg"
+    },
+    {
+      "requestedSeconds": 19.25,
+      "frameIndex": 1154,
+      "ptsSecondsFromDeclaredFrameRate": 19.252566666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-19.250s.jpg"
+    },
+    {
+      "requestedSeconds": 19.5,
+      "frameIndex": 1169,
+      "ptsSecondsFromDeclaredFrameRate": 19.502816666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-19.500s.jpg"
+    },
+    {
+      "requestedSeconds": 19.75,
+      "frameIndex": 1184,
+      "ptsSecondsFromDeclaredFrameRate": 19.753066666666665,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-19.750s.jpg"
+    },
+    {
+      "requestedSeconds": 20.0,
+      "frameIndex": 1199,
+      "ptsSecondsFromDeclaredFrameRate": 20.003316666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-20.000s.jpg"
+    },
+    {
+      "requestedSeconds": 20.25,
+      "frameIndex": 1214,
+      "ptsSecondsFromDeclaredFrameRate": 20.253566666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-20.250s.jpg"
+    },
+    {
+      "requestedSeconds": 20.5,
+      "frameIndex": 1229,
+      "ptsSecondsFromDeclaredFrameRate": 20.503816666666665,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-20.500s.jpg"
+    },
+    {
+      "requestedSeconds": 20.6,
+      "frameIndex": 1235,
+      "ptsSecondsFromDeclaredFrameRate": 20.603916666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-20.600s.jpg"
+    },
+    {
+      "requestedSeconds": 20.7,
+      "frameIndex": 1241,
+      "ptsSecondsFromDeclaredFrameRate": 20.704016666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-20.700s.jpg"
+    },
+    {
+      "requestedSeconds": 20.75,
+      "frameIndex": 1244,
+      "ptsSecondsFromDeclaredFrameRate": 20.754066666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-20.750s.jpg"
+    },
+    {
+      "requestedSeconds": 20.8,
+      "frameIndex": 1247,
+      "ptsSecondsFromDeclaredFrameRate": 20.804116666666665,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-20.800s.jpg"
+    },
+    {
+      "requestedSeconds": 20.9,
+      "frameIndex": 1253,
+      "ptsSecondsFromDeclaredFrameRate": 20.904216666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-20.900s.jpg"
+    },
+    {
+      "requestedSeconds": 21.0,
+      "frameIndex": 1259,
+      "ptsSecondsFromDeclaredFrameRate": 21.004316666666668,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-21.000s.jpg"
+    },
+    {
+      "requestedSeconds": 21.1,
+      "frameIndex": 1265,
+      "ptsSecondsFromDeclaredFrameRate": 21.104416666666665,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-21.100s.jpg"
+    },
+    {
+      "requestedSeconds": 21.2,
+      "frameIndex": 1271,
+      "ptsSecondsFromDeclaredFrameRate": 21.204516666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-21.200s.jpg"
+    },
+    {
+      "requestedSeconds": 21.25,
+      "frameIndex": 1274,
+      "ptsSecondsFromDeclaredFrameRate": 21.254566666666665,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-21.250s.jpg"
+    },
+    {
+      "requestedSeconds": 21.5,
+      "frameIndex": 1289,
+      "ptsSecondsFromDeclaredFrameRate": 21.504816666666667,
+      "ignoredImagePath": "product/build/court-lab/full-ball/frame-21.500s.jpg"
+    },
+    {
+      "requestedSeconds": 21.5215,
+      "frameIndex": 1290,
+      "ptsSecondsFromDeclaredFrameRate": 21.5215,
+      "ignoredImagePath": null
+    }
+  ],
+  "ignoredExtractionManifests": [
+    {
+      "path": "product/build/court-lab/full-ball/extraction.json",
+      "sha256": "085aca8a5ce9d80069a28069360de46bc666843e8b7d12177c7bc10db6d6f2d0"
+    },
+    {
+      "path": "product/build/court-lab/full-ball/quarter-extraction.json",
+      "sha256": "0f534977363c6c95abed93f70f2e248a7c16f34e42211c43a2f82640fb01bd0f"
+    },
+    {
+      "path": "product/build/court-lab/full-ball/fine-extraction.json",
+      "sha256": "5c678806065afec82bcec450e025fc7921e23c187988866ac47e15e57fa56ca3"
+    }
+  ],
+  "officialResultCrosscheck": {
+    "path": "product/data/event-bindings.json",
+    "gameId": "0022500701",
+    "actionNumber": 666,
+    "playerId": "1642843",
+    "made": true,
+    "scope": "validates player/result association only, not media transition timing or possession track"
+  },
+  "reviewLimits": [
+    "AI assistant visual review, not human basketball expert sign-off",
+    "Initial overview is 1s sampling; final transitions inspected at 0.25s plus 0.05/0.1s nearby",
+    "Boundaries are selected editorial media seconds within sampled visual brackets, not measured exact release/catch times",
+    "Held denotes possession/control including dribbling; it does not claim the ball is in hands or visible at every frame",
+    "No ball detector, tracking model, interpolated ball trajectory or ball ground coordinates were produced",
+    "Person close-up at the start stays unknown; occluded ball frames do not invent a ball location",
+    "Do not infer possession from the official game clock, score refresh time or decorative ball marker",
+    "Ball possession annotation is separate from schematic player positions; an absent/null player ground position stays absent even if the possession label is known",
+    "Footer audio outlasts the final visible frame by about 0.027s; final state only carries through this short media tail"
+  ],
+  "ballVisibleFieldMeaning": "Visibility describes reviewed evidence frames only, not every intervening frame; null means mixed visibility or uncertainty.",
+  "reproduction": {
+    "sourcePath": "data/reference/train_video/train_video/训练_弗拉格2月1日.mp4",
+    "explicitLocalRecipe": "Decode source with OpenCV; select nearest frame index round(requestedSeconds*60000/1001); resize to1280x720 for the recorded evidence images. Use original video or FFmpeg true PTS for boundary re-review. No GPU or network needed.",
+    "artifactDirectoryIgnored": "product/build/court-lab/full-ball/",
+    "sourceIntegrityRequired": true
+  }
+}
