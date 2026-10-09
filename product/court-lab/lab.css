@@ -159,13 +159,14 @@ h2 span { font-family: var(--sans); font-size: 12px; letter-spacing: 0; color: v
 .player-dot text { font-family: var(--pixel); font-size: 11px; font-weight: 400; pointer-events: none; }
 .player-dot .holder-ring { fill: none; stroke: var(--gold); stroke-width: 3; filter: drop-shadow(0 0 6px rgba(255, 200, 92, .7)); }
 .player-dot.estimated > circle:first-child, .player-dot.inferred > circle:first-child { stroke-dasharray: 3 2; }
-.player-dot.last-known { opacity: .5; }
-.player-dot.last-known > circle:first-child { fill: var(--deck); stroke-width: 2; stroke-dasharray: 4 3; }
-.player-dot.last-known text { fill: var(--muted); }
+.player-dot.last-known { opacity: .82; }
+.player-dot.last-known > circle:first-child { fill: var(--deck); stroke-width: 2.5; stroke-dasharray: 4 3; }
+.player-dot.last-known text { fill: var(--chalk); }
 .player-dot.last-known .holder-ring { stroke-dasharray: 5 4; }
-.player-dot.is-dim { opacity: .22; }
-.trail { fill: none; stroke-width: 3; stroke-linecap: round; opacity: .85; }
-.trail.estimated { stroke-dasharray: 5 4; opacity: .6; }
+.player-dot.is-dim { opacity: .7; }
+.trail { fill: none; stroke-width: 2.5; stroke-linecap: round; }
+.trail.estimated { stroke-dasharray: 5 4; }
+.trail-caption { padding: 0 16px 12px; color: var(--muted); font-family: var(--pixel); font-size: 12px; letter-spacing: .04em; }
 .ball-mark circle { fill: var(--gold); stroke: var(--void); stroke-width: 2; }
 .ball-mark path { fill: none; stroke: #7a4a1e; stroke-width: 1.2; }
 .ball-mark text { font-family: var(--pixel); font-size: 11px; fill: var(--gold); paint-order: stroke; stroke: var(--void); stroke-width: 4; stroke-linejoin: round; }
@@ -180,7 +181,7 @@ h2 span { font-family: var(--sans); font-size: 12px; letter-spacing: 0; color: v
 #court-map[data-view="full"] .player-dot .dot-ring { r: 28; }
 #court-map[data-view="full"] .ball-mark circle { r: 13; }
 #court-map[data-view="full"] .ball-mark text { font-size: 17px; }
-#court-map[data-view="full"] .trail { stroke-width: 4; }
+#court-map[data-view="full"] .trail { stroke-width: 3; }
 
 /* ---------- footer: notes and the local file tool, both folded ---------- */
 .lab-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 32px 0 48px; padding-top: 22px; border-top: 1px solid var(--line); }

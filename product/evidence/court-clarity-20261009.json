@@ -1,0 +1,175 @@
+{
+  "record": "court-clarity-20261009",
+  "recordedAt": "2026-10-09T21:40:25.552460+08:00",
+  "baseCommit": "3bc0a8fffa460604aff15fa53a10d0bc1bd3f31a",
+  "remoteMainAtStart": "3bc0a8fffa460604aff15fa53a10d0bc1bd3f31a",
+  "scope": "核对 Claude main 前端；修复8秒底角历史点在黑场上的可见性；默认球权主线与显式单人路线，换球权截断，旧线渐淡。只本地，未推送或部署。",
+  "diagnosis": {
+    "corner": "D1在8.008011秒之后仍保留历史点(2,5)，旧暗色描边+黑色填色让点近乎不可见；没有修改坐标或补造轨迹。",
+    "trails": "旧版all焦点绘制十人，FOLLOW在shot/pass回退all。改为当前holder/紧邻投篮者或传球者，score/change清空；显式选人优先。",
+    "preview": "4173本地服务停止；磁盘媒体SHA与整段解码正常；已重启本地预览，浏览器mediaError:null并完整播放结束。"
+  },
+  "tests": {
+    "total": 202,
+    "passed": 202,
+    "suites": {
+      "agent": 19,
+      "worker": 8,
+      "api": 12,
+      "data": 16,
+      "scripts": 13,
+      "web_app": 34,
+      "web_particles": 10,
+      "web_arcade": 9,
+      "court_viewer": 70,
+      "court_dataset": 7,
+      "court_endpoint": 4
+    },
+    "newRegressionTests": 9
+  },
+  "offlineScan": {
+    "stepSeconds": 0.001,
+    "samples": 21549,
+    "maxDefault3SecondSegments": 5,
+    "maxAtSeconds": 8.993,
+    "violations": 0,
+    "checks": [
+      "不早于球权起点",
+      "不使用未来锚点",
+      "不续接last-known",
+      "不跨镜头"
+    ]
+  },
+  "browser": {
+    "method": "Codex In-app Browser / CUA，默认自然视窗，真实UI阶段跳转/原生视频箭头/整段播放；只读取DOM核对",
+    "observations": "court-clarity-20261009/browser-observations.json",
+    "checks": [
+      "8s-default",
+      "8s-half-follow",
+      "score-clear",
+      "inbound-pass",
+      "late-all-single-route",
+      "full-play-current",
+      "shot-single-route",
+      "pass-single-route",
+      "corner-selected-all",
+      "final-style-8s-half"
+    ],
+    "completePlayback": {
+      "check": "full-play-current",
+      "caption": "TRAIL / W2 · 3 SEC · 球权主线",
+      "clock": "00:21.548",
+      "dots": [
+        {
+          "class": "player-dot last-known is-dim",
+          "label": "W1，最近位置 · 3.5 秒前",
+          "opacity": "0.7",
+          "position": "translate(250.15 233.07)",
+          "stroke": "#f7f0e2"
+        },
+        {
+          "class": "player-dot last-known",
+          "label": "W2，最近位置 · 0.0 秒前，持球人",
+          "opacity": "0.82",
+          "position": "translate(107.67999999999999 412.22)",
+          "stroke": "#f7f0e2"
+        },
+        {
+          "class": "player-dot last-known is-dim",
+          "label": "W3，最近位置 · 0.0 秒前",
+          "opacity": "0.7",
+          "position": "translate(30 280)",
+          "stroke": "#f7f0e2"
+        },
+        {
+          "class": "player-dot last-known is-dim",
+          "label": "W4，最近位置 · 0.0 秒前",
+          "opacity": "0.7",
+          "position": "translate(314.61 344.05)",
+          "stroke": "#f7f0e2"
+        },
+        {
+          "class": "player-dot last-known is-dim",
+          "label": "W5，最近位置 · 0.0 秒前",
+          "opacity": "0.7",
+          "position": "translate(110.89 339.6)",
+          "stroke": "#f7f0e2"
+        },
+        {
+          "class": "player-dot last-known is-dim",
+          "label": "D1，最近位置 · 4.5 秒前",
+          "opacity": "0.7",
+          "position": "translate(313 337.54)",
+          "stroke": "#f18143"
+        },
+        {
+          "class": "player-dot last-known is-dim",
+          "label": "D2，最近位置 · 5.0 秒前",
+          "opacity": "0.7",
+          "position": "translate(337.92 425.6)",
+          "stroke": "#f18143"
+        },
+        {
+          "class": "player-dot last-known is-dim",
+          "label": "D3，最近位置 · 0.0 秒前",
+          "opacity": "0.7",
+          "position": "translate(414.42 251.96999999999997)",
+          "stroke": "#f18143"
+        },
+        {
+          "class": "player-dot last-known is-dim",
+          "label": "D4，最近位置 · 1.5 秒前",
+          "opacity": "0.7",
+          "position": "translate(380 270)",
+          "stroke": "#f18143"
+        },
+        {
+          "class": "player-dot last-known is-dim",
+          "label": "D5，最近位置 · 0.0 秒前",
+          "opacity": "0.7",
+          "position": "translate(137.03 407.24)",
+          "stroke": "#f18143"
+        }
+      ],
+      "ended": true,
+      "errorVisible": false,
+      "holder": "W2 · 持球",
+      "mediaError": null,
+      "paused": true,
+      "time": 21.548118,
+      "trails": [
+        {
+          "end": "21.521522222222224",
+          "opacity": "0.451",
+          "player": "W2",
+          "start": "21.2"
+        }
+      ],
+      "view": "full"
+    },
+    "screenshots": [
+      "court-clarity-20261009/claude-main.png",
+      "court-clarity-20261009/corner-8sec.png",
+      "court-clarity-20261009/corner-final.png",
+      "court-clarity-20261009/end-single-route.png",
+      "court-clarity-20261009/full-play-end.png"
+    ],
+    "stoppedPreviewScreenshot": "court-clarity-20261009/stopped-preview.png",
+    "clockNote": "播放帧使用RVFC mediaTime；暂停/跳转由video事件驱动；观察中currentTime与最近显示帧可相差一帧，并非独立计时。"
+  },
+  "sourceSha256": {
+    "product/court-lab/index.html": "402e40c71350652398b450525a66d59b8c239a1a753d66f23de2f76d7c21a9d2",
+    "product/court-lab/lab.css": "35edc9314f1e829565de38f5c4c46e641fa13cfb20670b28a1687a6f2904652e",
+    "product/court-lab/lab.js": "f969fe8e88aacefece42cf92383bb3db055eaeb4c1978d02c8852c785e8ea620",
+    "product/court-lab/viewer.js": "512f4fd2124ba5e75f5728b7489e39f90d7b37009de4a46de8cc9e0903d2a8e5",
+    "product/tests/test_court_viewer.js": "522a1361676e9cc693b20c638eae9b231f611e8eafa3a7a3e3ee10736bc82767",
+    "product/court-lab/flagg.json": "0a27a869e2eb2a0106f17942e0fa4ec07c55baccd370ce6216c9f5c6187a134d",
+    "product/web/arcade.css": "92804a132e4454d216484717c4e745b1135fdc23739249a88f4d578c0d8c2d9f",
+    "product/web/arcade.js": "55204339c959a34b0ea5b6476ea41088225653b1c68138bc469a90635d8a0388"
+  },
+  "limitations": [
+    "原始31帧位置数据和球权注释均未修改；仍为编辑示意，reviewed:false。",
+    "最近位置不等于当前位置，保留空心虚线/年龄；无原片标记与新轨迹。",
+    "未调用AWS、模型、GPU或生成增强MP4。"
+  ]
+}

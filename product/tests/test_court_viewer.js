@@ -96,3 +96,55 @@ test('held ball focus dims other players without changing time or falsifying unk
 test('chapter navigation seeks and pauses the same original video',async()=>{const d=fullSchematic();d.possession=[possession(0,C.SOURCE_DURATION)];const run=await mounted(d);assert.equal(run.get('chapter-jumps').children.length,6);const shot=run.get('chapter-jumps').children.find(n=>n.textContent==='出手');await shot.fire('click');assert.equal(run.video.currentTime,16.8);assert.equal(run.video.paused,true);assert.equal(run.get('video-clock').textContent,'00:16.800');assert.match(run.get('tactic-heading').textContent,/出手/);});
 test('clip-length trail selection retains the early route while short tails stay recent',async()=>{const d=fullSchematic();d.tracks[0].points=Array.from({length:21},(_,i)=>point(i,20+i,25,{status:'inferred',image:null}));const run=await mounted(d);run.video.currentTime=20;run.get('trail-length').value='1';await run.video.fire('seeked');const short=run.get('trail-layer').children.length;run.get('trail-length').value='all';await run.get('trail-length').fire('change');assert.equal(run.get('trail-layer').children.length,20);assert.ok(short<20);assert.equal(run.video.currentTime,20);});
 test('a named recipient during a ball change is labelled as a transfer without falsely showing possession',async()=>{const d=fullSchematic();d.tracks[0].points=[point(1),point(2)];d.possession=[possession(0,C.SOURCE_DURATION,'D1','change')];const run=await mounted(d);run.video.currentTime=1.5;await run.video.fire('seeked');assert.match(run.get('possession-title').textContent,/球权交接/);assert.ok(!run.get('player-status').textContent.includes('· 持球'));assert.ok(run.get('player-layer').children.every(n=>!n.attributes['aria-label'].includes('持球人')));});
+
+const realClip=()=>C.validateDataset(JSON.parse(fs.readFileSync(path.join(__dirname,'../court-lab/flagg.json'),'utf8')));
+test('automatic trail follows one possession and clears the score/change routes',()=>{
+  const d=realClip();
+  for(const [t,id,start] of [[8.2,'D5',.06673333333333333],[16.9,'D5',.06673333333333333],[18,'W3',17.75],[20.7,'W3',17.75],[21.4,'W2',21.2]]){
+    const route=C.trailFocus(d,t);assert.equal(route.id,id);assert.ok(Math.abs(route.start-start)<1e-5);assert.equal(route.mode,'possession');
+  }
+  for(const t of[0,17.5,17.7,22,NaN])assert.equal(C.trailFocus(d,t).id,null);
+});
+test('single-player selection takes precedence and survives a score or transfer',()=>{
+  const d=realClip();for(const t of[8.2,17.5,20.7])assert.deepEqual(C.trailFocus(d,t,'D1'),{id:'D1',start:0,mode:'selected'});
+  assert.equal(C.trailFocus(d,8,'invented').id,null);
+  const old=fixture();assert.equal(C.trailFocus(old,6.05).id,'D1');old.tracks.push({...structuredClone(old.tracks[0]),id:'D2'});assert.equal(C.trailFocus(old,6.05).id,null);
+});
+test('unknown gaps never reuse an unrelated former passer',()=>{
+  const d=fullSchematic();d.possession=[possession(6,7),possession(7.1,8,null,'pass')];assert.equal(C.trailFocus(d,7.2).id,null);
+  d.possession=[possession(6,7),possession(7,7.1,null,'unknown'),possession(7.1,8,null,'shot')];assert.equal(C.trailFocus(d,7.2).id,null);
+});
+test('trail cutoff clips a legal segment so a new receiver has a short route',()=>{
+  const d=realClip();const focus=C.trailFocus(d,21.4);const track=d.tracks.find(p=>p.id===focus.id);const lines=C.collectTrails(track,21.4,21.4-focus.start,d);
+  assert.ok(lines.length>0);assert.equal(lines[0].points[0].t,21.2);assert.ok(lines.every(line=>line.points.every(p=>p.t>=21.2&&p.t<=21.4)));assert.equal(lines.at(-1).points[1].t,21.4);
+});
+test('clipped route never joins through a missing or retained position',()=>{
+  const d=fullSchematic();d.tracks[0].points=[point(6),point(6.5,null,null,{status:'occluded'}),point(7,30,25),point(7.5,35,25)];
+  const lines=C.collectTrails(d.tracks[0],7.3,1.1,d);assert.ok(lines.every(line=>line.points.every(p=>p.t>=7)));assert.deepEqual(C.collectTrails(d.tracks[0],6.7,.3,d),[]);
+});
+test('eight-second corner ghost remains visible with team-colored outline and no fake foot mark',async()=>{
+  const run=await mounted(realClip());run.video.currentTime=8.2;await run.video.fire('seeked');
+  const d1=run.get('player-layer').children.find(n=>n.attributes['aria-label'].startsWith('D1，'));
+  assert.match(d1.attributes.class,/last-known/);assert.equal(d1.attributes.transform,'translate(50 480)');assert.equal(d1.children[0].attributes.stroke,'#f18143');assert.match(d1.attributes['aria-label'],/最近位置/);
+  assert.equal(run.get('player-layer').children.length,10);assert.ok(run.get('foot-overlay').children.every(n=>n.textContent!=='D1'));
+});
+test('default routes never return to all ten players at shot/pass or clip end',async()=>{
+  const run=await mounted(realClip());run.get('trail-length').value='all';
+  for(const [t,id] of[[8.2,'D5'],[16.9,'D5'],[18,'W3'],[20.7,'W3'],[C.SOURCE_DURATION,'W2']]){
+    run.video.currentTime=t;await run.video.fire('seeked');const lines=run.get('trail-layer').children;
+    assert.ok(lines.length>0,`route missing at ${t}`);assert.ok(lines.every(n=>n.attributes['data-player']===id));assert.equal(run.get('player-layer').children.length,10);
+  }
+  for(const t of[17.5,17.7]){run.video.currentTime=t;await run.video.fire('seeked');assert.equal(run.get('trail-layer').children.length,0);}
+});
+test('following the ball never overrides an explicit player click or selection',async()=>{
+  const run=await mounted(realClip());run.video.currentTime=8.2;await run.video.fire('seeked');await run.get('focus-holder').fire('click');
+  const d1=run.get('player-layer').children.find(n=>n.attributes['aria-label'].startsWith('D1，'));await d1.fire('click');
+  assert.equal(run.get('player-filter').value,'D1');assert.equal(run.get('focus-holder').attributes['aria-pressed'],'false');assert.match(run.get('trail-caption').textContent,/D1.*单人路线/);
+  await run.get('focus-holder').fire('click');assert.equal(run.get('player-filter').value,'all');run.get('player-filter').value='W2';await run.get('player-filter').fire('change');
+  assert.equal(run.get('focus-holder').attributes['aria-pressed'],'false');assert.match(run.get('trail-caption').textContent,/W2.*单人路线/);
+});
+test('route age fades older segments and the trail toggle clears them',async()=>{
+  const run=await mounted(realClip());run.video.currentTime=8.2;run.get('trail-length').value='3';await run.video.fire('seeked');
+  const lines=run.get('trail-layer').children;assert.ok(lines.length>1);const opacity=n=>Number(n.attributes.style.split(':')[1]);assert.ok(opacity(lines[0])<opacity(lines.at(-1)));
+  assert.ok(lines.every(n=>Number(n.attributes['data-start'])>=5.2-1e-9));run.get('show-trails').checked=false;await run.get('show-trails').fire('change');assert.equal(run.get('trail-layer').children.length,0);assert.match(run.get('trail-caption').textContent,/已隐藏/);
+});

@@ -107,6 +107,7 @@
     if (!dataset) {
       $('court-empty').hidden = false; $('court-empty').textContent = '等待真实位置记录';
       $('position-count').textContent = '等待站位';
+      $('trail-caption').textContent = 'TRAIL / 等待回合';
       $('possession-title').textContent = '等待球权记录'; $('possession-note').textContent = '与原片同步更新'; $('scene-state').textContent = ''; $('tactic-heading').textContent = '等待回合解析'; $('tactic-copy').textContent = '播放视频，逐段查看站位与球权。'; $('chapter-jumps').replaceChildren();
       $('window-state').textContent = '分析区间：等待数据';
       $('player-status').textContent = '没有加载球员记录。不会补齐十人或推测画外位置。';
@@ -117,7 +118,12 @@
     const samples = C.samplePositions(dataset,t).filter(visibleTrack);
     const ball = C.sampleBall(dataset,t);
     const scene = C.sceneAt(dataset,t);
-    const focus = followHolder && ball.phase === 'held' && ball.holder !== null ? String(ball.holder) : $('player-filter').value;
+    const route = C.trailFocus(dataset,t,$('player-filter').value);
+    const focus = followHolder && route.id !== null ? route.id : $('player-filter').value;
+    const length = $('trail-length').value;
+    const seconds = length === 'all' ? dataset.window[1]-dataset.window[0] : Number(length)||3;
+    const trailSeconds = route.start === null ? 0 : Math.min(seconds,Math.max(0,t-route.start));
+    $('trail-caption').textContent = !$('show-trails').checked ? 'TRAIL / 已隐藏' : route.id === null ? 'TRAIL / 无球员主线 · 可点选单人' : `TRAIL / ${route.id} · ${length==='all'?'ALL':seconds+' SEC'} · ${route.mode==='possession'?'球权主线':'单人路线'}`;
     let count = 0, interpolated = 0, snapshots = 0, held = 0;
     const stateLabel = point => point.status === 'last-known' ? `最近位置 · ${Math.max(0,t-point.sourceTime).toFixed(1)} 秒前` : point.snapshot ? `快照 ${clock(point.t)}` : point.interpolated ? (schematic ? '示意插值' : '插值') : reasonNames[point.reason] || statusNames[point.status] || '无数据';
     for (const point of samples) {
@@ -126,23 +132,25 @@
       const color = point.team === 'dark' ? '#f18143' : '#f7f0e2';
       if (hasPoint) {
         count++; if (point.status === 'last-known') held++; if (point.interpolated) interpolated++; if (point.snapshot) snapshots++;
-        if ($('show-trails').checked && focused) {
+        if ($('show-trails').checked && String(point.id) === route.id && trailSeconds > 0) {
           const track = dataset.tracks.find(item => String(item.id) === String(point.id));
-          for (const line of C.collectTrails(track,t,$('trail-length').value === 'all' ? dataset.window[1]-dataset.window[0] : Number($('trail-length').value)||3,dataset)) {
-            $('trail-layer').append(element('polyline',{points:line.points.map(item=>C.courtToSvg(item.x,item.y).join(',')).join(' '),stroke:color,class:`trail ${line.status}`}));
+          for (const line of C.collectTrails(track,t,trailSeconds,dataset)) {
+            const age = Math.max(0,t-(line.points[0].t+line.points[1].t)/2);
+            const opacity = 0.22+0.5*Math.max(0,1-age/trailSeconds);
+            $('trail-layer').append(element('polyline',{points:line.points.map(item=>C.courtToSvg(item.x,item.y).join(',')).join(' '),stroke:color,class:`trail ${line.status}`,style:`opacity:${opacity.toFixed(3)}`,'data-player':String(point.id),'data-start':line.points[0].t,'data-end':line.points[1].t}));
           }
         }
         const [x,y] = C.courtToSvg(point.x,point.y);
         const isHolder = ball.phase === 'held' && ball.holder !== null && String(ball.holder) === String(point.id);
         const pointStatus = stateLabel(point);
         const dot = element('g',{class:`player-dot ${point.status}${focused?'':' is-dim'}`,transform:`translate(${x} ${y})`,role:'button',tabindex:'0','aria-label':`${point.label}，${pointStatus}${isHolder?'，持球人':''}`});
-        dot.append(element('circle',{r:13,fill:color,stroke:'#22231f','stroke-width':2}));
+        dot.append(element('circle',{r:13,fill:color,stroke:point.status==='last-known'?color:'#22231f','stroke-width':2}));
         if (isHolder) dot.append(element('circle',{r:23,class:'holder-ring'}));
         if (focus !== 'all' && focused) dot.append(element('circle',{r:19,class:'dot-ring'}));
         const shortId = String(point.id);
         dot.append(element('text',{'text-anchor':'middle',dy:4,fill:'#22231f'},shortId));
         dot.append(element('title',{},`${point.label} · ${point.x.toFixed(1)}, ${point.y.toFixed(1)} ft · ${pointStatus}${point.reviewed ? ' · 已核对' : ' · 未核对'}`));
-        const select = () => { $('player-filter').value = String(point.id); render(mediaTime); };
+        const select = () => { $('player-filter').value = String(point.id); followHolder=false; $('focus-holder').setAttribute('aria-pressed','false'); render(mediaTime); };
         dot.addEventListener('click',select); dot.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();select();}});
         $('player-layer').append(dot);
         if (point.image && focused) {
@@ -191,10 +199,10 @@
     $('window-state').textContent = `分析区间 ${clock(dataset.window[0])} — ${clock(dataset.window[1])} · ${inWindow ? `${interpolated} 个${schematic ? '示意插值' : '插值点'} / ${snapshots} 个关键帧快照 / ${count-held-interpolated-snapshots} 个${schematic ? '编辑锚点' : '采样点'} / ${held} 个最近位置` : '区间外不延续轨迹'}`;
   }
   $('team-filter').addEventListener('change',()=>render(mediaTime));
-  $('player-filter').addEventListener('change',()=>render(mediaTime));
+  $('player-filter').addEventListener('change',()=>{followHolder=false;$('focus-holder').setAttribute('aria-pressed','false');render(mediaTime);});
   $('show-trails').addEventListener('change',()=>render(mediaTime));
   $('trail-length').addEventListener('change',()=>render(mediaTime));
-  $('focus-holder').addEventListener('click',()=>{followHolder=!followHolder;$('focus-holder').setAttribute('aria-pressed',String(followHolder));render(mediaTime);});
+  $('focus-holder').addEventListener('click',()=>{followHolder=!followHolder;if(followHolder)$('player-filter').value='all';$('focus-holder').setAttribute('aria-pressed',String(followHolder));render(mediaTime);});
   function setCourtView(half) {
     $('court-map').setAttribute('viewBox',half ? '6 6 552 550' : '0 0 1000 560');
     $('court-map').setAttribute('data-view',half ? 'half' : 'full');

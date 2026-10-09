@@ -207,6 +207,12 @@
     const end = upperBound(track.points, t);
     const begin = upperBound(track.points, start - 1e-9);
     const points = track.points.slice(begin, end);
+    // Clip the oldest segment at the requested video time, using only a valid
+    // same-camera interpolation. A retained or isolated snapshot is not motion.
+    const first = positionAt(track, start, context);
+    if (VISIBLE.has(first.status) && !first.snapshot && finite(first.t) && Math.abs(first.t - start) < 1e-6 && (!points.length || points[0].t > start + 1e-6)) {
+      points.unshift({ ...first, t: start });
+    }
     const current = positionAt(track, t, context);
     // Video time may round a frame timestamp slightly below the JSON timestamp.
     // Reuse only the exact sample already accepted by positionAt's microsecond
@@ -230,6 +236,26 @@
       }
     }
     return lines;
+  }
+  function trailFocus(data, t, selected = 'all') {
+    const empty = { id: null, start: null, mode: 'none' };
+    if (!finite(t) || t < data.window[0] || t > data.window[1]) return empty;
+    if (selected !== 'all') return data.tracks.some(track => String(track.id) === String(selected)) ? { id: String(selected), start: data.window[0], mode: 'selected' } : empty;
+    if (!data.possession) return data.tracks.length === 1 ? { id: String(data.tracks[0].id), start: data.window[0], mode: 'selected' } : empty;
+    const found = possessionAt(data, t);
+    if (!found || !['held', 'shot', 'pass'].includes(found.interval.phase)) return empty;
+    const intervals = data.possession;
+    let index = found.index;
+    if (found.interval.phase !== 'held') {
+      index--;
+      if (index < 0 || intervals[index].phase !== 'held' || intervals[index].end !== found.interval.start) return empty;
+    }
+    const holder = intervals[index].holder;
+    if (holder === null) return empty;
+    // Collection and inbound preparation can be separate labels for one holder.
+    // A shot, transfer, gap, or different holder starts a new visual route.
+    while (index > 0 && intervals[index - 1].phase === 'held' && String(intervals[index - 1].holder) === String(holder) && intervals[index - 1].end === intervals[index].start) index--;
+    return { id: String(holder), start: intervals[index].start, mode: 'possession' };
   }
   function sampleBall(data, t) {
     const found = possessionAt(data, t);
@@ -266,5 +292,5 @@
       segment, image: null };
   }
   function courtToSvg(x, y) { return [30 + x * 10, 530 - y * 10]; }
-  return { SOURCE_SHA256, SOURCE_DURATION, MAX_GAP, SCHEMATIC_MAX_GAP, SCHEMATIC_GAP_LIMIT, SNAPSHOT_RADIUS, validateDataset, positionAt, samplePositions, collectTrails, sampleBall, sceneAt, courtToSvg };
+  return { SOURCE_SHA256, SOURCE_DURATION, MAX_GAP, SCHEMATIC_MAX_GAP, SCHEMATIC_GAP_LIMIT, SNAPSHOT_RADIUS, validateDataset, positionAt, samplePositions, collectTrails, trailFocus, sampleBall, sceneAt, courtToSvg };
 });

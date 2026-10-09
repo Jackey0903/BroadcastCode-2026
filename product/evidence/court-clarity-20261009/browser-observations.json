@@ -1,0 +1,1077 @@
+[
+  {
+    "check": "8s-default",
+    "caption": "TRAIL / D5 · 3 SEC · 球权主线",
+    "clock": "00:08.158",
+    "dots": [
+      {
+        "class": "player-dot estimated",
+        "label": "W1，示意插值",
+        "opacity": "1",
+        "position": "translate(97.66616796857362 412.9287303923782)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W2，示意插值",
+        "opacity": "1",
+        "position": "translate(178.7964748543821 449.7376345690161)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W3，示意插值",
+        "opacity": "1",
+        "position": "translate(127.89802579130355 152.28349447780738)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W4，示意插值",
+        "opacity": "1",
+        "position": "translate(250.23795934438073 293.7966718472028)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W5，示意插值",
+        "opacity": "1",
+        "position": "translate(320.64523591457083 259.2586651194293)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot last-known",
+        "label": "D1，最近位置 · 0.2 秒前",
+        "opacity": "0.82",
+        "position": "translate(50 480)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "D2，示意插值",
+        "opacity": "1",
+        "position": "translate(179.78339598139704 502.8707659366957)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "D3，示意插值",
+        "opacity": "1",
+        "position": "translate(119.2388351740642 49.49509908339729)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "D4，示意插值",
+        "opacity": "1",
+        "position": "translate(295.98519875378156 297.61888117578)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "D5，示意插值，持球人",
+        "opacity": "1",
+        "position": "translate(390.15253804126974 245.0581614485032)",
+        "stroke": "#22231f"
+      }
+    ],
+    "ended": false,
+    "errorVisible": false,
+    "holder": "D5 · 持球",
+    "mediaError": null,
+    "paused": true,
+    "time": 8.160811,
+    "trails": [
+      {
+        "end": "6.006011111111112",
+        "opacity": "0.291",
+        "player": "D5",
+        "start": "5.158156"
+      },
+      {
+        "end": "7.007011111111112",
+        "opacity": "0.445",
+        "player": "D5",
+        "start": "6.006011111111112"
+      },
+      {
+        "end": "8.008011111111111",
+        "opacity": "0.612",
+        "player": "D5",
+        "start": "7.007011111111112"
+      },
+      {
+        "end": "8.158156",
+        "opacity": "0.707",
+        "player": "D5",
+        "start": "8.008011111111111"
+      }
+    ],
+    "view": "full"
+  },
+  {
+    "check": "8s-half-follow",
+    "caption": "TRAIL / D5 · 3 SEC · 球权主线",
+    "clock": "00:08.158",
+    "dots": [
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W1，示意插值",
+        "opacity": "0.7",
+        "position": "translate(97.66616796857362 412.9287303923782)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W2，示意插值",
+        "opacity": "0.7",
+        "position": "translate(178.7964748543821 449.7376345690161)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W3，示意插值",
+        "opacity": "0.7",
+        "position": "translate(127.89802579130355 152.28349447780738)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W4，示意插值",
+        "opacity": "0.7",
+        "position": "translate(250.23795934438073 293.7966718472028)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W5，示意插值",
+        "opacity": "0.7",
+        "position": "translate(320.64523591457083 259.2586651194293)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D1，最近位置 · 0.2 秒前",
+        "opacity": "0.7",
+        "position": "translate(50 480)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D2，示意插值",
+        "opacity": "0.7",
+        "position": "translate(179.78339598139704 502.8707659366957)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D3，示意插值",
+        "opacity": "0.7",
+        "position": "translate(119.2388351740642 49.49509908339729)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D4，示意插值",
+        "opacity": "0.7",
+        "position": "translate(295.98519875378156 297.61888117578)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "D5，示意插值，持球人",
+        "opacity": "1",
+        "position": "translate(390.15253804126974 245.0581614485032)",
+        "stroke": "#22231f"
+      }
+    ],
+    "ended": false,
+    "errorVisible": false,
+    "holder": "D5 · 持球",
+    "mediaError": null,
+    "paused": true,
+    "time": 8.160811,
+    "trails": [
+      {
+        "end": "6.006011111111112",
+        "opacity": "0.291",
+        "player": "D5",
+        "start": "5.158156"
+      },
+      {
+        "end": "7.007011111111112",
+        "opacity": "0.445",
+        "player": "D5",
+        "start": "6.006011111111112"
+      },
+      {
+        "end": "8.008011111111111",
+        "opacity": "0.612",
+        "player": "D5",
+        "start": "7.007011111111112"
+      },
+      {
+        "end": "8.158156",
+        "opacity": "0.707",
+        "player": "D5",
+        "start": "8.008011111111111"
+      }
+    ],
+    "view": "half"
+  },
+  {
+    "check": "score-clear",
+    "caption": "TRAIL / 无球员主线 · 可点选单人",
+    "clock": "00:17.434",
+    "dots": [
+      {
+        "class": "player-dot estimated",
+        "label": "W1，示意插值",
+        "opacity": "1",
+        "position": "translate(224.68400000000005 292.9326666666666)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W2，示意插值",
+        "opacity": "1",
+        "position": "translate(312.9113333333333 406.5013333333334)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W3，示意插值",
+        "opacity": "1",
+        "position": "translate(90.5033333333333 272.024)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W4，示意插值",
+        "opacity": "1",
+        "position": "translate(107.59533333333334 321.8266666666667)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W5，示意插值",
+        "opacity": "1",
+        "position": "translate(106.2366666666666 249.08866666666665)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot last-known",
+        "label": "D1，最近位置 · 0.4 秒前",
+        "opacity": "0.82",
+        "position": "translate(313 337.54)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot last-known",
+        "label": "D2，最近位置 · 0.9 秒前",
+        "opacity": "0.82",
+        "position": "translate(337.92 425.6)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "D3，示意插值",
+        "opacity": "1",
+        "position": "translate(78.6666666666667 50)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "D4，示意插值",
+        "opacity": "1",
+        "position": "translate(138.12866666666665 297.2339999999999)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "D5，示意插值",
+        "opacity": "1",
+        "position": "translate(81.24999999999993 308.80266666666677)",
+        "stroke": "#22231f"
+      }
+    ],
+    "ended": false,
+    "errorVisible": false,
+    "holder": "命中",
+    "mediaError": null,
+    "paused": true,
+    "time": 17.446462,
+    "trails": [],
+    "view": "half"
+  },
+  {
+    "check": "inbound-pass",
+    "caption": "TRAIL / W3 · ALL · 球权主线",
+    "clock": "00:20.587",
+    "dots": [
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "W1，最近位置 · 2.6 秒前",
+        "opacity": "0.7",
+        "position": "translate(250.15 233.07)",
+        "stroke": "#f7f0e2"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W2，示意插值",
+        "opacity": "0.7",
+        "position": "translate(196.51052014652024 453.8416898035298)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W3，示意插值，持球人",
+        "opacity": "1",
+        "position": "translate(30 280)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W4，示意插值",
+        "opacity": "0.7",
+        "position": "translate(265.96626136530125 354.49580965700966)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W5，示意插值",
+        "opacity": "0.7",
+        "position": "translate(95.64249334665335 329.1344248285048)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D1，最近位置 · 3.6 秒前",
+        "opacity": "0.7",
+        "position": "translate(313 337.54)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D2，最近位置 · 4.1 秒前",
+        "opacity": "0.7",
+        "position": "translate(337.92 425.6)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D3，示意插值",
+        "opacity": "0.7",
+        "position": "translate(336.0166404262403 182.49278465534462)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D4，最近位置 · 0.6 秒前",
+        "opacity": "0.7",
+        "position": "translate(380 270)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D5，示意插值",
+        "opacity": "0.7",
+        "position": "translate(209.19324294372296 398.97606428238424)",
+        "stroke": "#22231f"
+      }
+    ],
+    "ended": false,
+    "errorVisible": false,
+    "holder": "W3 · 持球",
+    "mediaError": null,
+    "paused": true,
+    "time": 20.6,
+    "trails": [
+      {
+        "end": "17.75107777777778",
+        "opacity": "0.22",
+        "player": "W3",
+        "start": "17.75"
+      },
+      {
+        "end": "18.001333333333335",
+        "opacity": "0.242",
+        "player": "W3",
+        "start": "17.75107777777778"
+      },
+      {
+        "end": "19.002333333333333",
+        "opacity": "0.352",
+        "player": "W3",
+        "start": "18.001333333333335"
+      },
+      {
+        "end": "20.003333333333334",
+        "opacity": "0.529",
+        "player": "W3",
+        "start": "19.002333333333333"
+      },
+      {
+        "end": "20.587256",
+        "opacity": "0.669",
+        "player": "W3",
+        "start": "20.003333333333334"
+      }
+    ],
+    "view": "half"
+  },
+  {
+    "check": "late-all-single-route",
+    "caption": "TRAIL / W2 · ALL · 球权主线",
+    "clock": "00:21.405",
+    "dots": [
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "W1，最近位置 · 3.4 秒前",
+        "opacity": "0.7",
+        "position": "translate(250.15 233.07)",
+        "stroke": "#f7f0e2"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W2，示意插值，持球人",
+        "opacity": "1",
+        "position": "translate(122.82318155412825 421.9820002771394)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W3，示意插值",
+        "opacity": "0.7",
+        "position": "translate(30 280)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W4，示意插值",
+        "opacity": "0.7",
+        "position": "translate(310.3443468601628 346.0371756289342)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W5，示意插值",
+        "opacity": "0.7",
+        "position": "translate(107.34243987152766 341.28909928459404)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D1，最近位置 · 4.4 秒前",
+        "opacity": "0.7",
+        "position": "translate(313 337.54)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D2，最近位置 · 4.9 秒前",
+        "opacity": "0.7",
+        "position": "translate(337.92 425.6)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D3，示意插值",
+        "opacity": "0.7",
+        "position": "translate(409.3843163039508 240.74923215889305)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D4，最近位置 · 1.4 秒前",
+        "opacity": "0.7",
+        "position": "translate(380 270)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D5，示意插值",
+        "opacity": "0.7",
+        "position": "translate(151.9067193675212 408.9991020624316)",
+        "stroke": "#22231f"
+      }
+    ],
+    "ended": false,
+    "errorVisible": false,
+    "holder": "W2 · 持球",
+    "mediaError": null,
+    "paused": true,
+    "time": 21.415481,
+    "trails": [
+      {
+        "end": "21.404733",
+        "opacity": "0.47",
+        "player": "W2",
+        "start": "21.2"
+      }
+    ],
+    "view": "half"
+  },
+  {
+    "check": "full-play-current",
+    "caption": "TRAIL / W2 · 3 SEC · 球权主线",
+    "clock": "00:21.548",
+    "dots": [
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "W1，最近位置 · 3.5 秒前",
+        "opacity": "0.7",
+        "position": "translate(250.15 233.07)",
+        "stroke": "#f7f0e2"
+      },
+      {
+        "class": "player-dot last-known",
+        "label": "W2，最近位置 · 0.0 秒前，持球人",
+        "opacity": "0.82",
+        "position": "translate(107.67999999999999 412.22)",
+        "stroke": "#f7f0e2"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "W3，最近位置 · 0.0 秒前",
+        "opacity": "0.7",
+        "position": "translate(30 280)",
+        "stroke": "#f7f0e2"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "W4，最近位置 · 0.0 秒前",
+        "opacity": "0.7",
+        "position": "translate(314.61 344.05)",
+        "stroke": "#f7f0e2"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "W5，最近位置 · 0.0 秒前",
+        "opacity": "0.7",
+        "position": "translate(110.89 339.6)",
+        "stroke": "#f7f0e2"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D1，最近位置 · 4.5 秒前",
+        "opacity": "0.7",
+        "position": "translate(313 337.54)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D2，最近位置 · 5.0 秒前",
+        "opacity": "0.7",
+        "position": "translate(337.92 425.6)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D3，最近位置 · 0.0 秒前",
+        "opacity": "0.7",
+        "position": "translate(414.42 251.96999999999997)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D4，最近位置 · 1.5 秒前",
+        "opacity": "0.7",
+        "position": "translate(380 270)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D5，最近位置 · 0.0 秒前",
+        "opacity": "0.7",
+        "position": "translate(137.03 407.24)",
+        "stroke": "#f18143"
+      }
+    ],
+    "ended": true,
+    "errorVisible": false,
+    "holder": "W2 · 持球",
+    "mediaError": null,
+    "paused": true,
+    "time": 21.548118,
+    "trails": [
+      {
+        "end": "21.521522222222224",
+        "opacity": "0.451",
+        "player": "W2",
+        "start": "21.2"
+      }
+    ],
+    "view": "full"
+  },
+  {
+    "check": "shot-single-route",
+    "caption": "TRAIL / D5 · 3 SEC · 球权主线",
+    "clock": "00:17.015",
+    "dots": [
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W1，示意插值",
+        "opacity": "0.7",
+        "position": "translate(207.52103920079924 322.30709080253075)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W2，示意插值",
+        "opacity": "0.7",
+        "position": "translate(319.06724909756906 395.845576969697)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W3，示意插值",
+        "opacity": "0.7",
+        "position": "translate(97.98912763902761 266.27792101898103)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W4，示意插值",
+        "opacity": "0.7",
+        "position": "translate(102.73584004662005 304.9313543789544)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W5，示意插值",
+        "opacity": "0.7",
+        "position": "translate(126.72850582750578 241.427228025308)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D1，最近位置 · 0.0 秒前",
+        "opacity": "0.7",
+        "position": "translate(313 337.54)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D2，最近位置 · 0.5 秒前",
+        "opacity": "0.7",
+        "position": "translate(337.92 425.6)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D3，示意插值",
+        "opacity": "0.7",
+        "position": "translate(70.3026506826507 50)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D4，示意插值",
+        "opacity": "0.7",
+        "position": "translate(146.14975799533798 324.985805034965)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "D5，示意插值",
+        "opacity": "1",
+        "position": "translate(101.44909860139856 271.43224325008333)",
+        "stroke": "#22231f"
+      }
+    ],
+    "ended": false,
+    "errorVisible": false,
+    "holder": "出手 · 球在空中",
+    "mediaError": null,
+    "paused": true,
+    "time": 17.015481,
+    "trails": [
+      {
+        "end": "14.998333333333337",
+        "opacity": "0.302",
+        "player": "D5",
+        "start": "14.015481000000001"
+      },
+      {
+        "end": "15.999333333333334",
+        "opacity": "0.467",
+        "player": "D5",
+        "start": "14.998333333333337"
+      },
+      {
+        "end": "16.499833333333335",
+        "opacity": "0.592",
+        "player": "D5",
+        "start": "15.999333333333334"
+      },
+      {
+        "end": "17.000333333333334",
+        "opacity": "0.676",
+        "player": "D5",
+        "start": "16.499833333333335"
+      },
+      {
+        "end": "17.015481",
+        "opacity": "0.719",
+        "player": "D5",
+        "start": "17.000333333333334"
+      }
+    ],
+    "view": "full"
+  },
+  {
+    "check": "pass-single-route",
+    "caption": "TRAIL / W3 · 3 SEC · 球权主线",
+    "clock": "00:20.815",
+    "dots": [
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "W1，最近位置 · 2.8 秒前",
+        "opacity": "0.7",
+        "position": "translate(250.15 233.07)",
+        "stroke": "#f7f0e2"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W2，示意插值",
+        "opacity": "0.7",
+        "position": "translate(184.5976767399269 454.7217582350982)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W3，示意插值",
+        "opacity": "1",
+        "position": "translate(30 280)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W4，示意插值",
+        "opacity": "0.7",
+        "position": "translate(282.2475273493171 353.5952214951715)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W5，示意插值",
+        "opacity": "0.7",
+        "position": "translate(95.38941667332668 338.9542557475856)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D1，最近位置 · 3.8 秒前",
+        "opacity": "0.7",
+        "position": "translate(313 337.54)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D2，最近位置 · 4.3 秒前",
+        "opacity": "0.7",
+        "position": "translate(337.92 425.6)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D3，示意插值",
+        "opacity": "0.7",
+        "position": "translate(366.71643687978644 193.32036232767217)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot last-known is-dim",
+        "label": "D4，最近位置 · 0.8 秒前",
+        "opacity": "0.7",
+        "position": "translate(380 270)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D5，示意插值",
+        "opacity": "0.7",
+        "position": "translate(205.7550481385282 407.7607888078587)",
+        "stroke": "#22231f"
+      }
+    ],
+    "ended": false,
+    "errorVisible": false,
+    "holder": "传球中",
+    "mediaError": null,
+    "paused": true,
+    "time": 20.815481,
+    "trails": [
+      {
+        "end": "18.001333333333335",
+        "opacity": "0.235",
+        "player": "W3",
+        "start": "17.815481"
+      },
+      {
+        "end": "19.002333333333333",
+        "opacity": "0.334",
+        "player": "W3",
+        "start": "18.001333333333335"
+      },
+      {
+        "end": "20.003333333333334",
+        "opacity": "0.501",
+        "player": "W3",
+        "start": "19.002333333333333"
+      },
+      {
+        "end": "20.815481",
+        "opacity": "0.652",
+        "player": "W3",
+        "start": "20.003333333333334"
+      }
+    ],
+    "view": "full"
+  },
+  {
+    "check": "corner-selected-all",
+    "caption": "TRAIL / D1 · ALL · 单人路线",
+    "clock": "00:08.161",
+    "dots": [
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W1，示意插值",
+        "opacity": "0.7",
+        "position": "translate(97.62488346051384 412.98053840249247)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W2，示意插值",
+        "opacity": "0.7",
+        "position": "translate(178.77518500022578 449.73299343477674)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W3，示意插值",
+        "opacity": "0.7",
+        "position": "translate(127.86084275071117 152.3238885356933)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W4，示意插值",
+        "opacity": "0.7",
+        "position": "translate(250.2421687452025 293.86383337698106)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "W5，示意插值",
+        "opacity": "0.7",
+        "position": "translate(320.6566498667991 259.2455512168691)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot last-known",
+        "label": "D1，最近位置 · 0.2 秒前",
+        "opacity": "0.82",
+        "position": "translate(50 480)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D2，示意插值",
+        "opacity": "0.7",
+        "position": "translate(179.77956434731567 502.9215485799431)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D3，示意插值",
+        "opacity": "0.7",
+        "position": "translate(119.22537048810221 49.486167598320264)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D4，示意插值",
+        "opacity": "0.7",
+        "position": "translate(295.9141786065833 297.5767601842236)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated is-dim",
+        "label": "D5，示意插值，持球人",
+        "opacity": "0.7",
+        "position": "translate(390.15523637512985 245.14763819930465)",
+        "stroke": "#22231f"
+      }
+    ],
+    "ended": false,
+    "errorVisible": false,
+    "holder": "D5 · 持球",
+    "mediaError": null,
+    "paused": true,
+    "time": 8.160812,
+    "trails": [
+      {
+        "end": "1.0010000000000001",
+        "opacity": "0.257",
+        "player": "D1",
+        "start": "0.20020000000000002"
+      },
+      {
+        "end": "2.0020000000000002",
+        "opacity": "0.312",
+        "player": "D1",
+        "start": "1.0010000000000001"
+      },
+      {
+        "end": "3.003",
+        "opacity": "0.373",
+        "player": "D1",
+        "start": "2.0020000000000002"
+      },
+      {
+        "end": "4.0040000000000004",
+        "opacity": "0.435",
+        "player": "D1",
+        "start": "3.003"
+      },
+      {
+        "end": "5.005",
+        "opacity": "0.496",
+        "player": "D1",
+        "start": "4.0040000000000004"
+      },
+      {
+        "end": "6.006011111111112",
+        "opacity": "0.557",
+        "player": "D1",
+        "start": "5.005"
+      },
+      {
+        "end": "7.007011111111112",
+        "opacity": "0.619",
+        "player": "D1",
+        "start": "6.006011111111112"
+      },
+      {
+        "end": "8.008011111111111",
+        "opacity": "0.68",
+        "player": "D1",
+        "start": "7.007011111111112"
+      }
+    ],
+    "view": "full"
+  },
+  {
+    "check": "final-style-8s-half",
+    "caption": "TRAIL / D5 · 3 SEC · 球权主线",
+    "clock": "00:08.158",
+    "dots": [
+      {
+        "class": "player-dot estimated",
+        "label": "W1，示意插值",
+        "opacity": "1",
+        "position": "translate(97.66616796857362 412.9287303923782)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W2，示意插值",
+        "opacity": "1",
+        "position": "translate(178.7964748543821 449.7376345690161)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W3，示意插值",
+        "opacity": "1",
+        "position": "translate(127.89802579130355 152.28349447780738)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W4，示意插值",
+        "opacity": "1",
+        "position": "translate(250.23795934438073 293.7966718472028)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "W5，示意插值",
+        "opacity": "1",
+        "position": "translate(320.64523591457083 259.2586651194293)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot last-known",
+        "label": "D1，最近位置 · 0.2 秒前",
+        "opacity": "0.82",
+        "position": "translate(50 480)",
+        "stroke": "#f18143"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "D2，示意插值",
+        "opacity": "1",
+        "position": "translate(179.78339598139704 502.8707659366957)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "D3，示意插值",
+        "opacity": "1",
+        "position": "translate(119.2388351740642 49.49509908339729)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "D4，示意插值",
+        "opacity": "1",
+        "position": "translate(295.98519875378156 297.61888117578)",
+        "stroke": "#22231f"
+      },
+      {
+        "class": "player-dot estimated",
+        "label": "D5，示意插值，持球人",
+        "opacity": "1",
+        "position": "translate(390.15253804126974 245.0581614485032)",
+        "stroke": "#22231f"
+      }
+    ],
+    "ended": false,
+    "errorVisible": false,
+    "holder": "D5 · 持球",
+    "mediaError": null,
+    "paused": true,
+    "time": 8.160811,
+    "trails": [
+      {
+        "end": "6.006011111111112",
+        "opacity": "0.291",
+        "player": "D5",
+        "start": "5.158156"
+      },
+      {
+        "end": "7.007011111111112",
+        "opacity": "0.445",
+        "player": "D5",
+        "start": "6.006011111111112"
+      },
+      {
+        "end": "8.008011111111111",
+        "opacity": "0.612",
+        "player": "D5",
+        "start": "7.007011111111112"
+      },
+      {
+        "end": "8.158156",
+        "opacity": "0.707",
+        "player": "D5",
+        "start": "8.008011111111111"
+      }
+    ],
+    "view": "half"
+  }
+]
