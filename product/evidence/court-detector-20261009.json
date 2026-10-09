@@ -1,0 +1,2284 @@
+{
+  "schema": "local-court-detector-experiment-v1",
+  "date": "2026-10-09",
+  "timezone": "Asia/Shanghai",
+  "status": "three_real_frames_executed_not_integrated",
+  "source": {
+    "source": "data/reference/train_video/train_video/训练_弗拉格2月1日.mp4",
+    "sourceSha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+    "sourceFps": 59.94001355730748,
+    "sourceDimensions": [
+      1920.0,
+      1080.0
+    ]
+  },
+  "model": {
+    "model": "YOLO11n",
+    "source": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n.pt",
+    "official_docs": "https://docs.ultralytics.com/models/yolo11/",
+    "license": "AGPL-3.0 or Enterprise",
+    "license_source": "https://www.ultralytics.com/license",
+    "started_at": "2026-10-09T17:25:19+0800",
+    "download_final_host": "release-assets.githubusercontent.com",
+    "status": "downloaded",
+    "bytes": 5613764,
+    "sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "path": "product/build/court-lab/detector-yolo11n.pt"
+  },
+  "runtime": {
+    "library": {
+      "ultralytics": "8.4.174",
+      "torch": "2.9.1",
+      "torchvision": "0.24.1",
+      "opencv": "5.0.0",
+      "numpy": "2.4.6"
+    },
+    "platform": "macOS-15.3-arm64-arm-64bit",
+    "python": "3.11.14",
+    "device": "cpu",
+    "mpsAvailable": true,
+    "parameters": {
+      "imgsz": 1280,
+      "conf": 0.25,
+      "iou": 0.7,
+      "classes": [
+        0
+      ],
+      "max_det": 300,
+      "threads": 4
+    }
+  },
+  "packages": [
+    {
+      "name": "ultralytics",
+      "version": "8.4.174",
+      "source": "https://pypi.org/project/ultralytics/8.4.174/",
+      "projectUrls": {
+        "Bug Reports": "https://github.com/ultralytics/ultralytics/issues",
+        "Changelog": "https://github.com/ultralytics/ultralytics/releases",
+        "Documentation": "https://docs.ultralytics.com",
+        "Homepage": "https://ultralytics.com",
+        "Source": "https://github.com/ultralytics/ultralytics"
+      },
+      "license": "AGPL-3.0",
+      "requiresPython": ">=3.8",
+      "wheels": [
+        {
+          "filename": "ultralytics-8.4.174-py3-none-any.whl",
+          "bytes": 1419998,
+          "sha256": "d1c4103ce7f97b895ed5d4904a0a1c13ea641cf8e1ade77e189d7bc1b777dfa5"
+        }
+      ]
+    },
+    {
+      "name": "torch",
+      "version": "2.9.1",
+      "source": "https://pypi.org/project/torch/2.9.1/",
+      "projectUrls": {
+        "Documentation": "https://pytorch.org/docs",
+        "Forum": "https://discuss.pytorch.org",
+        "Homepage": "https://pytorch.org",
+        "Issue Tracker": "https://github.com/pytorch/pytorch/issues",
+        "Repository": "https://github.com/pytorch/pytorch"
+      },
+      "license": "BSD-3-Clause",
+      "requiresPython": ">=3.10",
+      "wheels": [
+        {
+          "filename": "torch-2.9.1-cp311-none-macosx_11_0_arm64.whl",
+          "bytes": 74463887,
+          "sha256": "52347912d868653e1528b47cafaf79b285b98be3f4f35d5955389b1b95224475"
+        }
+      ]
+    },
+    {
+      "name": "torchvision",
+      "version": "0.24.1",
+      "source": "https://pypi.org/project/torchvision/0.24.1/",
+      "projectUrls": {
+        "Homepage": "https://github.com/pytorch/vision"
+      },
+      "license": "BSD",
+      "requiresPython": ">=3.10",
+      "wheels": [
+        {
+          "filename": "torchvision-0.24.1-cp311-cp311-macosx_11_0_arm64.whl",
+          "bytes": 1891436,
+          "sha256": "056c525dc875f18fe8e9c27079ada166a7b2755cea5a2199b0bc7f1f8364e600"
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "count": 39,
+    "registry": "https://pypi.org/simple",
+    "lockedFile": "product/court-lab/detector/requirements.lock.txt",
+    "lockedFileSha256": "f972342b842d3b51d95ed1025a0ee5695606f62af2bd02d771f1d7ed5cd7f881",
+    "compatibilityCheck": "uv pip check: all 39 installed packages compatible"
+  },
+  "reproduction": {
+    "script": "product/court-lab/detector/run.py",
+    "scriptSha256": "e6a66dd07a46abf83f87e5df20b35e6a820449e1b8b0d814a56ebef1ab5a232d",
+    "explicitCommand": "product/build/court-lab/.venv/bin/python product/court-lab/detector/run.py --run-local-probe",
+    "originalExecutedScriptIgnoredPath": "product/build/court-lab/detector-experiment.py",
+    "persistedScriptModifications": "Main guard, explicit local run flag, expected model SHA check, library version checks, isolated matplotlib config, source-open guard. Detection and 9s seed comparison body unchanged.",
+    "persistedScriptFullRerun": {
+      "status": "passed",
+      "checkedAt": "2026-10-09T17:39:26+0800",
+      "personCounts": [
+        44,
+        39,
+        40
+      ],
+      "allBoxesAnd9sSeedAssociationsMatchOriginalRunExactly": true,
+      "elapsedSecondsByFrame": [
+        0.7433556671021506,
+        0.08534995908848941,
+        0.0831236660014838
+      ],
+      "syntaxValid": true,
+      "helpExitedWithoutInference": true,
+      "guardedImportExecutedWithoutInference": true,
+      "modelHashVerifiedBeforeLoad": true,
+      "libraryVersionsVerified": true,
+      "logIgnoredPath": "product/build/court-lab/detector-persisted-run.log"
+    }
+  },
+  "frames": [
+    {
+      "requestedSeconds": 9.0,
+      "frameIndex": 539,
+      "frameIndexSeconds": 8.992323625096825,
+      "decodePositionMsec": 8992.322222222223,
+      "elapsedSeconds": 10.707229708088562,
+      "speed": {
+        "preprocess": 2.867082948796451,
+        "inference": 119.18158398475498,
+        "postprocess": 1.6077910549938679
+      },
+      "personBoxes": [
+        {
+          "index": 0,
+          "class": "person",
+          "confidence": 0.8864007592201233,
+          "xyxy": [
+            253.66912841796875,
+            336.93963623046875,
+            320.4803466796875,
+            511.36529541015625
+          ],
+          "boxBottomCenterProxy": [
+            287.0747375488281,
+            511.36529541015625
+          ]
+        },
+        {
+          "index": 1,
+          "class": "person",
+          "confidence": 0.8645104169845581,
+          "xyxy": [
+            765.6901245117188,
+            281.2846984863281,
+            833.2151489257812,
+            442.5623474121094
+          ],
+          "boxBottomCenterProxy": [
+            799.45263671875,
+            442.5623474121094
+          ]
+        },
+        {
+          "index": 2,
+          "class": "person",
+          "confidence": 0.8494071364402771,
+          "xyxy": [
+            1132.128662109375,
+            277.7243347167969,
+            1204.30517578125,
+            427.0682067871094
+          ],
+          "boxBottomCenterProxy": [
+            1168.2169189453125,
+            427.0682067871094
+          ]
+        },
+        {
+          "index": 3,
+          "class": "person",
+          "confidence": 0.8424200415611267,
+          "xyxy": [
+            839.00634765625,
+            277.3260498046875,
+            918.90673828125,
+            429.109375
+          ],
+          "boxBottomCenterProxy": [
+            878.95654296875,
+            429.109375
+          ]
+        },
+        {
+          "index": 4,
+          "class": "person",
+          "confidence": 0.8202679753303528,
+          "xyxy": [
+            984.9364013671875,
+            267.87542724609375,
+            1054.4847412109375,
+            408.27484130859375
+          ],
+          "boxBottomCenterProxy": [
+            1019.7105712890625,
+            408.27484130859375
+          ]
+        },
+        {
+          "index": 5,
+          "class": "person",
+          "confidence": 0.818535566329956,
+          "xyxy": [
+            457.2138671875,
+            379.21826171875,
+            530.3179321289062,
+            553.7642822265625
+          ],
+          "boxBottomCenterProxy": [
+            493.7658996582031,
+            553.7642822265625
+          ]
+        },
+        {
+          "index": 6,
+          "class": "person",
+          "confidence": 0.8142743706703186,
+          "xyxy": [
+            650.5108642578125,
+            463.5440673828125,
+            710.0721435546875,
+            630.0675048828125
+          ],
+          "boxBottomCenterProxy": [
+            680.29150390625,
+            630.0675048828125
+          ]
+        },
+        {
+          "index": 7,
+          "class": "person",
+          "confidence": 0.796859622001648,
+          "xyxy": [
+            541.5596923828125,
+            173.4839630126953,
+            586.2596435546875,
+            331.78997802734375
+          ],
+          "boxBottomCenterProxy": [
+            563.90966796875,
+            331.78997802734375
+          ]
+        },
+        {
+          "index": 8,
+          "class": "person",
+          "confidence": 0.7653470635414124,
+          "xyxy": [
+            81.31045532226562,
+            399.89703369140625,
+            151.31353759765625,
+            537.9530639648438
+          ],
+          "boxBottomCenterProxy": [
+            116.31199645996094,
+            537.9530639648438
+          ]
+        },
+        {
+          "index": 9,
+          "class": "person",
+          "confidence": 0.731437623500824,
+          "xyxy": [
+            414.819580078125,
+            426.7221374511719,
+            468.7213134765625,
+            617.690185546875
+          ],
+          "boxBottomCenterProxy": [
+            441.77044677734375,
+            617.690185546875
+          ]
+        },
+        {
+          "index": 10,
+          "class": "person",
+          "confidence": 0.7211599349975586,
+          "xyxy": [
+            594.734375,
+            132.32705688476562,
+            643.232421875,
+            263.9211120605469
+          ],
+          "boxBottomCenterProxy": [
+            618.9833984375,
+            263.9211120605469
+          ]
+        },
+        {
+          "index": 11,
+          "class": "person",
+          "confidence": 0.6951726675033569,
+          "xyxy": [
+            287.6269836425781,
+            177.6019287109375,
+            333.1188659667969,
+            309.9530944824219
+          ],
+          "boxBottomCenterProxy": [
+            310.3729248046875,
+            309.9530944824219
+          ]
+        },
+        {
+          "index": 12,
+          "class": "person",
+          "confidence": 0.6464833617210388,
+          "xyxy": [
+            1235.3466796875,
+            142.28213500976562,
+            1279.80029296875,
+            291.5435791015625
+          ],
+          "boxBottomCenterProxy": [
+            1257.573486328125,
+            291.5435791015625
+          ]
+        },
+        {
+          "index": 13,
+          "class": "person",
+          "confidence": 0.6444678902626038,
+          "xyxy": [
+            1169.625,
+            175.89727783203125,
+            1218.1171875,
+            320.17425537109375
+          ],
+          "boxBottomCenterProxy": [
+            1193.87109375,
+            320.17425537109375
+          ]
+        },
+        {
+          "index": 14,
+          "class": "person",
+          "confidence": 0.6150152683258057,
+          "xyxy": [
+            551.9779052734375,
+            581.0159301757812,
+            606.0113525390625,
+            635.7826538085938
+          ],
+          "boxBottomCenterProxy": [
+            578.99462890625,
+            635.7826538085938
+          ]
+        },
+        {
+          "index": 15,
+          "class": "person",
+          "confidence": 0.6085142493247986,
+          "xyxy": [
+            343.91015625,
+            571.6468505859375,
+            397.509521484375,
+            635.98388671875
+          ],
+          "boxBottomCenterProxy": [
+            370.7098388671875,
+            635.98388671875
+          ]
+        },
+        {
+          "index": 16,
+          "class": "person",
+          "confidence": 0.570024847984314,
+          "xyxy": [
+            959.9177856445312,
+            165.51885986328125,
+            1008.6740112304688,
+            252.17034912109375
+          ],
+          "boxBottomCenterProxy": [
+            984.2958984375,
+            252.17034912109375
+          ]
+        },
+        {
+          "index": 17,
+          "class": "person",
+          "confidence": 0.555728018283844,
+          "xyxy": [
+            504.08660888671875,
+            587.115234375,
+            554.8775024414062,
+            636.683349609375
+          ],
+          "boxBottomCenterProxy": [
+            529.4820556640625,
+            636.683349609375
+          ]
+        },
+        {
+          "index": 18,
+          "class": "person",
+          "confidence": 0.5508311986923218,
+          "xyxy": [
+            969.5833740234375,
+            626.2227783203125,
+            1014.4425048828125,
+            697.1236572265625
+          ],
+          "boxBottomCenterProxy": [
+            992.012939453125,
+            697.1236572265625
+          ]
+        },
+        {
+          "index": 19,
+          "class": "person",
+          "confidence": 0.5440411567687988,
+          "xyxy": [
+            870.3868408203125,
+            157.63958740234375,
+            916.7283935546875,
+            247.20635986328125
+          ],
+          "boxBottomCenterProxy": [
+            893.5576171875,
+            247.20635986328125
+          ]
+        },
+        {
+          "index": 20,
+          "class": "person",
+          "confidence": 0.5215514898300171,
+          "xyxy": [
+            155.87791442871094,
+            557.4835205078125,
+            208.6988067626953,
+            623.5010986328125
+          ],
+          "boxBottomCenterProxy": [
+            182.28836059570312,
+            623.5010986328125
+          ]
+        },
+        {
+          "index": 21,
+          "class": "person",
+          "confidence": 0.501901388168335,
+          "xyxy": [
+            1031.98486328125,
+            172.02371215820312,
+            1077.05419921875,
+            258.4421081542969
+          ],
+          "boxBottomCenterProxy": [
+            1054.51953125,
+            258.4421081542969
+          ]
+        },
+        {
+          "index": 22,
+          "class": "person",
+          "confidence": 0.4821679890155792,
+          "xyxy": [
+            592.220703125,
+            675.676513671875,
+            653.73095703125,
+            719.995361328125
+          ],
+          "boxBottomCenterProxy": [
+            622.975830078125,
+            719.995361328125
+          ]
+        },
+        {
+          "index": 23,
+          "class": "person",
+          "confidence": 0.4445386528968811,
+          "xyxy": [
+            732.75341796875,
+            147.28683471679688,
+            781.275146484375,
+            237.99575805664062
+          ],
+          "boxBottomCenterProxy": [
+            757.0142822265625,
+            237.99575805664062
+          ]
+        },
+        {
+          "index": 24,
+          "class": "person",
+          "confidence": 0.4434967637062073,
+          "xyxy": [
+            907.815673828125,
+            162.40130615234375,
+            948.6031494140625,
+            249.39190673828125
+          ],
+          "boxBottomCenterProxy": [
+            928.2094116210938,
+            249.39190673828125
+          ]
+        },
+        {
+          "index": 25,
+          "class": "person",
+          "confidence": 0.43248677253723145,
+          "xyxy": [
+            0.05165863037109375,
+            641.7548217773438,
+            68.41683959960938,
+            719.5382690429688
+          ],
+          "boxBottomCenterProxy": [
+            34.234249114990234,
+            719.5382690429688
+          ]
+        },
+        {
+          "index": 26,
+          "class": "person",
+          "confidence": 0.41448378562927246,
+          "xyxy": [
+            77.24134826660156,
+            543.3382568359375,
+            125.31336975097656,
+            614.8834228515625
+          ],
+          "boxBottomCenterProxy": [
+            101.27735900878906,
+            614.8834228515625
+          ]
+        },
+        {
+          "index": 27,
+          "class": "person",
+          "confidence": 0.40098240971565247,
+          "xyxy": [
+            444.2802734375,
+            587.0377197265625,
+            504.30950927734375,
+            637.282958984375
+          ],
+          "boxBottomCenterProxy": [
+            474.2948913574219,
+            637.282958984375
+          ]
+        },
+        {
+          "index": 28,
+          "class": "person",
+          "confidence": 0.39720532298088074,
+          "xyxy": [
+            393.54620361328125,
+            586.3922119140625,
+            446.34771728515625,
+            635.828857421875
+          ],
+          "boxBottomCenterProxy": [
+            419.94696044921875,
+            635.828857421875
+          ]
+        },
+        {
+          "index": 29,
+          "class": "person",
+          "confidence": 0.3963475823402405,
+          "xyxy": [
+            441.0499267578125,
+            135.015625,
+            483.7957763671875,
+            220.43463134765625
+          ],
+          "boxBottomCenterProxy": [
+            462.4228515625,
+            220.43463134765625
+          ]
+        },
+        {
+          "index": 30,
+          "class": "person",
+          "confidence": 0.39436808228492737,
+          "xyxy": [
+            256.2979736328125,
+            561.5678100585938,
+            310.25,
+            627.0791625976562
+          ],
+          "boxBottomCenterProxy": [
+            283.27398681640625,
+            627.0791625976562
+          ]
+        },
+        {
+          "index": 31,
+          "class": "person",
+          "confidence": 0.3623998165130615,
+          "xyxy": [
+            1240.184814453125,
+            651.71923828125,
+            1279.797119140625,
+            719.0126953125
+          ],
+          "boxBottomCenterProxy": [
+            1259.990966796875,
+            719.0126953125
+          ]
+        },
+        {
+          "index": 32,
+          "class": "person",
+          "confidence": 0.3614252507686615,
+          "xyxy": [
+            609.033203125,
+            582.9722900390625,
+            659.312744140625,
+            635.7215576171875
+          ],
+          "boxBottomCenterProxy": [
+            634.1729736328125,
+            635.7215576171875
+          ]
+        },
+        {
+          "index": 33,
+          "class": "person",
+          "confidence": 0.34405282139778137,
+          "xyxy": [
+            834.9194946289062,
+            159.41790771484375,
+            884.7300415039062,
+            246.78399658203125
+          ],
+          "boxBottomCenterProxy": [
+            859.8247680664062,
+            246.78399658203125
+          ]
+        },
+        {
+          "index": 34,
+          "class": "person",
+          "confidence": 0.3356720805168152,
+          "xyxy": [
+            778.4774169921875,
+            153.70242309570312,
+            829.6905517578125,
+            237.94692993164062
+          ],
+          "boxBottomCenterProxy": [
+            804.083984375,
+            237.94692993164062
+          ]
+        },
+        {
+          "index": 35,
+          "class": "person",
+          "confidence": 0.3330470621585846,
+          "xyxy": [
+            194.25982666015625,
+            569.7379150390625,
+            256.302490234375,
+            635.04248046875
+          ],
+          "boxBottomCenterProxy": [
+            225.28115844726562,
+            635.04248046875
+          ]
+        },
+        {
+          "index": 36,
+          "class": "person",
+          "confidence": 0.33248385787010193,
+          "xyxy": [
+            933.1109008789062,
+            161.99725341796875,
+            975.0407104492188,
+            248.920654296875
+          ],
+          "boxBottomCenterProxy": [
+            954.0758056640625,
+            248.920654296875
+          ]
+        },
+        {
+          "index": 37,
+          "class": "person",
+          "confidence": 0.32737109065055847,
+          "xyxy": [
+            29.584577560424805,
+            590.7117919921875,
+            83.70414733886719,
+            647.9993896484375
+          ],
+          "boxBottomCenterProxy": [
+            56.644362449645996,
+            647.9993896484375
+          ]
+        },
+        {
+          "index": 38,
+          "class": "person",
+          "confidence": 0.3188730776309967,
+          "xyxy": [
+            0.029693603515625,
+            365.12200927734375,
+            56.851654052734375,
+            447.519287109375
+          ],
+          "boxBottomCenterProxy": [
+            28.440673828125,
+            447.519287109375
+          ]
+        },
+        {
+          "index": 39,
+          "class": "person",
+          "confidence": 0.27122968435287476,
+          "xyxy": [
+            401.20733642578125,
+            133.86773681640625,
+            448.41656494140625,
+            219.96722412109375
+          ],
+          "boxBottomCenterProxy": [
+            424.81195068359375,
+            219.96722412109375
+          ]
+        },
+        {
+          "index": 40,
+          "class": "person",
+          "confidence": 0.26837077736854553,
+          "xyxy": [
+            248.17822265625,
+            561.1129150390625,
+            311.00640869140625,
+            659.26171875
+          ],
+          "boxBottomCenterProxy": [
+            279.5923156738281,
+            659.26171875
+          ]
+        },
+        {
+          "index": 41,
+          "class": "person",
+          "confidence": 0.26460832357406616,
+          "xyxy": [
+            996.3836669921875,
+            165.33529663085938,
+            1038.3818359375,
+            254.04013061523438
+          ],
+          "boxBottomCenterProxy": [
+            1017.3827514648438,
+            254.04013061523438
+          ]
+        },
+        {
+          "index": 42,
+          "class": "person",
+          "confidence": 0.2618120014667511,
+          "xyxy": [
+            644.8790283203125,
+            154.06893920898438,
+            685.2313232421875,
+            233.446044921875
+          ],
+          "boxBottomCenterProxy": [
+            665.05517578125,
+            233.446044921875
+          ]
+        },
+        {
+          "index": 43,
+          "class": "person",
+          "confidence": 0.2582356929779053,
+          "xyxy": [
+            1195.9619140625,
+            653.5040283203125,
+            1239.78857421875,
+            717.788330078125
+          ],
+          "boxBottomCenterProxy": [
+            1217.875244140625,
+            717.788330078125
+          ]
+        }
+      ],
+      "personBoxCount": 44,
+      "original9sSeedAssociations": [
+        {
+          "seed": "W1",
+          "seedFoot": [
+            282,
+            501
+          ],
+          "matchedBox": 0,
+          "confidence": 0.8864007592201233,
+          "proxyFootErrorPixels": 11.540897284409576,
+          "comparisonIsManualSeedDiagnostic": true
+        },
+        {
+          "seed": "W2",
+          "seedFoot": [
+            491,
+            533
+          ],
+          "matchedBox": 5,
+          "confidence": 0.818535566329956,
+          "proxyFootErrorPixels": 20.947687636194775,
+          "comparisonIsManualSeedDiagnostic": true
+        },
+        {
+          "seed": "W3",
+          "seedFoot": [
+            559,
+            319
+          ],
+          "matchedBox": 7,
+          "confidence": 0.796859622001648,
+          "proxyFootErrorPixels": 13.699940784664205,
+          "comparisonIsManualSeedDiagnostic": true
+        },
+        {
+          "seed": "W4",
+          "seedFoot": [
+            790,
+            434
+          ],
+          "matchedBox": 1,
+          "confidence": 0.8645104169845581,
+          "proxyFootErrorPixels": 12.754063436501987,
+          "comparisonIsManualSeedDiagnostic": true
+        },
+        {
+          "seed": "W5",
+          "seedFoot": [
+            1004,
+            399
+          ],
+          "matchedBox": 4,
+          "confidence": 0.8202679753303528,
+          "proxyFootErrorPixels": 18.24403276494295,
+          "comparisonIsManualSeedDiagnostic": true
+        },
+        {
+          "seed": "D1",
+          "seedFoot": null,
+          "matchedBox": 8,
+          "confidence": 0.7653470635414124,
+          "proxyFootErrorPixels": null,
+          "comparisonIsManualSeedDiagnostic": true
+        },
+        {
+          "seed": "D2",
+          "seedFoot": [
+            447,
+            603
+          ],
+          "matchedBox": 9,
+          "confidence": 0.731437623500824,
+          "proxyFootErrorPixels": 15.593260669603696,
+          "comparisonIsManualSeedDiagnostic": true
+        },
+        {
+          "seed": "D3",
+          "seedFoot": [
+            624,
+            255
+          ],
+          "matchedBox": 10,
+          "confidence": 0.7211599349975586,
+          "proxyFootErrorPixels": 10.234868422882258,
+          "comparisonIsManualSeedDiagnostic": true
+        },
+        {
+          "seed": "D4",
+          "seedFoot": [
+            862,
+            414
+          ],
+          "matchedBox": 3,
+          "confidence": 0.8424200415611267,
+          "proxyFootErrorPixels": 22.7116173431504,
+          "comparisonIsManualSeedDiagnostic": true
+        },
+        {
+          "seed": "D5",
+          "seedFoot": [
+            1176,
+            421
+          ],
+          "matchedBox": 2,
+          "confidence": 0.8494071364402771,
+          "proxyFootErrorPixels": 9.869117707016963,
+          "comparisonIsManualSeedDiagnostic": true
+        }
+      ],
+      "diagnosticImage": "product/build/court-lab/detector-boxes-9.0s.jpg"
+    },
+    {
+      "requestedSeconds": 9.5,
+      "frameIndex": 569,
+      "frameIndexSeconds": 9.492824012393493,
+      "decodePositionMsec": 9492.822222222223,
+      "elapsedSeconds": 0.08882487507071346,
+      "speed": {
+        "preprocess": 2.8079169569537044,
+        "inference": 84.44408292416483,
+        "postprocess": 0.620500068180263
+      },
+      "personBoxes": [
+        {
+          "index": 0,
+          "class": "person",
+          "confidence": 0.8800394535064697,
+          "xyxy": [
+            201.98373413085938,
+            347.9249267578125,
+            284.1631164550781,
+            522.717529296875
+          ],
+          "boxBottomCenterProxy": [
+            243.07342529296875,
+            522.717529296875
+          ]
+        },
+        {
+          "index": 1,
+          "class": "person",
+          "confidence": 0.8528566956520081,
+          "xyxy": [
+            640.98681640625,
+            466.4273986816406,
+            701.41650390625,
+            632.2227783203125
+          ],
+          "boxBottomCenterProxy": [
+            671.20166015625,
+            632.2227783203125
+          ]
+        },
+        {
+          "index": 2,
+          "class": "person",
+          "confidence": 0.8448485136032104,
+          "xyxy": [
+            1056.5828857421875,
+            280.73736572265625,
+            1156.8182373046875,
+            409.49835205078125
+          ],
+          "boxBottomCenterProxy": [
+            1106.7005615234375,
+            409.49835205078125
+          ]
+        },
+        {
+          "index": 3,
+          "class": "person",
+          "confidence": 0.8378238081932068,
+          "xyxy": [
+            412.84442138671875,
+            382.72943115234375,
+            484.74041748046875,
+            556.897216796875
+          ],
+          "boxBottomCenterProxy": [
+            448.79241943359375,
+            556.897216796875
+          ]
+        },
+        {
+          "index": 4,
+          "class": "person",
+          "confidence": 0.8104968070983887,
+          "xyxy": [
+            1198.080322265625,
+            157.10244750976562,
+            1266.427978515625,
+            292.24224853515625
+          ],
+          "boxBottomCenterProxy": [
+            1232.254150390625,
+            292.24224853515625
+          ]
+        },
+        {
+          "index": 5,
+          "class": "person",
+          "confidence": 0.8069872856140137,
+          "xyxy": [
+            514.4708251953125,
+            182.93765258789062,
+            557.9937744140625,
+            339.2663269042969
+          ],
+          "boxBottomCenterProxy": [
+            536.2322998046875,
+            339.2663269042969
+          ]
+        },
+        {
+          "index": 6,
+          "class": "person",
+          "confidence": 0.7930414080619812,
+          "xyxy": [
+            750.9490966796875,
+            277.02044677734375,
+            809.6873779296875,
+            444.54083251953125
+          ],
+          "boxBottomCenterProxy": [
+            780.3182373046875,
+            444.54083251953125
+          ]
+        },
+        {
+          "index": 7,
+          "class": "person",
+          "confidence": 0.7792758345603943,
+          "xyxy": [
+            70.72189331054688,
+            405.08538818359375,
+            141.26852416992188,
+            584.7723388671875
+          ],
+          "boxBottomCenterProxy": [
+            105.99520874023438,
+            584.7723388671875
+          ]
+        },
+        {
+          "index": 8,
+          "class": "person",
+          "confidence": 0.774775505065918,
+          "xyxy": [
+            378.8223876953125,
+            432.82464599609375,
+            439.28662109375,
+            607.1365356445312
+          ],
+          "boxBottomCenterProxy": [
+            409.05450439453125,
+            607.1365356445312
+          ]
+        },
+        {
+          "index": 9,
+          "class": "person",
+          "confidence": 0.7737351059913635,
+          "xyxy": [
+            886.171142578125,
+            263.74261474609375,
+            979.0418701171875,
+            406.55322265625
+          ],
+          "boxBottomCenterProxy": [
+            932.6065063476562,
+            406.55322265625
+          ]
+        },
+        {
+          "index": 10,
+          "class": "person",
+          "confidence": 0.768217146396637,
+          "xyxy": [
+            1128.239990234375,
+            175.44061279296875,
+            1182.261962890625,
+            323.46807861328125
+          ],
+          "boxBottomCenterProxy": [
+            1155.2509765625,
+            323.46807861328125
+          ]
+        },
+        {
+          "index": 11,
+          "class": "person",
+          "confidence": 0.7411919832229614,
+          "xyxy": [
+            245.0802764892578,
+            183.9217529296875,
+            298.08795166015625,
+            316.2574462890625
+          ],
+          "boxBottomCenterProxy": [
+            271.58411407470703,
+            316.2574462890625
+          ]
+        },
+        {
+          "index": 12,
+          "class": "person",
+          "confidence": 0.67020183801651,
+          "xyxy": [
+            310.6290283203125,
+            575.8265380859375,
+            362.9281005859375,
+            637.1053466796875
+          ],
+          "boxBottomCenterProxy": [
+            336.778564453125,
+            637.1053466796875
+          ]
+        },
+        {
+          "index": 13,
+          "class": "person",
+          "confidence": 0.6413686275482178,
+          "xyxy": [
+            978.94580078125,
+            291.9375915527344,
+            1055.771240234375,
+            431.2164001464844
+          ],
+          "boxBottomCenterProxy": [
+            1017.3585205078125,
+            431.2164001464844
+          ]
+        },
+        {
+          "index": 14,
+          "class": "person",
+          "confidence": 0.6107934713363647,
+          "xyxy": [
+            518.359375,
+            583.0833740234375,
+            572.958740234375,
+            636.2218017578125
+          ],
+          "boxBottomCenterProxy": [
+            545.6590576171875,
+            636.2218017578125
+          ]
+        },
+        {
+          "index": 15,
+          "class": "person",
+          "confidence": 0.5810708403587341,
+          "xyxy": [
+            470.67974853515625,
+            587.5858154296875,
+            519.6680908203125,
+            636.6805419921875
+          ],
+          "boxBottomCenterProxy": [
+            495.1739196777344,
+            636.6805419921875
+          ]
+        },
+        {
+          "index": 16,
+          "class": "person",
+          "confidence": 0.537651002407074,
+          "xyxy": [
+            411.86944580078125,
+            589.6284790039062,
+            470.04461669921875,
+            636.5924682617188
+          ],
+          "boxBottomCenterProxy": [
+            440.95703125,
+            636.5924682617188
+          ]
+        },
+        {
+          "index": 17,
+          "class": "person",
+          "confidence": 0.5143460631370544,
+          "xyxy": [
+            928.868896484375,
+            167.12942504882812,
+            974.183349609375,
+            251.76522827148438
+          ],
+          "boxBottomCenterProxy": [
+            951.526123046875,
+            251.76522827148438
+          ]
+        },
+        {
+          "index": 18,
+          "class": "person",
+          "confidence": 0.47971898317337036,
+          "xyxy": [
+            219.919921875,
+            564.603515625,
+            276.1626281738281,
+            632.456787109375
+          ],
+          "boxBottomCenterProxy": [
+            248.04127502441406,
+            632.456787109375
+          ]
+        },
+        {
+          "index": 19,
+          "class": "person",
+          "confidence": 0.4787618815898895,
+          "xyxy": [
+            576.0813598632812,
+            584.9183959960938,
+            627.0995483398438,
+            636.0164184570312
+          ],
+          "boxBottomCenterProxy": [
+            601.5904541015625,
+            636.0164184570312
+          ]
+        },
+        {
+          "index": 20,
+          "class": "person",
+          "confidence": 0.4748351573944092,
+          "xyxy": [
+            119.74520111083984,
+            562.0564575195312,
+            174.69027709960938,
+            626.7211303710938
+          ],
+          "boxBottomCenterProxy": [
+            147.2177391052246,
+            626.7211303710938
+          ]
+        },
+        {
+          "index": 21,
+          "class": "person",
+          "confidence": 0.45960870385169983,
+          "xyxy": [
+            1203.40185546875,
+            648.86865234375,
+            1269.42578125,
+            719.783935546875
+          ],
+          "boxBottomCenterProxy": [
+            1236.413818359375,
+            719.783935546875
+          ]
+        },
+        {
+          "index": 22,
+          "class": "person",
+          "confidence": 0.45022284984588623,
+          "xyxy": [
+            836.8631591796875,
+            157.42025756835938,
+            880.6116943359375,
+            247.847412109375
+          ],
+          "boxBottomCenterProxy": [
+            858.7374267578125,
+            247.847412109375
+          ]
+        },
+        {
+          "index": 23,
+          "class": "person",
+          "confidence": 0.44920000433921814,
+          "xyxy": [
+            994.537841796875,
+            173.8387451171875,
+            1044.53564453125,
+            259.6649169921875
+          ],
+          "boxBottomCenterProxy": [
+            1019.5367431640625,
+            259.6649169921875
+          ]
+        },
+        {
+          "index": 24,
+          "class": "person",
+          "confidence": 0.4227559268474579,
+          "xyxy": [
+            872.5415649414062,
+            166.07354736328125,
+            914.0769653320312,
+            250.69241333007812
+          ],
+          "boxBottomCenterProxy": [
+            893.3092651367188,
+            250.69241333007812
+          ]
+        },
+        {
+          "index": 25,
+          "class": "person",
+          "confidence": 0.3992820680141449,
+          "xyxy": [
+            360.10595703125,
+            589.728759765625,
+            413.80712890625,
+            635.8779296875
+          ],
+          "boxBottomCenterProxy": [
+            386.95654296875,
+            635.8779296875
+          ]
+        },
+        {
+          "index": 26,
+          "class": "person",
+          "confidence": 0.3984479606151581,
+          "xyxy": [
+            587.1907348632812,
+            138.96932983398438,
+            632.5559692382812,
+            264.8875427246094
+          ],
+          "boxBottomCenterProxy": [
+            609.8733520507812,
+            264.8875427246094
+          ]
+        },
+        {
+          "index": 27,
+          "class": "person",
+          "confidence": 0.37544143199920654,
+          "xyxy": [
+            407.7933654785156,
+            136.97482299804688,
+            449.1944274902344,
+            221.48312377929688
+          ],
+          "boxBottomCenterProxy": [
+            428.493896484375,
+            221.48312377929688
+          ]
+        },
+        {
+          "index": 28,
+          "class": "person",
+          "confidence": 0.3644557595252991,
+          "xyxy": [
+            40.05387878417969,
+            547.13671875,
+            88.99238586425781,
+            618.3548583984375
+          ],
+          "boxBottomCenterProxy": [
+            64.52313232421875,
+            618.3548583984375
+          ]
+        },
+        {
+          "index": 29,
+          "class": "person",
+          "confidence": 0.36294105648994446,
+          "xyxy": [
+            897.701416015625,
+            163.57687377929688,
+            940.2685546875,
+            250.36251831054688
+          ],
+          "boxBottomCenterProxy": [
+            918.9849853515625,
+            250.36251831054688
+          ]
+        },
+        {
+          "index": 30,
+          "class": "person",
+          "confidence": 0.344437837600708,
+          "xyxy": [
+            699.379638671875,
+            148.38845825195312,
+            747.0283203125,
+            239.3095703125
+          ],
+          "boxBottomCenterProxy": [
+            723.2039794921875,
+            239.3095703125
+          ]
+        },
+        {
+          "index": 31,
+          "class": "person",
+          "confidence": 0.33178260922431946,
+          "xyxy": [
+            801.49560546875,
+            161.98501586914062,
+            848.9873046875,
+            247.02011108398438
+          ],
+          "boxBottomCenterProxy": [
+            825.241455078125,
+            247.02011108398438
+          ]
+        },
+        {
+          "index": 32,
+          "class": "person",
+          "confidence": 0.32250523567199707,
+          "xyxy": [
+            0.1281585693359375,
+            594.58251953125,
+            45.097110748291016,
+            652.085205078125
+          ],
+          "boxBottomCenterProxy": [
+            22.612634658813477,
+            652.085205078125
+          ]
+        },
+        {
+          "index": 33,
+          "class": "person",
+          "confidence": 0.2983649671077728,
+          "xyxy": [
+            0.11114501953125,
+            651.5211181640625,
+            35.40157699584961,
+            719.5821533203125
+          ],
+          "boxBottomCenterProxy": [
+            17.75636100769043,
+            719.5821533203125
+          ]
+        },
+        {
+          "index": 34,
+          "class": "person",
+          "confidence": 0.2882733941078186,
+          "xyxy": [
+            559.4493408203125,
+            676.3712158203125,
+            621.9940185546875,
+            720.0
+          ],
+          "boxBottomCenterProxy": [
+            590.7216796875,
+            720.0
+          ]
+        },
+        {
+          "index": 35,
+          "class": "person",
+          "confidence": 0.28409048914909363,
+          "xyxy": [
+            238.0233612060547,
+            615.4256591796875,
+            302.08209228515625,
+            714.3687744140625
+          ],
+          "boxBottomCenterProxy": [
+            270.05272674560547,
+            714.3687744140625
+          ]
+        },
+        {
+          "index": 36,
+          "class": "person",
+          "confidence": 0.256586492061615,
+          "xyxy": [
+            0.083343505859375,
+            541.693359375,
+            53.84837341308594,
+            624.694580078125
+          ],
+          "boxBottomCenterProxy": [
+            26.965858459472656,
+            624.694580078125
+          ]
+        },
+        {
+          "index": 37,
+          "class": "person",
+          "confidence": 0.2563094198703766,
+          "xyxy": [
+            371.70611572265625,
+            135.15518188476562,
+            414.77960205078125,
+            219.11245727539062
+          ],
+          "boxBottomCenterProxy": [
+            393.24285888671875,
+            219.11245727539062
+          ]
+        },
+        {
+          "index": 38,
+          "class": "person",
+          "confidence": 0.2507224380970001,
+          "xyxy": [
+            270.104736328125,
+            577.7725830078125,
+            316.58184814453125,
+            640.7735595703125
+          ],
+          "boxBottomCenterProxy": [
+            293.3432922363281,
+            640.7735595703125
+          ]
+        }
+      ],
+      "personBoxCount": 39,
+      "original9sSeedAssociations": [],
+      "diagnosticImage": "product/build/court-lab/detector-boxes-9.5s.jpg"
+    },
+    {
+      "requestedSeconds": 10.0,
+      "frameIndex": 599,
+      "frameIndexSeconds": 9.993324399690163,
+      "decodePositionMsec": 9993.322222222221,
+      "elapsedSeconds": 0.09235375002026558,
+      "speed": {
+        "preprocess": 1.7684591002762318,
+        "inference": 89.10450001712888,
+        "postprocess": 0.5638750735670328
+      },
+      "personBoxes": [
+        {
+          "index": 0,
+          "class": "person",
+          "confidence": 0.8845191597938538,
+          "xyxy": [
+            663.8216552734375,
+            476.5464172363281,
+            721.8582763671875,
+            636.10205078125
+          ],
+          "boxBottomCenterProxy": [
+            692.8399658203125,
+            636.10205078125
+          ]
+        },
+        {
+          "index": 1,
+          "class": "person",
+          "confidence": 0.8767127990722656,
+          "xyxy": [
+            224.49749755859375,
+            352.45074462890625,
+            301.34307861328125,
+            531.2302856445312
+          ],
+          "boxBottomCenterProxy": [
+            262.9202880859375,
+            531.2302856445312
+          ]
+        },
+        {
+          "index": 2,
+          "class": "person",
+          "confidence": 0.8764431476593018,
+          "xyxy": [
+            743.716796875,
+            272.1209716796875,
+            835.162841796875,
+            417.2977294921875
+          ],
+          "boxBottomCenterProxy": [
+            789.4398193359375,
+            417.2977294921875
+          ]
+        },
+        {
+          "index": 3,
+          "class": "person",
+          "confidence": 0.8343584537506104,
+          "xyxy": [
+            1201.193359375,
+            163.22500610351562,
+            1276.75927734375,
+            302.9404296875
+          ],
+          "boxBottomCenterProxy": [
+            1238.976318359375,
+            302.9404296875
+          ]
+        },
+        {
+          "index": 4,
+          "class": "person",
+          "confidence": 0.8081686496734619,
+          "xyxy": [
+            948.4625244140625,
+            267.4180908203125,
+            1080.3609619140625,
+            417.78759765625
+          ],
+          "boxBottomCenterProxy": [
+            1014.4117431640625,
+            417.78759765625
+          ]
+        },
+        {
+          "index": 5,
+          "class": "person",
+          "confidence": 0.7991326451301575,
+          "xyxy": [
+            543.5301513671875,
+            194.8935546875,
+            593.7181396484375,
+            349.55615234375
+          ],
+          "boxBottomCenterProxy": [
+            568.6241455078125,
+            349.55615234375
+          ]
+        },
+        {
+          "index": 6,
+          "class": "person",
+          "confidence": 0.7973171472549438,
+          "xyxy": [
+            93.45257568359375,
+            414.3671875,
+            214.54244995117188,
+            590.1505126953125
+          ],
+          "boxBottomCenterProxy": [
+            153.9975128173828,
+            590.1505126953125
+          ]
+        },
+        {
+          "index": 7,
+          "class": "person",
+          "confidence": 0.7969380617141724,
+          "xyxy": [
+            246.98361206054688,
+            201.85365295410156,
+            299.3233947753906,
+            333.812744140625
+          ],
+          "boxBottomCenterProxy": [
+            273.15350341796875,
+            333.812744140625
+          ]
+        },
+        {
+          "index": 8,
+          "class": "person",
+          "confidence": 0.7621423602104187,
+          "xyxy": [
+            1148.0640869140625,
+            185.80206298828125,
+            1202.3514404296875,
+            334.19281005859375
+          ],
+          "boxBottomCenterProxy": [
+            1175.207763671875,
+            334.19281005859375
+          ]
+        },
+        {
+          "index": 9,
+          "class": "person",
+          "confidence": 0.7615404725074768,
+          "xyxy": [
+            418.7980041503906,
+            450.2645568847656,
+            501.1907043457031,
+            626.4503173828125
+          ],
+          "boxBottomCenterProxy": [
+            459.9943542480469,
+            626.4503173828125
+          ]
+        },
+        {
+          "index": 10,
+          "class": "person",
+          "confidence": 0.7361599802970886,
+          "xyxy": [
+            615.564453125,
+            141.89334106445312,
+            666.527587890625,
+            275.63873291015625
+          ],
+          "boxBottomCenterProxy": [
+            641.0460205078125,
+            275.63873291015625
+          ]
+        },
+        {
+          "index": 11,
+          "class": "person",
+          "confidence": 0.6191107034683228,
+          "xyxy": [
+            1226.9222412109375,
+            661.3966064453125,
+            1279.8150634765625,
+            720.0
+          ],
+          "boxBottomCenterProxy": [
+            1253.36865234375,
+            720.0
+          ]
+        },
+        {
+          "index": 12,
+          "class": "person",
+          "confidence": 0.6170418858528137,
+          "xyxy": [
+            595.408447265625,
+            595.68798828125,
+            644.751220703125,
+            635.15234375
+          ],
+          "boxBottomCenterProxy": [
+            620.079833984375,
+            635.15234375
+          ]
+        },
+        {
+          "index": 13,
+          "class": "person",
+          "confidence": 0.6028198003768921,
+          "xyxy": [
+            242.8994598388672,
+            573.7015991210938,
+            295.57867431640625,
+            641.7064819335938
+          ],
+          "boxBottomCenterProxy": [
+            269.2390670776367,
+            641.7064819335938
+          ]
+        },
+        {
+          "index": 14,
+          "class": "person",
+          "confidence": 0.588270366191864,
+          "xyxy": [
+            1016.485595703125,
+            183.07574462890625,
+            1061.4814453125,
+            268.3841552734375
+          ],
+          "boxBottomCenterProxy": [
+            1038.9835205078125,
+            268.3841552734375
+          ]
+        },
+        {
+          "index": 15,
+          "class": "person",
+          "confidence": 0.5784831643104553,
+          "xyxy": [
+            330.3284912109375,
+            584.0693359375,
+            382.48583984375,
+            636.172119140625
+          ],
+          "boxBottomCenterProxy": [
+            356.40716552734375,
+            636.172119140625
+          ]
+        },
+        {
+          "index": 16,
+          "class": "person",
+          "confidence": 0.46544864773750305,
+          "xyxy": [
+            719.0955810546875,
+            157.55880737304688,
+            767.9752197265625,
+            247.74905395507812
+          ],
+          "boxBottomCenterProxy": [
+            743.535400390625,
+            247.74905395507812
+          ]
+        },
+        {
+          "index": 17,
+          "class": "person",
+          "confidence": 0.4620952010154724,
+          "xyxy": [
+            0.12491226196289062,
+            657.692626953125,
+            50.35039138793945,
+            719.442138671875
+          ],
+          "boxBottomCenterProxy": [
+            25.237651824951172,
+            719.442138671875
+          ]
+        },
+        {
+          "index": 18,
+          "class": "person",
+          "confidence": 0.4443743824958801,
+          "xyxy": [
+            537.341796875,
+            593.1361694335938,
+            591.0113525390625,
+            636.3554077148438
+          ],
+          "boxBottomCenterProxy": [
+            564.1765747070312,
+            636.3554077148438
+          ]
+        },
+        {
+          "index": 19,
+          "class": "person",
+          "confidence": 0.41497334837913513,
+          "xyxy": [
+            765.8623046875,
+            163.17953491210938,
+            816.77587890625,
+            248.64291381835938
+          ],
+          "boxBottomCenterProxy": [
+            791.319091796875,
+            248.64291381835938
+          ]
+        },
+        {
+          "index": 20,
+          "class": "person",
+          "confidence": 0.3979244828224182,
+          "xyxy": [
+            856.3182983398438,
+            165.65432739257812,
+            900.7199096679688,
+            256.670166015625
+          ],
+          "boxBottomCenterProxy": [
+            878.5191040039062,
+            256.670166015625
+          ]
+        },
+        {
+          "index": 21,
+          "class": "person",
+          "confidence": 0.39714187383651733,
+          "xyxy": [
+            140.55902099609375,
+            570.0591430664062,
+            194.14306640625,
+            637.2368774414062
+          ],
+          "boxBottomCenterProxy": [
+            167.35104370117188,
+            637.2368774414062
+          ]
+        },
+        {
+          "index": 22,
+          "class": "person",
+          "confidence": 0.3962005376815796,
+          "xyxy": [
+            917.9141845703125,
+            172.853759765625,
+            961.262451171875,
+            260.30218505859375
+          ],
+          "boxBottomCenterProxy": [
+            939.5883178710938,
+            260.30218505859375
+          ]
+        },
+        {
+          "index": 23,
+          "class": "person",
+          "confidence": 0.35854917764663696,
+          "xyxy": [
+            894.7374267578125,
+            171.68902587890625,
+            931.9151611328125,
+            258.998046875
+          ],
+          "boxBottomCenterProxy": [
+            913.3262939453125,
+            258.998046875
+          ]
+        },
+        {
+          "index": 24,
+          "class": "person",
+          "confidence": 0.3574596643447876,
+          "xyxy": [
+            0.15924072265625,
+            548.1370849609375,
+            76.5208740234375,
+            638.8255615234375
+          ],
+          "boxBottomCenterProxy": [
+            38.340057373046875,
+            638.8255615234375
+          ]
+        },
+        {
+          "index": 25,
+          "class": "person",
+          "confidence": 0.3461984694004059,
+          "xyxy": [
+            64.24026489257812,
+            555.3167724609375,
+            108.20828247070312,
+            626.0643310546875
+          ],
+          "boxBottomCenterProxy": [
+            86.22427368164062,
+            626.0643310546875
+          ]
+        },
+        {
+          "index": 26,
+          "class": "person",
+          "confidence": 0.3343431353569031,
+          "xyxy": [
+            947.0335693359375,
+            176.86074829101562,
+            996.3072509765625,
+            261.0964050292969
+          ],
+          "boxBottomCenterProxy": [
+            971.67041015625,
+            261.0964050292969
+          ]
+        },
+        {
+          "index": 27,
+          "class": "person",
+          "confidence": 0.3289377987384796,
+          "xyxy": [
+            823.0838623046875,
+            171.1029052734375,
+            870.4486083984375,
+            257.20709228515625
+          ],
+          "boxBottomCenterProxy": [
+            846.7662353515625,
+            257.20709228515625
+          ]
+        },
+        {
+          "index": 28,
+          "class": "person",
+          "confidence": 0.32027631998062134,
+          "xyxy": [
+            525.3491821289062,
+            142.33245849609375,
+            565.4796752929688,
+            235.689453125
+          ],
+          "boxBottomCenterProxy": [
+            545.4144287109375,
+            235.689453125
+          ]
+        },
+        {
+          "index": 29,
+          "class": "person",
+          "confidence": 0.3069173991680145,
+          "xyxy": [
+            488.79779052734375,
+            597.616943359375,
+            538.7195434570312,
+            637.567626953125
+          ],
+          "boxBottomCenterProxy": [
+            513.7586669921875,
+            637.567626953125
+          ]
+        },
+        {
+          "index": 30,
+          "class": "person",
+          "confidence": 0.3004983961582184,
+          "xyxy": [
+            379.77276611328125,
+            598.4393310546875,
+            433.06341552734375,
+            637.2576904296875
+          ],
+          "boxBottomCenterProxy": [
+            406.4180908203125,
+            637.2576904296875
+          ]
+        },
+        {
+          "index": 31,
+          "class": "person",
+          "confidence": 0.29806530475616455,
+          "xyxy": [
+            1004.59326171875,
+            656.7044677734375,
+            1056.873779296875,
+            718.6524658203125
+          ],
+          "boxBottomCenterProxy": [
+            1030.7335205078125,
+            718.6524658203125
+          ]
+        },
+        {
+          "index": 32,
+          "class": "person",
+          "confidence": 0.2781434655189514,
+          "xyxy": [
+            669.4461669921875,
+            162.72393798828125,
+            707.53515625,
+            243.88235473632812
+          ],
+          "boxBottomCenterProxy": [
+            688.4906616210938,
+            243.88235473632812
+          ]
+        },
+        {
+          "index": 33,
+          "class": "person",
+          "confidence": 0.27293145656585693,
+          "xyxy": [
+            178.30242919921875,
+            581.1114501953125,
+            241.60345458984375,
+            642.3656005859375
+          ],
+          "boxBottomCenterProxy": [
+            209.95294189453125,
+            642.3656005859375
+          ]
+        },
+        {
+          "index": 34,
+          "class": "person",
+          "confidence": 0.2718636095523834,
+          "xyxy": [
+            13.553535461425781,
+            604.1107788085938,
+            66.40340423583984,
+            659.6882934570312
+          ],
+          "boxBottomCenterProxy": [
+            39.97846984863281,
+            659.6882934570312
+          ]
+        },
+        {
+          "index": 35,
+          "class": "person",
+          "confidence": 0.2693142294883728,
+          "xyxy": [
+            425.08154296875,
+            388.5587158203125,
+            498.294189453125,
+            540.7315673828125
+          ],
+          "boxBottomCenterProxy": [
+            461.6878662109375,
+            540.7315673828125
+          ]
+        },
+        {
+          "index": 36,
+          "class": "person",
+          "confidence": 0.26910385489463806,
+          "xyxy": [
+            1058.845947265625,
+            181.12078857421875,
+            1094.56689453125,
+            267.2558898925781
+          ],
+          "boxBottomCenterProxy": [
+            1076.7064208984375,
+            267.2558898925781
+          ]
+        },
+        {
+          "index": 37,
+          "class": "person",
+          "confidence": 0.2684292495250702,
+          "xyxy": [
+            432.20574951171875,
+            598.5120849609375,
+            479.60809326171875,
+            636.616455078125
+          ],
+          "boxBottomCenterProxy": [
+            455.90692138671875,
+            636.616455078125
+          ]
+        },
+        {
+          "index": 38,
+          "class": "person",
+          "confidence": 0.2585221827030182,
+          "xyxy": [
+            1183.793701171875,
+            664.2042236328125,
+            1227.723876953125,
+            719.9122314453125
+          ],
+          "boxBottomCenterProxy": [
+            1205.7587890625,
+            719.9122314453125
+          ]
+        },
+        {
+          "index": 39,
+          "class": "person",
+          "confidence": 0.2567766606807709,
+          "xyxy": [
+            490.08807373046875,
+            134.9979705810547,
+            530.3922729492188,
+            236.21922302246094
+          ],
+          "boxBottomCenterProxy": [
+            510.24017333984375,
+            236.21922302246094
+          ]
+        }
+      ],
+      "personBoxCount": 40,
+      "original9sSeedAssociations": [],
+      "diagnosticImage": "product/build/court-lab/detector-boxes-10.0s.jpg"
+    }
+  ],
+  "manualReview": {
+    "reviewKind": "AI visual inspection of source frames and detector boxes; not expert-labeled validation",
+    "reviewedAt": "2026-10-09T17:31:07+0800",
+    "frames": [
+      {
+        "seconds": 9.0,
+        "personDetectionCount": 44,
+        "manuallyAssociatedPlayerBoxes": {
+          "W1": 0,
+          "W2": 5,
+          "W3": 7,
+          "W4": 1,
+          "W5": 4,
+          "D1": 8,
+          "D2": 9,
+          "D3": 10,
+          "D4": 3,
+          "D5": 2
+        },
+        "bodyBoxCoverageAgainstOriginal10AISeeds": 10,
+        "visibleFootSeedCount": 9,
+        "visibleFootSeedsMatchedToBodyBoxes": 9,
+        "occludedFoot": "D1: do not infer ground position from truncated box bottom",
+        "refereeBoxes": [
+          6,
+          11,
+          13
+        ]
+      },
+      {
+        "seconds": 9.5,
+        "personDetectionCount": 39,
+        "manuallyAssociatedPlayerBoxes": {
+          "W1": 0,
+          "W2": 3,
+          "W3": 5,
+          "W4": 6,
+          "W5": 13,
+          "D1": 7,
+          "D2": 8,
+          "D3": 26,
+          "D4": 9,
+          "D5": 2
+        },
+        "distinctPlayerBodyBoxes": 10,
+        "refereeBoxes": [
+          1,
+          10,
+          11
+        ],
+        "limits": "These IDs are manually visually associated for this diagnostic only; no identity or tracking model ran."
+      },
+      {
+        "seconds": 10.0,
+        "personDetectionCount": 40,
+        "manuallyAssociatedIndividualPlayerBoxes": {
+          "W1": 1,
+          "W2": 35,
+          "W3": 5,
+          "W4": 2,
+          "D1": 6,
+          "D2": 9,
+          "D3": 10
+        },
+        "mixedGroupBox": {
+          "index": 4,
+          "xyxy": [
+            948,
+            267,
+            1080,
+            418
+          ],
+          "overlappingBodies": [
+            "W5",
+            "D4",
+            "D5"
+          ],
+          "reason": "one person box encompasses the overlapping right-side screen/dribble group; no separate reliable boxes for the two dark players"
+        },
+        "distinctUnmixedPlayerBodyBoxes": 7,
+        "mixedGroupBoxes": 1,
+        "refereeBoxes": [
+          0,
+          7,
+          8
+        ],
+        "completeIndividualPlayerCoverage": false
+      }
+    ],
+    "9sBoxBottomProxyVsManualFeetPixels": {
+      "min": 9.869117707016963,
+      "max": 22.7116173431504,
+      "mean": 15.066165116596313,
+      "median": 13.699940784664205,
+      "sampleCount": 9,
+      "reference": "existing approximate AI hand-authored 9s seeds; not independent expert truth"
+    },
+    "device": "CPU 4 threads (MPS available but not used)",
+    "venvDiskUsage": "819M\tproduct/build/court-lab/.venv",
+    "dependencyCount": 39,
+    "dependencyLock": "detector-requirements.lock.txt",
+    "scopeConclusion": "The generic tiny detector provides useful person-box candidates at 9/9.5s, but cannot guarantee all-player or foot-ground localization over even this one-second overlap. Manual referee/spectator rejection, occlusion logic and precise foot anchoring remain necessary. No full-video tracker was verified.",
+    "licenseConclusion": "YOLO11n model and Ultralytics code are AGPL-3.0 / Enterprise per official sources. This isolated local probe is not integrated into the product or cloud. Private competition deployment/source-distribution compatibility has not been established.",
+    "diagnosticArtifactsRemainIgnored": true
+  },
+  "provenanceLimits": [
+    "COCO person class includes spectators, staff, referees and players",
+    "Box bottom center is only a geometric proxy, not measured feet or pose",
+    "9s seed comparison uses existing AI manual annotations, not expert ground truth",
+    "No re-identification, tracking, ball detector, automatic court calibration or new training",
+    "No inference network connections; original video remains local"
+  ],
+  "cloudOrGPU": {
+    "awsCalls": false,
+    "gpuUsed": false,
+    "mpsWasAvailableButUnused": true,
+    "training": false,
+    "reid": false,
+    "ballDetection": false,
+    "inferenceNetworkDisabled": true
+  },
+  "license": {
+    "modelAndUltralytics": "AGPL-3.0 / Enterprise",
+    "primarySources": [
+      "https://docs.ultralytics.com/models/yolo11/#citations-and-acknowledgments",
+      "https://www.ultralytics.com/license"
+    ],
+    "privateProductIntegrationCompatibility": "not_established",
+    "localProbeNotProductDeployment": true
+  },
+  "commitScope": "Only small script, dependency lock and evidence record. Model/checkpoint, virtual environment, extracted JPEGs and full logs remain ignored."
+}

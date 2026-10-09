@@ -1,0 +1,920 @@
+{
+  "schema": "court-lab-annotations-v1",
+  "sample": "flagg",
+  "sourceSha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+  "sourceVideo": "/samples/flagg.mp4",
+  "sourceLocalPath": "data/reference/train_video/train_video/训练_弗拉格2月1日.mp4",
+  "videoSize": [
+    1280,
+    720
+  ],
+  "court": {
+    "length": 94,
+    "width": 50,
+    "unit": "ft",
+    "origin": "left-baseline-near-sideline"
+  },
+  "presentation": "schematic",
+  "annotationMethod": "AI assistants viewed seven actual keyframes and manually edited approximate visible foot/ground positions. This is editorial visual annotation, not automated player detection or human expert review.",
+  "warning": "Only the seven keyframes have edited position anchors. Between adjacent visible anchors the webpage performs linear schematic interpolation; the intermediate route is not an observed or reconstructed player trajectory. Unknown/occluded positions remain null.",
+  "identities": [
+    {
+      "id": "W1",
+      "team": "white",
+      "label": "W1",
+      "identityStatus": "anonymous"
+    },
+    {
+      "id": "W2",
+      "team": "white",
+      "label": "W2",
+      "identityStatus": "anonymous"
+    },
+    {
+      "id": "W3",
+      "team": "white",
+      "label": "W3",
+      "identityStatus": "anonymous"
+    },
+    {
+      "id": "W4",
+      "team": "white",
+      "label": "W4",
+      "identityStatus": "anonymous"
+    },
+    {
+      "id": "W5",
+      "team": "white",
+      "label": "W5",
+      "identityStatus": "anonymous"
+    },
+    {
+      "id": "D1",
+      "team": "dark",
+      "label": "D1",
+      "identityStatus": "anonymous"
+    },
+    {
+      "id": "D2",
+      "team": "dark",
+      "label": "D2",
+      "identityStatus": "anonymous"
+    },
+    {
+      "id": "D3",
+      "team": "dark",
+      "label": "D3",
+      "identityStatus": "anonymous"
+    },
+    {
+      "id": "D4",
+      "team": "dark",
+      "label": "D4",
+      "identityStatus": "anonymous"
+    },
+    {
+      "id": "D5",
+      "team": "dark",
+      "label": "D5",
+      "identityStatus": "anonymous"
+    }
+  ],
+  "frames": [
+    {
+      "requestedTime": 9.0,
+      "t": 8.992322222222223,
+      "imagePath": "product/build/court-lab/keyframes/flagg-9.0s.jpg",
+      "imageSha256": "2b3b7c05e988447c9d5485427e075df0874dc87ff2b43f30a2ceafbeaf519bfb",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual seed lane four corners",
+        "imageToCourt": [
+          [
+            0.08061767304652175,
+            0.10267345152151364,
+            -62.46500681751819
+          ],
+          [
+            0.016963978443778328,
+            -0.21278295460346924,
+            123.39621004885792
+          ],
+          [
+            0.00014362011885471007,
+            0.0021956278050474427,
+            1.0
+          ]
+        ],
+        "currentToSeed": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            352.0,
+            332.0
+          ],
+          [
+            772.0,
+            350.0
+          ],
+          [
+            682.0,
+            465.0
+          ],
+          [
+            217.0,
+            438.0
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0.0,
+            33.0
+          ],
+          [
+            19.0,
+            33.0
+          ],
+          [
+            19.0,
+            17.0
+          ],
+          [
+            0.0,
+            17.0
+          ]
+        ],
+        "independentValidation": false,
+        "groundFlowAccepted": true
+      },
+      "feet": {
+        "W1": [
+          282,
+          501
+        ],
+        "W2": [
+          491,
+          533
+        ],
+        "W3": [
+          559,
+          319
+        ],
+        "W4": [
+          790,
+          434
+        ],
+        "W5": [
+          1004,
+          399
+        ],
+        "D1": null,
+        "D2": [
+          447,
+          603
+        ],
+        "D3": [
+          624,
+          255
+        ],
+        "D4": [
+          862,
+          414
+        ],
+        "D5": [
+          1176,
+          421
+        ]
+      },
+      "unknownReasons": {
+        "D1": "foot_contact_obscured_by_foreground_or_scoreboard"
+      },
+      "reviewed": false
+    },
+    {
+      "requestedTime": 9.5,
+      "t": 9.492822222222223,
+      "imagePath": "product/build/court-lab/keyframes/flagg-9.5s.jpg",
+      "imageSha256": "bb6747444a7f2a4e128a382e54a6f886eb512eb2e7e3c742a7f6185c98f8e086",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "Masked floor LK/RANSAC current-to-seed mapping applied to manual seed homography",
+        "imageToCourt": [
+          [
+            0.07985289055213923,
+            0.10163556649991883,
+            -59.31609065429595
+          ],
+          [
+            0.015369640908048373,
+            -0.2112235999419871,
+            124.22174171382848
+          ],
+          [
+            0.00012208749830886013,
+            0.002182489916133757,
+            1.0042107651519778
+          ]
+        ],
+        "currentToSeed": [
+          [
+            0.9822566907740022,
+            -0.0031571453412212215,
+            39.94513045332951
+          ],
+          [
+            -0.0021691554532804096,
+            0.9934297552731077,
+            -0.6950901368109268
+          ],
+          [
+            -1.4221666339243531e-05,
+            1.7413526837932488e-06,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            317.3573913574219,
+            334.2745666503906
+          ],
+          [
+            738.6317749023438,
+            351.14178466796875
+          ],
+          [
+            649.3037109375,
+            466.25054931640625
+          ],
+          [
+            181.2714385986328,
+            441.19439697265625
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0.0,
+            33.0
+          ],
+          [
+            19.0,
+            33.0
+          ],
+          [
+            19.0,
+            17.0
+          ],
+          [
+            0.0,
+            17.0
+          ]
+        ],
+        "independentValidation": false,
+        "groundFlowAccepted": true
+      },
+      "feet": {
+        "W1": [
+          240,
+          508
+        ],
+        "W2": [
+          471,
+          551
+        ],
+        "W3": [
+          536,
+          333
+        ],
+        "W4": [
+          780,
+          430
+        ],
+        "W5": [
+          1053,
+          417
+        ],
+        "D1": null,
+        "D2": null,
+        "D3": [
+          614,
+          259
+        ],
+        "D4": [
+          904,
+          392
+        ],
+        "D5": [
+          1148,
+          401
+        ]
+      },
+      "unknownReasons": {
+        "D1": "foot_contact_obscured_by_foreground_or_scoreboard",
+        "D2": "foot_contact_obscured_by_foreground_or_scoreboard"
+      },
+      "reviewed": false
+    },
+    {
+      "requestedTime": 10.0,
+      "t": 9.993322222222222,
+      "imagePath": "product/build/court-lab/keyframes/flagg-10.0s.jpg",
+      "imageSha256": "92714870d07b141191cdcea16ae0b469eaa72d08592a0b941898ad62a728952d",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "Masked floor LK/RANSAC current-to-seed mapping applied to manual seed homography",
+        "imageToCourt": [
+          [
+            0.08019949798052466,
+            0.10178566260733092,
+            -62.01694563865442
+          ],
+          [
+            0.016284542972546914,
+            -0.21209223801125576,
+            125.90080437594311
+          ],
+          [
+            0.00014532718301725223,
+            0.002172092959588736,
+            0.9801006170133801
+          ]
+        ],
+        "currentToSeed": [
+          [
+            0.9915613128120315,
+            -0.0064519420947425354,
+            18.65466456928294
+          ],
+          [
+            0.0018533201110807083,
+            0.9925784094167097,
+            -10.283422389418622
+          ],
+          [
+            -1.1501717480864986e-06,
+            -6.313166125865159e-06,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            337.5091247558594,
+            343.3576354980469
+          ],
+          [
+            759.650146484375,
+            360.4483947753906
+          ],
+          [
+            669.4910888671875,
+            475.819091796875
+          ],
+          [
+            202.2882843017578,
+            449.90155029296875
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0.0,
+            33.0
+          ],
+          [
+            19.0,
+            33.0
+          ],
+          [
+            19.0,
+            17.0
+          ],
+          [
+            0.0,
+            17.0
+          ]
+        ],
+        "independentValidation": false,
+        "groundFlowAccepted": true
+      },
+      "feet": {
+        "W1": [
+          255,
+          516
+        ],
+        "W2": [
+          493,
+          558
+        ],
+        "W3": [
+          568,
+          342
+        ],
+        "W4": [
+          823,
+          412
+        ],
+        "W5": [
+          1025,
+          407
+        ],
+        "D1": null,
+        "D2": null,
+        "D3": [
+          640,
+          270
+        ],
+        "D4": null,
+        "D5": null
+      },
+      "unknownReasons": {
+        "D1": "foot_contact_obscured_by_foreground_or_scoreboard",
+        "D2": "foot_contact_obscured_by_foreground_or_scoreboard",
+        "D4": "foot_contact_obscured_by_other_players",
+        "D5": "foot_contact_obscured_by_other_players"
+      },
+      "reviewed": false
+    },
+    {
+      "requestedTime": 10.5,
+      "t": 10.493822222222223,
+      "imagePath": "product/build/court-lab/keyframes/flagg-10.5s.jpg",
+      "imageSha256": "23596494db221811547b98f100ededf7c71de952e255a568970e1582afdd4255",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "Masked floor LK/RANSAC current-to-seed mapping applied to manual seed homography",
+        "imageToCourt": [
+          [
+            0.08080404913657609,
+            0.10178043941939185,
+            -66.30870507911462
+          ],
+          [
+            0.018842054978479416,
+            -0.21118956186663984,
+            128.7977217544519
+          ],
+          [
+            0.0002108995774785608,
+            0.0021827303874753915,
+            0.9398237537786273
+          ]
+        ],
+        "currentToSeed": [
+          [
+            1.013496084721498,
+            -0.0013406160059753112,
+            -13.933328423815357
+          ],
+          [
+            0.013259294334087277,
+            0.9934178844105079,
+            -26.495902358025383
+          ],
+          [
+            3.62286740168459e-05,
+            1.746997862390764e-06,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            366.3661193847656,
+            360.62762451171875
+          ],
+          [
+            798.50830078125,
+            378.7579650878906
+          ],
+          [
+            705.0990600585938,
+            497.70538330078125
+          ],
+          [
+            230.440673828125,
+            468.5395812988281
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0.0,
+            33.0
+          ],
+          [
+            19.0,
+            33.0
+          ],
+          [
+            19.0,
+            17.0
+          ],
+          [
+            0.0,
+            17.0
+          ]
+        ],
+        "independentValidation": false,
+        "groundFlowAccepted": true
+      },
+      "feet": {
+        "W1": [
+          318,
+          525
+        ],
+        "W2": [
+          469,
+          581
+        ],
+        "W3": [
+          602,
+          373
+        ],
+        "W4": [
+          728,
+          405
+        ],
+        "W5": [
+          970,
+          435
+        ],
+        "D1": null,
+        "D2": null,
+        "D3": [
+          680,
+          285
+        ],
+        "D4": [
+          1039,
+          410
+        ],
+        "D5": [
+          841,
+          374
+        ]
+      },
+      "unknownReasons": {
+        "D1": "foot_contact_obscured_by_foreground_or_scoreboard",
+        "D2": "foot_contact_obscured_by_foreground_or_scoreboard"
+      },
+      "reviewed": false
+    },
+    {
+      "requestedTime": 11.0,
+      "t": 10.994322222222223,
+      "imagePath": "product/build/court-lab/keyframes/flagg-11.0s.jpg",
+      "imageSha256": "e83e3d6b2b3e42bc8fe6e264ddbfddbadefb4e61916db484033c1fafa8fb0d41",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "Masked floor LK/RANSAC current-to-seed mapping applied to manual seed homography",
+        "imageToCourt": [
+          [
+            0.07718661650393731,
+            0.09845539889798405,
+            -66.18913209923669
+          ],
+          [
+            0.018085895454451613,
+            -0.20304844714518355,
+            128.27904245110932
+          ],
+          [
+            0.00015603276222519544,
+            0.002157583539973265,
+            0.9447067896787598
+          ]
+        ],
+        "currentToSeed": [
+          [
+            0.967954717332613,
+            0.006269778210104474,
+            -15.405162244538564
+          ],
+          [
+            0.0008973316408483448,
+            0.9701605775883578,
+            -24.175645328720265
+          ],
+          [
+            1.5044784374912778e-05,
+            2.657153416765196e-05,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            382.84857177734375,
+            372.13140869140625
+          ],
+          [
+            829.2086181640625,
+            393.1870422363281
+          ],
+          [
+            734.5911865234375,
+            515.403076171875
+          ],
+          [
+            240.6592254638672,
+            483.6043701171875
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0.0,
+            33.0
+          ],
+          [
+            19.0,
+            33.0
+          ],
+          [
+            19.0,
+            17.0
+          ],
+          [
+            0.0,
+            17.0
+          ]
+        ],
+        "independentValidation": false,
+        "groundFlowAccepted": true
+      },
+      "feet": {
+        "W1": [
+          376,
+          529
+        ],
+        "W2": [
+          593,
+          580
+        ],
+        "W3": [
+          623,
+          386
+        ],
+        "W4": [
+          723,
+          409
+        ],
+        "W5": [
+          826,
+          425
+        ],
+        "D1": null,
+        "D2": null,
+        "D3": [
+          729,
+          295
+        ],
+        "D4": [
+          991,
+          444
+        ],
+        "D5": [
+          803,
+          372
+        ]
+      },
+      "unknownReasons": {
+        "D1": "foot_contact_obscured_by_foreground_or_scoreboard",
+        "D2": "foot_contact_obscured_by_foreground_or_scoreboard"
+      },
+      "reviewed": false
+    },
+    {
+      "requestedTime": 11.5,
+      "t": 11.494833333333334,
+      "imagePath": "product/build/court-lab/keyframes/flagg-11.5s.jpg",
+      "imageSha256": "9d6ddbe20b23a14a6a2cdecc9c9f0da6547323cd26baf7ad64a39c2e6ed2b597",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual approximate painted-lane four-corner calibration from real keyframe",
+        "imageToCourt": [
+          [
+            0.0783067305688566,
+            0.1085303809638539,
+            -71.78666489728128
+          ],
+          [
+            0.022250819673255283,
+            -0.20069931923566972,
+            130.07307504700458
+          ],
+          [
+            7.10383001338468e-05,
+            0.0024011097352611924,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            397,
+            375
+          ],
+          [
+            847,
+            407
+          ],
+          [
+            744,
+            533
+          ],
+          [
+            239,
+            489
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0.0,
+            33.0
+          ],
+          [
+            19.0,
+            33.0
+          ],
+          [
+            19.0,
+            17.0
+          ],
+          [
+            0.0,
+            17.0
+          ]
+        ],
+        "independentValidation": false,
+        "groundFlowAccepted": false,
+        "reason": "Ground LK was rejected after 11.261267s; this frame was manually calibrated separately."
+      },
+      "feet": {
+        "W1": [
+          391,
+          535
+        ],
+        "W2": [
+          704,
+          579
+        ],
+        "W3": null,
+        "W4": [
+          623,
+          401
+        ],
+        "W5": [
+          736,
+          390
+        ],
+        "D1": null,
+        "D2": [
+          850,
+          628
+        ],
+        "D3": null,
+        "D4": [
+          895,
+          455
+        ],
+        "D5": [
+          742,
+          374
+        ]
+      },
+      "unknownReasons": {
+        "W3": "foot_contact_obscured_by_other_players",
+        "D1": "foot_contact_obscured_by_foreground_or_scoreboard",
+        "D3": "feet_not_clear_near_far_sideline"
+      },
+      "reviewed": false
+    },
+    {
+      "requestedTime": 12.0,
+      "t": 11.995333333333335,
+      "imagePath": "product/build/court-lab/keyframes/flagg-12.0s.jpg",
+      "imageSha256": "ba148928494c69e6334a1363d2237d2bae093c579a2f03a02ee32d2e3062890f",
+      "segment": "flagg-wide-1",
+      "calibration": {
+        "method": "AI manual approximate painted-lane four-corner calibration from real keyframe",
+        "imageToCourt": [
+          [
+            0.06268821238784848,
+            0.08646649984530821,
+            -56.89711856070895
+          ],
+          [
+            0.0154428300208406,
+            -0.17085692995715757,
+            111.51770389232128
+          ],
+          [
+            -6.728212045033551e-05,
+            0.0017042601294937124,
+            1.0
+          ]
+        ],
+        "cornersImage": [
+          [
+            389,
+            376
+          ],
+          [
+            839,
+            411
+          ],
+          [
+            735,
+            534
+          ],
+          [
+            229,
+            492
+          ]
+        ],
+        "cornersCourtFt": [
+          [
+            0.0,
+            33.0
+          ],
+          [
+            19.0,
+            33.0
+          ],
+          [
+            19.0,
+            17.0
+          ],
+          [
+            0.0,
+            17.0
+          ]
+        ],
+        "independentValidation": false,
+        "groundFlowAccepted": false,
+        "reason": "Ground LK was rejected after 11.261267s; this frame was manually calibrated separately."
+      },
+      "feet": {
+        "W1": [
+          381,
+          535
+        ],
+        "W2": [
+          798,
+          568
+        ],
+        "W3": [
+          654,
+          366
+        ],
+        "W4": [
+          587,
+          425
+        ],
+        "W5": [
+          728,
+          378
+        ],
+        "D1": null,
+        "D2": [
+          919,
+          625
+        ],
+        "D3": null,
+        "D4": [
+          699,
+          445
+        ],
+        "D5": [
+          846,
+          346
+        ]
+      },
+      "unknownReasons": {
+        "D1": "foot_contact_obscured_by_foreground_or_scoreboard",
+        "D3": "feet_not_clear_near_far_sideline"
+      },
+      "reviewed": false
+    }
+  ],
+  "independentExpertReview": false,
+  "officialTracking": false,
+  "accuracyMeasured": false,
+  "acceptedAsAutomaticTracking": false,
+  "rawFlowEvidence": "flow-flagg.json",
+  "manualEditsComparedWithInitialSuggestions": [
+    "9.5s W2 moved to the visible blue shoe rather than the overlapping torso-relative estimate.",
+    "10s W4 moved to the visible planted right shoe.",
+    "11.5s W3 and last two frames D3 remain unknown because feet are unclear.",
+    "D1 remains unknown throughout; D2 appears only where a shoe/ground location is visible."
+  ]
+}

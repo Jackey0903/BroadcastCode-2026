@@ -1,0 +1,908 @@
+{
+  "schema": "court-lab-v1",
+  "sample": "flagg",
+  "presentation": "schematic",
+  "sourceSha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+  "sourceVideo": "/samples/flagg.mp4",
+  "videoSize": [
+    1280,
+    720
+  ],
+  "court": {
+    "length": 94,
+    "width": 50,
+    "unit": "ft",
+    "origin": "left-baseline-near-sideline"
+  },
+  "window": [
+    8.992322222222223,
+    11.995333333333335
+  ],
+  "provenance": {
+    "method": "AI assistants viewed seven actual keyframes and manually edited approximate visible foot/ground positions. This is editorial visual annotation, not automated player detection or human expert review.",
+    "warning": "Only the seven keyframes have edited position anchors. Between adjacent visible anchors the webpage performs linear schematic interpolation; the intermediate route is not an observed or reconstructed player trajectory. Unknown/occluded positions remain null.",
+    "reviewed": false,
+    "officialTracking": false,
+    "accuracyMeasured": false,
+    "acceptedAsAutomaticTracking": false,
+    "independentExpertReview": false,
+    "annotations": "flagg-annotations.json",
+    "generator": "generate_schematic.py",
+    "interpolation": "linear schematic movement between edited visible anchors; never across unknown points",
+    "rawFlowEvidence": "flow-flagg.json"
+  },
+  "tracks": [
+    {
+      "id": "W1",
+      "team": "white",
+      "label": "W1",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 5.47,
+          "y": 10.08,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            282,
+            501
+          ]
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 5.359,
+          "y": 9.62,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            240,
+            508
+          ]
+        },
+        {
+          "t": 9.993322222222222,
+          "x": 5.124,
+          "y": 9.642,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            255,
+            516
+          ]
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 5.956,
+          "y": 11.109,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            318,
+            525
+          ]
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 6.955,
+          "y": 12.9,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            376,
+            529
+          ]
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 7.306,
+          "y": 13.579,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            391,
+            535
+          ]
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 7.023,
+          "y": 13.781,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            381,
+            535
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W2",
+      "team": "white",
+      "label": "W2",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 14.211,
+          "y": 8.172,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            491,
+            533
+          ]
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 15.147,
+          "y": 6.659,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            471,
+            551
+          ]
+        },
+        {
+          "t": 9.993322222222222,
+          "x": 15.16,
+          "y": 6.883,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            493,
+            558
+          ]
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 13.318,
+          "y": 6.473,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            469,
+            581
+          ]
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 16.03,
+          "y": 9.279,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            593,
+            580
+          ]
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 18.924,
+          "y": 12.102,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            704,
+            579
+          ]
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 22.066,
+          "y": 13.997,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            798,
+            568
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W3",
+      "team": "white",
+      "label": "W3",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 8.622,
+          "y": 36.503,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            559,
+            319
+          ]
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 9.647,
+          "y": 34.581,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            536,
+            333
+          ]
+        },
+        {
+          "t": 9.993322222222222,
+          "x": 10.162,
+          "y": 34.68,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            568,
+            342
+          ]
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 10.792,
+          "y": 32.626,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            602,
+            373
+          ]
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 10.616,
+          "y": 32.628,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            623,
+            386
+          ]
+        },
+        {
+          "t": 11.494833333333334,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_other_players"
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 9.968,
+          "y": 37.4,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            654,
+            366
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W4",
+      "team": "white",
+      "label": "W4",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 22.156,
+          "y": 21.511,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            790,
+            434
+          ]
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 22.902,
+          "y": 22.27,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            780,
+            430
+          ]
+        },
+        {
+          "t": 9.993322222222222,
+          "x": 23.024,
+          "y": 26.031,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            823,
+            412
+          ]
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 17.062,
+          "y": 28.818,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            728,
+            405
+          ]
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 15.405,
+          "y": 30.056,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            723,
+            409
+          ]
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 10.223,
+          "y": 31.615,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            623,
+            401
+          ]
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 9.882,
+          "y": 28.471,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            587,
+            425
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W5",
+      "team": "white",
+      "label": "W5",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 29.423,
+          "y": 27.486,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            1004,
+            399
+          ]
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 32.871,
+          "y": 25.614,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            1053,
+            417
+          ]
+        },
+        {
+          "t": 9.993322222222222,
+          "x": 30.607,
+          "y": 27.952,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            1025,
+            407
+          ]
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 26.91,
+          "y": 26.366,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            970,
+            435
+          ]
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 19.799,
+          "y": 28.596,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            826,
+            425
+          ]
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 14.167,
+          "y": 34.282,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            736,
+            390
+          ]
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 13.43,
+          "y": 36.469,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            728,
+            378
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "team": "dark",
+      "label": "D1",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 9.492822222222223,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 9.993322222222222,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 10.493822222222223,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 10.994322222222223,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 11.494833333333334,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 11.995333333333335,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "team": "dark",
+      "label": "D2",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 14.858,
+          "y": 1.118,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            447,
+            603
+          ]
+        },
+        {
+          "t": 9.492822222222223,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 9.993322222222222,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 10.493822222222223,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 10.994322222222223,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 24.503,
+          "y": 8.935,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            850,
+            628
+          ]
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 27.332,
+          "y": 9.446,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            919,
+            625
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "team": "dark",
+      "label": "D3",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 8.501,
+          "y": 48.331,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            624,
+            255
+          ]
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 9.752,
+          "y": 48.011,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            614,
+            259
+          ]
+        },
+        {
+          "t": 9.993322222222222,
+          "x": 10.119,
+          "y": 47.637,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            640,
+            270
+          ]
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 10.347,
+          "y": 47.746,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            680,
+            285
+          ]
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 11.283,
+          "y": 48.122,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            729,
+            295
+          ]
+        },
+        {
+          "t": 11.494833333333334,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "feet_not_clear_near_far_sideline"
+        },
+        {
+          "t": 11.995333333333335,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "feet_not_clear_near_far_sideline"
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "team": "dark",
+      "label": "D4",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 24.368,
+          "y": 24.561,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            862,
+            414
+          ]
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 26.756,
+          "y": 28.078,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            904,
+            392
+          ]
+        },
+        {
+          "t": 9.993322222222222,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_other_players"
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 28.91,
+          "y": 30.083,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            1039,
+            410
+          ]
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 26.256,
+          "y": 27.244,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            991,
+            444
+          ]
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 22.114,
+          "y": 27.211,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            895,
+            455
+          ]
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 14.842,
+          "y": 27.043,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            699,
+            445
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "team": "dark",
+      "label": "D5",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 36.1,
+          "y": 25.684,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            1176,
+            421
+          ]
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 36.202,
+          "y": 28.306,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            1148,
+            401
+          ]
+        },
+        {
+          "t": 9.993322222222222,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_other_players"
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 20.539,
+          "y": 33.958,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            841,
+            374
+          ]
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 17.311,
+          "y": 35.922,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            803,
+            372
+          ]
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 13.793,
+          "y": 36.664,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            742,
+            374
+          ]
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 16.999,
+          "y": 42.711,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            846,
+            346
+          ]
+        }
+      ]
+    }
+  ]
+}

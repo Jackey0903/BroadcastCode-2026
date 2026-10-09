@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#22231f">
+  <title>俯视战术示意 · 关键一拍</title>
+  <link rel="stylesheet" href="./lab.css">
+  <script src="./viewer.js" defer></script><script src="./lab.js" defer></script>
+</head>
+<body>
+  <header class="masthead"><a class="brand" href="/product/?story=flagg">✳ 关键一拍 <small>THE HIDDEN PLAY</small></a><span class="experiment-badge">EXPERIMENT / 本地实验</span><a class="back" href="/product/?story=flagg">返回影片室 ↗</a></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">COURT LAB / ANOTHER ANGLE</p><h1>换个角度，看清站位。</h1><p>依据比赛画面编辑站位。让原片与俯视球场同步回放，看清这一拍的空间关系。</p></div><div class="intro-stamp">94 × 50 <small>FEET / NBA COURT</small></div></section>
+    <aside class="provenance" aria-label="实验数据来源与局限"><strong id="presentation-title">战术示意回放 · 依据画面编辑</strong><p id="presentation-warning">站位与虚线轨迹用于解释战术，数据来源和插值方式见页尾说明。</p></aside>
+    <div id="load-error" class="error" role="alert" hidden></div>
+    <div class="workspace">
+      <section class="video-panel" aria-labelledby="video-heading"><div class="panel-head"><h2 id="video-heading">01 / 原片证据</h2><span id="video-clock">00:00.000</span></div><div class="video-stage"><video id="source-video" src="/samples/flagg.mp4" controls preload="metadata" playsinline aria-label="弗拉格比赛原片"></video><svg id="foot-overlay" viewBox="0 0 1280 720" aria-hidden="true"></svg></div><div class="video-caption"><span>弗拉格 · 2026.02.01</span><span>标记使用原片足点；未提供足点时不显示。</span></div>
+        <div class="controls"><button id="replay-window" disabled>▶ 播放分析片段</button><button id="seek-window" disabled>↶ 回到 06.000 秒</button><button id="half-speed" aria-pressed="false">½ 半速</button><label class="toggle"><input id="show-trails" type="checkbox" checked>1 秒尾迹</label></div>
+        <p id="window-state" class="window-state" aria-live="polite">分析区间：等待数据</p>
+      </section>
+      <section class="court-panel" aria-labelledby="court-heading"><div class="panel-head"><h2 id="court-heading">02 / 俯视球场</h2><span id="position-count">0 / 可见</span></div><div class="court-viewport-controls" role="group" aria-label="球场视窗"><button id="view-half" aria-pressed="true">进攻半场</button><button id="view-full" aria-pressed="false">全场</button><span>共享原片时间轴</span></div><div class="court-stage"><svg id="court-map" data-view="half" viewBox="6 6 552 550" role="img" aria-label="NBA 俯视球场，进攻半场视窗"><defs><pattern id="court-grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="#46463e" stroke-width=".8"/></pattern></defs><rect x="30" y="30" width="940" height="500" fill="url(#court-grid)"/><g class="court-lines"><rect x="30" y="30" width="940" height="500"/><path d="M500 30V530"/><circle cx="500" cy="280" r="60"/><circle cx="500" cy="280" r="20"/><path d="M30 200H220V360H30 M970 200H780V360H970"/><circle cx="220" cy="280" r="60"/><circle cx="780" cy="280" r="60"/><path d="M30 60H171.99 A237.5 237.5 0 0 1 171.99 500H30 M970 60H828.01 A237.5 237.5 0 0 0 828.01 500H970"/><path d="M70 250V310 M930 250V310"/><circle cx="82.5" cy="280" r="7.5"/><circle cx="917.5" cy="280" r="7.5"/></g><text id="court-dimension" class="court-dimension" x="280" y="19" text-anchor="middle">0–50 FT / ATTACKING HALF</text><text class="court-dimension" x="30" y="551">ORIGIN (0,0) · LEFT BASELINE / NEAR SIDELINE</text><g id="trail-layer"></g><g id="player-layer"></g></svg><p id="court-empty" class="court-empty">等待真实位置记录</p></div>
+        <div class="legend"><span><i class="legend-dark"></i>深色队</span><span><i class="legend-white"></i>白色队</span><span><i class="legend-estimated"></i><span id="legend-estimate">虚线：插值 / 估计</span></span></div>
+        <div class="filters"><label>显示队伍 <select id="team-filter"><option value="all">全部</option><option value="dark">深色队</option><option value="white">白色队</option></select></label><label>关注编号 <select id="player-filter"><option value="all">全部球员</option></select></label></div>
+        <div id="player-status" class="player-status" aria-live="polite">没有加载球员记录。不会补齐十人或推测画外位置。</div>
+      </section>
+    </div>
+    <footer class="lab-footer"><div><strong>导入本地核对记录</strong><p>只在浏览器里读取 JSON，文件保留在本机。</p><label class="file-button">选择 JSON<input id="import-file" type="file" accept=".json,application/json"></label><button id="restore-data" class="quiet-button">恢复样片记录</button></div><details class="honesty-note"><summary>数据说明 <span>来源 / 插值 / 文件核对</span></summary><p id="data-method"></p><p id="data-warning">正在读取本地实验记录。未加载真实数据前，球场保持空白。</p><p id="interpolation-note">采样点与估计点分别呈现。遮挡、画外、镜头切换及超过 0.15 秒的采样间隔会断开。稀疏关键帧只在前后 0.05 秒显示快照；未核对编号不代表已识别 NBA 球员姓名。</p><p>格式：court-lab-v1。坐标单位为英尺，原点位于左侧底线与近侧边线的交点。半场 / 全场按钮只裁切视窗，球员坐标保持一致。</p><small id="source-hash">SOURCE SHA-256 / 等待核对</small></details></footer>
+  </main>
+</body>
+</html>

@@ -29,6 +29,11 @@ class PreviewTest(unittest.TestCase):
         self.write("product/web/assets/grain.svg", b"<svg/>")
         self.write("product/web/assets/fonts/OFL.txt", b"SIL OPEN FONT LICENSE")
         self.write("product/web/assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2", b"font")
+        for name, value in (("index.html", b"<h1>Court experiment</h1>"),
+                            ("lab.css", b"body{}"), ("lab.js", b"/* local court */"),
+                            ("viewer.js", b"/* temporal coordinates */"),
+                            ("flagg.json", b'{"schema":"court-lab-v1"}')):
+            self.write("product/court-lab/" + name, value)
         self.write("data/reference/frames/flagg-16.5s.jpg", b"frame")
         self.write(SOURCES["flagg"], MEDIA)
         self.write(f"product/build/verified/{JOB}/enhanced.mp4", MEDIA)
@@ -122,6 +127,23 @@ class PreviewTest(unittest.TestCase):
                 self.assertEqual(status, 200)
                 self.assertEqual(headers["Content-Type"].split(";")[0], mime)
                 self.assertEqual(body, expected)
+
+    def test_court_experiment_serves_only_named_local_assets(self):
+        status, headers, body = self.request("/product/court-lab?view=half")
+        self.assertEqual(status, 301)
+        self.assertEqual(headers["Location"], "/product/court-lab/?view=half")
+        self.assertEqual(body, b"")
+        self.assertEqual(self.request("/product/court-lab/")[0], 200)
+        for name, mime in (("index.html", "text/html"), ("lab.css", "text/css"),
+                           ("lab.js", "text/javascript"), ("viewer.js", "text/javascript"),
+                           ("flagg.json", "application/json")):
+            status, headers, _ = self.request("/product/court-lab/" + name)
+            self.assertEqual(status, 200)
+            self.assertEqual(headers["Content-Type"].split(";")[0], mime)
+        self.write("product/court-lab/generate.py", b"not public")
+        self.write("product/court-lab/imported.json", b"not public")
+        for name in ("generate.py", "imported.json", "../.env"):
+            self.assertEqual(self.request("/product/court-lab/" + name)[0], 404)
 
     def test_original_and_enhanced_have_byte_exact_seekable_ranges(self):
         for path in ("/samples/flagg.mp4", f"/product/outputs/{JOB}/enhanced.mp4"):

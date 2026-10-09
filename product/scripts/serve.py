@@ -49,6 +49,12 @@ class Catalog:
             file = checked_file(self.root, f"product/web/{name}")
             if file:
                 self.files[f"/product/{name}"] = file
+        # A local-only research workbench, separate from the contest product.
+        # Explicit allowlist: never expose its generator, arbitrary imports or builds.
+        for name in ("index.html", "lab.css", "lab.js", "viewer.js", "flagg.json"):
+            file = checked_file(self.root, f"product/court-lab/{name}")
+            if file:
+                self.files[f"/product/court-lab/{name}"] = file
         for file in (self.root / "data/reference/frames").glob("*.jpg"):
             if re.fullmatch(r"(?:flagg|amen)-[0-9.]+s\.jpg", file.name):
                 safe = checked_file(self.root, str(file.relative_to(self.root)))
@@ -158,15 +164,18 @@ def handler_for(catalog):
             if ".." in Path(path).parts or "\0" in path or "\\" in path:
                 self.send_error(404)
                 return
-            if path in ("/", "/product"):
+            if path in ("/", "/product", "/product/court-lab"):
                 query = urlsplit(self.path).query
+                destination = "/product/court-lab/" if path == "/product/court-lab" else "/product/"
                 self.send_response(301)
-                self.send_header("Location", "/product/" + ("?" + query if query else ""))
+                self.send_header("Location", destination + ("?" + query if query else ""))
                 self.send_header("Content-Length", "0")
                 self.end_headers()
                 return
             if path == "/product/":
                 path = "/product/index.html"
+            if path == "/product/court-lab/":
+                path = "/product/court-lab/index.html"
             if path == "/api/status":
                 self.json_response(catalog.status())
                 return

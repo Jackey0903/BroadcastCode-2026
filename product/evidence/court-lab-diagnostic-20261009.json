@@ -1,0 +1,5875 @@
+{
+  "protocol": "court-lab-diagnostic-v1",
+  "date": "2026-10-09",
+  "sourceSha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+  "hashMatched": true,
+  "opencvVersion": "4.13.0",
+  "numpyVersion": "2.4.2",
+  "seedImageCorners": [
+    [
+      352.0,
+      332.0
+    ],
+    [
+      772.0,
+      350.0
+    ],
+    [
+      682.0,
+      465.0
+    ],
+    [
+      217.0,
+      438.0
+    ]
+  ],
+  "seedCourtCornersFt": [
+    [
+      0.0,
+      33.0
+    ],
+    [
+      19.0,
+      33.0
+    ],
+    [
+      19.0,
+      17.0
+    ],
+    [
+      0.0,
+      17.0
+    ]
+  ],
+  "initialHomography": [
+    [
+      0.08061767304652175,
+      0.10267345152151364,
+      -62.46500681751819
+    ],
+    [
+      0.016963978443778328,
+      -0.21278295460346924,
+      123.39621004885792
+    ],
+    [
+      0.00014362011885471007,
+      0.0021956278050474427,
+      1.0
+    ]
+  ],
+  "seedFitResidualCourtFt": [
+    3.992928559949822e-15,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "seedFitResidualMeaning": "Four fitted manual points; zero fitting residual is not independent calibration validation.",
+  "initialization": [
+    {
+      "id": "W1",
+      "team": "white",
+      "foot": [
+        282,
+        501
+      ],
+      "roi": [
+        262,
+        358,
+        299,
+        421
+      ],
+      "clothingFeatures": 57,
+      "projectedFt": [
+        5.469992637634277,
+        10.079741477966309
+      ]
+    },
+    {
+      "id": "W2",
+      "team": "white",
+      "foot": [
+        491,
+        533
+      ],
+      "roi": [
+        478,
+        404,
+        516,
+        458
+      ],
+      "clothingFeatures": 36,
+      "projectedFt": [
+        14.210729598999023,
+        8.172221183776855
+      ]
+    },
+    {
+      "id": "W3",
+      "team": "white",
+      "foot": [
+        559,
+        319
+      ],
+      "roi": [
+        543,
+        224,
+        579,
+        273
+      ],
+      "clothingFeatures": 53,
+      "projectedFt": [
+        8.622001647949219,
+        36.50346374511719
+      ]
+    },
+    {
+      "id": "W4",
+      "team": "white",
+      "foot": [
+        790,
+        434
+      ],
+      "roi": [
+        775,
+        326,
+        810,
+        376
+      ],
+      "clothingFeatures": 68,
+      "projectedFt": [
+        22.15643882751465,
+        21.511207580566406
+      ]
+    },
+    {
+      "id": "W5",
+      "team": "white",
+      "foot": [
+        1004,
+        399
+      ],
+      "roi": [
+        990,
+        301,
+        1027,
+        351
+      ],
+      "clothingFeatures": 43,
+      "projectedFt": [
+        29.423011779785156,
+        27.485530853271484
+      ]
+    },
+    {
+      "id": "D1",
+      "team": "dark",
+      "foot": null,
+      "roi": [
+        97,
+        424,
+        135,
+        492
+      ],
+      "reason": "seed_feet_occluded_by_foreground_spectators",
+      "clothingFeatures": 51,
+      "projectedFt": null
+    },
+    {
+      "id": "D2",
+      "team": "dark",
+      "foot": [
+        447,
+        603
+      ],
+      "roi": [
+        414,
+        454,
+        461,
+        513
+      ],
+      "clothingFeatures": 47,
+      "projectedFt": [
+        14.857948303222656,
+        1.1184278726577759
+      ]
+    },
+    {
+      "id": "D3",
+      "team": "dark",
+      "foot": [
+        624,
+        255
+      ],
+      "roi": [
+        609,
+        178,
+        632,
+        221
+      ],
+      "clothingFeatures": 25,
+      "projectedFt": [
+        8.500828742980957,
+        48.33094024658203
+      ]
+    },
+    {
+      "id": "D4",
+      "team": "dark",
+      "foot": [
+        862,
+        414
+      ],
+      "roi": [
+        862,
+        322,
+        893,
+        373
+      ],
+      "clothingFeatures": 14,
+      "projectedFt": [
+        24.367605209350586,
+        24.560827255249023
+      ]
+    },
+    {
+      "id": "D5",
+      "team": "dark",
+      "foot": [
+        1176,
+        421
+      ],
+      "roi": [
+        1142,
+        312,
+        1179,
+        352
+      ],
+      "clothingFeatures": 37,
+      "projectedFt": [
+        36.100162506103516,
+        25.68448829650879
+      ]
+    }
+  ],
+  "thresholds": {
+    "flowSampleFps": 30,
+    "outputSampleFps": 10,
+    "forwardBackwardMaxPixels": 1.2,
+    "minBodyFeatures": 6,
+    "bodyMedianAbsoluteDeviationMaxPixels": 2.0,
+    "bodyMotionMaxPixelsPerFrame": 14.0,
+    "bodyPatchDifferenceMaxGray": 28.0,
+    "courtSpeedMaxFtPerSecond": 45.0,
+    "minGroundInliers": 25,
+    "groundRansacMaxPixels": 1.7,
+    "groundMedianReprojectionMaxPixels": 1.2
+  },
+  "requestedWindow": [
+    9,
+    10.0
+  ],
+  "actualDecodedWindow": [
+    8.992322222222223,
+    9.993322
+  ],
+  "flowFrames": 30,
+  "initialGroundFeatureCount": 118,
+  "groundCalibrationLost": false,
+  "rawNumericStopReasons": [
+    {
+      "id": "W1",
+      "reason": null,
+      "stoppedAt": null
+    },
+    {
+      "id": "W2",
+      "reason": null,
+      "stoppedAt": null
+    },
+    {
+      "id": "W3",
+      "reason": null,
+      "stoppedAt": null
+    },
+    {
+      "id": "W4",
+      "reason": null,
+      "stoppedAt": null
+    },
+    {
+      "id": "W5",
+      "reason": "too_few_clothing_features",
+      "stoppedAt": 9.292622
+    },
+    {
+      "id": "D1",
+      "reason": "seed_feet_occluded_by_foreground_spectators",
+      "stoppedAt": null
+    },
+    {
+      "id": "D2",
+      "reason": null,
+      "stoppedAt": null
+    },
+    {
+      "id": "D3",
+      "reason": null,
+      "stoppedAt": null
+    },
+    {
+      "id": "D4",
+      "reason": "inconsistent_clothing_motion",
+      "stoppedAt": 9.059056
+    },
+    {
+      "id": "D5",
+      "reason": "too_few_clothing_features",
+      "stoppedAt": 9.192522
+    }
+  ],
+  "stopReasons": [
+    {
+      "id": "W1",
+      "reason": null,
+      "stoppedAt": null
+    },
+    {
+      "id": "W2",
+      "reason": "visual_review_torso_offset_wrong_under_overlap",
+      "stoppedAt": 9.3
+    },
+    {
+      "id": "W3",
+      "reason": null,
+      "stoppedAt": null
+    },
+    {
+      "id": "W4",
+      "reason": "visual_review_stance_change_invalidates_fixed_foot_offset",
+      "stoppedAt": 9.3
+    },
+    {
+      "id": "W5",
+      "reason": "too_few_clothing_features",
+      "stoppedAt": 9.292622
+    },
+    {
+      "id": "D1",
+      "reason": "seed_feet_occluded_by_foreground_spectators",
+      "stoppedAt": null
+    },
+    {
+      "id": "D2",
+      "reason": "visual_review_ground_contact_occluded_by_foreground_spectators",
+      "stoppedAt": 9.3
+    },
+    {
+      "id": "D3",
+      "reason": null,
+      "stoppedAt": null
+    },
+    {
+      "id": "D4",
+      "reason": "inconsistent_clothing_motion",
+      "stoppedAt": 9.059056
+    },
+    {
+      "id": "D5",
+      "reason": "too_few_clothing_features",
+      "stoppedAt": 9.192522
+    }
+  ],
+  "acceptedAtEnd": 3,
+  "numericallyAcceptedAtEnd": 6,
+  "viewerEstimatedAtEnd": 3,
+  "acceptedForShowcase": false,
+  "validationStatus": "not_accepted_for_showcase",
+  "manualSemanticVeto": {
+    "W2": {
+      "from": 9.3,
+      "reason": "visual_review_torso_offset_wrong_under_overlap"
+    },
+    "W4": {
+      "from": 9.3,
+      "reason": "visual_review_stance_change_invalidates_fixed_foot_offset"
+    },
+    "D2": {
+      "from": 9.3,
+      "reason": "visual_review_ground_contact_occluded_by_foreground_spectators"
+    }
+  },
+  "rawCandidateTracks": [
+    {
+      "id": "W1",
+      "team": "white",
+      "label": "W1",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 5.47,
+          "y": 10.08,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            282.0,
+            501.0
+          ]
+        },
+        {
+          "t": 9.092422,
+          "x": 5.491,
+          "y": 9.997,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            271.61,
+            502.355
+          ]
+        },
+        {
+          "t": 9.192522,
+          "x": 5.517,
+          "y": 9.724,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            259.961,
+            505.365
+          ]
+        },
+        {
+          "t": 9.292622,
+          "x": 5.465,
+          "y": 9.451,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            247.938,
+            508.254
+          ]
+        },
+        {
+          "t": 9.392722,
+          "x": 5.296,
+          "y": 9.284,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            236.294,
+            509.803
+          ]
+        },
+        {
+          "t": 9.492822,
+          "x": 5.117,
+          "y": 9.227,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            229.974,
+            511.044
+          ]
+        },
+        {
+          "t": 9.592922,
+          "x": 5.056,
+          "y": 9.216,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            231.013,
+            512.926
+          ]
+        },
+        {
+          "t": 9.693022,
+          "x": 5.055,
+          "y": 9.246,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            234.563,
+            513.807
+          ]
+        },
+        {
+          "t": 9.793122,
+          "x": 5.14,
+          "y": 9.309,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            241.227,
+            514.727
+          ]
+        },
+        {
+          "t": 9.893222,
+          "x": 5.308,
+          "y": 9.34,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            250.603,
+            516.751
+          ]
+        },
+        {
+          "t": 9.993322,
+          "x": 5.504,
+          "y": 9.416,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            262.754,
+            518.512
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W2",
+      "team": "white",
+      "label": "W2",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 14.211,
+          "y": 8.172,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            491.0,
+            533.0
+          ]
+        },
+        {
+          "t": 9.092422,
+          "x": 14.202,
+          "y": 8.099,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            480.552,
+            533.978
+          ]
+        },
+        {
+          "t": 9.192522,
+          "x": 14.155,
+          "y": 8.004,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            469.254,
+            535.138
+          ]
+        },
+        {
+          "t": 9.292622,
+          "x": 14.06,
+          "y": 7.916,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            458.27,
+            536.148
+          ]
+        },
+        {
+          "t": 9.392722,
+          "x": 13.953,
+          "y": 7.88,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            449.49,
+            536.499
+          ]
+        },
+        {
+          "t": 9.492822,
+          "x": 13.858,
+          "y": 7.907,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            446.032,
+            536.93
+          ]
+        },
+        {
+          "t": 9.592922,
+          "x": 13.782,
+          "y": 8.01,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            447.423,
+            538.007
+          ]
+        },
+        {
+          "t": 9.693022,
+          "x": 13.74,
+          "y": 8.083,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            450.417,
+            538.501
+          ]
+        },
+        {
+          "t": 9.793122,
+          "x": 13.755,
+          "y": 8.15,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            454.848,
+            539.247
+          ]
+        },
+        {
+          "t": 9.893222,
+          "x": 13.781,
+          "y": 8.212,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            460.643,
+            540.896
+          ]
+        },
+        {
+          "t": 9.993322,
+          "x": 13.851,
+          "y": 8.216,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            467.506,
+            543.086
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W3",
+      "team": "white",
+      "label": "W3",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 8.622,
+          "y": 36.503,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            559.0,
+            319.0
+          ]
+        },
+        {
+          "t": 9.092422,
+          "x": 8.743,
+          "y": 36.279,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            550.542,
+            320.618
+          ]
+        },
+        {
+          "t": 9.192522,
+          "x": 8.896,
+          "y": 35.89,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            542.381,
+            323.153
+          ]
+        },
+        {
+          "t": 9.292622,
+          "x": 8.974,
+          "y": 35.701,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            535.247,
+            324.614
+          ]
+        },
+        {
+          "t": 9.392722,
+          "x": 9.027,
+          "y": 35.613,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            530.182,
+            325.34
+          ]
+        },
+        {
+          "t": 9.492822,
+          "x": 9.104,
+          "y": 35.558,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            530.243,
+            326.586
+          ]
+        },
+        {
+          "t": 9.592922,
+          "x": 9.212,
+          "y": 35.494,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            534.651,
+            329.198
+          ]
+        },
+        {
+          "t": 9.693022,
+          "x": 9.357,
+          "y": 35.426,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            540.612,
+            331.009
+          ]
+        },
+        {
+          "t": 9.793122,
+          "x": 9.54,
+          "y": 35.294,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            547.596,
+            333.125
+          ]
+        },
+        {
+          "t": 9.893222,
+          "x": 9.678,
+          "y": 35.212,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            554.941,
+            336.065
+          ]
+        },
+        {
+          "t": 9.993322,
+          "x": 9.761,
+          "y": 35.137,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            562.306,
+            338.542
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W4",
+      "team": "white",
+      "label": "W4",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 22.156,
+          "y": 21.511,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            790.0,
+            434.0
+          ]
+        },
+        {
+          "t": 9.092422,
+          "x": 22.192,
+          "y": 21.621,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            781.92,
+            433.175
+          ]
+        },
+        {
+          "t": 9.192522,
+          "x": 22.305,
+          "y": 21.616,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            775.654,
+            433.282
+          ]
+        },
+        {
+          "t": 9.292622,
+          "x": 22.538,
+          "y": 21.298,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            772.441,
+            436.072
+          ]
+        },
+        {
+          "t": 9.392722,
+          "x": 22.795,
+          "y": 21.065,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            772.159,
+            438.233
+          ]
+        },
+        {
+          "t": 9.492822,
+          "x": 22.82,
+          "y": 21.777,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            775.276,
+            433.41
+          ]
+        },
+        {
+          "t": 9.592922,
+          "x": 22.575,
+          "y": 23.193,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            778.809,
+            424.818
+          ]
+        },
+        {
+          "t": 9.693022,
+          "x": 22.292,
+          "y": 24.629,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            782.233,
+            415.187
+          ]
+        },
+        {
+          "t": 9.793122,
+          "x": 22.238,
+          "y": 24.944,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            786.895,
+            413.988
+          ]
+        },
+        {
+          "t": 9.893222,
+          "x": 22.354,
+          "y": 24.073,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            790.087,
+            422.986
+          ]
+        },
+        {
+          "t": 9.993322,
+          "x": 22.274,
+          "y": 23.37,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            790.85,
+            430.374
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W5",
+      "team": "white",
+      "label": "W5",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 29.423,
+          "y": 27.486,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            1004.0,
+            399.0
+          ]
+        },
+        {
+          "t": 9.092422,
+          "x": 29.676,
+          "y": 27.428,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            1000.348,
+            399.502
+          ]
+        },
+        {
+          "t": 9.192522,
+          "x": 30.043,
+          "y": 27.361,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            1000.114,
+            400.13
+          ]
+        },
+        {
+          "t": 9.292622,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.392722,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.492822,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.592922,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.693022,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.793122,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.893222,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.993322,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "team": "dark",
+      "label": "D1",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "t": 9.092422,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "t": 9.192522,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "t": 9.292622,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "t": 9.392722,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "t": 9.492822,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "t": 9.592922,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "t": 9.693022,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "t": 9.793122,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "t": 9.893222,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "t": 9.993322,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "team": "dark",
+      "label": "D2",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 14.858,
+          "y": 1.118,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            447.0,
+            603.0
+          ]
+        },
+        {
+          "t": 9.092422,
+          "x": 14.805,
+          "y": 1.04,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            435.143,
+            604.103
+          ]
+        },
+        {
+          "t": 9.192522,
+          "x": 14.764,
+          "y": 0.984,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            424.137,
+            605.106
+          ]
+        },
+        {
+          "t": 9.292622,
+          "x": 14.734,
+          "y": 0.915,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            414.928,
+            606.172
+          ]
+        },
+        {
+          "t": 9.392722,
+          "x": 14.738,
+          "y": 0.882,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            409.178,
+            606.717
+          ]
+        },
+        {
+          "t": 9.492822,
+          "x": 14.788,
+          "y": 0.852,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            409.241,
+            608.015
+          ]
+        },
+        {
+          "t": 9.592922,
+          "x": 14.875,
+          "y": 0.861,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            414.41,
+            610.278
+          ]
+        },
+        {
+          "t": 9.693022,
+          "x": 15.003,
+          "y": 0.904,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            422.021,
+            611.425
+          ]
+        },
+        {
+          "t": 9.793122,
+          "x": 15.222,
+          "y": 0.934,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            432.003,
+            612.769
+          ]
+        },
+        {
+          "t": 9.893222,
+          "x": 15.513,
+          "y": 0.921,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            444.753,
+            615.641
+          ]
+        },
+        {
+          "t": 9.993322,
+          "x": 15.971,
+          "y": 0.75,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            461.071,
+            619.832
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "team": "dark",
+      "label": "D3",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 8.501,
+          "y": 48.331,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            624.0,
+            255.0
+          ]
+        },
+        {
+          "t": 9.092422,
+          "x": 8.806,
+          "y": 48.167,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            619.62,
+            256.159
+          ]
+        },
+        {
+          "t": 9.192522,
+          "x": 9.021,
+          "y": 48.08,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            614.481,
+            256.765
+          ]
+        },
+        {
+          "t": 9.292622,
+          "x": 9.167,
+          "y": 48.102,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            609.975,
+            256.946
+          ]
+        },
+        {
+          "t": 9.392722,
+          "x": 9.291,
+          "y": 48.097,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            606.773,
+            257.14
+          ]
+        },
+        {
+          "t": 9.492822,
+          "x": 9.394,
+          "y": 48.089,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            607.484,
+            258.098
+          ]
+        },
+        {
+          "t": 9.592922,
+          "x": 9.473,
+          "y": 48.165,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            611.867,
+            259.975
+          ]
+        },
+        {
+          "t": 9.693022,
+          "x": 9.555,
+          "y": 48.242,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            616.954,
+            261.066
+          ]
+        },
+        {
+          "t": 9.793122,
+          "x": 9.628,
+          "y": 48.158,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            622.128,
+            262.401
+          ]
+        },
+        {
+          "t": 9.893222,
+          "x": 9.658,
+          "y": 48.218,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            627.953,
+            264.497
+          ]
+        },
+        {
+          "t": 9.993322,
+          "x": 9.708,
+          "y": 47.986,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            634.803,
+            266.769
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "team": "dark",
+      "label": "D4",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 24.368,
+          "y": 24.561,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            862.0,
+            414.0
+          ]
+        },
+        {
+          "t": 9.092422,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "t": 9.192522,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "t": 9.292622,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "t": 9.392722,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "t": 9.492822,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "t": 9.592922,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "t": 9.693022,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "t": 9.793122,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "t": 9.893222,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "t": 9.993322,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "inconsistent_clothing_motion"
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "team": "dark",
+      "label": "D5",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 8.992322222222223,
+          "x": 36.1,
+          "y": 25.684,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            1176.0,
+            421.0
+          ]
+        },
+        {
+          "t": 9.092422,
+          "x": 36.34,
+          "y": 23.811,
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "image": [
+            1167.615,
+            435.429
+          ]
+        },
+        {
+          "t": 9.192522,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.292622,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.392722,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.492822,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.592922,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.693022,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.793122,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.893222,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "t": 9.993322,
+          "x": null,
+          "y": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    }
+  ],
+  "visualDiagnosticReview": {
+    "reviewer": "AI assistant",
+    "expertReviewed": false,
+    "seedFeetOccluded": [
+      "D1"
+    ],
+    "notes": [
+      "Seed corner points were revised after actual magnified image inspection.",
+      "W2 overlaps D2; W4 changes stance. Fixed torso-to-foot offsets produce visibly wrong foot points by the last frame. Both are conservatively vetoed from 9.3s.",
+      "D2 foot-to-ground contact is obscured by foreground spectators by 9.326s; vetoed from 9.3s.",
+      "Residual acceptance measures numerical consistency only. No identity or trajectory accuracy was measured.",
+      "Ground features are limited to the floor and exclude manually marked players/referees; no court-line recognition was run."
+    ]
+  },
+  "warning": "本地离线技术实验，AI 手工选择禁区角点、上半身区域和初始足点；后续点仅为衣物光流位移加固定足点偏移的估计。不是球员检测、身份识别、官方数据或已验证轨迹。遮挡、跳跃和身体姿态变化会使足点估计错误；残差筛选不能证明语义正确。失败后断轨，不插值补人。",
+  "frames": [
+    {
+      "t": 9.025689,
+      "ground": {
+        "validFeatures": 118,
+        "inliers": 117,
+        "medianReprojectionPixels": 0.14810757339000702,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.008977356366813183,
+          "motionInliers": 57,
+          "motionPixels": [
+            -3.01263427734375,
+            0.2490234375
+          ],
+          "patchDifferenceGray": 3.1020408163265305,
+          "estimatedSpeedFtPerSecond": 0.3504701554775238,
+          "candidateCourtFt": [
+            5.481667518615723,
+            10.080410957336426
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.003914083354175091,
+          "motionInliers": 36,
+          "motionPixels": [
+            -3.2862091064453125,
+            0.3125457763671875
+          ],
+          "patchDifferenceGray": 3.5816326530612246,
+          "estimatedSpeedFtPerSecond": 0.7242029309272766,
+          "candidateCourtFt": [
+            14.21531867980957,
+            8.148496627807617
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 53,
+          "medianForwardBackwardPixels": 0.008353402838110924,
+          "motionInliers": 53,
+          "motionPixels": [
+            -2.72283935546875,
+            0.5039825439453125
+          ],
+          "patchDifferenceGray": 4.469387755102041,
+          "estimatedSpeedFtPerSecond": 2.2973170280456543,
+          "candidateCourtFt": [
+            8.649399757385254,
+            36.4318733215332
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 67,
+          "medianForwardBackwardPixels": 0.014761173166334629,
+          "motionInliers": 53,
+          "motionPixels": [
+            -2.69244384765625,
+            -0.283843994140625
+          ],
+          "patchDifferenceGray": 3.63265306122449,
+          "estimatedSpeedFtPerSecond": 1.2180887460708618,
+          "candidateCourtFt": [
+            22.15645408630371,
+            21.551851272583008
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "validFeatures": 43,
+          "medianForwardBackwardPixels": 0.12175106257200241,
+          "motionInliers": 39,
+          "motionPixels": [
+            -1.38983154296875,
+            -0.35748291015625
+          ],
+          "patchDifferenceGray": 7.36734693877551,
+          "estimatedSpeedFtPerSecond": 1.967677116394043,
+          "candidateCourtFt": [
+            29.467151641845703,
+            27.534133911132812
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.0028919330798089504,
+          "motionInliers": 47,
+          "motionPixels": [
+            -3.962646484375,
+            0.409515380859375
+          ],
+          "patchDifferenceGray": 5.6938775510204085,
+          "estimatedSpeedFtPerSecond": 1.3432773351669312,
+          "candidateCourtFt": [
+            14.848101615905762,
+            1.0747020244598389
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.0381377711892128,
+          "motionInliers": 25,
+          "motionPixels": [
+            -1.399658203125,
+            0.4721527099609375
+          ],
+          "patchDifferenceGray": 8.918367346938776,
+          "estimatedSpeedFtPerSecond": 3.9475202560424805,
+          "candidateCourtFt": [
+            8.588554382324219,
+            48.232688903808594
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "validFeatures": 9,
+          "medianForwardBackwardPixels": 0.04790610447525978,
+          "motionInliers": 6,
+          "motionPixels": [
+            -0.47821044921875,
+            -1.1549072265625
+          ],
+          "patchDifferenceGray": 11.612244897959183,
+          "estimatedSpeedFtPerSecond": 5.3249993324279785,
+          "candidateCourtFt": [
+            24.42821502685547,
+            24.727848052978516
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D5",
+          "validFeatures": 31,
+          "medianForwardBackwardPixels": 0.2549096643924713,
+          "motionInliers": 19,
+          "motionPixels": [
+            -1.8017578125,
+            4.473236083984375
+          ],
+          "patchDifferenceGray": 13.653061224489797,
+          "estimatedSpeedFtPerSecond": 17.716032028198242,
+          "candidateCourtFt": [
+            36.18883514404297,
+            25.10004997253418
+          ],
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "t": 9.059056,
+      "ground": {
+        "validFeatures": 117,
+        "inliers": 114,
+        "medianReprojectionPixels": 0.1357317566871643,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.009468567557632923,
+          "motionInliers": 57,
+          "motionPixels": [
+            -3.587371826171875,
+            0.431854248046875
+          ],
+          "patchDifferenceGray": 3.163265306122449,
+          "estimatedSpeedFtPerSecond": 0.7124627232551575,
+          "candidateCourtFt": [
+            5.484585762023926,
+            10.056818008422852
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0022764322347939014,
+          "motionInliers": 36,
+          "motionPixels": [
+            -3.47198486328125,
+            0.3049468994140625
+          ],
+          "patchDifferenceGray": 2.5816326530612246,
+          "estimatedSpeedFtPerSecond": 0.5162716507911682,
+          "candidateCourtFt": [
+            14.207915306091309,
+            8.132942199707031
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 53,
+          "medianForwardBackwardPixels": 0.006162133067846298,
+          "motionInliers": 53,
+          "motionPixels": [
+            -2.832275390625,
+            0.56878662109375
+          ],
+          "patchDifferenceGray": 3.204081632653061,
+          "estimatedSpeedFtPerSecond": 2.7284817695617676,
+          "candidateCourtFt": [
+            8.6983060836792,
+            36.35508346557617
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 53,
+          "medianForwardBackwardPixels": 0.020782113075256348,
+          "motionInliers": 53,
+          "motionPixels": [
+            -2.7139892578125,
+            -0.430908203125
+          ],
+          "patchDifferenceGray": 3.857142857142857,
+          "estimatedSpeedFtPerSecond": 1.6361613273620605,
+          "candidateCourtFt": [
+            22.170080184936523,
+            21.604717254638672
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "validFeatures": 38,
+          "medianForwardBackwardPixels": 0.09380458295345306,
+          "motionInliers": 29,
+          "motionPixels": [
+            -1.28289794921875,
+            0.420806884765625
+          ],
+          "patchDifferenceGray": 5.3061224489795915,
+          "estimatedSpeedFtPerSecond": 3.534137010574341,
+          "candidateCourtFt": [
+            29.572433471679688,
+            27.481014251708984
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.002381153404712677,
+          "motionInliers": 47,
+          "motionPixels": [
+            -3.9283447265625,
+            0.345855712890625
+          ],
+          "patchDifferenceGray": 3.9591836734693877,
+          "estimatedSpeedFtPerSecond": 0.8062295913696289,
+          "candidateCourtFt": [
+            14.821425437927246,
+            1.071227788925171
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.028872162103652954,
+          "motionInliers": 25,
+          "motionPixels": [
+            -1.38446044921875,
+            0.4464874267578125
+          ],
+          "patchDifferenceGray": 8.877551020408163,
+          "estimatedSpeedFtPerSecond": 3.770200490951538,
+          "candidateCourtFt": [
+            8.708395004272461,
+            48.194427490234375
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "validFeatures": 6,
+          "medianForwardBackwardPixels": 0.14660680294036865,
+          "motionInliers": 4,
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "validFeatures": 19,
+          "medianForwardBackwardPixels": 0.23797258734703064,
+          "motionInliers": 19,
+          "motionPixels": [
+            -2.9483642578125,
+            4.675079345703125
+          ],
+          "patchDifferenceGray": 15.877551020408163,
+          "estimatedSpeedFtPerSecond": 18.43143653869629,
+          "candidateCourtFt": [
+            36.282840728759766,
+            24.49227523803711
+          ],
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "t": 9.092422,
+      "ground": {
+        "validFeatures": 114,
+        "inliers": 110,
+        "medianReprojectionPixels": 0.11305014789104462,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.008021073415875435,
+          "motionInliers": 57,
+          "motionPixels": [
+            -3.78985595703125,
+            0.674346923828125
+          ],
+          "patchDifferenceGray": 2.5510204081632653,
+          "estimatedSpeedFtPerSecond": 1.8187748193740845,
+          "candidateCourtFt": [
+            5.491320610046387,
+            9.99650764465332
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0017852872842922807,
+          "motionInliers": 36,
+          "motionPixels": [
+            -3.69024658203125,
+            0.3606719970703125
+          ],
+          "patchDifferenceGray": 1.9795918367346939,
+          "estimatedSpeedFtPerSecond": 1.0216572284698486,
+          "candidateCourtFt": [
+            14.202367782592773,
+            8.099308013916016
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 53,
+          "medianForwardBackwardPixels": 0.005936923902481794,
+          "motionInliers": 53,
+          "motionPixels": [
+            -2.9024658203125,
+            0.5448455810546875
+          ],
+          "patchDifferenceGray": 2.816326530612245,
+          "estimatedSpeedFtPerSecond": 2.64963698387146,
+          "candidateCourtFt": [
+            8.742803573608398,
+            36.278690338134766
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 53,
+          "medianForwardBackwardPixels": 0.013855114579200745,
+          "motionInliers": 53,
+          "motionPixels": [
+            -2.673583984375,
+            -0.10992431640625
+          ],
+          "patchDifferenceGray": 2.5510204081632653,
+          "estimatedSpeedFtPerSecond": 0.823490560054779,
+          "candidateCourtFt": [
+            22.192426681518555,
+            21.620704650878906
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "validFeatures": 29,
+          "medianForwardBackwardPixels": 0.059972964227199554,
+          "motionInliers": 26,
+          "motionPixels": [
+            -0.97955322265625,
+            0.43841552734375
+          ],
+          "patchDifferenceGray": 3.8265306122448983,
+          "estimatedSpeedFtPerSecond": 3.4721860885620117,
+          "candidateCourtFt": [
+            29.675506591796875,
+            27.428119659423828
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.0029921235982328653,
+          "motionInliers": 47,
+          "motionPixels": [
+            -3.965850830078125,
+            0.347991943359375
+          ],
+          "patchDifferenceGray": 4.0,
+          "estimatedSpeedFtPerSecond": 1.0446257591247559,
+          "candidateCourtFt": [
+            14.805257797241211,
+            1.0403493642807007
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.04274827986955643,
+          "motionInliers": 25,
+          "motionPixels": [
+            -1.59576416015625,
+            0.2406463623046875
+          ],
+          "patchDifferenceGray": 8.571428571428571,
+          "estimatedSpeedFtPerSecond": 3.0377352237701416,
+          "candidateCourtFt": [
+            8.805933952331543,
+            48.1668701171875
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "validFeatures": 19,
+          "medianForwardBackwardPixels": 0.18982794880867004,
+          "motionInliers": 19,
+          "motionPixels": [
+            -3.6343994140625,
+            5.28057861328125
+          ],
+          "patchDifferenceGray": 12.122448979591837,
+          "estimatedSpeedFtPerSecond": 20.490129470825195,
+          "candidateCourtFt": [
+            36.34022521972656,
+            23.81101417541504
+          ],
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "t": 9.125789,
+      "ground": {
+        "validFeatures": 110,
+        "inliers": 109,
+        "medianReprojectionPixels": 0.12651443481445312,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.014155223034322262,
+          "motionInliers": 57,
+          "motionPixels": [
+            -3.841827392578125,
+            0.86083984375
+          ],
+          "patchDifferenceGray": 3.673469387755102,
+          "estimatedSpeedFtPerSecond": 2.1310789585113525,
+          "candidateCourtFt": [
+            5.5023040771484375,
+            9.926253318786621
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0031565281096845865,
+          "motionInliers": 36,
+          "motionPixels": [
+            -3.7638092041015625,
+            0.4176025390625
+          ],
+          "patchDifferenceGray": 2.8469387755102042,
+          "estimatedSpeedFtPerSecond": 0.9767897129058838,
+          "candidateCourtFt": [
+            14.193737983703613,
+            8.067878723144531
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 53,
+          "medianForwardBackwardPixels": 0.011470154859125614,
+          "motionInliers": 53,
+          "motionPixels": [
+            -2.85546875,
+            0.7752227783203125
+          ],
+          "patchDifferenceGray": 4.795918367346939,
+          "estimatedSpeedFtPerSecond": 3.627121686935425,
+          "candidateCourtFt": [
+            8.786787033081055,
+            36.16593933105469
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 50,
+          "medianForwardBackwardPixels": 0.008696818724274635,
+          "motionInliers": 47,
+          "motionPixels": [
+            -2.42584228515625,
+            -0.155364990234375
+          ],
+          "patchDifferenceGray": 3.5714285714285716,
+          "estimatedSpeedFtPerSecond": 1.0676697492599487,
+          "candidateCourtFt": [
+            22.215513229370117,
+            21.647836685180664
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "validFeatures": 26,
+          "medianForwardBackwardPixels": 0.044986870139837265,
+          "motionInliers": 25,
+          "motionPixels": [
+            -0.39483642578125,
+            0.506927490234375
+          ],
+          "patchDifferenceGray": 4.346938775510204,
+          "estimatedSpeedFtPerSecond": 3.937776565551758,
+          "candidateCourtFt": [
+            29.794275283813477,
+            27.371925354003906
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.0021145399659872055,
+          "motionInliers": 47,
+          "motionPixels": [
+            -3.78778076171875,
+            0.3421630859375
+          ],
+          "patchDifferenceGray": 4.591836734693878,
+          "estimatedSpeedFtPerSecond": 0.642239511013031,
+          "candidateCourtFt": [
+            14.795339584350586,
+            1.0213531255722046
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.04667758196592331,
+          "motionInliers": 25,
+          "motionPixels": [
+            -1.6695556640625,
+            0.131622314453125
+          ],
+          "patchDifferenceGray": 9.53061224489796,
+          "estimatedSpeedFtPerSecond": 2.1257901191711426,
+          "candidateCourtFt": [
+            8.876140594482422,
+            48.15675735473633
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "validFeatures": 11,
+          "medianForwardBackwardPixels": 0.47190847992897034,
+          "motionInliers": 10,
+          "motionPixels": [
+            -5.9454345703125,
+            6.239227294921875
+          ],
+          "patchDifferenceGray": 18.26530612244898,
+          "estimatedSpeedFtPerSecond": 24.152055740356445,
+          "candidateCourtFt": [
+            36.322509765625,
+            23.005327224731445
+          ],
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "t": 9.159156,
+      "ground": {
+        "validFeatures": 109,
+        "inliers": 109,
+        "medianReprojectionPixels": 0.14762383699417114,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.017609303817152977,
+          "motionInliers": 57,
+          "motionPixels": [
+            -3.865753173828125,
+            1.09100341796875
+          ],
+          "patchDifferenceGray": 2.4693877551020407,
+          "estimatedSpeedFtPerSecond": 2.992727756500244,
+          "candidateCourtFt": [
+            5.511664867401123,
+            9.826834678649902
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0014031226746737957,
+          "motionInliers": 36,
+          "motionPixels": [
+            -3.7602386474609375,
+            0.3407745361328125
+          ],
+          "patchDifferenceGray": 2.642857142857143,
+          "estimatedSpeedFtPerSecond": 0.9951848387718201,
+          "candidateCourtFt": [
+            14.1727294921875,
+            8.042162895202637
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 53,
+          "medianForwardBackwardPixels": 0.012403696775436401,
+          "motionInliers": 53,
+          "motionPixels": [
+            -2.70733642578125,
+            0.8020477294921875
+          ],
+          "patchDifferenceGray": 3.6530612244897958,
+          "estimatedSpeedFtPerSecond": 4.111251354217529,
+          "candidateCourtFt": [
+            8.839737892150879,
+            36.039390563964844
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.010223388671875,
+          "motionInliers": 47,
+          "motionPixels": [
+            -2.08868408203125,
+            0.00164794921875
+          ],
+          "patchDifferenceGray": 2.5306122448979593,
+          "estimatedSpeedFtPerSecond": 1.1148293018341064,
+          "candidateCourtFt": [
+            22.252708435058594,
+            21.647340774536133
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.025463366881012917,
+          "motionInliers": 25,
+          "motionPixels": [
+            0.3505859375,
+            -0.08038330078125
+          ],
+          "patchDifferenceGray": 3.6530612244897958,
+          "estimatedSpeedFtPerSecond": 4.123992443084717,
+          "candidateCourtFt": [
+            29.931116104125977,
+            27.386409759521484
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.002847308060154319,
+          "motionInliers": 47,
+          "motionPixels": [
+            -3.705474853515625,
+            0.28289794921875
+          ],
+          "patchDifferenceGray": 4.346938775510204,
+          "estimatedSpeedFtPerSecond": 0.7339609265327454,
+          "candidateCourtFt": [
+            14.772863388061523,
+            1.0116276741027832
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.02747531235218048,
+          "motionInliers": 25,
+          "motionPixels": [
+            -1.68743896484375,
+            0.1746978759765625
+          ],
+          "patchDifferenceGray": 10.061224489795919,
+          "estimatedSpeedFtPerSecond": 2.4636616706848145,
+          "candidateCourtFt": [
+            8.953930854797363,
+            48.13018035888672
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "validFeatures": 9,
+          "medianForwardBackwardPixels": 0.3049399256706238,
+          "motionInliers": 6,
+          "motionPixels": [
+            -7.1439208984375,
+            4.8669891357421875
+          ],
+          "patchDifferenceGray": 22.26530612244898,
+          "estimatedSpeedFtPerSecond": 19.551965713500977,
+          "candidateCourtFt": [
+            36.243831634521484,
+            22.357698440551758
+          ],
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "t": 9.192522,
+      "ground": {
+        "validFeatures": 109,
+        "inliers": 106,
+        "medianReprojectionPixels": 0.15639184415340424,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.026406753808259964,
+          "motionInliers": 57,
+          "motionPixels": [
+            -3.9415283203125,
+            1.058258056640625
+          ],
+          "patchDifferenceGray": 2.836734693877551,
+          "estimatedSpeedFtPerSecond": 3.0922470092773438,
+          "candidateCourtFt": [
+            5.516851425170898,
+            9.72378921508789
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0023421086370944977,
+          "motionInliers": 36,
+          "motionPixels": [
+            -3.7739715576171875,
+            0.4014129638671875
+          ],
+          "patchDifferenceGray": 2.9591836734693877,
+          "estimatedSpeedFtPerSecond": 1.2766838073730469,
+          "candidateCourtFt": [
+            14.15467357635498,
+            8.003581047058105
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 53,
+          "medianForwardBackwardPixels": 0.017334656789898872,
+          "motionInliers": 53,
+          "motionPixels": [
+            -2.598876953125,
+            0.95855712890625
+          ],
+          "patchDifferenceGray": 3.7346938775510203,
+          "estimatedSpeedFtPerSecond": 4.786298751831055,
+          "candidateCourtFt": [
+            8.896496772766113,
+            35.89011764526367
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.02356462925672531,
+          "motionInliers": 47,
+          "motionPixels": [
+            -1.75115966796875,
+            0.260009765625
+          ],
+          "patchDifferenceGray": 3.2448979591836733,
+          "estimatedSpeedFtPerSecond": 1.8123390674591064,
+          "candidateCourtFt": [
+            22.304676055908203,
+            21.61642074584961
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.06501032412052155,
+          "motionInliers": 22,
+          "motionPixels": [
+            -0.189697265625,
+            0.2018280029296875
+          ],
+          "patchDifferenceGray": 4.346938775510203,
+          "estimatedSpeedFtPerSecond": 3.4501760005950928,
+          "candidateCourtFt": [
+            30.04335594177246,
+            27.36082649230957
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.0027050694916397333,
+          "motionInliers": 47,
+          "motionPixels": [
+            -3.512847900390625,
+            0.3770751953125
+          ],
+          "patchDifferenceGray": 5.0,
+          "estimatedSpeedFtPerSecond": 0.8786301016807556,
+          "candidateCourtFt": [
+            14.763723373413086,
+            0.9837725162506104
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.034165818244218826,
+          "motionInliers": 25,
+          "motionPixels": [
+            -1.78240966796875,
+            0.29949951171875
+          ],
+          "patchDifferenceGray": 8.591836734693878,
+          "estimatedSpeedFtPerSecond": 2.5140678882598877,
+          "candidateCourtFt": [
+            9.021245956420898,
+            48.08012771606445
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "validFeatures": 4,
+          "medianForwardBackwardPixels": 0.48554274439811707,
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.225889,
+      "ground": {
+        "validFeatures": 106,
+        "inliers": 104,
+        "medianReprojectionPixels": 0.16884450614452362,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.04634309187531471,
+          "motionInliers": 57,
+          "motionPixels": [
+            -3.9025421142578125,
+            1.044189453125
+          ],
+          "patchDifferenceGray": 3.4285714285714284,
+          "estimatedSpeedFtPerSecond": 2.9363086223602295,
+          "candidateCourtFt": [
+            5.512911796569824,
+            9.625892639160156
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0031156339682638645,
+          "motionInliers": 36,
+          "motionPixels": [
+            -3.7862091064453125,
+            0.371368408203125
+          ],
+          "patchDifferenceGray": 2.6020408163265305,
+          "estimatedSpeedFtPerSecond": 1.3131954669952393,
+          "candidateCourtFt": [
+            14.124820709228516,
+            7.971506595611572
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 53,
+          "medianForwardBackwardPixels": 0.018724169582128525,
+          "motionInliers": 53,
+          "motionPixels": [
+            -2.5260009765625,
+            0.8413848876953125
+          ],
+          "patchDifferenceGray": 3.5714285714285716,
+          "estimatedSpeedFtPerSecond": 3.9052376747131348,
+          "candidateCourtFt": [
+            8.941862106323242,
+            35.76796340942383
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 46,
+          "medianForwardBackwardPixels": 0.01350915152579546,
+          "motionInliers": 46,
+          "motionPixels": [
+            -1.419708251953125,
+            0.572998046875
+          ],
+          "patchDifferenceGray": 4.010204081632653,
+          "estimatedSpeedFtPerSecond": 2.6904847621917725,
+          "candidateCourtFt": [
+            22.368640899658203,
+            21.553430557250977
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "validFeatures": 19,
+          "medianForwardBackwardPixels": 0.182504802942276,
+          "motionInliers": 15,
+          "motionPixels": [
+            -1.731689453125,
+            0.682373046875
+          ],
+          "patchDifferenceGray": 7.142857142857143,
+          "estimatedSpeedFtPerSecond": 3.24454927444458,
+          "candidateCourtFt": [
+            30.099571228027344,
+            27.2683048248291
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.003388000885024667,
+          "motionInliers": 47,
+          "motionPixels": [
+            -3.33721923828125,
+            0.409088134765625
+          ],
+          "patchDifferenceGray": 5.938775510204081,
+          "estimatedSpeedFtPerSecond": 0.8723023533821106,
+          "candidateCourtFt": [
+            14.750335693359375,
+            0.9579280614852905
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.030903900042176247,
+          "motionInliers": 25,
+          "motionPixels": [
+            -1.61480712890625,
+            0.208282470703125
+          ],
+          "patchDifferenceGray": 7.653061224489796,
+          "estimatedSpeedFtPerSecond": 1.954811692237854,
+          "candidateCourtFt": [
+            9.08345890045166,
+            48.06053161621094
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.259256,
+      "ground": {
+        "validFeatures": 104,
+        "inliers": 103,
+        "medianReprojectionPixels": 0.19028641283512115,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.03522853925824165,
+          "motionInliers": 57,
+          "motionPixels": [
+            -3.9581756591796875,
+            0.852081298828125
+          ],
+          "patchDifferenceGray": 4.020408163265306,
+          "estimatedSpeedFtPerSecond": 2.488523483276367,
+          "candidateCourtFt": [
+            5.4922261238098145,
+            9.545475959777832
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.002973464783281088,
+          "motionInliers": 36,
+          "motionPixels": [
+            -3.6787261962890625,
+            0.34185791015625
+          ],
+          "patchDifferenceGray": 2.3979591836734695,
+          "estimatedSpeedFtPerSecond": 1.337113857269287,
+          "candidateCourtFt": [
+            14.093184471130371,
+            7.940047264099121
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 53,
+          "medianForwardBackwardPixels": 0.008450793102383614,
+          "motionInliers": 53,
+          "motionPixels": [
+            -2.377197265625,
+            0.3632965087890625
+          ],
+          "patchDifferenceGray": 3.877551020408163,
+          "estimatedSpeedFtPerSecond": 1.4372763633728027,
+          "candidateCourtFt": [
+            8.961099624633789,
+            35.72403335571289
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 46,
+          "medianForwardBackwardPixels": 0.013198756612837315,
+          "motionInliers": 46,
+          "motionPixels": [
+            -1.046356201171875,
+            0.981689453125
+          ],
+          "patchDifferenceGray": 3.4081632653061225,
+          "estimatedSpeedFtPerSecond": 4.093133449554443,
+          "candidateCourtFt": [
+            22.448307037353516,
+            21.44249725341797
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "validFeatures": 11,
+          "medianForwardBackwardPixels": 0.24915830790996552,
+          "motionInliers": 6,
+          "motionPixels": [
+            -2.5445556640625,
+            0.8394317626953125
+          ],
+          "patchDifferenceGray": 6.26530612244898,
+          "estimatedSpeedFtPerSecond": 3.5566165447235107,
+          "candidateCourtFt": [
+            30.11469268798828,
+            27.150598526000977
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.0024651328567415476,
+          "motionInliers": 47,
+          "motionPixels": [
+            -3.081756591796875,
+            0.33404541015625
+          ],
+          "patchDifferenceGray": 5.183673469387755,
+          "estimatedSpeedFtPerSecond": 0.8005508780479431,
+          "candidateCourtFt": [
+            14.740483283996582,
+            0.9330994486808777
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.030346939340233803,
+          "motionInliers": 25,
+          "motionPixels": [
+            -1.467529296875,
+            -0.00604248046875
+          ],
+          "patchDifferenceGray": 5.73469387755102,
+          "estimatedSpeedFtPerSecond": 1.4513940811157227,
+          "candidateCourtFt": [
+            9.129246711730957,
+            48.0763053894043
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.292622,
+      "ground": {
+        "validFeatures": 103,
+        "inliers": 100,
+        "medianReprojectionPixels": 0.19670605659484863,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.03845575824379921,
+          "motionInliers": 57,
+          "motionPixels": [
+            -4.162506103515625,
+            0.992034912109375
+          ],
+          "patchDifferenceGray": 3.6530612244897958,
+          "estimatedSpeedFtPerSecond": 2.9390642642974854,
+          "candidateCourtFt": [
+            5.464561939239502,
+            9.451394081115723
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0027047721669077873,
+          "motionInliers": 36,
+          "motionPixels": [
+            -3.518829345703125,
+            0.2968902587890625
+          ],
+          "patchDifferenceGray": 2.6530612244897958,
+          "estimatedSpeedFtPerSecond": 1.2459975481033325,
+          "candidateCourtFt": [
+            14.059568405151367,
+            7.915585994720459
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 53,
+          "medianForwardBackwardPixels": 0.013576798141002655,
+          "motionInliers": 53,
+          "motionPixels": [
+            -2.230712890625,
+            0.2555999755859375
+          ],
+          "patchDifferenceGray": 5.1020408163265305,
+          "estimatedSpeedFtPerSecond": 0.7939839959144592,
+          "candidateCourtFt": [
+            8.973685264587402,
+            35.700721740722656
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 46,
+          "medianForwardBackwardPixels": 0.011609990149736404,
+          "motionInliers": 46,
+          "motionPixels": [
+            -0.746978759765625,
+            1.2358245849609375
+          ],
+          "patchDifferenceGray": 3.928571428571429,
+          "estimatedSpeedFtPerSecond": 5.091381549835205,
+          "candidateCourtFt": [
+            22.537982940673828,
+            21.298215866088867
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "validFeatures": 4,
+          "medianForwardBackwardPixels": 0.516510546207428,
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.003412651363760233,
+          "motionInliers": 47,
+          "motionPixels": [
+            -2.79010009765625,
+            0.322967529296875
+          ],
+          "patchDifferenceGray": 6.122448979591836,
+          "estimatedSpeedFtPerSecond": 0.5815730690956116,
+          "candidateCourtFt": [
+            14.733924865722656,
+            0.914836585521698
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.04966701939702034,
+          "motionInliers": 25,
+          "motionPixels": [
+            -1.42303466796875,
+            -0.0215606689453125
+          ],
+          "patchDifferenceGray": 6.673469387755102,
+          "estimatedSpeedFtPerSecond": 1.368811845779419,
+          "candidateCourtFt": [
+            9.167074203491211,
+            48.101898193359375
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.325989,
+      "ground": {
+        "validFeatures": 98,
+        "inliers": 97,
+        "medianReprojectionPixels": 0.18014733493328094,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.014874462969601154,
+          "motionInliers": 57,
+          "motionPixels": [
+            -4.2094268798828125,
+            0.61865234375
+          ],
+          "patchDifferenceGray": 2.7755102040816326,
+          "estimatedSpeedFtPerSecond": 2.5784316062927246,
+          "candidateCourtFt": [
+            5.409265995025635,
+            9.385482788085938
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0022910370025783777,
+          "motionInliers": 36,
+          "motionPixels": [
+            -3.296356201171875,
+            0.13568115234375
+          ],
+          "patchDifferenceGray": 2.357142857142857,
+          "estimatedSpeedFtPerSecond": 1.1669479608535767,
+          "candidateCourtFt": [
+            14.023744583129883,
+            7.900328636169434
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 53,
+          "medianForwardBackwardPixels": 0.01908012665808201,
+          "motionInliers": 53,
+          "motionPixels": [
+            -2.03204345703125,
+            0.2765350341796875
+          ],
+          "patchDifferenceGray": 4.8979591836734695,
+          "estimatedSpeedFtPerSecond": 1.0832351446151733,
+          "candidateCourtFt": [
+            8.988019943237305,
+            35.66754150390625
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 46,
+          "medianForwardBackwardPixels": 0.007258684374392033,
+          "motionInliers": 46,
+          "motionPixels": [
+            -0.30352783203125,
+            1.20458984375
+          ],
+          "patchDifferenceGray": 2.836734693877551,
+          "estimatedSpeedFtPerSecond": 5.002265930175781,
+          "candidateCourtFt": [
+            22.638229370117188,
+            21.164762496948242
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.002472112188115716,
+          "motionInliers": 47,
+          "motionPixels": [
+            -2.427520751953125,
+            0.234344482421875
+          ],
+          "patchDifferenceGray": 4.795918367346939,
+          "estimatedSpeedFtPerSecond": 0.7564125657081604,
+          "candidateCourtFt": [
+            14.733530044555664,
+            0.8896004557609558
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.01841730810701847,
+          "motionInliers": 25,
+          "motionPixels": [
+            -1.41363525390625,
+            0.022216796875
+          ],
+          "patchDifferenceGray": 6.714285714285714,
+          "estimatedSpeedFtPerSecond": 0.980812668800354,
+          "candidateCourtFt": [
+            9.199456214904785,
+            48.09716033935547
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.359356,
+      "ground": {
+        "validFeatures": 97,
+        "inliers": 96,
+        "medianReprojectionPixels": 0.22562238574028015,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.008237994275987148,
+          "motionInliers": 57,
+          "motionPixels": [
+            -3.9169921875,
+            0.47900390625
+          ],
+          "patchDifferenceGray": 3.061224489795918,
+          "estimatedSpeedFtPerSecond": 2.2846410274505615,
+          "candidateCourtFt": [
+            5.353179454803467,
+            9.333853721618652
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0025040172040462494,
+          "motionInliers": 36,
+          "motionPixels": [
+            -2.98382568359375,
+            0.1785430908203125
+          ],
+          "patchDifferenceGray": 2.4081632653061225,
+          "estimatedSpeedFtPerSecond": 1.1769529581069946,
+          "candidateCourtFt": [
+            13.989541053771973,
+            7.8810319900512695
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.017074715346097946,
+          "motionInliers": 49,
+          "motionPixels": [
+            -1.7039794921875,
+            0.2098846435546875
+          ],
+          "patchDifferenceGray": 6.836734693877551,
+          "estimatedSpeedFtPerSecond": 0.930497944355011,
+          "candidateCourtFt": [
+            9.004964828491211,
+            35.64152526855469
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 46,
+          "medianForwardBackwardPixels": 0.015940498560667038,
+          "motionInliers": 46,
+          "motionPixels": [
+            -0.113525390625,
+            0.994964599609375
+          ],
+          "patchDifferenceGray": 3.7551020408163263,
+          "estimatedSpeedFtPerSecond": 4.417438507080078,
+          "candidateCourtFt": [
+            22.731157302856445,
+            21.050350189208984
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.0026358426548540592,
+          "motionInliers": 47,
+          "motionPixels": [
+            -1.93524169921875,
+            0.1505126953125
+          ],
+          "patchDifferenceGray": 4.285714285714286,
+          "estimatedSpeedFtPerSecond": 0.23443619906902313,
+          "candidateCourtFt": [
+            14.734733581542969,
+            0.8818711638450623
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.02642156556248665,
+          "motionInliers": 25,
+          "motionPixels": [
+            -1.087646484375,
+            0.059722900390625
+          ],
+          "patchDifferenceGray": 6.673469387755102,
+          "estimatedSpeedFtPerSecond": 1.221920371055603,
+          "candidateCourtFt": [
+            9.240203857421875,
+            48.09575653076172
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.392722,
+      "ground": {
+        "validFeatures": 96,
+        "inliers": 94,
+        "medianReprojectionPixels": 0.20490533113479614,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.007046604063361883,
+          "motionInliers": 57,
+          "motionPixels": [
+            -3.51690673828125,
+            0.451934814453125
+          ],
+          "patchDifferenceGray": 2.2857142857142856,
+          "estimatedSpeedFtPerSecond": 2.2734014987945557,
+          "candidateCourtFt": [
+            5.295639514923096,
+            9.28442668914795
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.002043323125690222,
+          "motionInliers": 36,
+          "motionPixels": [
+            -2.4993743896484375,
+            0.03692626953125
+          ],
+          "patchDifferenceGray": 2.5102040816326534,
+          "estimatedSpeedFtPerSecond": 1.1082435846328735,
+          "candidateCourtFt": [
+            13.95258903503418,
+            7.879655361175537
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.008912439458072186,
+          "motionInliers": 49,
+          "motionPixels": [
+            -1.328857421875,
+            0.2402801513671875
+          ],
+          "patchDifferenceGray": 4.73469387755102,
+          "estimatedSpeedFtPerSecond": 1.0876187086105347,
+          "candidateCourtFt": [
+            9.027191162109375,
+            35.61283874511719
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 46,
+          "medianForwardBackwardPixels": 0.01748962700366974,
+          "motionInliers": 46,
+          "motionPixels": [
+            0.134429931640625,
+            -0.0390777587890625
+          ],
+          "patchDifferenceGray": 4.979591836734694,
+          "estimatedSpeedFtPerSecond": 1.9627870321273804,
+          "candidateCourtFt": [
+            22.794878005981445,
+            21.065471649169922
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.003108002245426178,
+          "motionInliers": 47,
+          "motionPixels": [
+            -1.386810302734375,
+            0.16046142578125
+          ],
+          "patchDifferenceGray": 4.285714285714286,
+          "estimatedSpeedFtPerSecond": 0.08681192249059677,
+          "candidateCourtFt": [
+            14.737629890441895,
+            0.8819097876548767
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.03454781696200371,
+          "motionInliers": 25,
+          "motionPixels": [
+            -0.7010498046875,
+            0.1123199462890625
+          ],
+          "patchDifferenceGray": 5.816326530612245,
+          "estimatedSpeedFtPerSecond": 1.5113815069198608,
+          "candidateCourtFt": [
+            9.290623664855957,
+            48.09670639038086
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.426089,
+      "ground": {
+        "validFeatures": 94,
+        "inliers": 94,
+        "medianReprojectionPixels": 0.25278061628341675,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.02168760821223259,
+          "motionInliers": 57,
+          "motionPixels": [
+            -2.8264312744140625,
+            0.43963623046875
+          ],
+          "patchDifferenceGray": 3.061224489795918,
+          "estimatedSpeedFtPerSecond": 1.7463973760604858,
+          "candidateCourtFt": [
+            5.249073028564453,
+            9.249395370483398
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0038938699290156364,
+          "motionInliers": 36,
+          "motionPixels": [
+            -1.89996337890625,
+            0.103302001953125
+          ],
+          "patchDifferenceGray": 2.7448979591836737,
+          "estimatedSpeedFtPerSecond": 0.7947496771812439,
+          "candidateCourtFt": [
+            13.926173210144043,
+            7.881985664367676
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.0098029850050807,
+          "motionInliers": 49,
+          "motionPixels": [
+            -0.70245361328125,
+            0.25738525390625
+          ],
+          "patchDifferenceGray": 4.204081632653061,
+          "estimatedSpeedFtPerSecond": 0.8265897631645203,
+          "candidateCourtFt": [
+            9.044854164123535,
+            35.59165573120117
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 46,
+          "medianForwardBackwardPixels": 0.021437469869852066,
+          "motionInliers": 46,
+          "motionPixels": [
+            0.58856201171875,
+            -1.0140838623046875
+          ],
+          "patchDifferenceGray": 5.0,
+          "estimatedSpeedFtPerSecond": 4.538945198059082,
+          "candidateCourtFt": [
+            22.82594871520996,
+            21.213701248168945
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.0027844677679240704,
+          "motionInliers": 47,
+          "motionPixels": [
+            -0.70147705078125,
+            0.246917724609375
+          ],
+          "patchDifferenceGray": 5.489795918367347,
+          "estimatedSpeedFtPerSecond": 0.6347917914390564,
+          "candidateCourtFt": [
+            14.758790969848633,
+            0.880989134311676
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.043115779757499695,
+          "motionInliers": 25,
+          "motionPixels": [
+            -0.25018310546875,
+            0.241302490234375
+          ],
+          "patchDifferenceGray": 6.571428571428571,
+          "estimatedSpeedFtPerSecond": 1.302825689315796,
+          "candidateCourtFt": [
+            9.32677936553955,
+            48.07257080078125
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.459456,
+      "ground": {
+        "validFeatures": 94,
+        "inliers": 92,
+        "medianReprojectionPixels": 0.20358459651470184,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 57,
+          "medianForwardBackwardPixels": 0.013069863431155682,
+          "motionInliers": 57,
+          "motionPixels": [
+            -2.214599609375,
+            0.372344970703125
+          ],
+          "patchDifferenceGray": 3.061224489795918,
+          "estimatedSpeedFtPerSecond": 2.3564772605895996,
+          "candidateCourtFt": [
+            5.173995018005371,
+            9.226034164428711
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.002602832391858101,
+          "motionInliers": 36,
+          "motionPixels": [
+            -1.1748046875,
+            0.1275634765625
+          ],
+          "patchDifferenceGray": 2.9693877551020407,
+          "estimatedSpeedFtPerSecond": 1.3214802742004395,
+          "candidateCourtFt": [
+            13.882596969604492,
+            7.888721942901611
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.005350593943148851,
+          "motionInliers": 49,
+          "motionPixels": [
+            0.00982666015625,
+            0.3583221435546875
+          ],
+          "patchDifferenceGray": 2.693877551020408,
+          "estimatedSpeedFtPerSecond": 0.8332992196083069,
+          "candidateCourtFt": [
+            9.067554473876953,
+            35.575599670410156
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 46,
+          "medianForwardBackwardPixels": 0.047235146164894104,
+          "motionInliers": 45,
+          "motionPixels": [
+            1.019287109375,
+            -1.61639404296875
+          ],
+          "patchDifferenceGray": 5.346938775510204,
+          "estimatedSpeedFtPerSecond": 7.302224636077881,
+          "candidateCourtFt": [
+            22.826642990112305,
+            21.457353591918945
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.001711434917524457,
+          "motionInliers": 47,
+          "motionPixels": [
+            0.021514892578125,
+            0.401702880859375
+          ],
+          "patchDifferenceGray": 4.244897959183674,
+          "estimatedSpeedFtPerSecond": 0.4626144766807556,
+          "candidateCourtFt": [
+            14.762008666992188,
+            0.8658921718597412
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 25,
+          "medianForwardBackwardPixels": 0.06764577329158783,
+          "motionInliers": 25,
+          "motionPixels": [
+            0.21905517578125,
+            0.2339019775390625
+          ],
+          "patchDifferenceGray": 4.877551020408164,
+          "estimatedSpeedFtPerSecond": 1.0276044607162476,
+          "candidateCourtFt": [
+            9.361039161682129,
+            48.0711784362793
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.492822,
+      "ground": {
+        "validFeatures": 92,
+        "inliers": 91,
+        "medianReprojectionPixels": 0.2377960979938507,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 54,
+          "medianForwardBackwardPixels": 0.010023176670074463,
+          "motionInliers": 54,
+          "motionPixels": [
+            -1.2799301147460938,
+            0.4287872314453125
+          ],
+          "patchDifferenceGray": 3.4489795918367347,
+          "estimatedSpeedFtPerSecond": 1.695245385169983,
+          "candidateCourtFt": [
+            5.1174421310424805,
+            9.227132797241211
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0031194710172712803,
+          "motionInliers": 36,
+          "motionPixels": [
+            -0.38360595703125,
+            0.2002410888671875
+          ],
+          "patchDifferenceGray": 3.510204081632653,
+          "estimatedSpeedFtPerSecond": 0.926794707775116,
+          "candidateCourtFt": [
+            13.857977867126465,
+            7.907434463500977
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.008073730394244194,
+          "motionInliers": 49,
+          "motionPixels": [
+            0.75335693359375,
+            0.629638671875
+          ],
+          "patchDifferenceGray": 4.1020408163265305,
+          "estimatedSpeedFtPerSecond": 1.2208417654037476,
+          "candidateCourtFt": [
+            9.104103088378906,
+            35.557613372802734
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 41,
+          "medianForwardBackwardPixels": 0.0765421986579895,
+          "motionInliers": 35,
+          "motionPixels": [
+            1.509033203125,
+            -2.19195556640625
+          ],
+          "patchDifferenceGray": 6.183673469387755,
+          "estimatedSpeedFtPerSecond": 9.575963973999023,
+          "candidateCourtFt": [
+            22.819740295410156,
+            21.776790618896484
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.003455501049757004,
+          "motionInliers": 47,
+          "motionPixels": [
+            0.7420654296875,
+            0.64947509765625
+          ],
+          "patchDifferenceGray": 5.755102040816326,
+          "estimatedSpeedFtPerSecond": 0.8867146372795105,
+          "candidateCourtFt": [
+            14.788348197937012,
+            0.8524174690246582
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.03254459798336029,
+          "motionInliers": 24,
+          "motionPixels": [
+            0.74200439453125,
+            0.48232269287109375
+          ],
+          "patchDifferenceGray": 6.3061224489795915,
+          "estimatedSpeedFtPerSecond": 1.11387300491333,
+          "candidateCourtFt": [
+            9.39388656616211,
+            48.088565826416016
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.526189,
+      "ground": {
+        "validFeatures": 90,
+        "inliers": 90,
+        "medianReprojectionPixels": 0.19782774150371552,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 54,
+          "medianForwardBackwardPixels": 0.009928537532687187,
+          "motionInliers": 52,
+          "motionPixels": [
+            -0.14739990234375,
+            0.594696044921875
+          ],
+          "patchDifferenceGray": 2.193877551020408,
+          "estimatedSpeedFtPerSecond": 0.9034851789474487,
+          "candidateCourtFt": [
+            5.088136196136475,
+            9.220063209533691
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.003459252417087555,
+          "motionInliers": 36,
+          "motionPixels": [
+            0.17510986328125,
+            0.2973785400390625
+          ],
+          "patchDifferenceGray": 2.5918367346938775,
+          "estimatedSpeedFtPerSecond": 1.711655855178833,
+          "candidateCourtFt": [
+            13.821203231811523,
+            7.951132297515869
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.005337436217814684,
+          "motionInliers": 49,
+          "motionPixels": [
+            1.16412353515625,
+            0.8392333984375
+          ],
+          "patchDifferenceGray": 2.8979591836734695,
+          "estimatedSpeedFtPerSecond": 0.962713360786438,
+          "candidateCourtFt": [
+            9.132403373718262,
+            35.542415618896484
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 33,
+          "medianForwardBackwardPixels": 0.07247690111398697,
+          "motionInliers": 31,
+          "motionPixels": [
+            1.576171875,
+            -2.5054931640625
+          ],
+          "patchDifferenceGray": 5.346938775510204,
+          "estimatedSpeedFtPerSecond": 13.364413261413574,
+          "candidateCourtFt": [
+            22.76373863220215,
+            22.21919059753418
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.003999665845185518,
+          "motionInliers": 47,
+          "motionPixels": [
+            1.328582763671875,
+            0.806243896484375
+          ],
+          "patchDifferenceGray": 5.530612244897959,
+          "estimatedSpeedFtPerSecond": 0.5022283792495728,
+          "candidateCourtFt": [
+            14.804399490356445,
+            0.8572322130203247
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.03628110885620117,
+          "motionInliers": 24,
+          "motionPixels": [
+            1.2177734375,
+            0.5572967529296875
+          ],
+          "patchDifferenceGray": 6.724489795918368,
+          "estimatedSpeedFtPerSecond": 1.66782808303833,
+          "candidateCourtFt": [
+            9.413381576538086,
+            48.140689849853516
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.559556,
+      "ground": {
+        "validFeatures": 90,
+        "inliers": 90,
+        "medianReprojectionPixels": 0.22420328855514526,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 52,
+          "medianForwardBackwardPixels": 0.012861311435699463,
+          "motionInliers": 50,
+          "motionPixels": [
+            0.35855865478515625,
+            0.653289794921875
+          ],
+          "patchDifferenceGray": 2.836734693877551,
+          "estimatedSpeedFtPerSecond": 0.7689753174781799,
+          "candidateCourtFt": [
+            5.062962532043457,
+            9.225027084350586
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0034603988751769066,
+          "motionInliers": 36,
+          "motionPixels": [
+            0.5514984130859375,
+            0.4143218994140625
+          ],
+          "patchDifferenceGray": 3.6224489795918364,
+          "estimatedSpeedFtPerSecond": 1.1983543634414673,
+          "candidateCourtFt": [
+            13.800596237182617,
+            7.985398769378662
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.0054840222001075745,
+          "motionInliers": 49,
+          "motionPixels": [
+            1.48760986328125,
+            0.9150238037109375
+          ],
+          "patchDifferenceGray": 3.020408163265306,
+          "estimatedSpeedFtPerSecond": 1.2643351554870605,
+          "candidateCourtFt": [
+            9.165705680847168,
+            35.516517639160156
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 31,
+          "medianForwardBackwardPixels": 0.07040780037641525,
+          "motionInliers": 29,
+          "motionPixels": [
+            1.03009033203125,
+            -2.764739990234375
+          ],
+          "patchDifferenceGray": 5.653061224489796,
+          "estimatedSpeedFtPerSecond": 13.824117660522461,
+          "candidateCourtFt": [
+            22.678672790527344,
+            22.672548294067383
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.0040578050538897514,
+          "motionInliers": 47,
+          "motionPixels": [
+            1.808074951171875,
+            0.808868408203125
+          ],
+          "patchDifferenceGray": 4.959183673469388,
+          "estimatedSpeedFtPerSecond": 1.0456076860427856,
+          "candidateCourtFt": [
+            14.839231491088867,
+            0.8592220544815063
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.016661468893289566,
+          "motionInliers": 24,
+          "motionPixels": [
+            1.5245361328125,
+            0.6917343139648438
+          ],
+          "patchDifferenceGray": 6.163265306122449,
+          "estimatedSpeedFtPerSecond": 0.8042044043540955,
+          "candidateCourtFt": [
+            9.439692497253418,
+            48.14596176147461
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.592922,
+      "ground": {
+        "validFeatures": 90,
+        "inliers": 88,
+        "medianReprojectionPixels": 0.24345353245735168,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.005766530521214008,
+          "motionInliers": 49,
+          "motionPixels": [
+            0.828125,
+            0.634002685546875
+          ],
+          "patchDifferenceGray": 2.5306122448979593,
+          "estimatedSpeedFtPerSecond": 0.32690930366516113,
+          "candidateCourtFt": [
+            5.056222915649414,
+            9.216450691223145
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0021925184410065413,
+          "motionInliers": 36,
+          "motionPixels": [
+            0.664337158203125,
+            0.36474609375
+          ],
+          "patchDifferenceGray": 3.6224489795918364,
+          "estimatedSpeedFtPerSecond": 0.9253987073898315,
+          "candidateCourtFt": [
+            13.78154182434082,
+            8.009695053100586
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.004967901855707169,
+          "motionInliers": 49,
+          "motionPixels": [
+            1.75634765625,
+            0.8583526611328125
+          ],
+          "patchDifferenceGray": 3.0816326530612246,
+          "estimatedSpeedFtPerSecond": 1.5346349477767944,
+          "candidateCourtFt": [
+            9.211708068847656,
+            35.4940299987793
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 29,
+          "medianForwardBackwardPixels": 0.03210826218128204,
+          "motionInliers": 28,
+          "motionPixels": [
+            0.9267578125,
+            -3.321502685546875
+          ],
+          "patchDifferenceGray": 4.561224489795919,
+          "estimatedSpeedFtPerSecond": 15.91560173034668,
+          "candidateCourtFt": [
+            22.5754451751709,
+            23.193458557128906
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.003482348518446088,
+          "motionInliers": 47,
+          "motionPixels": [
+            2.032867431640625,
+            0.64739990234375
+          ],
+          "patchDifferenceGray": 4.816326530612245,
+          "estimatedSpeedFtPerSecond": 1.0623177289962769,
+          "candidateCourtFt": [
+            14.874650001525879,
+            0.8605996966362
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.020918071269989014,
+          "motionInliers": 24,
+          "motionPixels": [
+            1.64044189453125,
+            0.6281814575195312
+          ],
+          "patchDifferenceGray": 5.8979591836734695,
+          "estimatedSpeedFtPerSecond": 1.1574159860610962,
+          "candidateCourtFt": [
+            9.473243713378906,
+            48.16508483886719
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.626289,
+      "ground": {
+        "validFeatures": 88,
+        "inliers": 88,
+        "medianReprojectionPixels": 0.2469356656074524,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.0076398397795856,
+          "motionInliers": 49,
+          "motionPixels": [
+            0.84228515625,
+            0.412750244140625
+          ],
+          "patchDifferenceGray": 3.183673469387755,
+          "estimatedSpeedFtPerSecond": 0.2483026534318924,
+          "candidateCourtFt": [
+            5.048360347747803,
+            9.219062805175781
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.002639900892972946,
+          "motionInliers": 36,
+          "motionPixels": [
+            0.8738555908203125,
+            0.19012451171875
+          ],
+          "patchDifferenceGray": 3.5510204081632653,
+          "estimatedSpeedFtPerSecond": 1.032411813735962,
+          "candidateCourtFt": [
+            13.762977600097656,
+            8.038713455200195
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.006856071297079325,
+          "motionInliers": 49,
+          "motionPixels": [
+            1.92626953125,
+            0.6375885009765625
+          ],
+          "patchDifferenceGray": 4.1020408163265305,
+          "estimatedSpeedFtPerSecond": 1.4585274457931519,
+          "candidateCourtFt": [
+            9.254779815673828,
+            35.47137451171875
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 27,
+          "medianForwardBackwardPixels": 0.03359142690896988,
+          "motionInliers": 27,
+          "motionPixels": [
+            0.873046875,
+            -3.706085205078125
+          ],
+          "patchDifferenceGray": 4.510204081632653,
+          "estimatedSpeedFtPerSecond": 16.77501678466797,
+          "candidateCourtFt": [
+            22.45444679260254,
+            23.73995590209961
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.00326024298556149,
+          "motionInliers": 47,
+          "motionPixels": [
+            2.27001953125,
+            0.4715576171875
+          ],
+          "patchDifferenceGray": 5.510204081632653,
+          "estimatedSpeedFtPerSecond": 1.1493757963180542,
+          "candidateCourtFt": [
+            14.910859107971191,
+            0.8732376098632812
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.0121612548828125,
+          "motionInliers": 24,
+          "motionPixels": [
+            1.70770263671875,
+            0.44045257568359375
+          ],
+          "patchDifferenceGray": 6.959183673469388,
+          "estimatedSpeedFtPerSecond": 0.8962997794151306,
+          "candidateCourtFt": [
+            9.498811721801758,
+            48.180599212646484
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.659656,
+      "ground": {
+        "validFeatures": 88,
+        "inliers": 87,
+        "medianReprojectionPixels": 0.24261941015720367,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.0055190641433000565,
+          "motionInliers": 49,
+          "motionPixels": [
+            1.1515960693359375,
+            0.258819580078125
+          ],
+          "patchDifferenceGray": 2.1020408163265305,
+          "estimatedSpeedFtPerSecond": 0.22682549059391022,
+          "candidateCourtFt": [
+            5.0416388511657715,
+            9.222541809082031
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.001801270293071866,
+          "motionInliers": 36,
+          "motionPixels": [
+            1.0149993896484375,
+            0.1381378173828125
+          ],
+          "patchDifferenceGray": 2.5102040816326534,
+          "estimatedSpeedFtPerSecond": 0.6860578656196594,
+          "candidateCourtFt": [
+            13.748027801513672,
+            8.056049346923828
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.0061715152114629745,
+          "motionInliers": 49,
+          "motionPixels": [
+            2.01861572265625,
+            0.6079864501953125
+          ],
+          "patchDifferenceGray": 2.7755102040816326,
+          "estimatedSpeedFtPerSecond": 1.6650643348693848,
+          "candidateCourtFt": [
+            9.306798934936523,
+            35.45186233520508
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 27,
+          "medianForwardBackwardPixels": 0.012544320896267891,
+          "motionInliers": 27,
+          "motionPixels": [
+            1.05767822265625,
+            -3.407073974609375
+          ],
+          "patchDifferenceGray": 3.9183673469387754,
+          "estimatedSpeedFtPerSecond": 15.416239738464355,
+          "candidateCourtFt": [
+            22.352388381958008,
+            24.244123458862305
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.003061051480472088,
+          "motionInliers": 47,
+          "motionPixels": [
+            2.560546875,
+            0.35638427734375
+          ],
+          "patchDifferenceGray": 4.755102040816326,
+          "estimatedSpeedFtPerSecond": 1.241525411605835,
+          "candidateCourtFt": [
+            14.95227336883545,
+            0.8742229342460632
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.014563653618097305,
+          "motionInliers": 24,
+          "motionPixels": [
+            1.739013671875,
+            0.32218170166015625
+          ],
+          "patchDifferenceGray": 5.969387755102041,
+          "estimatedSpeedFtPerSecond": 1.4856456518173218,
+          "candidateCourtFt": [
+            9.530035972595215,
+            48.21910095214844
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.693022,
+      "ground": {
+        "validFeatures": 87,
+        "inliers": 87,
+        "medianReprojectionPixels": 0.26197269558906555,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.005211831536144018,
+          "motionInliers": 49,
+          "motionPixels": [
+            1.5566864013671875,
+            0.20928955078125
+          ],
+          "patchDifferenceGray": 2.3877551020408165,
+          "estimatedSpeedFtPerSecond": 0.8226754665374756,
+          "candidateCourtFt": [
+            5.055234909057617,
+            9.246387481689453
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.004018910229206085,
+          "motionInliers": 36,
+          "motionPixels": [
+            1.1053466796875,
+            0.165924072265625
+          ],
+          "patchDifferenceGray": 2.6530612244897958,
+          "estimatedSpeedFtPerSecond": 0.8433215618133545,
+          "candidateCourtFt": [
+            13.740351676940918,
+            8.083120346069336
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.006816564127802849,
+          "motionInliers": 49,
+          "motionPixels": [
+            2.01593017578125,
+            0.5652313232421875
+          ],
+          "patchDifferenceGray": 2.8979591836734695,
+          "estimatedSpeedFtPerSecond": 1.6857073307037354,
+          "candidateCourtFt": [
+            9.35679817199707,
+            35.42610168457031
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 26,
+          "medianForwardBackwardPixels": 0.019442103803157806,
+          "motionInliers": 26,
+          "motionPixels": [
+            1.49334716796875,
+            -2.51824951171875
+          ],
+          "patchDifferenceGray": 4.969387755102041,
+          "estimatedSpeedFtPerSecond": 11.68973159790039,
+          "candidateCourtFt": [
+            22.2917423248291,
+            24.629419326782227
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.003167365910485387,
+          "motionInliers": 47,
+          "motionPixels": [
+            2.7806396484375,
+            0.319305419921875
+          ],
+          "patchDifferenceGray": 4.6938775510204085,
+          "estimatedSpeedFtPerSecond": 1.7592582702636719,
+          "candidateCourtFt": [
+            15.002909660339355,
+            0.9039144515991211
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.008123304694890976,
+          "motionInliers": 24,
+          "motionPixels": [
+            1.641143798828125,
+            0.3287506103515625
+          ],
+          "patchDifferenceGray": 5.591836734693878,
+          "estimatedSpeedFtPerSecond": 1.0099936723709106,
+          "candidateCourtFt": [
+            9.554595947265625,
+            48.2421760559082
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.726389,
+      "ground": {
+        "validFeatures": 87,
+        "inliers": 86,
+        "medianReprojectionPixels": 0.25507399439811707,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.004820256028324366,
+          "motionInliers": 49,
+          "motionPixels": [
+            1.87896728515625,
+            0.2222900390625
+          ],
+          "patchDifferenceGray": 2.3469387755102042,
+          "estimatedSpeedFtPerSecond": 0.8996824026107788,
+          "candidateCourtFt": [
+            5.077522277832031,
+            9.266498565673828
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.004424923099577427,
+          "motionInliers": 36,
+          "motionPixels": [
+            1.26739501953125,
+            0.1881866455078125
+          ],
+          "patchDifferenceGray": 3.2857142857142856,
+          "estimatedSpeedFtPerSecond": 0.7187075614929199,
+          "candidateCourtFt": [
+            13.74243450164795,
+            8.107010841369629
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.005849909968674183,
+          "motionInliers": 49,
+          "motionPixels": [
+            2.18194580078125,
+            0.6043701171875
+          ],
+          "patchDifferenceGray": 2.693877551020408,
+          "estimatedSpeedFtPerSecond": 1.9100421667099,
+          "candidateCourtFt": [
+            9.41323471069336,
+            35.39649200439453
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 26,
+          "medianForwardBackwardPixels": 0.04061855003237724,
+          "motionInliers": 26,
+          "motionPixels": [
+            1.534332275390625,
+            -1.492462158203125
+          ],
+          "patchDifferenceGray": 4.755102040816326,
+          "estimatedSpeedFtPerSecond": 7.908551216125488,
+          "candidateCourtFt": [
+            22.25542449951172,
+            24.890792846679688
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.004231391940265894,
+          "motionInliers": 47,
+          "motionPixels": [
+            2.990325927734375,
+            0.3167724609375
+          ],
+          "patchDifferenceGray": 5.0,
+          "estimatedSpeedFtPerSecond": 1.9942413568496704,
+          "candidateCourtFt": [
+            15.067136764526367,
+            0.9213126301765442
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.008550127036869526,
+          "motionInliers": 24,
+          "motionPixels": [
+            1.645416259765625,
+            0.32682037353515625
+          ],
+          "patchDifferenceGray": 5.122448979591837,
+          "estimatedSpeedFtPerSecond": 0.6216294169425964,
+          "candidateCourtFt": [
+            9.575165748596191,
+            48.244842529296875
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.759756,
+      "ground": {
+        "validFeatures": 86,
+        "inliers": 71,
+        "medianReprojectionPixels": 0.21800477802753448,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.007991760969161987,
+          "motionInliers": 48,
+          "motionPixels": [
+            2.2602615356445312,
+            0.28424072265625
+          ],
+          "patchDifferenceGray": 2.2653061224489797,
+          "estimatedSpeedFtPerSecond": 1.134667158126831,
+          "candidateCourtFt": [
+            5.106135845184326,
+            9.291291236877441
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.0038363926578313112,
+          "motionInliers": 36,
+          "motionPixels": [
+            1.469757080078125,
+            0.2411346435546875
+          ],
+          "patchDifferenceGray": 3.387755102040816,
+          "estimatedSpeedFtPerSecond": 0.5715548396110535,
+          "candidateCourtFt": [
+            13.752472877502441,
+            8.123226165771484
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.0062373182736337185,
+          "motionInliers": 49,
+          "motionPixels": [
+            2.33978271484375,
+            0.71240234375
+          ],
+          "patchDifferenceGray": 3.2653061224489797,
+          "estimatedSpeedFtPerSecond": 2.7588248252868652,
+          "candidateCourtFt": [
+            9.482242584228516,
+            35.335567474365234
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.06963260471820831,
+          "motionInliers": 24,
+          "motionPixels": [
+            1.694000244140625,
+            -0.3962554931640625
+          ],
+          "patchDifferenceGray": 4.683673469387755,
+          "estimatedSpeedFtPerSecond": 2.115097761154175,
+          "candidateCourtFt": [
+            22.240381240844727,
+            24.959745407104492
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.004931870847940445,
+          "motionInliers": 47,
+          "motionPixels": [
+            3.285064697265625,
+            0.442291259765625
+          ],
+          "patchDifferenceGray": 5.755102040816326,
+          "estimatedSpeedFtPerSecond": 2.3005595207214355,
+          "candidateCourtFt": [
+            15.143730163574219,
+            0.926409125328064
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.012419184669852257,
+          "motionInliers": 24,
+          "motionPixels": [
+            1.6744384765625,
+            0.48235321044921875
+          ],
+          "patchDifferenceGray": 4.9897959183673475,
+          "estimatedSpeedFtPerSecond": 2.2147839069366455,
+          "candidateCourtFt": [
+            9.607467651367188,
+            48.178375244140625
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.793122,
+      "ground": {
+        "validFeatures": 71,
+        "inliers": 71,
+        "medianReprojectionPixels": 0.25128111243247986,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 48,
+          "medianForwardBackwardPixels": 0.007314145565032959,
+          "motionInliers": 48,
+          "motionPixels": [
+            2.52392578125,
+            0.41339111328125
+          ],
+          "patchDifferenceGray": 2.5816326530612246,
+          "estimatedSpeedFtPerSecond": 1.1414227485656738,
+          "candidateCourtFt": [
+            5.139606475830078,
+            9.30946159362793
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 36,
+          "medianForwardBackwardPixels": 0.00332408444955945,
+          "motionInliers": 34,
+          "motionPixels": [
+            1.6935272216796875,
+            0.316864013671875
+          ],
+          "patchDifferenceGray": 3.3877551020408165,
+          "estimatedSpeedFtPerSecond": 0.7970815896987915,
+          "candidateCourtFt": [
+            13.75532054901123,
+            8.14966869354248
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.008169139735400677,
+          "motionInliers": 49,
+          "motionPixels": [
+            2.46240234375,
+            0.798583984375
+          ],
+          "patchDifferenceGray": 3.2857142857142856,
+          "estimatedSpeedFtPerSecond": 2.1412081718444824,
+          "candidateCourtFt": [
+            9.540191650390625,
+            35.29378128051758
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.06270436942577362,
+          "motionInliers": 24,
+          "motionPixels": [
+            1.4344482421875,
+            0.690216064453125
+          ],
+          "patchDifferenceGray": 6.969387755102041,
+          "estimatedSpeedFtPerSecond": 0.4619971215724945,
+          "candidateCourtFt": [
+            22.23827362060547,
+            24.944475173950195
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.00535763893276453,
+          "motionInliers": 47,
+          "motionPixels": [
+            3.706329345703125,
+            0.584808349609375
+          ],
+          "patchDifferenceGray": 4.959183673469388,
+          "estimatedSpeedFtPerSecond": 2.343590497970581,
+          "candidateCourtFt": [
+            15.221531867980957,
+            0.9342542886734009
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.007317071780562401,
+          "motionInliers": 24,
+          "motionPixels": [
+            1.8538818359375,
+            0.5257720947265625
+          ],
+          "patchDifferenceGray": 5.173469387755102,
+          "estimatedSpeedFtPerSecond": 0.8796914219856262,
+          "candidateCourtFt": [
+            9.62818717956543,
+            48.15758514404297
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.826489,
+      "ground": {
+        "validFeatures": 71,
+        "inliers": 68,
+        "medianReprojectionPixels": 0.22375351190567017,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 44,
+          "medianForwardBackwardPixels": 0.015201438218355179,
+          "motionInliers": 44,
+          "motionPixels": [
+            2.851715087890625,
+            0.5849609375
+          ],
+          "patchDifferenceGray": 3.5612244897959187,
+          "estimatedSpeedFtPerSecond": 1.5657360553741455,
+          "candidateCourtFt": [
+            5.188975811004639,
+            9.326552391052246
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 34,
+          "medianForwardBackwardPixels": 0.004780463874340057,
+          "motionInliers": 33,
+          "motionPixels": [
+            1.79449462890625,
+            0.46405029296875
+          ],
+          "patchDifferenceGray": 3.4489795918367347,
+          "estimatedSpeedFtPerSecond": 0.8194404244422913,
+          "candidateCourtFt": [
+            13.757955551147461,
+            8.176883697509766
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.011031007394194603,
+          "motionInliers": 49,
+          "motionPixels": [
+            2.45526123046875,
+            1.029510498046875
+          ],
+          "patchDifferenceGray": 4.224489795918367,
+          "estimatedSpeedFtPerSecond": 2.2304961681365967,
+          "candidateCourtFt": [
+            9.604541778564453,
+            35.25638961791992
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 22,
+          "medianForwardBackwardPixels": 0.042606551200151443,
+          "motionInliers": 22,
+          "motionPixels": [
+            1.302825927734375,
+            1.9290924072265625
+          ],
+          "patchDifferenceGray": 5.275510204081632,
+          "estimatedSpeedFtPerSecond": 4.944513320922852,
+          "candidateCourtFt": [
+            22.27813720703125,
+            24.784379959106445
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.006435809191316366,
+          "motionInliers": 47,
+          "motionPixels": [
+            3.923919677734375,
+            0.80731201171875
+          ],
+          "patchDifferenceGray": 5.346938775510204,
+          "estimatedSpeedFtPerSecond": 2.403332471847534,
+          "candidateCourtFt": [
+            15.299213409423828,
+            0.9541624188423157
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.010153338313102722,
+          "motionInliers": 19,
+          "motionPixels": [
+            1.89544677734375,
+            0.6444854736328125
+          ],
+          "patchDifferenceGray": 5.755102040816326,
+          "estimatedSpeedFtPerSecond": 1.9689092636108398,
+          "candidateCourtFt": [
+            9.654693603515625,
+            48.21769714355469
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.859856,
+      "ground": {
+        "validFeatures": 68,
+        "inliers": 67,
+        "medianReprojectionPixels": 0.2100873738527298,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 42,
+          "medianForwardBackwardPixels": 0.01897285506129265,
+          "motionInliers": 42,
+          "motionPixels": [
+            3.1141891479492188,
+            0.747406005859375
+          ],
+          "patchDifferenceGray": 3.5918367346938775,
+          "estimatedSpeedFtPerSecond": 1.8817405700683594,
+          "candidateCourtFt": [
+            5.251450538635254,
+            9.332817077636719
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 31,
+          "medianForwardBackwardPixels": 0.0032841507345438004,
+          "motionInliers": 31,
+          "motionPixels": [
+            1.867218017578125,
+            0.56292724609375
+          ],
+          "patchDifferenceGray": 3.2857142857142856,
+          "estimatedSpeedFtPerSecond": 0.8047292828559875,
+          "candidateCourtFt": [
+            13.76677131652832,
+            8.20224666595459
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.008136068470776081,
+          "motionInliers": 49,
+          "motionPixels": [
+            2.44647216796875,
+            1.001190185546875
+          ],
+          "patchDifferenceGray": 4.571428571428571,
+          "estimatedSpeedFtPerSecond": 1.8020867109298706,
+          "candidateCourtFt": [
+            9.657206535339355,
+            35.22737121582031
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 22,
+          "medianForwardBackwardPixels": 0.022566983476281166,
+          "motionInliers": 22,
+          "motionPixels": [
+            0.90289306640625,
+            2.9756622314453125
+          ],
+          "patchDifferenceGray": 3.4693877551020407,
+          "estimatedSpeedFtPerSecond": 8.84562873840332,
+          "candidateCourtFt": [
+            22.312942504882812,
+            24.491287231445312
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.008090612478554249,
+          "motionInliers": 47,
+          "motionPixels": [
+            4.204925537109375,
+            0.977996826171875
+          ],
+          "patchDifferenceGray": 5.530612244897959,
+          "estimatedSpeedFtPerSecond": 2.8897933959960938,
+          "candidateCourtFt": [
+            15.395291328430176,
+            0.9623215198516846
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 19,
+          "medianForwardBackwardPixels": 0.006371380295604467,
+          "motionInliers": 18,
+          "motionPixels": [
+            1.92462158203125,
+            0.6899185180664062
+          ],
+          "patchDifferenceGray": 5.142857142857142,
+          "estimatedSpeedFtPerSecond": 1.1330039501190186,
+          "candidateCourtFt": [
+            9.670160293579102,
+            48.252193450927734
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.893222,
+      "ground": {
+        "validFeatures": 67,
+        "inliers": 66,
+        "medianReprojectionPixels": 0.19686362147331238,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 39,
+          "medianForwardBackwardPixels": 0.06281037628650665,
+          "motionInliers": 39,
+          "motionPixels": [
+            3.410736083984375,
+            0.692291259765625
+          ],
+          "patchDifferenceGray": 4.040816326530612,
+          "estimatedSpeedFtPerSecond": 1.708929419517517,
+          "candidateCourtFt": [
+            5.3079729080200195,
+            9.34033489227295
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 29,
+          "medianForwardBackwardPixels": 0.003868998261168599,
+          "motionInliers": 28,
+          "motionPixels": [
+            2.13348388671875,
+            0.622039794921875
+          ],
+          "patchDifferenceGray": 3.816326530612245,
+          "estimatedSpeedFtPerSecond": 0.517111599445343,
+          "candidateCourtFt": [
+            13.780686378479004,
+            8.212448120117188
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.014068777672946453,
+          "motionInliers": 49,
+          "motionPixels": [
+            2.443115234375,
+            0.9097747802734375
+          ],
+          "patchDifferenceGray": 4.204081632653061,
+          "estimatedSpeedFtPerSecond": 0.79047030210495,
+          "candidateCourtFt": [
+            9.678321838378906,
+            35.21156692504883
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 22,
+          "medianForwardBackwardPixels": 0.014396216720342636,
+          "motionInliers": 22,
+          "motionPixels": [
+            0.98577880859375,
+            4.092926025390625
+          ],
+          "patchDifferenceGray": 4.020408163265306,
+          "estimatedSpeedFtPerSecond": 12.607192039489746,
+          "candidateCourtFt": [
+            22.353717803955078,
+            24.072616577148438
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.0128239206969738,
+          "motionInliers": 47,
+          "motionPixels": [
+            4.6209716796875,
+            1.08721923828125
+          ],
+          "patchDifferenceGray": 5.163265306122449,
+          "estimatedSpeedFtPerSecond": 3.737612247467041,
+          "candidateCourtFt": [
+            15.513076782226562,
+            0.9213463664054871
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 18,
+          "medianForwardBackwardPixels": 0.005592886358499527,
+          "motionInliers": 18,
+          "motionPixels": [
+            2.005279541015625,
+            0.761871337890625
+          ],
+          "patchDifferenceGray": 4.816326530612245,
+          "estimatedSpeedFtPerSecond": 1.0938173532485962,
+          "candidateCourtFt": [
+            9.657758712768555,
+            48.21786880493164
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.926589,
+      "ground": {
+        "validFeatures": 66,
+        "inliers": 66,
+        "medianReprojectionPixels": 0.26922476291656494,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 38,
+          "medianForwardBackwardPixels": 0.06769362092018127,
+          "motionInliers": 38,
+          "motionPixels": [
+            3.8268356323242188,
+            0.6736907958984375
+          ],
+          "patchDifferenceGray": 3.724489795918367,
+          "estimatedSpeedFtPerSecond": 1.9757802486419678,
+          "candidateCourtFt": [
+            5.373197078704834,
+            9.34992790222168
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 27,
+          "medianForwardBackwardPixels": 0.003111745696514845,
+          "motionInliers": 26,
+          "motionPixels": [
+            2.2363739013671875,
+            0.6531829833984375
+          ],
+          "patchDifferenceGray": 3.122448979591837,
+          "estimatedSpeedFtPerSecond": 0.5065284371376038,
+          "candidateCourtFt": [
+            13.794269561767578,
+            8.222505569458008
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.011188636533915997,
+          "motionInliers": 49,
+          "motionPixels": [
+            2.37445068359375,
+            0.80157470703125
+          ],
+          "patchDifferenceGray": 5.224489795918367,
+          "estimatedSpeedFtPerSecond": 1.3533626794815063,
+          "candidateCourtFt": [
+            9.717947959899902,
+            35.189910888671875
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 22,
+          "medianForwardBackwardPixels": 0.02889309823513031,
+          "motionInliers": 22,
+          "motionPixels": [
+            0.94329833984375,
+            4.058807373046875
+          ],
+          "patchDifferenceGray": 3.7551020408163263,
+          "estimatedSpeedFtPerSecond": 13.519700050354004,
+          "candidateCourtFt": [
+            22.404905319213867,
+            23.624418258666992
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.015359348617494106,
+          "motionInliers": 47,
+          "motionPixels": [
+            5.0618896484375,
+            1.182830810546875
+          ],
+          "patchDifferenceGray": 5.816326530612245,
+          "estimatedSpeedFtPerSecond": 3.5830109119415283,
+          "candidateCourtFt": [
+            15.631147384643555,
+            0.9025695323944092
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 18,
+          "medianForwardBackwardPixels": 0.008774366229772568,
+          "motionInliers": 18,
+          "motionPixels": [
+            2.198394775390625,
+            0.7881393432617188
+          ],
+          "patchDifferenceGray": 4.336734693877551,
+          "estimatedSpeedFtPerSecond": 1.7436929941177368,
+          "candidateCourtFt": [
+            9.697073936462402,
+            48.17498016357422
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.959956,
+      "ground": {
+        "validFeatures": 66,
+        "inliers": 66,
+        "medianReprojectionPixels": 0.2442018985748291,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 38,
+          "medianForwardBackwardPixels": 0.06673135608434677,
+          "motionInliers": 38,
+          "motionPixels": [
+            4.057579040527344,
+            0.5398101806640625
+          ],
+          "patchDifferenceGray": 4.928571428571429,
+          "estimatedSpeedFtPerSecond": 2.087651014328003,
+          "candidateCourtFt": [
+            5.43809175491333,
+            9.375246047973633
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 24,
+          "medianForwardBackwardPixels": 0.00458754226565361,
+          "motionInliers": 23,
+          "motionPixels": [
+            2.263885498046875,
+            0.75445556640625
+          ],
+          "patchDifferenceGray": 3.4285714285714284,
+          "estimatedSpeedFtPerSecond": 0.7688648104667664,
+          "candidateCourtFt": [
+            13.819869995117188,
+            8.220837593078613
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.02405141480267048,
+          "motionInliers": 49,
+          "motionPixels": [
+            2.46124267578125,
+            0.8390045166015625
+          ],
+          "patchDifferenceGray": 5.653061224489796,
+          "estimatedSpeedFtPerSecond": 0.8686977028846741,
+          "candidateCourtFt": [
+            9.743364334106445,
+            35.17597579956055
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 22,
+          "medianForwardBackwardPixels": 0.056430477648973465,
+          "motionInliers": 22,
+          "motionPixels": [
+            0.3255615234375,
+            2.372802734375
+          ],
+          "patchDifferenceGray": 5.204081632653061,
+          "estimatedSpeedFtPerSecond": 6.134603023529053,
+          "candidateCourtFt": [
+            22.38481330871582,
+            23.420713424682617
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 47,
+          "medianForwardBackwardPixels": 0.019544977694749832,
+          "motionInliers": 46,
+          "motionPixels": [
+            5.4790191650390625,
+            1.4319000244140625
+          ],
+          "patchDifferenceGray": 6.622448979591837,
+          "estimatedSpeedFtPerSecond": 5.098801612854004,
+          "candidateCourtFt": [
+            15.789600372314453,
+            0.8406223654747009
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 18,
+          "medianForwardBackwardPixels": 0.008236882276833057,
+          "motionInliers": 18,
+          "motionPixels": [
+            2.239227294921875,
+            0.7073822021484375
+          ],
+          "patchDifferenceGray": 4.469387755102041,
+          "estimatedSpeedFtPerSecond": 1.3020650148391724,
+          "candidateCourtFt": [
+            9.704219818115234,
+            48.13212585449219
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    },
+    {
+      "t": 9.993322,
+      "ground": {
+        "validFeatures": 66,
+        "inliers": 64,
+        "medianReprojectionPixels": 0.349091112613678,
+        "accepted": true
+      },
+      "players": [
+        {
+          "id": "W1",
+          "validFeatures": 38,
+          "medianForwardBackwardPixels": 0.03037402778863907,
+          "motionInliers": 38,
+          "motionPixels": [
+            4.266876220703125,
+            0.5473480224609375
+          ],
+          "patchDifferenceGray": 4.020408163265306,
+          "estimatedSpeedFtPerSecond": 2.3146233558654785,
+          "candidateCourtFt": [
+            5.503659725189209,
+            9.416053771972656
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W2",
+          "validFeatures": 22,
+          "medianForwardBackwardPixels": 0.0037032298278063536,
+          "motionInliers": 22,
+          "motionPixels": [
+            2.362518310546875,
+            0.78173828125
+          ],
+          "patchDifferenceGray": 3.642857142857143,
+          "estimatedSpeedFtPerSecond": 0.9292487502098083,
+          "candidateCourtFt": [
+            13.850512504577637,
+            8.216108322143555
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W3",
+          "validFeatures": 49,
+          "medianForwardBackwardPixels": 0.031088486313819885,
+          "motionInliers": 49,
+          "motionPixels": [
+            2.52935791015625,
+            0.83660888671875
+          ],
+          "patchDifferenceGray": 4.428571428571429,
+          "estimatedSpeedFtPerSecond": 1.2662537097930908,
+          "candidateCourtFt": [
+            9.760625839233398,
+            35.137413024902344
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W4",
+          "validFeatures": 22,
+          "medianForwardBackwardPixels": 0.024935796856880188,
+          "motionInliers": 22,
+          "motionPixels": [
+            -0.505584716796875,
+            0.9562225341796875
+          ],
+          "patchDifferenceGray": 2.836734693877551,
+          "estimatedSpeedFtPerSecond": 3.670786142349243,
+          "candidateCourtFt": [
+            22.273540496826172,
+            23.369531631469727
+          ],
+          "accepted": true
+        },
+        {
+          "id": "W5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        },
+        {
+          "id": "D1",
+          "accepted": false,
+          "reason": "seed_feet_occluded_by_foreground_spectators"
+        },
+        {
+          "id": "D2",
+          "validFeatures": 45,
+          "medianForwardBackwardPixels": 0.02230091765522957,
+          "motionInliers": 44,
+          "motionPixels": [
+            5.7770233154296875,
+            1.5760040283203125
+          ],
+          "patchDifferenceGray": 6.877551020408163,
+          "estimatedSpeedFtPerSecond": 6.074871063232422,
+          "candidateCourtFt": [
+            15.970745086669922,
+            0.7496745586395264
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D3",
+          "validFeatures": 18,
+          "medianForwardBackwardPixels": 0.028659064322710037,
+          "motionInliers": 18,
+          "motionPixels": [
+            2.41229248046875,
+            0.7762298583984375
+          ],
+          "patchDifferenceGray": 5.0102040816326525,
+          "estimatedSpeedFtPerSecond": 4.371821880340576,
+          "candidateCourtFt": [
+            9.708023071289062,
+            47.986305236816406
+          ],
+          "accepted": true
+        },
+        {
+          "id": "D4",
+          "accepted": false,
+          "reason": "inconsistent_clothing_motion"
+        },
+        {
+          "id": "D5",
+          "accepted": false,
+          "reason": "too_few_clothing_features"
+        }
+      ]
+    }
+  ],
+  "diagnosticMedia": "product/build/court-lab/diagnostic.mp4",
+  "diagnosticMediaMeaning": "Raw numerically accepted candidates, including subsequent semantic rejections. Not the filtered viewer dataset.",
+  "filteredFinalImage": "product/build/court-lab/filtered-last-overlay.jpg"
+}

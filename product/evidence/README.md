@@ -1,5 +1,6 @@
 # 关键一拍 · 产品验收记录
 
+**10 月 9 日最新俯视实验：** [俯视战术示意记录](court-lab-20261009.json)保存 145 项离线测试、真实关键帧标注、源哈希、重建检查和桌面浏览器操作。约 9–12 秒、七帧、十个匿名编号，关键帧可见人数为 9/8/6/8/8/7/8；中间运动明确为示意插值，不是自动或官方追踪。没有新推理、GPU、部署或成片生成。[光流失败](court-lab-diagnostic-20261009.json)与[独立检测实测](court-detector-20261009.json)保留，不混成展示数据或准确率指标。
 **2026-10-08 11:06（北京时间）状态更新：** `nba` 接入参赛角色实测被 STS AssumeRole AccessDenied 拒绝；产品网页不可访问，公共 DNS 没有返回其 A 地址，主办方 Portal 仍响应。与通知中的 10 月 8 日 09:00 练习权限到期相符，但后台资源是否删除、正式权限何时重开仍未确认。源码及成片独立备份存在；详见[只读核查](service-status-20261008.json)。
 
 更新日期：2026-10-09。本页记录产品原型的实际验收状态；历史成功、内容拒收和新版本复测分别保留。线上入口为[关键一拍](https://d2x8td5d05xg8h.cloudfront.net/product/)。
@@ -60,6 +61,7 @@ python3 -m unittest discover -s product/data -p 'test_*.py' -v
 python3 -m unittest discover -s product/scripts -p 'test_*.py' -v
 node --test product/web/test-app.cjs
 node --test product/web/test-atmosphere.cjs
+node --test product/tests/test_court_viewer.js
 ```
 
 ## 仍未完成的范围

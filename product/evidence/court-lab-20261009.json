@@ -1,0 +1,288 @@
+{
+  "scope": "Local desktop editorial schematic for the user's low-precision demo request. No AWS calls/deployment, new Agent inference, GPU, MP4 regeneration or Git push.",
+  "tests": {
+    "results": [
+      {
+        "component": "agent",
+        "command": "python3 -m unittest discover -s product/agent -p 'test_*.py'",
+        "tests": 19,
+        "passed": true
+      },
+      {
+        "component": "worker",
+        "command": "python3 -m unittest discover -s product/worker -p 'test_*.py'",
+        "tests": 8,
+        "passed": true
+      },
+      {
+        "component": "api",
+        "command": "python3 -m unittest discover -s product/api -p 'test_*.py'",
+        "tests": 12,
+        "passed": true
+      },
+      {
+        "component": "data",
+        "command": "python3 -m unittest discover -s product/data -p 'test_*.py'",
+        "tests": 16,
+        "passed": true
+      },
+      {
+        "component": "scripts",
+        "command": "python3 -m unittest discover -s product/scripts -p 'test_*.py'",
+        "tests": 13,
+        "passed": true
+      },
+      {
+        "component": "web",
+        "command": "node --test --test-reporter=spec product/web/test-app.cjs product/web/test-atmosphere.cjs",
+        "tests": 44,
+        "passed": true
+      },
+      {
+        "component": "court",
+        "command": "node --test --test-reporter=spec product/tests/test_court_viewer.js",
+        "tests": 33,
+        "passed": true
+      }
+    ],
+    "total": 145,
+    "allPassed": true
+  },
+  "checkedAt": "2026-10-09T17:53:30.570279+08:00",
+  "baseCommit": "4f9ba96e6eafd0c9a5376743763e0c3c26d651c6",
+  "dataset": {
+    "path": "../court-lab/flagg.json",
+    "annotations": "../court-lab/flagg-annotations.json",
+    "schema": "court-lab-v1",
+    "presentation": "schematic",
+    "sourceSha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+    "sourceVideo": "/samples/flagg.mp4",
+    "window": [
+      8.992322222222223,
+      11.995333333333335
+    ],
+    "tracks": 10,
+    "anchorsPerTrack": 7,
+    "visibleAtKeyframes": [
+      9,
+      8,
+      6,
+      8,
+      8,
+      7,
+      8
+    ],
+    "coordinateBoundsFt": {
+      "x": [
+        5.124,
+        36.202
+      ],
+      "y": [
+        1.118,
+        48.331
+      ]
+    },
+    "sourceHashCheckedDuringRebuild": true,
+    "deterministicRebuildSha256": "06c6136b477690c1301ef110d1f38070f81cdbf5e12b48a5b7207f21d75087b8",
+    "method": "AI assistants edited approximate visible ground/foot points in seven decoded real keyframes; stored per-frame ground homographies; linear schematic interpolation between adjacent visible anchors only. Not an automatic detector output.",
+    "allReviewedFalse": true,
+    "anonymousIdentity": true,
+    "noBallData": true,
+    "noClamp": true,
+    "independentAccuracyMeasured": false
+  },
+  "browser": {
+    "surface": "Codex in-app browser through CUA",
+    "viewport": [
+      1280,
+      720
+    ],
+    "observations": {
+      "initial": {
+        "clock": "00:08.992",
+        "count": "9 / 10 可见",
+        "error": null,
+        "horizontalOverflow": false,
+        "labels": [
+          "W1",
+          "W2",
+          "W3",
+          "W4",
+          "W5",
+          "D2",
+          "D3",
+          "D4",
+          "D5"
+        ],
+        "source": "战术示意回放 · 依据画面编辑 · 非官方追踪数据",
+        "video": {
+          "paused": true,
+          "rate": 1,
+          "ready": 4,
+          "time": 8.992322
+        },
+        "viewBox": "6 6 552 550",
+        "viewport": [
+          1280,
+          720
+        ],
+        "window": "分析区间 00:08.992 — 00:11.995 · 0 个示意插值 / 0 个关键帧快照 / 9 个编辑锚点"
+      },
+      "focusFull": {
+        "dimmed": 8,
+        "focus": "D5",
+        "ring": 1,
+        "sourceLabels": [
+          "D5"
+        ],
+        "time": 8.992322,
+        "viewBox": "0 0 1000 560"
+      },
+      "playing": {
+        "clock": "00:09.076",
+        "paused": false,
+        "rate": 0.5,
+        "time": 9.064163,
+        "trailCount": 1,
+        "window": "分析区间 00:08.992 — 00:11.995 · 8 个示意插值 / 0 个关键帧快照 / 0 个编辑锚点"
+      },
+      "windowEnd": {
+        "clock": "00:11.995",
+        "count": "8 / 10 可见",
+        "labels": [
+          "W1",
+          "W2",
+          "W3",
+          "W4",
+          "W5",
+          "D2",
+          "D4",
+          "D5"
+        ],
+        "paused": true,
+        "rate": 0.5,
+        "time": 11.995333,
+        "trailCount": 0
+      },
+      "darkFilter": {
+        "count": "3 / 5 可见",
+        "labels": [
+          "D2",
+          "D4",
+          "D5"
+        ],
+        "statuses": "D1\n遮挡\nD2\n编辑锚点\nD3\n遮挡\nD4\n编辑锚点\nD5\n编辑锚点"
+      },
+      "trailsOff": {
+        "points": 8,
+        "trailCount": 0
+      },
+      "seekOutside": {
+        "clock": "00:00.000",
+        "empty": "当前时间超出分析区间",
+        "emptyVisible": true,
+        "paused": true,
+        "points": 0,
+        "time": 0,
+        "trails": 0
+      },
+      "windowEndFixed": {
+        "clock": "00:11.995",
+        "count": "8 / 10 可见",
+        "labels": [
+          "W1",
+          "W2",
+          "W3",
+          "W4",
+          "W5",
+          "D2",
+          "D4",
+          "D5"
+        ],
+        "paused": true,
+        "rate": 0.5,
+        "time": 11.995333,
+        "trailCount": 7
+      },
+      "mainLink": {
+        "labLink": {
+          "hidden": false,
+          "href": "/product/court-lab/",
+          "text": "换个角度，看这一回合。俯视战术示意 · 依据关键帧编辑 · 同步回放↗"
+        },
+        "url": "http://127.0.0.1:4173/product/?story=flagg"
+      },
+      "amenLink": {
+        "hidden": true,
+        "story": "先起跳的，是谁？"
+      },
+      "finalLayout": {
+        "box": {
+          "bottom": 882.234375,
+          "height": 459.0546875,
+          "left": 740.671875,
+          "right": 1201.3984375,
+          "top": 423.1796875,
+          "width": 460.7265625,
+          "x": 740.671875,
+          "y": 423.1796875
+        },
+        "dataView": "half",
+        "overflow": false,
+        "viewBox": "6 6 552 550"
+      },
+      "finalPlayback": {
+        "clock": "00:11.995",
+        "count": "8 / 10 可见",
+        "dataView": "half",
+        "paused": true,
+        "rate": 1,
+        "time": 11.995333,
+        "trailCount": 7,
+        "viewBox": "6 6 552 550"
+      },
+      "consoleErrors": []
+    },
+    "screenshot": {
+      "path": "court-20261009/desktop-replay.png",
+      "sha256": "7bfc0d4145ac04060c618e4fe25de63260a5f09b1537ecb6402ad1d864dc985a",
+      "note": "Final default half-court view after real analysis-window playback; original video and court pause at 11.995333 sec."
+    },
+    "repairedIssues": [
+      "Endpoint microsecond rounding originally dropped the final focused trail; corrected and regression-tested.",
+      "Half-court SVG viewport initially exposed far-court lines due to mismatched layout ratio; ratio corrected and final actual screenshot checked."
+    ]
+  },
+  "researchEvidence": {
+    "opticalFlow": "court-lab-diagnostic-20261009.json",
+    "acceptedFlowAsShowcase": false,
+    "independentDetector": "court-detector-20261009.json",
+    "detectorUsedForDefaultDataset": false
+  },
+  "limitations": [
+    "Only a three-second edited Flagg example, not full-video or arbitrary input automatic tracking.",
+    "Foot annotations and homographies have no independent expert accuracy assessment.",
+    "Between edited anchors routes are illustrative estimates, not observed trajectories.",
+    "Occluded feet remain null; the display does not guarantee all ten visible positions.",
+    "Not part of current cloud publishing, Agent pipeline or burned-in enhanced MP4.",
+    "Formal judging scope and new input schema still require organizer source confirmation."
+  ],
+  "sourceSha256": {
+    "product/web/index.html": "72f8d709a3a22d1d7ed58de3b98922f630965c105a3b8ce8438832e502ba7164",
+    "product/web/app.js": "f236af82fd48d5a2fa2fa409e7b0c8c670d0f0da66f259432534db0d81092385",
+    "product/web/broadcast.css": "0422cca3e8f6092c4ef561b9c13ac41841bf805f6b8308f92cb515dc594e0cc6",
+    "product/scripts/serve.py": "8d1d46f217f1f5329c38cfbd3b2cc77711ae6b55f36fcfe959b7bc5284067c99",
+    "product/scripts/test_serve.py": "b2c853e4f2ec30ceaf8dd998bd6a26cad45b914913e9db1e0e065f15c4fe274a",
+    "product/tests/test_court_viewer.js": "e1c4cd4bfca50ca9c35824e2de599bec6a3d3a41032cec09c3cd114f7e3b479c",
+    "product/court-lab/README.md": "b7aea758f38f1e6dd00be063798d9b283080064d183e22f7c95da2eb9dde5032",
+    "product/court-lab/flagg-annotations.json": "f0d1d3264dc7733f9be00813a883135e8775973044a046b330eaaacd500e9363",
+    "product/court-lab/flagg.json": "06c6136b477690c1301ef110d1f38070f81cdbf5e12b48a5b7207f21d75087b8",
+    "product/court-lab/flow-flagg.json": "1a523ffc5d785fe0a687909d17cda97312c0fe2b66edadbb6b562591bbfc09de",
+    "product/court-lab/generate.py": "de0f11626b65a139f470d8e195b5aea17480cc07f23634ccdfc1e80c28cff38a",
+    "product/court-lab/generate_schematic.py": "31b9c7236afeba2641726ff7a6bd5478e85306a0d4cfe32fe9058460c5789039",
+    "product/court-lab/index.html": "b102d388bded4118889f4ef3ab78157461e17c9a2d5f51cd299d227b5435b5a5",
+    "product/court-lab/lab.css": "f9d29804679d428924f002d7bf21b51bb3e52d6dfe46adeb0dad5d79d0c1b30d",
+    "product/court-lab/lab.js": "81a38d90480d369922f2f14e1f67b8628ff66ca20752ebed811394b725d1591a",
+    "product/court-lab/viewer.js": "a7f80d334f63b464d040dc87e11ff4410eec50c87b2d496becef1838aefdef22"
+  }
+}
