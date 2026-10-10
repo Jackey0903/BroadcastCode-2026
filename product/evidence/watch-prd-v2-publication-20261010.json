@@ -201,5 +201,17 @@
   "frontendCommit": "744132f508828ade52a34c8ee1efe68d2c73a517",
   "mergeCommit": "1c92bc3",
   "mediaReuploaded": false,
-  "extraTestSuitesRun": false
+  "extraTestSuitesRun": false,
+  "rootBrowser": {
+    "verifiedAt": "2026-10-10T11:58:20Z",
+    "url": "https://deky02484tknr.cloudfront.net/",
+    "currentSrc": "https://deky02484tknr.cloudfront.net/product/media/formal/enhanced.mp4",
+    "durationSeconds": 55.055,
+    "readyState": 4,
+    "mediaError": null,
+    "buddyMounted": true,
+    "buddyDrawn": true,
+    "playerBarWidth": 966,
+    "notice": ""
+  }
 }
