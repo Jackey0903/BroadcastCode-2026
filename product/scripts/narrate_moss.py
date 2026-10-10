@@ -21,7 +21,7 @@ sys.path.insert(0, str(ROOT / 'product/agent'))
 from moss_tts import MODELS, MossError, MossTTS
 
 SOURCE_SHA = 'f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91'
-VISUAL_SHA = '1417d270fb76f7d3d77ad436d7fff0b549de89e262f907bfabb30e47dac2bbb3'
+VISUAL_SHA = 'fa0e6805cb0f64fafcbb816e8e5d0d08a2543246a701975197beec409db24e6b'
 DURATION = 55.055
 
 
@@ -211,7 +211,8 @@ def render(plan, directory, key, preferred, *, sample=False):
         'planHashBasis': 'canonical JSON with sorted keys',
         'speechSha256': sha(speech), 'cues': [record for _, record in clips],
         'declaration': plan['declaration'], 'declarationLocation': 'project documentation, outside video',
-        'presentationClean': True, 'videoCodecCopiedFromVisualMaster': True,
+        'presentationClean': True, 'presentationEnglish': bool(master.get('presentationEnglish')),
+        'videoCodecCopiedFromVisualMaster': True,
         'mix': 'centered broadcast speech attenuated, sidechain ducked; no isolated crowd claim'}
     output.with_suffix('.manifest.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2))
     (ROOT / 'product/evidence/formal-moss-english-20261011.json').write_text(

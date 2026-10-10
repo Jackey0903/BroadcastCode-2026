@@ -1,11 +1,11 @@
 {
   "schema": "gamebuddy-moss-local-commentary-v1",
-  "createdAt": "2026-10-10T17:04:14.289691+00:00",
+  "createdAt": "2026-10-10T17:08:38.566815+00:00",
   "output": "product/build/ppt-demo-20261011/GameBuddy-PPT-55s-MOSS-English.mp4",
   "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
-  "visualSha256": "1417d270fb76f7d3d77ad436d7fff0b549de89e262f907bfabb30e47dac2bbb3",
-  "outputSha256": "9eb1669d46123b68e7b89e51d98587f3ee0443b16e22c5650495f61fc2f700e1",
-  "sizeBytes": 102125127,
+  "visualSha256": "fa0e6805cb0f64fafcbb816e8e5d0d08a2543246a701975197beec409db24e6b",
+  "outputSha256": "219b619fdd6e20dc22a431f2fe01213993f4d02173e871f3bf3567ac905fb6e4",
+  "sizeBytes": 101316582,
   "durationSeconds": 55.055,
   "frameCount": 3300,
   "probe": {
@@ -38,7 +38,7 @@
         "start_time": "0.000000",
         "duration_ts": 3303300,
         "duration": "55.055000",
-        "bit_rate": "14628138",
+        "bit_rate": "14510902",
         "bits_per_raw_sample": "8",
         "nb_frames": "3300",
         "extradata_size": 44,
@@ -90,10 +90,10 @@
         "time_base": "1/48000",
         "start_pts": 0,
         "start_time": "0.000000",
-        "duration_ts": 2637792,
-        "duration": "54.954000",
-        "bit_rate": "199108",
-        "nb_frames": "2577",
+        "duration_ts": 2633712,
+        "duration": "54.869000",
+        "bit_rate": "199164",
+        "nb_frames": "2573",
         "extradata_size": 5,
         "disposition": {
           "default": 1,
@@ -132,8 +132,8 @@
       "format_long_name": "QuickTime / MOV",
       "start_time": "0.000000",
       "duration": "55.055000",
-      "size": "102125127",
-      "bit_rate": "14839724",
+      "size": "101316582",
+      "bit_rate": "14722235",
       "probe_score": 100,
       "tags": {
         "major_brand": "isom",
@@ -157,7 +157,7 @@
     "video_export"
   ],
   "voiceDesign": "Original voices from text descriptions; no real commentator references",
-  "planSha256": "31ccec12938e1e6ddd7afbf4de33c9c083200f327a5a2cef4d1752c82d600fc9",
+  "planSha256": "30b963745ba2e5ea146b6de76f026bfb22f49ffd604b80be09de38b7f9f87f60",
   "planHashBasis": "canonical JSON with sorted keys",
   "speechSha256": "feebc25b99151e59eeaca973a86b57d81f4d9e368a332dbc6147ee15c676c4b3",
   "cues": [
@@ -694,10 +694,12 @@
   "declaration": "AI COMMENTARY · MOSS · ORIGINAL VOICES",
   "declarationLocation": "project documentation, outside video",
   "presentationClean": true,
+  "presentationEnglish": true,
   "videoCodecCopiedFromVisualMaster": true,
   "mix": "centered broadcast speech attenuated, sidechain ducked; no isolated crowd claim",
   "encodedVideoHashMatchesCleanMaster": true,
-  "videoElementaryStreamSha256": "90913f1fcae4a890f302c2cbfd6b737d18e59b1a35e893992b783607c50d3436",
+  "videoElementaryStreamSha256": "decf6c697f1ac23fe0d78fbbe6abfca08784df947ee8bac2e8b686c4d00561ba",
+  "visualMaster": "product/build/ppt-demo-20261011/english-v2/GameBuddy-PPT-English-v2.mp4",
   "asrReview": {
     "model": "moss-transcribe-diarize-pro",
     "transcript": "One stop. One more chance. Christie drives. Houston closes the lane. Freeze it. Look at the help around the ball. Blocked. Powell keeps it alive. That rebound gives Dallas another chance. Back to Christie. Time to reset. Watch the screen and the space on the right. Christie sidestep, let it fly. Off the glass. Three. Dallas cuts it to one. How tough was that shot? Space created, still contested. The official expected field goal rate, just thirty percent. A tough three. A second chance. A patient reset. Game buddy shows you why.",
@@ -732,13 +734,13 @@
       "game buddy shows you why": true
     },
     "passed": true,
-    "limits": "Automatic content/transcription check only. It is not human voice/style approval. Minor transcription spelling and inflection differences remain."
+    "limits": "Automatic transcription check, not human voice/style approval."
   },
   "onScreenProductionNotes": false,
   "onScreenMossBranding": false,
-  "voiceDirectionMethod": "Cast design prompts, exact speech text, punctuation and Flash duration hints; per-cue direction fields are editorial notes, not unsupported API parameters.",
+  "voiceDirectionMethod": "Cast design prompts, exact speech text, punctuation and Flash duration hints; per-cue direction fields are editorial notes.",
   "implementationHashes": {
     "product/agent/moss_tts.py": "c6168da06e1f21eceb1af5bbf98b9170bbacfe67cbf394e890e470c79f986865",
-    "product/scripts/narrate_moss.py": "ae44931a4ddb381b191b29f0e312bb9d290dad0ff613003fd7c237d5991ea209"
+    "product/scripts/narrate_moss.py": "ea52bf94a8d4cd21fb8f91009c7ed65e7924e6664efc8d2f92ad5a5169798344"
   }
 }
