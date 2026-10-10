@@ -1,0 +1,62 @@
+{
+  "schema": "gamebuddy-ppt-clean-visual-v1",
+  "createdAt": "2026-10-11T00:53:23.539286+08:00",
+  "output": "product/build/ppt-demo-20261011/GameBuddy-PPT-55秒-干净画面.mp4",
+  "manifest": "product/build/ppt-demo-20261011/GameBuddy-PPT-55秒-干净画面.manifest.json",
+  "outputSha256": "1417d270fb76f7d3d77ad436d7fff0b549de89e262f907bfabb30e47dac2bbb3",
+  "sizeBytes": 102096479,
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "durationSeconds": 55.055,
+  "frameCount": 3300,
+  "width": 1920,
+  "height": 1080,
+  "frameRate": "60000/1001",
+  "timelineMatchesOriginal": true,
+  "fullDecodePassed": true,
+  "visualInspection": {
+    "actualOutputFramesSeconds": [
+      12.0,
+      53.55
+    ],
+    "passed": true,
+    "observations": [
+      "Narrator/provider banner absent",
+      "Persistent upper-right production note absent",
+      "Outro retains concise NBA data source; technical footer removed"
+    ]
+  },
+  "audio": {
+    "broadcastAndEffectsRetained": true,
+    "newAiNarrationUsed": false,
+    "voiceoverByParallelProcessPending": true
+  },
+  "retained": [
+    "Basketball annotations and tactical captions",
+    "Official xFG 30% and score",
+    "Editorial diagram semantics",
+    "GameBuddy branding and original animations"
+  ],
+  "productionNotes": "Visual effects use editorial keyframes/interpolation, not automatic tracking. No new analysis or model inference.",
+  "originalMediaUnchanged": {
+    "product/build/formal-assets/GameBuddy-正式资产联调-v2-55秒.mp4": "0a93a488fa4f79e5a3ac87c68506ff447d461c30a59bec472ebbedd16edb4019",
+    "product/build/formal-assets/GameBuddy-正式55秒-豆包双人解说.mp4": "20527a7e140799bf57cacc2523928a810a49b4598810a4183c3db4fbc462f567"
+  },
+  "cloudDeployed": false,
+  "webRoutesChanged": false,
+  "agentCoreInvoked": false,
+  "rlInvoked": false,
+  "existingQualityGate": {
+    "passed": true,
+    "behavioralTests": 514,
+    "durationSeconds": 24.46,
+    "pythonFiles": 119,
+    "javascriptFiles": 53,
+    "newTestsAdded": false,
+    "certifiesCloudOrNarration": false
+  },
+  "localBackup": {
+    "directory": "/Users/jack/work/BroadcastCode-backups/20261011-ppt-clean-visual",
+    "mediaAndManifestHashesVerified": true
+  },
+  "narrationHandoff": "Use this visual master and outputSha256; do not reapply the old declaration.png narration-provider overlay."
+}

@@ -26,11 +26,12 @@ def digest(path):
 
 
 def chunk(job):
-    workdir, output, start, end, variant = job
+    workdir, output, start, end, variant, presentation_clean = job
     base.init(workdir)
     if variant == 'flagg55':
         import formal_v2_render as renderer
         renderer.init(workdir)
+    base.fx.SHOW_PRODUCTION_NOTES = not presentation_clean
     cv2.setNumThreads(1)
     target = Path(output) / f'{start:04d}.mp4'
     command = ['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pixel_format', 'bgr24',
@@ -63,27 +64,35 @@ def main():
     parser.add_argument('--output', type=Path)
     parser.add_argument('--variant', choices=['v1', 'flagg55'], default='flagg55')
     parser.add_argument('--workers', type=int, default=3)
+    parser.add_argument('--presentation-clean', action='store_true',
+                        help='Export a separate PPT visual master without production-note overlays or TTS')
     args = parser.parse_args()
+    if args.presentation_clean and args.variant != 'flagg55':
+        raise ValueError('The PPT visual master uses the locked 55-second timeline')
     if args.variant == 'flagg55':
         from formal_v2_timeline import FRAME_COUNT, DURATION, SEGMENTS
     else:
         from formal.timeline import FRAME_COUNT, DURATION, SEGMENTS
     if args.output is None:
-        args.output = ROOT / ('product/build/formal-assets/GameBuddy-正式资产联调-v2-55秒.mp4' if args.variant == 'flagg55' else 'product/build/formal-assets/GameBuddy-正式资产联调-v1.mp4')
+        args.output = ROOT / ('product/build/ppt-demo-20261011/GameBuddy-PPT-55秒-干净画面.mp4' if args.presentation_clean else
+                             'product/build/formal-assets/GameBuddy-正式资产联调-v2-55秒.mp4' if args.variant == 'flagg55' else
+                             'product/build/formal-assets/GameBuddy-正式资产联调-v1.mp4')
+    if args.presentation_clean and args.output.resolve().is_relative_to(ROOT / 'product/build/formal-assets'):
+        raise ValueError('Write the PPT edition outside the submitted formal-assets directory')
     if digest(args.source) != SOURCE_SHA256 or base.ANN['sourceSha256'] != SOURCE_SHA256 or base.OFFICIAL['sourceVideo']['sha256'] != SOURCE_SHA256:
         raise ValueError('Formal source identity mismatch')
     if not (args.workdir / 'frames/f1423.jpg').is_file() or not (args.workdir / 'slow/r0359.jpg').is_file():
         raise ValueError('Prepare the formal-source frames and slow replay first')
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    chunks = args.output.parent / f'chunks-{args.variant}'
+    chunks = args.output.parent / f'chunks-{args.variant}{"-clean" if args.presentation_clean else ""}'
     chunks.mkdir(exist_ok=True)
     started = time.monotonic()
-    jobs = [(str(args.workdir.resolve()), str(chunks.resolve()), start, min(start + 120, FRAME_COUNT), args.variant) for start in range(0, FRAME_COUNT, 120)]
+    jobs = [(str(args.workdir.resolve()), str(chunks.resolve()), start, min(start + 120, FRAME_COUNT), args.variant, args.presentation_clean) for start in range(0, FRAME_COUNT, 120)]
     with ProcessPoolExecutor(max_workers=max(1, min(4, args.workers)), mp_context=multiprocessing.get_context('spawn')) as pool:
         for future in as_completed([pool.submit(chunk, job) for job in jobs]):
             print(f'Rendered formal asset chunk {future.result()}', flush=True)
     playlist = chunks / 'concat.txt'
-    playlist.write_text(''.join(f"file '{start:04d}.mp4'\n" for _, _, start, _, _ in jobs))
+    playlist.write_text(''.join(f"file '{job[2]:04d}.mp4'\n" for job in jobs))
     audio = build_audio(args.source, args.output.parent / f'formal-mix-{args.variant}.wav', SEGMENTS, FRAME_COUNT)
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', str(playlist),
                     '-i', audio['output'], '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy',
@@ -101,8 +110,12 @@ def main():
                'browserPlaybackPassed': False, 'editorial': True, 'agentCoreInvoked': False, 'rlInvoked': False,
                'assetLibrary': 'product/broadcast-fx/library.json', 'sourceAnnotations': 'product/broadcast-fx/formal/data/annotations.json',
                'variant': args.variant,
+               'presentationClean': args.presentation_clean, 'aiNarrationUsed': False,
+               'voiceoverPending': args.presentation_clean,
+               'productionNotes': 'Visual effects use editorial keyframes/interpolation, not automatic tracking. No new model inference.',
                'reuse': ['Layers', 'draw_marker', 'draw_path', 'court_geometry', 'board_points', '_title_and_notes', 'draw_burst', 'render_intro', 'render_outro', 'draw_popup', 'draw_scorecard', 'draw_ball_trail', 'render_freeze'],
-               'rendererHashes': {path.name: digest(path) for path in [Path(__file__), Path(__file__).with_name('formal_scene_renderer.py'), Path(base.__file__)]}}
+               'rendererHashes': {path.name: digest(path) for path in [Path(__file__), Path(__file__).with_name('formal_scene_renderer.py'), Path(base.__file__),
+                                 Path(__file__).with_name('formal_v2_render.py'), Path(__file__).with_name('formal_v2_timeline.py'), Path(base.fx.__file__)]}}
     receipt_path = args.output.with_suffix('.manifest.json')
     receipt_path.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps({'output': str(args.output), 'manifest': str(receipt_path), 'durationSeconds': float(DURATION)}, ensure_ascii=False), flush=True)

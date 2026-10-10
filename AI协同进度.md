@@ -196,3 +196,7 @@
 - 20:01旧像素页快速适配：用户授权直接放现成考试成片且不得影响主路由。仅上传product/index.html与product/pixel-formal.js，旧观看区改为独立55秒正式视频/30%xFG/来源，旧章节隐藏避免时间错配；保留练习创作及训练营。发布前后root、watch HTML/JS/目录、正式MP4 ETag与SHA均未变，见product/evidence/pixel-formal-publication-20261010.json。无新推理/重传视频/CloudFront或CDK配置修改。已有一次514项门禁通过（18.47秒）；正式片生成未扩展。请后续不要用旧publication.py整包覆盖该独立入口。
 
 - 20:09路由收敛：用户要求只保留玻璃主页面与最新版55秒像素成片，旧测试页面下架。新增独立product/web/pixel.html供线上product/index.html，不加载旧app.js/创作表单/练习目录；移除STUDIO/CAMP。玻璃三个HTML仅改菜单文字“返回创作台”为“像素成片”，ETag条件更新，未覆盖并行播放器JS。根/watch都为玻璃兼容入口，旧story/hash只落到同一正式像素页。云HTML盘点无旧camp/court-lab/material-lab/readiness实验页面，HTTP旧地址403；保留历史媒体/API/RL证据。旧publish.py云发布加退役保护，避免复活旧样片。一次514项full通过，HTTP路由核对详见docs/公开路由收敛-20261010.md。本轮仅提交自己文件，不含另一个进程的战术板改动。
+
+- 10-11 00:49 PPT画面清理进行中：用户让另一进程重做AI配音，本会话只改画面。新增render_formal_assets.py --presentation-clean，单独导出product/build/ppt-demo-20261011/GameBuddy-PPT-55秒-干净画面.mp4，保持55.055秒/3300帧时间轴。将移除顶部配音供应商提示、右上常驻AI制作说明并精简片尾技术长句；官方数据、战术内容、示意语义保留。配音进程请以该新母版接新音频，不再叠加旧declaration.png或AI双人解说/豆包语音条；本会话不动formal-dialogue-en.json、narrate_formal.py或云端原版。最终hash待导出后记录。
+
+- 10-11 00:53 PPT干净画面已交付：新母版 `product/build/ppt-demo-20261011/GameBuddy-PPT-55秒-干净画面.mp4`，SHA256 `1417d270fb76f7d3d77ad436d7fff0b549de89e262f907bfabb30e47dac2bbb3`，55.055秒/3300帧/1080p；完整解码、实际输出截帧及原时间轴一致性核对通过，现有514项full一次通过，未新增测试。去掉顶部“AI双人解说·豆包语音”、右上常驻制作提示，片尾只留简短官方数据来源；原广播+特效音保留，新AI配音尚由并行进程制作。配音请读 docs/PPT演示视频画面清理-20261011.md，使用新母版hash，不再叠加旧 declaration.png；原提交媒体hash均未变，未更新网页/云端。新媒体与manifest已本地备份。

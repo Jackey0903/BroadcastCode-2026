@@ -15,6 +15,9 @@ FPS = 60000 / 1001
 WIDTH, HEIGHT = 1920, 1080
 TR, FOOT, STAB, BALL, G = {}, {}, {}, {}, {}
 RIM = None
+# Presentation exports keep production notes in their accompanying manifest.
+# The competition render retains its original on-screen disclosures by default.
+SHOW_PRODUCTION_NOTES = True
 
 
 def configure(workdir):
@@ -356,7 +359,7 @@ def draw_game_tag(L, alpha, mode="LIVE", sub="DAL @ HOU · Q4"):
     L.paste(text_rgba(sub, DIN, 30, CHALK, 2), x + 22, y + 34, alpha=alpha)
 
 def draw_disclosure(L, alpha):
-    if alpha <= 0.01:
+    if alpha <= 0.01 or not SHOW_PRODUCTION_NOTES:
         return
     L.paste(text_rgba("AI 解读字幕 · 特效依据人工关键帧与插值 · 非自动追踪", CJK, 20, CHALK), WIDTH - 70, 226,
             alpha=0.62 * alpha, anchor="rt")
@@ -727,7 +730,10 @@ def render_outro(i, n, base_frame=None, copy=None):
         L.paste(text_rgba(c, DIN, 44, col, 2), x + 18, 768 + 20 * (1 - ck), alpha=ck)
         x += w + 60
     fk = ease_out((t - 1.6) / 0.5)
-    L.paste(text_rgba("数据：NBA 官方逐回合与出手质量（xFG）   |  特效依据人工关键帧与插值 · 非自动追踪  |  AI 解读字幕",
+    source_note = "数据：NBA 官方逐回合与出手质量（xFG）"
+    if SHOW_PRODUCTION_NOTES:
+        source_note += "   |  特效依据人工关键帧与插值 · 非自动追踪  |  AI 解读字幕"
+    L.paste(text_rgba(source_note,
                       CJK, 22, MUTED), cx, 950, alpha=fk, anchor="c")
     L.paste(text_rgba("GameBuddy · NBA × AWS · TEAM 02", PIX, 24, CHALK), cx, 1000, alpha=fk, anchor="c")
     out = L.compose()
