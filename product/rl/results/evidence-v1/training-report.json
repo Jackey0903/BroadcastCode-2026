@@ -1,0 +1,136 @@
+{
+  "schema": "rl-scout-evidence-training-report-v1",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "baseRevision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+  "tasksSha256": "c0a45e7df1a2a56100de0aa7023f209b865f239d617e47fa749bcf5995647ff4",
+  "sourceJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+  "sftExamplesOptimized": 640,
+  "rlSteps": 30,
+  "rlGatePassed": true,
+  "sftUniqueTasksScheduled": 291,
+  "samplingWeights": {
+    "joint_three_layer": 0.35,
+    "basic_advanced": 0.2,
+    "basic_lookup": 0.075,
+    "advanced_lookup": 0.075,
+    "depth_lookup": 0.15,
+    "missing_family": 0.05,
+    "event_boundary": 0.04,
+    "as_of_boundary": 0.035,
+    "causal_boundary": 0.025
+  },
+  "selectedStage": "sft",
+  "evaluation": {
+    "base": {
+      "val": {
+        "episodes": 16,
+        "validRate": 0.0,
+        "schemaRate": 0.0,
+        "formatRate": 0.0,
+        "meanReward": -1.002375,
+        "coverage": 0.0,
+        "criticalErrorRate": 1.0,
+        "successRate": 0.0,
+        "expectedEpisodes": 16,
+        "complete": true
+      },
+      "test": {
+        "episodes": 16,
+        "validRate": 0.0,
+        "schemaRate": 0.0,
+        "formatRate": 0.0,
+        "meanReward": -1.00225,
+        "coverage": 0.0,
+        "criticalErrorRate": 1.0,
+        "successRate": 0.0,
+        "expectedEpisodes": 16,
+        "complete": true
+      }
+    },
+    "sft": {
+      "val": {
+        "episodes": 16,
+        "validRate": 0.9375,
+        "schemaRate": 1.0,
+        "formatRate": 1.0,
+        "meanReward": 0.87125,
+        "coverage": 0.9875,
+        "criticalErrorRate": 0.0625,
+        "successRate": 0.9375,
+        "expectedEpisodes": 16,
+        "complete": true
+      },
+      "test": {
+        "episodes": 16,
+        "validRate": 1.0,
+        "schemaRate": 1.0,
+        "formatRate": 1.0,
+        "meanReward": 0.99625,
+        "coverage": 1.0,
+        "criticalErrorRate": 0.0,
+        "successRate": 1.0,
+        "expectedEpisodes": 16,
+        "complete": true
+      }
+    },
+    "rl": {
+      "val": {
+        "episodes": 16,
+        "validRate": 0.9375,
+        "schemaRate": 1.0,
+        "formatRate": 1.0,
+        "meanReward": 0.87125,
+        "coverage": 0.9875,
+        "criticalErrorRate": 0.0625,
+        "successRate": 0.9375,
+        "expectedEpisodes": 16,
+        "complete": true
+      },
+      "test": {
+        "episodes": 16,
+        "validRate": 1.0,
+        "schemaRate": 1.0,
+        "formatRate": 1.0,
+        "meanReward": 0.99625,
+        "coverage": 1.0,
+        "criticalErrorRate": 0.0,
+        "successRate": 1.0,
+        "expectedEpisodes": 16,
+        "complete": true
+      }
+    }
+  },
+  "config": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "store": "data/evidence/store.json",
+    "tasks": "data/evidence/tasks.jsonl",
+    "out": "/opt/ml/checkpoints",
+    "dry_run": false,
+    "seed": 31,
+    "sft_epochs": 2,
+    "sft_max_tasks": 320,
+    "sft_lr": 0.0001,
+    "accumulation": 4,
+    "steps": 30,
+    "prompts_per_step": 2,
+    "group": 4,
+    "lr": 8e-06,
+    "lora_r": 16,
+    "max_new": 160,
+    "max_sequence": 4096,
+    "max_turns": 3,
+    "generation_batch": 2,
+    "micro_batch": 1,
+    "temperature": 1.0,
+    "eval_n": 16,
+    "min_sft_valid": 0.95,
+    "time_budget": 3600,
+    "final_reserve": 600,
+    "merge": 0
+  },
+  "budgetSeconds": 3600,
+  "elapsedSeconds": 3103.03,
+  "method": "verified SFT + single-update group-normalized on-policy policy gradient, no reference KL",
+  "claimBoundary": "structured evidence selection only; no visual-model training or automatic deployment"
+}

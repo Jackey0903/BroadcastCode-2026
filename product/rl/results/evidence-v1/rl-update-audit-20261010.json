@@ -1,0 +1,292 @@
+{
+  "schema": "rl-scout-rl-update-audit-v1",
+  "capturedAt": "2026-10-10T14:26:05.923778+08:00",
+  "job": "rl-scout-evidence-3b-two-teams-1010-052032",
+  "source": "s3://nba-hackathon-555726205424-team02/rl-scout/checkpoints/rl-scout-evidence-3b-two-teams-1010-052032/metrics.jsonl",
+  "sourceSha256": "ae5b8c61b6479c3e0d3bddff3c62758207ac1ece405a30ffe238abde4af93b91",
+  "sourceETag": "\"e93f2556d01d8cf79f2cde33e1be0bda\"",
+  "rlSamplingSteps": 30,
+  "stepIds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "updateGroupsTotal": 9,
+  "optimizerUpdateSteps": 7,
+  "flatGroupsTotal": 51,
+  "rolloutGroupsTotal": 60,
+  "sampledEpisodesTotal": 240,
+  "nonzeroLossSteps": 7,
+  "hasActualRLGradientUpdates": true,
+  "interpretation": "RL optimizer updates occurred, but held-out metrics did not improve over SFT.",
+  "steps": [
+    {
+      "step": 1,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.997,
+      "episodes": 8
+    },
+    {
+      "step": 2,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.995,
+      "episodes": 8
+    },
+    {
+      "step": 3,
+      "updateGroups": 2,
+      "flatGroups": 0,
+      "loss": -0.050621,
+      "meanReward": 0.246,
+      "episodes": 8
+    },
+    {
+      "step": 4,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.994,
+      "episodes": 8
+    },
+    {
+      "step": 5,
+      "updateGroups": 1,
+      "flatGroups": 1,
+      "loss": -0.074049,
+      "meanReward": 0.748,
+      "episodes": 8
+    },
+    {
+      "step": 6,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.996,
+      "episodes": 8
+    },
+    {
+      "step": 7,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.997,
+      "episodes": 8
+    },
+    {
+      "step": 8,
+      "updateGroups": 2,
+      "flatGroups": 0,
+      "loss": -0.006128,
+      "meanReward": 0.244,
+      "episodes": 8
+    },
+    {
+      "step": 9,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.995,
+      "episodes": 8
+    },
+    {
+      "step": 10,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.995,
+      "episodes": 8
+    },
+    {
+      "step": 11,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.996,
+      "episodes": 8
+    },
+    {
+      "step": 12,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.998,
+      "episodes": 8
+    },
+    {
+      "step": 13,
+      "updateGroups": 1,
+      "flatGroups": 1,
+      "loss": -0.128853,
+      "meanReward": 0.49675,
+      "episodes": 8
+    },
+    {
+      "step": 14,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.996,
+      "episodes": 8
+    },
+    {
+      "step": 15,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.998,
+      "episodes": 8
+    },
+    {
+      "step": 16,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.995,
+      "episodes": 8
+    },
+    {
+      "step": 17,
+      "updateGroups": 1,
+      "flatGroups": 1,
+      "loss": -0.020342,
+      "meanReward": 0.746,
+      "episodes": 8
+    },
+    {
+      "step": 18,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.996,
+      "episodes": 8
+    },
+    {
+      "step": 19,
+      "updateGroups": 1,
+      "flatGroups": 1,
+      "loss": -0.010169,
+      "meanReward": 0.745,
+      "episodes": 8
+    },
+    {
+      "step": 20,
+      "updateGroups": 1,
+      "flatGroups": 1,
+      "loss": -0.015894,
+      "meanReward": 0.496,
+      "episodes": 8
+    },
+    {
+      "step": 21,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.996,
+      "episodes": 8
+    },
+    {
+      "step": 22,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.998,
+      "episodes": 8
+    },
+    {
+      "step": 23,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.996,
+      "episodes": 8
+    },
+    {
+      "step": 24,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.998,
+      "episodes": 8
+    },
+    {
+      "step": 25,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": -0.0040000000000000036,
+      "episodes": 8
+    },
+    {
+      "step": 26,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.994,
+      "episodes": 8
+    },
+    {
+      "step": 27,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.998,
+      "episodes": 8
+    },
+    {
+      "step": 28,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.996,
+      "episodes": 8
+    },
+    {
+      "step": 29,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.998,
+      "episodes": 8
+    },
+    {
+      "step": 30,
+      "updateGroups": 0,
+      "flatGroups": 2,
+      "loss": 0.0,
+      "meanReward": 0.996,
+      "episodes": 8
+    }
+  ],
+  "limits": "Counts reflect executor logs and the runner condition that optimize() is called only when the used rollout list is nonempty; they do not establish improved basketball reasoning or justify deployment."
+}
