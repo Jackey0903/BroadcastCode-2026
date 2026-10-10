@@ -1,0 +1,70 @@
+{
+  "schema": "gamebuddy-presentation-editorial-court-v1",
+  "sourceVideo": "data/正式视频.mp4",
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "sourceFps": "60000/1001",
+  "coordinateSpace": "editorial half-court layout units, depth from attacking baseline then width from far sideline",
+  "courtSize": [47, 50],
+  "markerSafeMargin": 3.2,
+  "method": "Assistant visual review of the three exact held source frames. Visible lane corners guide court orientation; player spacing is edited from visible feet and relative body positions. This is not calibrated court reconstruction or tracking.",
+  "limitations": [
+    "Body-only players retain their original body brackets; no hidden source-image foot anchor is invented.",
+    "Schematic positions are rounded and separated for readability; they are not measured feet or official coordinates.",
+    "Only the existing annotated visible players are included: nine in T1, three highlighted in T3, nine in T2.",
+    "Direction arrows describe short editorial action directions, not player trajectories.",
+    "The 3.2-unit inset contains the largest active marker including its pulsing outer ring."
+  ],
+  "scenes": {
+    "T1": {
+      "frame": 240,
+      "sourceImage": "product/build/formal-video/frames/f0240.jpg",
+      "review": "Christie drives on the near side, Powell and two defenders occupy the interior, with a teammate and defender on each wide side. The fifth Dallas player is not added.",
+      "laneCornerReferenceImage": [[592, 635], [754, 820], [1647, 757], [1365, 587]],
+      "laneCornerReferenceCourt": [[19, 17], [19, 33], [0, 33], [0, 17]],
+      "players": {
+        "D00": {"court": [15.5, 42], "basis": "Visible blue shoe at the original source anchor; near-side drive outside the paint."},
+        "D7": {"court": [5.5, 22], "basis": "Body-only interior teammate near the basket; schematic spacing from overlapping bodies, feet remain unknown."},
+        "D32": {"court": [14.5, 46.5], "basis": "Body-only near-sideline teammate; bounded diagram inset, not an inferred source foot."},
+        "DfarA": {"court": [6.5, 3.5], "basis": "Body-only far-side teammate; diagram inset from the far sideline, identity remains unnamed."},
+        "R7": {"court": [13, 13.5], "basis": "Visible feet on the far side outside the painted lane."},
+        "R1": {"court": [3.5, 13], "basis": "Body-only baseline defender behind the interior pair; schematic spacing, feet remain unknown."},
+        "R30": {"court": [9, 26], "basis": "Body-only interior defender immediately in front of Powell; schematic spacing, feet remain unknown."},
+        "R10": {"court": [18.5, 38], "basis": "Visible green shoe at the original source anchor, trailing Christie's drive."},
+        "R20": {"court": [11.5, 39.5], "basis": "Body-only ball-side defender between Christie and the basket; schematic spacing, feet remain unknown."}
+      },
+      "arrows": [[[15.5, 41], [11.5, 34]], [[18.5, 38], [15.5, 36.5]]]
+    },
+    "T3": {
+      "frame": 480,
+      "sourceImage": "product/build/formal-video/frames/f0480.jpg",
+      "review": "Christie has reset near the near-side corner with the ball; the on-ball defender stands inside him, and Powell is near the painted lane. The source score graphic hides Christie's feet.",
+      "laneCornerReferenceImage": [[554, 659], [724, 850], [1636, 782], [1376, 609]],
+      "laneCornerReferenceCourt": [[19, 17], [19, 33], [0, 33], [0, 17]],
+      "players": {
+        "D00": {"court": [5.5, 43.5], "basis": "Body-only right-corner ball handler; source feet hidden by the broadcast score graphic, schematic placement only."},
+        "R10": {"court": [7, 38.5], "basis": "Visible green shoe at the original anchor; defender lies inside the ball handler toward the basket."},
+        "D7": {"court": [10, 30.5], "basis": "Visible foot at the original anchor, close to the near edge of the painted lane."}
+      },
+      "arrows": [[[7, 38.5], [6, 41.5]]]
+    },
+    "T2": {
+      "frame": 719,
+      "sourceImage": "product/build/formal-video/frames/f0719.jpg",
+      "review": "Christie moves away from the near-side corner toward the middle, Powell sets the nearby screen and the on-ball defender follows. The far-side teammate stays beyond the paint, while the cutter and help defender move inside.",
+      "laneCornerReferenceImage": [[575, 605], [706, 766], [1480, 699], [1248, 558]],
+      "laneCornerReferenceCourt": [[19, 17], [19, 33], [0, 33], [0, 17]],
+      "players": {
+        "D00": {"court": [12.5, 45.5], "basis": "Body-only ball handler near the sideline; relative spacing from the screen and visible defender, feet remain unknown."},
+        "D7": {"court": [17, 42.5], "basis": "Visible shoe at the original source anchor; nearby screen toward the middle."},
+        "D32": {"court": [22.5, 25], "basis": "Body-only moving cutter near the free-throw lane; airborne/moving feet are not projected as ground contact."},
+        "D10": {"court": [8, 3.5], "basis": "Visible feet close to the far sideline; schematic inset keeps the marker completely within court lines."},
+        "R7": {"court": [17.5, 15], "basis": "Visible shoe at the original source anchor on the far side of the lane."},
+        "R1": {"court": [5.5, 17], "basis": "Visible foot at the original source anchor near the far edge of the paint."},
+        "R30": {"court": [12, 38.5], "basis": "Body-only screen defender just inside Powell and Christie; schematic spacing, feet remain unknown."},
+        "R10": {"court": [8.5, 45], "basis": "Visible green shoe at the original source anchor, following Christie away from the corner."},
+        "R20": {"court": [25, 38], "basis": "Visible shoe at the original source anchor near the arc, following the off-ball cutter."}
+      },
+      "arrows": [[[12.5, 45.5], [15, 43]], [[22.5, 25], [18.5, 26]], [[8.5, 45], [11.5, 44]]]
+    }
+  }
+}

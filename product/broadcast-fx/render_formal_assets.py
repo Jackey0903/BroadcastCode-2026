@@ -26,11 +26,11 @@ def digest(path):
 
 
 def chunk(job):
-    workdir, output, start, end, variant, presentation_clean = job
+    workdir, output, start, end, variant, presentation_clean, presentation_english = job
     base.init(workdir)
     if variant == 'flagg55':
         import formal_v2_render as renderer
-        renderer.init(workdir)
+        renderer.init(workdir, presentation_english=presentation_english)
     base.fx.SHOW_PRODUCTION_NOTES = not presentation_clean
     cv2.setNumThreads(1)
     target = Path(output) / f'{start:04d}.mp4'
@@ -66,7 +66,11 @@ def main():
     parser.add_argument('--workers', type=int, default=3)
     parser.add_argument('--presentation-clean', action='store_true',
                         help='Export a separate PPT visual master without production-note overlays or TTS')
+    parser.add_argument('--presentation-english', action='store_true',
+                        help='English-first PPT edition with refined tactical positions and dated matchup bug')
     args = parser.parse_args()
+    if args.presentation_english:
+        args.presentation_clean = True
     if args.presentation_clean and args.variant != 'flagg55':
         raise ValueError('The PPT visual master uses the locked 55-second timeline')
     if args.variant == 'flagg55':
@@ -74,7 +78,8 @@ def main():
     else:
         from formal.timeline import FRAME_COUNT, DURATION, SEGMENTS
     if args.output is None:
-        args.output = ROOT / ('product/build/ppt-demo-20261011/GameBuddy-PPT-55秒-干净画面.mp4' if args.presentation_clean else
+        args.output = ROOT / ('product/build/ppt-demo-20261011/english-v2/GameBuddy-PPT-English-v2.mp4' if args.presentation_english else
+                             'product/build/ppt-demo-20261011/GameBuddy-PPT-55秒-干净画面.mp4' if args.presentation_clean else
                              'product/build/formal-assets/GameBuddy-正式资产联调-v2-55秒.mp4' if args.variant == 'flagg55' else
                              'product/build/formal-assets/GameBuddy-正式资产联调-v1.mp4')
     if args.presentation_clean and args.output.resolve().is_relative_to(ROOT / 'product/build/formal-assets'):
@@ -84,10 +89,11 @@ def main():
     if not (args.workdir / 'frames/f1423.jpg').is_file() or not (args.workdir / 'slow/r0359.jpg').is_file():
         raise ValueError('Prepare the formal-source frames and slow replay first')
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    chunks = args.output.parent / f'chunks-{args.variant}{"-clean" if args.presentation_clean else ""}'
+    suffix = '-english' if args.presentation_english else '-clean' if args.presentation_clean else ''
+    chunks = args.output.parent / f'chunks-{args.variant}{suffix}'
     chunks.mkdir(exist_ok=True)
     started = time.monotonic()
-    jobs = [(str(args.workdir.resolve()), str(chunks.resolve()), start, min(start + 120, FRAME_COUNT), args.variant, args.presentation_clean) for start in range(0, FRAME_COUNT, 120)]
+    jobs = [(str(args.workdir.resolve()), str(chunks.resolve()), start, min(start + 120, FRAME_COUNT), args.variant, args.presentation_clean, args.presentation_english) for start in range(0, FRAME_COUNT, 120)]
     with ProcessPoolExecutor(max_workers=max(1, min(4, args.workers)), mp_context=multiprocessing.get_context('spawn')) as pool:
         for future in as_completed([pool.submit(chunk, job) for job in jobs]):
             print(f'Rendered formal asset chunk {future.result()}', flush=True)
@@ -111,11 +117,18 @@ def main():
                'assetLibrary': 'product/broadcast-fx/library.json', 'sourceAnnotations': 'product/broadcast-fx/formal/data/annotations.json',
                'variant': args.variant,
                'presentationClean': args.presentation_clean, 'aiNarrationUsed': False,
+               'presentationEnglish': args.presentation_english,
                'voiceoverPending': args.presentation_clean,
                'productionNotes': 'Visual effects use editorial keyframes/interpolation, not automatic tracking. No new model inference.',
                'reuse': ['Layers', 'draw_marker', 'draw_path', 'court_geometry', 'board_points', '_title_and_notes', 'draw_burst', 'render_intro', 'render_outro', 'draw_popup', 'draw_scorecard', 'draw_ball_trail', 'render_freeze'],
                'rendererHashes': {path.name: digest(path) for path in [Path(__file__), Path(__file__).with_name('formal_scene_renderer.py'), Path(base.__file__),
                                  Path(__file__).with_name('formal_v2_render.py'), Path(__file__).with_name('formal_v2_timeline.py'), Path(base.fx.__file__)]}}
+    if args.presentation_english:
+        from presentation_labels import game_label
+        receipt['gameHeader'] = {'matchup': game_label()[0], 'dateTime': game_label()[1],
+                                 'basis': 'formal/data/official.json gameTimeUTC; America/Chicago local time'}
+        for name in ('presentation_labels.py', 'presentation_court.py', 'data/formal-presentation-court.json'):
+            receipt['rendererHashes'][name] = digest(Path(__file__).parent / name)
     receipt_path = args.output.with_suffix('.manifest.json')
     receipt_path.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps({'output': str(args.output), 'manifest': str(receipt_path), 'durationSeconds': float(DURATION)}, ensure_ascii=False), flush=True)

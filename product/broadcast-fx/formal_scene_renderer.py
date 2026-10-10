@@ -24,10 +24,13 @@ def board_position(image):
                      260 + (y - 350) / 700 * 555], dtype=float)
 
 
-def render_scene(name, local_frame, count=210, workdir=None, scene_override=None):
+def render_scene(name, local_frame, count=210, workdir=None, scene_override=None, presentation_english=False):
     workdir = Path(workdir or ROOT / "product/build/formal-video")
     raw = json.loads(ANNOTATIONS.read_text())
     scene = dict(scene_override or raw["scenes"][name])
+    if presentation_english:
+        from presentation_court import refine_scene
+        scene = refine_scene(name, scene)
     base = cv2.imread(str(workdir / f"frames/f{scene['frame']:04d}.jpg"))
     if base is None:
         raise FileNotFoundError("Missing source-bound formal frame")
@@ -45,9 +48,10 @@ def render_scene(name, local_frame, count=210, workdir=None, scene_override=None
                               1, .28 * morph * alpha, width, arrow=False)
         target = tactics.board_points([[5.25, 25]])[0]
         fx.ellipse(layer.glow, target, (25, 25), fx.scale_c(fx.ORANGE, morph * .6), 1, 10)
-    for path in scene["arrows"]:
+    for path_index, path in enumerate(scene["arrows"]):
         original = np.asarray(path["points"], dtype=float)
-        board = np.array([board_position(point) for point in original])
+        board = (tactics.board_points(scene['boardArrows'][path_index]) if presentation_english else
+                 np.array([board_position(point) for point in original]))
         points = original * (1 - morph) + board * morph
         color = fx.FLAME if path["kind"] == "offense" else tactics.RED
         tactics.draw_path(layer, points, color, fx.ease_in_out((t - .45) / .95),
@@ -55,7 +59,8 @@ def render_scene(name, local_frame, count=210, workdir=None, scene_override=None
                           width=5, dashed=path["kind"] == "defense")
     for index, player in enumerate(scene["players"]):
         original = np.asarray(player["image"], dtype=float)
-        board = board_position(player["image"])
+        board = (tactics.board_points([player['boardCourt']])[0] if presentation_english else
+                 board_position(player["image"]))
         position = original * (1 - morph) + board * morph
         color = fx.FLAME if player["id"] == "D00" else fx.CYAN if player["team"] == "offense" else tactics.RED
         tactics.draw_marker(layer, position, color, player.get("number"), t,
@@ -70,7 +75,11 @@ def render_scene(name, local_frame, count=210, workdir=None, scene_override=None
         for key in ("steps", "aside", "badge"):
             if key in scene_override:
                 scene[key] = scene_override[key]
-    tactics._title_and_notes(layer, scene, t, morph, alpha)
+    if presentation_english:
+        from presentation_labels import draw_tactic_labels
+        draw_tactic_labels(layer, scene, name, t, morph, alpha)
+    else:
+        tactics._title_and_notes(layer, scene, t, morph, alpha)
     return layer.compose(.65)
 
 

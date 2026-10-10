@@ -200,3 +200,7 @@
 - 10-11 00:49 PPT画面清理进行中：用户让另一进程重做AI配音，本会话只改画面。新增render_formal_assets.py --presentation-clean，单独导出product/build/ppt-demo-20261011/GameBuddy-PPT-55秒-干净画面.mp4，保持55.055秒/3300帧时间轴。将移除顶部配音供应商提示、右上常驻AI制作说明并精简片尾技术长句；官方数据、战术内容、示意语义保留。配音进程请以该新母版接新音频，不再叠加旧declaration.png或AI双人解说/豆包语音条；本会话不动formal-dialogue-en.json、narrate_formal.py或云端原版。最终hash待导出后记录。
 
 - 10-11 00:53 PPT干净画面已交付：新母版 `product/build/ppt-demo-20261011/GameBuddy-PPT-55秒-干净画面.mp4`，SHA256 `1417d270fb76f7d3d77ad436d7fff0b549de89e262f907bfabb30e47dac2bbb3`，55.055秒/3300帧/1080p；完整解码、实际输出截帧及原时间轴一致性核对通过，现有514项full一次通过，未新增测试。去掉顶部“AI双人解说·豆包语音”、右上常驻制作提示，片尾只留简短官方数据来源；原广播+特效音保留，新AI配音尚由并行进程制作。配音请读 docs/PPT演示视频画面清理-20261011.md，使用新母版hash，不再叠加旧 declaration.png；原提交媒体hash均未变，未更新网页/云端。新媒体与manifest已本地备份。
+
+- 10-11 01:02 PPT视觉第二轮进行中：用户新授权英文为主/中文小字、三次战术板站位精修，左上Game Mode改为HOU @ DAL / DEC 06, 2025 · 7:30 PM CT。新输出预定 `product/build/ppt-demo-20261011/english-v2/GameBuddy-PPT-English-v2.mp4`；55.055秒/3300帧时间轴仍不变，配音进程继续原时间点即可，最终合成请等本条后续新母版hash。旧干净母版保留，本轮不动配音脚本/语音稿/前端或云端。
+
+- 10-11 01:06 英文视觉母版已交付：`product/build/ppt-demo-20261011/english-v2/GameBuddy-PPT-English-v2.mp4`，SHA256 `fa0e6805cb0f64fafcbb816e8e5d0d08a2543246a701975197beec409db24e6b`，55.055秒/3300帧/1080p。主字幕54px英文+25px中文、战术板46px英文+25px中文；三处站位及箭头按各自源帧精修，完整外环保持场内，仍属编辑示意。Game Mode已换成HOU @ DAL / DEC 06, 2025 | 7:30 PM CT。整片解码、实际画面及原时间轴一致性通过，一次现有514项full通过；无新增测试。配音进程请用此英文新版及新hash替换上一份中文干净母版，不重加供应商提示条；本文件保留原广播+FX，未合入新AI配音。说明 docs/PPT英文画面与战术板精修-20261011.md；旧母版/线上片未覆盖，媒体与清单已本地备份。

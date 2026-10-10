@@ -18,6 +18,7 @@ RIM = None
 # Presentation exports keep production notes in their accompanying manifest.
 # The competition render retains its original on-screen disclosures by default.
 SHOW_PRODUCTION_NOTES = True
+PRESENTATION_ENGLISH = False
 
 
 def configure(workdir):
@@ -278,7 +279,7 @@ def tag_card(lines_key):
     n = text_rgba(num, DIN, 64, (255, 255, 255))
     put(n, (78 - n.shape[1]) // 2, 12)
     put(text_rgba(name, DIN, 44, CHALK, 2), 92, 6)
-    put(text_rgba(sub, CJK, 22, LED), 94, 56)
+    put(text_rgba(sub, DIN if PRESENTATION_ENGLISH else CJK, 24 if PRESENTATION_ENGLISH else 22, LED), 94, 56)
     return card
 
 @functools.lru_cache(maxsize=64)
@@ -304,12 +305,14 @@ def draw_caption(L, t, a, b, en, cn, color=ORANGE):
     x, y = 110, 838
     bar_h = int(96 * k_in)
     rect(L, x - 22, y + 4, x - 14, y + 4 + bar_h, color, 0.95 * al)
-    box_w = max(text_w(cn, CJK, 48), text_w(en, DIN, 40, 5)) + 70
+    en_size, cn_size, tracking = (54, 25, 2) if PRESENTATION_ENGLISH else (40, 48, 5)
+    box_w = max(text_w(cn, CJK, cn_size), text_w(en, DIN, en_size, tracking)) + 70
     rect(L, x - 30, y - 6, x + box_w, y + 112, (8, 9, 11), 0.55 * al)
     off = 40 * (1 - k_in) - 20 * (1 - k_out)
-    L.paste(text_rgba(en, DIN, 40, color, 5), x + off, y, alpha=al)
+    L.paste(text_rgba(en, DIN, en_size, color, tracking), x + off, y, alpha=al)
     n = len(cn); shown = max(1, int(n * clamp((t - a - 0.08) / max(0.18, 0.018 * n))))
-    L.paste(text_rgba(cn[:shown], CJK, 48, CHALK), x + off, y + 44, alpha=al)
+    L.paste(text_rgba(cn[:shown], CJK, cn_size, MUTED if PRESENTATION_ENGLISH else CHALK),
+            x + off, y + (66 if PRESENTATION_ENGLISH else 44), alpha=al)
 
 def draw_popup(L, t, t0, text, pos, color, size=170, dur=1.05, sub=None, sub_color=None):
     dt = t - t0
@@ -325,9 +328,10 @@ def draw_popup(L, t, t0, text, pos, color, size=170, dur=1.05, sub=None, sub_col
     L.paste(glow, pos[0], pos[1], alpha=0.55 * al, scale=scale * 1.02, anchor="c")
     L.paste(im, pos[0], pos[1], alpha=al, scale=scale, anchor="c")
     if sub:
-        sw = text_w(sub, CJK, 40) + 36; sy = pos[1] + size * 0.58 * scale
+        sub_size = 25 if PRESENTATION_ENGLISH else 40
+        sw = text_w(sub, CJK, sub_size) + 36; sy = pos[1] + size * 0.58 * scale
         rect(L, pos[0] - sw / 2, sy - 30, pos[0] + sw / 2, sy + 30, (8, 9, 11), 0.6 * al)
-        L.paste(text_rgba(sub, CJK, 40, sub_color or CHALK), pos[0], sy, alpha=al, anchor="c")
+        L.paste(text_rgba(sub, CJK, sub_size, sub_color or CHALK), pos[0], sy, alpha=al, anchor="c")
 
 def draw_shot_clock(L, t, alpha):
     if alpha <= 0.01:
@@ -502,7 +506,8 @@ def render_intro(i, n, base_frame=None, copy=None):
     if t > 0.7:
         k = ease_out((t - 0.7) / 0.3)
         L.paste(text_rgba(copy.get("contextEn", "1:51 LEFT · 4TH QTR"), DIN, 92, ORANGE, 6), x + 8 - 60 * (1 - k), 560, alpha=al * k)
-        L.paste(text_rgba(copy.get("contextCn", "落后 4 分 · 还剩 1分51秒"), CJK, 46, CHALK), x + 10 - 60 * (1 - k), 668, alpha=al * k)
+        L.paste(text_rgba(copy.get("contextCn", "落后 4 分 · 还剩 1分51秒"), CJK,
+                         28 if PRESENTATION_ENGLISH else 46, CHALK), x + 10 - 60 * (1 - k), 668, alpha=al * k)
     if t > 1.25:
         k = ease_out((t - 1.25) / 0.35)
         rect(L, 0, 770, (x + 760) * k, 846, BLUE, 0.92 * al)
@@ -601,7 +606,8 @@ def court_card(shot=None):
         sy = float(shot["locY"]) / 100 * 50
     d.line([X(5.25), Y(25), X(sx), Y(sy)], fill=rgb(LED) + (255,), width=2)
     d.ellipse([X(sx) - 9, Y(sy) - 9, X(sx) + 9, Y(sy) + 9], fill=rgb(ORANGE) + (255,), outline=rgb(CHALK) + (255,), width=2)
-    f = font(PIX, 24); d.text((14, 8), "SHOT CHART · 官方出手点", font=f, fill=rgb(CHALK) + (255,))
+    f = font(DIN if PRESENTATION_ENGLISH else PIX, 28 if PRESENTATION_ENGLISH else 24)
+    d.text((14, 8), "OFFICIAL SHOT LOCATION" if PRESENTATION_ENGLISH else "SHOT CHART · 官方出手点", font=f, fill=rgb(CHALK) + (255,))
     f2 = font(DIN, 34); d.text((X(sx) - 120, Y(sy) + 14), "5 FT" if shot is None else shot["distance"], font=f2, fill=rgb(LED) + (255,))
     return np.array(im)
 COURT = None
@@ -668,19 +674,24 @@ def render_freeze(L, ft, dur, shot=None):
         ellipse(L.sharp, (bx, by), (r + 18, r + 18), CHALK, 0.9, 3, a0, a0 + 14)
     line(L.sharp, (bx + r * 0.8, by - r * 0.6), (bx + 230, by - 140), CHALK, 0.85 * k, 2)
     L.paste(text_rgba("RELEASE", DIN, 64, LED, 4), bx + 238, by - 196, alpha=k)
-    L.paste(text_rgba("出手瞬间 · 进攻时间不到 5 秒", CJK, 30, CHALK), bx + 240, by - 128, alpha=k)
+    L.paste(text_rgba("出手瞬间" if PRESENTATION_ENGLISH else "出手瞬间 · 进攻时间不到 5 秒",
+                     CJK, 22 if PRESENTATION_ENGLISH else 30, CHALK), bx + 240, by - 128, alpha=k)
     # official data panel (right)
     px = WIDTH - 70 - 500 * (1 - ease_out((ft - 0.15) / 0.45)) * 0 - 470
     al = ease_out((ft - 0.15) / 0.4)
     x0, y0 = WIDTH - 540 + 80 * (1 - al), 264
     rect(L, x0, y0, x0 + 470, y0 + 610, (8, 9, 11), 0.78 * al)
     rect(L, x0, y0, x0 + 6, y0 + 610, PURPLE, al)
-    L.paste(text_rgba("OFFICIAL · NBA 官方数据", PIX, 24, VIOLET), x0 + 28, y0 + 22, alpha=al)
+    L.paste(text_rgba("NBA OFFICIAL DATA" if PRESENTATION_ENGLISH else "OFFICIAL · NBA 官方数据",
+                     DIN if PRESENTATION_ENGLISH else PIX, 30 if PRESENTATION_ENGLISH else 24, VIOLET), x0 + 28, y0 + 22, alpha=al)
     xk = ease_out((ft - 0.45) / 0.7)
     val = int(round(xfg * 100 * xk))  # Intermediate values are reveal animation only.
     L.paste(text_rgba(f"{val}%", DIN, 168, (255, 255, 255)), x0 + 26, y0 + 50, alpha=al)
     L.paste(text_rgba("xFG", DIN, 56, ORANGE, 3), x0 + 300, y0 + 74, alpha=al)
-    L.paste(text_rgba("预期命中率", CJK, 24, CHALK), x0 + 300, y0 + 140, alpha=al)
+    L.paste(text_rgba("EXPECTED FG%" if PRESENTATION_ENGLISH else "预期命中率",
+                     DIN if PRESENTATION_ENGLISH else CJK, 25 if PRESENTATION_ENGLISH else 24, CHALK), x0 + 300, y0 + 140, alpha=al)
+    if PRESENTATION_ENGLISH:
+        L.paste(text_rgba("预期命中率", CJK, 17, MUTED), x0 + 300, y0 + 172, alpha=al)
     rect(L, x0 + 28, y0 + 230, x0 + 442, y0 + 242, (55, 55, 55), 0.8 * al)
     rect(L, x0 + 28, y0 + 230, x0 + 28 + 414 * xfg * xk, y0 + 242, ORANGE, al)
     line(L.glow, (x0 + 28, y0 + 236), (x0 + 28 + 414 * xfg * xk, y0 + 236), scale_c(ORANGE, al), 1, 10)
@@ -695,7 +706,8 @@ def render_freeze(L, ft, dur, shot=None):
     sk = ease_out((ft - 1.15) / 0.4)
     rect(L, x0 + 28, y0 + 500, x0 + 442, y0 + 502, (80, 80, 80), al * sk)
     L.paste(text_rgba("NBA · EVENT 666" if shot is None else f"NBA · EVENT {shot['eventId']}", PIX, 24, VIOLET), x0 + 28, y0 + 514, alpha=al * sk)
-    L.paste(text_rgba(f"官方出手质量 · xFG {xfg_label}", CJK, 30, CHALK), x0 + 28, y0 + 552, alpha=al * sk)
+    L.paste(text_rgba(f"SHOT QUALITY · xFG {xfg_label}" if PRESENTATION_ENGLISH else f"官方出手质量 · xFG {xfg_label}",
+                     DIN if PRESENTATION_ENGLISH else CJK, 30, CHALK), x0 + 28, y0 + 552, alpha=al * sk)
     # shot chart (left)
     ck = ease_out((ft - 0.3) / 0.45)
     L.paste(chart, 70 - 60 * (1 - ck), 470, alpha=ck)
@@ -712,12 +724,14 @@ def render_outro(i, n, base_frame=None, copy=None):
     cx = WIDTH / 2
     a1 = ease_out((t - 0.25) / 0.4)
     L.paste(text_rgba(copy.get("nameEn", "COOPER FLAGG"), DIN, 132, CHALK, 8), cx, 250 - 40 * (1 - a1), alpha=a1, anchor="c")
-    L.paste(text_rgba(copy.get("nameCn", "弗拉格  ·  DAL #32"), CJK, 40, MUTED), cx, 340, alpha=a1, anchor="c")
+    L.paste(text_rgba(copy.get("nameCn", "弗拉格  ·  DAL #32"), CJK,
+                     26 if PRESENTATION_ENGLISH else 40, MUTED), cx, 340, alpha=a1, anchor="c")
     a2 = back_out(clamp((t - 0.55) / 0.3))
     num = copy.get("points", 34)
     L.paste(text_rgba(str(num), DIN, 300, ORANGE, 0, 0, (0, 0, 0), 0.12), cx - 40, 560, alpha=clamp((t - 0.55) / 0.1), scale=1.3 - 0.3 * a2, anchor="rc")
     L.paste(text_rgba("PTS", DIN, 110, CHALK, 6), cx - 10, 600, alpha=clamp((t - 0.6) / 0.15), anchor="lc")
-    L.paste(text_rgba(copy.get("pointsLabel", "本场得分"), CJK, 34, MUTED), cx - 6, 672, alpha=clamp((t - 0.6) / 0.15), anchor="lc")
+    L.paste(text_rgba(copy.get("pointsLabel", "本场得分"), DIN if PRESENTATION_ENGLISH else CJK,
+                     30 if PRESENTATION_ENGLISH else 34, MUTED), cx - 6, 672, alpha=clamp((t - 0.6) / 0.15), anchor="lc")
     chips = [("xFG 51%", ORANGE), ("5 FT · FINGER ROLL", CHALK), ("Q4 · 1:34", FLAME), ("DAL 105 — 107 HOU", GREEN)]
     chips = copy.get("chips", chips)
     total = sum(text_w(c, DIN, 44, 2) + 60 for c, _ in chips) - 24
@@ -730,11 +744,11 @@ def render_outro(i, n, base_frame=None, copy=None):
         L.paste(text_rgba(c, DIN, 44, col, 2), x + 18, 768 + 20 * (1 - ck), alpha=ck)
         x += w + 60
     fk = ease_out((t - 1.6) / 0.5)
-    source_note = "数据：NBA 官方逐回合与出手质量（xFG）"
+    source_note = "SOURCE: NBA PLAY-BY-PLAY & SHOT QUALITY (xFG)" if PRESENTATION_ENGLISH else "数据：NBA 官方逐回合与出手质量（xFG）"
     if SHOW_PRODUCTION_NOTES:
         source_note += "   |  特效依据人工关键帧与插值 · 非自动追踪  |  AI 解读字幕"
     L.paste(text_rgba(source_note,
-                      CJK, 22, MUTED), cx, 950, alpha=fk, anchor="c")
+                      DIN if PRESENTATION_ENGLISH else CJK, 26 if PRESENTATION_ENGLISH else 22, MUTED), cx, 950, alpha=fk, anchor="c")
     L.paste(text_rgba("GameBuddy · NBA × AWS · TEAM 02", PIX, 24, CHALK), cx, 1000, alpha=fk, anchor="c")
     out = L.compose()
     if i > n - 20:

@@ -22,9 +22,11 @@ OUTRO = {'nameEn': 'MAX CHRISTIE', 'nameCn': '克里斯蒂  ·  DAL #00', 'point
                    ('Q2 · 4:58', fx.FLAME), ('DAL 43 — 44 HOU', fx.GREEN)]}
 
 
-def init(workdir):
+def init(workdir, presentation_english=False):
     global WORK
     WORK = Path(workdir)
+    fx.PRESENTATION_ENGLISH = presentation_english
+    fx.tag_cached.cache_clear()
     base.init(workdir)
     # Only short, source-bound ball anchors. A null breaks the arc entirely.
     fx.BALL = {}
@@ -70,7 +72,7 @@ def tag(layer, source_seconds, color, alpha=1):
             tactics.draw_marker(layer, body, color, None, source_seconds, alpha=alpha,
                                 active=True, body_only=True)
             # The original floating card is reused; obscured feet stay unknown.
-            card = fx.tag_cached('00', 'M. CHRISTIE', '后撤步三分', color)
+            card = fx.tag_cached('00', 'M. CHRISTIE', 'STEP-BACK THREE' if fx.PRESENTATION_ENGLISH else '后撤步三分', color)
             x = max(190, min(1730, float(body[0]) + 120))
             layer.paste(card, x, float(body[1]) - 225, alpha=alpha, scale=.85, anchor='c')
             return
@@ -124,10 +126,12 @@ def render(frame):
     if name == 'intro':
         return fx.render_intro(local, segment['count'], base.source(6), INTRO)
     if name == 'outro':
-        return fx.render_outro(local, segment['count'], base.source(910), OUTRO)
+        copy = dict(OUTRO, pointsLabel='THIS PLAY') if fx.PRESENTATION_ENGLISH else OUTRO
+        return fx.render_outro(local, segment['count'], base.source(910), copy)
     if name in ('T1', 'T2', 'T3'):
         scene = second_chance_scene() if name == 'T3' else None
-        return render_scene(name, local, segment['count'], WORK, scene_override=scene)
+        return render_scene(name, local, segment['count'], WORK, scene_override=scene,
+                            presentation_english=fx.PRESENTATION_ENGLISH)
     if name == 'rewind':
         image = base.source(round(source_frame)).astype(np.int16)
         b, g, r = cv2.split(image)
@@ -141,7 +145,7 @@ def render(frame):
             x = 120 + k * 52
             cv2.fillPoly(layer.sharp, [np.array([[x + 50, 150], [x + 50, 214], [x, 182]], np.int32)], fx.CHALK + (255,), cv2.LINE_AA)
         layer.paste(fx.text_rgba('REPLAY', fx.PIX, 72, fx.CHALK), 250, 140)
-        layer.paste(fx.text_rgba('慢镜头回放', fx.CJK, 44, fx.VIOLET), 128, 230)
+        layer.paste(fx.text_rgba('慢镜头回放', fx.CJK, 25 if fx.PRESENTATION_ENGLISH else 44, fx.VIOLET), 128, 230)
         image = layer.compose()
         if local > segment['count'] - 8:
             k = (local - (segment['count'] - 8)) / 8
@@ -160,7 +164,11 @@ def render(frame):
         layer = fx.Layers(fx.grade(base.source(round(source_frame)), sat=1.08, vig=.25))
     tag(layer, source_seconds, fx.PURPLE if replay else fx.BLUE)
     basket_effect(layer, source_seconds, replay)
-    fx.draw_game_tag(layer, 1, 'COACH' if replay else 'LIVE', 'REPLAY · 0.5×' if replay else 'HOU @ DAL · Q2')
+    if fx.PRESENTATION_ENGLISH:
+        from presentation_labels import draw_game_header
+        draw_game_header(layer, replay)
+    else:
+        fx.draw_game_tag(layer, 1, 'COACH' if replay else 'LIVE', 'REPLAY · 0.5×' if replay else 'HOU @ DAL · Q2')
     if name == 'metric':
         raw = base.OFFICIAL['shot']['rawGpShot']
         release_ball = fx.ball_at(source_frame)
