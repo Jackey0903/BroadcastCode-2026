@@ -259,7 +259,8 @@ def verify_endpoint(session, endpoint_name, package_job, training_job, store_pat
     latest = sm.describe_endpoint(EndpointName=endpoint_name)
     require(latest.get("EndpointStatus") == "InService" and latest.get("EndpointConfigName") == endpoint_config,
             "Endpoint changed during verification")
-    expected.update(endpoint=endpoint_name, mergedWeightsSha256=lineage["mergedWeightsSha256"])
+    expected.update(endpoint=endpoint_name, endpointConfig=endpoint_config,
+                    sagemakerModel=model_name, mergedWeightsSha256=lineage["mergedWeightsSha256"])
     return {
         "schema": "rl-scout-evidence-endpoint-check-v1", "available": True, "lineageVerified": True,
         "account": who["Account"], "identityArn": who["Arn"], "region": REGION, "profile": PROFILE,

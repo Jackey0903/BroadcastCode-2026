@@ -1,0 +1,363 @@
+{
+  "schema": "rl-scout-evidence-product-delivery-v1",
+  "updatedAt": "2026-10-10T15:45:48.281572+08:00",
+  "complete": true,
+  "serviceReadyForBackendIntegration": true,
+  "releaseEligible": true,
+  "scope": "Two registered practice events, three depth choices each; model plus source/metric guard and at most one correction. Not unseen data or video accuracy.",
+  "successes": 6,
+  "n": 6,
+  "directPasses": 5,
+  "correctedPasses": 1,
+  "newlyExecutedProductRequests": 7,
+  "attempts": [
+    {
+      "story": "flagg",
+      "depthFamily": "gravity",
+      "passed": true,
+      "report": "product/rl/results/evidence-v1/service-connection-recovery-20261010.json",
+      "error": null,
+      "seconds": 36.971
+    },
+    {
+      "story": "amen",
+      "depthFamily": "leverage",
+      "passed": true,
+      "report": "product/rl/results/evidence-v1/service-connection-recovery-20261010.json",
+      "error": null,
+      "seconds": 4.954
+    },
+    {
+      "story": "flagg",
+      "depthFamily": "leverage",
+      "passed": true,
+      "report": "product/rl/results/evidence-v1/service-remaining-depths-20261010.json",
+      "error": null,
+      "seconds": 19.048
+    },
+    {
+      "story": "amen",
+      "depthFamily": "gravity",
+      "passed": true,
+      "report": "product/rl/results/evidence-v1/service-remaining-depths-20261010.json",
+      "error": null,
+      "seconds": 4.787
+    },
+    {
+      "story": "flagg",
+      "depthFamily": "shotdifficulty",
+      "passed": true,
+      "report": "product/rl/results/evidence-v1/service-remaining-depths-20261010.json",
+      "error": null,
+      "seconds": 3.99
+    },
+    {
+      "story": "amen",
+      "depthFamily": "shotdifficulty",
+      "passed": false,
+      "report": "product/rl/results/evidence-v1/service-remaining-depths-20261010.json",
+      "error": "ModelError: An error occurred (ModelError) when calling the InvokeEndpoint operation: Received server error (500) from primary and could not load the entire response body. See https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logEventViewer:group=/aws/sagemaker/Endpoints/rl-scout in account 555726205424 for more information.",
+      "seconds": 7.233
+    },
+    {
+      "story": "amen",
+      "depthFamily": "shotdifficulty",
+      "passed": true,
+      "report": "product/rl/results/evidence-v1/service-amen-shot-correction-20261010.json",
+      "error": null,
+      "seconds": 22.308
+    }
+  ],
+  "cases": [
+    {
+      "story": "flagg",
+      "depthFamily": "gravity",
+      "passed": true,
+      "seconds": 36.971,
+      "modelCalls": 2,
+      "correctionUsed": false,
+      "sourceReport": "product/rl/results/evidence-v1/service-connection-recovery-20261010.json",
+      "sourceReportSha256": "497fe50e3060fb96227bc1fc4d93583781de4b977d413d70a06433ec3024db74",
+      "evidence": [
+        {
+          "evidenceId": "e10e1bdacb4be",
+          "family": "basic",
+          "metric": "PTS",
+          "value": 34,
+          "unit": "count",
+          "grain": "player-game"
+        },
+        {
+          "evidenceId": "e09ba1fae361c",
+          "family": "advanced",
+          "metric": "EFG_PCT",
+          "value": 0.54,
+          "unit": "fraction",
+          "grain": "player-game"
+        },
+        {
+          "evidenceId": "ebf0d7b4f48f7",
+          "family": "gravity",
+          "metric": "OFF_BALL_PERIM_GRAV",
+          "value": 6.217,
+          "unit": "gravity_score",
+          "grain": "player-season"
+        }
+      ]
+    },
+    {
+      "story": "amen",
+      "depthFamily": "leverage",
+      "passed": true,
+      "seconds": 4.954,
+      "modelCalls": 2,
+      "correctionUsed": false,
+      "sourceReport": "product/rl/results/evidence-v1/service-connection-recovery-20261010.json",
+      "sourceReportSha256": "497fe50e3060fb96227bc1fc4d93583781de4b977d413d70a06433ec3024db74",
+      "evidence": [
+        {
+          "evidenceId": "e0fe2b07c736c",
+          "family": "leverage",
+          "metric": "CREATION_LVG",
+          "value": 1.49,
+          "unit": "leverage_score",
+          "grain": "player-season"
+        },
+        {
+          "evidenceId": "e9797141313d0",
+          "family": "basic",
+          "metric": "PTS",
+          "value": 20,
+          "unit": "count",
+          "grain": "player-game"
+        },
+        {
+          "evidenceId": "ebbfd38bd24cb",
+          "family": "advanced",
+          "metric": "EFG_PCT",
+          "value": 0.4444444444444444,
+          "unit": "fraction",
+          "grain": "player-game"
+        }
+      ]
+    },
+    {
+      "story": "flagg",
+      "depthFamily": "leverage",
+      "passed": true,
+      "seconds": 19.048,
+      "modelCalls": 2,
+      "correctionUsed": false,
+      "sourceReport": "product/rl/results/evidence-v1/service-remaining-depths-20261010.json",
+      "sourceReportSha256": "22ce540ff8b90850ca6621957b8007f9b9f3f4f30cc593b375558b5ec7f06c70",
+      "evidence": [
+        {
+          "evidenceId": "e10e1bdacb4be",
+          "family": "basic",
+          "metric": "PTS",
+          "value": 34,
+          "unit": "count",
+          "grain": "player-game"
+        },
+        {
+          "evidenceId": "e09ba1fae361c",
+          "family": "advanced",
+          "metric": "EFG_PCT",
+          "value": 0.54,
+          "unit": "fraction",
+          "grain": "player-game"
+        },
+        {
+          "evidenceId": "ea0fe91c4ffdb",
+          "family": "leverage",
+          "metric": "CREATION_LVG",
+          "value": 1.77,
+          "unit": "leverage_score",
+          "grain": "player-season"
+        }
+      ]
+    },
+    {
+      "story": "amen",
+      "depthFamily": "gravity",
+      "passed": true,
+      "seconds": 4.787,
+      "modelCalls": 2,
+      "correctionUsed": false,
+      "sourceReport": "product/rl/results/evidence-v1/service-remaining-depths-20261010.json",
+      "sourceReportSha256": "22ce540ff8b90850ca6621957b8007f9b9f3f4f30cc593b375558b5ec7f06c70",
+      "evidence": [
+        {
+          "evidenceId": "e1de36a2698b8",
+          "family": "gravity",
+          "metric": "OFF_BALL_PERIM_GRAV",
+          "value": -2.273,
+          "unit": "gravity_score",
+          "grain": "player-season"
+        },
+        {
+          "evidenceId": "e9797141313d0",
+          "family": "basic",
+          "metric": "PTS",
+          "value": 20,
+          "unit": "count",
+          "grain": "player-game"
+        },
+        {
+          "evidenceId": "ebbfd38bd24cb",
+          "family": "advanced",
+          "metric": "EFG_PCT",
+          "value": 0.4444444444444444,
+          "unit": "fraction",
+          "grain": "player-game"
+        }
+      ]
+    },
+    {
+      "story": "flagg",
+      "depthFamily": "shotdifficulty",
+      "passed": true,
+      "seconds": 3.99,
+      "modelCalls": 2,
+      "correctionUsed": false,
+      "sourceReport": "product/rl/results/evidence-v1/service-remaining-depths-20261010.json",
+      "sourceReportSha256": "22ce540ff8b90850ca6621957b8007f9b9f3f4f30cc593b375558b5ec7f06c70",
+      "evidence": [
+        {
+          "evidenceId": "e10e1bdacb4be",
+          "family": "basic",
+          "metric": "PTS",
+          "value": 34,
+          "unit": "count",
+          "grain": "player-game"
+        },
+        {
+          "evidenceId": "e09ba1fae361c",
+          "family": "advanced",
+          "metric": "EFG_PCT",
+          "value": 0.54,
+          "unit": "fraction",
+          "grain": "player-game"
+        },
+        {
+          "evidenceId": "ef1672ab853b9",
+          "family": "shotdifficulty",
+          "metric": "AVGSHOTQUALITY",
+          "value": 0.481,
+          "unit": "fraction",
+          "grain": "player-season"
+        }
+      ]
+    },
+    {
+      "story": "amen",
+      "depthFamily": "shotdifficulty",
+      "passed": true,
+      "seconds": 22.308,
+      "modelCalls": 3,
+      "correctionUsed": true,
+      "sourceReport": "product/rl/results/evidence-v1/service-amen-shot-correction-20261010.json",
+      "sourceReportSha256": "2e5d95dad4cdb52f09a1abc1df4118ec60e7a3c3a191dded91508f44048ca5b2",
+      "evidence": [
+        {
+          "evidenceId": "e9797141313d0",
+          "family": "basic",
+          "metric": "PTS",
+          "value": 20,
+          "unit": "count",
+          "grain": "player-game"
+        },
+        {
+          "evidenceId": "ebbfd38bd24cb",
+          "family": "advanced",
+          "metric": "EFG_PCT",
+          "value": 0.4444444444444444,
+          "unit": "fraction",
+          "grain": "player-game"
+        },
+        {
+          "evidenceId": "e29c297717080",
+          "family": "shotdifficulty",
+          "metric": "AVGSHOTQUALITY",
+          "value": 0.587,
+          "unit": "fraction",
+          "grain": "player-season"
+        }
+      ]
+    }
+  ],
+  "deployment": {
+    "schema": "rl-scout-evidence-lineage-v1",
+    "policy": "evidence-v1",
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "baseModel": "Qwen/Qwen2.5-3B-Instruct",
+    "baseRevision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+    "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+    "selectedStage": "rl",
+    "trainingSelectedStage": "sft",
+    "actualRL": true,
+    "optimizerUpdateSteps": 7,
+    "updateGroups": 9,
+    "rlSamplingSteps": 30,
+    "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+    "tasksSha256": "c0a45e7df1a2a56100de0aa7023f209b865f239d617e47fa749bcf5995647ff4",
+    "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+    "sourceArchiveSha256": "fb08ee6b1fd9fe6ddd8ca3f1222ad392a9cf00acabf1c24220e0f2fe22af2b7f",
+    "rawEvaluationReleaseGatePassed": false,
+    "semanticValidationRequired": true,
+    "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+    "frozenStoreFileSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+    "frozenTasksFileSha256": "8fc7b96dd588bb093c0830af46d66b2a1109a0c7dba83dbdbc59538938842510",
+    "handlerSha256": "e455a032899a8a2d01aaa29f870472ca1570dc4379ff15f9966a57bc856d2b70",
+    "metricsSha256": "ae5b8c61b6479c3e0d3bddff3c62758207ac1ece405a30ffe238abde4af93b91",
+    "trainingReportSha256": "16e2937181d4721d7b201cf8ea89b1080bce790000def677ffb39fe09db99704",
+    "adapterConfigSha256": "faacebc9ef7e6a843d375f469b6176f94e5e6a378fdae361703a9151fdd9fc86",
+    "adapterSha256": "9ae9cf4bbba57e2367a8b58e942c7774047ec94c4eecfae9497b49eda1e4e7a6",
+    "endpoint": "rl-scout",
+    "endpointConfig": "rl-scout-config-1010-144434",
+    "sagemakerModel": "rl-scout-model-1010-144434",
+    "mergedWeightsSha256": "00be65f61faef6fc3b764923f7d8ee4bd1f92acca7d4feeebc50ac73600f5f67"
+  },
+  "workerIntegrated": false,
+  "renderVerified": false,
+  "rawModelEvaluationGatePassed": false,
+  "rawTrainingSelectedStage": "sft",
+  "deployedStage": "rl",
+  "rlGainOverSftObserved": 0,
+  "rawRlValidation": {
+    "successes": 15,
+    "n": 16
+  },
+  "rawRlTest": {
+    "successes": 16,
+    "n": 16
+  },
+  "preservedFailureReports": [
+    {
+      "path": "product/rl/results/evidence-v1/service-evaluation-initial-prompt-failures-20261010.json",
+      "sha256": "c1418e38b8304bca1c08898b9ab9a933cec59a2d53fa573e8234543f7d69a784"
+    },
+    {
+      "path": "product/rl/results/evidence-v1/service-main-retest-20261010.json",
+      "sha256": "3a00a67e2423ad65d92e51a1b526b228c443997e642cc7ccaca899532758f467"
+    },
+    {
+      "path": "product/rl/results/evidence-v1/service-evaluation-training-prompt-20261010.json",
+      "sha256": "14d2801b73ae2f86303796b6e0f3c97704eb75b262f3133934c6cb1589dc8e08"
+    },
+    {
+      "path": "product/rl/results/evidence-v1/service-remaining-depths-20261010.json",
+      "sha256": "22ce540ff8b90850ca6621957b8007f9b9f3f4f30cc593b375558b5ec7f06c70"
+    }
+  ],
+  "checks": {
+    "fullCount": 386,
+    "fullSeconds": 14.68,
+    "fullPassed": true,
+    "finalCorrectionPromptChangedAfterFull": true,
+    "finalScopedClientTests": 6,
+    "finalScopedTestsPassed": true
+  },
+  "transport": "Local connect timeout changed 3 to 20 seconds; read25/no retries unchanged. Complete requests now succeed; proxy/network cause is supported but not a controlled root-cause proof.",
+  "correctionFix": "Observed duplicate query overflow at 4096 tokens. Once tools are available, request direct JSON correction from existing records; no IDs or correct answers supplied."
+}

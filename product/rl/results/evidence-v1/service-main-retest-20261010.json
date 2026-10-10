@@ -1,0 +1,59 @@
+[
+  {
+    "story": "flagg",
+    "depth": "gravity",
+    "result": {
+      "available": false,
+      "endpoint": "rl-scout",
+      "model": "Qwen/Qwen2.5-3B-Instruct",
+      "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+      "selectedStage": "rl",
+      "actualRL": false,
+      "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+      "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+      "policy": "evidence-v1",
+      "protocol": "qwen2.5-evidence-training-chat-v1",
+      "lineageVerified": false,
+      "modelInvoked": true,
+      "request": {
+        "playerId": "1642843",
+        "gameId": "0022500701",
+        "eventId": 666,
+        "requiredMetrics": [
+          {
+            "family": "basic",
+            "metric": "PTS",
+            "grain": "player-game"
+          },
+          {
+            "family": "advanced",
+            "metric": "EFG_PCT",
+            "grain": "player-game"
+          },
+          {
+            "family": "gravity",
+            "metric": "OFF_BALL_PERIM_GRAV",
+            "grain": "player-season"
+          }
+        ],
+        "requiredRelations": [
+          "volume_efficiency_context",
+          "game_season_attention_context"
+        ],
+        "grain": "mixed_game_season_context"
+      },
+      "evidence": [],
+      "relations": [],
+      "provenance": [],
+      "toolsUsed": [],
+      "trace": [],
+      "correctionUsed": false,
+      "sagemakerModel": "rl-scout-model-1010-144434",
+      "endpointConfig": "rl-scout-config-1010-144434",
+      "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+      "error": "ReadTimeoutError: Read timeout on endpoint URL: \"https://runtime.sagemaker.us-east-1.amazonaws.com/endpoints/rl-scout/invocations\"",
+      "modelCalls": 1,
+      "elapsedSeconds": 7.876
+    }
+  }
+]

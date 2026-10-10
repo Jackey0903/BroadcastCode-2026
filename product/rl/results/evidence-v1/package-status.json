@@ -1,0 +1,11 @@
+{
+  "capturedAt": "2026-10-10T14:44:28.762823+08:00",
+  "job": "rl-scout-pkg-evidence-rl-1010-063423",
+  "TrainingJobStatus": "Completed",
+  "SecondaryStatus": "Completed",
+  "FailureReason": null,
+  "TrainingTimeInSeconds": 376,
+  "ModelArtifacts": {
+    "S3ModelArtifacts": "s3://nba-hackathon-555726205424-team02/rl-scout/output/rl-scout-pkg-evidence-rl-1010-063423/output/model.tar.gz"
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "schema": "rl-scout-evidence-runtime-handoff-v1",
+  "createdAt": "2026-10-10T15:45:48.281572+08:00",
+  "readyForBackendIntegration": true,
+  "backendEnabledByThisFile": false,
+  "scope": "Only registered flagg/amen practice events; new formal event needs verified registration and a separate runtime data version.",
+  "endpoint": "rl-scout",
+  "region": "us-east-1",
+  "expectedAccount": "555726205424",
+  "expectedLineage": {
+    "schema": "rl-scout-evidence-lineage-v1",
+    "policy": "evidence-v1",
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "baseModel": "Qwen/Qwen2.5-3B-Instruct",
+    "baseRevision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+    "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+    "selectedStage": "rl",
+    "trainingSelectedStage": "sft",
+    "actualRL": true,
+    "optimizerUpdateSteps": 7,
+    "updateGroups": 9,
+    "rlSamplingSteps": 30,
+    "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+    "tasksSha256": "c0a45e7df1a2a56100de0aa7023f209b865f239d617e47fa749bcf5995647ff4",
+    "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+    "sourceArchiveSha256": "fb08ee6b1fd9fe6ddd8ca3f1222ad392a9cf00acabf1c24220e0f2fe22af2b7f",
+    "rawEvaluationReleaseGatePassed": false,
+    "semanticValidationRequired": true,
+    "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+    "frozenStoreFileSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+    "frozenTasksFileSha256": "8fc7b96dd588bb093c0830af46d66b2a1109a0c7dba83dbdbc59538938842510",
+    "handlerSha256": "e455a032899a8a2d01aaa29f870472ca1570dc4379ff15f9966a57bc856d2b70",
+    "metricsSha256": "ae5b8c61b6479c3e0d3bddff3c62758207ac1ece405a30ffe238abde4af93b91",
+    "trainingReportSha256": "16e2937181d4721d7b201cf8ea89b1080bce790000def677ffb39fe09db99704",
+    "adapterConfigSha256": "faacebc9ef7e6a843d375f469b6176f94e5e6a378fdae361703a9151fdd9fc86",
+    "adapterSha256": "9ae9cf4bbba57e2367a8b58e942c7774047ec94c4eecfae9497b49eda1e4e7a6",
+    "endpoint": "rl-scout",
+    "endpointConfig": "rl-scout-config-1010-144434",
+    "sagemakerModel": "rl-scout-model-1010-144434",
+    "mergedWeightsSha256": "00be65f61faef6fc3b764923f7d8ee4bd1f92acca7d4feeebc50ac73600f5f67"
+  },
+  "clientArtifacts": [
+    {
+      "path": "product/rl/evidence_client.py",
+      "sha256": "e62b30a84f0a6c288e2d9f540b490140ee143ce29e7f36c2f669d39fd4e41b07"
+    },
+    {
+      "path": "product/rl/evidence_env.py",
+      "sha256": "5c2074461bf09b4566ed78fa2ad8554306fd411e109ab6e6c1404cd83b529f03"
+    },
+    {
+      "path": "product/rl/evidence_store.py",
+      "sha256": "b4d623f9d659ca441fd7e3b18f82c19d8809d547872272fc77cd27060496aaca"
+    },
+    {
+      "path": "product/rl/depth_tasks.py",
+      "sha256": "40baf066e3258c225a1005380bad5c42dac612be75fe3724df46d7db3020d51e"
+    },
+    {
+      "path": "product/rl/data/evidence/store.json",
+      "sha256": "634b4210e3cbc0b50365ae2e7693bbcf495783a982cf4d14b8fa926a17033615"
+    }
+  ],
+  "defaultRequests": {
+    "flagg": {
+      "playerId": "1642843",
+      "gameId": "0022500701",
+      "eventId": 666,
+      "requiredMetrics": [
+        {
+          "family": "basic",
+          "metric": "PTS",
+          "grain": "player-game"
+        },
+        {
+          "family": "advanced",
+          "metric": "EFG_PCT",
+          "grain": "player-game"
+        },
+        {
+          "family": "gravity",
+          "metric": "OFF_BALL_PERIM_GRAV",
+          "grain": "player-season"
+        }
+      ],
+      "requiredRelations": [
+        "volume_efficiency_context",
+        "game_season_attention_context"
+      ],
+      "grain": "mixed_game_season_context"
+    },
+    "amen": {
+      "playerId": "1641708",
+      "gameId": "0022500491",
+      "eventId": 396,
+      "requiredMetrics": [
+        {
+          "family": "basic",
+          "metric": "PTS",
+          "grain": "player-game"
+        },
+        {
+          "family": "advanced",
+          "metric": "EFG_PCT",
+          "grain": "player-game"
+        },
+        {
+          "family": "leverage",
+          "metric": "CREATION_LVG",
+          "grain": "player-season"
+        }
+      ],
+      "requiredRelations": [
+        "volume_efficiency_context",
+        "game_season_impact_context"
+      ],
+      "grain": "mixed_game_season_context"
+    }
+  },
+  "validatedCases": [
+    {
+      "story": "flagg",
+      "depthFamily": "gravity"
+    },
+    {
+      "story": "amen",
+      "depthFamily": "leverage"
+    },
+    {
+      "story": "flagg",
+      "depthFamily": "leverage"
+    },
+    {
+      "story": "amen",
+      "depthFamily": "gravity"
+    },
+    {
+      "story": "flagg",
+      "depthFamily": "shotdifficulty"
+    },
+    {
+      "story": "amen",
+      "depthFamily": "shotdifficulty"
+    }
+  ],
+  "acceptanceReport": "product/rl/results/evidence-v1/service-delivery-20261010.json",
+  "acceptanceReportSha256": "601534ad7713fbc0a16407b1af6f1a3e58cbc50d4439f4de1d5700f7b77e43f7",
+  "maxModelCalls": 4,
+  "maxCorrections": 1,
+  "resultAcceptanceDeadlineSeconds": 90,
+  "localConnectTimeoutSeconds": 20,
+  "readTimeoutSeconds": 25,
+  "totalMaxAttempts": 1,
+  "deadlineNote": "Socket timeouts and late-result rejection; not a guarantee of wall-clock cancellation at exactly90sec.",
+  "requireAvailableAndLineageVerified": true,
+  "neverCountStaticFallbackAsModelSuccess": true,
+  "workerIntegrated": false,
+  "renderVerified": false
+}

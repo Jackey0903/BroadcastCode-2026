@@ -1,0 +1,889 @@
+{
+  "schema": "rl-scout-evidence-product-acceptance-v1",
+  "startedAt": "2026-10-10T14:52:19.711539+08:00",
+  "scope": "Two registered practice events, three typed depth choices each; no video quality score",
+  "system": "RL checkpoint + explicit typed metrics + source validation + at most one model correction",
+  "rawModelEvaluationGatePassed": false,
+  "rlGainOverSftObserved": 0,
+  "deployment": {
+    "schema": "rl-scout-evidence-lineage-v1",
+    "policy": "evidence-v1",
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "baseModel": "Qwen/Qwen2.5-3B-Instruct",
+    "baseRevision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+    "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+    "selectedStage": "rl",
+    "trainingSelectedStage": "sft",
+    "actualRL": true,
+    "optimizerUpdateSteps": 7,
+    "updateGroups": 9,
+    "rlSamplingSteps": 30,
+    "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+    "tasksSha256": "c0a45e7df1a2a56100de0aa7023f209b865f239d617e47fa749bcf5995647ff4",
+    "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+    "sourceArchiveSha256": "fb08ee6b1fd9fe6ddd8ca3f1222ad392a9cf00acabf1c24220e0f2fe22af2b7f",
+    "rawEvaluationReleaseGatePassed": false,
+    "semanticValidationRequired": true,
+    "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+    "frozenStoreFileSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+    "frozenTasksFileSha256": "8fc7b96dd588bb093c0830af46d66b2a1109a0c7dba83dbdbc59538938842510",
+    "handlerSha256": "e455a032899a8a2d01aaa29f870472ca1570dc4379ff15f9966a57bc856d2b70",
+    "metricsSha256": "ae5b8c61b6479c3e0d3bddff3c62758207ac1ece405a30ffe238abde4af93b91",
+    "trainingReportSha256": "16e2937181d4721d7b201cf8ea89b1080bce790000def677ffb39fe09db99704",
+    "adapterConfigSha256": "faacebc9ef7e6a843d375f469b6176f94e5e6a378fdae361703a9151fdd9fc86",
+    "adapterSha256": "9ae9cf4bbba57e2367a8b58e942c7774047ec94c4eecfae9497b49eda1e4e7a6",
+    "endpoint": "rl-scout",
+    "endpointConfig": "rl-scout-config-1010-144434",
+    "sagemakerModel": "rl-scout-model-1010-144434",
+    "mergedWeightsSha256": "00be65f61faef6fc3b764923f7d8ee4bd1f92acca7d4feeebc50ac73600f5f67"
+  },
+  "cases": [
+    {
+      "story": "flagg",
+      "depthFamily": "gravity",
+      "passed": false,
+      "seconds": 11.546,
+      "result": {
+        "available": false,
+        "endpoint": "rl-scout",
+        "model": "Qwen/Qwen2.5-3B-Instruct",
+        "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+        "selectedStage": "rl",
+        "actualRL": true,
+        "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+        "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+        "policy": "evidence-v1",
+        "protocol": "qwen2.5-evidence-training-chat-v1",
+        "lineageVerified": true,
+        "modelInvoked": true,
+        "request": {
+          "playerId": "1642843",
+          "gameId": "0022500701",
+          "eventId": 666,
+          "requiredMetrics": [
+            {
+              "family": "basic",
+              "metric": "PTS",
+              "grain": "player-game"
+            },
+            {
+              "family": "advanced",
+              "metric": "EFG_PCT",
+              "grain": "player-game"
+            },
+            {
+              "family": "gravity",
+              "metric": "OFF_BALL_PERIM_GRAV",
+              "grain": "player-season"
+            }
+          ],
+          "requiredRelations": [
+            "volume_efficiency_context",
+            "game_season_attention_context"
+          ],
+          "grain": "mixed_game_season_context"
+        },
+        "evidence": [],
+        "relations": [],
+        "provenance": [],
+        "toolsUsed": [],
+        "trace": [
+          {
+            "assistant": "{\"evidenceIds\":[\"0022500701_00666\",\"0022500701_00999\",\"0025000000_00001\"],\"reasonCode\":null,\"relations\":[\"volume_efficiency_context\",\"game_season_attention_context\"],\"status\":\"ok\"}",
+            "validation": {
+              "errors": [
+                "incomplete_required_coverage",
+                "metric_or_grain_mismatch",
+                "relation_missing_operands",
+                "unreturned_wrong_or_irrelevant_evidence"
+              ],
+              "coverage": 0.4
+            }
+          },
+          {
+            "assistant": "{\"evidenceIds\":[\"0022500701_00666\",\"0022500701_00999\",\"0025000000_00001\"],\"reasonCode\":null,\"relations\":[\"volume_efficiency_context\",\"game_season_attention_context\"],\"status\":\"ok\"}",
+            "validation": {
+              "errors": [
+                "incomplete_required_coverage",
+                "metric_or_grain_mismatch",
+                "relation_missing_operands",
+                "unreturned_wrong_or_irrelevant_evidence"
+              ],
+              "coverage": 0.4
+            }
+          }
+        ],
+        "correctionUsed": true,
+        "sagemakerModel": "rl-scout-model-1010-144434",
+        "endpointConfig": "rl-scout-config-1010-144434",
+        "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+        "lineage": {
+          "schema": "rl-scout-evidence-lineage-v1",
+          "policy": "evidence-v1",
+          "model": "Qwen/Qwen2.5-3B-Instruct",
+          "baseModel": "Qwen/Qwen2.5-3B-Instruct",
+          "baseRevision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+          "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+          "selectedStage": "rl",
+          "trainingSelectedStage": "sft",
+          "actualRL": true,
+          "optimizerUpdateSteps": 7,
+          "updateGroups": 9,
+          "rlSamplingSteps": 30,
+          "sftExamplesOptimized": 640,
+          "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+          "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+          "tasksSha256": "c0a45e7df1a2a56100de0aa7023f209b865f239d617e47fa749bcf5995647ff4",
+          "sourceArchiveSha256": "fb08ee6b1fd9fe6ddd8ca3f1222ad392a9cf00acabf1c24220e0f2fe22af2b7f",
+          "adapterSha256": "9ae9cf4bbba57e2367a8b58e942c7774047ec94c4eecfae9497b49eda1e4e7a6",
+          "adapterConfigSha256": "faacebc9ef7e6a843d375f469b6176f94e5e6a378fdae361703a9151fdd9fc86",
+          "metricsSha256": "ae5b8c61b6479c3e0d3bddff3c62758207ac1ece405a30ffe238abde4af93b91",
+          "trainingReportSha256": "16e2937181d4721d7b201cf8ea89b1080bce790000def677ffb39fe09db99704",
+          "frozenStoreFileSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+          "frozenTasksFileSha256": "8fc7b96dd588bb093c0830af46d66b2a1109a0c7dba83dbdbc59538938842510",
+          "rawEvaluationReleaseGatePassed": false,
+          "semanticValidationRequired": true,
+          "selectionDisclosure": "Original report selected SFT on validation tie. This package uses the RL adapter for separately authorized, program-validated integration; it does not revise the original failure or claim an RL accuracy improvement.",
+          "rawValidation": {
+            "episodes": 16,
+            "validRate": 0.9375,
+            "schemaRate": 1.0,
+            "formatRate": 1.0,
+            "meanReward": 0.87125,
+            "coverage": 0.9875,
+            "criticalErrorRate": 0.0625,
+            "successRate": 0.9375,
+            "expectedEpisodes": 16,
+            "complete": true
+          },
+          "claimBoundary": "Text evidence-selection model, not a visual encoder or an independent source of numerical facts.",
+          "mergedAt": "2026-10-10T06:41:55.260559+00:00",
+          "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+          "modelWeights": {
+            "model-00001-of-00004.safetensors": "065a8e810a433ace3f5eb3be66d0749d7f06fcd50e7ba550c3ccad47062a7411",
+            "model-00002-of-00004.safetensors": "21f717b5608af988b8e06af3b12c86a721c7b04d370cbb15bc35774b2b052383",
+            "model-00003-of-00004.safetensors": "a9e8a2ddf569a0d092a8c410af4ab3f85174e04d0a9271afc1d883953eef9958",
+            "model-00004-of-00004.safetensors": "aa406cf3f9acf1150436e43cf8637df5f84f47a54fa148bd0ddae61a4ee355e9"
+          },
+          "mergedWeightsSha256": "00be65f61faef6fc3b764923f7d8ee4bd1f92acca7d4feeebc50ac73600f5f67",
+          "handlerSha256": "e455a032899a8a2d01aaa29f870472ca1570dc4379ff15f9966a57bc856d2b70"
+        },
+        "error": "selection_invalid_after_one_correction",
+        "validationErrors": [
+          "incomplete_required_coverage",
+          "metric_or_grain_mismatch",
+          "relation_missing_operands",
+          "unreturned_wrong_or_irrelevant_evidence"
+        ],
+        "modelCalls": 2,
+        "elapsedSeconds": 11.546
+      }
+    },
+    {
+      "story": "amen",
+      "depthFamily": "leverage",
+      "passed": false,
+      "seconds": 9.132,
+      "result": {
+        "available": false,
+        "endpoint": "rl-scout",
+        "model": "Qwen/Qwen2.5-3B-Instruct",
+        "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+        "selectedStage": "rl",
+        "actualRL": true,
+        "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+        "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+        "policy": "evidence-v1",
+        "protocol": "qwen2.5-evidence-training-chat-v1",
+        "lineageVerified": true,
+        "modelInvoked": true,
+        "request": {
+          "playerId": "1641708",
+          "gameId": "0022500491",
+          "eventId": 396,
+          "requiredMetrics": [
+            {
+              "family": "basic",
+              "metric": "PTS",
+              "grain": "player-game"
+            },
+            {
+              "family": "advanced",
+              "metric": "EFG_PCT",
+              "grain": "player-game"
+            },
+            {
+              "family": "leverage",
+              "metric": "CREATION_LVG",
+              "grain": "player-season"
+            }
+          ],
+          "requiredRelations": [
+            "volume_efficiency_context",
+            "game_season_impact_context"
+          ],
+          "grain": "mixed_game_season_context"
+        },
+        "evidence": [],
+        "relations": [],
+        "provenance": [],
+        "toolsUsed": [],
+        "trace": [
+          {
+            "assistant": "{\"tools\":[\"basic\",\"advanced\",\"leverage\"],\"reasonCode\":null,\"evidenceIds\":[\"0022500491_00396_001\",\"0022500491_00396_002\",\"0025000491_00396_003\"],\"relations\":[\"volume_efficiency_context\",\"game_season_impact_context\"]}",
+            "validation": {
+              "errors": [
+                "incomplete_required_coverage",
+                "invalid_schema",
+                "metric_or_grain_mismatch"
+              ],
+              "coverage": 0.0
+            }
+          },
+          {
+            "assistant": "{\"evidenceIds\":[\"0022500491_00396_001\",\"0022500491_00396_002\",\"0025000491_00396_003\"],\"reasonCode\":\"metric_or_grain_mismatch\",\"requiredMetrics\":[\"basic:PTS\",\"advanced:EFG_PCT\",\"leverage:CREATION_LVG\"],\"requiredRelations\":[\"volume_efficiency_context\",\"game_season_impact_context\"]}",
+            "validation": {
+              "errors": [
+                "incomplete_required_coverage",
+                "invalid_schema",
+                "metric_or_grain_mismatch"
+              ],
+              "coverage": 0.0
+            }
+          }
+        ],
+        "correctionUsed": true,
+        "sagemakerModel": "rl-scout-model-1010-144434",
+        "endpointConfig": "rl-scout-config-1010-144434",
+        "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+        "lineage": {
+          "schema": "rl-scout-evidence-lineage-v1",
+          "policy": "evidence-v1",
+          "model": "Qwen/Qwen2.5-3B-Instruct",
+          "baseModel": "Qwen/Qwen2.5-3B-Instruct",
+          "baseRevision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+          "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+          "selectedStage": "rl",
+          "trainingSelectedStage": "sft",
+          "actualRL": true,
+          "optimizerUpdateSteps": 7,
+          "updateGroups": 9,
+          "rlSamplingSteps": 30,
+          "sftExamplesOptimized": 640,
+          "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+          "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+          "tasksSha256": "c0a45e7df1a2a56100de0aa7023f209b865f239d617e47fa749bcf5995647ff4",
+          "sourceArchiveSha256": "fb08ee6b1fd9fe6ddd8ca3f1222ad392a9cf00acabf1c24220e0f2fe22af2b7f",
+          "adapterSha256": "9ae9cf4bbba57e2367a8b58e942c7774047ec94c4eecfae9497b49eda1e4e7a6",
+          "adapterConfigSha256": "faacebc9ef7e6a843d375f469b6176f94e5e6a378fdae361703a9151fdd9fc86",
+          "metricsSha256": "ae5b8c61b6479c3e0d3bddff3c62758207ac1ece405a30ffe238abde4af93b91",
+          "trainingReportSha256": "16e2937181d4721d7b201cf8ea89b1080bce790000def677ffb39fe09db99704",
+          "frozenStoreFileSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+          "frozenTasksFileSha256": "8fc7b96dd588bb093c0830af46d66b2a1109a0c7dba83dbdbc59538938842510",
+          "rawEvaluationReleaseGatePassed": false,
+          "semanticValidationRequired": true,
+          "selectionDisclosure": "Original report selected SFT on validation tie. This package uses the RL adapter for separately authorized, program-validated integration; it does not revise the original failure or claim an RL accuracy improvement.",
+          "rawValidation": {
+            "episodes": 16,
+            "validRate": 0.9375,
+            "schemaRate": 1.0,
+            "formatRate": 1.0,
+            "meanReward": 0.87125,
+            "coverage": 0.9875,
+            "criticalErrorRate": 0.0625,
+            "successRate": 0.9375,
+            "expectedEpisodes": 16,
+            "complete": true
+          },
+          "claimBoundary": "Text evidence-selection model, not a visual encoder or an independent source of numerical facts.",
+          "mergedAt": "2026-10-10T06:41:55.260559+00:00",
+          "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+          "modelWeights": {
+            "model-00001-of-00004.safetensors": "065a8e810a433ace3f5eb3be66d0749d7f06fcd50e7ba550c3ccad47062a7411",
+            "model-00002-of-00004.safetensors": "21f717b5608af988b8e06af3b12c86a721c7b04d370cbb15bc35774b2b052383",
+            "model-00003-of-00004.safetensors": "a9e8a2ddf569a0d092a8c410af4ab3f85174e04d0a9271afc1d883953eef9958",
+            "model-00004-of-00004.safetensors": "aa406cf3f9acf1150436e43cf8637df5f84f47a54fa148bd0ddae61a4ee355e9"
+          },
+          "mergedWeightsSha256": "00be65f61faef6fc3b764923f7d8ee4bd1f92acca7d4feeebc50ac73600f5f67",
+          "handlerSha256": "e455a032899a8a2d01aaa29f870472ca1570dc4379ff15f9966a57bc856d2b70"
+        },
+        "error": "selection_invalid_after_one_correction",
+        "validationErrors": [
+          "incomplete_required_coverage",
+          "invalid_schema",
+          "metric_or_grain_mismatch"
+        ],
+        "modelCalls": 2,
+        "elapsedSeconds": 9.132
+      }
+    },
+    {
+      "story": "flagg",
+      "depthFamily": "leverage",
+      "passed": false,
+      "seconds": 7.873,
+      "result": {
+        "available": false,
+        "endpoint": "rl-scout",
+        "model": "Qwen/Qwen2.5-3B-Instruct",
+        "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+        "selectedStage": "rl",
+        "actualRL": true,
+        "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+        "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+        "policy": "evidence-v1",
+        "protocol": "qwen2.5-evidence-training-chat-v1",
+        "lineageVerified": true,
+        "modelInvoked": true,
+        "request": {
+          "playerId": "1642843",
+          "gameId": "0022500701",
+          "eventId": 666,
+          "requiredMetrics": [
+            {
+              "family": "basic",
+              "metric": "PTS",
+              "grain": "player-game"
+            },
+            {
+              "family": "advanced",
+              "metric": "EFG_PCT",
+              "grain": "player-game"
+            },
+            {
+              "family": "leverage",
+              "metric": "CREATION_LVG",
+              "grain": "player-season"
+            }
+          ],
+          "requiredRelations": [
+            "volume_efficiency_context",
+            "game_season_impact_context"
+          ],
+          "grain": "mixed_game_season_context"
+        },
+        "evidence": [],
+        "relations": [],
+        "provenance": [],
+        "toolsUsed": [],
+        "trace": [
+          {
+            "assistant": "{\"tools\":[\"basic\",\"advanced\",\"leverage\"],\"eventId\":\"666\",\"grain\":\"mixed_game_season_context\",\"requiredMetrics\":[{\"family\":\"basic\",\"grain\":\"player-game\",\"metric\":\"PTS\"},{\"family\":\"advanced\",\"grain\":\"player-game\",\"metric\":\"EFG_PCT\"},{\"family\":\"leverage\",\"grain\":\"player-season\",\"metric\":\"CREATION_LVG\"}],\"requiredRelations\":[\"volume_efficiency_context\",\"game_season_impact_context\"]}",
+            "validation": {
+              "errors": [
+                "incomplete_required_coverage",
+                "invalid_schema",
+                "metric_or_grain_mismatch"
+              ],
+              "coverage": 0.0
+            }
+          },
+          {
+            "assistant": "{\"evidenceIds\":[\"0022500701_001\",\"0022500701_002\",\"0022500701_004\"],\"reasonCode\":null,\"relations\":[\"volume_efficiency_context\",\"game_season_impact_context\"],\"status\":\"ok\"}",
+            "validation": {
+              "errors": [
+                "incomplete_required_coverage",
+                "metric_or_grain_mismatch",
+                "relation_missing_operands",
+                "unreturned_wrong_or_irrelevant_evidence"
+              ],
+              "coverage": 0.4
+            }
+          }
+        ],
+        "correctionUsed": true,
+        "sagemakerModel": "rl-scout-model-1010-144434",
+        "endpointConfig": "rl-scout-config-1010-144434",
+        "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+        "lineage": {
+          "schema": "rl-scout-evidence-lineage-v1",
+          "policy": "evidence-v1",
+          "model": "Qwen/Qwen2.5-3B-Instruct",
+          "baseModel": "Qwen/Qwen2.5-3B-Instruct",
+          "baseRevision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+          "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+          "selectedStage": "rl",
+          "trainingSelectedStage": "sft",
+          "actualRL": true,
+          "optimizerUpdateSteps": 7,
+          "updateGroups": 9,
+          "rlSamplingSteps": 30,
+          "sftExamplesOptimized": 640,
+          "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+          "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+          "tasksSha256": "c0a45e7df1a2a56100de0aa7023f209b865f239d617e47fa749bcf5995647ff4",
+          "sourceArchiveSha256": "fb08ee6b1fd9fe6ddd8ca3f1222ad392a9cf00acabf1c24220e0f2fe22af2b7f",
+          "adapterSha256": "9ae9cf4bbba57e2367a8b58e942c7774047ec94c4eecfae9497b49eda1e4e7a6",
+          "adapterConfigSha256": "faacebc9ef7e6a843d375f469b6176f94e5e6a378fdae361703a9151fdd9fc86",
+          "metricsSha256": "ae5b8c61b6479c3e0d3bddff3c62758207ac1ece405a30ffe238abde4af93b91",
+          "trainingReportSha256": "16e2937181d4721d7b201cf8ea89b1080bce790000def677ffb39fe09db99704",
+          "frozenStoreFileSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+          "frozenTasksFileSha256": "8fc7b96dd588bb093c0830af46d66b2a1109a0c7dba83dbdbc59538938842510",
+          "rawEvaluationReleaseGatePassed": false,
+          "semanticValidationRequired": true,
+          "selectionDisclosure": "Original report selected SFT on validation tie. This package uses the RL adapter for separately authorized, program-validated integration; it does not revise the original failure or claim an RL accuracy improvement.",
+          "rawValidation": {
+            "episodes": 16,
+            "validRate": 0.9375,
+            "schemaRate": 1.0,
+            "formatRate": 1.0,
+            "meanReward": 0.87125,
+            "coverage": 0.9875,
+            "criticalErrorRate": 0.0625,
+            "successRate": 0.9375,
+            "expectedEpisodes": 16,
+            "complete": true
+          },
+          "claimBoundary": "Text evidence-selection model, not a visual encoder or an independent source of numerical facts.",
+          "mergedAt": "2026-10-10T06:41:55.260559+00:00",
+          "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+          "modelWeights": {
+            "model-00001-of-00004.safetensors": "065a8e810a433ace3f5eb3be66d0749d7f06fcd50e7ba550c3ccad47062a7411",
+            "model-00002-of-00004.safetensors": "21f717b5608af988b8e06af3b12c86a721c7b04d370cbb15bc35774b2b052383",
+            "model-00003-of-00004.safetensors": "a9e8a2ddf569a0d092a8c410af4ab3f85174e04d0a9271afc1d883953eef9958",
+            "model-00004-of-00004.safetensors": "aa406cf3f9acf1150436e43cf8637df5f84f47a54fa148bd0ddae61a4ee355e9"
+          },
+          "mergedWeightsSha256": "00be65f61faef6fc3b764923f7d8ee4bd1f92acca7d4feeebc50ac73600f5f67",
+          "handlerSha256": "e455a032899a8a2d01aaa29f870472ca1570dc4379ff15f9966a57bc856d2b70"
+        },
+        "error": "selection_invalid_after_one_correction",
+        "validationErrors": [
+          "incomplete_required_coverage",
+          "metric_or_grain_mismatch",
+          "relation_missing_operands",
+          "unreturned_wrong_or_irrelevant_evidence"
+        ],
+        "modelCalls": 2,
+        "elapsedSeconds": 7.873
+      }
+    },
+    {
+      "story": "amen",
+      "depthFamily": "gravity",
+      "passed": false,
+      "seconds": 6.842,
+      "result": {
+        "available": false,
+        "endpoint": "rl-scout",
+        "model": "Qwen/Qwen2.5-3B-Instruct",
+        "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+        "selectedStage": "rl",
+        "actualRL": true,
+        "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+        "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+        "policy": "evidence-v1",
+        "protocol": "qwen2.5-evidence-training-chat-v1",
+        "lineageVerified": true,
+        "modelInvoked": true,
+        "request": {
+          "playerId": "1641708",
+          "gameId": "0022500491",
+          "eventId": 396,
+          "requiredMetrics": [
+            {
+              "family": "basic",
+              "metric": "PTS",
+              "grain": "player-game"
+            },
+            {
+              "family": "advanced",
+              "metric": "EFG_PCT",
+              "grain": "player-game"
+            },
+            {
+              "family": "gravity",
+              "metric": "OFF_BALL_PERIM_GRAV",
+              "grain": "player-season"
+            }
+          ],
+          "requiredRelations": [
+            "volume_efficiency_context",
+            "game_season_attention_context"
+          ],
+          "grain": "mixed_game_season_context"
+        },
+        "evidence": [],
+        "relations": [],
+        "provenance": [],
+        "toolsUsed": [],
+        "trace": [
+          {
+            "assistant": "{\"evidenceIds\":[\"0022500491_00396\",\"0022500491_00001\",\"0025000000_00001\"],\"reasonCode\":null,\"relations\":[\"volume_efficiency_context\",\"game_season_attention_context\"],\"status\":\"ok\"}",
+            "validation": {
+              "errors": [
+                "incomplete_required_coverage",
+                "metric_or_grain_mismatch",
+                "relation_missing_operands",
+                "unreturned_wrong_or_irrelevant_evidence"
+              ],
+              "coverage": 0.4
+            }
+          },
+          {
+            "assistant": "{\"evidenceIds\":[\"0022500491_00396\",\"0022500491_00001\",\"0025000000_00001\"],\"reasonCode\":null,\"relations\":[\"volume_efficiency_context\",\"game_season_attention_context\"],\"status\":\"ok\"}",
+            "validation": {
+              "errors": [
+                "incomplete_required_coverage",
+                "metric_or_grain_mismatch",
+                "relation_missing_operands",
+                "unreturned_wrong_or_irrelevant_evidence"
+              ],
+              "coverage": 0.4
+            }
+          }
+        ],
+        "correctionUsed": true,
+        "sagemakerModel": "rl-scout-model-1010-144434",
+        "endpointConfig": "rl-scout-config-1010-144434",
+        "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+        "lineage": {
+          "schema": "rl-scout-evidence-lineage-v1",
+          "policy": "evidence-v1",
+          "model": "Qwen/Qwen2.5-3B-Instruct",
+          "baseModel": "Qwen/Qwen2.5-3B-Instruct",
+          "baseRevision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+          "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+          "selectedStage": "rl",
+          "trainingSelectedStage": "sft",
+          "actualRL": true,
+          "optimizerUpdateSteps": 7,
+          "updateGroups": 9,
+          "rlSamplingSteps": 30,
+          "sftExamplesOptimized": 640,
+          "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+          "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+          "tasksSha256": "c0a45e7df1a2a56100de0aa7023f209b865f239d617e47fa749bcf5995647ff4",
+          "sourceArchiveSha256": "fb08ee6b1fd9fe6ddd8ca3f1222ad392a9cf00acabf1c24220e0f2fe22af2b7f",
+          "adapterSha256": "9ae9cf4bbba57e2367a8b58e942c7774047ec94c4eecfae9497b49eda1e4e7a6",
+          "adapterConfigSha256": "faacebc9ef7e6a843d375f469b6176f94e5e6a378fdae361703a9151fdd9fc86",
+          "metricsSha256": "ae5b8c61b6479c3e0d3bddff3c62758207ac1ece405a30ffe238abde4af93b91",
+          "trainingReportSha256": "16e2937181d4721d7b201cf8ea89b1080bce790000def677ffb39fe09db99704",
+          "frozenStoreFileSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+          "frozenTasksFileSha256": "8fc7b96dd588bb093c0830af46d66b2a1109a0c7dba83dbdbc59538938842510",
+          "rawEvaluationReleaseGatePassed": false,
+          "semanticValidationRequired": true,
+          "selectionDisclosure": "Original report selected SFT on validation tie. This package uses the RL adapter for separately authorized, program-validated integration; it does not revise the original failure or claim an RL accuracy improvement.",
+          "rawValidation": {
+            "episodes": 16,
+            "validRate": 0.9375,
+            "schemaRate": 1.0,
+            "formatRate": 1.0,
+            "meanReward": 0.87125,
+            "coverage": 0.9875,
+            "criticalErrorRate": 0.0625,
+            "successRate": 0.9375,
+            "expectedEpisodes": 16,
+            "complete": true
+          },
+          "claimBoundary": "Text evidence-selection model, not a visual encoder or an independent source of numerical facts.",
+          "mergedAt": "2026-10-10T06:41:55.260559+00:00",
+          "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+          "modelWeights": {
+            "model-00001-of-00004.safetensors": "065a8e810a433ace3f5eb3be66d0749d7f06fcd50e7ba550c3ccad47062a7411",
+            "model-00002-of-00004.safetensors": "21f717b5608af988b8e06af3b12c86a721c7b04d370cbb15bc35774b2b052383",
+            "model-00003-of-00004.safetensors": "a9e8a2ddf569a0d092a8c410af4ab3f85174e04d0a9271afc1d883953eef9958",
+            "model-00004-of-00004.safetensors": "aa406cf3f9acf1150436e43cf8637df5f84f47a54fa148bd0ddae61a4ee355e9"
+          },
+          "mergedWeightsSha256": "00be65f61faef6fc3b764923f7d8ee4bd1f92acca7d4feeebc50ac73600f5f67",
+          "handlerSha256": "e455a032899a8a2d01aaa29f870472ca1570dc4379ff15f9966a57bc856d2b70"
+        },
+        "error": "selection_invalid_after_one_correction",
+        "validationErrors": [
+          "incomplete_required_coverage",
+          "metric_or_grain_mismatch",
+          "relation_missing_operands",
+          "unreturned_wrong_or_irrelevant_evidence"
+        ],
+        "modelCalls": 2,
+        "elapsedSeconds": 6.842
+      }
+    },
+    {
+      "story": "flagg",
+      "depthFamily": "shotdifficulty",
+      "passed": false,
+      "seconds": 9.916,
+      "result": {
+        "available": false,
+        "endpoint": "rl-scout",
+        "model": "Qwen/Qwen2.5-3B-Instruct",
+        "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+        "selectedStage": "rl",
+        "actualRL": true,
+        "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+        "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+        "policy": "evidence-v1",
+        "protocol": "qwen2.5-evidence-training-chat-v1",
+        "lineageVerified": true,
+        "modelInvoked": true,
+        "request": {
+          "playerId": "1642843",
+          "gameId": "0022500701",
+          "eventId": 666,
+          "requiredMetrics": [
+            {
+              "family": "basic",
+              "metric": "PTS",
+              "grain": "player-game"
+            },
+            {
+              "family": "advanced",
+              "metric": "EFG_PCT",
+              "grain": "player-game"
+            },
+            {
+              "family": "shotdifficulty",
+              "metric": "AVGSHOTQUALITY",
+              "grain": "player-season"
+            }
+          ],
+          "requiredRelations": [
+            "volume_efficiency_context",
+            "game_season_shotquality_context"
+          ],
+          "grain": "mixed_game_season_context"
+        },
+        "evidence": [],
+        "relations": [],
+        "provenance": [],
+        "toolsUsed": [],
+        "trace": [
+          {
+            "assistant": "{\"evidenceIds\":[\"0022500701_00666\",\"0022500701_00999\",\"0025000000_00001\"],\"reasonCode\":null,\"relations\":[\"volume_efficiency_context\",\"game_season_shotquality_context\"],\"status\":\"ok\"}",
+            "validation": {
+              "errors": [
+                "incomplete_required_coverage",
+                "metric_or_grain_mismatch",
+                "relation_missing_operands",
+                "unreturned_wrong_or_irrelevant_evidence"
+              ],
+              "coverage": 0.4
+            }
+          },
+          {
+            "assistant": "{\"evidenceIds\":[\"0022500701_00666\",\"0022500701_00999\",\"0025000000_00001\"],\"reasonCode\":null,\"relations\":[\"volume_efficiency_context\",\"game_season_shotquality_context\"],\"status\":\"ok\"}",
+            "validation": {
+              "errors": [
+                "incomplete_required_coverage",
+                "metric_or_grain_mismatch",
+                "relation_missing_operands",
+                "unreturned_wrong_or_irrelevant_evidence"
+              ],
+              "coverage": 0.4
+            }
+          }
+        ],
+        "correctionUsed": true,
+        "sagemakerModel": "rl-scout-model-1010-144434",
+        "endpointConfig": "rl-scout-config-1010-144434",
+        "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+        "lineage": {
+          "schema": "rl-scout-evidence-lineage-v1",
+          "policy": "evidence-v1",
+          "model": "Qwen/Qwen2.5-3B-Instruct",
+          "baseModel": "Qwen/Qwen2.5-3B-Instruct",
+          "baseRevision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+          "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+          "selectedStage": "rl",
+          "trainingSelectedStage": "sft",
+          "actualRL": true,
+          "optimizerUpdateSteps": 7,
+          "updateGroups": 9,
+          "rlSamplingSteps": 30,
+          "sftExamplesOptimized": 640,
+          "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+          "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+          "tasksSha256": "c0a45e7df1a2a56100de0aa7023f209b865f239d617e47fa749bcf5995647ff4",
+          "sourceArchiveSha256": "fb08ee6b1fd9fe6ddd8ca3f1222ad392a9cf00acabf1c24220e0f2fe22af2b7f",
+          "adapterSha256": "9ae9cf4bbba57e2367a8b58e942c7774047ec94c4eecfae9497b49eda1e4e7a6",
+          "adapterConfigSha256": "faacebc9ef7e6a843d375f469b6176f94e5e6a378fdae361703a9151fdd9fc86",
+          "metricsSha256": "ae5b8c61b6479c3e0d3bddff3c62758207ac1ece405a30ffe238abde4af93b91",
+          "trainingReportSha256": "16e2937181d4721d7b201cf8ea89b1080bce790000def677ffb39fe09db99704",
+          "frozenStoreFileSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+          "frozenTasksFileSha256": "8fc7b96dd588bb093c0830af46d66b2a1109a0c7dba83dbdbc59538938842510",
+          "rawEvaluationReleaseGatePassed": false,
+          "semanticValidationRequired": true,
+          "selectionDisclosure": "Original report selected SFT on validation tie. This package uses the RL adapter for separately authorized, program-validated integration; it does not revise the original failure or claim an RL accuracy improvement.",
+          "rawValidation": {
+            "episodes": 16,
+            "validRate": 0.9375,
+            "schemaRate": 1.0,
+            "formatRate": 1.0,
+            "meanReward": 0.87125,
+            "coverage": 0.9875,
+            "criticalErrorRate": 0.0625,
+            "successRate": 0.9375,
+            "expectedEpisodes": 16,
+            "complete": true
+          },
+          "claimBoundary": "Text evidence-selection model, not a visual encoder or an independent source of numerical facts.",
+          "mergedAt": "2026-10-10T06:41:55.260559+00:00",
+          "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+          "modelWeights": {
+            "model-00001-of-00004.safetensors": "065a8e810a433ace3f5eb3be66d0749d7f06fcd50e7ba550c3ccad47062a7411",
+            "model-00002-of-00004.safetensors": "21f717b5608af988b8e06af3b12c86a721c7b04d370cbb15bc35774b2b052383",
+            "model-00003-of-00004.safetensors": "a9e8a2ddf569a0d092a8c410af4ab3f85174e04d0a9271afc1d883953eef9958",
+            "model-00004-of-00004.safetensors": "aa406cf3f9acf1150436e43cf8637df5f84f47a54fa148bd0ddae61a4ee355e9"
+          },
+          "mergedWeightsSha256": "00be65f61faef6fc3b764923f7d8ee4bd1f92acca7d4feeebc50ac73600f5f67",
+          "handlerSha256": "e455a032899a8a2d01aaa29f870472ca1570dc4379ff15f9966a57bc856d2b70"
+        },
+        "error": "selection_invalid_after_one_correction",
+        "validationErrors": [
+          "incomplete_required_coverage",
+          "metric_or_grain_mismatch",
+          "relation_missing_operands",
+          "unreturned_wrong_or_irrelevant_evidence"
+        ],
+        "modelCalls": 2,
+        "elapsedSeconds": 9.916
+      }
+    },
+    {
+      "story": "amen",
+      "depthFamily": "shotdifficulty",
+      "passed": false,
+      "seconds": 12.137,
+      "result": {
+        "available": false,
+        "endpoint": "rl-scout",
+        "model": "Qwen/Qwen2.5-3B-Instruct",
+        "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+        "selectedStage": "rl",
+        "actualRL": true,
+        "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+        "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+        "policy": "evidence-v1",
+        "protocol": "qwen2.5-evidence-training-chat-v1",
+        "lineageVerified": true,
+        "modelInvoked": true,
+        "request": {
+          "playerId": "1641708",
+          "gameId": "0022500491",
+          "eventId": 396,
+          "requiredMetrics": [
+            {
+              "family": "basic",
+              "metric": "PTS",
+              "grain": "player-game"
+            },
+            {
+              "family": "advanced",
+              "metric": "EFG_PCT",
+              "grain": "player-game"
+            },
+            {
+              "family": "shotdifficulty",
+              "metric": "AVGSHOTQUALITY",
+              "grain": "player-season"
+            }
+          ],
+          "requiredRelations": [
+            "volume_efficiency_context",
+            "game_season_shotquality_context"
+          ],
+          "grain": "mixed_game_season_context"
+        },
+        "evidence": [],
+        "relations": [],
+        "provenance": [],
+        "toolsUsed": [],
+        "trace": [
+          {
+            "assistant": "{\"tools\":[\"basic\",\"advanced\",\"shotdifficulty\"],\"grain\":\"mixed_game_season_context\",\"requiredMetrics\":[{\"family\":\"basic\",\"grain\":\"player-game\",\"metric\":\"PTS\"},{\"family\":\"advanced\",\"grain\":\"player-game\",\"metric\":\"EFG_PCT\"},{\"family\":\"shotdifficulty\",\"grain\":\"player-season\",\"metric\":\"AVGSHOTQUALITY\"}],\"requiredRelations\":[\"volume_efficiency_context\",\"game_season_shotquality_context\"]}",
+            "validation": {
+              "errors": [
+                "incomplete_required_coverage",
+                "invalid_schema",
+                "metric_or_grain_mismatch"
+              ],
+              "coverage": 0.0
+            }
+          },
+          {
+            "assistant": "{\"evidenceIds\":[\"0022500491_001\",\"0022500491_002\",\"0022500491_004\"],\"reasonCode\":null,\"relations\":[\"volume_efficiency_context\",\"game_season_shotquality_context\"],\"status\":\"ok\"}",
+            "validation": {
+              "errors": [
+                "incomplete_required_coverage",
+                "metric_or_grain_mismatch",
+                "relation_missing_operands",
+                "unreturned_wrong_or_irrelevant_evidence"
+              ],
+              "coverage": 0.4
+            }
+          }
+        ],
+        "correctionUsed": true,
+        "sagemakerModel": "rl-scout-model-1010-144434",
+        "endpointConfig": "rl-scout-config-1010-144434",
+        "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+        "lineage": {
+          "schema": "rl-scout-evidence-lineage-v1",
+          "policy": "evidence-v1",
+          "model": "Qwen/Qwen2.5-3B-Instruct",
+          "baseModel": "Qwen/Qwen2.5-3B-Instruct",
+          "baseRevision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+          "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+          "selectedStage": "rl",
+          "trainingSelectedStage": "sft",
+          "actualRL": true,
+          "optimizerUpdateSteps": 7,
+          "updateGroups": 9,
+          "rlSamplingSteps": 30,
+          "sftExamplesOptimized": 640,
+          "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+          "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+          "tasksSha256": "c0a45e7df1a2a56100de0aa7023f209b865f239d617e47fa749bcf5995647ff4",
+          "sourceArchiveSha256": "fb08ee6b1fd9fe6ddd8ca3f1222ad392a9cf00acabf1c24220e0f2fe22af2b7f",
+          "adapterSha256": "9ae9cf4bbba57e2367a8b58e942c7774047ec94c4eecfae9497b49eda1e4e7a6",
+          "adapterConfigSha256": "faacebc9ef7e6a843d375f469b6176f94e5e6a378fdae361703a9151fdd9fc86",
+          "metricsSha256": "ae5b8c61b6479c3e0d3bddff3c62758207ac1ece405a30ffe238abde4af93b91",
+          "trainingReportSha256": "16e2937181d4721d7b201cf8ea89b1080bce790000def677ffb39fe09db99704",
+          "frozenStoreFileSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+          "frozenTasksFileSha256": "8fc7b96dd588bb093c0830af46d66b2a1109a0c7dba83dbdbc59538938842510",
+          "rawEvaluationReleaseGatePassed": false,
+          "semanticValidationRequired": true,
+          "selectionDisclosure": "Original report selected SFT on validation tie. This package uses the RL adapter for separately authorized, program-validated integration; it does not revise the original failure or claim an RL accuracy improvement.",
+          "rawValidation": {
+            "episodes": 16,
+            "validRate": 0.9375,
+            "schemaRate": 1.0,
+            "formatRate": 1.0,
+            "meanReward": 0.87125,
+            "coverage": 0.9875,
+            "criticalErrorRate": 0.0625,
+            "successRate": 0.9375,
+            "expectedEpisodes": 16,
+            "complete": true
+          },
+          "claimBoundary": "Text evidence-selection model, not a visual encoder or an independent source of numerical facts.",
+          "mergedAt": "2026-10-10T06:41:55.260559+00:00",
+          "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+          "modelWeights": {
+            "model-00001-of-00004.safetensors": "065a8e810a433ace3f5eb3be66d0749d7f06fcd50e7ba550c3ccad47062a7411",
+            "model-00002-of-00004.safetensors": "21f717b5608af988b8e06af3b12c86a721c7b04d370cbb15bc35774b2b052383",
+            "model-00003-of-00004.safetensors": "a9e8a2ddf569a0d092a8c410af4ab3f85174e04d0a9271afc1d883953eef9958",
+            "model-00004-of-00004.safetensors": "aa406cf3f9acf1150436e43cf8637df5f84f47a54fa148bd0ddae61a4ee355e9"
+          },
+          "mergedWeightsSha256": "00be65f61faef6fc3b764923f7d8ee4bd1f92acca7d4feeebc50ac73600f5f67",
+          "handlerSha256": "e455a032899a8a2d01aaa29f870472ca1570dc4379ff15f9966a57bc856d2b70"
+        },
+        "error": "selection_invalid_after_one_correction",
+        "validationErrors": [
+          "incomplete_required_coverage",
+          "metric_or_grain_mismatch",
+          "relation_missing_operands",
+          "unreturned_wrong_or_irrelevant_evidence"
+        ],
+        "modelCalls": 2,
+        "elapsedSeconds": 12.137
+      }
+    }
+  ],
+  "complete": true,
+  "releaseEligible": false,
+  "workerIntegrated": false,
+  "renderVerified": false,
+  "completedAt": "2026-10-10T14:53:17.166478+08:00",
+  "successes": 0
+}

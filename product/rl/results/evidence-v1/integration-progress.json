@@ -1,22 +1,60 @@
 {
   "schema": "rl-scout-limited-integration-progress-v1",
-  "updatedAt": "2026-10-10T14:41:20.663742+08:00",
+  "updatedAt": "2026-10-10T15:45:48.281572+08:00",
   "targetAt": "2026-10-10T16:00:00+08:00",
   "deadline": "2026-10-10T16:30:00+08:00",
   "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
   "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
-  "stage": "cpu_merge_in_progress",
+  "stage": "model_service_delivered_backend_integration_pending",
   "endpoint": "rl-scout",
-  "endpointUpdated": false,
-  "guardedServiceVerified": false,
+  "endpointUpdated": true,
+  "guardedServiceVerified": true,
   "workerIntegrated": false,
   "checks": {
     "fullPassed": true,
-    "fullCount": 384,
-    "fullSeconds": 13.86,
-    "scopedClientTests": 5,
+    "fullCount": 386,
+    "fullSeconds": 14.68,
+    "scopedClientTests": 6,
     "defaultEfgChangedAfterFull": true,
-    "defaultEfgScopedTestsPassed": true
+    "defaultEfgScopedTestsPassed": true,
+    "trainingPromptRestored": true,
+    "trainingPromptScopedTestsPassed": true,
+    "finalCorrectionPromptChangedAfterFull": true,
+    "finalScopedTestsPassed": true
   },
-  "claim": "Composite product candidate based on actual SFT+RL checkpoint; original raw validation failure and RL non-improvement remain unchanged."
+  "claim": "Composite product candidate based on actual SFT+RL checkpoint; original raw validation failure and RL non-improvement remain unchanged.",
+  "packageCompleted": true,
+  "targetModel": "rl-scout-model-1010-144434",
+  "targetEndpointConfig": "rl-scout-config-1010-144434",
+  "renderVerified": false,
+  "endpointLineageVerified": true,
+  "endpointInServiceAt": "2026-10-10T14:50:46+08:00",
+  "automationStatus": "PAUSED",
+  "activeLocalCalls": 0,
+  "handoffDocument": "docs/RL接续交接-20261010-1508.md",
+  "nextAction": "Backend Codex: integrate runtime-handoff.json and EvidenceClient via board #6/#8; use actual three-layer evidence in video via #7. No more RL tuning required.",
+  "latestProductEvaluation": {
+    "file": "product/rl/results/evidence-v1/service-delivery-20261010.json",
+    "complete": true,
+    "successes": 6,
+    "n": 6,
+    "directPasses": 5,
+    "correctedPasses": 1
+  },
+  "initialProductEvaluation": {
+    "file": "product/rl/results/evidence-v1/service-evaluation-initial-prompt-failures-20261010.json",
+    "successes": 0,
+    "n": 6,
+    "failure": "Protocol/evidence selection errors"
+  },
+  "frozenPromptDiagnostic": {
+    "taskId": "c13911ec4c768e91ba5b",
+    "firstAction": "tools basic advanced leverage",
+    "fullFlowVerified": false
+  },
+  "userRequestedStop": false,
+  "handoffChangesCommitted": false,
+  "handoffArchiveCreated": false,
+  "serviceReadyForBackendIntegration": true,
+  "runtimeHandoff": "product/rl/results/evidence-v1/runtime-handoff.json"
 }

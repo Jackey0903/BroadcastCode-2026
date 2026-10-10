@@ -1,0 +1,59 @@
+{
+  "taskId": "c13911ec4c768e91ba5b",
+  "prompt": "<|im_start|>system\n你是两队篮球解读的证据助手。只选择真实工具返回的短证据ID，不写数字、不编自由文本。basic查本场基础表现，advanced查本场效率，gravity查赛季防守关注，leverage查赛季影响力，shotdifficulty查赛季出手机会质量。按问题选择必要工具，不必每题查所有工具。\n调用格式：{\"tools\":[\"basic\",\"advanced\",\"gravity\"]}，可分轮查询。\n回答格式：{\"status\":\"ok或unavailable\",\"evidenceIds\":[\"短ID\"],\"relations\":[],\"reasonCode\":null}。\n证据必须覆盖问题要求，不能用无关记录凑数。关系仅允许：volume_efficiency_context（同场统计表现和效率）；game_season_attention_context（本场表现与赛季防守关注背景）；game_season_impact_context（本场表现与赛季影响力背景）；game_season_shotquality_context（本场表现与赛季机会质量背景）。单项查询不需要关系。跨场或跨粒度不能作因果证明，赛季背景不能冒充本回合测量。\n工具显示证据不足时返回unavailable、空evidenceIds与relations，并使用对应原因码：metric_not_available、historical_as_of_not_available、event_granularity_not_available、causal_evidence_not_available。正确回答的reasonCode为null。只输出JSON对象。<|im_end|>\n<|im_start|>user\n球员ID：1642843；比赛ID：0022500701。\n先选本场得分和考虑三分价值的运动战投篮效率证据，再补充赛季运动战命中率与预期的差值背景。保留本场与赛季两个范围，给出互补关系，不作因果归因。<|im_end|>\n<|im_start|>assistant\n",
+  "seconds": 13.687470667002344,
+  "response": {
+    "generation": "{\"tools\":[\"basic\",\"advanced\",\"leverage\"]}",
+    "lineage": {
+      "schema": "rl-scout-evidence-lineage-v1",
+      "policy": "evidence-v1",
+      "model": "Qwen/Qwen2.5-3B-Instruct",
+      "baseModel": "Qwen/Qwen2.5-3B-Instruct",
+      "baseRevision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+      "selectedStage": "rl",
+      "trainingSelectedStage": "sft",
+      "actualRL": true,
+      "optimizerUpdateSteps": 7,
+      "updateGroups": 9,
+      "rlSamplingSteps": 30,
+      "sftExamplesOptimized": 640,
+      "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+      "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+      "tasksSha256": "c0a45e7df1a2a56100de0aa7023f209b865f239d617e47fa749bcf5995647ff4",
+      "sourceArchiveSha256": "fb08ee6b1fd9fe6ddd8ca3f1222ad392a9cf00acabf1c24220e0f2fe22af2b7f",
+      "adapterSha256": "9ae9cf4bbba57e2367a8b58e942c7774047ec94c4eecfae9497b49eda1e4e7a6",
+      "adapterConfigSha256": "faacebc9ef7e6a843d375f469b6176f94e5e6a378fdae361703a9151fdd9fc86",
+      "metricsSha256": "ae5b8c61b6479c3e0d3bddff3c62758207ac1ece405a30ffe238abde4af93b91",
+      "trainingReportSha256": "16e2937181d4721d7b201cf8ea89b1080bce790000def677ffb39fe09db99704",
+      "frozenStoreFileSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+      "frozenTasksFileSha256": "8fc7b96dd588bb093c0830af46d66b2a1109a0c7dba83dbdbc59538938842510",
+      "rawEvaluationReleaseGatePassed": false,
+      "semanticValidationRequired": true,
+      "selectionDisclosure": "Original report selected SFT on validation tie. This package uses the RL adapter for separately authorized, program-validated integration; it does not revise the original failure or claim an RL accuracy improvement.",
+      "rawValidation": {
+        "episodes": 16,
+        "validRate": 0.9375,
+        "schemaRate": 1.0,
+        "formatRate": 1.0,
+        "meanReward": 0.87125,
+        "coverage": 0.9875,
+        "criticalErrorRate": 0.0625,
+        "successRate": 0.9375,
+        "expectedEpisodes": 16,
+        "complete": true
+      },
+      "claimBoundary": "Text evidence-selection model, not a visual encoder or an independent source of numerical facts.",
+      "mergedAt": "2026-10-10T06:41:55.260559+00:00",
+      "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+      "modelWeights": {
+        "model-00001-of-00004.safetensors": "065a8e810a433ace3f5eb3be66d0749d7f06fcd50e7ba550c3ccad47062a7411",
+        "model-00002-of-00004.safetensors": "21f717b5608af988b8e06af3b12c86a721c7b04d370cbb15bc35774b2b052383",
+        "model-00003-of-00004.safetensors": "a9e8a2ddf569a0d092a8c410af4ab3f85174e04d0a9271afc1d883953eef9958",
+        "model-00004-of-00004.safetensors": "aa406cf3f9acf1150436e43cf8637df5f84f47a54fa148bd0ddae61a4ee355e9"
+      },
+      "mergedWeightsSha256": "00be65f61faef6fc3b764923f7d8ee4bd1f92acca7d4feeebc50ac73600f5f67",
+      "handlerSha256": "e455a032899a8a2d01aaa29f870472ca1570dc4379ff15f9966a57bc856d2b70"
+    }
+  }
+}

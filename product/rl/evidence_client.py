@@ -7,6 +7,7 @@ every response to that descriptor and the frozen local facts before using it.
 import copy
 import hashlib
 import json
+import math
 import re
 import time
 from typing import TypedDict
@@ -67,7 +68,18 @@ def sagemaker_invoker(endpoint_name, client=None, max_tokens=256):
         from botocore.config import Config
         session = boto3.Session(profile_name="nba", region_name="us-east-1")
         client = session.client("sagemaker-runtime", config=Config(
-            connect_timeout=3, read_timeout=25, retries={"total_max_attempts": 1}))
+            connect_timeout=20, read_timeout=25, retries={"total_max_attempts": 1}))
+    config = getattr(getattr(client, "meta", None), "config", None)
+    timeouts = [getattr(config, name, None) for name in ("connect_timeout", "read_timeout")]
+    if any(isinstance(value, bool) or not isinstance(value, (int, float))
+           or not math.isfinite(value) or value <= 0 for value in timeouts):
+        raise ValueError("bounded_sdk_timeouts_required")
+    request_timeout = sum(timeouts)
+    if request_timeout >= 90:
+        raise ValueError("sdk_timeouts_exceed_runtime_budget")
+    retries = getattr(config, "retries", None) or {}
+    if retries.get("total_max_attempts") != 1:
+        raise ValueError("sdk_single_attempt_required")
 
     def invoke(prompt):
         response = client.invoke_endpoint(EndpointName=endpoint_name, ContentType="application/json",
@@ -78,7 +90,7 @@ def sagemaker_invoker(endpoint_name, client=None, max_tokens=256):
         return payload
 
     invoke.endpoint_name = endpoint_name
-    invoke.request_timeout_seconds = 28
+    invoke.request_timeout_seconds = request_timeout
     return invoke
 
 
@@ -135,11 +147,13 @@ def _task_from_request(request, store):
             or set(relations) != expected_relations):
         raise ValueError("invalid_required_relations")
     player = next(p for p in store["players"] if p["playerId"] == request["playerId"])
-    labels = [env.LABELS.get(r["metric"], r["metric"]) for r in records]
-    prompt = "选择本场" + "、".join(labels[:2]) + "，再补充赛季" + "、".join(labels[2:]) + "背景。保留本场与赛季范围，不作因果归因。"
-    # Types constrain the request, but expected IDs and numeric answers stay private.
-    prompt += "\n严格指标要求：" + canonical({"requiredMetrics": required, "requiredRelations": relations,
-                                                       "eventId": request["eventId"], "grain": request["grain"]})
+    labels = {family: "、".join(env.LABELS.get(r["metric"], r["metric"]) for r in records if r["family"] == family)
+              for family in families}
+    concept = "、".join(labels[family] for family in families if family in env.TOOLS[2:])
+    # Keep the training task's natural-language template verbatim. Typed request
+    # fields constrain the private validator, never become a new output example.
+    prompt = f"先选本场{labels['basic']}和{labels['advanced']}证据，再补充赛季{concept}背景。"
+    prompt += "保留本场与赛季两个范围，给出互补关系，不作因果归因。"
     task = env._task(env.store_digest(store), player, "runtime", "joint_three_layer", prompt,
                      families, records=records, relations=relations, game_id=request["gameId"])
     return task, copy.deepcopy(event)
@@ -173,7 +187,8 @@ class EvidenceClient:
         if not isinstance(lineage, dict) or any(lineage.get(k) != self.expected[k] for k in LINEAGE_KEYS):
             raise ValueError("endpoint_lineage_mismatch")
         for key in ("adapterSha256", "tasksSha256", "baseRevision", "trainingSelectedStage",
-                    "rawEvaluationReleaseGatePassed", "updateGroups"):
+                    "rawEvaluationReleaseGatePassed", "updateGroups", "packageJob",
+                    "mergedWeightsSha256", "handlerSha256"):
             if key in self.expected and lineage.get(key) != self.expected[key]:
                 raise ValueError("endpoint_lineage_mismatch:" + key)
         if lineage.get("actualRL") is not True:
@@ -222,6 +237,12 @@ class EvidenceClient:
                 calls += 1
                 result["modelInvoked"] = True
                 payload = self.invoke(render_qwen(messages))
+                # Socket timeouts do not guarantee a total wall-clock deadline.
+                # Keep a late reply for diagnosis, but never accept its evidence.
+                if time.monotonic() - started >= self.timeout_seconds:
+                    turns.append({"assistant": payload.get("generation") if isinstance(payload, dict) else None,
+                                  "validation": {"errors": ["runtime_deadline_exceeded"]}})
+                    raise ValueError("runtime_deadline_exceeded")
                 lineage = self._verify_lineage(payload)
                 result.update(lineageVerified=True, actualRL=True, lineage=lineage)
                 text = payload["generation"].strip()
@@ -252,10 +273,16 @@ class EvidenceClient:
                     result["validationErrors"] = errors
                     break
                 corrected = result["correctionUsed"] = True
-                feedback = {"validationErrors": errors, "requiredMetrics": request["requiredMetrics"],
-                    "requiredRelations": request["requiredRelations"],
-                    "instruction": "仅纠正一次：依据本次工具记录的metric和grain选择证据。TS_PCT与EFG_PCT是不同指标，即使数值相同也不能替换。不得猜测ID。"}
-                messages.append({"role": "user", "content": canonical(feedback)})
+                feedback = "校验未通过：" + "、".join(errors) + "。仅纠正一次。"
+                required_families = {spec["family"] for spec in request["requiredMetrics"]}
+                queried_families = {call["result"]["tool"] for call in executor.trace
+                                    if call["result"]["status"] == "ok"}
+                if required_families <= queried_families:
+                    feedback += "所需工具均已成功返回。依据本次已返回的records，直接更正最终回答JSON，不要重复查询工具。仅选择已返回的短证据ID，不得猜测。"
+                else:
+                    feedback += "先查询所需工具，再从本次工具返回中选择短证据ID，不得猜测。"
+                feedback += "TS_PCT与EFG_PCT是不同指标，即使数值相同也不能替换。\n" + task["prompt"]
+                messages.append({"role": "user", "content": feedback})
             if not result["available"]:
                 result.setdefault("error", "model_call_budget_exhausted")
         except Exception as error:

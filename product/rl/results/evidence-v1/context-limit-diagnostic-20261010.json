@@ -1,0 +1,10 @@
+{
+  "query": "Context exceeds",
+  "events": [
+    {
+      "timestamp": 1791618174344,
+      "message": "2026-10-10T07:42:54,301 [INFO ] W-9000-model_1.0-stdout MODEL_LOG - Transform failed for model: model. Error traceback: ['Traceback (most recent call last):', '  File \"/usr/local/lib/python3.12/site-packages/sagemaker_inference/transformer.py\", line 150, in transform', '    result = self._run_handler_function(', '             ^^^^^^^^^^^^^^^^^^^^^^^^^^^', '  File \"/usr/local/lib/python3.12/site-packages/sagemaker_inference/transformer.py\", line 284, in _run_handler_function', '    result = func(*argv_context)', '             ^^^^^^^^^^^^^^^^^^^', '  File \"/usr/local/lib/python3.12/site-packages/sagemaker_inference/transformer.py\", line 268, in _default_transform_fn', '    prediction = self._run_handler_function(self._predict_fn, *(data, model))', '                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^', '  File \"/usr/local/lib/python3.12/site-packages/sagemaker_inference/transformer.py\", line 280, in _run_handler_function', '    result = func(*argv)', '             ^^^^^^^^^^^', '  File \"/opt/ml/model/code/inference.py\", line 63, in predict_fn', '    raise ValueError(\"Context exceeds the frozen 4096 token budget\")', 'ValueError: Context exceeds the frozen 4096 token budget']",
+      "logStreamName": "AllTraffic/i-06c1050586dabb37d"
+    }
+  ]
+}

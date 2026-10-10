@@ -15,12 +15,16 @@ from evidence_client import EvidenceClient, default_request, sagemaker_invoker
 from evidence_store import load_store
 
 HERE = Path(__file__).resolve().parent
+CASES = [("flagg", "gravity"), ("amen", "leverage"), ("flagg", "leverage"),
+         ("amen", "gravity"), ("flagg", "shotdifficulty"), ("amen", "shotdifficulty")]
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", default=str(HERE / "results/evidence-v1/endpoint-check.json"))
     parser.add_argument("--out", default=str(HERE / "results/evidence-v1/service-evaluation.json"))
+    parser.add_argument("--cases", nargs="+", choices=["/".join(case) for case in CASES],
+                        help="Only affected cases; preserve earlier successful calls instead of repeating them")
     args = parser.parse_args()
     checked = json.loads(Path(args.check).read_text())
     expected = checked["expectedLineage"]
@@ -30,6 +34,8 @@ def main():
     client = EvidenceClient(sagemaker_invoker(expected["endpoint"], max_tokens=160),
                             expected_lineage=expected, store=store)
     out = Path(args.out)
+    if out.exists():
+        raise SystemExit("Use a new --out path to preserve prior successes and failures")
     out.parent.mkdir(parents=True, exist_ok=True)
     report = {"schema": "rl-scout-evidence-product-acceptance-v1", "startedAt": now(),
               "scope": "Two registered practice events, three typed depth choices each; no video quality score",
@@ -43,8 +49,11 @@ def main():
 
     save()
     # Main demonstration requests first; variations check each supported depth tool.
-    cases = [("flagg", "gravity"), ("amen", "leverage"), ("flagg", "leverage"),
-             ("amen", "gravity"), ("flagg", "shotdifficulty"), ("amen", "shotdifficulty")]
+    cases = [tuple(case.split("/")) for case in args.cases] if args.cases else CASES
+    if len(set(cases)) != len(cases):
+        raise SystemExit("Duplicate cases are not supported")
+    report["requestedCases"] = ["/".join(case) for case in cases]
+    report["requestTimeoutSeconds"] = client.invoke.request_timeout_seconds
     for story, depth in cases:
         request = default_request(story, depth_family=depth, store=store)
         started = time.monotonic()
@@ -60,7 +69,8 @@ def main():
         save()
         print(json.dumps({k: v for k, v in case.items() if k != "result"}), flush=True)
     report.update(complete=True, completedAt=now(),
-                  releaseEligible=all(r["passed"] for r in report["cases"]),
+                  selectedCasesPassed=all(r["passed"] for r in report["cases"]),
+                  releaseEligible=set(cases) == set(CASES) and all(r["passed"] for r in report["cases"]),
                   successes=sum(r["passed"] for r in report["cases"]))
     save()
     print(json.dumps({k: report[k] for k in ("complete", "successes", "releaseEligible")}), flush=True)

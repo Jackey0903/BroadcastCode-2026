@@ -2,7 +2,10 @@
 import copy
 import io
 import json
+from pathlib import Path
+from types import SimpleNamespace
 import unittest
+from unittest.mock import patch
 
 import evidence_client as client
 import evidence_env as env
@@ -54,6 +57,11 @@ class EvidenceClientTests(unittest.TestCase):
         # Corresponds to first_ids + sampled assistant (including im_end) + middle_ids.
         self.assertEqual(invoker.prompts[1], invoker.prompts[0] + client.canonical(env.teacher_actions(task)[0]) + "<|im_end|>" + middle)
         self.assertNotIn('"oracle"', invoker.prompts[0])
+        self.assertNotIn("requiredMetrics", invoker.prompts[0])
+        self.assertNotIn("eventId", invoker.prompts[0])
+        frozen = [json.loads(line) for line in (Path(__file__).parent / "data/evidence/tasks.jsonl").read_text().splitlines()]
+        self.assertTrue(any(t["request"]["playerId"] == request["playerId"] and t["request"]["gameId"] == request["gameId"]
+                            and env.policy_view(t) == env.policy_view(task) for t in frozen), "Must match a frozen public training prompt exactly")
         self.assertFalse(result["lineage"]["rawEvaluationReleaseGatePassed"])
 
     def test_wrong_metric_even_when_values_equal_requires_actual_model_correction(self):
@@ -79,6 +87,10 @@ class EvidenceClientTests(unittest.TestCase):
         self.assertEqual(result["modelCalls"], 3)
         self.assertIn("metric_or_grain_mismatch", result["trace"][1]["validation"]["errors"])
         self.assertIn("TS_PCT与EFG_PCT是不同指标", invoker.prompts[2])
+        correction = invoker.prompts[2].rsplit("<|im_start|>user\n", 1)[1]
+        self.assertIn("直接更正最终回答JSON，不要重复查询工具", correction)
+        self.assertNotIn("先查询所需工具", correction)
+        self.assertNotIn(efg["evidenceId"], correction)
 
     def test_external_unreturned_id_and_second_failure_are_safe(self):
         request, task, lineage, expected = self.setup_runtime()
@@ -101,21 +113,31 @@ class EvidenceClientTests(unittest.TestCase):
             result = client.EvidenceClient(invoker, expected, store=self.store).analyse(request)
             self.assertFalse(result["available"])
             self.assertEqual(result["evidence"], [])
+            if len(invoker.prompts) == 2:
+                self.assertIn("先查询所需工具", invoker.prompts[1])
         invoker = FakeInvoker([], lineage)
         result = client.EvidenceClient(invoker, expected, store=self.store).analyse({**request, "eventId": 667})
         self.assertFalse(result["available"])
         self.assertFalse(result["modelInvoked"])
         with self.assertRaises(ValueError):
             client.EvidenceClient(invoker, {**expected, "selectedStage": "sft"}, store=self.store)
+        for key in ("packageJob", "mergedWeightsSha256", "handlerSha256"):
+            invoker = FakeInvoker([env.teacher_actions(task)[0]], {**lineage, key: "different"})
+            result = client.EvidenceClient(invoker, {**expected, key: "verified"}, store=self.store).analyse(request)
+            self.assertFalse(result["available"])
+            self.assertEqual(result["error"], "ValueError: endpoint_lineage_mismatch:" + key)
 
     def test_sagemaker_payload_and_bounded_calls(self):
         request, task, lineage, expected = self.setup_runtime()
         class Runtime:
+            meta = SimpleNamespace(config=SimpleNamespace(connect_timeout=20, read_timeout=25,
+                                    retries={"total_max_attempts": 1}))
             def invoke_endpoint(self, **kwargs):
                 self.call = kwargs
                 return {"Body": io.BytesIO(client.canonical({"generation": "{}", "lineage": lineage}).encode())}
         sdk = Runtime()
         invoke = client.sagemaker_invoker(expected["endpoint"], client=sdk)
+        self.assertEqual(invoke.request_timeout_seconds, 45)
         self.assertEqual(invoke("qwen prompt")["lineage"], lineage)
         self.assertEqual(json.loads(sdk.call["Body"]), {"prompt": "qwen prompt", "max_tokens": 256})
         self.assertEqual(sdk.call["EndpointName"], expected["endpoint"])
@@ -123,6 +145,27 @@ class EvidenceClientTests(unittest.TestCase):
         result = client.EvidenceClient(invoker, expected, store=self.store).analyse(request)
         self.assertFalse(result["available"])
         self.assertEqual(result["modelCalls"], 4)
+
+    def test_injected_sdk_budget_and_late_response_are_fail_closed(self):
+        request, task, lineage, expected = self.setup_runtime()
+        sdk = SimpleNamespace(meta=SimpleNamespace(config=SimpleNamespace(
+            connect_timeout=3, read_timeout=25, retries={"total_max_attempts": 1})))
+        self.assertEqual(client.sagemaker_invoker(expected["endpoint"], client=sdk).request_timeout_seconds, 28)
+        sdk.meta.config.retries = {"total_max_attempts": 2}
+        with self.assertRaisesRegex(ValueError, "sdk_single_attempt_required"):
+            client.sagemaker_invoker(expected["endpoint"], client=sdk)
+        sdk.meta.config.retries = {"total_max_attempts": 1}
+        sdk.meta.config.read_timeout = float("inf")
+        with self.assertRaisesRegex(ValueError, "bounded_sdk_timeouts_required"):
+            client.sagemaker_invoker(expected["endpoint"], client=sdk)
+        runtime = client.EvidenceClient(FakeInvoker(env.teacher_actions(task), lineage), expected, store=self.store)
+        with patch.object(client.time, "monotonic", side_effect=[0, 0, 91, 91]):
+            result = runtime.analyse(request)
+        self.assertFalse(result["available"])
+        self.assertEqual(result["error"], "ValueError: runtime_deadline_exceeded")
+        self.assertEqual(result["evidence"], [])
+        self.assertEqual(result["modelCalls"], 1)
+        self.assertEqual(result["trace"][0]["assistant"], client.canonical(env.teacher_actions(task)[0]))
 
 
 if __name__ == "__main__":

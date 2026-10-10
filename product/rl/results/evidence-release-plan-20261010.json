@@ -1,7 +1,7 @@
 {
   "schema": "rl-scout-evidence-release-plan-v1",
   "createdAt": "2026-10-10T14:32:42.699003+08:00",
-  "status": "acceptance_design_revised_not_executed",
+  "status": "composite_service_ready_backend_pending",
   "deadline": "2026-10-10T16:30:00+08:00",
   "scope": "Only existing HOU/DAL evidence selection adapter + deterministic source guard + at most one model correction; no new training/test-based model selection",
   "candidate": {
@@ -876,5 +876,21 @@
       },
       "status": "revised_design_only_not_executed"
     }
-  ]
+  ],
+  "execution": {
+    "updatedAt": "2026-10-10T15:45:48.281572+08:00",
+    "endpointLineageVerified": true,
+    "finalProductCasesPassed": 6,
+    "finalProductCasesTotal": 6,
+    "directPasses": 5,
+    "correctedPasses": 1,
+    "initialSixSuccesses": 0,
+    "correctedPromptNetworkFailures": 6,
+    "newlyExecutedProductRequests": 7,
+    "allFailuresPreserved": true,
+    "releaseEligible": true,
+    "rawEvaluationGatePassed": false,
+    "workerIntegrated": false,
+    "report": "product/rl/results/evidence-v1/service-delivery-20261010.json"
+  }
 }
