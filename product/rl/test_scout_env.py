@@ -101,6 +101,21 @@ class Reward(unittest.TestCase):
         two = env.reward({"quality": 0.38, "reason": "x"}, 0.45, ["zone_reference", "player_profile"], False, "")
         self.assertGreater(two["total"], one["total"])
 
+    def test_v2_pays_for_the_small_gain_of_a_second_reference(self):
+        # The move table improves the zone-only estimate by ~0.005 MAE; v1 punished fetching it.
+        def gain(version):
+            env.use_reward(version)
+            one = env.reward({"quality": 0.405, "reason": "x"}, 0.45, ["zone_reference"], False, "")
+            two = env.reward({"quality": 0.41, "reason": "x"}, 0.45, ["zone_reference", "move_reference"], False, "")
+            return two["total"] - one["total"]
+        try:
+            self.assertLess(gain("v1"), 0)
+            self.assertGreater(gain("v2"), 0)
+            self.assertEqual((env.REWARD_VERSION, env.TOOL_COST), ("v2", 0.002))
+        finally:
+            env.use_reward("v1")
+        self.assertEqual((env.REWARD_VERSION, env.TOOL_COST, env.CALIBRATION_SCALE), ("v1", 0.01, 0.5))
+
     def test_invented_numbers_are_not_grounded(self):
         parts = env.reward({"quality": 0.45, "reason": "防守人距离3.2英尺"}, 0.45, [], False, self.CONTEXT)
         self.assertEqual(parts["grounded"], 0.0)

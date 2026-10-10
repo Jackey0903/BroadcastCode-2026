@@ -22,11 +22,24 @@ MIN_MOVE_SAMPLES = 15
 # "call zone_reference only and copy its mean" optimal (extra tools gained < 0.01, cost 0.03) and the
 # GRPO groups collapsed. v1 aligns calibration with the reported metric (absolute error) and lowers
 # the tool cost so useful information is worth fetching.
+# Reward v2 (11:20): on the training split, "zone_reference only" still scores 0.5997 under v1 while
+# averaging zone and move references scores 0.5976 (the move table saves ~0.005 MAE = 0.008 reward,
+# less than the 0.01 cost), and the v1 run collapsed onto zone-only by step 15. v2 keeps the v1
+# calibration and lowers the tool cost to 0.002 so the combined estimate becomes optimal (0.6136).
+REWARD_PRESETS = {"v1": {"toolCost": 0.01, "calibrationScale": 0.5},
+                  "v2": {"toolCost": 0.002, "calibrationScale": 0.5}}
 REWARD_VERSION = "v1"
 TOOL_COST, INVALID_PENALTY = 0.01, 0.2
 WEIGHTS = {"calibration": 0.75, "format": 0.15, "grounded": 0.10}
 CALIBRATION_SCALE = 0.5
 MAX_REASON_CHARS = 80
+
+
+def use_reward(version):
+    """Switch the module-wide reward preset (training jobs pick one with --reward)."""
+    global REWARD_VERSION, TOOL_COST, CALIBRATION_SCALE
+    preset = REWARD_PRESETS[version]
+    REWARD_VERSION, TOOL_COST, CALIBRATION_SCALE = version, preset["toolCost"], preset["calibrationScale"]
 
 SYSTEM_PROMPT = (
     "你是 NBA 球探。根据一次出手的信息，估计这类出手在 NBA 官方出手质量模型下的常见质量（0 到 1 之间）。\n"

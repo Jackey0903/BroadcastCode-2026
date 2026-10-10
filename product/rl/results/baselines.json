@@ -1,0 +1,94 @@
+{
+ "model": "global.anthropic.claude-sonnet-4-6",
+ "testSets": {
+  "h2h": 390,
+  "league": 1621
+ },
+ "train": 13160,
+ "results": {
+  "h2h": {
+   "stat_global": {
+    "episodes": 390,
+    "answered": 390,
+    "mae": 0.1347,
+    "mse": 0.0346,
+    "formatRate": 1.0,
+    "groundedRate": 1.0,
+    "toolsPerEpisode": 0.0,
+    "meanReward": 0.8965
+   },
+   "stat_zone": {
+    "episodes": 390,
+    "answered": 390,
+    "mae": 0.1013,
+    "mse": 0.0234,
+    "formatRate": 1.0,
+    "groundedRate": 1.0,
+    "toolsPerEpisode": 0.0,
+    "meanReward": 0.9315
+   },
+   "stat_zone_move": {
+    "episodes": 390,
+    "answered": 390,
+    "mae": 0.0955,
+    "mse": 0.0199,
+    "formatRate": 1.0,
+    "groundedRate": 1.0,
+    "toolsPerEpisode": 0.0,
+    "meanReward": 0.9405
+   },
+   "claude": {
+    "episodes": 120,
+    "answered": 114,
+    "mae": 0.0939,
+    "mse": 0.0203,
+    "formatRate": 0.925,
+    "groundedRate": 0.9,
+    "toolsPerEpisode": 2.825,
+    "meanReward": 0.7698
+   }
+  },
+  "league": {
+   "stat_global": {
+    "episodes": 1621,
+    "answered": 1621,
+    "mae": 0.1398,
+    "mse": 0.0344,
+    "formatRate": 1.0,
+    "groundedRate": 1.0,
+    "toolsPerEpisode": 0.0,
+    "meanReward": 0.8971
+   },
+   "stat_zone": {
+    "episodes": 1621,
+    "answered": 1621,
+    "mae": 0.0941,
+    "mse": 0.0212,
+    "formatRate": 1.0,
+    "groundedRate": 1.0,
+    "toolsPerEpisode": 0.0,
+    "meanReward": 0.939
+   },
+   "stat_zone_move": {
+    "episodes": 1621,
+    "answered": 1621,
+    "mae": 0.0905,
+    "mse": 0.0189,
+    "formatRate": 1.0,
+    "groundedRate": 1.0,
+    "toolsPerEpisode": 0.0,
+    "meanReward": 0.9452
+   },
+   "claude": {
+    "episodes": 120,
+    "answered": 108,
+    "mae": 0.0808,
+    "mse": 0.0174,
+    "formatRate": 0.8667,
+    "groundedRate": 0.8917,
+    "toolsPerEpisode": 2.692,
+    "meanReward": 0.7405
+   }
+  }
+ }
+}

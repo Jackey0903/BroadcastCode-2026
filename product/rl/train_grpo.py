@@ -45,6 +45,7 @@ def arguments():
     p.add_argument("--focus-ratio", type=float, default=0.8)
     p.add_argument("--time-budget", type=int, default=0, help="seconds for the training loop; 0 = no limit")
     p.add_argument("--seed", type=int, default=7)
+    p.add_argument("--reward", default=env.REWARD_VERSION, choices=sorted(env.REWARD_PRESETS))
     p.add_argument("--data-dir", default=str(HERE / "data"))
     p.add_argument("--out", default=os.environ.get("RL_OUT", "/opt/ml/checkpoints"))
     args, _ = p.parse_known_args()
@@ -54,6 +55,7 @@ def arguments():
 class Runner:
     def __init__(self, args):
         self.args = args
+        env.use_reward(args.reward)
         random.seed(args.seed)
         torch.manual_seed(args.seed)
         self.out = Path(args.out)
@@ -195,10 +197,11 @@ class Runner:
         t0 = time.time()
         episodes = self.rollout(batch)
         t_gen = time.time() - t0
-        advantages = []
+        advantages, flat = [], 0
         for g in range(a.prompts_per_step):
             rewards = [e["total"] for e in episodes[g * a.group:(g + 1) * a.group]]
             mean, std = statistics.fmean(rewards), statistics.pstdev(rewards)
+            flat += std < 1e-6  # identical rewards: this group carries no learning signal
             advantages += [0.0 if std < 1e-6 else (r - mean) / (std + 1e-4) for r in rewards]
         lr = a.lr * min(1.0, (step + 1) / max(1, a.warmup))
         for group in self.opt.param_groups:
@@ -211,6 +214,7 @@ class Runner:
         summary.update({k: round(statistics.fmean(e[k] for e in episodes), 4) for k in ("calibration", "format", "grounded")})
         summary["invalidRate"] = round(statistics.fmean(1.0 if e["invalid"] else 0.0 for e in episodes), 4)
         summary["genTokens"] = round(statistics.fmean(sum(e["mask"]) for e in episodes), 1)
+        summary["flatGroups"] = round(flat / a.prompts_per_step, 3)
         self.log("train", step=step, loss=round(loss, 5), lr=lr, genSeconds=round(t_gen, 1),
                  stepSeconds=round(time.time() - t0, 1), **summary)
         print(f"METRIC step={step} reward={summary['meanReward']} mae={summary['mae']} "
