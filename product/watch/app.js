@@ -11,11 +11,12 @@ import {getCourtTheme} from './court/themes.js';
 import {createAnnotationLayer} from './annotations/annotations.js';
 import {createInspector} from './dev/inspector.js';
 import {mountGameBuddyAmbient} from './companions/game-buddy/game-buddy-embed.js';
+import {validateFormalCourt} from './court/formal-court.js';
 
 const $=s=>document.querySelector(s),stage=$('#stage'),video=$('#match-video');
 // User-requested ambient character only; independent of voice and match events.
 const buddy=mountGameBuddyAmbient($('#game-buddy-slot'),{width:120,sequence:['idle','running-right','running-left','waving','jumping','failed','waiting','running','review']});
-let catalog=[],story=null,mediaVariant='source',courtData=null,focusId=null,activeMenu=null,leftTimer=0,idleTimer=0,noticeTimer=0;
+let catalog=[],story=null,mediaVariant='source',courtData=null,formalCourtData=null,focusId=null,activeMenu=null,leftTimer=0,idleTimer=0,noticeTimer=0;
 let layout,glass,inspector,lastFrame=NaN,mediaCallback=0,lastChapter='';
 let clipPlayback=null,seekRequest=0,mediaLoad=0,destroyed=false,dockPinned=false;
 const showNotice=message=>{const el=$('#notice');el.textContent=message;el.hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>el.hidden=true,3400);};
@@ -65,7 +66,7 @@ $('#settings a[href="/product/index.html#creator"]').onclick=async e=>{
 function syncContent(){
  if(!story)return;
  const mapping=followMapping(story,preferences.player,video.currentTime);
- court.update(story.sample==='flagg'?courtData:null,displayedCourtTime(),preferences.player==='all'?focusId:(mapping?.courtPlayerId||null));syncAnnotations();
+ court.update(story.sample==='formal'?formalCourtData:story.sample==='flagg'?courtData:null,displayedCourtTime(),preferences.player==='all'?focusId:(mapping?.courtPlayerId||null));syncAnnotations();
  const heading=$('#moment-heading');heading.hidden=mediaVariant==='enhanced'||!getConfig().annotations.enabled||performance.now()>titleUntil;
  const reminder=mediaVariant==='source'&&getConfig().annotations.enabled?reminderAt(reminders,video.currentTime,preferences):null;
  const key=reminder?.id||'';const el=$('#follow-reminder');const safeSpace=(layout?.rects?.video.y||0)>=44;el.hidden=!reminder||!safeSpace;el.style.top=Math.max(8,((layout?.rects?.video.y||0)-40)/2)+'px';
@@ -178,6 +179,7 @@ $('#load-error h2').textContent='视频暂时无法播放';$('#load-error p').te
 const initialMode=new URLSearchParams(location.search).get('mode');if(['fullCourt','halfCourt'].includes(initialMode))setMode(initialMode,true);showControls();
 try{
  catalog=await loadCatalog();
+ if(catalog.some(s=>s.sample==='formal')){const response=await fetch(new URL('./data/formal-court.json',import.meta.url),{cache:'no-store'});if(!response.ok)throw new Error('正式战术示意暂不可用');formalCourtData=validateFormalCourt(await response.json(),catalog.find(s=>s.sample==='formal'));}
  if(catalog.some(s=>s.sample==='flagg'))try{const response=await fetch('./data/flagg.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();courtData=globalThis.CourtLab.validateDataset(data);}
  catch(error){courtData=null;showNotice('战术示意暂不可用：'+error.message);}
  const params=new URLSearchParams(location.search),selected=catalog.find(s=>s.sample===(params.get('story')||params.get('sample')))||catalog[0];const version=params.get('version')||params.get('variant');selectStory(selected,(version==='enhanced'||(!version&&selected?.sample==='formal'))&&selected?.enhancedAvailable?'enhanced':'source');

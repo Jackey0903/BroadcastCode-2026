@@ -1,0 +1,38 @@
+{
+  "publishedAt": "2026-10-10T12:06:51.094192+00:00",
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "snapshotsSourceSeconds": [
+    4.004,
+    8.008,
+    11.9953166667
+  ],
+  "method": "reused editorial layouts, source-time snapshots, no interpolation or official tracking",
+  "objects": [
+    {
+      "key": "product/watch/data/formal-court.json",
+      "sha256": "11c24bcdd3f5e75c9be59e69d9d78f12f9aecfd896c15a880b9fb9f55f511c27",
+      "bytes": 13908
+    },
+    {
+      "key": "product/watch/court/formal-court.js",
+      "sha256": "54fb9d9048c025247d95fbc507f48979d2ceb1909085e7d6480f11533c205983",
+      "bytes": 1284
+    },
+    {
+      "key": "product/watch/court/court-panel.js",
+      "sha256": "5fc34eb45253b664c071382269ac1a587d7c079cbfc7001a27636e7ec7c781d2",
+      "bytes": 11559
+    },
+    {
+      "key": "product/watch/content/content-panel.js",
+      "sha256": "bdabe643a04e55a1c4666101edcedfbdea38fd7227da0e50bca5fd74c2ff9970",
+      "bytes": 29890
+    },
+    {
+      "key": "product/watch/app.js",
+      "sha256": "d557c547deecb23a728c3c7bd859dfe8a5b7d29b2081486e760b92d1da566eef",
+      "bytes": 23017
+    }
+  ],
+  "videoChanged": false
+}

@@ -145,7 +145,7 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
     rlData(story);
     playerData(story);
     const court = section('战术板的数据');
-    court.append(paragraph(story.sample === 'flagg' ? '弗拉格样片使用编辑站位与球权示意。D / W 是匿名编号；空心点是过去的最近位置。' : '这段阿门样片没有配套的逐帧战术示意，战术板保持空白。'));
+    court.append(paragraph(story.sample === 'formal' ? '正式片复用三处战术定格的编辑站位；空心点为过去位置，不是当前追踪。' : story.sample === 'flagg' ? '弗拉格样片使用编辑站位与球权示意。D / W 是匿名编号；空心点是过去的最近位置。' : '这段阿门样片没有配套的逐帧战术示意，战术板保持空白。'));
     court.append(paragraph('示意点、移动线路和篮球位置未经人类专家核准，不是官方追踪数据。', 'content-note'));
     body.append(court);
   }
@@ -266,7 +266,7 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
     original.append(node('code', 'content-source-path', `SHA-256 ${story.sourceVideoSha256 || '未记录'}`));
     body.append(original);
     const court = section('战术示意来源');
-    court.append(paragraph(story.sample === 'flagg' ? 'D / W 为匿名编号；示意站位未经人工复核。空心虚线点保留过去位置，不代表当前可见。' : '当前素材没有逐帧战术坐标，待联调。', 'content-note'));
+    court.append(paragraph(story.sample === 'formal' ? '三处正式源帧的编辑示意布局；坐标为复用成片图形的近似位置。未更新点保留为历史快照，不插值、不扩展轨迹。' : story.sample === 'flagg' ? 'D / W 为匿名编号；示意站位未经人工复核。空心虚线点保留过去位置，不代表当前可见。' : '当前素材没有逐帧战术坐标，待联调。', 'content-note'));
     if (story.sample === 'flagg') appendLink(court, '查看原始编辑示意 JSON ↗', new URL('../data/flagg.json', import.meta.url).href);
     body.append(court);
     rlSources(story);

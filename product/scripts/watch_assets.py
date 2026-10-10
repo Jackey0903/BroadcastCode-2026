@@ -25,6 +25,8 @@ WATCH_PUBLIC_FILES = (
     'court/court.css',
     'court/themes.js',
     'data/flagg.json',
+    'data/formal-court.json',
+    'court/formal-court.js',
     'dev/inspector.css',
     'dev/inspector.js',
     'glass/ambience-source.js',

@@ -1,5 +1,6 @@
 import { createCourtGeometry, svgNode, toVerticalCourt } from './court-geometry.js';
 import { getCourtTheme } from './themes.js';
+import { sampleFormalCourt } from './formal-court.js';
 
 const finite = Number.isFinite;
 const clock = t => `${Math.floor(Math.max(0, t) / 60)}:${String(Math.floor(Math.max(0, t) % 60)).padStart(2, '0')}`;
@@ -139,7 +140,8 @@ export function createCourtPanel({ onMode = () => {}, onSelect = () => {}, onThe
     markers.forEach(node => { node.style.display = 'none'; });
     let positions = [], ball = null;
     if (available) {
-      positions = CourtLab.samplePositions(dataset, time); ball = CourtLab.sampleBall(dataset, time);
+      if(dataset.schema==='gamebuddy-formal-court-v1')positions=sampleFormalCourt(dataset,time);
+      else { positions = CourtLab.samplePositions(dataset, time); ball = CourtLab.sampleBall(dataset, time); }
       for (const position of positions) {
         if (!finite(position.x) || !finite(position.y)) continue;
         const node = playerNode(position), point = toVerticalCourt(position.x, position.y);
@@ -148,11 +150,14 @@ export function createCourtPanel({ onMode = () => {}, onSelect = () => {}, onThe
         node.dataset.team = position.team; node.dataset.status = position.status;
         node.classList.toggle('is-focused', position.id === focusId);
         node.classList.toggle('is-holder', position.id === ball?.holder);
+        node.style.opacity = position.held ? '.55' : '1';
+        node.querySelector('circle').setAttribute('stroke-dasharray', position.held ? '1.1 .8' : 'none');
+        node.querySelector('text').textContent=position.label||position.id;
         node.setAttribute('aria-pressed', String(position.id === focusId));
         node.querySelector('title').textContent = `${position.id} · ${position.held ? `过去位置 ${clock(position.sourceTime)}` : '编辑示意位置'} · 未经人工复核`;
       }
     }
-    drawRoutes(dataset, time, selected);
+    drawRoutes(dataset?.schema==='gamebuddy-formal-court-v1'?null:dataset, time, selected);
     const showBall = ball && finite(ball.x) && finite(ball.y);
     ballNode.style.display = showBall ? '' : 'none';
     if (showBall) { const point = toVerticalCourt(ball.x, ball.y); ballNode.setAttribute('transform', `translate(${point.x + (ball.holder ? 2.3 : 0)} ${point.y + (ball.holder ? 1.4 : 0)})`); ballNode.classList.toggle('is-held-position', ball.heldPosition === true); }
