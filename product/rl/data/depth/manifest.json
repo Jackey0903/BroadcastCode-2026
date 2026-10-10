@@ -1,0 +1,730 @@
+{
+  "schema": "rl-scout-depth-source-audit-v1",
+  "auditDate": "2026-10-10",
+  "timezone": "Asia/Shanghai",
+  "purpose": "Official public reference data for grounded retrieval/explanation tasks; NOT valid pre-game predictors for existing same-season xFG holdouts.",
+  "readMethod": "Sequential unauthenticated GETs to routes used by NBA China public website; 1 second between requests. No private API, cloud deployment or model invocation.",
+  "fieldSemanticsSource": "https://china.nba.cn/inside-the-game/glossary",
+  "sources": [
+    {
+      "file": "seasons.json",
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/year",
+      "retrievedAt": "2026-10-10T11:47:11+08:00",
+      "httpStatus": 200,
+      "code": 0,
+      "rawBytes": 489,
+      "sha256": "a9223f65c2ad3ab95769ee1bed6cdd6fd90b45fc15063c15932802cdc69e6f77",
+      "grain": "catalog",
+      "season": null,
+      "seasonType": null,
+      "rows": 6,
+      "rowsKey": null,
+      "uniquePlayers": null,
+      "fields": {
+        "season": {
+          "present": 6,
+          "nonNullNonEmpty": 6,
+          "availableRate": 1.0,
+          "types": {
+            "str": 6
+          }
+        },
+        "seasonName": {
+          "present": 6,
+          "nonNullNonEmpty": 6,
+          "availableRate": 1.0,
+          "types": {
+            "str": 6
+          }
+        },
+        "seasonType": {
+          "present": 6,
+          "nonNullNonEmpty": 6,
+          "availableRate": 1.0,
+          "types": {
+            "str": 6
+          }
+        }
+      },
+      "anomalies": []
+    },
+    {
+      "file": "gravity-2025-26-regular.json",
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+      "retrievedAt": "2026-10-10T11:47:13+08:00",
+      "httpStatus": 200,
+      "code": 0,
+      "rawBytes": 109378,
+      "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+      "grain": "player-season",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "rows": 234,
+      "rowsKey": "players",
+      "uniquePlayers": 234,
+      "fields": {
+        "AST": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "float": 234
+          },
+          "min": 0.4,
+          "max": 10.7
+        },
+        "AVATAR": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "str": 234
+          }
+        },
+        "FIRSTNAME": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "str": 234
+          }
+        },
+        "GP": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "str": 234
+          }
+        },
+        "LASTNAME": {
+          "present": 234,
+          "nonNullNonEmpty": 233,
+          "availableRate": 0.995726,
+          "types": {
+            "str": 234
+          }
+        },
+        "MP": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "float": 234
+          },
+          "min": 8.5,
+          "max": 38.0
+        },
+        "OFF_BALL_INTERIOR_GRAV": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "float": 234
+          },
+          "min": -24.268,
+          "max": 12.47
+        },
+        "OFF_BALL_PERIM_GRAV": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "float": 234
+          },
+          "min": -8.771,
+          "max": 20.086
+        },
+        "ON_BALL_INTERIOR_GRAV": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "float": 234
+          },
+          "min": -38.604,
+          "max": 13.577
+        },
+        "ON_BALL_PERIM_GRAV": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "float": 234
+          },
+          "min": -14.331,
+          "max": 17.273
+        },
+        "OVERALL_GRAV": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "float": 234
+          },
+          "min": -10.149,
+          "max": 16.237
+        },
+        "PLAYERID": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "int": 234
+          },
+          "min": 2544,
+          "max": 1642962
+        },
+        "PTS": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "float": 234
+          },
+          "min": 3.0,
+          "max": 33.5
+        },
+        "REB": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "float": 234
+          },
+          "min": 1.0,
+          "max": 12.9
+        },
+        "darkLogo": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "str": 234
+          }
+        },
+        "lightLogo": {
+          "present": 234,
+          "nonNullNonEmpty": 234,
+          "availableRate": 1.0,
+          "types": {
+            "str": 234
+          }
+        }
+      },
+      "anomalies": [
+        "Negative gravity scores are valid above/below-expected values; do not clip to zero.",
+        "No gravity minutes/sample-count denominators present; cannot reconstruct weighted team or overall gravity from subgroup means."
+      ]
+    },
+    {
+      "file": "leverage-2025-26-regular.json",
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "retrievedAt": "2026-10-10T11:47:30+08:00",
+      "httpStatus": 200,
+      "code": 0,
+      "rawBytes": 120815,
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "grain": "player-season",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "rows": 261,
+      "rowsKey": "players",
+      "uniquePlayers": 261,
+      "fields": {
+        "AST": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "float": 261
+          },
+          "min": 0.4,
+          "max": 10.7
+        },
+        "AVATAR": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "str": 261
+          }
+        },
+        "CREATION_LVG": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "float": 261
+          },
+          "min": 0.06,
+          "max": 2.92
+        },
+        "DEF_LVG": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "float": 261
+          },
+          "min": 0.32,
+          "max": 3.01
+        },
+        "FIRSTNAME": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "str": 261
+          }
+        },
+        "GP": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "str": 261
+          }
+        },
+        "LASTNAME": {
+          "present": 261,
+          "nonNullNonEmpty": 260,
+          "availableRate": 0.996169,
+          "types": {
+            "str": 261
+          }
+        },
+        "MP": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "float": 261
+          },
+          "min": 8.5,
+          "max": 38.0
+        },
+        "OFF_LVG": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "float": 261
+          },
+          "min": -1.32,
+          "max": 1.83
+        },
+        "ON_BALL_DEF_LVG": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "float": 261
+          },
+          "min": 0.03,
+          "max": 1.36
+        },
+        "PLAYERID": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "int": 261
+          },
+          "min": 2544,
+          "max": 1642962
+        },
+        "PTS": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "float": 261
+          },
+          "min": 2.6,
+          "max": 33.5
+        },
+        "REB": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "float": 261
+          },
+          "min": 1.0,
+          "max": 12.9
+        },
+        "REB_LVG": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "float": 261
+          },
+          "min": 0.09,
+          "max": 1.31
+        },
+        "SHOT_LVG": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "float": 261
+          },
+          "min": -0.54,
+          "max": 1.08
+        },
+        "TOT_LVG": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "float": 261
+          },
+          "min": -0.08,
+          "max": 4.63
+        },
+        "TOV_LVG": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "float": 261
+          },
+          "min": -2.12,
+          "max": -0.12
+        },
+        "darkLogo": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "str": 261
+          }
+        },
+        "lightLogo": {
+          "present": 261,
+          "nonNullNonEmpty": 261,
+          "availableRate": 1.0,
+          "types": {
+            "str": 261
+          }
+        }
+      },
+      "anomalies": [
+        "Season aggregate normalization (per game/per possession/other) not declared by inspected China glossary; retain source score label, not a percentage."
+      ]
+    },
+    {
+      "file": "shotdifficulty-2025-26-regular.json",
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "retrievedAt": "2026-10-10T11:47:32+08:00",
+      "httpStatus": 200,
+      "code": 0,
+      "rawBytes": 82752,
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "grain": "player-season",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "rows": 125,
+      "rowsKey": "shots",
+      "uniquePlayers": 125,
+      "fields": {
+        "AVGDEFENDERBALLDISTANCE": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "float": 125
+          },
+          "min": 26.8,
+          "max": 50.1
+        },
+        "AVGDEFENDERPRESSURESCORE": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "float": 125
+          },
+          "min": 0.768,
+          "max": 0.879
+        },
+        "AVGMADESHOTQUALITY": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "float": 125
+          },
+          "min": 0.424,
+          "max": 0.728
+        },
+        "AVGMISSEDSHOTQUALITY": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "float": 125
+          },
+          "min": 0.35,
+          "max": 0.497
+        },
+        "AVGSHOTQUALITY": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "float": 125
+          },
+          "min": 0.392,
+          "max": 0.657
+        },
+        "AVGSHOTQUALITY2PT": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "float": 125
+          },
+          "min": 0.454,
+          "max": 0.66
+        },
+        "AVGSHOTQUALITY3PT": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "float": 125
+          },
+          "min": 0.0,
+          "max": 0.654
+        },
+        "FG3PCT": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "float": 125
+          },
+          "min": 0.0,
+          "max": 0.456
+        },
+        "FG3PCTABOVEEXPECTED": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "float": 125
+          },
+          "min": -0.654,
+          "max": 0.098
+        },
+        "FGPCT": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "float": 125
+          },
+          "min": 0.394,
+          "max": 0.682
+        },
+        "FGPCTABOVEEXPECTED": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "float": 125
+          },
+          "min": -0.064,
+          "max": 0.103
+        },
+        "FGPCTABOVEEXPECTED_RANK": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "int": 125
+          },
+          "min": 1,
+          "max": 125
+        },
+        "FIRSTNAME": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "str": 125
+          }
+        },
+        "LASTNAME": {
+          "present": 125,
+          "nonNullNonEmpty": 124,
+          "availableRate": 0.992,
+          "types": {
+            "str": 125
+          }
+        },
+        "MINSHOTQUALITYONMAKE": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "float": 125
+          },
+          "min": 0.011,
+          "max": 0.309
+        },
+        "PLAYERID": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "int": 125
+          },
+          "min": 2544,
+          "max": 1642907
+        },
+        "TEAMID": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "int": 125
+          },
+          "min": 1610612737,
+          "max": 1610612766
+        },
+        "TEAMNAME": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "str": 125
+          }
+        },
+        "avatar": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "str": 125
+          }
+        },
+        "teamDarkLogo": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "str": 125
+          }
+        },
+        "teamLightLogo": {
+          "present": 125,
+          "nonNullNonEmpty": 125,
+          "availableRate": 1.0,
+          "types": {
+            "str": 125
+          }
+        }
+      },
+      "anomalies": [
+        "AVGDEFENDERBALLDISTANCE raw unit not documented in inspected China glossary; range 26.8–50.1 must not be labeled feet.",
+        "Zero-valued 3PT fields exist without attempt counts; zero can be a structural no-attempt case. Do not assume a well-supported probability estimate."
+      ],
+      "zeroThreePointRows": [
+        {
+          "playerId": "1629028",
+          "xfg3": 0.0,
+          "fg3": 0.0
+        },
+        {
+          "playerId": "1631105",
+          "xfg3": 0.654,
+          "fg3": 0.0
+        },
+        {
+          "playerId": "203497",
+          "xfg3": 0.384,
+          "fg3": 0.0
+        }
+      ],
+      "fgPctAboveExpectedMaxAbsResidual": 0.0
+    },
+    {
+      "file": "def-0022500701.json",
+      "url": "https://api.nba.cn/nba-web/api/web/inside/def?gameId=0022500701",
+      "retrievedAt": "2026-10-10T11:47:38+08:00",
+      "httpStatus": 200,
+      "code": 0,
+      "rawBytes": 33,
+      "sha256": "32de289b6b32ddafc0f7590cabcb3b7586b08e53feed14289f38db9761388ab1",
+      "grain": "game",
+      "season": null,
+      "seasonType": null,
+      "rows": 0,
+      "rowsKey": null,
+      "uniquePlayers": null,
+      "fields": {},
+      "anomalies": [
+        "data:null; unavailable, not zero"
+      ]
+    }
+  ],
+  "joinPolicy": {
+    "seasonRows": [
+      "PLAYERID",
+      "season (request metadata)",
+      "seasonType (request metadata)"
+    ],
+    "eventRows": [
+      "gameId",
+      "eventId"
+    ],
+    "pbp": "eventId maps to actionNumber for the two already-reviewed practice events; must confirm mapping for new events.",
+    "team": "Gravity/leverage rows lack TEAMID; do not infer numeric IDs from logo without explicit verified team mapping. Player trade periods may not match season aggregate."
+  },
+  "scopeLimitations": [
+    "Season responses have no eventId, possessionId, gameId, asOf date, frame/time or per-event gravity fields.",
+    "OVERALL_GRAV and four contextual gravity values are scores, not percentages or minutes. They are not causal proof for a particular clip.",
+    "Leverage season table is not a direct win-probability percentage delta.",
+    "Aggregate defense distances and pressures are not observations for a selected event.",
+    "The defensive game endpoint returned data:null for 0022500701 in this audit.",
+    "No event-level gravity or leverage endpoint was found in the inspected NBA China public page bundle; absence in the inspected bundle is not proof no other official access exists."
+  ],
+  "publicBundle": {
+    "url": "https://res.nba.cn/static/webmaster/assets/js/index-8c467dd5.js",
+    "sha256": "8b0da8714f9ea0b78d54094bc1d5b4bc4c75116ad10c5991f5ec7bf4addeedc7",
+    "rawBytes": 450070,
+    "observedInsideGetRoutes": [
+      "/nba-web/api/web/inside/config",
+      "/nba-web/api/web/inside/def",
+      "/nba-web/api/web/inside/game",
+      "/nba-web/api/web/inside/gpShot",
+      "/nba-web/api/web/inside/leader",
+      "/nba-web/api/web/inside/season/playerGravity",
+      "/nba-web/api/web/inside/season/playerLeverage",
+      "/nba-web/api/web/inside/season/shotDifficulty",
+      "/nba-web/api/web/inside/season/year",
+      "/nba-web/api/web/inside/shot",
+      "/nba-web/api/web/inside/videoPlay"
+    ],
+    "note": "Routes and read-only query shapes inspected as data, not executed. Glossary confirms 20 ft perimeter/interior boundary; does not declare distance units for AVGDEFENDERBALLDISTANCE."
+  },
+  "currentShotDatasetAudit": {
+    "path": "../shots.jsonl",
+    "rows": 15171,
+    "gameCountWithRows": 168,
+    "players": 121,
+    "actualDateRange": [
+      "2025-10-27",
+      "2026-04-10"
+    ],
+    "gravityPlayerOverlap": 106,
+    "gravityShotCoverage": 13879,
+    "leveragePlayerOverlap": 112,
+    "leverageShotCoverage": 14405,
+    "note": "Overlap describes joinability only; these full-season values are disallowed for held-out xFG estimation."
+  }
+}

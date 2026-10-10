@@ -5,6 +5,7 @@ SageMaker training container. One episode = one official shot. The policy never 
 official quality value or the make/miss result; the reward compares its estimate with the
 official value after the episode ends.
 """
+import hashlib
 import json
 import math
 import re
@@ -16,9 +17,12 @@ ZONES_ZH = {"restricted": "篮下", "paint": "禁区", "midrange": "中距离",
 TYPE_ZH = {"2PT": "两分", "3PT": "三分"}
 POINT_TOOLS = ("zone_reference", "move_reference", "player_profile")
 INTERVAL_TOOLS = POINT_TOOLS + ("player_zone",)
+# v4 uses only cross-fitted shot references, never full-season profiles.
+JOINT_TOOLS = ("zone_reference", "move_reference", "player_zone", "situation_reference")
 TOOLS = POINT_TOOLS
 TEST_FROM = "2026-03-01"
 PRACTICE_GAMES = ("0022500491", "0022500701")
+FOCUS_TEAM_IDS = {1610612742, 1610612745}
 MIN_MOVE_SAMPLES = 15
 MIN_PLAYER_ZONE_SAMPLES = 8
 BAND = (0.2, 0.8)  # central 60% interval of official quality
@@ -31,15 +35,15 @@ INTERVAL_ALPHA, INTERVAL_SCALE = 0.4, 1.5
 # averaging zone and move references scores 0.5976 (the move table saves ~0.005 MAE = 0.008 reward,
 # less than the 0.01 cost), and the v1 run collapsed onto zone-only by step 15. v2 keeps the v1
 # calibration and lowers the tool cost to 0.002 so the combined estimate becomes optimal (0.6136).
-# Reward v3 (11:40) "interval scout": the point estimate is near the information ceiling (best linear blend of
-# every available prior: 0.0937 / 0.0900 MAE vs 0.0955 / 0.0905 for the table baseline), but dispersion
-# differs 5x between zones (3PT sd 0.042, restricted area 0.232). v3 also asks for the central 60% interval
-# and scores it with the interval score, a strictly proper scoring rule (Gneiting & Raftery 2007): its
-# expected optimum is the true 20th/80th percentile, so neither wide nor narrow intervals can game it.
+# v3 added 60% intervals, but clipped interval rewards lose strict propriety.
+# v4 uses an unclipped affine interval score and absolute error (conditional median).
+# Earlier linear-blend results are baselines, not evidence of an information ceiling.
 POINT_WEIGHTS = {"calibration": 0.75, "format": 0.15, "grounded": 0.10}
 REWARD_PRESETS = {"v1": {"toolCost": 0.01, "calibrationScale": 0.5, "spec": "point"},
                   "v2": {"toolCost": 0.002, "calibrationScale": 0.5, "spec": "point"},
                   "v3": {"toolCost": 0.002, "calibrationScale": 0.5, "spec": "interval",
+                         "weights": {"calibration": 0.45, "interval": 0.30, "format": 0.15, "grounded": 0.10}},
+                  "v4": {"toolCost": 0.002, "calibrationScale": 0.5, "spec": "interval",
                          "weights": {"calibration": 0.45, "interval": 0.30, "format": 0.15, "grounded": 0.10}}}
 REWARD_VERSION, SPEC = "v1", "point"
 TOOL_COST, INVALID_PENALTY = 0.01, 0.2
@@ -66,7 +70,24 @@ INTERVAL_PROMPT = (
     "作答时只输出：{\"quality\": 0.xx, \"low\": 0.xx, \"high\": 0.xx, \"reason\": \"不超过60字，只引用给出的事实\"}\n"
     "要求 low ≤ quality ≤ high。不要输出任何其他文字。"
 )
+JOINT_PROMPT = (
+    "你是 NBA 球探。根据出手类型、区域与动作，估计同类出手官方质量的典型值（条件中位数）及中间60%区间。"
+    "本次出手的官方质量和命中结果不可见；不要把估计说成官方值或命中预测。\n"
+    "可先请求参考工具（每次调用有成本，仅调用需要的）："
+    "situation_reference（所属数据范围内区域×两分/三分×动作的联合中位数、均值、20/80百分位与样本数；不足时回退区域），"
+    "zone_reference（区域参考），move_reference（动作参考），player_zone（球员区域参考）。"
+    "所有表只使用训练比赛，训练时还排除了本题所在的整场比赛分组；没有全赛季档案或逐帧防守数据。\n"
+    '需要工具只输出：{"tools": ["工具名", ...]}\n'
+    '作答只输出：{"quality": 0.xx, "low": 0.xx, "high": 0.xx, "reason": "简短说明参考依据"}\n'
+    "要求0≤low≤quality≤high≤1，reason不超过60字；不要猜防守距离、球员引力或战术因果。"
+)
 PROMPTS = {"point": SYSTEM_PROMPT, "interval": INTERVAL_PROMPT}
+
+
+def reference_fold(shot, folds=5):
+    """Whole-game folds: a training episode never retrieves statistics containing its own game."""
+    return int(hashlib.sha256(("rl-scout-dev-v4:" + str(shot["gameId"])).encode()).hexdigest()[:8], 16) % folds
+
 
 
 def use_reward(version):
@@ -77,8 +98,8 @@ def use_reward(version):
     REWARD_VERSION, TOOL_COST, CALIBRATION_SCALE = version, preset["toolCost"], preset["calibrationScale"]
     WEIGHTS = dict(preset.get("weights", POINT_WEIGHTS))
     SPEC = preset["spec"]
-    TOOLS = INTERVAL_TOOLS if SPEC == "interval" else POINT_TOOLS
-    SYSTEM_PROMPT = PROMPTS[SPEC]
+    TOOLS = JOINT_TOOLS if version == "v4" else INTERVAL_TOOLS if SPEC == "interval" else POINT_TOOLS
+    SYSTEM_PROMPT = JOINT_PROMPT if version == "v4" else PROMPTS[SPEC]
 
 
 def band(values):
@@ -108,6 +129,15 @@ def shot_geometry(loc_x, loc_y, side, three):
 def load_shots(path):
     with open(path, encoding="utf-8") as stream:
         return [json.loads(line) for line in stream if line.strip()]
+
+
+def select_universe(shots, universe="all"):
+    if universe == "all":
+        return list(shots)
+    if universe != "two-teams":
+        raise ValueError("universe must be all or two-teams")
+    # Stored teamId comes from the official season roster/profile snapshot, not an as-of roster.
+    return [shot for shot in shots if shot.get("teamId") in FOCUS_TEAM_IDS]
 
 
 def held_out(shot):
@@ -142,44 +172,71 @@ def test_sets(shots):
 class References:
     """Tool back-ends. Built from the training split only, so test labels never leak."""
 
-    def __init__(self, train, profiles):
+    def __init__(self, train, profiles, universe="all"):
+        self.universe = universe
+        self.scope_label = "两队训练" if universe == "two-teams" else "联盟"
         self.zone, self.move, self.profiles = {}, {}, profiles
         self.zone_band, self.move_band, self.player_zone = {}, {}, {}
+        self.situation, self.zone_median = {}, {}
         groups = {}
         for shot in train:
             groups.setdefault(("zone", shot["zone"], shot["shotType"]), []).append(shot["quality"])
             groups.setdefault(("move", shot["shotDesc"]), []).append(shot["quality"])
             groups.setdefault(("player", str(shot["playerId"]), shot["zone"], shot["shotType"]), []).append(shot["quality"])
+            groups.setdefault(("situation", shot["zone"], shot["shotType"], shot["shotDesc"]), []).append(shot["quality"])
         for key, values in groups.items():
             summary = (round(statistics.fmean(values), 3), len(values))
             if key[0] == "zone":
                 self.zone[key[1:]], self.zone_band[key[1:]] = summary, band(values)
+                self.zone_median[key[1:]] = round(statistics.median(values), 3)
             elif key[0] == "move":
                 self.move[key[1]], self.move_band[key[1]] = summary, band(values)
+            elif key[0] == "situation":
+                self.situation[key[1:]] = summary + (round(statistics.median(values), 3),) + band(values)
             else:
                 self.player_zone[key[1:]] = summary + band(values)
         self.global_mean = round(statistics.fmean(s["quality"] for s in train), 3) if train else 0.45
 
     def to_tables(self):
         """Serialisable tool back-ends for runtime (no training rows needed)."""
-        return {"globalMean": self.global_mean,
+        return {"universe": self.universe, "globalMean": self.global_mean,
                 "zone": [[zone, kind, mean, count] for (zone, kind), (mean, count) in sorted(self.zone.items())],
                 "move": [[desc, mean, count] for desc, (mean, count) in sorted(self.move.items())],
-                "profiles": self.profiles,
+                "profiles": {} if REWARD_VERSION == "v4" else self.profiles,
+                "zoneMedian": [[zone, kind, value] for (zone, kind), value in sorted(self.zone_median.items())],
+                "situation": [[zone, kind, desc, *row] for (zone, kind, desc), row in sorted(self.situation.items())],
                 "zoneBand": [[zone, kind, low, high] for (zone, kind), (low, high) in sorted(self.zone_band.items())],
                 "moveBand": [[desc, low, high] for desc, (low, high) in sorted(self.move_band.items())],
                 "playerZone": [[pid, zone, kind, *row] for (pid, zone, kind), row in sorted(self.player_zone.items())]}
 
     @classmethod
     def from_tables(cls, tables):
-        refs = cls([], tables.get("profiles", {}))
+        refs = cls([], tables.get("profiles", {}), tables.get("universe", "all"))
         refs.global_mean = tables["globalMean"]
         refs.zone = {(zone, kind): (mean, count) for zone, kind, mean, count in tables["zone"]}
         refs.move = {desc: (mean, count) for desc, mean, count in tables["move"]}
         refs.zone_band = {(zone, kind): (low, high) for zone, kind, low, high in tables.get("zoneBand", [])}
         refs.move_band = {desc: (low, high) for desc, low, high in tables.get("moveBand", [])}
         refs.player_zone = {(pid, zone, kind): tuple(row) for pid, zone, kind, *row in tables.get("playerZone", [])}
+        refs.zone_median = {(zone, kind): value for zone, kind, value in tables.get("zoneMedian", [])}
+        refs.situation = {(zone, kind, desc): tuple(row) for zone, kind, desc, *row in tables.get("situation", [])}
         return refs
+
+    def situation_values(self, shot):
+        row = self.situation.get((shot["zone"], shot["shotType"], shot["shotDesc"]))
+        if row and row[1] >= MIN_MOVE_SAMPLES:
+            return row, "联合参考"
+        key = (shot["zone"], shot["shotType"])
+        mean, count = self.zone.get(key, (self.global_mean, 0))
+        low, high = self.zone_band.get(key, (0.0, 1.0))
+        median = self.zone_median.get(key, mean)
+        return (mean, count, median, low, high), "联合样本不足，回退区域"
+
+    def situation_reference(self, shot):
+        (mean, count, median, low, high), source = self.situation_values(shot)
+        return (f"{source}：{ZONES_ZH[shot['zone']]}·{TYPE_ZH[shot['shotType']]}·{shot['shotDesc']}，"
+                f"典型质量（中位数）{median:.3f}，均值{mean:.3f}，中间60%区间{low:.3f}–{high:.3f}，"
+                f"训练样本{count}次；非本次出手的官方值")
 
     def _band_text(self, values):
         return f"，中间 60% 区间 {values[0]:.3f}–{values[1]:.3f}" if SPEC == "interval" and values else ""
@@ -188,7 +245,7 @@ class References:
         mean, count = self.zone.get((shot["zone"], shot["shotType"]), (self.global_mean, 0))
         extra = self._band_text(self.zone_band.get((shot["zone"], shot["shotType"])))
         return (f"区域参考：{ZONES_ZH[shot['zone']]}·{TYPE_ZH[shot['shotType']]}，"
-                f"联盟平均官方质量 {mean:.3f}（训练样本 {count} 次{extra}）")
+                f"{self.scope_label}平均官方质量 {mean:.3f}（训练样本 {count} 次{extra}）")
 
     def move_reference(self, shot):
         mean, count = self.move.get(shot["shotDesc"], (None, 0))
@@ -241,6 +298,15 @@ def first_messages(shot):
 
 def parse_action(text):
     """Return ('tools', [names], invalid) | ('answer', {...}, invalid) | ('invalid', None, True)."""
+    if not isinstance(text, str):
+        return "invalid", None, True
+    if REWARD_VERSION == "v4":
+        try:
+            strict = json.loads(text)
+        except (ValueError, TypeError):
+            return "invalid", None, True
+        if not isinstance(strict, dict) or ("tools" in strict and set(strict) != {"tools"}):
+            return "invalid", None, True
     start, end = text.find("{"), text.rfind("}")
     if start < 0 or end <= start:
         return "invalid", None, True
@@ -290,12 +356,26 @@ def _interval(answer, prediction):
     return (low, high) if prediction is not None and 0 <= low <= prediction <= high <= 1 else None
 
 
+def valid_interval_answer(answer, invalid=False):
+    if invalid or not isinstance(answer, dict) or set(answer) != {"quality", "low", "high", "reason"}:
+        return False
+    if any(isinstance(answer[k], bool) or not isinstance(answer[k], (int, float)) or not math.isfinite(answer[k])
+           for k in ("quality", "low", "high")):
+        return False
+    return (_interval(answer, answer["quality"]) is not None and isinstance(answer["reason"], str)
+            and 0 < len(answer["reason"].strip()) <= 60)
+
+
 def reward(answer, quality, tools_used, invalid, context):
     """Verifiable reward. `context` is every string the policy was shown (state + tool results)."""
     parts = {"calibration": 0.0, "format": 0.0, "grounded": 0.0,
              "tools": len(tools_used), "invalid": bool(invalid), "prediction": None}
     if SPEC == "interval":
         parts.update({"interval": 0.0, "low": None, "high": None, "intervalScore": None})
+    if REWARD_VERSION == "v4" and not valid_interval_answer(answer, invalid):
+        parts["invalid"] = True
+        parts["total"] = -2.0
+        return parts
     if answer is None:
         parts["total"] = -INVALID_PENALTY
         return parts
@@ -308,7 +388,9 @@ def reward(answer, quality, tools_used, invalid, context):
     own = set()
     if prediction is not None and 0 <= prediction <= 1:
         parts["prediction"] = round(prediction, 4)
-        parts["calibration"] = max(0.0, 1 - abs(prediction - quality) / CALIBRATION_SCALE)
+        parts["calibration"] = 1 - abs(prediction - quality) / CALIBRATION_SCALE
+        if REWARD_VERSION != "v4":
+            parts["calibration"] = max(0.0, parts["calibration"])
         shaped = True
         if SPEC == "interval":
             keys, span = keys | {"low", "high"}, _interval(answer, prediction)
@@ -316,7 +398,7 @@ def reward(answer, quality, tools_used, invalid, context):
             if span:
                 score = interval_score(span[0], span[1], quality)
                 parts.update({"low": round(span[0], 4), "high": round(span[1], 4), "intervalScore": round(score, 4),
-                              "interval": max(0.0, 1 - score / INTERVAL_SCALE)})
+                              "interval": (1 - score / INTERVAL_SCALE) if REWARD_VERSION == "v4" else max(0.0, 1 - score / INTERVAL_SCALE)})
                 own = {round(v, 3) for v in span} | {round(v * 100, 1) for v in span}
         if shaped and isinstance(reason, str) and 0 < len(reason) <= MAX_REASON_CHARS and set(answer) <= keys:
             parts["format"] = 1.0
@@ -336,6 +418,11 @@ def summarize(results):
     rows = [r for r in results if r.get("prediction") is not None]
     errors = [abs(r["prediction"] - r["quality"]) for r in rows]
     summary = {
+        "allEpisodeMAE": round(statistics.fmean(abs(r["prediction"] - r["quality"])
+            if r.get("prediction") is not None and r.get("format") == 1.0 and not r.get("invalid", False)
+            else 1.0 for r in results), 4) if results else None,
+        "validRate": round(statistics.fmean(r.get("prediction") is not None and r.get("format") == 1.0
+            and not r.get("invalid", False) for r in results), 4) if results else None,
         "episodes": len(results),
         "answered": len(rows),
         "mae": round(statistics.fmean(errors), 4) if errors else None,

@@ -1,0 +1,2369 @@
+{
+  "schema": "rl-scout-two-team-official-context-v1",
+  "generatedAt": "2026-10-10T11:52:49+08:00",
+  "authorizationScope": "Only HOU and DAL data may be used for the next training increment. Full-league source responses are provenance history, not active training data.",
+  "allowedUses": [
+    "two_team_source_grounded_retrieval",
+    "same_scope_metric_comparison",
+    "metric_unit_and_scope_explanation",
+    "evidence_scoped_unavailable_response"
+  ],
+  "disallowedUses": [
+    "same_season_held_out_xfg_prediction_features",
+    "event_level_gravity_or_leverage_labels",
+    "historical_roster_membership_inference"
+  ],
+  "teamMembershipSemantics": "Team assignments reflect the logo/TEAMID labels in the current public season snapshots, not event-date membership or verified historical rosters.",
+  "season": "2025-26",
+  "seasonType": "Regular Season",
+  "allowedTeams": {
+    "HOU": {
+      "teamId": 1610612745,
+      "name": "火箭"
+    },
+    "DAL": {
+      "teamId": 1610612742,
+      "name": "独行侠"
+    }
+  },
+  "reproducibility": {
+    "sourceManifest": "manifest.json",
+    "filter": {
+      "shotdifficulty": "data.shots rows where TEAMID in [1610612742,1610612745]",
+      "gravityAndLeverage": "data.players rows where all parsable lightLogo/darkLogo basenames agree exactly on HOU_logo.png or DAL_logo.png; map HOU→1610612745 and DAL→1610612742",
+      "sort": "Rows and players sorted by snapshotTeamAbbreviation, then string playerId",
+      "keepMissing": "Missing metric families remain absent and are listed in missingMetricFamilies; never fill with zero."
+    },
+    "selectedContentSha256": "ddb21e397ba9ebb4449b3e5a50775a54bd90e881c9d75e905b1b0258c4155b10"
+  },
+  "coverage": {
+    "HOU": {
+      "teamId": 1610612745,
+      "playersInAnyMetricFamily": 8,
+      "playerIds": [
+        "1629006",
+        "1630578",
+        "1631095",
+        "1631106",
+        "1641708",
+        "1642263",
+        "201142",
+        "203991"
+      ],
+      "shotRows": 3086,
+      "playersWithShotRows": 5,
+      "metricFamilies": {
+        "gravity": {
+          "players": 8,
+          "playerIds": [
+            "1629006",
+            "1630578",
+            "1631095",
+            "1631106",
+            "1641708",
+            "1642263",
+            "201142",
+            "203991"
+          ],
+          "missingPlayerIdsWithinUnion": [],
+          "nonNullMetricValues": {
+            "OVERALL_GRAV": 8,
+            "ON_BALL_PERIM_GRAV": 8,
+            "ON_BALL_INTERIOR_GRAV": 8,
+            "OFF_BALL_PERIM_GRAV": 8,
+            "OFF_BALL_INTERIOR_GRAV": 8
+          }
+        },
+        "leverage": {
+          "players": 8,
+          "playerIds": [
+            "1629006",
+            "1630578",
+            "1631095",
+            "1631106",
+            "1641708",
+            "1642263",
+            "201142",
+            "203991"
+          ],
+          "missingPlayerIdsWithinUnion": [],
+          "nonNullMetricValues": {
+            "TOT_LVG": 8,
+            "OFF_LVG": 8,
+            "DEF_LVG": 8,
+            "ON_BALL_DEF_LVG": 8,
+            "SHOT_LVG": 8,
+            "CREATION_LVG": 8,
+            "REB_LVG": 8,
+            "TOV_LVG": 8
+          }
+        },
+        "shotdifficulty": {
+          "players": 5,
+          "playerIds": [
+            "1630578",
+            "1631095",
+            "1641708",
+            "1642263",
+            "201142"
+          ],
+          "missingPlayerIdsWithinUnion": [
+            "1629006",
+            "1631106",
+            "203991"
+          ],
+          "nonNullMetricValues": {
+            "AVGSHOTQUALITY": 5,
+            "AVGMADESHOTQUALITY": 5,
+            "AVGMISSEDSHOTQUALITY": 5,
+            "MINSHOTQUALITYONMAKE": 5,
+            "AVGSHOTQUALITY2PT": 5,
+            "AVGSHOTQUALITY3PT": 5,
+            "FGPCT": 5,
+            "FGPCTABOVEEXPECTED": 5,
+            "FGPCTABOVEEXPECTED_RANK": 5,
+            "FG3PCT": 5,
+            "FG3PCTABOVEEXPECTED": 5,
+            "AVGDEFENDERBALLDISTANCE": 5,
+            "AVGDEFENDERPRESSURESCORE": 5
+          }
+        }
+      }
+    },
+    "DAL": {
+      "teamId": 1610612742,
+      "playersInAnyMetricFamily": 12,
+      "playerIds": [
+        "1628963",
+        "1628997",
+        "1629023",
+        "1629655",
+        "1630230",
+        "1630314",
+        "1631108",
+        "1642843",
+        "1642948",
+        "202691",
+        "203114",
+        "203939"
+      ],
+      "shotRows": 1525,
+      "playersWithShotRows": 3,
+      "metricFamilies": {
+        "gravity": {
+          "players": 10,
+          "playerIds": [
+            "1628963",
+            "1628997",
+            "1630230",
+            "1630314",
+            "1631108",
+            "1642843",
+            "1642948",
+            "202691",
+            "203114",
+            "203939"
+          ],
+          "missingPlayerIdsWithinUnion": [
+            "1629023",
+            "1629655"
+          ],
+          "nonNullMetricValues": {
+            "OVERALL_GRAV": 10,
+            "ON_BALL_PERIM_GRAV": 10,
+            "ON_BALL_INTERIOR_GRAV": 10,
+            "OFF_BALL_PERIM_GRAV": 10,
+            "OFF_BALL_INTERIOR_GRAV": 10
+          }
+        },
+        "leverage": {
+          "players": 12,
+          "playerIds": [
+            "1628963",
+            "1628997",
+            "1629023",
+            "1629655",
+            "1630230",
+            "1630314",
+            "1631108",
+            "1642843",
+            "1642948",
+            "202691",
+            "203114",
+            "203939"
+          ],
+          "missingPlayerIdsWithinUnion": [],
+          "nonNullMetricValues": {
+            "TOT_LVG": 12,
+            "OFF_LVG": 12,
+            "DEF_LVG": 12,
+            "ON_BALL_DEF_LVG": 12,
+            "SHOT_LVG": 12,
+            "CREATION_LVG": 12,
+            "REB_LVG": 12,
+            "TOV_LVG": 12
+          }
+        },
+        "shotdifficulty": {
+          "players": 3,
+          "playerIds": [
+            "1630230",
+            "1631108",
+            "1642843"
+          ],
+          "missingPlayerIdsWithinUnion": [
+            "1628963",
+            "1628997",
+            "1629023",
+            "1629655",
+            "1630314",
+            "1642948",
+            "202691",
+            "203114",
+            "203939"
+          ],
+          "nonNullMetricValues": {
+            "AVGSHOTQUALITY": 3,
+            "AVGMADESHOTQUALITY": 3,
+            "AVGMISSEDSHOTQUALITY": 3,
+            "MINSHOTQUALITYONMAKE": 3,
+            "AVGSHOTQUALITY2PT": 3,
+            "AVGSHOTQUALITY3PT": 3,
+            "FGPCT": 3,
+            "FGPCTABOVEEXPECTED": 3,
+            "FGPCTABOVEEXPECTED_RANK": 3,
+            "FG3PCT": 3,
+            "FG3PCTABOVEEXPECTED": 3,
+            "AVGDEFENDERBALLDISTANCE": 3,
+            "AVGDEFENDERPRESSURESCORE": 3
+          }
+        }
+      }
+    }
+  },
+  "shotDatasetCrossCheck": {
+    "sourceFile": "../shots.jsonl",
+    "sourceSha256AtRead": "363694a79d43ae1e2ea3b32ea84586db0ee8079cd6930e5eeeea87cb0677deab",
+    "sourceRowsAtRead": 15171,
+    "filter": "teamId in [1610612742,1610612745]",
+    "filteredRows": 4611,
+    "filteredPlayers": 8,
+    "filteredPlayerRowCounts": {
+      "1630230": 463,
+      "1630578": 629,
+      "1631095": 546,
+      "1631108": 407,
+      "1641708": 621,
+      "1642263": 515,
+      "1642843": 655,
+      "201142": 775
+    },
+    "dateRange": [
+      "2025-10-27",
+      "2026-03-01"
+    ],
+    "metricUnionPlayers": 20,
+    "metricUnionPlayersWithoutFilteredShots": [
+      "1628963",
+      "1628997",
+      "1629006",
+      "1629023",
+      "1629655",
+      "1630314",
+      "1631106",
+      "1642948",
+      "202691",
+      "203114",
+      "203939",
+      "203991"
+    ],
+    "note": "Two-team season context covers more players than the shotDifficulty-profile-based harvested shot set; this does not add per-shot labels for those extra players."
+  },
+  "families": {
+    "gravity": {
+      "sourceId": "gravity-2025-26-regular",
+      "sourceFile": "gravity-2025-26-regular.json",
+      "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+      "sourceSha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+      "sourceRetrievedAt": "2026-10-10T11:47:13+08:00",
+      "sourceRows": 234,
+      "selectedRows": 18,
+      "grain": "player-season",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "metricUnits": {
+        "OVERALL_GRAV": {
+          "rawUnit": "gravity_score",
+          "displayUnit": "score",
+          "canBeNegative": true,
+          "scope": "player-season",
+          "notPercentage": true
+        },
+        "ON_BALL_PERIM_GRAV": {
+          "rawUnit": "gravity_score",
+          "displayUnit": "score",
+          "canBeNegative": true,
+          "scope": "player-season",
+          "notPercentage": true
+        },
+        "ON_BALL_INTERIOR_GRAV": {
+          "rawUnit": "gravity_score",
+          "displayUnit": "score",
+          "canBeNegative": true,
+          "scope": "player-season",
+          "notPercentage": true
+        },
+        "OFF_BALL_PERIM_GRAV": {
+          "rawUnit": "gravity_score",
+          "displayUnit": "score",
+          "canBeNegative": true,
+          "scope": "player-season",
+          "notPercentage": true
+        },
+        "OFF_BALL_INTERIOR_GRAV": {
+          "rawUnit": "gravity_score",
+          "displayUnit": "score",
+          "canBeNegative": true,
+          "scope": "player-season",
+          "notPercentage": true
+        }
+      },
+      "rows": [
+        {
+          "playerId": "1628963",
+          "displayName": "马文巴格利三世",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 216,
+          "metrics": {
+            "OVERALL_GRAV": -6.29,
+            "ON_BALL_PERIM_GRAV": -3.894,
+            "ON_BALL_INTERIOR_GRAV": -17.637,
+            "OFF_BALL_PERIM_GRAV": -3.878,
+            "OFF_BALL_INTERIOR_GRAV": -9.666
+          },
+          "supportingStats": {
+            "GP": "60",
+            "MP": 20.0,
+            "PTS": 10.5,
+            "REB": 6.1,
+            "AST": 1.4
+          }
+        },
+        {
+          "playerId": "1628997",
+          "displayName": "凯莱布马丁",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 171,
+          "metrics": {
+            "OVERALL_GRAV": -1.917,
+            "ON_BALL_PERIM_GRAV": -6.901,
+            "ON_BALL_INTERIOR_GRAV": -16.538,
+            "OFF_BALL_PERIM_GRAV": 0.581,
+            "OFF_BALL_INTERIOR_GRAV": -6.633
+          },
+          "supportingStats": {
+            "GP": "58",
+            "MP": 14.8,
+            "PTS": 3.9,
+            "REB": 2.5,
+            "AST": 1.4
+          }
+        },
+        {
+          "playerId": "1630230",
+          "displayName": "纳吉马绍尔",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 177,
+          "metrics": {
+            "OVERALL_GRAV": -2.455,
+            "ON_BALL_PERIM_GRAV": -4.865,
+            "ON_BALL_INTERIOR_GRAV": -21.149,
+            "OFF_BALL_PERIM_GRAV": 0.344,
+            "OFF_BALL_INTERIOR_GRAV": -8.153
+          },
+          "supportingStats": {
+            "GP": "74",
+            "MP": 29.5,
+            "PTS": 15.2,
+            "REB": 4.7,
+            "AST": 3.3
+          }
+        },
+        {
+          "playerId": "1630314",
+          "displayName": "布兰登威廉姆斯",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 160,
+          "metrics": {
+            "OVERALL_GRAV": -1.37,
+            "ON_BALL_PERIM_GRAV": -3.562,
+            "ON_BALL_INTERIOR_GRAV": -22.269,
+            "OFF_BALL_PERIM_GRAV": 4.016,
+            "OFF_BALL_INTERIOR_GRAV": -9.576
+          },
+          "supportingStats": {
+            "GP": "66",
+            "MP": 22.2,
+            "PTS": 13.0,
+            "REB": 2.9,
+            "AST": 3.9
+          }
+        },
+        {
+          "playerId": "1631108",
+          "displayName": "马克斯克里斯蒂",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 52,
+          "metrics": {
+            "OVERALL_GRAV": 3.931,
+            "ON_BALL_PERIM_GRAV": 1.208,
+            "ON_BALL_INTERIOR_GRAV": -10.892,
+            "OFF_BALL_PERIM_GRAV": 6.001,
+            "OFF_BALL_INTERIOR_GRAV": -5.95
+          },
+          "supportingStats": {
+            "GP": "77",
+            "MP": 29.1,
+            "PTS": 12.3,
+            "REB": 3.2,
+            "AST": 2.0
+          }
+        },
+        {
+          "playerId": "1642843",
+          "displayName": "库珀弗拉格",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 54,
+          "metrics": {
+            "OVERALL_GRAV": 3.828,
+            "ON_BALL_PERIM_GRAV": 2.897,
+            "ON_BALL_INTERIOR_GRAV": -2.938,
+            "OFF_BALL_PERIM_GRAV": 6.217,
+            "OFF_BALL_INTERIOR_GRAV": -2.41
+          },
+          "supportingStats": {
+            "GP": "70",
+            "MP": 33.5,
+            "PTS": 21.0,
+            "REB": 6.7,
+            "AST": 4.5
+          }
+        },
+        {
+          "playerId": "1642948",
+          "displayName": "莱恩内姆布哈德",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 174,
+          "metrics": {
+            "OVERALL_GRAV": -2.147,
+            "ON_BALL_PERIM_GRAV": -2.797,
+            "ON_BALL_INTERIOR_GRAV": -23.154,
+            "OFF_BALL_PERIM_GRAV": 1.422,
+            "OFF_BALL_INTERIOR_GRAV": -14.575
+          },
+          "supportingStats": {
+            "GP": "60",
+            "MP": 19.5,
+            "PTS": 6.6,
+            "REB": 2.2,
+            "AST": 5.3
+          }
+        },
+        {
+          "playerId": "202691",
+          "displayName": "克莱汤普森",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 5,
+          "metrics": {
+            "OVERALL_GRAV": 12.209,
+            "ON_BALL_PERIM_GRAV": 7.081,
+            "ON_BALL_INTERIOR_GRAV": -7.455,
+            "OFF_BALL_PERIM_GRAV": 15.09,
+            "OFF_BALL_INTERIOR_GRAV": -0.081
+          },
+          "supportingStats": {
+            "GP": "69",
+            "MP": 21.7,
+            "PTS": 11.7,
+            "REB": 2.1,
+            "AST": 1.4
+          }
+        },
+        {
+          "playerId": "203114",
+          "displayName": "克里斯米德尔顿",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 71,
+          "metrics": {
+            "OVERALL_GRAV": 2.808,
+            "ON_BALL_PERIM_GRAV": 2.079,
+            "ON_BALL_INTERIOR_GRAV": -7.195,
+            "OFF_BALL_PERIM_GRAV": 5.747,
+            "OFF_BALL_INTERIOR_GRAV": -3.87
+          },
+          "supportingStats": {
+            "GP": "63",
+            "MP": 22.8,
+            "PTS": 10.2,
+            "REB": 3.7,
+            "AST": 2.8
+          }
+        },
+        {
+          "playerId": "203939",
+          "displayName": "德怀特鲍威尔",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 233,
+          "metrics": {
+            "OVERALL_GRAV": -10.149,
+            "ON_BALL_PERIM_GRAV": -14.331,
+            "ON_BALL_INTERIOR_GRAV": -14.905,
+            "OFF_BALL_PERIM_GRAV": -7.229,
+            "OFF_BALL_INTERIOR_GRAV": -7.837
+          },
+          "supportingStats": {
+            "GP": "63",
+            "MP": 14.4,
+            "PTS": 3.3,
+            "REB": 4.1,
+            "AST": 1.1
+          }
+        },
+        {
+          "playerId": "1629006",
+          "displayName": "约什奥科吉",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 151,
+          "metrics": {
+            "OVERALL_GRAV": -1.133,
+            "ON_BALL_PERIM_GRAV": -1.951,
+            "ON_BALL_INTERIOR_GRAV": -6.407,
+            "OFF_BALL_PERIM_GRAV": -0.768,
+            "OFF_BALL_INTERIOR_GRAV": -3.131
+          },
+          "supportingStats": {
+            "GP": "78",
+            "MP": 17.4,
+            "PTS": 4.5,
+            "REB": 2.6,
+            "AST": 0.9
+          }
+        },
+        {
+          "playerId": "1630578",
+          "displayName": "阿尔佩伦申京",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 131,
+          "metrics": {
+            "OVERALL_GRAV": 0.093,
+            "ON_BALL_PERIM_GRAV": 0.369,
+            "ON_BALL_INTERIOR_GRAV": -5.606,
+            "OFF_BALL_PERIM_GRAV": 2.42,
+            "OFF_BALL_INTERIOR_GRAV": -2.549
+          },
+          "supportingStats": {
+            "GP": "72",
+            "MP": 33.3,
+            "PTS": 20.4,
+            "REB": 8.9,
+            "AST": 6.2
+          }
+        },
+        {
+          "playerId": "1631095",
+          "displayName": "贾巴里史密斯",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 69,
+          "metrics": {
+            "OVERALL_GRAV": 2.881,
+            "ON_BALL_PERIM_GRAV": 2.111,
+            "ON_BALL_INTERIOR_GRAV": -4.236,
+            "OFF_BALL_PERIM_GRAV": 3.586,
+            "OFF_BALL_INTERIOR_GRAV": -1.637
+          },
+          "supportingStats": {
+            "GP": "77",
+            "MP": 35.1,
+            "PTS": 15.8,
+            "REB": 6.9,
+            "AST": 1.9
+          }
+        },
+        {
+          "playerId": "1631106",
+          "displayName": "塔里伊森",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 121,
+          "metrics": {
+            "OVERALL_GRAV": 0.547,
+            "ON_BALL_PERIM_GRAV": -1.267,
+            "ON_BALL_INTERIOR_GRAV": -10.802,
+            "OFF_BALL_PERIM_GRAV": 1.966,
+            "OFF_BALL_INTERIOR_GRAV": -7.755
+          },
+          "supportingStats": {
+            "GP": "60",
+            "MP": 25.8,
+            "PTS": 10.5,
+            "REB": 6.3,
+            "AST": 1.5
+          }
+        },
+        {
+          "playerId": "1641708",
+          "displayName": "阿门汤普森",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 203,
+          "metrics": {
+            "OVERALL_GRAV": -4.593,
+            "ON_BALL_PERIM_GRAV": -5.602,
+            "ON_BALL_INTERIOR_GRAV": -13.765,
+            "OFF_BALL_PERIM_GRAV": -2.273,
+            "OFF_BALL_INTERIOR_GRAV": -8.431
+          },
+          "supportingStats": {
+            "GP": "79",
+            "MP": 37.4,
+            "PTS": 18.3,
+            "REB": 7.8,
+            "AST": 5.3
+          }
+        },
+        {
+          "playerId": "1642263",
+          "displayName": "里德谢泼德",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 28,
+          "metrics": {
+            "OVERALL_GRAV": 6.243,
+            "ON_BALL_PERIM_GRAV": 4.68,
+            "ON_BALL_INTERIOR_GRAV": -11.975,
+            "OFF_BALL_PERIM_GRAV": 7.786,
+            "OFF_BALL_INTERIOR_GRAV": -4.591
+          },
+          "supportingStats": {
+            "GP": "82",
+            "MP": 26.2,
+            "PTS": 13.5,
+            "REB": 2.9,
+            "AST": 3.4
+          }
+        },
+        {
+          "playerId": "201142",
+          "displayName": "凯文杜兰特",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 0,
+          "metrics": {
+            "OVERALL_GRAV": 16.237,
+            "ON_BALL_PERIM_GRAV": 13.68,
+            "ON_BALL_INTERIOR_GRAV": 11.045,
+            "OFF_BALL_PERIM_GRAV": 18.468,
+            "OFF_BALL_INTERIOR_GRAV": 12.47
+          },
+          "supportingStats": {
+            "GP": "78",
+            "MP": 36.4,
+            "PTS": 26.0,
+            "REB": 5.5,
+            "AST": 4.8
+          }
+        },
+        {
+          "playerId": "203991",
+          "displayName": "克林特卡佩拉",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 199,
+          "metrics": {
+            "OVERALL_GRAV": -4.381,
+            "ON_BALL_PERIM_GRAV": -5.119,
+            "ON_BALL_INTERIOR_GRAV": -4.601,
+            "OFF_BALL_PERIM_GRAV": -4.001,
+            "OFF_BALL_INTERIOR_GRAV": -4.137
+          },
+          "supportingStats": {
+            "GP": "75",
+            "MP": 12.3,
+            "PTS": 3.8,
+            "REB": 4.6,
+            "AST": 0.7
+          }
+        }
+      ]
+    },
+    "leverage": {
+      "sourceId": "leverage-2025-26-regular",
+      "sourceFile": "leverage-2025-26-regular.json",
+      "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sourceSha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "sourceRetrievedAt": "2026-10-10T11:47:30+08:00",
+      "sourceRows": 261,
+      "selectedRows": 20,
+      "grain": "player-season",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "metricUnits": {
+        "TOT_LVG": {
+          "rawUnit": "leverage_score",
+          "displayUnit": "score",
+          "canBeNegative": true,
+          "scope": "player-season",
+          "normalization": "not_declared_in_inspected_source",
+          "notWinProbabilityDelta": true
+        },
+        "OFF_LVG": {
+          "rawUnit": "leverage_score",
+          "displayUnit": "score",
+          "canBeNegative": true,
+          "scope": "player-season",
+          "normalization": "not_declared_in_inspected_source",
+          "notWinProbabilityDelta": true
+        },
+        "DEF_LVG": {
+          "rawUnit": "leverage_score",
+          "displayUnit": "score",
+          "canBeNegative": true,
+          "scope": "player-season",
+          "normalization": "not_declared_in_inspected_source",
+          "notWinProbabilityDelta": true
+        },
+        "ON_BALL_DEF_LVG": {
+          "rawUnit": "leverage_score",
+          "displayUnit": "score",
+          "canBeNegative": true,
+          "scope": "player-season",
+          "normalization": "not_declared_in_inspected_source",
+          "notWinProbabilityDelta": true
+        },
+        "SHOT_LVG": {
+          "rawUnit": "leverage_score",
+          "displayUnit": "score",
+          "canBeNegative": true,
+          "scope": "player-season",
+          "normalization": "not_declared_in_inspected_source",
+          "notWinProbabilityDelta": true
+        },
+        "CREATION_LVG": {
+          "rawUnit": "leverage_score",
+          "displayUnit": "score",
+          "canBeNegative": true,
+          "scope": "player-season",
+          "normalization": "not_declared_in_inspected_source",
+          "notWinProbabilityDelta": true
+        },
+        "REB_LVG": {
+          "rawUnit": "leverage_score",
+          "displayUnit": "score",
+          "canBeNegative": true,
+          "scope": "player-season",
+          "normalization": "not_declared_in_inspected_source",
+          "notWinProbabilityDelta": true
+        },
+        "TOV_LVG": {
+          "rawUnit": "leverage_score",
+          "displayUnit": "score",
+          "canBeNegative": true,
+          "scope": "player-season",
+          "normalization": "not_declared_in_inspected_source",
+          "notWinProbabilityDelta": true
+        }
+      },
+      "rows": [
+        {
+          "playerId": "1628963",
+          "displayName": "马文巴格利三世",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 159,
+          "metrics": {
+            "TOT_LVG": 0.85,
+            "OFF_LVG": -0.26,
+            "DEF_LVG": 1.11,
+            "ON_BALL_DEF_LVG": 0.36,
+            "SHOT_LVG": 0.13,
+            "CREATION_LVG": 0.3,
+            "REB_LVG": 0.48,
+            "TOV_LVG": -0.66
+          },
+          "supportingStats": {
+            "GP": "60",
+            "MP": 20.0,
+            "PTS": 10.5,
+            "REB": 6.1,
+            "AST": 1.4
+          }
+        },
+        {
+          "playerId": "1628997",
+          "displayName": "凯莱布马丁",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 234,
+          "metrics": {
+            "TOT_LVG": 0.4,
+            "OFF_LVG": -0.31,
+            "DEF_LVG": 0.71,
+            "ON_BALL_DEF_LVG": 0.21,
+            "SHOT_LVG": -0.12,
+            "CREATION_LVG": 0.29,
+            "REB_LVG": 0.22,
+            "TOV_LVG": -0.33
+          },
+          "supportingStats": {
+            "GP": "58",
+            "MP": 14.8,
+            "PTS": 3.9,
+            "REB": 2.5,
+            "AST": 1.4
+          }
+        },
+        {
+          "playerId": "1629023",
+          "displayName": "PJ华盛顿",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 121,
+          "metrics": {
+            "TOT_LVG": 1.09,
+            "OFF_LVG": -1.32,
+            "DEF_LVG": 2.42,
+            "ON_BALL_DEF_LVG": 0.91,
+            "SHOT_LVG": -0.54,
+            "CREATION_LVG": 0.58,
+            "REB_LVG": 0.72,
+            "TOV_LVG": -1.03
+          },
+          "supportingStats": {
+            "GP": "56",
+            "MP": 30.9,
+            "PTS": 14.2,
+            "REB": 7.0,
+            "AST": 1.8
+          }
+        },
+        {
+          "playerId": "1629655",
+          "displayName": "丹尼尔加福德",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 67,
+          "metrics": {
+            "TOT_LVG": 1.46,
+            "OFF_LVG": -0.24,
+            "DEF_LVG": 1.7,
+            "ON_BALL_DEF_LVG": 0.59,
+            "SHOT_LVG": 0.24,
+            "CREATION_LVG": 0.33,
+            "REB_LVG": 0.7,
+            "TOV_LVG": -0.71
+          },
+          "supportingStats": {
+            "GP": "55",
+            "MP": 21.7,
+            "PTS": 9.5,
+            "REB": 6.9,
+            "AST": 1.1
+          }
+        },
+        {
+          "playerId": "1630230",
+          "displayName": "纳吉马绍尔",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 85,
+          "metrics": {
+            "TOT_LVG": 1.35,
+            "OFF_LVG": -0.33,
+            "DEF_LVG": 1.68,
+            "ON_BALL_DEF_LVG": 0.42,
+            "SHOT_LVG": 0.05,
+            "CREATION_LVG": 0.95,
+            "REB_LVG": 0.47,
+            "TOV_LVG": -1.0
+          },
+          "supportingStats": {
+            "GP": "74",
+            "MP": 29.5,
+            "PTS": 15.2,
+            "REB": 4.7,
+            "AST": 3.3
+          }
+        },
+        {
+          "playerId": "1630314",
+          "displayName": "布兰登威廉姆斯",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 155,
+          "metrics": {
+            "TOT_LVG": 0.87,
+            "OFF_LVG": -0.29,
+            "DEF_LVG": 1.16,
+            "ON_BALL_DEF_LVG": 0.34,
+            "SHOT_LVG": -0.07,
+            "CREATION_LVG": 1.07,
+            "REB_LVG": 0.25,
+            "TOV_LVG": -1.05
+          },
+          "supportingStats": {
+            "GP": "66",
+            "MP": 22.2,
+            "PTS": 13.0,
+            "REB": 2.9,
+            "AST": 3.9
+          }
+        },
+        {
+          "playerId": "1631108",
+          "displayName": "马克斯克里斯蒂",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 106,
+          "metrics": {
+            "TOT_LVG": 1.19,
+            "OFF_LVG": -0.39,
+            "DEF_LVG": 1.58,
+            "ON_BALL_DEF_LVG": 0.47,
+            "SHOT_LVG": 0.1,
+            "CREATION_LVG": 0.57,
+            "REB_LVG": 0.32,
+            "TOV_LVG": -0.69
+          },
+          "supportingStats": {
+            "GP": "77",
+            "MP": 29.1,
+            "PTS": 12.3,
+            "REB": 3.2,
+            "AST": 2.0
+          }
+        },
+        {
+          "playerId": "1642843",
+          "displayName": "库珀弗拉格",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 19,
+          "metrics": {
+            "TOT_LVG": 2.11,
+            "OFF_LVG": -0.2,
+            "DEF_LVG": 2.31,
+            "ON_BALL_DEF_LVG": 0.74,
+            "SHOT_LVG": -0.2,
+            "CREATION_LVG": 1.77,
+            "REB_LVG": 0.71,
+            "TOV_LVG": -1.41
+          },
+          "supportingStats": {
+            "GP": "70",
+            "MP": 33.6,
+            "PTS": 21.0,
+            "REB": 6.7,
+            "AST": 4.5
+          }
+        },
+        {
+          "playerId": "1642948",
+          "displayName": "莱恩内姆布哈德",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 156,
+          "metrics": {
+            "TOT_LVG": 0.86,
+            "OFF_LVG": 0.03,
+            "DEF_LVG": 0.83,
+            "ON_BALL_DEF_LVG": 0.18,
+            "SHOT_LVG": -0.08,
+            "CREATION_LVG": 0.94,
+            "REB_LVG": 0.17,
+            "TOV_LVG": -0.63
+          },
+          "supportingStats": {
+            "GP": "60",
+            "MP": 19.5,
+            "PTS": 6.6,
+            "REB": 2.2,
+            "AST": 5.3
+          }
+        },
+        {
+          "playerId": "202691",
+          "displayName": "克莱汤普森",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 217,
+          "metrics": {
+            "TOT_LVG": 0.49,
+            "OFF_LVG": -0.56,
+            "DEF_LVG": 1.05,
+            "ON_BALL_DEF_LVG": 0.24,
+            "SHOT_LVG": -0.04,
+            "CREATION_LVG": 0.36,
+            "REB_LVG": 0.2,
+            "TOV_LVG": -0.55
+          },
+          "supportingStats": {
+            "GP": "69",
+            "MP": 21.7,
+            "PTS": 11.7,
+            "REB": 2.1,
+            "AST": 1.4
+          }
+        },
+        {
+          "playerId": "203114",
+          "displayName": "克里斯米德尔顿",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 186,
+          "metrics": {
+            "TOT_LVG": 0.69,
+            "OFF_LVG": -0.31,
+            "DEF_LVG": 1.0,
+            "ON_BALL_DEF_LVG": 0.19,
+            "SHOT_LVG": 0.07,
+            "CREATION_LVG": 0.74,
+            "REB_LVG": 0.33,
+            "TOV_LVG": -0.91
+          },
+          "supportingStats": {
+            "GP": "63",
+            "MP": 22.8,
+            "PTS": 10.2,
+            "REB": 3.7,
+            "AST": 2.8
+          }
+        },
+        {
+          "playerId": "203939",
+          "displayName": "德怀特鲍威尔",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/DAL_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/DAL_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 218,
+          "metrics": {
+            "TOT_LVG": 0.49,
+            "OFF_LVG": -0.13,
+            "DEF_LVG": 0.63,
+            "ON_BALL_DEF_LVG": 0.1,
+            "SHOT_LVG": 0.03,
+            "CREATION_LVG": 0.18,
+            "REB_LVG": 0.32,
+            "TOV_LVG": -0.29
+          },
+          "supportingStats": {
+            "GP": "62",
+            "MP": 14.6,
+            "PTS": 3.4,
+            "REB": 4.1,
+            "AST": 1.1
+          }
+        },
+        {
+          "playerId": "1629006",
+          "displayName": "约什奥科吉",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 200,
+          "metrics": {
+            "TOT_LVG": 0.61,
+            "OFF_LVG": -0.2,
+            "DEF_LVG": 0.8,
+            "ON_BALL_DEF_LVG": 0.2,
+            "SHOT_LVG": -0.14,
+            "CREATION_LVG": 0.24,
+            "REB_LVG": 0.24,
+            "TOV_LVG": -0.26
+          },
+          "supportingStats": {
+            "GP": "78",
+            "MP": 17.4,
+            "PTS": 4.5,
+            "REB": 2.6,
+            "AST": 0.9
+          }
+        },
+        {
+          "playerId": "1630578",
+          "displayName": "阿尔佩伦申京",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 18,
+          "metrics": {
+            "TOT_LVG": 2.12,
+            "OFF_LVG": -0.1,
+            "DEF_LVG": 2.22,
+            "ON_BALL_DEF_LVG": 0.71,
+            "SHOT_LVG": -0.11,
+            "CREATION_LVG": 1.93,
+            "REB_LVG": 0.88,
+            "TOV_LVG": -1.93
+          },
+          "supportingStats": {
+            "GP": "72",
+            "MP": 33.3,
+            "PTS": 20.4,
+            "REB": 8.9,
+            "AST": 6.2
+          }
+        },
+        {
+          "playerId": "1631095",
+          "displayName": "贾巴里史密斯",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 44,
+          "metrics": {
+            "TOT_LVG": 1.66,
+            "OFF_LVG": -0.54,
+            "DEF_LVG": 2.2,
+            "ON_BALL_DEF_LVG": 0.66,
+            "SHOT_LVG": -0.16,
+            "CREATION_LVG": 0.54,
+            "REB_LVG": 0.68,
+            "TOV_LVG": -0.72
+          },
+          "supportingStats": {
+            "GP": "77",
+            "MP": 35.1,
+            "PTS": 15.8,
+            "REB": 6.9,
+            "AST": 1.9
+          }
+        },
+        {
+          "playerId": "1631106",
+          "displayName": "塔里伊森",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 160,
+          "metrics": {
+            "TOT_LVG": 0.84,
+            "OFF_LVG": -0.8,
+            "DEF_LVG": 1.65,
+            "ON_BALL_DEF_LVG": 0.48,
+            "SHOT_LVG": -0.54,
+            "CREATION_LVG": 0.6,
+            "REB_LVG": 0.58,
+            "TOV_LVG": -0.77
+          },
+          "supportingStats": {
+            "GP": "60",
+            "MP": 25.9,
+            "PTS": 10.5,
+            "REB": 6.3,
+            "AST": 1.5
+          }
+        },
+        {
+          "playerId": "1641708",
+          "displayName": "阿门汤普森",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 28,
+          "metrics": {
+            "TOT_LVG": 1.98,
+            "OFF_LVG": -0.18,
+            "DEF_LVG": 2.16,
+            "ON_BALL_DEF_LVG": 0.55,
+            "SHOT_LVG": -0.26,
+            "CREATION_LVG": 1.49,
+            "REB_LVG": 0.83,
+            "TOV_LVG": -1.37
+          },
+          "supportingStats": {
+            "GP": "79",
+            "MP": 37.4,
+            "PTS": 18.3,
+            "REB": 7.8,
+            "AST": 5.3
+          }
+        },
+        {
+          "playerId": "1642263",
+          "displayName": "里德谢泼德",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 93,
+          "metrics": {
+            "TOT_LVG": 1.27,
+            "OFF_LVG": -0.17,
+            "DEF_LVG": 1.44,
+            "ON_BALL_DEF_LVG": 0.47,
+            "SHOT_LVG": -0.12,
+            "CREATION_LVG": 0.98,
+            "REB_LVG": 0.26,
+            "TOV_LVG": -0.8
+          },
+          "supportingStats": {
+            "GP": "82",
+            "MP": 26.2,
+            "PTS": 13.5,
+            "REB": 2.9,
+            "AST": 3.4
+          }
+        },
+        {
+          "playerId": "201142",
+          "displayName": "凯文杜兰特",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 6,
+          "metrics": {
+            "TOT_LVG": 2.65,
+            "OFF_LVG": 0.32,
+            "DEF_LVG": 2.33,
+            "ON_BALL_DEF_LVG": 0.75,
+            "SHOT_LVG": 0.85,
+            "CREATION_LVG": 1.57,
+            "REB_LVG": 0.55,
+            "TOV_LVG": -1.77
+          },
+          "supportingStats": {
+            "GP": "78",
+            "MP": 36.4,
+            "PTS": 26.0,
+            "REB": 5.5,
+            "AST": 4.8
+          }
+        },
+        {
+          "playerId": "203991",
+          "displayName": "克林特卡佩拉",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "darkLogo",
+              "lightLogo"
+            ],
+            "sourceValues": {
+              "darkLogo": "https://res.nba.cn/media/img/teams/logos/HOU_logo.png",
+              "lightLogo": "https://res.nba.cn/media/img/teams/light/HOU_logo.png"
+            },
+            "method": "official_logo_basename_exact_HOU_DAL_mapping"
+          },
+          "sourceRowIndex": 176,
+          "metrics": {
+            "TOT_LVG": 0.75,
+            "OFF_LVG": -0.19,
+            "DEF_LVG": 0.94,
+            "ON_BALL_DEF_LVG": 0.41,
+            "SHOT_LVG": -0.13,
+            "CREATION_LVG": 0.18,
+            "REB_LVG": 0.38,
+            "TOV_LVG": -0.3
+          },
+          "supportingStats": {
+            "GP": "75",
+            "MP": 12.3,
+            "PTS": 3.8,
+            "REB": 4.6,
+            "AST": 0.7
+          }
+        }
+      ]
+    },
+    "shotdifficulty": {
+      "sourceId": "shotdifficulty-2025-26-regular",
+      "sourceFile": "shotdifficulty-2025-26-regular.json",
+      "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sourceSha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "sourceRetrievedAt": "2026-10-10T11:47:32+08:00",
+      "sourceRows": 125,
+      "selectedRows": 8,
+      "grain": "player-season",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "metricUnits": {
+        "AVGSHOTQUALITY": {
+          "rawUnit": "fraction",
+          "displayUnit": "percent",
+          "displayMultiplier": 100,
+          "range": [
+            0,
+            1
+          ],
+          "scope": "player-season"
+        },
+        "AVGMADESHOTQUALITY": {
+          "rawUnit": "fraction",
+          "displayUnit": "percent",
+          "displayMultiplier": 100,
+          "range": [
+            0,
+            1
+          ],
+          "scope": "player-season"
+        },
+        "AVGMISSEDSHOTQUALITY": {
+          "rawUnit": "fraction",
+          "displayUnit": "percent",
+          "displayMultiplier": 100,
+          "range": [
+            0,
+            1
+          ],
+          "scope": "player-season"
+        },
+        "MINSHOTQUALITYONMAKE": {
+          "rawUnit": "fraction",
+          "displayUnit": "percent",
+          "displayMultiplier": 100,
+          "range": [
+            0,
+            1
+          ],
+          "scope": "player-season"
+        },
+        "AVGSHOTQUALITY2PT": {
+          "rawUnit": "fraction",
+          "displayUnit": "percent",
+          "displayMultiplier": 100,
+          "range": [
+            0,
+            1
+          ],
+          "scope": "player-season"
+        },
+        "AVGSHOTQUALITY3PT": {
+          "rawUnit": "fraction",
+          "displayUnit": "percent",
+          "displayMultiplier": 100,
+          "range": [
+            0,
+            1
+          ],
+          "scope": "player-season"
+        },
+        "FGPCT": {
+          "rawUnit": "fraction",
+          "displayUnit": "percent",
+          "displayMultiplier": 100,
+          "range": [
+            0,
+            1
+          ],
+          "scope": "player-season"
+        },
+        "FGPCTABOVEEXPECTED": {
+          "rawUnit": "fraction_difference",
+          "displayUnit": "percentage_points",
+          "displayMultiplier": 100,
+          "canBeNegative": true,
+          "scope": "player-season"
+        },
+        "FGPCTABOVEEXPECTED_RANK": {
+          "rawUnit": "rank",
+          "displayUnit": "source_cohort_rank",
+          "scope": "source_returned_season_cohort",
+          "mustNotRename": "two_team_rank"
+        },
+        "FG3PCT": {
+          "rawUnit": "fraction",
+          "displayUnit": "percent",
+          "displayMultiplier": 100,
+          "range": [
+            0,
+            1
+          ],
+          "scope": "player-season"
+        },
+        "FG3PCTABOVEEXPECTED": {
+          "rawUnit": "fraction_difference",
+          "displayUnit": "percentage_points",
+          "displayMultiplier": 100,
+          "canBeNegative": true,
+          "scope": "player-season"
+        },
+        "AVGDEFENDERBALLDISTANCE": {
+          "rawUnit": "unknown",
+          "displayUnit": "unconfirmed",
+          "scope": "player-season",
+          "conversionAllowed": false
+        },
+        "AVGDEFENDERPRESSURESCORE": {
+          "rawUnit": "pressure_score",
+          "displayUnit": "score",
+          "scope": "player-season",
+          "theoreticalRange": "not_confirmed"
+        }
+      },
+      "rows": [
+        {
+          "playerId": "1630230",
+          "displayName": "纳吉马绍尔",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "TEAMID"
+            ],
+            "sourceValues": {
+              "TEAMID": 1610612742
+            },
+            "method": "official_numeric_TEAMID"
+          },
+          "sourceRowIndex": 41,
+          "metrics": {
+            "AVGSHOTQUALITY": 0.483,
+            "AVGMADESHOTQUALITY": 0.545,
+            "AVGMISSEDSHOTQUALITY": 0.415,
+            "MINSHOTQUALITYONMAKE": 0.155,
+            "AVGSHOTQUALITY2PT": 0.521,
+            "AVGSHOTQUALITY3PT": 0.373,
+            "FGPCT": 0.51,
+            "FGPCTABOVEEXPECTED": 0.027,
+            "FGPCTABOVEEXPECTED_RANK": 42,
+            "FG3PCT": 0.291,
+            "FG3PCTABOVEEXPECTED": -0.082,
+            "AVGDEFENDERBALLDISTANCE": 34.6,
+            "AVGDEFENDERPRESSURESCORE": 0.835
+          },
+          "supportingStats": {}
+        },
+        {
+          "playerId": "1631108",
+          "displayName": "马克斯克里斯蒂",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "TEAMID"
+            ],
+            "sourceValues": {
+              "TEAMID": 1610612742
+            },
+            "method": "official_numeric_TEAMID"
+          },
+          "sourceRowIndex": 56,
+          "metrics": {
+            "AVGSHOTQUALITY": 0.424,
+            "AVGMADESHOTQUALITY": 0.478,
+            "AVGMISSEDSHOTQUALITY": 0.382,
+            "MINSHOTQUALITYONMAKE": 0.185,
+            "AVGSHOTQUALITY2PT": 0.53,
+            "AVGSHOTQUALITY3PT": 0.359,
+            "FGPCT": 0.441,
+            "FGPCTABOVEEXPECTED": 0.017,
+            "FGPCTABOVEEXPECTED_RANK": 57,
+            "FG3PCT": 0.404,
+            "FG3PCTABOVEEXPECTED": 0.045,
+            "AVGDEFENDERBALLDISTANCE": 34.3,
+            "AVGDEFENDERPRESSURESCORE": 0.803
+          },
+          "supportingStats": {}
+        },
+        {
+          "playerId": "1642843",
+          "displayName": "库珀弗拉格",
+          "snapshotTeamId": 1610612742,
+          "snapshotTeamAbbreviation": "DAL",
+          "teamAssignment": {
+            "sourceFields": [
+              "TEAMID"
+            ],
+            "sourceValues": {
+              "TEAMID": 1610612742
+            },
+            "method": "official_numeric_TEAMID"
+          },
+          "sourceRowIndex": 104,
+          "metrics": {
+            "AVGSHOTQUALITY": 0.481,
+            "AVGMADESHOTQUALITY": 0.547,
+            "AVGMISSEDSHOTQUALITY": 0.42,
+            "MINSHOTQUALITYONMAKE": 0.121,
+            "AVGSHOTQUALITY2PT": 0.513,
+            "AVGSHOTQUALITY3PT": 0.361,
+            "FGPCT": 0.468,
+            "FGPCTABOVEEXPECTED": -0.013,
+            "FGPCTABOVEEXPECTED_RANK": 105,
+            "FG3PCT": 0.295,
+            "FG3PCTABOVEEXPECTED": -0.066,
+            "AVGDEFENDERBALLDISTANCE": 34.6,
+            "AVGDEFENDERPRESSURESCORE": 0.855
+          },
+          "supportingStats": {}
+        },
+        {
+          "playerId": "1630578",
+          "displayName": "阿尔佩伦申京",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "TEAMID"
+            ],
+            "sourceValues": {
+              "TEAMID": 1610612745
+            },
+            "method": "official_numeric_TEAMID"
+          },
+          "sourceRowIndex": 86,
+          "metrics": {
+            "AVGSHOTQUALITY": 0.517,
+            "AVGMADESHOTQUALITY": 0.579,
+            "AVGMISSEDSHOTQUALITY": 0.445,
+            "MINSHOTQUALITYONMAKE": 0.015,
+            "AVGSHOTQUALITY2PT": 0.539,
+            "AVGSHOTQUALITY3PT": 0.359,
+            "FGPCT": 0.519,
+            "FGPCTABOVEEXPECTED": 0.002,
+            "FGPCTABOVEEXPECTED_RANK": 87,
+            "FG3PCT": 0.305,
+            "FG3PCTABOVEEXPECTED": -0.054,
+            "AVGDEFENDERBALLDISTANCE": 31.9,
+            "AVGDEFENDERPRESSURESCORE": 0.865
+          },
+          "supportingStats": {}
+        },
+        {
+          "playerId": "1631095",
+          "displayName": "贾巴里史密斯",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "TEAMID"
+            ],
+            "sourceValues": {
+              "TEAMID": 1610612745
+            },
+            "method": "official_numeric_TEAMID"
+          },
+          "sourceRowIndex": 103,
+          "metrics": {
+            "AVGSHOTQUALITY": 0.461,
+            "AVGMADESHOTQUALITY": 0.532,
+            "AVGMISSEDSHOTQUALITY": 0.402,
+            "MINSHOTQUALITYONMAKE": 0.218,
+            "AVGSHOTQUALITY2PT": 0.551,
+            "AVGSHOTQUALITY3PT": 0.375,
+            "FGPCT": 0.45,
+            "FGPCTABOVEEXPECTED": -0.011,
+            "FGPCTABOVEEXPECTED_RANK": 104,
+            "FG3PCT": 0.363,
+            "FG3PCTABOVEEXPECTED": -0.012,
+            "AVGDEFENDERBALLDISTANCE": 40.5,
+            "AVGDEFENDERPRESSURESCORE": 0.816
+          },
+          "supportingStats": {}
+        },
+        {
+          "playerId": "1641708",
+          "displayName": "阿门汤普森",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "TEAMID"
+            ],
+            "sourceValues": {
+              "TEAMID": 1610612745
+            },
+            "method": "official_numeric_TEAMID"
+          },
+          "sourceRowIndex": 123,
+          "metrics": {
+            "AVGSHOTQUALITY": 0.587,
+            "AVGMADESHOTQUALITY": 0.687,
+            "AVGMISSEDSHOTQUALITY": 0.464,
+            "MINSHOTQUALITYONMAKE": 0.185,
+            "AVGSHOTQUALITY2PT": 0.611,
+            "AVGSHOTQUALITY3PT": 0.399,
+            "FGPCT": 0.534,
+            "FGPCTABOVEEXPECTED": -0.053,
+            "FGPCTABOVEEXPECTED_RANK": 124,
+            "FG3PCT": 0.216,
+            "FG3PCTABOVEEXPECTED": -0.183,
+            "AVGDEFENDERBALLDISTANCE": 45.1,
+            "AVGDEFENDERPRESSURESCORE": 0.814
+          },
+          "supportingStats": {}
+        },
+        {
+          "playerId": "1642263",
+          "displayName": "里德谢泼德",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "TEAMID"
+            ],
+            "sourceValues": {
+              "TEAMID": 1610612745
+            },
+            "method": "official_numeric_TEAMID"
+          },
+          "sourceRowIndex": 47,
+          "metrics": {
+            "AVGSHOTQUALITY": 0.406,
+            "AVGMADESHOTQUALITY": 0.447,
+            "AVGMISSEDSHOTQUALITY": 0.374,
+            "MINSHOTQUALITYONMAKE": 0.16,
+            "AVGSHOTQUALITY2PT": 0.49,
+            "AVGSHOTQUALITY3PT": 0.355,
+            "FGPCT": 0.43,
+            "FGPCTABOVEEXPECTED": 0.024,
+            "FGPCTABOVEEXPECTED_RANK": 48,
+            "FG3PCT": 0.394,
+            "FG3PCTABOVEEXPECTED": 0.039,
+            "AVGDEFENDERBALLDISTANCE": 45.1,
+            "AVGDEFENDERPRESSURESCORE": 0.783
+          },
+          "supportingStats": {}
+        },
+        {
+          "playerId": "201142",
+          "displayName": "凯文杜兰特",
+          "snapshotTeamId": 1610612745,
+          "snapshotTeamAbbreviation": "HOU",
+          "teamAssignment": {
+            "sourceFields": [
+              "TEAMID"
+            ],
+            "sourceValues": {
+              "TEAMID": 1610612745
+            },
+            "method": "official_numeric_TEAMID"
+          },
+          "sourceRowIndex": 1,
+          "metrics": {
+            "AVGSHOTQUALITY": 0.433,
+            "AVGMADESHOTQUALITY": 0.474,
+            "AVGMISSEDSHOTQUALITY": 0.387,
+            "MINSHOTQUALITYONMAKE": 0.069,
+            "AVGSHOTQUALITY2PT": 0.474,
+            "AVGSHOTQUALITY3PT": 0.351,
+            "FGPCT": 0.52,
+            "FGPCTABOVEEXPECTED": 0.087,
+            "FGPCTABOVEEXPECTED_RANK": 2,
+            "FG3PCT": 0.413,
+            "FG3PCTABOVEEXPECTED": 0.062,
+            "AVGDEFENDERBALLDISTANCE": 31.8,
+            "AVGDEFENDERPRESSURESCORE": 0.865
+          },
+          "supportingStats": {}
+        }
+      ]
+    }
+  },
+  "players": [
+    {
+      "playerId": "1628963",
+      "displayName": "马文巴格利三世",
+      "snapshotTeamId": 1610612742,
+      "snapshotTeamAbbreviation": "DAL",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage"
+      ],
+      "missingMetricFamilies": [
+        "shotdifficulty"
+      ],
+      "filteredShotRows": 0,
+      "shotDataAvailable": false
+    },
+    {
+      "playerId": "1628997",
+      "displayName": "凯莱布马丁",
+      "snapshotTeamId": 1610612742,
+      "snapshotTeamAbbreviation": "DAL",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage"
+      ],
+      "missingMetricFamilies": [
+        "shotdifficulty"
+      ],
+      "filteredShotRows": 0,
+      "shotDataAvailable": false
+    },
+    {
+      "playerId": "1629023",
+      "displayName": "PJ华盛顿",
+      "snapshotTeamId": 1610612742,
+      "snapshotTeamAbbreviation": "DAL",
+      "availableMetricFamilies": [
+        "leverage"
+      ],
+      "missingMetricFamilies": [
+        "gravity",
+        "shotdifficulty"
+      ],
+      "filteredShotRows": 0,
+      "shotDataAvailable": false
+    },
+    {
+      "playerId": "1629655",
+      "displayName": "丹尼尔加福德",
+      "snapshotTeamId": 1610612742,
+      "snapshotTeamAbbreviation": "DAL",
+      "availableMetricFamilies": [
+        "leverage"
+      ],
+      "missingMetricFamilies": [
+        "gravity",
+        "shotdifficulty"
+      ],
+      "filteredShotRows": 0,
+      "shotDataAvailable": false
+    },
+    {
+      "playerId": "1630230",
+      "displayName": "纳吉马绍尔",
+      "snapshotTeamId": 1610612742,
+      "snapshotTeamAbbreviation": "DAL",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage",
+        "shotdifficulty"
+      ],
+      "missingMetricFamilies": [],
+      "filteredShotRows": 463,
+      "shotDataAvailable": true
+    },
+    {
+      "playerId": "1630314",
+      "displayName": "布兰登威廉姆斯",
+      "snapshotTeamId": 1610612742,
+      "snapshotTeamAbbreviation": "DAL",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage"
+      ],
+      "missingMetricFamilies": [
+        "shotdifficulty"
+      ],
+      "filteredShotRows": 0,
+      "shotDataAvailable": false
+    },
+    {
+      "playerId": "1631108",
+      "displayName": "马克斯克里斯蒂",
+      "snapshotTeamId": 1610612742,
+      "snapshotTeamAbbreviation": "DAL",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage",
+        "shotdifficulty"
+      ],
+      "missingMetricFamilies": [],
+      "filteredShotRows": 407,
+      "shotDataAvailable": true
+    },
+    {
+      "playerId": "1642843",
+      "displayName": "库珀弗拉格",
+      "snapshotTeamId": 1610612742,
+      "snapshotTeamAbbreviation": "DAL",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage",
+        "shotdifficulty"
+      ],
+      "missingMetricFamilies": [],
+      "filteredShotRows": 655,
+      "shotDataAvailable": true
+    },
+    {
+      "playerId": "1642948",
+      "displayName": "莱恩内姆布哈德",
+      "snapshotTeamId": 1610612742,
+      "snapshotTeamAbbreviation": "DAL",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage"
+      ],
+      "missingMetricFamilies": [
+        "shotdifficulty"
+      ],
+      "filteredShotRows": 0,
+      "shotDataAvailable": false
+    },
+    {
+      "playerId": "202691",
+      "displayName": "克莱汤普森",
+      "snapshotTeamId": 1610612742,
+      "snapshotTeamAbbreviation": "DAL",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage"
+      ],
+      "missingMetricFamilies": [
+        "shotdifficulty"
+      ],
+      "filteredShotRows": 0,
+      "shotDataAvailable": false
+    },
+    {
+      "playerId": "203114",
+      "displayName": "克里斯米德尔顿",
+      "snapshotTeamId": 1610612742,
+      "snapshotTeamAbbreviation": "DAL",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage"
+      ],
+      "missingMetricFamilies": [
+        "shotdifficulty"
+      ],
+      "filteredShotRows": 0,
+      "shotDataAvailable": false
+    },
+    {
+      "playerId": "203939",
+      "displayName": "德怀特鲍威尔",
+      "snapshotTeamId": 1610612742,
+      "snapshotTeamAbbreviation": "DAL",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage"
+      ],
+      "missingMetricFamilies": [
+        "shotdifficulty"
+      ],
+      "filteredShotRows": 0,
+      "shotDataAvailable": false
+    },
+    {
+      "playerId": "1629006",
+      "displayName": "约什奥科吉",
+      "snapshotTeamId": 1610612745,
+      "snapshotTeamAbbreviation": "HOU",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage"
+      ],
+      "missingMetricFamilies": [
+        "shotdifficulty"
+      ],
+      "filteredShotRows": 0,
+      "shotDataAvailable": false
+    },
+    {
+      "playerId": "1630578",
+      "displayName": "阿尔佩伦申京",
+      "snapshotTeamId": 1610612745,
+      "snapshotTeamAbbreviation": "HOU",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage",
+        "shotdifficulty"
+      ],
+      "missingMetricFamilies": [],
+      "filteredShotRows": 629,
+      "shotDataAvailable": true
+    },
+    {
+      "playerId": "1631095",
+      "displayName": "贾巴里史密斯",
+      "snapshotTeamId": 1610612745,
+      "snapshotTeamAbbreviation": "HOU",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage",
+        "shotdifficulty"
+      ],
+      "missingMetricFamilies": [],
+      "filteredShotRows": 546,
+      "shotDataAvailable": true
+    },
+    {
+      "playerId": "1631106",
+      "displayName": "塔里伊森",
+      "snapshotTeamId": 1610612745,
+      "snapshotTeamAbbreviation": "HOU",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage"
+      ],
+      "missingMetricFamilies": [
+        "shotdifficulty"
+      ],
+      "filteredShotRows": 0,
+      "shotDataAvailable": false
+    },
+    {
+      "playerId": "1641708",
+      "displayName": "阿门汤普森",
+      "snapshotTeamId": 1610612745,
+      "snapshotTeamAbbreviation": "HOU",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage",
+        "shotdifficulty"
+      ],
+      "missingMetricFamilies": [],
+      "filteredShotRows": 621,
+      "shotDataAvailable": true
+    },
+    {
+      "playerId": "1642263",
+      "displayName": "里德谢泼德",
+      "snapshotTeamId": 1610612745,
+      "snapshotTeamAbbreviation": "HOU",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage",
+        "shotdifficulty"
+      ],
+      "missingMetricFamilies": [],
+      "filteredShotRows": 515,
+      "shotDataAvailable": true
+    },
+    {
+      "playerId": "201142",
+      "displayName": "凯文杜兰特",
+      "snapshotTeamId": 1610612745,
+      "snapshotTeamAbbreviation": "HOU",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage",
+        "shotdifficulty"
+      ],
+      "missingMetricFamilies": [],
+      "filteredShotRows": 775,
+      "shotDataAvailable": true
+    },
+    {
+      "playerId": "203991",
+      "displayName": "克林特卡佩拉",
+      "snapshotTeamId": 1610612745,
+      "snapshotTeamAbbreviation": "HOU",
+      "availableMetricFamilies": [
+        "gravity",
+        "leverage"
+      ],
+      "missingMetricFamilies": [
+        "shotdifficulty"
+      ],
+      "filteredShotRows": 0,
+      "shotDataAvailable": false
+    }
+  ]
+}

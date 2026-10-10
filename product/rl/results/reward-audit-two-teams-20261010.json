@@ -1,0 +1,297 @@
+{
+  "generatedAt": "2026-10-10T11:52:01.877260+08:00",
+  "universe": "two-teams",
+  "teamIds": [
+    1610612742,
+    1610612745
+  ],
+  "filter": "int(shot.teamId) in {1610612742,1610612745}; opposing-team shots excluded even in focus games. teamId comes from season profile roster, see provenance caveat.",
+  "sourceDatasetSha256": "363694a79d43ae1e2ea3b32ea84586db0ee8079cd6930e5eeeea87cb0677deab",
+  "splitRule": "Original held_out: h2h flag or practice game IDs -> h2h; otherwise nonfocus after 2026-03-01 -> league; rest train.",
+  "foldRule": "int(hashlib.sha256(('rl-scout-dev-v4:'+gameId).encode()).hexdigest()[:8],16)%5",
+  "sizes": {
+    "allOriginal": 15171,
+    "twoTeams": 4611,
+    "train": 4221,
+    "h2h": 390,
+    "league": 0,
+    "trainGames": 87,
+    "h2hGames": 4
+  },
+  "countsByTeam": {
+    "1610612742": {
+      "train": 1390,
+      "h2h": 135
+    },
+    "1610612745": {
+      "train": 2831,
+      "h2h": 255
+    }
+  },
+  "construction": "Fixed joint=(zone,shotType,shotDesc), minimum n15 then zone fallback, no threshold tuning. q20/q80 at floor(p*n) rounded .001; means/medians from reference fold only. For combined point baselines expand zone interval minimally to contain q. Joint is one tool; zone+move two.",
+  "reward": "Assumed valid structured format and numeric support: 1-.9*MAE-.2*IS-.002*toolCount. These are analytic fixed-policy rewards, not trained-model results.",
+  "folds": [
+    {
+      "fold": 0,
+      "fitRows": 3514,
+      "devRows": 707,
+      "fitGames": 73,
+      "devGames": 14,
+      "jointFallbackRows": 55
+    },
+    {
+      "fold": 1,
+      "fitRows": 3569,
+      "devRows": 652,
+      "fitGames": 73,
+      "devGames": 14,
+      "jointFallbackRows": 51
+    },
+    {
+      "fold": 2,
+      "fitRows": 3232,
+      "devRows": 989,
+      "fitGames": 66,
+      "devGames": 21,
+      "jointFallbackRows": 85
+    },
+    {
+      "fold": 3,
+      "fitRows": 3279,
+      "devRows": 942,
+      "fitGames": 69,
+      "devGames": 18,
+      "jointFallbackRows": 74
+    },
+    {
+      "fold": 4,
+      "fitRows": 3290,
+      "devRows": 931,
+      "fitGames": 67,
+      "devGames": 20,
+      "jointFallbackRows": 64
+    }
+  ],
+  "oof": {
+    "zone_mean": {
+      "mae": 0.089376,
+      "mse": 0.018415,
+      "intervalScore": 0.317158,
+      "coverage": 0.601279,
+      "width": 0.177877,
+      "intervalExtendedToContainPoint": 0.0,
+      "tools": 1.0,
+      "reward": 0.85413,
+      "rewardBeforeCost": 0.85613
+    },
+    "zone_median": {
+      "mae": 0.089167,
+      "mse": 0.018452,
+      "intervalScore": 0.317158,
+      "coverage": 0.601279,
+      "width": 0.177877,
+      "intervalExtendedToContainPoint": 0.0,
+      "tools": 1.0,
+      "reward": 0.854318,
+      "rewardBeforeCost": 0.856318
+    },
+    "zone_move_mean": {
+      "mae": 0.083953,
+      "mse": 0.015648,
+      "intervalScore": 0.315087,
+      "coverage": 0.601753,
+      "width": 0.178626,
+      "intervalExtendedToContainPoint": 0.018716,
+      "tools": 2.0,
+      "reward": 0.857425,
+      "rewardBeforeCost": 0.861425
+    },
+    "zone_move_median": {
+      "mae": 0.083405,
+      "mse": 0.015526,
+      "intervalScore": 0.314588,
+      "coverage": 0.60199,
+      "width": 0.178816,
+      "intervalExtendedToContainPoint": 0.015636,
+      "tools": 2.0,
+      "reward": 0.858018,
+      "rewardBeforeCost": 0.862018
+    },
+    "joint_mean": {
+      "mae": 0.081903,
+      "mse": 0.015866,
+      "intervalScore": 0.294783,
+      "coverage": 0.583037,
+      "width": 0.155222,
+      "intervalExtendedToContainPoint": 0.0,
+      "tools": 1.0,
+      "reward": 0.865331,
+      "rewardBeforeCost": 0.867331
+    },
+    "joint_median": {
+      "mae": 0.081864,
+      "mse": 0.016401,
+      "intervalScore": 0.294783,
+      "coverage": 0.583037,
+      "width": 0.155222,
+      "intervalExtendedToContainPoint": 0.0,
+      "tools": 1.0,
+      "reward": 0.865366,
+      "rewardBeforeCost": 0.867366
+    }
+  },
+  "fixedDevFold0": {
+    "zone_mean": {
+      "mae": 0.091636,
+      "mse": 0.01937,
+      "intervalScore": 0.31847,
+      "coverage": 0.58133,
+      "width": 0.174205,
+      "intervalExtendedToContainPoint": 0.0,
+      "tools": 1.0,
+      "reward": 0.851833,
+      "rewardBeforeCost": 0.853833
+    },
+    "zone_median": {
+      "mae": 0.091711,
+      "mse": 0.019479,
+      "intervalScore": 0.31847,
+      "coverage": 0.58133,
+      "width": 0.174205,
+      "intervalExtendedToContainPoint": 0.0,
+      "tools": 1.0,
+      "reward": 0.851766,
+      "rewardBeforeCost": 0.853766
+    },
+    "zone_move_mean": {
+      "mae": 0.087025,
+      "mse": 0.016845,
+      "intervalScore": 0.317101,
+      "coverage": 0.582744,
+      "width": 0.174782,
+      "intervalExtendedToContainPoint": 0.016973,
+      "tools": 2.0,
+      "reward": 0.854257,
+      "rewardBeforeCost": 0.858257
+    },
+    "zone_move_median": {
+      "mae": 0.08662,
+      "mse": 0.01685,
+      "intervalScore": 0.316911,
+      "coverage": 0.582744,
+      "width": 0.174768,
+      "intervalExtendedToContainPoint": 0.016973,
+      "tools": 2.0,
+      "reward": 0.85466,
+      "rewardBeforeCost": 0.85866
+    },
+    "joint_mean": {
+      "mae": 0.083739,
+      "mse": 0.016446,
+      "intervalScore": 0.291789,
+      "coverage": 0.554455,
+      "width": 0.150446,
+      "intervalExtendedToContainPoint": 0.0,
+      "tools": 1.0,
+      "reward": 0.864277,
+      "rewardBeforeCost": 0.866277
+    },
+    "joint_median": {
+      "mae": 0.084086,
+      "mse": 0.017091,
+      "intervalScore": 0.291789,
+      "coverage": 0.554455,
+      "width": 0.150446,
+      "intervalExtendedToContainPoint": 0.0,
+      "tools": 1.0,
+      "reward": 0.863964,
+      "rewardBeforeCost": 0.865964
+    }
+  },
+  "h2h": {
+    "zone_mean": {
+      "mae": 0.101652,
+      "mse": 0.023538,
+      "intervalScore": 0.35231,
+      "coverage": 0.548718,
+      "width": 0.186272,
+      "intervalExtendedToContainPoint": 0.0,
+      "tools": 1.0,
+      "reward": 0.836051,
+      "rewardBeforeCost": 0.838051
+    },
+    "zone_median": {
+      "mae": 0.1008,
+      "mse": 0.023241,
+      "intervalScore": 0.35231,
+      "coverage": 0.548718,
+      "width": 0.186272,
+      "intervalExtendedToContainPoint": 0.0,
+      "tools": 1.0,
+      "reward": 0.836818,
+      "rewardBeforeCost": 0.838818
+    },
+    "zone_move_mean": {
+      "mae": 0.095932,
+      "mse": 0.02036,
+      "intervalScore": 0.351871,
+      "coverage": 0.551282,
+      "width": 0.186429,
+      "intervalExtendedToContainPoint": 0.012821,
+      "tools": 2.0,
+      "reward": 0.839287,
+      "rewardBeforeCost": 0.843287
+    },
+    "zone_move_median": {
+      "mae": 0.095131,
+      "mse": 0.020069,
+      "intervalScore": 0.351837,
+      "coverage": 0.551282,
+      "width": 0.186401,
+      "intervalExtendedToContainPoint": 0.005128,
+      "tools": 2.0,
+      "reward": 0.840015,
+      "rewardBeforeCost": 0.844015
+    },
+    "joint_mean": {
+      "mae": 0.092084,
+      "mse": 0.019077,
+      "intervalScore": 0.324974,
+      "coverage": 0.548718,
+      "width": 0.160256,
+      "intervalExtendedToContainPoint": 0.0,
+      "tools": 1.0,
+      "reward": 0.85013,
+      "rewardBeforeCost": 0.85213
+    },
+    "joint_median": {
+      "mae": 0.091018,
+      "mse": 0.019439,
+      "intervalScore": 0.324974,
+      "coverage": 0.548718,
+      "width": 0.160256,
+      "intervalExtendedToContainPoint": 0.0,
+      "tools": 1.0,
+      "reward": 0.851089,
+      "rewardBeforeCost": 0.853089
+    }
+  },
+  "h2hJointFallbackRows": 21,
+  "limitations": [
+    "H2H repeatedly inspected during prior development, not pristine untouched test. No threshold or reward weights changed after this report.",
+    "Only four H2H games; shots are clustered, not independent trials.",
+    "Dataset teamId is harvested from full-season player profile TEAMID, not event-time roster; traded-player affiliation needs historical roster evidence if claiming exact at-event team membership. This report follows the requested stored teamId filter exactly.",
+    "No league evaluation remains after this two-team scope filter.",
+    "No GPU/model/cloud work performed; only this new JSON written."
+  ],
+  "joint_meanGameImprovement": {
+    "games": 87,
+    "positive": 58,
+    "meanGameMAEReduction": 0.001962
+  },
+  "joint_medianGameImprovement": {
+    "games": 87,
+    "positive": 48,
+    "meanGameMAEReduction": 0.00206
+  }
+}

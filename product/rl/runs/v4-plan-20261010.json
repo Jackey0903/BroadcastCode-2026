@@ -1,0 +1,84 @@
+{
+  "createdAt": "2026-10-10T11:52:57.708105+08:00",
+  "version": "v4",
+  "status": "preregistered_before_gpu_launch",
+  "dataSha256": "363694a79d43ae1e2ea3b32ea84586db0ee8079cd6930e5eeeea87cb0677deab",
+  "sources": {
+    "rewardAudit": "results/reward-audit-two-teams-20261010.json",
+    "depthData": "data/depth/manifest.json"
+  },
+  "hypotheses": [
+    "Joint zone/shotType/move references improve on marginal averaging",
+    "Unclipped affine interval score and absolute error retain their intended target",
+    "Five whole-game reference folds remove own-game label contribution from training tools"
+  ],
+  "reward": {
+    "formula": "0.45*(1-|q-y|/0.5)+0.30*(1-IS_0.4/1.5)+0.15*format+0.10*numericGrounded-0.002*toolCalls",
+    "invalid": "-2.0 for invalid tools, nonfinite/bool numbers, missing/extra fields, empty/long reason or invalid interval ordering",
+    "noClipping": true,
+    "pointTarget": "conditional median of official shot quality, not personal make probability",
+    "groundingScope": "numeric consistency only; not semantic accuracy certification"
+  },
+  "referenceFolds": {
+    "count": 5,
+    "key": "gameId",
+    "rule": "int(sha256(rl-scout-dev-v4:+gameId)[:8],16)%5",
+    "train": "exclude every shot in the current episode game fold",
+    "evaluationAndRuntime": "full allowed training split",
+    "noSeasonProfiles": true
+  },
+  "training": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "group": 8,
+    "promptsPerStep": 8,
+    "extraPrompts": 4,
+    "shuffleBeforeDynamicSelection": true,
+    "learningRate": 1e-05,
+    "temperature": 1.0,
+    "timeBudgetSeconds": 3600,
+    "hardMaxRuntimeSeconds": 6600,
+    "finalEvalN": 400,
+    "focusRatio": 1.0,
+    "microBatch": 2,
+    "generationBatch": 24,
+    "instance": "ml.g5.xlarge"
+  },
+  "selection": {
+    "minimumValidRate": 0.99,
+    "primary": "allEpisodeMAE on identical episode IDs (missing/invalid=1)",
+    "tieWithin": 0.003,
+    "secondary": [
+      "interval score on identical valid examples with valid-rate reported",
+      "numeric-grounded rate",
+      "tool calls"
+    ],
+    "baseline": "same episode IDs with joint median+20/80 quantiles, marginal tables and Claude with same v4 tools"
+  },
+  "evaluationLimit": "Existing H2H and league sets have been used for development/selection; do not label final results as untouched-test generalization or an information ceiling.",
+  "offlineValidation": {
+    "rlTests": 35,
+    "fullProductGateTests": 269,
+    "gateSeconds": 9.37
+  },
+  "codeSha256": {
+    "scout_env.py": "a18c47758876458a1ca1f1325fb1f1bb42faabf290b8a4e309d152074577bcde",
+    "train_grpo.py": "0a2bca56e3225ad07270909d065c0418e1836ddc560bc0202d4ed352e85b52cd",
+    "scout_client.py": "dfc4d71ac86b48bdf071bc55e89b4b498a8de896cae58deb19969574a39f0324",
+    "eval_baselines.py": "b22c3838bc13facb7f5ac84caa66ccd1c5d699193868d104186b620a8f57cac1"
+  },
+  "universe": "two-teams",
+  "scopeReason": "User explicitly restricted new work to Rockets and Mavericks only.",
+  "trainingRows": 4221,
+  "h2hRows": 390,
+  "players": 8,
+  "previousJobStopped": "rl-scout-main-3b-v4-1010-115100",
+  "launchedJob": "rl-scout-main-3b-v4-two-teams-1010-115441",
+  "codeHashScope": "Frozen launch snapshot; later reporting/doc-only edits do not change uploaded training source.",
+  "latestLocalValidation": {
+    "rlTests": 42,
+    "rlSeconds": 0.211,
+    "fullProductGateTests": 269,
+    "fullGateSeconds": 9.13,
+    "note": "Single gate after this code increment; no deployed-model certification."
+  }
+}

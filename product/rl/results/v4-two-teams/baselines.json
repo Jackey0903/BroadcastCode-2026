@@ -1,0 +1,93 @@
+{
+ "universe": "two-teams",
+ "policy": "v4",
+ "model": "global.anthropic.claude-sonnet-4-6",
+ "testSets": {
+  "h2h": 390
+ },
+ "train": 4221,
+ "results": {
+  "h2h": {
+   "stat_global": {
+    "allEpisodeMAE": 0.1368,
+    "validRate": 1.0,
+    "episodes": 390,
+    "answered": 390,
+    "mae": 0.1368,
+    "mse": 0.0346,
+    "formatRate": 1.0,
+    "groundedRate": 1.0,
+    "toolsPerEpisode": 0.0,
+    "meanReward": 0.8035,
+    "intervalRate": 1.0,
+    "intervalScore": 0.367,
+    "coverage": 0.6256,
+    "width": 0.2106
+   },
+   "stat_zone": {
+    "allEpisodeMAE": 0.1016,
+    "validRate": 1.0,
+    "episodes": 390,
+    "answered": 390,
+    "mae": 0.1016,
+    "mse": 0.0235,
+    "formatRate": 1.0,
+    "groundedRate": 1.0,
+    "toolsPerEpisode": 0.0,
+    "meanReward": 0.8381,
+    "intervalRate": 1.0,
+    "intervalScore": 0.3523,
+    "coverage": 0.5487,
+    "width": 0.1863
+   },
+   "stat_zone_move": {
+    "allEpisodeMAE": 0.0959,
+    "validRate": 1.0,
+    "episodes": 390,
+    "answered": 390,
+    "mae": 0.0959,
+    "mse": 0.0204,
+    "formatRate": 1.0,
+    "groundedRate": 1.0,
+    "toolsPerEpisode": 0.0,
+    "meanReward": 0.8433,
+    "intervalRate": 1.0,
+    "intervalScore": 0.3519,
+    "coverage": 0.5513,
+    "width": 0.1864
+   },
+   "stat_joint_median": {
+    "allEpisodeMAE": 0.091,
+    "validRate": 1.0,
+    "episodes": 390,
+    "answered": 390,
+    "mae": 0.091,
+    "mse": 0.0194,
+    "formatRate": 1.0,
+    "groundedRate": 1.0,
+    "toolsPerEpisode": 0.0,
+    "meanReward": 0.8531,
+    "intervalRate": 1.0,
+    "intervalScore": 0.325,
+    "coverage": 0.5487,
+    "width": 0.1603
+   },
+   "claude": {
+    "allEpisodeMAE": 0.2037,
+    "validRate": 0.875,
+    "episodes": 120,
+    "answered": 105,
+    "mae": 0.0899,
+    "mse": 0.0193,
+    "formatRate": 0.875,
+    "groundedRate": 0.6417,
+    "toolsPerEpisode": 2.0,
+    "meanReward": 0.4728,
+    "intervalRate": 0.875,
+    "intervalScore": 0.3119,
+    "coverage": 0.5333,
+    "width": 0.1666
+   }
+  }
+ }
+}

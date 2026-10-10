@@ -1,0 +1,557 @@
+{
+  "oofAnalysis": {
+    "foldRule": "int(sha256(\"rl-scout-dev-v4:\"+gameId)[:8],16)%5; split by whole game; n>=15 not tuned",
+    "folds": [
+      {
+        "fold": 0,
+        "fitRows": 11079,
+        "devRows": 2081,
+        "fitGames": 122,
+        "devGames": 21
+      },
+      {
+        "fold": 1,
+        "fitRows": 10692,
+        "devRows": 2468,
+        "fitGames": 116,
+        "devGames": 27
+      },
+      {
+        "fold": 2,
+        "fitRows": 10497,
+        "devRows": 2663,
+        "fitGames": 113,
+        "devGames": 30
+      },
+      {
+        "fold": 3,
+        "fitRows": 10284,
+        "devRows": 2876,
+        "fitGames": 111,
+        "devGames": 32
+      },
+      {
+        "fold": 4,
+        "fitRows": 10088,
+        "devRows": 3072,
+        "fitGames": 110,
+        "devGames": 33
+      }
+    ],
+    "oof": {
+      "zone_mean": {
+        "mae": 0.093884,
+        "mse": 0.02055,
+        "is": 0.329606,
+        "coverage": 0.603799,
+        "formatValid": 1.0,
+        "tools": 1.0,
+        "reward": 0.847583,
+        "rewardBeforeCost": 0.849583,
+        "clippedRate": 0.025152
+      },
+      "zone_median": {
+        "mae": 0.093849,
+        "mse": 0.020565,
+        "is": 0.329606,
+        "coverage": 0.603799,
+        "formatValid": 1.0,
+        "tools": 1.0,
+        "reward": 0.847615,
+        "rewardBeforeCost": 0.849615,
+        "clippedRate": 0.025152
+      },
+      "zone_move_mean": {
+        "mae": 0.088731,
+        "mse": 0.017558,
+        "is": 0.329606,
+        "coverage": 0.603799,
+        "formatValid": 0.988678,
+        "tools": 2.0,
+        "reward": 0.85022,
+        "rewardBeforeCost": 0.85422,
+        "clippedRate": 0.025152
+      },
+      "zone_move_median": {
+        "mae": 0.087575,
+        "mse": 0.017298,
+        "is": 0.329606,
+        "coverage": 0.603799,
+        "formatValid": 0.983891,
+        "tools": 2.0,
+        "reward": 0.851261,
+        "rewardBeforeCost": 0.855261,
+        "clippedRate": 0.025152
+      },
+      "joint_mean": {
+        "mae": 0.084611,
+        "mse": 0.017072,
+        "is": 0.300608,
+        "coverage": 0.597796,
+        "formatValid": 1.0,
+        "tools": 1.0,
+        "reward": 0.861728,
+        "rewardBeforeCost": 0.863728,
+        "clippedRate": 0.020137
+      },
+      "joint_median": {
+        "mae": 0.083807,
+        "mse": 0.017536,
+        "is": 0.300608,
+        "coverage": 0.597796,
+        "formatValid": 1.0,
+        "tools": 1.0,
+        "reward": 0.862452,
+        "rewardBeforeCost": 0.864452,
+        "clippedRate": 0.020137
+      }
+    },
+    "fixedDevFold0": {
+      "zone_mean": {
+        "mae": 0.093094,
+        "mse": 0.01984,
+        "is": 0.321272,
+        "coverage": 0.582412,
+        "formatValid": 1.0,
+        "tools": 1.0,
+        "reward": 0.849961,
+        "rewardBeforeCost": 0.851961,
+        "clippedRate": 0.019222
+      },
+      "zone_median": {
+        "mae": 0.09298,
+        "mse": 0.019839,
+        "is": 0.321272,
+        "coverage": 0.582412,
+        "formatValid": 1.0,
+        "tools": 1.0,
+        "reward": 0.850064,
+        "rewardBeforeCost": 0.852064,
+        "clippedRate": 0.019222
+      },
+      "zone_move_mean": {
+        "mae": 0.088458,
+        "mse": 0.0171,
+        "is": 0.321272,
+        "coverage": 0.582412,
+        "formatValid": 0.986064,
+        "tools": 2.0,
+        "reward": 0.852134,
+        "rewardBeforeCost": 0.856134,
+        "clippedRate": 0.019222
+      },
+      "zone_move_median": {
+        "mae": 0.08727,
+        "mse": 0.016847,
+        "is": 0.321272,
+        "coverage": 0.582412,
+        "formatValid": 0.986545,
+        "tools": 2.0,
+        "reward": 0.853203,
+        "rewardBeforeCost": 0.857203,
+        "clippedRate": 0.019222
+      },
+      "joint_mean": {
+        "mae": 0.083108,
+        "mse": 0.016059,
+        "is": 0.289037,
+        "coverage": 0.58001,
+        "formatValid": 1.0,
+        "tools": 1.0,
+        "reward": 0.865395,
+        "rewardBeforeCost": 0.867395,
+        "clippedRate": 0.013936
+      },
+      "joint_median": {
+        "mae": 0.081956,
+        "mse": 0.01636,
+        "is": 0.289037,
+        "coverage": 0.58001,
+        "formatValid": 1.0,
+        "tools": 1.0,
+        "reward": 0.866433,
+        "rewardBeforeCost": 0.868433,
+        "clippedRate": 0.013936
+      }
+    },
+    "weightedOOF": {
+      "zone_mean": {
+        "mae": 0.093671,
+        "mse": 0.020308,
+        "is": 0.329455,
+        "coverage": 0.604481,
+        "formatValid": 1.0,
+        "tools": 1.0,
+        "reward": 0.847805,
+        "rewardBeforeCost": 0.849805,
+        "clippedRate": 0.025202
+      },
+      "zone_median": {
+        "mae": 0.093597,
+        "mse": 0.020306,
+        "is": 0.329455,
+        "coverage": 0.604481,
+        "formatValid": 1.0,
+        "tools": 1.0,
+        "reward": 0.847872,
+        "rewardBeforeCost": 0.849872,
+        "clippedRate": 0.025202
+      },
+      "zone_move_mean": {
+        "mae": 0.088179,
+        "mse": 0.017148,
+        "is": 0.329455,
+        "coverage": 0.604481,
+        "formatValid": 0.986475,
+        "tools": 2.0,
+        "reward": 0.850748,
+        "rewardBeforeCost": 0.854748,
+        "clippedRate": 0.025202
+      },
+      "zone_move_median": {
+        "mae": 0.08697,
+        "mse": 0.016833,
+        "is": 0.329455,
+        "coverage": 0.604481,
+        "formatValid": 0.981307,
+        "tools": 2.0,
+        "reward": 0.851836,
+        "rewardBeforeCost": 0.855836,
+        "clippedRate": 0.025202
+      },
+      "joint_mean": {
+        "mae": 0.084294,
+        "mse": 0.016826,
+        "is": 0.299483,
+        "coverage": 0.597797,
+        "formatValid": 1.0,
+        "tools": 1.0,
+        "reward": 0.862238,
+        "rewardBeforeCost": 0.864238,
+        "clippedRate": 0.019891
+      },
+      "joint_median": {
+        "mae": 0.083532,
+        "mse": 0.017262,
+        "is": 0.299483,
+        "coverage": 0.597797,
+        "formatValid": 1.0,
+        "tools": 1.0,
+        "reward": 0.862925,
+        "rewardBeforeCost": 0.864925,
+        "clippedRate": 0.019891
+      }
+    },
+    "joint_meanGameImprovement": {
+      "games": 143,
+      "positive": 124,
+      "meanGameMAEReduction": 0.004231
+    },
+    "joint_medianGameImprovement": {
+      "games": 143,
+      "positive": 125,
+      "meanGameMAEReduction": 0.005038
+    },
+    "unadjustedIntervalWarning": "The original zone+move point estimate occasionally lies outside its zone interval. Original reward columns assume validity and are an optimistic analytic calculation; use validIntervalBaselines below for hard-gated v4 reward."
+  },
+  "validIntervalBaselines": {
+    "construction": "All parameters fixed before OOF. joint=(zone,shotType,shotDesc), minimum n=15 then zone fallback; mean/median from fit only; q20/q80 at floor(p*n), rounded 0.001. For combined point baselines only, expand zone interval minimally to contain point. Structured reason assumed valid and numerically supported; no LLM training performed. situation_reference is one tool; zone+move two.",
+    "oof": {
+      "zone_mean": {
+        "mae": 0.093884,
+        "mse": 0.02055,
+        "intervalScore": 0.329606,
+        "coverage": 0.603799,
+        "width": 0.19451,
+        "intervalExtendedToContainPoint": 0.0,
+        "tools": 1.0,
+        "reward": 0.847583,
+        "rewardBeforeCost": 0.849583
+      },
+      "zone_median": {
+        "mae": 0.093849,
+        "mse": 0.020565,
+        "intervalScore": 0.329606,
+        "coverage": 0.603799,
+        "width": 0.19451,
+        "intervalExtendedToContainPoint": 0.0,
+        "tools": 1.0,
+        "reward": 0.847615,
+        "rewardBeforeCost": 0.849615
+      },
+      "zone_move_mean": {
+        "mae": 0.088731,
+        "mse": 0.017558,
+        "intervalScore": 0.327919,
+        "coverage": 0.604331,
+        "width": 0.195125,
+        "intervalExtendedToContainPoint": 0.011322,
+        "tools": 2.0,
+        "reward": 0.850558,
+        "rewardBeforeCost": 0.854558
+      },
+      "zone_move_median": {
+        "mae": 0.087575,
+        "mse": 0.017298,
+        "intervalScore": 0.327376,
+        "coverage": 0.604407,
+        "width": 0.195388,
+        "intervalExtendedToContainPoint": 0.016109,
+        "tools": 2.0,
+        "reward": 0.851707,
+        "rewardBeforeCost": 0.855707
+      },
+      "joint_mean": {
+        "mae": 0.084611,
+        "mse": 0.017072,
+        "intervalScore": 0.300608,
+        "coverage": 0.597796,
+        "width": 0.168583,
+        "intervalExtendedToContainPoint": 0.0,
+        "tools": 1.0,
+        "reward": 0.861728,
+        "rewardBeforeCost": 0.863728
+      },
+      "joint_median": {
+        "mae": 0.083807,
+        "mse": 0.017536,
+        "intervalScore": 0.300608,
+        "coverage": 0.597796,
+        "width": 0.168583,
+        "intervalExtendedToContainPoint": 0.0,
+        "tools": 1.0,
+        "reward": 0.862452,
+        "rewardBeforeCost": 0.864452
+      }
+    },
+    "fixedDevFold0": {
+      "zone_mean": {
+        "mae": 0.093094,
+        "mse": 0.01984,
+        "intervalScore": 0.321272,
+        "coverage": 0.582412,
+        "width": 0.189972,
+        "intervalExtendedToContainPoint": 0.0,
+        "tools": 1.0,
+        "reward": 0.849961,
+        "rewardBeforeCost": 0.851961
+      },
+      "zone_median": {
+        "mae": 0.09298,
+        "mse": 0.019839,
+        "intervalScore": 0.321272,
+        "coverage": 0.582412,
+        "width": 0.189972,
+        "intervalExtendedToContainPoint": 0.0,
+        "tools": 1.0,
+        "reward": 0.850064,
+        "rewardBeforeCost": 0.852064
+      },
+      "zone_move_mean": {
+        "mae": 0.088458,
+        "mse": 0.0171,
+        "intervalScore": 0.320538,
+        "coverage": 0.582893,
+        "width": 0.190335,
+        "intervalExtendedToContainPoint": 0.013936,
+        "tools": 2.0,
+        "reward": 0.85228,
+        "rewardBeforeCost": 0.85628
+      },
+      "zone_move_median": {
+        "mae": 0.08727,
+        "mse": 0.016847,
+        "intervalScore": 0.320361,
+        "coverage": 0.582893,
+        "width": 0.190479,
+        "intervalExtendedToContainPoint": 0.013455,
+        "tools": 2.0,
+        "reward": 0.853385,
+        "rewardBeforeCost": 0.857385
+      },
+      "joint_mean": {
+        "mae": 0.083108,
+        "mse": 0.016059,
+        "intervalScore": 0.289037,
+        "coverage": 0.58001,
+        "width": 0.16335,
+        "intervalExtendedToContainPoint": 0.0,
+        "tools": 1.0,
+        "reward": 0.865395,
+        "rewardBeforeCost": 0.867395
+      },
+      "joint_median": {
+        "mae": 0.081956,
+        "mse": 0.01636,
+        "intervalScore": 0.289037,
+        "coverage": 0.58001,
+        "width": 0.16335,
+        "intervalExtendedToContainPoint": 0.0,
+        "tools": 1.0,
+        "reward": 0.866433,
+        "rewardBeforeCost": 0.868433
+      }
+    }
+  },
+  "generatedAt": "2026-10-10T11:48:26.869908+08:00",
+  "sourceDatasetSha256": "363694a79d43ae1e2ea3b32ea84586db0ee8079cd6930e5eeeea87cb0677deab",
+  "purpose": "Read-only reward audit and CPU fixed-policy analysis, not GPU training, model acceptance, or untouched-test certification. Only this newly created JSON was written by audit agent.",
+  "rewardV4Recommendation": {
+    "preserveHistoricalVersions": true,
+    "validReward": ".45*(1-abs(q-y)/.5)+.30*(1-IS_0.4(l,u,y)/1.5)+.15*format+.10*numericSupport-.002*toolCount",
+    "invalidReward": -2,
+    "pointFunctional": "conditional median; do not label as conditional mean or individualized shot-make probability",
+    "intervalFunctional": "20th and 80th conditional percentiles; only positive affine score transforms preserve expected-score optimum",
+    "gate": "Require valid JSON object, supported unique tool names, finite numeric non-boolean q/l/u, 0<=l<=q<=u<=1, known fields and non-empty bounded reason; invalid tool flag or bad format uses -2 before component rewards. Keep old versions unchanged.",
+    "legalMinimumWithFiveToolsAndNumericSupport0": -1.01,
+    "toolCostSanity": "OOF gain from zone mean to zone+move mean before interval changes = 0.9*(0.093884-0.088731)=0.0046377; .002 is below that. Joint median vs zone mean combined numeric-score gain = about .01487, same 1-tool cost. Cost should be positive, no reward for tool count.",
+    "trainingReferences": "For each training episode build tools from all training games outside its fixed hash fold. Evaluation/runtime tables from all allowed training rows. Exclude full-season profiles from v4 predictive inputs because they include evaluation-period aggregate labels."
+  },
+  "counterexamples": {
+    "intervalClipping": {
+      "distribution": [
+        [
+          0,
+          0.7
+        ],
+        [
+          1,
+          0.3
+        ]
+      ],
+      "correctQ20Q80": [
+        0,
+        1
+      ],
+      "properIntervalScoreExpected": 1.0,
+      "v3ClippedIntervalRewardExpected": 0.3333333333333333,
+      "degenerateInterval": [
+        0,
+        0
+      ],
+      "degenerateRawExpectedScore": 1.5,
+      "degenerateClippedRewardExpected": 0.7,
+      "conclusion": "Clipping rewards makes a strictly worse raw interval obtain more reward."
+    },
+    "calibrationClipping": {
+      "distribution": [
+        [
+          0,
+          0.4
+        ],
+        [
+          0.5,
+          0.25
+        ],
+        [
+          1,
+          0.35
+        ]
+      ],
+      "median": 0.5,
+      "clippedRewardAtMedian": 0.25,
+      "clippedRewardAt0": 0.4,
+      "unclippedRewardAtMedian": 0.25,
+      "unclippedRewardAt0": 0.05
+    },
+    "numericGrounding": "A nonempty factually false reason with no numerals receives grounded=1 in historical code. Numeric matching does not validate causality, identity, units, or factual truth."
+  },
+  "issues": [
+    {
+      "severity": "P1",
+      "issue": "Non-affine clipping of Cal and interval score breaks median/quantile consistency.",
+      "minimumFix": "New v4 removes clipping; preserve v1-v3 implementation and evidence."
+    },
+    {
+      "severity": "P1",
+      "issue": "Conditional-only MAE excludes missing predictions and does not enforce valid structured output.",
+      "minimumFix": "Report answer/format rates and allEpisodeMAE with max-error1 for invalid/missing; compare same shot IDs, quality gates before MAE."
+    },
+    {
+      "severity": "P1",
+      "issue": "Training target encoding includes each episode own game; season profiles include held-out-period aggregate labels.",
+      "minimumFix": "Five-fold whole-game excluded references for train rollouts, full allowed train references for eval/runtime, remove full-season profile tool from predictive v4."
+    },
+    {
+      "severity": "P1",
+      "issue": "The alleged information ceiling was only a linear-blend baseline, disproved by simple joint-category OOF statistics.",
+      "minimumFix": "Add situation_reference and a fixed joint median baseline; describe empirical bounds rather than information ceiling."
+    },
+    {
+      "severity": "P2",
+      "issue": "H2H results repeatedly informed reward design and model selection; they are development benchmarks now, not pristine final test. Only four H2H games, so shot count overstates independence.",
+      "minimumFix": "Disclose adaptive reuse; use fixed whole-game development split going forward and game-level paired comparisons. Report new official inputs independently when obtained."
+    },
+    {
+      "severity": "P2",
+      "issue": "Claude120, Qwen390/400 and statistics390/1621 evaluations do not automatically share episode IDs.",
+      "minimumFix": "Compute baselines on each model exact IDs and a shared Claude/model intersection; show sample counts."
+    },
+    {
+      "severity": "P2",
+      "issue": "eval_baselines.stat_rows manually uses squared Cal while v1-v3 use clipped absolute error.",
+      "minimumFix": "Use canonical env.reward for comparable reward values; past MAE remains valid."
+    },
+    {
+      "severity": "P2",
+      "issue": "groundedRate measures numeric membership only.",
+      "minimumFix": "Call it numericSupportRate and keep factual grounding as separate sourced check; prefer structured metric/source/scope fields for future retrieval tasks."
+    },
+    {
+      "severity": "P2",
+      "issue": "Dynamic sampling keeps first eight useful groups after focus rows are appended first; this can omit most non-focus rows. Flat groups mean no current policy-gradient signal, not mathematically permanent inability to recover. Adam momentum can still change parameters on a zero-gradient step if optimizer runs.",
+      "minimumFix": "Shuffle sampled prompts before truncating useful groups; record updateGroups. Avoid permanent-collapse claim. No need for PPO overhaul now."
+    },
+    {
+      "severity": "P2",
+      "issue": "Temperature≠1 sampling with untempered loss would violate stated on-policy distribution. Current default1 is consistent.",
+      "minimumFix": "Assert temperature1 for this minimal trainer or divide logits by matching temperature; do not casually raise it for exploration."
+    },
+    {
+      "severity": "P3",
+      "issue": "Focus means games involving HOU/DAL, including opponents. Mixing 80%focus +20%all yields about92.4%focus games.",
+      "minimumFix": "Describe exact sampling population or sample remainder from complement if exactly80% intended."
+    }
+  ],
+  "grpoReview": {
+    "mask": "Model-generated tokens including assistant stop token are selected, environment/tool context masked, causal shift aligned. No obvious mask bug.",
+    "onPolicy": "Each sampled batch receives one optimizer step after accumulating microbatch gradients. With sampling temperature1, no top-p/top-k truncation and zero dropout, score-function objective has same first-step gradient as ratio surrogate at old=current; omission of PPO clipping is not by itself a correctness bug for this restricted setup. Do not claim full PPO/DAPO implementation.",
+    "dynamicSampling": "Code makes one bounded oversampling attempt (12 prompts), retaining up to8 non-flat groups; DAPO paper repeatedly samples until target useful batch size. Bounded approach is acceptable if named accurately and updateGroups tracked.",
+    "flatGroups": "When all sampled rewards in one group equal, that group group-relative policy-gradient advantage is zero. Does not establish permanent collapse across future stochastic draws or other prompts; optimizer momentum complicates literal zero update."
+  },
+  "multiTaskDesign": {
+    "prediction": "Task A: withhold per-shot official value/make-miss, predict conditional median/interval from cross-fitted train-only tools. Evaluate MAE+proper interval score+coverage; never add current-label tool.",
+    "retrieval": "Task B: official xFG/gravity/pressure metric retrieval and interpretation with verified source IDs and metric scope. Copying official value is intended here, and must be reported as retrieval accuracy, not predictive accuracy.",
+    "rewardSuggestionRetrieval": "Hard gate wrong player/event/metric/unit/scope or invented unavailable value. For valid output .50 exact numeric/enum field match + .25 correct source/scope + .20 correct supported comparison/abstention + .05 format - .002 tool count. Normalize components by present applicable fields; do not score an unavailable label as zero.",
+    "negativeExamples": "Wrong-game or season-vs-event distractors, mismatched IDs/units, absent gravity, duplicated calls, premature answer. A missing official metric should produce available:false with source limits.",
+    "antiLeakage": "Separate task IDs, labels and metrics. Block identity/event/date hashes and exact label tools from predictive task; freeze train/validation by game before training. For aggregated gravity, retrieve season/segment scope and never train fictitious per-frame gravity targets.",
+    "deliveryScope": "Actual current RL-SCOUT is a text/tool policy over official shot records, not a trained visual understanding model. Keep GPU work and product claims consistent."
+  },
+  "primarySources": [
+    {
+      "title": "Gneiting and Raftery 2007: Strictly Proper Scoring Rules, Prediction, and Estimation",
+      "url": "https://doi.org/10.1198/016214506000001437",
+      "use": "Proper interval scoring / quantile functional; clipping counterexamples above are own direct calculation."
+    },
+    {
+      "title": "DeepSeekMath",
+      "url": "https://arxiv.org/html/2402.03300v3",
+      "use": "GRPO group-relative advantage and clipped policy-ratio formulation."
+    },
+    {
+      "title": "DAPO",
+      "url": "https://dapo-sia.github.io/static/pdf/dapo_paper.pdf",
+      "use": "Dynamic sampling skips zero-advantage groups, token-level loss; repeated resampling differs from current bounded implementation."
+    },
+    {
+      "title": "NBA Intro to Expected Field Goal Percentage",
+      "url": "https://www.nba.com/news/intro-to-expected-field-goal-percentage",
+      "use": "xFG is contextual expectation for average NBA player."
+    },
+    {
+      "title": "NBA Intro to Gravity",
+      "url": "https://www.nba.com/news/intro-to-gravity-stat-nba-2025",
+      "use": "Gravity concerns defensive attention beyond positional expectation."
+    }
+  ]
+}

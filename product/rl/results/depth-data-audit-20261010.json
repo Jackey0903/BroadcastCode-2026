@@ -1,0 +1,66 @@
+{
+  "schema": "rl-scout-depth-audit-summary-v1",
+  "date": "2026-10-10",
+  "rawManifest": "../data/depth/manifest.json",
+  "findings": {
+    "newMetricAvailability": {
+      "gravityPlayers": 234,
+      "leveragePlayers": 261,
+      "shotDifficultyPlayers": 125,
+      "seasonTypesReturned": 6
+    },
+    "dataCompleteness": "All returned numeric metric fields non-null/non-empty in this snapshot; cohorts are incomplete and have different coverage. Missing player and missing row stay unavailable.",
+    "pointPredictionLeakage": "Existing same-season player_profile uses aggregate targets and outcomes covering held-out games. Current profile map overlaps 90 held-out players. Exclude from unbiased xFG estimation.",
+    "defensiveDistanceUnit": "unresolved; do not label feet",
+    "eventGravityAvailable": false,
+    "eventLeverageAvailable": false,
+    "eventEndpointClaimScope": "No such endpoint in the inspected public China page bundle; no claim about all NBA official systems.",
+    "validUse": "Exact season-level retrieval, same-scope arithmetic comparisons, metric interpretation and evidence-scoped abstention; not per-event prediction features or labels."
+  },
+  "currentLocalShots": {
+    "path": "../shots.jsonl",
+    "rows": 15171,
+    "gameCountWithRows": 168,
+    "players": 121,
+    "actualDateRange": [
+      "2025-10-27",
+      "2026-04-10"
+    ],
+    "gravityPlayerOverlap": 106,
+    "gravityShotCoverage": 13879,
+    "leveragePlayerOverlap": 112,
+    "leverageShotCoverage": 14405,
+    "note": "Overlap describes joinability only; these full-season values are disallowed for held-out xFG estimation."
+  },
+  "recommendations": [
+    "Use shot/value as official target; expose neither value nor success/made nor outcome-dependent summary to prediction observations.",
+    "Keep existing grouped holdouts and build reference tables only from training rows; call time split only if every training row predates every relevant held-out event.",
+    "Add separate source-grounded retrieval task family for season gravity/leverage; held-out player prompts can retrieve source rows at evaluation without treating source context as secret labels.",
+    "Enforce metric identity, scope, period, sign, units and provenance in reward; do not give grounding credit merely because free text contains no invented number.",
+    "Use unavailable examples for event-level gravity/defense/leverage and known-absent players; score correct limitation, not made-up zeros."
+  ],
+  "latestUserScope": {
+    "activeCohort": "../data/depth/two-team-context.json",
+    "teams": [
+      "HOU",
+      "DAL"
+    ],
+    "fullLeagueSources": "provenance_history_only_not_training",
+    "metricUnionPlayers": 20,
+    "coverage": {
+      "HOU": {
+        "gravity": 8,
+        "leverage": 8,
+        "shotdifficulty": 5
+      },
+      "DAL": {
+        "gravity": 10,
+        "leverage": 12,
+        "shotdifficulty": 3
+      }
+    },
+    "shotRows": 4611,
+    "shotPlayers": 8,
+    "teamLabelSemantics": "Team assignments reflect the logo/TEAMID labels in the current public season snapshots, not event-date membership or verified historical rosters."
+  }
+}

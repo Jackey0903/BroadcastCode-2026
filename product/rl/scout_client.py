@@ -60,18 +60,22 @@ class Scout:
 
     def analyse(self, official_row, player_id, official_quality=None):
         try:
+            env.use_reward(self.policy)
             shot = env.shot_from_official(official_row, player_id)
             messages = env.first_messages(shot)
             first = self.invoke(env.render_qwen(messages))
-            kind, payload, _ = env.parse_action(first)
+            kind, payload, invalid = env.parse_action(first)
             tools = []
             if kind == "tools":
                 tools = payload
                 messages += [{"role": "assistant", "content": first.strip()},
                              env.tool_message(payload, shot, self.refs)]
-                kind, payload, _ = env.parse_action(self.invoke(env.render_qwen(messages)))
+                kind, payload, invalid_second = env.parse_action(self.invoke(env.render_qwen(messages)))
+                invalid = invalid or invalid_second
             if kind != "answer":
                 return {"available": False, "error": "policy did not return an answer"}
+            if self.policy == "v4" and not env.valid_interval_answer(payload, invalid):
+                return {"available": False, "error": "invalid v4 interval answer"}
             typical = float(payload["quality"])
             if not 0 <= typical <= 1:
                 return {"available": False, "error": "estimate out of range"}
@@ -80,6 +84,8 @@ class Scout:
             return {"available": False, "error": f"{type(error).__name__}: {error}"}
         result = {"available": True, "typicalQuality": round(typical, 3), "reason": str(payload.get("reason", ""))[:80],
                   "toolsUsed": tools, "model": self.model_name, "policy": self.policy, "source": SOURCE}
+        if self.policy == "v4":
+            result["pointStatistic"] = "conditional_median"
         if span:
             result.update({"low": round(span[0], 3), "high": round(span[1], 3), "interval": "central 60%"})
         if official_quality is not None:

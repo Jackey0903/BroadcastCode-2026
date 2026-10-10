@@ -19,13 +19,17 @@ HERE = Path(__file__).resolve().parent
 MODEL = "global.anthropic.claude-sonnet-4-6"
 
 
-def stat_rows(rows, predict):
+def stat_rows(rows, predict, refs=None):
     out = []
     for shot in rows:
         prediction = predict(shot)
-        out.append({"prediction": prediction, "quality": shot["quality"], "format": 1.0, "grounded": 1.0, "tools": 0,
-                    "total": env.WEIGHTS["calibration"] * max(0.0, 1 - ((prediction - shot["quality"]) / env.CALIBRATION_SCALE) ** 2)
-                    + env.WEIGHTS["format"] + env.WEIGHTS["grounded"]})
+        answer = dict(prediction) if isinstance(prediction, dict) else {"quality": prediction}
+        answer["reason"] = "训练集统计参考"
+        if env.SPEC == "interval" and "low" not in answer:
+            low, high = refs.zone_band.get((shot["zone"], shot["shotType"]), (0.0, 1.0))
+            answer.update(low=min(low, answer["quality"]), high=max(high, answer["quality"]))
+        parts = env.reward(answer, shot["quality"], [], False, "")
+        out.append({**parts, "quality": shot["quality"]})
     return out
 
 
@@ -69,20 +73,30 @@ def main():
     p.add_argument("--claude-n", type=int, default=120, help="episodes per test set for Claude (cost control)")
     p.add_argument("--workers", type=int, default=4)
     p.add_argument("--seed", type=int, default=7)
+    p.add_argument("--reward", default="v1", choices=sorted(env.REWARD_PRESETS))
+    p.add_argument("--output-dir", type=Path, default=HERE / "results")
+    p.add_argument("--universe", choices=("all", "two-teams"), default="all")
     a = p.parse_args()
+    env.use_reward(a.reward)
+    a.output_dir.mkdir(parents=True, exist_ok=True)
 
-    shots = env.load_shots(HERE / "data" / "shots.jsonl")
+    shots = env.select_universe(env.load_shots(HERE / "data" / "shots.jsonl"), a.universe)
     profiles = json.loads((HERE / "data" / "profiles.json").read_text())
     train, _ = env.split(shots)
-    refs = env.References(train, profiles)
-    sets = env.test_sets(shots)
-    report = {"model": MODEL, "testSets": {k: len(v) for k, v in sets.items()}, "train": len(train), "results": {}}
+    refs = env.References(train, profiles, a.universe)
+    sets = {name: rows for name, rows in env.test_sets(shots).items() if rows}
+    report = {"universe": a.universe, "policy": a.reward, "model": MODEL, "testSets": {k: len(v) for k, v in sets.items()}, "train": len(train), "results": {}}
     for name, rows in sets.items():
         report["results"][name] = {
-            "stat_global": env.summarize(stat_rows(rows, lambda s: refs.global_mean)),
-            "stat_zone": env.summarize(stat_rows(rows, refs.baseline_zone)),
-            "stat_zone_move": env.summarize(stat_rows(rows, refs.baseline_combined)),
+            "stat_global": env.summarize(stat_rows(rows, lambda s: refs.global_mean, refs)),
+            "stat_zone": env.summarize(stat_rows(rows, refs.baseline_zone, refs)),
+            "stat_zone_move": env.summarize(stat_rows(rows, refs.baseline_combined, refs)),
         }
+        if a.reward == "v4":
+            def joint(shot):
+                (mean, count, median, low, high), _ = refs.situation_values(shot)
+                return {"quality": median, "low": low, "high": high}
+            report["results"][name]["stat_joint_median"] = env.summarize(stat_rows(rows, joint, refs))
     if a.claude_n:
         import boto3
         client = boto3.Session(profile_name="nba", region_name="us-east-1").client("bedrock-runtime")
@@ -92,10 +106,10 @@ def main():
             with ThreadPoolExecutor(max_workers=a.workers) as pool:
                 episodes = list(pool.map(lambda s: claude_episode(client, s, refs), sample))
             report["results"][name]["claude"] = env.summarize(episodes)
-            with (HERE / "results" / f"claude-{name}.jsonl").open("w") as stream:
+            with (a.output_dir / f"claude-{name}.jsonl").open("w") as stream:
                 for e in episodes:
                     stream.write(json.dumps(e, ensure_ascii=False) + "\n")
-    (HERE / "results" / "baselines.json").write_text(json.dumps(report, ensure_ascii=False, indent=1))
+    (a.output_dir / "baselines.json").write_text(json.dumps(report, ensure_ascii=False, indent=1))
     print(json.dumps(report["results"], ensure_ascii=False, indent=1))
 
 

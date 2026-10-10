@@ -36,6 +36,7 @@ def arguments():
     p.add_argument("--max-new", type=int, default=160)
     p.add_argument("--temperature", type=float, default=1.0)
     p.add_argument("--micro-batch", type=int, default=8)
+    p.add_argument("--generation-batch", type=int, default=24, help="bound KV-cache memory independently of GRPO group size")
     p.add_argument("--eval-every", type=int, default=20)
     p.add_argument("--eval-n", type=int, default=96)
     p.add_argument("--final-eval-n", type=int, default=400)
@@ -49,6 +50,7 @@ def arguments():
     p.add_argument("--extra-prompts", type=int, default=0,
                    help="dynamic sampling: oversample prompts, drop groups with identical rewards, "
                         "update on at most prompts-per-step groups that carry signal")
+    p.add_argument("--universe", choices=("all", "two-teams"), default="all")
     p.add_argument("--data-dir", default=str(HERE / "data"))
     p.add_argument("--out", default=os.environ.get("RL_OUT", "/opt/ml/checkpoints"))
     args, _ = p.parse_known_args()
@@ -63,18 +65,25 @@ class Runner:
         torch.manual_seed(args.seed)
         self.out = Path(args.out)
         self.out.mkdir(parents=True, exist_ok=True)
-        shots = env.load_shots(Path(args.data_dir) / "shots.jsonl")
+        shots = env.select_universe(env.load_shots(Path(args.data_dir) / "shots.jsonl"), args.universe)
         profiles = json.loads((Path(args.data_dir) / "profiles.json").read_text())
         self.train, _ = env.split(shots)
         self.train_focus = [s for s in self.train if s.get("focus")]
-        self.refs = env.References(self.train, profiles)
+        self.refs = env.References(self.train, profiles, args.universe)
+        self.fold_refs = {}
+        if args.reward == "v4":
+            self.fold_refs = {fold: env.References([s for s in self.train if env.reference_fold(s) != fold], {}, args.universe)
+                              for fold in range(5)}
         sets = env.test_sets(shots)
         rng = random.Random(args.seed)
         third = args.eval_n // 3
         self.eval_set = (rng.sample(sets["h2h"], min(2 * third, len(sets["h2h"])))
                          + rng.sample(sets["league"], min(third, len(sets["league"]))))
         self.final_sets = {name: rng.sample(rows, min(args.final_eval_n, len(rows))) for name, rows in sets.items() if rows}
-        self.log("data", rewardVersion=env.REWARD_VERSION, train=len(self.train), trainFocus=len(self.train_focus),
+        self.log("data", rewardVersion=env.REWARD_VERSION, universe=args.universe,
+                 players=len({s["playerId"] for s in shots}), games=len({s["gameId"] for s in shots}),
+                 referenceFolds=len(self.fold_refs),
+                 splitScope="development_evaluation_reused_for_model_selection", train=len(self.train), trainFocus=len(self.train_focus),
                  **{f"test_{k}": len(v) for k, v in sets.items()}, model=args.model)
 
         self.tok = AutoTokenizer.from_pretrained(args.model)
@@ -111,6 +120,14 @@ class Runner:
 
     @torch.no_grad()
     def sample(self, id_lists, greedy=False):
+        # v3 generated all 96 episodes together; long two-turn prompts can exhaust a 24GB GPU.
+        results = []
+        for start in range(0, len(id_lists), self.args.generation_batch):
+            results.extend(self.sample_batch(id_lists[start:start + self.args.generation_batch], greedy))
+        return results
+
+    @torch.no_grad()
+    def sample_batch(self, id_lists, greedy=False):
         self.model.eval()
         width = max(len(x) for x in id_lists)
         pad = self.tok.pad_token_id
@@ -137,6 +154,7 @@ class Runner:
             ids = self.prompt_ids(messages)
             episodes.append({"shot": shot, "ids": list(ids), "mask": [0] * len(ids),
                              "context": env.observation(shot), "turns": [], "toolNames": [], "invalid": False,
+                             "refs": self.fold_refs[env.reference_fold(shot)] if self.fold_refs and not greedy else self.refs,
                              "answer": None, "done": False})
         for turn in range(2):
             active = [e for e in episodes if not e["done"]]
@@ -147,11 +165,12 @@ class Runner:
                 e["mask"] += [1] * len(gen)
                 e["turns"].append(text)
                 kind, payload, invalid = env.parse_action(text)
+                e["invalid"] = e["invalid"] or invalid
                 if kind == "answer":
                     e["answer"], e["done"] = payload, True
                 elif kind == "tools" and turn == 0:
                     e["toolNames"], e["invalid"] = payload, e["invalid"] or invalid
-                    message = env.tool_message(payload, e["shot"], self.refs)["content"]
+                    message = env.tool_message(payload, e["shot"], e["refs"])["content"]
                     e["context"] += "\n" + message
                     mid = self.middle_ids(message)
                     e["ids"] += mid
@@ -198,6 +217,8 @@ class Runner:
         n_focus = round(a.focus_ratio * n_prompts) if self.train_focus else 0
         shots = random.sample(self.train_focus, min(n_focus, len(self.train_focus)))
         shots += random.sample(self.train, n_prompts - len(shots))
+        if a.reward == "v4":
+            random.shuffle(shots)  # dynamic sampling must not always prefer the leading focus block
         batch = [s for s in shots for _ in range(a.group)]
         t0 = time.time()
         episodes = self.rollout(batch)
@@ -254,7 +275,7 @@ class Runner:
                     stream.write(json.dumps({"shot": e["shot"], "turns": e["turns"], "tools": e["toolNames"],
                                              "prediction": e["prediction"], "quality": e["quality"],
                                              "total": e["total"], "format": e["format"],
-                                             "grounded": e["grounded"], "low": e.get("low"), "high": e.get("high"),
+                                             "grounded": e["grounded"], "invalid": e["invalid"], "low": e.get("low"), "high": e.get("high"),
                                              "intervalScore": e.get("intervalScore")}, ensure_ascii=False) + "\n")
         return summary
 

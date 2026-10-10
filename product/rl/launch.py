@@ -69,7 +69,8 @@ def main():
         ResourceConfig={"InstanceType": a.instance, "InstanceCount": 1, "VolumeSizeInGB": 100},
         StoppingCondition={"MaxRuntimeInSeconds": a.max_runtime},
         CheckpointConfig={"S3Uri": f"s3://{BUCKET}/rl-scout/checkpoints/{job}", "LocalPath": "/opt/ml/checkpoints"},
-        Environment={"PYTHONUNBUFFERED": "1", "HF_HOME": "/tmp/hf", "TOKENIZERS_PARALLELISM": "false"},
+        Environment={"PYTHONUNBUFFERED": "1", "HF_HOME": "/tmp/hf", "TOKENIZERS_PARALLELISM": "false",
+                     "PYTORCH_ALLOC_CONF": "expandable_segments:True"},
         Tags=TAGS,
     )
     if a.package_from:

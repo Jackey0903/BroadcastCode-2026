@@ -1,0 +1,46 @@
+{
+  "schema": "rl-scout-depth-task-plan-v1",
+  "status": "offline_task_package_not_trained",
+  "taskCount": 410,
+  "categories": {
+    "as_of_boundary": 6,
+    "causal_boundary": 2,
+    "compare": 40,
+    "event_boundary": 46,
+    "lookup": 290,
+    "missing_family": 14,
+    "season_boundary": 6,
+    "team_boundary": 6
+  },
+  "families": {
+    "gravity": 134,
+    "leverage": 204,
+    "shotdifficulty": 72
+  },
+  "answerStatus": {
+    "ok": 330,
+    "unavailable": 80
+  },
+  "allowedTeams": {
+    "HOU": 1610612745,
+    "DAL": 1610612742
+  },
+  "players": 20,
+  "sourceCohortContentSha256": "ddb21e397ba9ebb4449b3e5a50775a54bd90e881c9d75e905b1b0258c4155b10",
+  "taskSetSha256": "1e76469bbbaa4d7b719f2f8a02d7c4ff09876a1ada6446cf7e936f9f5764e5d0",
+  "sourceHashes": {
+    "gravity": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+    "leverage": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+    "shotdifficulty": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55"
+  },
+  "valueToleranceRawUnits": 0.0005,
+  "toolCost": 0.002,
+  "boundaries": [
+    "HOU/DAL only",
+    "Season aggregates never enter xFG prediction task",
+    "Snapshot team labels do not prove historical membership",
+    "retrievedAt is not a historical data cutoff",
+    "No event or causal labels",
+    "No GPU/model invocation; task generator and deterministic reward only"
+  ]
+}
