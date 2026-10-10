@@ -1,0 +1,205 @@
+{
+  "publishedAt": "2026-10-10T11:57:34.617611+00:00",
+  "account": "555726205424",
+  "website": "https://deky02484tknr.cloudfront.net",
+  "bucket": "broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4",
+  "objects": [
+    {
+      "key": "product/watch/companions/game-buddy/game-buddy-embed.js",
+      "sha256": "36014ad6f5e3eff9bcde0b68a214f832c94b26efb8aa15ef8c44dba1fbdaa4e6",
+      "sizeBytes": 6157
+    },
+    {
+      "key": "product/watch/companions/game-buddy/sprite-atlas.js",
+      "sha256": "3eb61d91ae47c77e2791d13beb0d5c4d1540628b1481231920e2a8f5415ae3ab",
+      "sizeBytes": 698
+    },
+    {
+      "key": "product/watch/companions/game-buddy/assets/game-buddy-crt.webp",
+      "sha256": "538dc8539ed19aaee6b3d29fe5fae6d555b19b21157ddbc0d9059b9049b28f86",
+      "sizeBytes": 1675922
+    },
+    {
+      "key": "product/watch/assets/teams/dallas-mavericks.svg",
+      "sha256": "1547494512746c1827808f1650407e675025b20b07bb5bd185093ac49630db5c",
+      "sizeBytes": 11931
+    },
+    {
+      "key": "product/watch/assets/teams/houston-rockets.svg",
+      "sha256": "9a0fd3d351f0726db427e8bed6db098bf88d15e98582b4b8dfd5a3638d6263f0",
+      "sizeBytes": 4452
+    },
+    {
+      "key": "product/watch/index.html",
+      "sha256": "24aeeb19c6502582d077a5b3aebe8c8149e52c5d712dfd00fecd57a7babbac90",
+      "sizeBytes": 4158
+    },
+    {
+      "key": "product/watch/app.js",
+      "sha256": "42393f3b60fede2aacfdbecadbddd90226619e9558e2741939ee24a94124c6dd",
+      "sizeBytes": 22590
+    },
+    {
+      "key": "product/watch/adapters/catalog.js",
+      "sha256": "60ea9aad1ee11ebf97150ea6cc4e5d5ea4bd69493d465f356bdfd07350dc3990",
+      "sizeBytes": 15760
+    },
+    {
+      "key": "product/watch/adapters/historical-records.js",
+      "sha256": "59b01f8a80dc9d46ae519c0b01bd6474c10a84d16740e1b0add7aca69d7623c0",
+      "sizeBytes": 34969
+    },
+    {
+      "key": "product/watch/annotations/annotations.css",
+      "sha256": "2a7c0395ae36591bfa5b78decf8ca2f49114ab8a87816f89cb419d40f15d9858",
+      "sizeBytes": 907
+    },
+    {
+      "key": "product/watch/annotations/annotations.js",
+      "sha256": "c0530d3633922dc02f478cd5276aa59218c780869e54b9293f4da5c3fd2865e2",
+      "sizeBytes": 3341
+    },
+    {
+      "key": "product/watch/config/config.js",
+      "sha256": "07786246d50bb2578eb0c858758430b258d4ea4896165fb595f7c195cc5f5859",
+      "sizeBytes": 20009
+    },
+    {
+      "key": "product/watch/content/content-panel.js",
+      "sha256": "6b4145bee79a8ef9d816c462d3a639898f8d7af64b8bc17d0a6b1e28066aff9e",
+      "sizeBytes": 29572
+    },
+    {
+      "key": "product/watch/content/content.css",
+      "sha256": "4e3b685d824d4ee1c8030811855b48139fd07998e93f538e8ec5873dc2235515",
+      "sizeBytes": 10363
+    },
+    {
+      "key": "product/watch/court/court-geometry.js",
+      "sha256": "6eafb2d0a9134d616ee8be1a27b0c0cb4ab72b96d4d2fd57aefbc4e16861efb0",
+      "sizeBytes": 4114
+    },
+    {
+      "key": "product/watch/court/court-panel.js",
+      "sha256": "3c783fd1a99260738e29ef8510a40e6698d8beeb499487b6123a6985358cf067",
+      "sizeBytes": 11204
+    },
+    {
+      "key": "product/watch/court/court.css",
+      "sha256": "b30f835d0cc59608d9b1185403358ed151e54266278a7cf9dbb2bae0b3511a79",
+      "sizeBytes": 9519
+    },
+    {
+      "key": "product/watch/court/themes.js",
+      "sha256": "6d691be9bada633ed53bed67f5436df9d88e5332da37ea19d2f970f6b9187a23",
+      "sizeBytes": 907
+    },
+    {
+      "key": "product/watch/data/flagg.json",
+      "sha256": "0a27a869e2eb2a0106f17942e0fa4ec07c55baccd370ce6216c9f5c6187a134d",
+      "sizeBytes": 97199
+    },
+    {
+      "key": "product/watch/dev/inspector.css",
+      "sha256": "65d8cbf5d6286d7bb9cb01400d6f28b360ca71e02eac1216ad49a2b0f7376834",
+      "sizeBytes": 7128
+    },
+    {
+      "key": "product/watch/dev/inspector.js",
+      "sha256": "21fe4cc98d571f0422b74cc9099f40e2bc3da93490045c718033dec62cc640e5",
+      "sizeBytes": 19404
+    },
+    {
+      "key": "product/watch/glass/ambience-source.js",
+      "sha256": "32a476eb1d6bcec168251bb7cfaeeeeac2848df4040e3f104ad8221b50126f9d",
+      "sizeBytes": 5799
+    },
+    {
+      "key": "product/watch/glass/glass-manager.js",
+      "sha256": "aa9111ed17e994e4a35a4bea1f1d4876f36913ec0214baaed6966da954da1809",
+      "sizeBytes": 4226
+    },
+    {
+      "key": "product/watch/glass/optics-model.js",
+      "sha256": "90e29ff188e4e716d32101ff24d7dce93d1b8ec9c65f7048822807b17371372f",
+      "sizeBytes": 4837
+    },
+    {
+      "key": "product/watch/media/media.css",
+      "sha256": "af320fb69affe0448842e59a95db7f266ddf130411db37a81a7d4c7f6b830a47",
+      "sizeBytes": 5884
+    },
+    {
+      "key": "product/watch/media/player-controls.js",
+      "sha256": "507b34ccf220d04e231e61e930a6a9e1f80e8ca7f06c87f57c83f3959707718e",
+      "sizeBytes": 9296
+    },
+    {
+      "key": "product/watch/navigation/drawer.js",
+      "sha256": "065997ffeefe29df0c3d8fc03f10112eab25a9bdd4812ab17682a42b8f2e752d",
+      "sizeBytes": 1291
+    },
+    {
+      "key": "product/watch/stage/layout.js",
+      "sha256": "f8a2b9aba11edc4f26488c4100ee960df065c2efcfc06514e5ce2a721deb5ba6",
+      "sizeBytes": 3432
+    },
+    {
+      "key": "product/watch/stage/stage.css",
+      "sha256": "516084a893a5cea65dd7a1393294db7304a6f0794430c926b833491c0e3dea9c",
+      "sizeBytes": 11108
+    },
+    {
+      "key": "product/watch/vendor/court-viewer.js",
+      "sha256": "512f4fd2124ba5e75f5728b7489e39f90d7b37009de4a46de8cc9e0903d2a8e5",
+      "sizeBytes": 21157
+    },
+    {
+      "key": "product/watch/vendor/liquid-gl/liquidGL.js",
+      "sha256": "a70f08fb7f1e247c01f46d56ab0591b93f39aa48d0c92d95b0a720f268262f10",
+      "sizeBytes": 302092
+    },
+    {
+      "key": "product/watch/vendor/liquid-gl/liquidGL-helper.js",
+      "sha256": "5260e13442ab3ce39dbfc5b70a582fb4752402ceffee2dcae8b860e9c0389938",
+      "sizeBytes": 13366
+    },
+    {
+      "key": "product/watch/vendor/liquid-gl/LICENSE",
+      "sha256": "b0a6dd5a8ecb67e51faa7c4f66988be318a53dfcc024ccdad0a261707b2f65aa",
+      "sizeBytes": 1730
+    },
+    {
+      "key": "product/watch/",
+      "sha256": "24aeeb19c6502582d077a5b3aebe8c8149e52c5d712dfd00fecd57a7babbac90",
+      "sizeBytes": 4158
+    },
+    {
+      "key": "product/watch/data/stories.json",
+      "sha256": "0ade32f76255597771fef5d7fc54b275b2e02899e16642e705066e43f67b3972",
+      "sizeBytes": 13879
+    },
+    {
+      "key": "product/media/formal/manifest.json",
+      "sha256": "a7fd9bedc374f197d456256e76d0420cd110634a2dcb46f12fcd3567bd795bbe",
+      "sizeBytes": 4887
+    },
+    {
+      "key": "index.html",
+      "sha256": "82b9e04bf68306501fbdd73a5b23318e4b20195f0da31b3f359f45df88c1c92b",
+      "sizeBytes": 4192
+    }
+  ],
+  "watchUrl": "https://deky02484tknr.cloudfront.net/product/watch/index.html?story=formal&version=enhanced",
+  "outputSha256": "20527a7e140799bf57cacc2523928a810a49b4598810a4183c3db4fbc462f567",
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "aiNarrationUsed": true,
+  "agentCoreNarration": true,
+  "rootUrl": "https://deky02484tknr.cloudfront.net",
+  "cloudFrontPlaybackVerified": false,
+  "frontendBranch": "codex/watch-prd-v2",
+  "frontendCommit": "744132f508828ade52a34c8ee1efe68d2c73a517",
+  "mergeCommit": "1c92bc3",
+  "mediaReuploaded": false,
+  "extraTestSuitesRun": false
+}
