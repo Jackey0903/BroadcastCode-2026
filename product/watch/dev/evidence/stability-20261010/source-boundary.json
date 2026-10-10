@@ -1,0 +1,8 @@
+{
+  "commit": "e49dedb560541e0f483e82b915890a17c250bca0",
+  "branch": "codex/watch-liquid-glass",
+  "vendorSha256": "a70f08fb7f1e247c01f46d56ab0591b93f39aa48d0c92d95b0a720f268262f10",
+  "opticsSha256": "90e29ff188e4e716d32101ff24d7dce93d1b8ec9c65f7048822807b17371372f",
+  "protectedPathsDiff": "",
+  "paths": "product/watch/README.md\nproduct/watch/app.js\nproduct/watch/dev/inspector.js\nproduct/watch/glass/ambience-source.js\nproduct/watch/glass/glass-manager.js\nproduct/watch/index.html\nproduct/watch/stage/stage.css"
+}

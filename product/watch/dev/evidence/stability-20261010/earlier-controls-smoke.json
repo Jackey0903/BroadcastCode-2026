@@ -1,0 +1,32 @@
+{
+  "playing": true,
+  "paused": true,
+  "rate": 0.5,
+  "seek": 13,
+  "settings": true,
+  "debugHidden": true,
+  "full": "fullCourt",
+  "dock": true,
+  "sources": true,
+  "renderer": {
+    "library": "liquid-gl",
+    "version": "3.0.0",
+    "sourceCommit": "88f681ab7035fd55b04f63edff1841e32c4199e9",
+    "vendorPatch": "broadcastcode-optics-smooth-v5",
+    "mode": "css",
+    "backend": "css",
+    "ambience": "static-gradient",
+    "ready": true,
+    "enabled": false,
+    "lenses": 0,
+    "canvases": 0,
+    "reports": [],
+    "errors": [],
+    "devicePixelRatio": 1,
+    "viewport": [
+      1512,
+      949
+    ],
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+  }
+}
