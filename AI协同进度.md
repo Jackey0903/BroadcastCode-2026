@@ -204,3 +204,7 @@
 - 10-11 01:02 PPT视觉第二轮进行中：用户新授权英文为主/中文小字、三次战术板站位精修，左上Game Mode改为HOU @ DAL / DEC 06, 2025 · 7:30 PM CT。新输出预定 `product/build/ppt-demo-20261011/english-v2/GameBuddy-PPT-English-v2.mp4`；55.055秒/3300帧时间轴仍不变，配音进程继续原时间点即可，最终合成请等本条后续新母版hash。旧干净母版保留，本轮不动配音脚本/语音稿/前端或云端。
 
 - 10-11 01:06 英文视觉母版已交付：`product/build/ppt-demo-20261011/english-v2/GameBuddy-PPT-English-v2.mp4`，SHA256 `fa0e6805cb0f64fafcbb816e8e5d0d08a2543246a701975197beec409db24e6b`，55.055秒/3300帧/1080p。主字幕54px英文+25px中文、战术板46px英文+25px中文；三处站位及箭头按各自源帧精修，完整外环保持场内，仍属编辑示意。Game Mode已换成HOU @ DAL / DEC 06, 2025 | 7:30 PM CT。整片解码、实际画面及原时间轴一致性通过，一次现有514项full通过；无新增测试。配音进程请用此英文新版及新hash替换上一份中文干净母版，不重加供应商提示条；本文件保留原广播+FX，未合入新AI配音。说明 docs/PPT英文画面与战术板精修-20261011.md；旧母版/线上片未覆盖，媒体与清单已本地备份。
+
+- 10-11 01:12 英文首尾v3进行中：用户要求开场全部英文、片尾改为呼应开场的滑出动画。开场DOWN BY 4 / SECOND CHANCE，片尾DOWN BY 1 / DAL 43—44 HOU / STEP-BACK BANK THREE / OFFICIAL xFG30%，复用开场斜切与蓝色球员条。仅150帧开场和330帧片尾调整，全部分段时长不变。新母版将另存 `product/build/ppt-demo-20261011/english-v3/GameBuddy-PPT-English-v3.mp4`；配音保持原时间点，最终使用本条后续的新hash。
+
+- 10-11 01:16 英文首尾v3已交付：`product/build/ppt-demo-20261011/english-v3/GameBuddy-PPT-English-v3.mp4`，SHA256 `f2b1a888e51aa84b5b805ff4d84fe8029c1e07d1c701b2589ebb20d97466f6d1`。开头DOWN BY 4 / SECOND CHANCE；片尾DOWN BY 1 / DAL43—44HOU / STEP-BACK BANK THREE / OFFICIAL xFG30%，沿用开场风格，结尾整组滑出+斜切收黑，全部英文。完整解码、结束滑出/黑场检查通过，一次现有514项full通过（25.91秒），未新增测试。55.055秒/3300帧与全部分段不变，配音无需改时间点；请把已有MOSS混音配到此v3新视觉流，旧v2配音成片未覆盖。本轮未修改配音脚本/音轨或云端，媒体和manifest已本地备份。

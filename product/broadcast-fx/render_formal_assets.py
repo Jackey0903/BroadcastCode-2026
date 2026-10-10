@@ -78,7 +78,7 @@ def main():
     else:
         from formal.timeline import FRAME_COUNT, DURATION, SEGMENTS
     if args.output is None:
-        args.output = ROOT / ('product/build/ppt-demo-20261011/english-v2/GameBuddy-PPT-English-v2.mp4' if args.presentation_english else
+        args.output = ROOT / ('product/build/ppt-demo-20261011/english-v3/GameBuddy-PPT-English-v3.mp4' if args.presentation_english else
                              'product/build/ppt-demo-20261011/GameBuddy-PPT-55秒-干净画面.mp4' if args.presentation_clean else
                              'product/build/formal-assets/GameBuddy-正式资产联调-v2-55秒.mp4' if args.variant == 'flagg55' else
                              'product/build/formal-assets/GameBuddy-正式资产联调-v1.mp4')
@@ -118,6 +118,7 @@ def main():
                'variant': args.variant,
                'presentationClean': args.presentation_clean, 'aiNarrationUsed': False,
                'presentationEnglish': args.presentation_english,
+               'presentationBookends': 'english-slide-v3' if args.presentation_english else None,
                'voiceoverPending': args.presentation_clean,
                'productionNotes': 'Visual effects use editorial keyframes/interpolation, not automatic tracking. No new model inference.',
                'reuse': ['Layers', 'draw_marker', 'draw_path', 'court_geometry', 'board_points', '_title_and_notes', 'draw_burst', 'render_intro', 'render_outro', 'draw_popup', 'draw_scorecard', 'draw_ball_trail', 'render_freeze'],

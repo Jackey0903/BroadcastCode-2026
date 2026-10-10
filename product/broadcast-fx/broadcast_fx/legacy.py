@@ -490,34 +490,51 @@ def render_intro(i, n, base_frame=None, copy=None):
     t = i / FPS
     base = src_frame(6) if base_frame is None else base_frame
     copy = copy or {}
-    blur = cv2.GaussianBlur(base, (0, 0), 6 * (1 - ease_in_out(clamp((t - 1.9) / 0.6))) + 0.01)
-    L = Layers(grade(blur, sat=0.6, gain=0.35 + 0.65 * ease_in_out(clamp((t - 1.9) / 0.6)), vig=0.6))
+    closing = copy.get('closing', False)
+    exit_at = n / FPS - .65 if closing else 2.0
+    reveal = 0 if closing else ease_in_out(clamp((t - 1.9) / 0.6))
+    blur = cv2.GaussianBlur(base, (0, 0), 6 * (1 - reveal) + 0.01)
+    L = Layers(grade(blur, sat=0.6, gain=0.35 + 0.65 * reveal, vig=0.6))
     # scan sweep
     sy = int(HEIGHT * ease_out(t / 0.45))
     if t < 0.5:
         rect(L, 0, 0, WIDTH, HEIGHT - sy, VOID, 1.0)
         rect(L, 0, HEIGHT - sy - 3, WIDTH, HEIGHT - sy, ORANGE, 0.9)
-    out_k = ease_in_out(clamp((t - 2.0) / 0.45))
+    out_k = ease_in_out(clamp((t - exit_at) / 0.45))
     al = 1 - out_k
-    x = 150
+    x = 150 - (WIDTH + 400) * out_k if closing else 150
     if t > 0.28:
         k = back_out(clamp((t - 0.28) / 0.2))
-        L.paste(text_rgba(copy.get("headline", "DOWN 4"), DIN, 250, CHALK, 6, 0, (0, 0, 0), 0.16), x, 300, alpha=al * clamp((t - 0.28) / 0.06), scale=1.4 - 0.4 * k)
+        L.paste(text_rgba(copy.get("headline", "DOWN 4"), DIN, copy.get('headlineSize', 250), CHALK, 6, 0, (0, 0, 0), 0.16), x, 300, alpha=al * clamp((t - 0.28) / 0.06), scale=1.4 - 0.4 * k)
     if t > 0.7:
         k = ease_out((t - 0.7) / 0.3)
-        L.paste(text_rgba(copy.get("contextEn", "1:51 LEFT · 4TH QTR"), DIN, 92, ORANGE, 6), x + 8 - 60 * (1 - k), 560, alpha=al * k)
-        L.paste(text_rgba(copy.get("contextCn", "落后 4 分 · 还剩 1分51秒"), CJK,
-                         28 if PRESENTATION_ENGLISH else 46, CHALK), x + 10 - 60 * (1 - k), 668, alpha=al * k)
+        L.paste(text_rgba(copy.get("contextEn", "1:51 LEFT · 4TH QTR"), DIN, 92,
+                         copy.get('contextColor', ORANGE), 6), x + 8 - 60 * (1 - k), 560, alpha=al * k)
+        if 'contextSubEn' in copy:
+            L.paste(text_rgba(copy['contextSubEn'], DIN, 36, CHALK, 1),
+                    x + 10 - 60 * (1 - k), 674, alpha=al * k)
+        else:
+            L.paste(text_rgba(copy.get("contextCn", "落后 4 分 · 还剩 1分51秒"), CJK,
+                             28 if PRESENTATION_ENGLISH else 46, CHALK), x + 10 - 60 * (1 - k), 668, alpha=al * k)
     if t > 1.25:
         k = ease_out((t - 1.25) / 0.35)
-        rect(L, 0, 770, (x + 760) * k, 846, BLUE, 0.92 * al)
+        if x + 760 > 0:
+            rect(L, 0, 770, (x + 760) * k, 846, BLUE, 0.92 * al)
         L.paste(text_rgba(copy.get("player", "#32  COOPER FLAGG"), DIN, 64, (255, 255, 255), 4), x + 10, 780, alpha=al * clamp((t - 1.4) / 0.2))
         L.paste(text_rgba("DAL", PIX, 24, CHALK), x + 690, 796, alpha=al * clamp((t - 1.4) / 0.2))
-    if 1.95 < t:   # diagonal wipe
-        p = ease_in_out((t - 1.95) / 0.5)
+    if closing:
+        credit = ease_out((t - 1.6) / .4) * al
+        L.paste(text_rgba('GameBuddy', DINA, 38, CHALK), x + 10, 913, alpha=credit)
+        L.paste(text_rgba('SOURCE: NBA PLAY-BY-PLAY & SHOT QUALITY', DIN, 24, MUTED),
+                x + 10, 965, alpha=credit)
+    wipe_at = exit_at - .05 if closing else 1.95
+    if wipe_at < t:   # diagonal wipe
+        p = ease_in_out((t - wipe_at) / 0.5)
         pts = np.array([[int(-400 + 2800 * p), 0], [int(-100 + 2800 * p), 0], [int(-500 + 2800 * p), HEIGHT], [int(-800 + 2800 * p), HEIGHT]])
         cv2.fillPoly(L.sharp, [pts], ORANGE + (235,), cv2.LINE_AA)
     img = L.compose()
+    if closing:
+        img = (img * (1 - ease_in_out((t - exit_at - .3) / .3))).astype(np.uint8)
     return shake(img, t, 0.3, 18, 0.3)
 
 # ---------------------------------------------------------------- live

@@ -20,6 +20,13 @@ OUTRO = {'nameEn': 'MAX CHRISTIE', 'nameCn': '克里斯蒂  ·  DAL #00', 'point
          'pointsLabel': '本球得分',
          'chips': [('xFG 30%', fx.ORANGE), ('25 FT · STEP BACK 3', fx.CHALK),
                    ('Q2 · 4:58', fx.FLAME), ('DAL 43 — 44 HOU', fx.GREEN)]}
+PRESENTATION_INTRO = {'headline': 'DOWN BY 4', 'headlineSize': 220,
+                      'contextEn': '5:13 LEFT · 2ND QTR', 'contextSubEn': 'SECOND CHANCE',
+                      'player': '#00  MAX CHRISTIE'}
+PRESENTATION_OUTRO = {'headline': 'DOWN BY 1', 'headlineSize': 220, 'closing': True,
+                      'contextEn': 'DAL 43 — 44 HOU', 'contextColor': fx.GREEN,
+                      'contextSubEn': 'STEP-BACK BANK THREE · OFFICIAL xFG 30%',
+                      'player': '#00  MAX CHRISTIE'}
 
 
 def init(workdir, presentation_english=False):
@@ -124,10 +131,12 @@ def render(frame):
     source_frame = segment['sourceStart'] + local * segment['sourceRate']
     source_seconds = source_frame / RATE
     if name == 'intro':
-        return fx.render_intro(local, segment['count'], base.source(6), INTRO)
+        copy = PRESENTATION_INTRO if fx.PRESENTATION_ENGLISH else INTRO
+        return fx.render_intro(local, segment['count'], base.source(6), copy)
     if name == 'outro':
-        copy = dict(OUTRO, pointsLabel='THIS PLAY') if fx.PRESENTATION_ENGLISH else OUTRO
-        return fx.render_outro(local, segment['count'], base.source(910), copy)
+        if fx.PRESENTATION_ENGLISH:
+            return fx.render_intro(local, segment['count'], base.source(910), PRESENTATION_OUTRO)
+        return fx.render_outro(local, segment['count'], base.source(910), OUTRO)
     if name in ('T1', 'T2', 'T3'):
         scene = second_chance_scene() if name == 'T3' else None
         return render_scene(name, local, segment['count'], WORK, scene_override=scene,

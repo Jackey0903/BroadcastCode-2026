@@ -1,0 +1,64 @@
+{
+  "schema": "gamebuddy-ppt-english-bookends-v3",
+  "createdAt": "2026-10-11T01:16:36.473529+08:00",
+  "output": "product/build/ppt-demo-20261011/english-v3/GameBuddy-PPT-English-v3.mp4",
+  "manifest": "product/build/ppt-demo-20261011/english-v3/GameBuddy-PPT-English-v3.manifest.json",
+  "outputSha256": "f2b1a888e51aa84b5b805ff4d84fe8029c1e07d1c701b2589ebb20d97466f6d1",
+  "sizeBytes": 101036313,
+  "durationSeconds": 55.055,
+  "frameCount": 3300,
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "timelineMatchesV2": true,
+  "fullDecodePassed": true,
+  "changes": {
+    "opening": [
+      "DOWN BY 4",
+      "5:13 LEFT · 2ND QTR",
+      "SECOND CHANCE",
+      "#00 MAX CHRISTIE"
+    ],
+    "ending": [
+      "DOWN BY 1",
+      "DAL 43 — 44 HOU",
+      "STEP-BACK BANK THREE · OFFICIAL xFG 30%",
+      "#00 MAX CHRISTIE",
+      "GameBuddy"
+    ],
+    "languages": "Opening and ending are English only; middle retains English primary and Chinese support.",
+    "animation": "Reuse opening scan, title entrance and blue name bar. Ending holds, then slides the entire group left while a diagonal wipe sweeps across and fades to black.",
+    "changedSegments": [
+      "intro (150 frames)",
+      "outro (330 frames)"
+    ]
+  },
+  "visualReview": {
+    "renderPreviews": [
+      100,
+      3200,
+      3272
+    ],
+    "actualOutputEndingFrames": [
+      3200,
+      3272,
+      3299
+    ],
+    "passed": true,
+    "lastFrameBlack": true
+  },
+  "newAiNarrationUsed": false,
+  "narrationTimelineUnchanged": true,
+  "voiceoverIntegrationPendingForThisMaster": true,
+  "v2MediaUnchanged": true,
+  "webRoutesChanged": false,
+  "cloudDeployed": false,
+  "existingQualityGate": {
+    "passed": true,
+    "behavioralTests": 514,
+    "durationSeconds": 25.91,
+    "newTestsAdded": false
+  },
+  "backup": {
+    "directory": "/Users/jack/work/BroadcastCode-backups/20261011-ppt-english-bookends-v3",
+    "hashesVerified": true
+  }
+}
