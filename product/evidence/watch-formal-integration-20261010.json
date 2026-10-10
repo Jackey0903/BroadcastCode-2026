@@ -176,7 +176,7 @@
     "watch-formal-immersive-20261010.png",
     "watch-formal-fullCourt-20261010.png",
     "watch-formal-halfCourt-20261010.png",
-    "watch-formal-enhanced-ended-20261010.png"
+    "watch-formal-playback-timeout-20261010.png"
   ],
   "browser": "Chrome/154.0.8037.98",
   "gpuInspection": "Recorded through actual WebGL canvas after initialization.",

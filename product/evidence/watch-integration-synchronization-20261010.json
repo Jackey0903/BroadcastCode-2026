@@ -1,0 +1,26 @@
+{
+  "recordedAt": "2026-10-10T17:25:23.417746+08:00",
+  "sourceCommit": "b1e379ec969add0d2e8fa5f206b418c8ef2f202b",
+  "origin": "https://github.com/Jackey0903/BroadcastCode-2026.git",
+  "branch": "main",
+  "pushConfirmed": true,
+  "frontendSourceCommit": "e49dedb",
+  "mergeCommit": "6fe0ad0",
+  "qualityGate": "watch-integration-quality-20261010.json",
+  "localBrowserPassed": true,
+  "formalBrowserPassed": false,
+  "formalLimitation": "Remote media/seek waiting; not a script/HTTP error, full network playback not confirmed",
+  "sourceBackup": {
+    "backupDirectory": "/Users/jack/work/BroadcastCode-backups/20261010-171800-405806-b1e379ec969a",
+    "commit": "b1e379ec969add0d2e8fa5f206b418c8ef2f202b",
+    "sourceFileCount": 511,
+    "restoreVerified": true,
+    "mediaFileCount": 34,
+    "missingMediaFiles": [],
+    "scope": "Committed frontend/backend integration only; separate RL uncommitted work excluded; media archive to be appended independently.",
+    "mediaHashesVerified": true,
+    "mediaArchive": "/Users/jack/work/BroadcastCode-backups/20261010-171800-405806-b1e379ec969a/watch-media.tar",
+    "completedAt": "2026-10-10T17:21:47.709082+08:00"
+  },
+  "scope": "Actual frontend integration; separate model, voice and formal submission work remains independently tracked."
+}
