@@ -89,7 +89,46 @@ def focus_at(track, source_time):
     return None
 
 
-def make_overlay(segment, plan, story, font_path, source_time=None):
+def draw_focus_card(image, segment, plan, fonts, source_image):
+    focus = segment['magnifier']
+    draw = ImageDraw.Draw(image)
+    color = '#75d6e8'
+    player = next(p for p in plan['players'] if p['id'] == focus['playerId'])
+    cx, cy, radius = focus['center']
+    box = focus['crop']
+    # Enlarge pixels from the same source frame; keep their aspect ratio intact.
+    crop = source_image.crop(box).convert('RGBA').resize((radius*2, radius*2), Image.Resampling.LANCZOS)
+    crop_draw = ImageDraw.Draw(crop)
+    scale = radius*2/(box[2]-box[0])
+    target = focus['target']
+    tx, ty = (target[0]-box[0])*scale, (target[1]-box[1])*scale
+    crop_draw.ellipse((tx-25*scale, ty-58*scale, tx+25*scale, ty+58*scale),
+                      outline=rgba(color), width=3)
+    mask = Image.new('L', crop.size)
+    ImageDraw.Draw(mask).ellipse((2, 2, radius*2-3, radius*2-3), fill=255)
+    draw.ellipse((cx-radius-7, cy-radius-7, cx+radius+7, cy+radius+7), fill=(4, 14, 18, 235))
+    image.paste(crop, (cx-radius, cy-radius), mask)
+    draw.ellipse((cx-radius, cy-radius, cx+radius, cy+radius), outline=rgba(color), width=4)
+    lx, ly = focus['card']
+    draw.rounded_rectangle((lx, ly, lx+280, ly+116), radius=10, fill=(4, 17, 23, 240), outline=rgba(color), width=2)
+    draw.text((lx+16, ly+10), f"#{player['jersey']}  {player['name']}", font=fonts['title'], fill=rgba(color))
+    draw.text((lx+16, ly+47), f"身高 {player['height']}", font=fonts['body'], fill=(255, 255, 255, 255))
+    draw.text((lx+16, ly+74), f"臂展 {player.get('wingspanDisplay', '约2.18米')}", font=fonts['body'], fill=(255, 255, 255, 255))
+    draw.text((lx+16, ly+98), focus['sourceNote'], font=fonts['small'], fill=(165, 186, 193, 255))
+    draw.text((cx-radius+12, cy-radius-26), '同帧局部放大', font=fonts['small'], fill=rgba(color))
+    arrow(draw, focus['leader'], rgba(color, 225))
+    for spot in focus['spots']:
+        x, y, rx, ry = spot['ellipse']
+        ink = spot['color']
+        draw.ellipse((x-rx, y-ry, x+rx, y+ry), fill=rgba(ink, 38), outline=rgba(ink), width=3)
+        if spot.get('label'):
+            draw.text((x-rx, y+ry+5), spot['label'], font=fonts['label'], fill=rgba(ink), stroke_width=2, stroke_fill=(0, 0, 0, 230))
+    bx, by = focus['ball']
+    draw.ellipse((bx-13, by-13, bx+13, by+13), outline=(255, 226, 96, 255), width=3)
+    draw.text((bx+18, by-13), '球', font=fonts['label'], fill=(255, 226, 96, 255), stroke_width=2, stroke_fill=(0, 0, 0, 230))
+
+
+def make_overlay(segment, plan, story, font_path, source_time=None, source_image=None):
     image = Image.new('RGBA', (plan['width'], plan['height']))
     draw = ImageDraw.Draw(image)
     fonts = {name: ImageFont.truetype(str(font_path), size) for name, size in
@@ -100,13 +139,16 @@ def make_overlay(segment, plan, story, font_path, source_time=None):
     draw.text((36, 23), chapter, font=fonts['chapter'], fill=(255, 168, 99, 255))
     draw.text((23, 60), segment['title'], font=fonts['title'], fill=(255, 255, 255, 255),
               stroke_width=2, stroke_fill=(0, 0, 0, 185))
-    lines = wrap_text(draw, segment['narration'], fonts['body'], 864)
-    top = 469 - (len(lines)*25+16)
-    draw.rounded_rectangle((28, top, 932, 469), radius=8, fill=(8, 16, 22, 205))
-    for index, line in enumerate(lines):
-        draw.text((46, top+7+index*25), line, font=fonts['body'], fill=(249, 248, 243, 255))
-    for annotation in segment.get('annotations', []):
-        draw_annotation(draw, annotation, fonts)
+    if segment.get('magnifier') and source_image is not None:
+        draw_focus_card(image, segment, plan, fonts, source_image)
+    else:
+        lines = wrap_text(draw, segment['narration'], fonts['body'], 864)
+        top = 469 - (len(lines)*25+16)
+        draw.rounded_rectangle((28, top, 932, 469), radius=8, fill=(8, 16, 22, 205))
+        for index, line in enumerate(lines):
+            draw.text((46, top+7+index*25), line, font=fonts['body'], fill=(249, 248, 243, 255))
+        for annotation in segment.get('annotations', []):
+            draw_annotation(draw, annotation, fonts)
     if segment['id'] in ('drive', 'finish') and source_time is not None:
         focus = focus_at(plan.get('focusTrack'), source_time)
         if focus:
@@ -162,7 +204,11 @@ def render(sample, ffmpeg, font):
                 make_overlay(segment, plan, story, font, source_time).save(overlay_dir/f'{frame:04d}.png')
             overlay_input = ['-framerate', str(OUTPUT_FPS), '-i', str(overlay_dir/'%04d.png')]
         else:
-            make_overlay(segment, plan, story, font).save(overlay_dir/'static.png')
+            source_image = None
+            if segment.get('magnifier'):
+                frame_index = min(count-1, round(segment['start']*plan['fps']))
+                source_image = Image.open(frames/f'frame-{frame_index:04d}.jpg').convert('RGB')
+            make_overlay(segment, plan, story, font, source_image=source_image).save(overlay_dir/'static.png')
             overlay_input = ['-loop', '1', '-framerate', str(OUTPUT_FPS), '-i', str(overlay_dir/'static.png')]
         command = common.copy()
         rate = segment.get('rate', 1)

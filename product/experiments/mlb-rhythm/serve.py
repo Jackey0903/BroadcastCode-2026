@@ -26,6 +26,8 @@ def catalog():
         rendered = ROOT / f'product/build/mlb-rhythm/{sample}/enhanced.mp4'
         files[f'/rendered-{sample}.mp4'] = rendered
         files['/reverse.mp4'] = rendered.parent / 'reverse.mp4'
+        files['/focus-14.png'] = rendered.parent / 'overlay-07/static.png'
+        files['/focus-16.5.png'] = rendered.parent / 'overlay-09/static.png'
     return files
 
 class Handler(BaseHTTPRequestHandler):
