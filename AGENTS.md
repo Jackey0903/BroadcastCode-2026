@@ -55,3 +55,5 @@
 - 通知 PDF 可能含密码。不要把密码、临时访问密钥、SSO 缓存、外部 API 密钥或 `.env` 提交到仓库或写入前端。
 - 本目录内的文档链接用相对路径，便于其他电脑与 GitHub 阅读。更新进度时同步 README、接手说明及受影响的专题文档。
 - `aws-validation` 的脚本绑定历史名称和资源，含上传、调用、计费及清理操作。阅读 [该目录说明](aws-validation/README.md) 后再决定如何复用，不要直接重跑整套脚本。
+
+本次代码验收与同步：`1fce2c1`已推送正式`origin/main`，[269项托管门禁](https://github.com/Jackey0903/BroadcastCode-2026/actions/runs/38021795732)成功；源码和38份白名单媒体已在本地存档并验证恢复。

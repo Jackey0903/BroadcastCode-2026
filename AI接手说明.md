@@ -1,6 +1,6 @@
 # BroadcastCode Team02：AI 接手说明
 
-**2026-10-10 正式比赛：** 用户授权重新连接、创建并绑定新私有仓库。Team02 Portal 已锁定 [Jackey0903/BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026)，默认 `main`；赛事 App 仅对这个仓库读取代码和元数据。正式 AWS 账号为 **`555726205424`**，`nba` 身份验证成功，主办方 bootstrap／执行角色／权限边界存在。正式账号产品已通过 CDK 创建并更新，AgentCore 为 READY，两段原片、输入帧、配置与网页已发布。正式账号端到端链路已跑通：弗拉格网页创建、真实Agent调用、完整成片、Chrome片尾播放和内容复核通过，已选为观看区成片。本轮阿门7a2任务技术完成但内容拒收，永久保留失败证据；观看区阿门继续使用已验收历史任务ce008…，明确历史来源。本轮按用户要求收尾，不追加阿门重跑。最新269项核心离线检查通过；此前262项对应GitHub CI通过，新增量CI待对应推送核对；正式 GPU 未在此链路验证。当前入口为[正式产品](https://deky02484tknr.cloudfront.net/product/)，详见[本轮正式验收](docs/正式账号端到端验收-20261010.md)，不以旧练习记录代替。见[正式重连说明](docs/正式比赛重连与新仓库-20261010.md)、[账号审计](product/evidence/formal-account-audit-20261010.json)及[绑定证据](product/evidence/formal-repository-binding-20261010.json)。用户最新授权比赛期间持续整理、提交并推送此新仓库的 `main`，每个验收增量及时同步并本地存档，不逐次询问；不向旧 `practice` 推送。
+**2026-10-10 正式比赛：** 用户授权重新连接、创建并绑定新私有仓库。Team02 Portal 已锁定 [Jackey0903/BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026)，默认 `main`；赛事 App 仅对这个仓库读取代码和元数据。正式 AWS 账号为 **`555726205424`**，`nba` 身份验证成功，主办方 bootstrap／执行角色／权限边界存在。正式账号产品已通过 CDK 创建并更新，AgentCore 为 READY，两段原片、输入帧、配置与网页已发布。正式账号端到端链路已跑通：弗拉格网页创建、真实Agent调用、完整成片、Chrome片尾播放和内容复核通过，已选为观看区成片。本轮阿门7a2任务技术完成但内容拒收，永久保留失败证据；观看区阿门继续使用已验收历史任务ce008…，明确历史来源。本轮按用户要求收尾，不追加阿门重跑。最新269项核心离线检查通过；此前262项对应GitHub CI通过，当前代码提交`1fce2c1`的GitHub CI已通过；正式 GPU 未在此链路验证。当前入口为[正式产品](https://deky02484tknr.cloudfront.net/product/)，详见[本轮正式验收](docs/正式账号端到端验收-20261010.md)，不以旧练习记录代替。见[正式重连说明](docs/正式比赛重连与新仓库-20261010.md)、[账号审计](product/evidence/formal-account-audit-20261010.json)及[绑定证据](product/evidence/formal-repository-binding-20261010.json)。用户最新授权比赛期间持续整理、提交并推送此新仓库的 `main`，每个验收增量及时同步并本地存档，不逐次询问；不向旧 `practice` 推送。
 
 
 **10 月 10 日评分与质量：** 已重新核对[完整 Quick Start](<NBA × AWS Hackathon｜赛制与选手快速上手 Rules & Quick Start.md>)和[现场决赛评分照片](参考资料/现场决赛评分-20261010.jpg)。初赛优先完整真实链路与准确性，决赛视觉 40、架构／深度合计 36；不是按服务数量加分。评分目标、剩余缺口、时间检查点和故事线见[比赛冲刺与评分对齐](docs/比赛冲刺与评分对齐-20261010.md)。统一离线门禁 `python3 product/scripts/check.py --full` 和 GitHub CI 已加入；执行结果及发布修复状态以[工程质量与快速迭代](docs/工程质量与快速迭代-20261010.md)为准，不能当作正式云端或评分验收。
@@ -282,3 +282,5 @@ SageMaker Completed 任务的历史元数据仍可存在，**不表示 GPU 还�
 ## 10. 可按任务选用的 AI 技能
 
 此前 AI 使用 `handoff` 技能整理交接，并按用户要求保存在项目中。后续 AI 若有对应技能，可按需要选用：`pdf` 读取新通知，`frontend-design` 设计正式网页，`diagnosing-bugs` 定位实际问题，`handoff` 更新接手材料。技能是否可用取决于新环境，不是赛事硬性要求，也不应成为继续工作的前置障碍。
+
+本次代码验收与同步：`1fce2c1`已推送正式`origin/main`，[269项托管门禁](https://github.com/Jackey0903/BroadcastCode-2026/actions/runs/38021795732)成功；源码和38份白名单媒体已在本地存档并验证恢复。

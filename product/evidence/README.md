@@ -84,3 +84,5 @@ node --test product/tests/test_court_viewer.js product/tests/test_court_endpoint
 4. **参赛权限与复用规则**：账号后续权限、正式素材和赛前成果允许复用范围，以主办方最新通知为准。已有云资源与本地源码不能证明规则允许提前完成参赛成品。
 
 历史练习工程的成功证据在 [readiness-lab](../../readiness-lab/README.md)，不能替代本次产品验收。原始视频、构建 ZIP、下载成片和本机完整响应按仓库忽略规则保存在本地；本目录保留可交接的脱敏结果及来源，后续更新应保留失败历史和对应构建版本。
+
+本次代码验收与同步：`1fce2c1`已推送正式`origin/main`，[269项托管门禁](https://github.com/Jackey0903/BroadcastCode-2026/actions/runs/38021795732)成功；源码和38份白名单媒体已在本地存档并验证恢复。

@@ -1,6 +1,6 @@
 # BroadcastCode「深度赛场」黑客松准备资料
 
-**2026-10-10 正式比赛：** 用户授权重新连接、创建并绑定新私有仓库。Team02 Portal 已锁定 [Jackey0903/BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026)，默认 `main`；赛事 App 仅对这个仓库读取代码和元数据。正式 AWS 账号为 **`555726205424`**，`nba` 身份验证成功，主办方 bootstrap／执行角色／权限边界存在。正式账号产品已通过 CDK 创建并更新，AgentCore 为 READY，两段原片、输入帧、配置与网页已发布。正式账号端到端链路已跑通：弗拉格网页创建、真实Agent调用、完整成片、Chrome片尾播放和内容复核通过，已选为观看区成片。本轮阿门7a2任务技术完成但内容拒收，永久保留失败证据；观看区阿门继续使用已验收历史任务ce008…，明确历史来源。本轮按用户要求收尾，不追加阿门重跑。最新269项核心离线检查通过；此前262项对应GitHub CI通过，新增量CI待对应推送核对；正式 GPU 未在此链路验证。当前入口为[正式产品](https://deky02484tknr.cloudfront.net/product/)，详见[本轮正式验收](docs/正式账号端到端验收-20261010.md)，不以旧练习记录代替。见[正式重连说明](docs/正式比赛重连与新仓库-20261010.md)、[账号审计](product/evidence/formal-account-audit-20261010.json)及[绑定证据](product/evidence/formal-repository-binding-20261010.json)。用户最新授权比赛期间持续整理、提交并推送此新仓库的 `main`，每个验收增量及时同步并本地存档，不逐次询问；不向旧 `practice` 推送。
+**2026-10-10 正式比赛：** 用户授权重新连接、创建并绑定新私有仓库。Team02 Portal 已锁定 [Jackey0903/BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026)，默认 `main`；赛事 App 仅对这个仓库读取代码和元数据。正式 AWS 账号为 **`555726205424`**，`nba` 身份验证成功，主办方 bootstrap／执行角色／权限边界存在。正式账号产品已通过 CDK 创建并更新，AgentCore 为 READY，两段原片、输入帧、配置与网页已发布。正式账号端到端链路已跑通：弗拉格网页创建、真实Agent调用、完整成片、Chrome片尾播放和内容复核通过，已选为观看区成片。本轮阿门7a2任务技术完成但内容拒收，永久保留失败证据；观看区阿门继续使用已验收历史任务ce008…，明确历史来源。本轮按用户要求收尾，不追加阿门重跑。最新269项核心离线检查通过；此前262项对应GitHub CI通过，当前代码提交`1fce2c1`的GitHub CI已通过；正式 GPU 未在此链路验证。当前入口为[正式产品](https://deky02484tknr.cloudfront.net/product/)，详见[本轮正式验收](docs/正式账号端到端验收-20261010.md)，不以旧练习记录代替。见[正式重连说明](docs/正式比赛重连与新仓库-20261010.md)、[账号审计](product/evidence/formal-account-audit-20261010.json)及[绑定证据](product/evidence/formal-repository-binding-20261010.json)。用户最新授权比赛期间持续整理、提交并推送此新仓库的 `main`，每个验收增量及时同步并本地存档，不逐次询问；不向旧 `practice` 推送。
 
 
 **10 月 10 日评分与质量：** 已重新核对[完整 Quick Start](<NBA × AWS Hackathon｜赛制与选手快速上手 Rules & Quick Start.md>)和[现场决赛评分照片](参考资料/现场决赛评分-20261010.jpg)。初赛优先完整真实链路与准确性，决赛视觉 40、架构／深度合计 36；不是按服务数量加分。评分目标、剩余缺口、时间检查点和故事线见[比赛冲刺与评分对齐](docs/比赛冲刺与评分对齐-20261010.md)。统一离线门禁 `python3 product/scripts/check.py --full` 和 GitHub CI 已加入；执行结果及发布修复状态以[工程质量与快速迭代](docs/工程质量与快速迭代-20261010.md)为准，不能当作正式云端或评分验收。
@@ -84,3 +84,5 @@
 可以把下面这段话交给下一位 AI：
 
 > 请先阅读 README.md、AGENTS.md、AI接手说明.md 和 docs/正式比赛重连与新仓库-20261010.md。正式 Portal 已锁定 Jackey0903/BroadcastCode-2026 / main，AWS 目标为 555726205424 / NBAHackathonParticipantRole / us-east-1，操作使用 nba。活跃工程为 product/；旧962账号与旧CloudFront及服务/GPU结果只作历史。正式账号 CDK 部署、媒体发布、AgentCore READY 和 Claude 新任务已实测；最新269项核心门禁通过；此前262项CI成功，最新CI另核对对应提交。请读 docs/正式账号端到端验收-20261010.md 的已跑通的正式链路、当前展示片来源和内部接口边界；官方schema仍未取得。依当前用户授权继续开发，不重复绑定，不执行 bootstrap，不从 readiness-lab 部署，不上传密码或SSO缓存。
+
+本次代码验收与同步：`1fce2c1`已推送正式`origin/main`，[269项托管门禁](https://github.com/Jackey0903/BroadcastCode-2026/actions/runs/38021795732)成功；源码和38份白名单媒体已在本地存档并验证恢复。

@@ -47,5 +47,18 @@
     "completed": true,
     "cloudFormationUpdateSeconds": 91.27,
     "newAmenContentRerun": false
+  },
+  "codeVerifiedCommit": "1fce2c14cd315e3b191f881f119407a4d9494eaf",
+  "ci": {
+    "conclusion": "success",
+    "url": "https://github.com/Jackey0903/BroadcastCode-2026/actions/runs/38021795732",
+    "coreTests": 269
+  },
+  "localBackup": {
+    "directory": "/Users/jack/work/BroadcastCode-backups/20261010-114921-736454-1fce2c14cd31",
+    "restoreVerified": true,
+    "sourceFileCount": 290,
+    "mediaFileCount": 38,
+    "missingMediaFiles": []
   }
 }
