@@ -19,7 +19,6 @@ export function createCourtPanel({ onMode = () => {}, onSelect = () => {}, onThe
   </div>
   <label class="court-theme-choice"><select aria-label="球场"><option value="mavericks">独行侠</option><option value="rockets">火箭</option></select></label>
   <div class="court-view-zone"><div class="court-floor-frame"><div class="court-baseline top">DALLAS MAVERICKS</div><div class="court-drawing"></div><div class="court-baseline bottom">DALLAS MAVERICKS</div></div>
-    <p class="court-empty">此素材尚无球场坐标</p>
   </div>
   <div class="court-legend" aria-label="战术图例">
     <span><i class="white-team"></i>红色 · 火箭</span><span><i class="dark-team"></i>浅色 · 独行侠</span>
@@ -136,7 +135,7 @@ export function createCourtPanel({ onMode = () => {}, onSelect = () => {}, onThe
   function update(dataset, t, selected) {
     data = dataset; time = finite(t) ? t : 0; focusId = selected;
     const available = !!(dataset && globalThis.CourtLab);
-    if (lastAvailable !== available) { q('.court-empty').hidden = available; element.dataset.hasData = String(available); lastAvailable = available; }
+    if (lastAvailable !== available) { element.dataset.hasData = String(available); lastAvailable = available; }
     markers.forEach(node => { node.style.display = 'none'; });
     let positions = [], ball = null;
     if (available) {

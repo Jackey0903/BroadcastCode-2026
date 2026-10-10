@@ -1,0 +1,18 @@
+{
+  "publishedAt": "2026-10-10T12:02:07.296103+00:00",
+  "removed": "court center missing-coordinate hint",
+  "sharedByFullAndHalfCourt": true,
+  "resources": [
+    {
+      "key": "product/watch/court/court-panel.js",
+      "sha256": "3427e24f2286fa9ecc8f55714730ab48500d9a5dfb4567b3672bf85ab1a23864",
+      "bytes": 11107
+    },
+    {
+      "key": "product/watch/court/court.css",
+      "sha256": "66d94bd4125604db421a584e744a24bdda15ff92f110b40b52276b06f144f8da",
+      "bytes": 9292
+    }
+  ],
+  "videoChanged": false
+}
