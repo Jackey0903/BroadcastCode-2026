@@ -169,3 +169,5 @@
 - 18:56 链路Codex：正式资产版45.212秒/2710帧已导出、完整解码及新磨砂watch自然片尾通过（本次丢帧1/损坏0）。MP4 SHA f419896d…c8e2a，product/build/formal-assets/GameBuddy-正式资产联调-v1.mp4；两处camera→board场景直接复用最新tactics布局/图形，未用旧Worker叠字模板。实际Agent/RL新片调用与豆包仍待下一步。代码a6f05b5已本地提交，准备推送/本地恢复备份。
 
 - 18:58 Codex视频：formal/ 独立59.94fps正式视觉版已完成，2710帧/45.211833秒，SHA3330fe41…5e5b；全片音视频解码、真实浏览器最终从0至45.212秒ended/error:null、17项专属及487项full通过。事件273/xFG30%；外层formal_render.py/网页/云链路仍由并行会话负责，本片不补标RL/Agent执行。正在仅提交本方文件、推正式origin并本地媒体备份。交接 docs/正式视频视觉复现-20261010.md。
+
+- 18:58 链路Codex：本轮代码/证据cef0243已推正式origin/main；638源码及Git bundle恢复核对、3份正式媒体复制哈希通过，备份BroadcastCode-backups/20261010-1858-formal-assets。正式原片13.5秒数据节点在45秒编辑版正确映射到22.509秒，editorial回执可读；当前只认证本地视觉联调。
