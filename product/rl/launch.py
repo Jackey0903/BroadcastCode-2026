@@ -20,6 +20,7 @@ ROLE = f"arn:aws:iam::{ACCOUNT}:role/NBAHackathonWorkloadRole"
 IMAGE = "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:2.9.0-gpu-py312-cu130-ubuntu22.04-sagemaker"
 FILES = ["scout_env.py", "train_grpo.py", "requirements.txt",
          "data/shots.jsonl", "data/profiles.json", "data/manifest.json"]
+PACKAGE_FILES = ["package_model.py", "serve/inference.py", "serve/requirements.txt"]
 TAGS = [{"Key": "project", "Value": "broadcastcode"}, {"Key": "component", "Value": "rl-scout"},
         {"Key": "owner", "Value": "claude"}]
 METRICS = [
@@ -37,6 +38,7 @@ def main():
     p.add_argument("--instance", default="ml.g6e.2xlarge")
     p.add_argument("--max-runtime", type=int, default=9000)
     p.add_argument("--hp", nargs="*", default=[], help="key=value hyperparameters for train_grpo.py")
+    p.add_argument("--package-from", default=None, help="training job whose checkpoints/merged/ to package for serving")
     a = p.parse_args()
 
     session = boto3.Session(profile_name=PROFILE, region_name=REGION)
@@ -47,12 +49,12 @@ def main():
     job = f"rl-scout-{a.name}-{time.strftime('%m%d-%H%M%S')}"
     buffer = io.BytesIO()
     with tarfile.open(fileobj=buffer, mode="w:gz") as tar:
-        for name in FILES:
+        for name in (PACKAGE_FILES if a.package_from else FILES):
             tar.add(HERE / name, arcname=name)
     key = f"rl-scout/code/{job}/sourcedir.tar.gz"
     session.client("s3").put_object(Bucket=BUCKET, Key=key, Body=buffer.getvalue())
 
-    hyper = {"sagemaker_program": json.dumps("train_grpo.py"),
+    hyper = {"sagemaker_program": json.dumps("package_model.py" if a.package_from else "train_grpo.py"),
              "sagemaker_submit_directory": json.dumps(f"s3://{BUCKET}/{key}"),
              "sagemaker_region": json.dumps(REGION), "sagemaker_container_log_level": "20"}
     for item in a.hp:
@@ -70,6 +72,11 @@ def main():
         Environment={"PYTHONUNBUFFERED": "1", "HF_HOME": "/tmp/hf", "TOKENIZERS_PARALLELISM": "false"},
         Tags=TAGS,
     )
+    if a.package_from:
+        request["InputDataConfig"] = [{"ChannelName": "merged", "DataSource": {"S3DataSource": {
+            "S3DataType": "S3Prefix", "S3DataDistributionType": "FullyReplicated",
+            "S3Uri": f"s3://{BUCKET}/rl-scout/checkpoints/{a.package_from}/merged/"}}}]
+        request.pop("CheckpointConfig")
     session.client("sagemaker").create_training_job(**request)
     record = {k: v for k, v in request.items() if k != "Environment"}
     runs = HERE / "runs"

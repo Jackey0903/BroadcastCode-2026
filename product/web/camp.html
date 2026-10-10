@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07080b">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="RL-SCOUT 训练营：用 NBA 官方出手质量做奖励，在 SageMaker GPU 上用 GRPO 强化学习训练的球探智能体。">
+  <title>TRAINING CAMP · 关键一拍</title>
+  <link rel="preload" href="./assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./arcade.css">
+  <link rel="stylesheet" href="./camp.css">
+  <script src="./camp.js" defer></script>
+  <script src="./arcade.js" defer></script>
+</head>
+<body class="camp-page">
+  <a class="skip-link" href="#camp-main">跳到主要内容</a>
+  <header class="masthead">
+    <a class="brand" href="./" aria-label="关键一拍首页">
+      <svg class="brand-symbol" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path class="px-leather" d="M2 0h2v1H2zM5 0h1v1H5zM1 1h3v1H1zM5 1h2v1H5zM0 2h4v2H0zM5 2h3v2H5zM0 5h4v1H0zM5 5h3v1H5zM1 6h3v1H1zM5 6h2v1H5zM2 7h2v1H2zM5 7h1v1H5z"/><path class="px-seam" d="M4 0h1v8H4zM0 4h8v1H0z"/><path class="px-shine" d="M2 1h1v1H2zM1 2h1v1H1z"/></svg>
+      <span class="brand-name">关键一拍<small>THE HIDDEN PLAY</small></span>
+    </a>
+    <nav class="main-nav" aria-label="主要导航">
+      <a class="nav-link" href="./"><b>WATCH</b><span>观看</span></a>
+      <a class="nav-link active" href="./camp.html" aria-current="page"><b>CAMP</b><span>训练营</span></a>
+    </nav>
+    <div class="edition"><span class="edition-dot" aria-hidden="true"></span>NBA × AWS<small>TEAM 02</small></div>
+  </header>
+
+  <main id="camp-main" class="view camp">
+    <section class="arcade-hero camp-hero" data-arcade-hero>
+      <p class="hero-kicker"><span>RL-SCOUT</span><span>GRPO · SAGEMAKER GPU</span><span>OFFICIAL REWARD</span></p>
+      <h1 class="arcade-title">
+        <span class="sr-only">训练营 — RL-SCOUT TRAINING CAMP</span>
+        <span class="mark-row"><canvas class="mark mark-primary" data-pixel-text="训练营" data-palette="fire" data-depth="1" data-fill=".5" data-max="12" aria-hidden="true"></canvas></span>
+        <span class="mark-row"><canvas class="mark mark-secondary" data-pixel-text="RL-SCOUT TRAINING CAMP" data-palette="chalk" data-depth="1" data-fill=".55" data-max="5" aria-hidden="true"></canvas></span>
+        <span class="mark-fallback" aria-hidden="true"><b>训练营</b><small>RL-SCOUT TRAINING CAMP</small></span>
+      </h1>
+      <p class="hero-line"><strong>用 NBA 官方出手质量做奖励，训练一个会调用工具的球探。</strong><span>REWARD = OFFICIAL DATA · NO HUMAN LABELS</span></p>
+      <div class="camp-level" aria-live="polite">
+        <span class="camp-lv" id="camp-lv">LV.--</span>
+        <div class="camp-xp" role="progressbar" aria-label="训练进度" aria-valuemin="0" aria-valuemax="100" id="camp-xp-bar"><i id="camp-xp"></i></div>
+        <span class="camp-status mono" id="camp-status">LOADING</span>
+      </div>
+      <ul class="camp-chips" id="camp-chips" aria-label="训练数据"></ul>
+    </section>
+
+    <div id="camp-error" class="inline-notice" role="alert" hidden></div>
+
+    <section class="camp-block" aria-labelledby="loop-title">
+      <div class="camp-head"><p class="eyebrow">01 · THE LOOP</p><h2 id="loop-title">一回合怎么训练</h2></div>
+      <ol class="camp-loop">
+        <li><b>STATE</b><span>一次官方出手</span><small>出手描述 · 区域 · 距离 · 节次 · 出手人<br>不给官方质量值与命中结果</small></li>
+        <li><b>ACTION</b><span>先调工具，或直接作答</span><small>zone_reference · move_reference · player_profile</small></li>
+        <li><b>ANSWER</b><span>估计「同类出手的常见质量」</span><small>{"quality": 0.xx, "reason": "…"}</small></li>
+        <li><b>REWARD</b><span>程序自动打分</span><small>校准 0.75 · 格式 0.15 · 有据 0.10 · 每个工具 −0.03</small></li>
+        <li><b>GRPO</b><span>8 次尝试组内比较</span><small>高于组平均的被强化，低于的被抑制</small></li>
+      </ol>
+    </section>
+
+    <section class="camp-block" aria-labelledby="curve-title">
+      <div class="camp-head"><p class="eyebrow">02 · TRAINING CURVE</p><h2 id="curve-title">奖励在涨，误差在降</h2><span class="mono camp-note" id="curve-note"></span></div>
+      <div class="camp-charts">
+        <figure class="camp-chart"><figcaption><b>REWARD</b>平均奖励</figcaption><svg id="chart-reward" viewBox="0 0 640 220" role="img" aria-label="平均奖励随训练步数变化"></svg></figure>
+        <figure class="camp-chart"><figcaption><b>ERROR</b>平均绝对误差 · 越低越好</figcaption><svg id="chart-mae" viewBox="0 0 640 220" role="img" aria-label="平均绝对误差随训练步数变化"></svg></figure>
+        <figure class="camp-chart"><figcaption><b>TOOLS</b>每回合工具调用</figcaption><svg id="chart-tools" viewBox="0 0 640 220" role="img" aria-label="每回合工具调用次数随训练步数变化"></svg></figure>
+      </div>
+    </section>
+
+    <section class="camp-block" aria-labelledby="group-title">
+      <div class="camp-head"><p class="eyebrow">03 · GRPO GROUP</p><h2 id="group-title">同一次出手，八次尝试</h2></div>
+      <div class="camp-steps" id="group-tabs" role="group" aria-label="选择训练步"></div>
+      <div class="camp-group" id="group-view"></div>
+    </section>
+
+    <section class="camp-block" aria-labelledby="board-title">
+      <div class="camp-head"><p class="eyebrow">04 · SCOREBOARD</p><h2 id="board-title">没参与训练的比赛上，正面对比</h2></div>
+      <div class="camp-table-wrap"><table class="camp-table" id="scoreboard"></table></div>
+      <p class="camp-foot">模拟考场 = 火箭 vs 独行侠全部交手比赛，整场不参与训练。泛化 = 3 月起不涉及两队的比赛。误差为预测与 NBA 官方出手质量值的平均绝对误差。</p>
+    </section>
+
+    <section class="camp-block" aria-labelledby="calib-title">
+      <div class="camp-head"><p class="eyebrow">05 · CALIBRATION</p><h2 id="calib-title">预测和官方值，贴得更近了吗</h2></div>
+      <div class="camp-scatter">
+        <figure><figcaption><b>BEFORE</b>训练前</figcaption><svg id="scatter-base" viewBox="0 0 300 300" role="img" aria-label="训练前预测与官方值散点"></svg></figure>
+        <figure><figcaption><b>AFTER</b>训练后</figcaption><svg id="scatter-trained" viewBox="0 0 300 300" role="img" aria-label="训练后预测与官方值散点"></svg></figure>
+      </div>
+    </section>
+
+    <section class="camp-block camp-honesty" aria-labelledby="honesty-title">
+      <div class="camp-head"><p class="eyebrow">DATA NOTES</p><h2 id="honesty-title">边界</h2></div>
+      <ul id="camp-honesty"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="./" class="footer-brand">THE HIDDEN PLAY<span>关键一拍</span></a>
+    <p>REAL FOOTAGE · OFFICIAL DATA · TRACEABLE</p>
+    <span class="mono">NBA × AWS · TEAM 02</span>
+  </footer>
+</body>
+</html>

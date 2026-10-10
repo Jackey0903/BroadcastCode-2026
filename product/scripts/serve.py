@@ -43,12 +43,16 @@ class Catalog:
         self.files, self.jobs, self.issues = {}, {}, []
         self.manifest = json.loads((self.root / "product/data/stories.json").read_text())
         self.manifest["preview"] = {"mode": "offline", "historical": True}
-        for name in ("index.html", "app.js", "styles.css", "broadcast.css", "atmosphere.js", "arcade.css", "arcade.js",
+        for name in ("index.html", "app.js", "styles.css", "broadcast.css", "atmosphere.js", "arcade.css", "arcade.js", "camp.html", "camp.css", "camp.js",
                      "assets/grain.svg", "assets/fonts/OFL.txt",
                      "assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2"):
             file = checked_file(self.root, f"product/web/{name}")
             if file:
                 self.files[f"/product/{name}"] = file
+        # RL-SCOUT training camp data, built from the real SageMaker run (product/rl/build_camp.py).
+        camp = checked_file(self.root, "product/data/rl/training-camp.json")
+        if camp:
+            self.files["/product/data/rl/training-camp.json"] = camp
         # A local-only research workbench, separate from the contest product.
         # Explicit allowlist: never expose its generator, arbitrary imports or builds.
         for name in ("index.html", "lab.css", "lab.js", "viewer.js", "flagg.json"):

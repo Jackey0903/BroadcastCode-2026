@@ -131,7 +131,7 @@ class Runner:
             messages = env.first_messages(shot)
             ids = self.prompt_ids(messages)
             episodes.append({"shot": shot, "ids": list(ids), "mask": [0] * len(ids),
-                             "context": env.observation(shot), "turns": [], "tools": [], "invalid": False,
+                             "context": env.observation(shot), "turns": [], "toolNames": [], "invalid": False,
                              "answer": None, "done": False})
         for turn in range(2):
             active = [e for e in episodes if not e["done"]]
@@ -145,7 +145,7 @@ class Runner:
                 if kind == "answer":
                     e["answer"], e["done"] = payload, True
                 elif kind == "tools" and turn == 0:
-                    e["tools"], e["invalid"] = payload, e["invalid"] or invalid
+                    e["toolNames"], e["invalid"] = payload, e["invalid"] or invalid
                     message = env.tool_message(payload, e["shot"], self.refs)["content"]
                     e["context"] += "\n" + message
                     mid = self.middle_ids(message)
@@ -156,7 +156,7 @@ class Runner:
         for e in episodes:
             if not e["done"]:
                 e["invalid"] = True
-            parts = env.reward(e["answer"], e["shot"]["quality"], e["tools"], e["invalid"], e["context"])
+            parts = env.reward(e["answer"], e["shot"]["quality"], e["toolNames"], e["invalid"], e["context"])
             e.update(parts)
             e["quality"] = e["shot"]["quality"]
         return episodes
@@ -219,7 +219,7 @@ class Runner:
             group = episodes[: a.group]
             with (self.out / "rollouts.jsonl").open("a") as stream:
                 stream.write(json.dumps({"step": step, "shot": group[0]["shot"], "trajectories": [
-                    {"turns": e["turns"], "tools": e["tools"], "prediction": e["prediction"], "total": e["total"],
+                    {"turns": e["turns"], "tools": e["toolNames"], "prediction": e["prediction"], "total": e["total"],
                      "calibration": round(e["calibration"], 4), "advantage": round(adv, 3)}
                     for e, adv in zip(group, advantages[: a.group])]}, ensure_ascii=False) + "\n")
 
@@ -233,7 +233,7 @@ class Runner:
         if detail:
             with (self.out / f"{name}-step{step}.jsonl").open("w") as stream:
                 for e in rows:
-                    stream.write(json.dumps({"shot": e["shot"], "turns": e["turns"], "tools": e["tools"],
+                    stream.write(json.dumps({"shot": e["shot"], "turns": e["turns"], "tools": e["toolNames"],
                                              "prediction": e["prediction"], "quality": e["quality"],
                                              "total": e["total"], "format": e["format"],
                                              "grounded": e["grounded"]}, ensure_ascii=False) + "\n")

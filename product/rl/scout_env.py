@@ -25,7 +25,8 @@ MAX_REASON_CHARS = 80
 
 SYSTEM_PROMPT = (
     "你是 NBA 球探。根据一次出手的信息，估计这类出手在 NBA 官方出手质量模型下的常见质量（0 到 1 之间）。\n"
-    "可用工具：zone_reference（该区域联盟平均官方质量）、move_reference（同类出手描述的平均官方质量）、"
+    "作答前可以先调用工具获取参考数据（每调用一个工具有少量成本，只调用你需要的）："
+    "zone_reference（该区域联盟平均官方质量）、move_reference（同类出手描述的平均官方质量）、"
     "player_profile（出手人赛季档案）。\n"
     "需要工具时只输出：{\"tools\": [\"工具名\", ...]}\n"
     "作答时只输出：{\"quality\": 0.xx, \"reason\": \"不超过60字，只引用给出的事实\"}\n"
@@ -101,6 +102,21 @@ class References:
             else:
                 self.move[key[1]] = summary
         self.global_mean = round(statistics.fmean(s["quality"] for s in train), 3) if train else 0.45
+
+    def to_tables(self):
+        """Serialisable tool back-ends for runtime (no training rows needed)."""
+        return {"globalMean": self.global_mean,
+                "zone": [[zone, kind, mean, count] for (zone, kind), (mean, count) in sorted(self.zone.items())],
+                "move": [[desc, mean, count] for desc, (mean, count) in sorted(self.move.items())],
+                "profiles": self.profiles}
+
+    @classmethod
+    def from_tables(cls, tables):
+        refs = cls([], tables.get("profiles", {}))
+        refs.global_mean = tables["globalMean"]
+        refs.zone = {(zone, kind): (mean, count) for zone, kind, mean, count in tables["zone"]}
+        refs.move = {desc: (mean, count) for desc, mean, count in tables["move"]}
+        return refs
 
     def zone_reference(self, shot):
         mean, count = self.zone.get((shot["zone"], shot["shotType"]), (self.global_mean, 0))
@@ -225,3 +241,18 @@ def summarize(results):
         "toolsPerEpisode": round(statistics.fmean(r.get("tools", 0) for r in results), 3) if results else None,
         "meanReward": round(statistics.fmean(r.get("total", 0) for r in results), 4) if results else None,
     }
+
+
+def shot_from_official(row, player_id):
+    """Map an official gpShot record (as returned by api.nba.cn) to an RL-SCOUT shot."""
+    three = "3" in str(row.get("shotType", ""))
+    geo = shot_geometry(float(row["locX"]), float(row["locY"]), row["side"], three)
+    return {"shotDesc": row.get("shotDesc") or "未知", "shotType": "3PT" if three else "2PT", "side": row["side"],
+            "locX": float(row["locX"]), "locY": float(row["locY"]), "period": row.get("period"),
+            "playerId": str(player_id), "distanceFt": geo["distanceFt"], "zone": geo["zone"]}
+
+
+def render_qwen(messages):
+    """Qwen2.5 chat format, identical to the token layout used in training."""
+    text = "".join(f"<|im_start|>{m['role']}\n{m['content']}<|im_end|>\n" for m in messages)
+    return text + "<|im_start|>assistant\n"
