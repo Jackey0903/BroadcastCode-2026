@@ -12,20 +12,18 @@ import mimetypes
 import re
 from pathlib import Path
 import boto3
+from deployment import load_deployment, load_outputs, validate_identity
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = ROOT / 'product'
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--web-only', action='store_true')
 args = parser.parse_args()
-outputs_file = HERE / 'outputs.json'
-if not outputs_file.exists():
-    outputs_file = ROOT / 'readiness-lab/outputs.json'
-outputs = json.loads(outputs_file.read_text())['BroadcastCodeTeam02Readiness20261006']
-session = boto3.Session(profile_name='nba', region_name='us-east-1')
+target = load_deployment()
+outputs = load_outputs(target=target)
+session = boto3.Session(profile_name=target['profile'], region_name=target['region'])
 identity = session.client('sts').get_caller_identity()
-if identity['Account'] != '962768510637' or ':assumed-role/NBAHackathonParticipantRole/' not in identity['Arn']:
-    raise SystemExit('Wrong AWS account or role; aborting upload.')
+validate_identity(identity, target)
 s3 = session.client('s3')
 bucket = outputs['Bucket']
 uploaded = []

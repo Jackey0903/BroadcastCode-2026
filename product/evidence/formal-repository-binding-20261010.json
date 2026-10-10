@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-10-10T09:28:53.129965+08:00",
+  "team": "Team02",
+  "portal": "https://du5imhgxabl0d.cloudfront.net/portal",
+  "repository": "Jackey0903/BroadcastCode-2026",
+  "repositoryUrl": "https://github.com/Jackey0903/BroadcastCode-2026",
+  "visibility": "private",
+  "defaultBranch": "main",
+  "portalRegistrationSuccessObserved": true,
+  "portalLockedInObserved": true,
+  "portalLockedText": "Your repository is locked in: Jackey0903/BroadcastCode-2026",
+  "app": {
+    "name": "nba-aws-hackathon-agent",
+    "installationId": 142013677,
+    "onlySelectedRepositories": true,
+    "selectedRepositories": [
+      "Jackey0903/BroadcastCode-2026"
+    ],
+    "permissions": [
+      "read code",
+      "read metadata"
+    ],
+    "saveDisabledAfterReload": true
+  },
+  "awsAccount": "555726205424",
+  "participantRole": "NBAHackathonParticipantRole",
+  "region": "us-east-1",
+  "initialTransferredCommit": "796efbd7de5753c4c57640a210d7f97b81fdb057",
+  "origin": "https://github.com/Jackey0903/BroadcastCode-2026.git",
+  "practiceRemote": "https://github.com/Jackey0903/BroadcastCode.git",
+  "entryUrlSubmitted": false,
+  "evidenceFiles": [
+    "formal-reconnect-20261010/registration-success.png",
+    "formal-reconnect-20261010/portal-locked.png",
+    "formal-reconnect-20261010/github-app-only-new-repo.png",
+    "formal-reconnect-20261010/portal-observed.txt",
+    "formal-reconnect-20261010/github-app-observed.txt"
+  ],
+  "limitations": [
+    "Binding and source transfer are not a deployed product or official scoring approval.",
+    "Formal account model/GPU invocation and product end-to-end acceptance remain separate."
+  ]
+}

@@ -7,13 +7,14 @@ from pathlib import Path
 import time
 import urllib.error
 import urllib.request
+from deployment import load_outputs
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = 'https://d2x8td5d05xg8h.cloudfront.net'
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--sample', choices=['flagg', 'amen'], required=True)
 parser.add_argument('--wait', action='store_true')
 args = parser.parse_args()
+BASE = load_outputs()['Website'].rstrip('/')
 body = json.dumps({'sample': args.sample, 'mode': 'story'}, separators=(',', ':')).encode()
 request = urllib.request.Request(BASE + '/api/jobs', data=body, method='POST', headers={
     'Content-Type': 'application/json', 'x-amz-content-sha256': hashlib.sha256(body).hexdigest()})

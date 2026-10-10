@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 import subprocess
 import urllib.request
+from deployment import load_outputs
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = ROOT / 'product'
@@ -19,9 +20,7 @@ parser.add_argument('--promote', action='store_true')
 args=parser.parse_args()
 if len(args.job_id)!=32 or any(c not in '0123456789abcdef' for c in args.job_id):
     raise SystemExit('Invalid job id')
-outputs_path=HERE/'outputs.json'
-if not outputs_path.exists():outputs_path=ROOT/'readiness-lab/outputs.json'
-outputs=json.loads(outputs_path.read_text())['BroadcastCodeTeam02Readiness20261006']
+outputs=load_outputs()
 base=outputs['Website']
 with urllib.request.urlopen(base+'/api/jobs/'+args.job_id,timeout=30) as response:
     job=json.load(response)

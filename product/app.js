@@ -11,14 +11,20 @@ const cf = require('aws-cdk-lib/aws-cloudfront');
 const origins = require('aws-cdk-lib/aws-cloudfront-origins');
 const agentcore = require('aws-cdk-lib/aws-bedrockagentcore');
 const path = require('path');
+const target = require('./deployment.json');
+if (!/^\d{12}$/.test(target.account) || target.region !== 'us-east-1' ||
+    target.profile !== 'nba' || target.stackName !== 'BroadcastCodeTeam02Readiness20261006' ||
+    target.participantRole !== 'NBAHackathonParticipantRole' || target.workloadRole !== 'NBAHackathonWorkloadRole') {
+  throw new Error('Invalid verified competition deployment target in product/deployment.json.');
+}
 
 const app = new cdk.App();
 const boundary = app.node.tryGetContext('@aws-cdk/core:permissionsBoundary');
 if (!boundary || boundary.name !== 'NBAHackathonParticipantBoundary') {
   throw new Error('Run CDK from product/ using its cdk.json; the organizer permissions boundary is required.');
 }
-const stack = new cdk.Stack(app, 'BroadcastCodeTeam02Readiness20261006', {
-  env: {account:'962768510637', region:'us-east-1'},
+const stack = new cdk.Stack(app, target.stackName, {
+  env: {account:target.account, region:target.region},
   description:'Team02 The Hidden Play: evidence-led basketball stories and complete enhanced video',
 });
 cdk.Tags.of(stack).add('Purpose','BroadcastCodeTeam02Readiness');
@@ -42,7 +48,7 @@ const queue = new sqs.Queue(stack,'RenderQueue', {
   retentionPeriod:cdk.Duration.days(1),
 });
 const codeAsset = new assets.Asset(stack,'AgentCode',{path:path.join(__dirname,'build/agent.zip')});
-const workloadArn = 'arn:aws:iam::962768510637:role/NBAHackathonWorkloadRole';
+const workloadArn = stack.formatArn({service:'iam',region:'',resource:'role',resourceName:target.workloadRole});
 bucket.addToResourcePolicy(new iam.PolicyStatement({
   principals:[new iam.ArnPrincipal(workloadArn)],
   actions:['s3:GetObject'],resources:[bucket.arnForObjects('frames/*'),bucket.arnForObjects('product/data/*')],
@@ -114,7 +120,7 @@ worker.addToRolePolicy(new iam.PolicyStatement({
   resources:[runtime.attrAgentRuntimeArn,runtime.attrAgentRuntimeArn+'/*'],
 }));
 worker.addEventSource(new events.SqsEventSource(queue,{batchSize:1,reportBatchItemFailures:true}));
-for(const [key,value] of Object.entries({Bucket:bucket.bucketName,Table:table.tableName,
+for(const [key,value] of Object.entries({Account:stack.account,Region:stack.region,Bucket:bucket.bucketName,Table:table.tableName,
   Api:api.functionName,Worker:worker.functionName,DeadLetterQueue:deadLetters.queueName,RuntimeArn:runtime.attrAgentRuntimeArn,
   Distribution:distribution.distributionId,Website:'https://'+distribution.distributionDomainName,
   WorkerLogs:worker.logGroup.logGroupName}))new cdk.CfnOutput(stack,key+'Output',{value}).overrideLogicalId(key);

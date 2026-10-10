@@ -1,0 +1,185 @@
+Window: "NBA × AWS Hackathon Judge", App: Google Chrome.
+0 标准窗口 NBA × AWS Hackathon Judge - Google Chrome - jiejie, URL: du5imhgxabl0d.cloudfront.net/portal, Secondary Actions: Raise
+	1 container NBA × AWS Hackathon Judge - Google Chrome - jiejie, URL: du5imhgxabl0d.cloudfront.net/portal
+		2 container
+			3 工具栏
+				4 按钮 返回
+				5 按钮 (disabled) 前进
+				6 按钮 重新加载
+				7 container
+					8 弹出式按钮 查看网站信息
+					9 文本栏 (settable) 地址和搜索栏, Value: du5imhgxabl0d.cloudfront.net/portal, Placeholder: 问问 Google 或输入网址
+					10 按钮 翻译
+					11 按钮 为此标签页修改书签
+				12 container
+					13 弹出式按钮 沉浸式翻译 - AI 双语网页翻译 | PDF翻译 | 视频翻译 | 漫画翻译
+可以访问此网站
+					14 弹出式按钮 GitZip for github
+					15 弹出式按钮 Save to Zotero (Web Page with Snapshot)
+可以访问此网站
+					16 弹出式按钮 Navigate to AlphaXiv
+可以访问此网站
+					17 弹出式按钮 Apifox
+可以访问此网站
+					18 弹出式按钮 Open Claude
+可以访问此网站
+					19 弹出式按钮 ChatGPT
+可以访问此网站
+					20 弹出式按钮 扩展程序
+				21 复选框 下载内容, Value: 0
+				22 按钮 jiejie
+				23 弹出式按钮 Chrome
+			24 工具栏 书签
+				25 工具栏 已保存的标签页分组
+					26 按钮 标签页分组
+				27 分离器 分隔符
+				28 书签按钮 代码随想录
+				29 书签按钮 GitHub
+				30 书签按钮 力扣 (LeetCode) 全球极客挚爱的技术成长平台
+				31 书签按钮 (9封未读) 网易邮箱6.0版
+				32 书签按钮 计算机科学与技术学院
+				33 书签按钮 同济大学电子邮件系统
+				34 书签按钮 宝塔Linux面板
+				35 书签文件夹按钮 SII
+				36 书签文件夹按钮 升学
+				37 书签按钮 Google 学术搜索
+				38 弹出式按钮 包含隐藏书签的菜单
+				39 书签文件夹按钮 所有书签
+				40 分离器 分隔符
+			41 container
+				42 滚动区
+					43 HTML 内容 NBA × AWS Hackathon Judge, URL: du5imhgxabl0d.cloudfront.net/portal
+						44 container
+							45 container
+								46 图像
+								47 文本 TEAM PORTAL
+								48 标题 Team02, Value: 1
+									49 文本 Team02
+								50 文本 TEAM02
+								51 按钮 Sign out
+							52 container
+								53 图像
+								54 标题 GitHub repository, Value: 2
+									55 文本 GitHub repository
+								56 文本 Your repository is locked in:
+								57 link Jackey0903/BroadcastCode-2026, Value: github.com/Jackey0903/BroadcastCode-2026
+								58 文本 The repository can no longer be changed. Contact the organizers if this is wrong.
+							59 container
+								60 图像
+								61 标题 AWS console, Value: 2
+									62 文本 AWS console
+								63 text Open your team's own AWS account with the SSO identity you signed in with. You will not be asked for your password again. It takes two clicks, and this is why: AWS signs you in to the shared hackathon account first, and your team's own account is reached from there. Step 1 lasts about 12 hours, so once should do it. Step 2 is the one that expires  — AWS caps a switched-role session at one hour, so if actions start failing again, click step 2 again. Your account only works in us-east-1 . These links take you there, so you should not need to touch the region selector — but if you switch away, every action starts failing with a permission error that looks like an empty account rather than a wrong region.
+								64 内容列表
+									65 container
+										66 link Sign in to AWS, Value: d-92674d9b56.awsapps.com/start/#/console?account_id=405496568869&role_name=NBAHackathon-Team02
+										67 文本 Opens the AWS console in the shared hackathon account, which has no permissions.
+										68 按钮 Copy link
+									69 container
+										70 link Switch to your account, Value: signin.aws.amazon.com/switchrole?account=555726205424&roleName=NBAHackathonParticipantRole&displayName=Team02&redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fconsole%2Fhome%3Fregion%3Dus-east-1
+										71 文本 Click this once the console has loaded, then accept AWS's confirmation.
+										72 按钮 Copy link
+								73 text Account  555726205424  · role  NBAHackathonParticipantRole
+								74 分离器
+								75 图像
+								76 标题 Using the AWS CLI, Value: 3
+									77 文本 Using the AWS CLI
+								78 text Two profiles, for the same reason the console needs two clicks: nba-sso  signs you in and can do nothing else, and  nba chains from it into your own account. Do your work with --profile  nba . Requires AWS CLI v2. 1 · ADD BOTH PROFILES TO  ~/.aws/config
+								79 文本 [profile nba-sso]
+sso_start_url = https://d-92674d9b56.awsapps.com/start
+sso_region = us-west-2
+sso_account_id = 405496568869
+sso_role_name = NBAHackathon-Team02
+region = us-east-1
+output = json
+
+[profile nba]
+role_arn = arn:aws:iam::555726205424:role/NBAHackathonParticipantRole
+source_profile = nba-sso
+region = us-east-1
+output = json
+								80 按钮 Copy config
+								81 文本 2 · SIGN IN — OPENS YOUR BROWSER, ONCE EVERY 12 HOURS
+								82 文本 aws sso login --profile nba-sso
+								83 按钮 Copy command
+								84 文本 3 · CHECK IT WORKED
+								85 文本 aws sts get-caller-identity --profile nba --region us-east-1
+								86 按钮 Copy command
+								87 text The  Arn  it prints should contain assumed-role/ NBAHackathonParticipantRole and your own account 555726205424 . If it shows AWSReservedSSO  instead, you used the wrong profile — that is the sign-in one. Unlike the console, you do not have to renew this hourly: the CLI refreshes the chained session from nba-sso  on its own until aws sso login  expires. Keep region =  us-east-1  — anything else is blocked. Pass  --region  us-east-1  on any command that reaches a regional endpoint, so it still works if that line ever goes missing from your config. Using an AI coding tool? Tell it which profile to use — left to itself it will reach for default credentials and fail. For example: “Using the AWS profile  nba  in  us-east-1 , create an EC2 instance for me.”
+							88 container
+								89 图像
+								90 标题 NBA data downloads, Value: 2
+									91 文本 NBA data downloads
+								92 文本 Official datasets for the hackathon. Follow the data-use rules in the participant guide.
+								93 link Global official site www.nba.com Open, Value: nba.com/games
+								94 内容列表
+									95 container
+										96 图像
+										97 text In-depth game data (NBA official) china.nba.cn
+										98 link Open, Value: china.nba.cn/inside-the-game
+									99 container
+										100 图像
+										101 text Hackathon HD training videos (2 files) comfile.csdnimg.cn
+										102 link Download, Value: comfile.csdnimg.cn/file/train_video.zip
+							103 container
+								104 图像
+								105 标题 Participant guide, Value: 2
+									106 文本 Participant guide
+								107 文本 Read these in full before you start building.
+								108 内容列表
+									109 link 🏀 12h Hackathon · participant guide outline csdn.feishu.cn Open, Value: csdn.feishu.cn/wiki/B3NSwj16GiSCR7kcM5vc9RjMnQb
+									110 link 🚀 12h Hackathon · participant quickstart csdn.feishu.cn Open, Value: csdn.feishu.cn/docx/H0N3d4467osmp5x45VLc7RRgnqh
+							111 container
+								112 图像
+								113 标题 AWS services guide, Value: 2
+									114 文本 AWS services guide
+								115 文本 How to use the common AWS services, with code samples and CDK definitions.
+								116 link ☁️ AWS services guide aws/services Open, Value: du5imhgxabl0d.cloudfront.net/services
+							117 container
+								118 图像
+								119 标题 Submit your entry, Value: 2
+									120 文本 Submit your entry
+								121 text Enter the URL of your deployed entry (a CloudFront domain, for example). The last submission before the deadline is the one that counts. Closes 2026-10-10, 20:00  Beijing time , after which this form stops accepting changes.
+								122 网址 (settable) https://your-entry.cloudfront.net
+								123 按钮 Submit
+								124 text 0  /  300  characters
+						125 container
+							126 图像
+							127 图像
+							128 图像
+							129 图像
+							130 图像
+							131 图像
+			132 弹出式按钮 标签页搜索
+			133 container
+				134 标签组
+					135 标签 (settable, boolean) Value: off, Jackey0903/BroadcastCode-2026: THE HIDDEN PLAY — NBA × AWS BroadcastCode 2026 · Team02 formal competition - 内存用量 - 391 MB
+						136 按钮 关闭
+					137 标签 (settable, boolean) Manage access, Value: off
+						138 按钮 关闭
+					139 标签 (selected, settable, boolean) NBA × AWS Hackathon Judge - 内存用量 - 113 MB, Value: on
+						140 按钮 关闭
+					141 标签 (settable, boolean) NBA × AWS 黑客马拉松评委 - 内存用量 - 114 MB, Value: off
+						142 按钮 关闭
+					143 标签 (settable, boolean) 🏀 Broadcast Code 12h 深度赛场可视化 · 参赛终极指南 - 飞书云文档 - 内存用量 - 539 MB, Value: off
+						144 按钮 关闭
+					145 标签 (settable, boolean) [已合并] English version → 中英双语版 Quick Start - 飞书云文档 - 内存用量 - 426 MB, Value: off
+						146 按钮 关闭
+					147 标签 (settable, boolean) Value: off, ‬‌‌‍⁤​⁤⁣﻿‌⁢⁤‬​‌​⁡⁡﻿‬​⁤⁢⁤﻿​​⁣‍﻿⁤‌⁣‬⁤⁡⁡﻿​﻿⁣⁤﻿‌​⁤⁣⁢NBA × AWS Hackathon｜赛制与选手快速上手 Rules & Quick Start - 飞书云文档 - 内存用量 - 705 MB
+						148 按钮 关闭
+			149 按钮 新标签页
+	150 关闭按钮
+	151 全屏幕按钮 Help: 此按钮也可以执行缩放窗口的操作, Secondary Actions: 缩放窗口
+	152 最小化按钮
+153 menu bar
+	154 Chrome
+	155 文件
+	156 编辑
+	157 显示
+	158 历史记录
+	159 书签
+	160 个人资料
+	161 标签页
+	162 窗口
+	163 帮助
+
+The focused UI element is 43 HTML 内容 NBA × AWS Hackathon Judge, URL: du5imhgxabl0d.cloudfront.net/portal

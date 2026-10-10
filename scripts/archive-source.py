@@ -28,6 +28,7 @@ def main():
 
     commit = git(repo, "rev-parse", "HEAD").decode().strip()
     branch = git(repo, "branch", "--show-current").decode().strip()
+    repository = git(repo, "remote", "get-url", "origin").decode().strip()
     created = datetime.now(ZoneInfo("Asia/Shanghai"))
     destination = args.destination.expanduser().resolve()
     if destination == repo or repo in destination.parents:
@@ -105,7 +106,7 @@ def main():
 
     manifest = {
         "createdAt": created.isoformat(), "commit": commit, "branch": branch,
-        "repository": "https://github.com/Jackey0903/BroadcastCode",
+        "repository": repository,
         "sourceFileCount": len(source_files), "bundleVerified": True,
         "offlineCloneVerified": True, "sourceArchiveFileListVerified": True,
         "mediaFiles": media_files, "missingMediaFiles": missing_media,

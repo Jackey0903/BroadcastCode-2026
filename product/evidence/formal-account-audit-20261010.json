@@ -1,0 +1,138 @@
+{
+  "checkedAtUtc": "2026-10-10T01:15:25Z",
+  "checkedAtLocal": "2026-10-10T09:15:25+08:00",
+  "timezone": "Asia/Shanghai",
+  "profile": "nba",
+  "requestRegion": "us-east-1",
+  "scope": "Read-only formal-account identity, organizer bootstrap resources, workload role and boundary existence, product Stack existence, AgentCore Runtime list, and Bedrock model catalog. No model invocation, GPU job, deployment, upload, resource creation/deletion or credential files were accessed.",
+  "identity": {
+    "Account": "555726205424",
+    "Arn": "arn:aws:sts::555726205424:assumed-role/NBAHackathonParticipantRole/botocore-session-1791594331",
+    "matchesFormalAllocation": true
+  },
+  "bootstrap": {
+    "permissionVerified": true,
+    "exists": true,
+    "StackName": "CDKToolkit",
+    "StackStatus": "CREATE_COMPLETE",
+    "Outputs": [
+      {
+        "OutputKey": "ImageRepositoryName",
+        "OutputValue": "cdk-hnb659fds-container-assets-555726205424-us-east-1",
+        "Description": "The name of the ECR repository which hosts docker image assets"
+      },
+      {
+        "OutputKey": "BucketName",
+        "OutputValue": "cdk-hnb659fds-assets-555726205424-us-east-1",
+        "Description": "The name of the S3 bucket owned by the CDK toolkit stack"
+      },
+      {
+        "OutputKey": "BootstrapVersion",
+        "OutputValue": "32",
+        "Description": "The version of the bootstrap resources that are currently mastered in this stack"
+      },
+      {
+        "OutputKey": "BucketDomainName",
+        "OutputValue": "cdk-hnb659fds-assets-555726205424-us-east-1.s3.us-east-1.amazonaws.com",
+        "Description": "The domain name of the S3 bucket owned by the CDK toolkit stack"
+      },
+      {
+        "OutputKey": "FileAssetKeyArn",
+        "OutputValue": "AWS_MANAGED_KEY",
+        "Description": "The ARN of the KMS key used to encrypt the asset bucket (deprecated)",
+        "ExportName": "CdkBootstrap-hnb659fds-FileAssetKeyArn"
+      }
+    ],
+    "CreationTime": "2026-10-09T17:11:41.335000+00:00",
+    "LastUpdatedTime": "2026-10-09T17:11:52.807000+00:00",
+    "bootstrapActionNeeded": false
+  },
+  "organizerWorkloadRole": {
+    "permissionVerified": true,
+    "exists": true,
+    "RoleName": "NBAHackathonWorkloadRole",
+    "Arn": "arn:aws:iam::555726205424:role/NBAHackathonWorkloadRole",
+    "CreateDate": "2026-10-09T15:12:24+00:00",
+    "PermissionsBoundary": null,
+    "interpretation": "The precreated organizer role exists; its absent boundary is recorded without altering it. CDK-created participant roles still require NBAHackathonParticipantBoundary."
+  },
+  "participantBoundary": {
+    "permissionVerified": true,
+    "exists": true,
+    "PolicyName": "NBAHackathonParticipantBoundary",
+    "Arn": "arn:aws:iam::555726205424:policy/NBAHackathonParticipantBoundary",
+    "DefaultVersionId": "v1",
+    "AttachmentCount": 0,
+    "IsAttachable": true
+  },
+  "productStack": {
+    "stackName": "BroadcastCodeTeam02Readiness20261006",
+    "exists": false,
+    "operation": "cloudformation:DescribeStacks",
+    "errorCode": "ValidationError",
+    "errorMessage": "Stack with id BroadcastCodeTeam02Readiness20261006 does not exist",
+    "interpretation": "No product deployment exists under this Stack name in the formal account at this check; this is not AccessDenied."
+  },
+  "agentCoreRuntimeList": {
+    "permissionVerified": true,
+    "count": 0,
+    "runtimes": []
+  },
+  "bedrockModelCatalog": {
+    "permissionVerified": true,
+    "catalogCount": 124,
+    "relevantCatalogEntries": [
+      {
+        "modelId": "anthropic.claude-sonnet-4-6",
+        "providerName": "Anthropic",
+        "inputModalities": [
+          "TEXT",
+          "IMAGE"
+        ],
+        "outputModalities": [
+          "TEXT"
+        ]
+      },
+      {
+        "modelId": "qwen.qwen3-vl-235b-a22b",
+        "providerName": "Qwen",
+        "inputModalities": [
+          "TEXT",
+          "IMAGE"
+        ],
+        "outputModalities": [
+          "TEXT"
+        ]
+      },
+      {
+        "modelId": "amazon.nova-lite-v1:0",
+        "providerName": "Amazon",
+        "inputModalities": [
+          "TEXT",
+          "IMAGE",
+          "VIDEO"
+        ],
+        "outputModalities": [
+          "TEXT"
+        ]
+      }
+    ],
+    "interpretation": "Foundation model catalog entries only. Model invocation permissions and global inference-profile availability have not been exercised in the new formal account."
+  },
+  "testedActions": [
+    "sts:GetCallerIdentity",
+    "cloudformation:DescribeStacks (CDKToolkit)",
+    "iam:GetRole (NBAHackathonWorkloadRole)",
+    "iam:GetPolicy (NBAHackathonParticipantBoundary)",
+    "cloudformation:DescribeStacks (product Stack)",
+    "bedrock-agentcore:ListAgentRuntimes",
+    "bedrock:ListFoundationModels"
+  ],
+  "limitations": [
+    "Catalog/list/get permission is not model inference, AgentCore deployment or invocation, GPU quota/capacity, complete video rendering, end-to-end product availability, or official scoring validation.",
+    "No SageMaker quota query or GPU startup was performed in the formal account.",
+    "No read of policy documents, SSO cache, credentials, passwords, or access/session keys was performed.",
+    "The old practice account and its historical deployments are separate from this formal account.",
+    "The product Stack is absent and the Runtime list is empty; live product functionality still needs a deployment and independent acceptance checks."
+  ]
+}

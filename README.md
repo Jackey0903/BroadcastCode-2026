@@ -1,8 +1,10 @@
 # BroadcastCode「深度赛场」黑客松准备资料
 
-**最新分工：** Claude 的前端已完成并经授权推送 `main`；用户随后授权检查前端、修复俯视板底角可见性和轨迹混乱。保留像素街机黑场视觉，本轮优化只本地保存；此后每次推送仍需明确授权。前端接手入口见[Claude 说明](docs/Claude前端接手说明.md)。
+**2026-10-10 正式比赛：** 用户授权重新连接、创建并绑定新私有仓库。Team02 Portal 已锁定 [Jackey0903/BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026)，默认 `main`；赛事 App 仅对这个仓库读取代码和元数据。正式 AWS 账号为 **`555726205424`**，`nba` 身份验证成功，主办方 bootstrap／执行角色／权限边界存在。活跃产品配置已迁移，210 项离线测试通过；正式账号尚未部署产品、调用模型或验证 GPU，旧练习记录不替代新验收。见[正式重连说明](docs/正式比赛重连与新仓库-20261010.md)、[账号审计](product/evidence/formal-account-audit-20261010.json)及[绑定证据](product/evidence/formal-repository-binding-20261010.json)。本次代码同步已获明确授权，后续推送仍按用户指令判断。
 
-**10 月 9 日晚俯视优化：** 已核对 Claude 的 `main` 版本（`3bc0a8f`）。第 8 秒 D1 并未丢坐标，改为队色空心轮廓，聚焦时仍保持可见；轨迹默认只画当前球权主线，出手/传球不恢复全员，命中/交接清空，换人截断，旧段渐淡。点选球员可看单人 1 秒/3 秒/ALL 路线。202 项离线测试通过、完整浏览器播放结束；见[本轮证据](product/evidence/court-clarity-20261009.json)。数据仍是编辑示意。本轮仅本地提交与存档，未推送。
+**10 月 9 日分工（历史）：** Claude 的前端已完成并经授权推送 `main`；用户随后授权检查前端、修复俯视板底角可见性和轨迹混乱。保留像素街机黑场视觉，本轮优化只本地保存；此后每次推送仍需明确授权。前端接手入口见[Claude 说明](docs/Claude前端接手说明.md)。
+
+**10 月 9 日晚俯视优化：** 已核对 Claude 的 `main` 版本（`3bc0a8f`）。第 8 秒 D1 并未丢坐标，改为队色空心轮廓，聚焦时仍保持可见；轨迹默认只画当前球权主线，出手/传球不恢复全员，命中/交接清空，换人截断，旧段渐淡。点选球员可看单人 1 秒/3 秒/ALL 路线。202 项离线测试通过、完整浏览器播放结束；见[本轮证据](product/evidence/court-clarity-20261009.json)。数据仍是编辑示意。10月9日此修复只本地存档；10月10日已随既有代码迁入正式仓库。
 
 **10 月 9 日前端更新（Claude）：** 主产品与俯视战术板统一为像素街机 × 极简黑场视觉，中英双语短标签、删减说明性长句，来源与边界说明保留；未改脚本行为与数据，193 项离线测试通过。见[像素街机视觉系统](docs/前端像素街机视觉系统-20261009.md)。
 
@@ -12,11 +14,11 @@
 
 **2026-10-08 11:06（北京时间）状态更新：** `nba` 接入参赛角色实测被 STS AssumeRole AccessDenied 拒绝；产品网页不可访问，公共 DNS 没有返回其 A 地址，主办方 Portal 仍响应。与通知中的 10 月 8 日 09:00 练习权限到期相符，但后台资源是否删除、正式权限何时重开仍未确认。源码及成片独立备份存在；详见[只读核查](product/evidence/service-status-20261008.json)。
 
-最后整理：2026-10-09（北京时间）。队伍：Team02。
+最后整理：2026-10-10（北京时间）。队伍：Team02。
 
 本项目的目标是参加 NBA / AWS BroadcastCode 12h 黑客松：用官方比赛视频和数据驱动 AI Agent 分析关键事件与战术，将真实数据标注烧录成完整增强视频，并通过 CloudFront 交互网页交付评委体验；解说可选。
 
-**已开始实现「关键一拍 / THE HIDDEN PLAY」产品：** [在线体验](https://d2x8td5d05xg8h.cloudfront.net/product/)包含观看原片、选择关注点、关键动作慢放、官方出手数据与证据回看，以及真实 Agent 创作入口。产品工程在 [product/](product/README.md)，现场讲解在 [5 分钟演示脚本](product/PITCH.md)。两段公开练习片已与官方具体出手唯一匹配；两段均已有真实 Agent 生成并完整播放的增强成片；最新回归与内容验收状态以[产品证据](product/evidence/README.md)为准。
+**已实现「关键一拍 / THE HIDDEN PLAY」本地产品：** [旧练习在线地址（已失效）](https://d2x8td5d05xg8h.cloudfront.net/product/)包含观看原片、选择关注点、关键动作慢放、官方出手数据与证据回看，以及真实 Agent 创作入口。产品工程在 [product/](product/README.md)，现场讲解在 [5 分钟演示脚本](product/PITCH.md)。两段公开练习片已与官方具体出手唯一匹配；两段均已有真实 Agent 生成并完整播放的增强成片；最新回归与内容验收状态以[产品证据](product/evidence/README.md)为准。
 
 原[练习入口](https://d2x8td5d05xg8h.cloudfront.net)与产品此前复用 Stack `BroadcastCodeTeam02Readiness20261006`，后续应从 `product/` 部署，避免旧工程覆盖新功能。旧 `aws-validation/` 对应资源已删除。正式评测协议与新素材适配仍待完成。
 
@@ -32,7 +34,7 @@
 
 用户最新明确：与学长交流主要为了借鉴**产品创新和展示体验**。优先读[产品创新与学长交流提纲](docs/产品创新与学长交流提纲.md)，其中推荐“选择关注对象 → 关键一拍回放 → 发现漏看细节”的体验；该核心交互已在 product/ 实现。
 
-历史练习链路核对见[评分导向开发决策与准备状态](docs/评分导向开发决策与准备状态-20261006.md)。弗拉格 21.548 秒、阿门 22.895 秒两段完整成片均已在浏览器播放到末尾，独立下载、哈希、媒体时长、音轨、HTTP Range 206 和永久字幕检查通过；32 项离线测试通过。Portal 已确认锁定 `Jackey0903/BroadcastCode`，默认分支为 `main`。
+历史练习链路核对见[评分导向开发决策与准备状态](docs/评分导向开发决策与准备状态-20261006.md)。弗拉格 21.548 秒、阿门 22.895 秒两段完整成片均已在浏览器播放到末尾，独立下载、哈希、媒体时长、音轨、HTTP Range 206 和永久字幕检查通过；32 项离线测试通过。该报告中的 Portal 绑定为练习阶段 `Jackey0903/BroadcastCode`；正式绑定见本文顶部，默认分支仍为 `main`。
 
 [AGENTS.md](AGENTS.md) 为后续编程代理提供操作约束。原始培训材料在 [赛前培训会议纪要及逐字稿](<BroadcastCode「深度赛场」赛事 · 赛前培训直播 会议纪要.md>)；口头说明和纪要中的转写不能替代最新正式指南。
 
@@ -45,19 +47,19 @@
 |赛题、评分结构与交付要求分析|已读终极指南及新版 Quick Start；统一评测 schema 与视频事件映射仍待取得|
 |关键一拍产品|已实现交互前端、工具型 Agent、官方数据关联和完整成片渲染；实测状态见产品证据|
 |上交 AI for Sports 研究借鉴|已核查 BasketballSkills、BasketEvent 等论文及公开实现；交流问题已整理，尚未联系作者或运行模型|
-|正确 Team Portal 登录与队伍账号切换|已成功，CLI 配置为 `nba`|
-|CDK 练习流水线|截至 10 月 7 日已真实部署；10 月 8 日权限被拒绝，当前资源是否保留无法核查|
-|Claude Sonnet 4.6、Qwen3-VL|文本及图片调用已成功；其他模型不能据此视为开放|
-|AgentCore Runtime|10 月 7 日真实调用并生成完整 MP4；本地目前回看历史结果|
-|SageMaker GPU|`ml.g4dn.xlarge` Training 的 T4 CUDA 运算成功|
+|正确 Team Portal 登录与队伍账号切换|10 月 10 日已成功，正式账号 `555726205424`，CLI 为 `nba`|
+|正式部署基础|bootstrap 完成、执行角色与权限边界存在；当前产品模板已改新账号并离线合成，正式产品尚未部署|
+|Claude Sonnet 4.6、Qwen3-VL|旧练习账号调用成功；正式账号模型目录可读，推理许可待实际调用|
+|AgentCore Runtime|旧账号曾生成完整 MP4；正式账号列表可读、当前 Runtime 为 0|
+|SageMaker GPU|旧练习账号 T4 CUDA 运算成功；正式账号尚未核查配额或启动|
 |资源状态|旧 `aws-validation/` 已清理；新 Stack 原计划保留，但到期后实际状态未知；本队未保留 GPU 作业|
 |公开训练样片|两段已下载并检查媒体信息、26 张关键帧；合计约 44.44 秒，见[核查报告](docs/research/公开训练样片核查.md)|
 |官网深度数据参考|10 份真实 JSON 已保存并复制到[可随仓库克隆的 fixtures](readiness-lab/fixtures/official/)；另有 product/ 中的两段样片事件映射，仍不是正式评测 schema|
 |练习完整成片|弗拉格和阿门两段均生成完整 MP4、浏览器播放到末尾并核对永久字幕；产品招牌交互已实现，正式评测输入仍待适配|
-|离线验证|10 月 9 日最新 202 项通过，含交互、像素动效、粒子、俯视时码/断轨与静态资产服务；旧练习 32 项为历史记录，不等于官方评分认证|
-|私有参赛仓库和 Portal 绑定|[Jackey0903/BroadcastCode](https://github.com/Jackey0903/BroadcastCode) 已推送、Portal 已锁定；[绑定证据](readiness-lab/repository-binding.json)|
+|离线验证|10 月 10 日 210 项通过，含新增 8 项正式账号／旧输出拒绝测试；不等于云端或官方评分认证|
+|私有参赛仓库和 Portal 绑定|[Jackey0903/BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026) 已推送、Portal 已锁定；[正式绑定证据](product/evidence/formal-repository-binding-20261010.json)|
 
-服务和配额结论是 **2026-10-05 至 10-06 的实测快照**。后续会话先核对当前身份、权限有效期和主办方更新，再部署。练习账号通知写明权限至 **2026-10-08 09:00**；[本轮 IAM 只读核查](readiness-lab/account-expiry-audit.json)未发现可见时间条件，但这不能证明续期，正式比赛账号安排仍需组委会确认。
+服务和配额结论是 **2026-10-05 至 10-06 的实测快照**。后续会话先核对当前身份、权限有效期和主办方更新，再部署。练习账号通知写明权限至 **2026-10-08 09:00**；[本轮 IAM 只读核查](readiness-lab/account-expiry-audit.json)未发现可见时间条件，但这不能证明续期，正式账号现已分配为 `555726205424`；旧练习报告保留为历史。
 
 ## 最新规则要点
 
@@ -69,9 +71,9 @@
 
 ## 分享和迁移
 
-源码、部署定义和交接材料都保存在本地。10 月 9 日用户明确先在本地开发；Claude 前端已合并且经授权推送；随后俯视优化只做本地提交和存档，每次后续推送需明确授权。此前准备工程已推送为既有事实。通过 `scripts/archive-source.py` 在仓库旁的 `BroadcastCode-backups/` 保存并验证源码、Git 历史与白名单媒体，详见[源码保存与恢复](docs/源码保存与恢复.md)。
+源码、部署定义和交接材料继续保存在本地。10 月 10 日用户授权把既有代码迁入新的正式私有仓库，并继续开发。当前 `origin` 为 [Jackey0903/BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026)，`practice` 保留旧 [BroadcastCode](https://github.com/Jackey0903/BroadcastCode) 远端。Portal 已锁定新仓库，App 仅对它读取代码和元数据，勿重复绑定。GitHub 同步与 AWS 部署分别验证；尚未提交正式作品 URL。
 
-本目录已初始化 Git，远端为私有仓库 [Jackey0903/BroadcastCode](https://github.com/Jackey0903/BroadcastCode)，默认分支 `main`，已完成推送与 Portal 锁定绑定。赛事 GitHub App 仅获该仓库的代码和元数据读取权限。绑定不可自行更换；如有错误须联系组委会，不要重新绑定其他仓库。当前练习 URL 尚未作为正式作品提交，详见[绑定记录](readiness-lab/repository-binding.json)。
+运行 `python3 scripts/archive-source.py` 可在仓库旁 `BroadcastCode-backups/` 保存并验证源码、Git 历史与白名单媒体；manifest 记录当前实际 origin。详见[源码保存与恢复](docs/源码保存与恢复.md)。大视频保持本地可恢复存档，不写入 Git。
 
 文档中的内部链接使用相对路径，可随项目迁移。账号 ID、角色名和区域用于准确接手；密码、访问密钥和会话令牌没有写入交接文档。AWS SSO 配置与登录缓存位于本机 `~/.aws/`，不会随仓库迁移，新机器需按接手说明重新配置并登录。
 
@@ -79,4 +81,4 @@
 
 可以把下面这段话交给下一位 AI：
 
-> 请先阅读 README.md、AGENTS.md、AI接手说明.md 和 readiness-lab/赛前准备实测报告-20261006.md。私有仓库已绑定，历史云端流水线已验收，10 月 8 日练习权限被拒绝且新 Stack 存续未知；当前本地预览可用，旧 aws-validation 资源已删除；产品实现与验收详见 product/README.md、product/evidence/README.md；正式协议适配未完成。在当前用户授权范围内继续推进，不重复绑定仓库、不自动清理保留资源、不执行 CDK bootstrap、不使用默认 AWS 账号或上传账号密码。
+> 请先阅读 README.md、AGENTS.md、AI接手说明.md 和 docs/正式比赛重连与新仓库-20261010.md。正式 Portal 已锁定 Jackey0903/BroadcastCode-2026 / main，AWS 目标为 555726205424 / NBAHackathonParticipantRole / us-east-1，操作使用 nba。活跃工程为 product/；旧962账号与旧CloudFront及服务/GPU结果只作历史。产品配置已迁移，210项离线测试通过，正式云端部署和评测适配尚待完成。依当前用户授权继续开发，不重复绑定，不执行 bootstrap，不从 readiness-lab 部署，不上传密码或SSO缓存。

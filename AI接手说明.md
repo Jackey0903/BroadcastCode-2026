@@ -1,8 +1,10 @@
 # BroadcastCode Team02：AI 接手说明
 
-**最新分工：** Claude 的前端已完成并经授权推送 `main`；用户随后授权检查前端、修复俯视板底角可见性和轨迹混乱。保留像素街机黑场视觉，本轮优化只本地保存；此后每次推送仍需明确授权。前端接手入口见[Claude 说明](docs/Claude前端接手说明.md)。
+**2026-10-10 正式比赛：** 用户授权重新连接、创建并绑定新私有仓库。Team02 Portal 已锁定 [Jackey0903/BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026)，默认 `main`；赛事 App 仅对这个仓库读取代码和元数据。正式 AWS 账号为 **`555726205424`**，`nba` 身份验证成功，主办方 bootstrap／执行角色／权限边界存在。活跃产品配置已迁移，210 项离线测试通过；正式账号尚未部署产品、调用模型或验证 GPU，旧练习记录不替代新验收。见[正式重连说明](docs/正式比赛重连与新仓库-20261010.md)、[账号审计](product/evidence/formal-account-audit-20261010.json)及[绑定证据](product/evidence/formal-repository-binding-20261010.json)。本次代码同步已获明确授权，后续推送仍按用户指令判断。
 
-**10 月 9 日晚俯视优化：** 已核对 Claude 的 `main` 版本（`3bc0a8f`）。第 8 秒 D1 并未丢坐标，改为队色空心轮廓，聚焦时仍保持可见；轨迹默认只画当前球权主线，出手/传球不恢复全员，命中/交接清空，换人截断，旧段渐淡。点选球员可看单人 1 秒/3 秒/ALL 路线。202 项离线测试通过、完整浏览器播放结束；见[本轮证据](product/evidence/court-clarity-20261009.json)。数据仍是编辑示意。本轮仅本地提交与存档，未推送。
+**10 月 9 日分工（历史）：** Claude 的前端已完成并经授权推送 `main`；用户随后授权检查前端、修复俯视板底角可见性和轨迹混乱。保留像素街机黑场视觉，本轮优化只本地保存；此后每次推送仍需明确授权。前端接手入口见[Claude 说明](docs/Claude前端接手说明.md)。
+
+**10 月 9 日晚俯视优化：** 已核对 Claude 的 `main` 版本（`3bc0a8f`）。第 8 秒 D1 并未丢坐标，改为队色空心轮廓，聚焦时仍保持可见；轨迹默认只画当前球权主线，出手/传球不恢复全员，命中/交接清空，换人截断，旧段渐淡。点选球员可看单人 1 秒/3 秒/ALL 路线。202 项离线测试通过、完整浏览器播放结束；见[本轮证据](product/evidence/court-clarity-20261009.json)。数据仍是编辑示意。10月9日此修复只本地存档；10月10日已随既有代码迁入正式仓库。
 
 **10 月 9 日前端更新（Claude）：** 主产品与俯视战术板统一为像素街机 × 极简黑场视觉，中英双语短标签、删减说明性长句，来源与边界说明保留；未改脚本行为与数据，193 项离线测试通过。见[像素街机视觉系统](docs/前端像素街机视觉系统-20261009.md)。
 
@@ -12,13 +14,13 @@
 
 **2026-10-08 11:06（北京时间）状态更新：** `nba` 接入参赛角色实测被 STS AssumeRole AccessDenied 拒绝；产品网页不可访问，公共 DNS 没有返回其 A 地址，主办方 Portal 仍响应。与通知中的 10 月 8 日 09:00 练习权限到期相符，但后台资源是否删除、正式权限何时重开仍未确认。源码及成片独立备份存在；详见[只读核查](product/evidence/service-status-20261008.json)。
 
-整理时间：2026-10-09，北京时间。本文记录前期对话落实到本地文件和测试证据的结果，便于新的 AI 或新电脑继续工作。它不包含账号密码、访问密钥或会话令牌。
+整理时间：2026-10-10，北京时间。本文记录前期对话落实到本地文件和测试证据的结果，便于新的 AI 或新电脑继续工作。它不包含账号密码、访问密钥或会话令牌。
 
 ## 1. 用户要完成什么，目前做到哪里
 
 用户最新已授权开始产品开发。本轮实现 **关键一拍 / THE HIDDEN PLAY**，[线上入口](https://d2x8td5d05xg8h.cloudfront.net/product/)、[工程说明](product/README.md)、[产品实测记录](product/evidence/README.md)、[5 分钟讲解](product/PITCH.md)。包括观众选择注意对象、慢速回看、官方 xFG 与出手点位、可点证据，以及 AgentCore 真实工具调用生成完整 MP4。新成片的完成与播放状态按产品实测记录，不用旧练习通过记录替代。
 
-10 月 9 日用户明确先在本地开发，当晚双方改动同步并验证后，经用户授权推送 `main`；**此后推送仍需新的明确授权**。准备工程此前已推送是既有事实。源码和媒体的本地归档见[源码保存与恢复](docs/源码保存与恢复.md)。
+10 月 9 日用户安排先本地开发并授权前端同步；10 月 10 日最新明确授权新建正式仓库、迁入本地代码并绑定 Team02。本次同步目标为新 origin，后续按用户授权判断，不向旧 practice 误推。源码和媒体的本地归档见[源码保存与恢复](docs/源码保存与恢复.md)。
 
 10 月 6 日再次通过已登录浏览器读取 Quick Start 第十节，明确支持赛前配置环境、CDK 最小栈、网页调用 Agent 和练习视频烧录播放；整套赛前产品能否直接带入正式比赛仍无明确许可或禁止条文，不因源码保存位置或 AWS 权限开放而推断获准。
 
@@ -34,7 +36,7 @@
 
 [当前练习入口](https://d2x8td5d05xg8h.cloudfront.net)对应 Stack `BroadcastCodeTeam02Readiness20261006`，原计划保留供继续开发；10 月 8 日到期后无法核查是否删除，当前使用本地预览。旧 `aws-validation/` 的临时资源仍已删除。10 份 NBA 官网真实参考 JSON 已复制到[仓库 fixtures](readiness-lab/fixtures/official/)，克隆后可读取，本轮 product/ 已独立匹配两段公开练习片：弗拉格 event 666 / xFG 51.0%，阿门 event 396 / xFG 44.5%，连接键为 PBP actionNumber；AI 助手编辑的视频锚点及所有核对字段有来源记录。[关键一拍推荐方案](docs/关键一拍-冲冠产品与技术方案.md)中的核心篮球故事、官方数据对齐和招牌交互已进入产品实现；未实现的扩展仍为建议；练习字幕只是稀疏图像模型观察，不能当成最终参赛作品或官方评分认证。
 
-目录原位置为 `/Users/jack/work/BroadcastCode`，内部链接使用相对路径。本目录已初始化 Git 并推送到私有仓库 [Jackey0903/BroadcastCode](https://github.com/Jackey0903/BroadcastCode)，默认分支 `main`。Portal 浏览器已确认仓库 locked in；赛事 App 仅获该仓库的代码和元数据读取权限，见[绑定证据](readiness-lab/repository-binding.json)。绑定不可自行更换；当前练习 URL 尚未作为正式作品提交。
+目录原位置为 `/Users/jack/work/BroadcastCode`，内部链接使用相对路径。当前正式私有仓库为 [Jackey0903/BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026)，默认 `main`，Portal 已确认 locked in；赛事 App 仅获该仓库的代码和元数据读取权限，见[正式绑定证据](product/evidence/formal-repository-binding-20261010.json)。`origin` 指向新仓库，`practice` 指向旧练习仓库。当前尚未提交正式作品 URL。
 
 10 月 7 日云端产品版本：85 项产品离线测试通过。最终展示任务为 Flagg `81a74837370e46a890cbacb2069074e6`、Amen `ce008e75d25d4e2e8e88b57412f6c762`；失败历史及最终验收见[产品证据](product/evidence/README.md)。
 
@@ -57,7 +59,7 @@
 |[赛前准备实测报告](readiness-lab/赛前准备实测报告-20261006.md)|本轮当前部署、真实网页任务、成片播放、测试与保留资源的最新结论|
 |[练习工程说明](readiness-lab/README.md)|当前 CDK、Agent、异步视频流水线、复现条件与保留/清理边界|
 |[官方来源核查](readiness-lab/official-source-audit.md)|10 份官网 JSON 的来源、哈希、字段陷阱和空值；可克隆副本在 `readiness-lab/fixtures/official/`|
-|[仓库绑定证据](readiness-lab/repository-binding.json)|私有仓库、默认 main、Portal locked in、App 限定单仓库只读代码和元数据|
+|[正式仓库绑定](product/evidence/formal-repository-binding-20261010.json)|新私有 BroadcastCode-2026、main、Portal locked in、App 限定单仓库只读；旧证据保留历史|
 |[源码保存与恢复](docs/源码保存与恢复.md)|本地存档与 GitHub 同步步骤；10 月 9 日晚已同步推送 `main`|
 |[账号期限核查](readiness-lab/account-expiry-audit.json)|可见 IAM 策略未见时间条件；不代表 10 月 8 日以后续期|
 |[关键一拍推荐方案](docs/关键一拍-冲冠产品与技术方案.md)|历史设计基线；当前实现和测试以 product/ 为准|
@@ -89,7 +91,7 @@
 |部署与访问|指定 AWS 账号、CDK、Amazon Bedrock AgentCore 必须；CloudFront 公网提供 Web 交互和烧录标注的完整增强成片|
 |区域与 IAM|资源仅 `us-east-1`；不执行 bootstrap；新建角色必须带指定权限边界|
 |GPU|通过 SageMaker 使用，按机型和用途分别核对配额|
-|代码|私有 `Jackey0903/BroadcastCode` 已推送并在正确 Portal 锁定绑定；默认 main，赛事 App 限该仓库只读代码和元数据|
+|代码|私有 `Jackey0903/BroadcastCode-2026` 已推送并在 Team02 正式 Portal 锁定；默认 main，赛事 App 限该仓库只读代码和元数据|
 |素材|普通直播画面；公开包实测两段合计约 44.44 秒（培训口述约 48 秒）；早上抽签用于白天练习分配，最终考试素材 18:00 发布，按现场文件处理|
 |核心数据|预期命中率、球员引力、胜负影响率；只有出手瞬间点位，没有逐帧轨迹；具体字段、坐标、单位和时间映射仍需样例|
 |初赛分数|机器 35、数据/内容准确性 30、UX/UI 25、球迷问答 4、投篮 6；机器 35 的精确内部公式未取得|
@@ -127,12 +129,12 @@
 
 用户最初提供的账号开通通知 PDF 曾用于登录准备，目前该文件不在目录中；登录地址更正通知 PDF 仍在本机，含登录密码，已列入上传排除规则。新 AI 需要密码时由用户在本机提供或自行登录，不从交接文档获取。
 
-## 5. AWS 身份、登录与换机器
+## 5. 正式 AWS 身份、登录与换机器
 
 |配置项|值|
 |---|---|
 |队伍|Team02|
-|实际资源账号|`962768510637`|
+|实际资源账号|`555726205424`|
 |实际参赛角色|`NBAHackathonParticipantRole`|
 |实际操作 profile|`nba`|
 |SSO 登录 profile|`nba-sso`|
@@ -140,7 +142,7 @@
 |SSO 中转账号与角色|`405496568869` / `NBAHackathon-Team02`，无应用资源权限|
 |SSO 登录区域|`us-west-2`，仅身份登录使用|
 |应用资源区域|`us-east-1`|
-|直接服务调用的执行角色|`arn:aws:iam::962768510637:role/NBAHackathonWorkloadRole`|
+|直接服务调用的执行角色|`arn:aws:iam::555726205424:role/NBAHackathonWorkloadRole`|
 
 本机配置在 `~/.aws/config`，没有写入项目。下面为可迁移的**非敏感配置示例**；在新机器上合并到自己的配置，不覆盖其他账号：
 
@@ -153,13 +155,13 @@ region = us-east-1
 output = json
 
 [profile nba]
-role_arn = arn:aws:iam::962768510637:role/NBAHackathonParticipantRole
+role_arn = arn:aws:iam::555726205424:role/NBAHackathonParticipantRole
 source_profile = nba-sso
 region = us-east-1
 output = json
 
 [profile broadcastcode-team02]
-role_arn = arn:aws:iam::962768510637:role/NBAHackathonParticipantRole
+role_arn = arn:aws:iam::555726205424:role/NBAHackathonParticipantRole
 source_profile = nba-sso
 region = us-east-1
 output = json
@@ -177,17 +179,19 @@ aws sso login --profile nba-sso
 aws sts get-caller-identity --profile nba --region us-east-1
 ```
 
-返回 `Account` 应为 `962768510637`，`Arn` 包含 `assumed-role/NBAHackathonParticipantRole/`。如果返回 `AWSReservedSSO` 或中转账号，修正调用配置后再操作。本机 `default` 属于其他用途，已保留，不用于比赛。
+返回 `Account` 应为 `555726205424`，`Arn` 包含 `assumed-role/NBAHackathonParticipantRole/`。如果返回 `AWSReservedSSO` 或中转账号，修正调用配置后再操作。本机 `default` 属于其他用途，已保留，不用于比赛。
 
 Portal 说明 SSO 约 12 小时、浏览器切换角色约 1 小时；CLI 在有效 SSO 会话内刷新角色凭证。新 AI 账号读取 GitHub 不会获得本机 AWS 登录状态；同机切换 AI 也须核对当前会话，不能根据历史报告假定仍有效。
 
-更正通知写明练习权限至 **2026-10-08 09:00**。10 月 10 日正式比赛账号、续期和权限保留安排没有核准，不要默认届时一定使用同一账号。
+旧练习权限于 10 月 8 日到期。10 月 10 日 Portal 已明确分配正式账号 `555726205424`，身份与主办方预置资源已核对；产品、模型推理及 GPU 尚需正式验收。账号后续有效期以实际通知和请求结果为准。
 
 本轮[账号期限核查](readiness-lab/account-expiry-audit.json)读取当前可见的角色信任策略、内联/附加策略及指定工作负载权限边界，没有发现显式时间条件。未覆盖组织 SCP、SSO 分配期限、Portal 授权计时和未来策略变更；这项只读结果不能推翻通知期限，也不能证明已续期。
 
-此前配置备份在本机 `~/.aws/config.before-broadcastcode-20261005` 和 `~/.aws/config.before-team02-role-20261005-182332`，不在项目中，不会随仓库迁移。本次没有将临时密钥写入 `~/.aws/credentials`。
+本次配置备份为 `~/.aws/config.before-formal-20261010-090531`。此前配置备份在本机 `~/.aws/config.before-broadcastcode-20261005` 和 `~/.aws/config.before-team02-role-20261005-182332`，不在项目中，不会随仓库迁移。本次没有将临时密钥写入 `~/.aws/credentials`。
 
-## 6. 实际验证了什么，以及不能推导什么
+## 6. 练习账号历史验证及其边界
+
+以下为 10 月 5–7 日旧账号 `962768510637` 的证据，不能证明正式 `555726205424` 的模型、GPU、部署和成片能力。正式结果见[只读审计](product/evidence/formal-account-audit-20261010.json)，尚未调用推理或部署。
 
 以下表格记录的是 2026-10-06 00:05 左右完成并随后清理的**历史服务验证**。本轮新增的保留练习工程另见本节后文与[最新实测报告](readiness-lab/赛前准备实测报告-20261006.md)，不要把两个工程的资源状态混在一起。
 
@@ -243,7 +247,7 @@ AWS_REGION=us-east-1 AWS_DEFAULT_REGION=us-east-1 npx --no-install cdk deploy --
 
 ## 8. 当前练习资源保留，旧验证资源已清理
 
-**当前保留** Stack `BroadcastCodeTeam02Readiness20261006` 与[练习入口](https://d2x8td5d05xg8h.cloudfront.net)。工程位于 `readiness-lab/`，含 AgentCore、CloudFront、Lambda API/Worker、SQS、私有 S3、DynamoDB 和日志；详细资源与运行证据见[本轮实测报告](readiness-lab/赛前准备实测报告-20261006.md)。不要基于下面的旧清理记录删除这些新资源。此轮未保留 GPU 作业。
+**旧练习账号原计划保留** Stack `BroadcastCodeTeam02Readiness20261006` 与[练习入口](https://d2x8td5d05xg8h.cloudfront.net)。工程位于 `readiness-lab/`，含 AgentCore、CloudFront、Lambda API/Worker、SQS、私有 S3、DynamoDB 和日志；详细资源与运行证据见[本轮实测报告](readiness-lab/赛前准备实测报告-20261006.md)。不要基于下面的旧清理记录删除这些新资源。此轮未保留 GPU 作业。
 
 [cleanup.json](aws-validation/cleanup.json) 记录**旧 `aws-validation/` 工程**的清理与独立核验：GPU Completed；AgentCore 会话、Runtime、自动工作负载身份和相应日志清理；临时 S3 对象和桶、Lambda、DynamoDB、CloudFront、新建 IAM 角色、测试栈以及当次发布到 bootstrap 桶的模板删除。主办方 bootstrap 和预置执行角色保留。
 
@@ -259,7 +263,7 @@ SageMaker Completed 任务的历史元数据仍可存在，**不表示 GPU 还�
 
 建议从以下步骤继续，按用户新指令调整：
 
-1. **完成剩余协议与账号核验。** 终极指南和新版 Quick Start 已读，AgentCore 必须及正式评分已确认；取得统一评测请求、响应及产物路径 schema，确认 10 月 8 日之后账号安排。
+1. **完成剩余协议与账号核验。** 终极指南和新版 Quick Start 已读，AgentCore 必须及正式评分已确认；取得统一评测请求、响应及产物路径 schema，以新555正式账号验收部署和推理。
 2. **完成视频与事件的可靠对应。** 两段视频及 10 份官网 JSON 已取得；逐事件核对人物、节次、动作、单位、坐标和时间映射。两份球员出手样例的 `gameClock` 全为空，不能仅凭文件名日期判定某个 eventId 已匹配；防守响应 null 不得填零。
 3. **保持已绑定仓库与部署同步。** 私有仓库及 Portal 绑定已完成，默认 main，不重复绑定。新 AI 克隆后重新配置自己的 AWS 登录，恢复未提交的大视频素材；fixtures 可直接从仓库读取。确认当前工作区改动和部署版本，按任务提交代码。
 4. **从练习通路推进正式产品。** 两段运行与完整播放已核验；按当前用户开发方向接入官方数据、完善篮球内容与一个招牌交互。内部 `team02-readiness-v1` 必须保留“本队练习协议”标识，待官方 schema 到齐后适配。
@@ -270,7 +274,7 @@ SageMaker Completed 任务的历史元数据仍可存在，**不表示 GPU 还�
 
 仍需取得或核准：统一评测 schema 和可运行样例；正式数据字段、坐标系与视频时间映射；机器 35 分更细公式；人工校正与赛前代码复用范围；评测器扫描/锁定提交方式；视频/说明的进一步文件规格；决赛语言、提问时长及晋级后修改规则；费用上限、模型限流及正式视频输入路径。仓库默认 main 已确认；不要把已确认的 30+25、18/18/15/9/40、AgentCore、成片、可选解说和评审窗口继续记为未知。
 
-截至整理，真实练习流水线、两段完整成片播放和仓库绑定已完成。正式篮球内容、视频事件映射、招牌交互、官方评测适配和并发能力尚未完成验收；未提交正式作品 URL。新 AI 应从现有 `readiness-lab/` 和证据继续，无需重复所有服务普查，也不要清理保留的新 Stack。
+截至整理，真实练习流水线、两段完整成片播放和仓库绑定已完成。正式篮球内容、视频事件映射、招牌交互、官方评测适配和并发能力尚未完成验收；未提交正式作品 URL。新 AI 应从活跃 `product/` 和正式重连证据继续，无需重复所有服务普查，也不要清理保留的新 Stack。
 
 ## 10. 可按任务选用的 AI 技能
 

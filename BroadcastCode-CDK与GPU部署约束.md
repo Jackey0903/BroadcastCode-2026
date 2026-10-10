@@ -1,12 +1,12 @@
 # BroadcastCode CDK 与 GPU 部署约束
 
-更新日期：2026 年 10 月 6 日。赛事专属要求来自用户转交的主办方 CDK 通知和 GPU 配额截图；AWS 官方资料用于核验技术含义。
+更新日期：2026 年 10 月 10 日。正式账号已换为555726205424，旧GPU结果只作练习快照；本次核查见[正式账号审计](product/evidence/formal-account-audit-20261010.json)。赛事专属要求来自用户转交的主办方 CDK 通知和 GPU 配额截图；AWS 官方资料用于核验技术含义。
 
 ## CDK 的必需配置
 
-主办方已经在 `us-east-1` 完成 CDK bootstrap。**不要执行 `cdk bootstrap`，直接使用 `cdk deploy`。** 本次只读检查已确认 Team02 账号 `962768510637` 中的 `CDKToolkit` 栈状态为 `CREATE_COMPLETE`，且以下托管策略存在：
+主办方已经在 `us-east-1` 完成 CDK bootstrap。**不要执行 `cdk bootstrap`，直接使用 `cdk deploy`。** 10月10日只读检查已确认正式 Team02 账号 `555726205424` 中的 `CDKToolkit` 栈状态为 `CREATE_COMPLETE`，且以下托管策略存在：
 
-`arn:aws:iam::962768510637:policy/NBAHackathonParticipantBoundary`
+`arn:aws:iam::555726205424:policy/NBAHackathonParticipantBoundary`
 
 在实际 CDK 项目的 `cdk.json` 中，将以下配置合并进现有 `context`，保留原有 `app`、其他 context 和配置项：
 
@@ -30,7 +30,7 @@
 
 |项目|固定值|
 |---|---|
-|目标账号|`962768510637`|
+|正式目标账号|`555726205424`|
 |参赛角色|`NBAHackathonParticipantRole`|
 |资源区域|`us-east-1`|
 |实际操作配置|`nba`|
@@ -52,7 +52,7 @@ AWS_REGION=us-east-1 AWS_DEFAULT_REGION=us-east-1 npx --no-install cdk synth --p
 AWS_REGION=us-east-1 AWS_DEFAULT_REGION=us-east-1 npx --no-install cdk deploy --profile nba
 ```
 
-上述命令使用已安装在实际项目内的 CDK CLI；本机验证工程没有依赖全局 `cdk`。Stack 的目标环境也应明确为账号 `962768510637`、区域 `us-east-1`；硬编码在应用中的其他环境不会因为命令设置区域就自动改变。日常调用使用 `nba`，不能误用仅负责中转登录的 `nba-sso`。
+上述命令使用已安装在实际项目内的 CDK CLI；本机验证工程没有依赖全局 `cdk`。Stack 的目标环境也应明确为账号 `555726205424`、区域 `us-east-1`；硬编码在应用中的其他环境不会因为命令设置区域就自动改变。日常调用使用 `nba`，不能误用仅负责中转登录的 `nba-sso`。
 
 首次整理本说明时未运行 CDK；后续已完成真实 CDK 部署和 GPU 运算测试，详见 [服务实际验证报告](AWS-Team02-服务实际验证报告.md)。测试过程没有执行 bootstrap。
 
@@ -96,7 +96,9 @@ AWS_REGION=us-east-1 AWS_DEFAULT_REGION=us-east-1 npx --no-install cdk deploy --
 
 `ml.trn1` 属于 AWS Trainium 体系，使用 Neuron 软件栈，不能作为 NVIDIA CUDA GPU 的直接替代。模型是否兼容、需要多少显存、使用哪种 SageMaker 用途，应在项目方案确定后分别核实。[AWS Trainium 官方说明](https://aws.amazon.com/ec2/instance-types/trn1/)
 
-## Team02 实际配额核验
+## 旧练习账号配额核验（历史）
+
+以下均为962768510637的10月5–6日结果，不能用于确认正式555726205424的配额或容量。正式GPU尚未查询或启动。
 
 已用 `nba` 配置在 `us-east-1` 成功读取 SageMaker Service Quotas，并逐项查询以下代表性配额：
 

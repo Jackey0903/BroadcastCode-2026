@@ -1,5 +1,7 @@
 # 关键一拍 · THE HIDDEN PLAY
 
+**10 月10日正式环境：** 新私有 [BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026) / main 已上传并在Team02 Portal锁定。正式账号为555726205424，活跃目标见[deployment.json](deployment.json)；旧练习CloudFront不作为当前可用入口。本次210项离线回归与新账号模板合成通过，正式产品仍待部署及端到端验收，见[正式重连](../docs/正式比赛重连与新仓库-20261010.md)。
+
 一个把“看见进球”推进到“看懂这次出手”的篮球视频产品。观众先看原片并选择关注点，再通过章节回放、官方出手数据和可点击证据发现关键细节。AgentCore 上的智能体按工具返回的证据组织故事，确定性渲染器输出带永久标注的完整 MP4。
 
 ## 产品主线与评分对应
@@ -68,7 +70,7 @@ python3 product/scripts/serve.py
 
 ## 服务恢复后的部署
 
-以下是服务恢复后才执行的部署步骤，本轮没有部署。使用既有 `nba` 配置，首先核验目标账号 `962768510637`、角色 `NBAHackathonParticipantRole`。资源区域固定 `us-east-1`，不执行 bootstrap。
+10 月 10 日正式 Portal 已重新分配账号 `555726205424`。活跃部署目标统一保存在 [deployment.json](deployment.json)，角色保持 `NBAHackathonParticipantRole`、资源区域固定 `us-east-1`，不执行 bootstrap。部署前须通过 `nba` 核对实际身份；下面是部署步骤，配置迁移与离线合成本身不代表已部署或服务可用。
 
 ```sh
 npm ci --prefix product
@@ -81,9 +83,9 @@ cd ..
 readiness-lab/.venv/bin/python product/scripts/publish.py
 ```
 
-CDK 必须保留权限边界 `NBAHackathonParticipantBoundary`。源码在本机；云端仅是部署实例。构建产物和视频不提交 Git；依赖锁定文件、部署定义、来源证据与测试提交源码管理。
+CDK 必须保留权限边界 `NBAHackathonParticipantBoundary`。Stack 名及资源 ID 保持原有产品定义，新账号部署会创建该账号的独立实例。发布、任务创建与验证脚本只接受当前 `product/outputs.json`，校验 Runtime ARN 的账号和区域，不再回退旧练习账号输出；任务地址取自新部署的 CloudFront 输出。源码在本机；云端仅是部署实例。构建产物和视频不提交 Git；依赖锁定文件、部署定义、来源证据与测试提交源码管理。
 
-`publish.py` 向同一受控桶发布页面、案例与用于模型观察的六个关键帧。原始练习片由之前的 `readiness-lab/upload_inputs.py` 登记；新机器应按练习工程说明取得公开视频并校验哈希。不要无目的重新运行历史云验证或清理脚本。
+`publish.py` 向当前受控桶发布页面、案例与用于模型观察的六个关键帧。它目前要求桶内原片与 `config/samples.json` 已登记；新正式账号没有旧账号的桶数据，需完成新的输入初始化，不能直接运行硬编码旧账号的 `readiness-lab/upload_inputs.py`。已验收历史案例中的增强视频 URL 仍是历史来源，正式上线须上传本地哈希校验后的媒体并生成对应新地址；俯视板的云端静态资产发布也需要纳入正式发布流程。不要无目的重新运行历史云验证或清理脚本。
 
 ## 内部接口（非官方评测协议）
 

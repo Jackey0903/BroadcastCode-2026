@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-10T09:28:53.129965+08:00",
+  "scope": "Offline regression after formal-account configuration migration; no cloud deploy or inference.",
+  "tests": {
+    "pythonAgent": 19,
+    "pythonWorker": 8,
+    "pythonApi": 12,
+    "pythonData": 16,
+    "pythonScripts": 21,
+    "nodeWebAndCourt": 134,
+    "total": 210,
+    "passed": 210,
+    "failed": 0
+  },
+  "synth": {
+    "account": "555726205424",
+    "region": "us-east-1",
+    "stack": "BroadcastCodeTeam02Readiness20261006",
+    "resourceCount": 23,
+    "createdIamRoleCount": 2,
+    "allCreatedRolesHaveBoundary": true,
+    "permissionsBoundary": "NBAHackathonParticipantBoundary",
+    "oldPracticeAccountReferenceCount": 0,
+    "bootstrapExecuted": false,
+    "outputDirectory": "product/build/formal-synth"
+  },
+  "sourceSha256": {
+    "product/deployment.json": "3ac67734b95d7afbb24248aa20f0daa7b26f121591e5adada22cdf257a23b0e9",
+    "product/app.js": "56dbe9c361a21d25f472d747ae99b2743fe9beb06fb9618a37a7991bd2088dd8",
+    "product/scripts/deployment.py": "f67c69e7674888cc63476ed798b1d57903983d3097f4c8c602ff818bda53f246",
+    "product/scripts/test_deployment.py": "c98b62debc8f41ee16eddab95e8eb62c0808ae07ca4ef985ace356f7781eb314",
+    "product/scripts/publish.py": "fd53fcb80bf67da336cbbfb5117a6cc3718f5cd7ab48a28dd6056d8d95e12f50",
+    "product/scripts/run_sample.py": "12d47e944bc221b00bba2e6db93ee29bfac68551ffecfbf623af965079e65586",
+    "product/scripts/verify_run.py": "0cc440ba36ef63a5c332768afffe497a9ab0611ba99c91a5b1cd4b565be6de59"
+  }
+}

@@ -1,0 +1,239 @@
+Window: "Installed GitHub App - nba-aws-hackathon-agent", App: Google Chrome.
+0 标准窗口 Installed GitHub App - nba-aws-hackathon-agent - Google Chrome - jiejie, URL: github.com/settings/installations/142013677, Secondary Actions: Raise
+	1 container Installed GitHub App - nba-aws-hackathon-agent - Google Chrome - jiejie, URL: github.com/settings/installations/142013677
+		2 container
+			3 工具栏
+				4 按钮 返回
+				5 按钮 (disabled) 前进
+				6 按钮 重新加载
+				7 container
+					8 弹出式按钮 查看网站信息
+					9 文本栏 (settable) 地址和搜索栏, Value: github.com/settings/installations/142013677, Placeholder: 问问 Google 或输入网址
+					10 按钮 翻译
+					11 按钮 安装“GitHub”
+					12 按钮 为此标签页添加书签
+				13 container
+					14 弹出式按钮 沉浸式翻译 - AI 双语网页翻译 | PDF翻译 | 视频翻译 | 漫画翻译
+可以访问此网站
+					15 弹出式按钮 GitZip for github
+可以访问此网站
+					16 弹出式按钮 Save to Zotero (Embedded Metadata)
+可以访问此网站
+					17 弹出式按钮 Navigate to AlphaXiv
+可以访问此网站
+					18 弹出式按钮 Apifox
+可以访问此网站
+					19 弹出式按钮 Open Claude
+可以访问此网站
+					20 弹出式按钮 ChatGPT
+可以访问此网站
+					21 弹出式按钮 扩展程序
+				22 复选框 下载内容, Value: 0
+				23 按钮 jiejie
+				24 弹出式按钮 Chrome
+			25 工具栏 书签
+				26 工具栏 已保存的标签页分组
+					27 按钮 标签页分组
+				28 分离器 分隔符
+				29 书签按钮 代码随想录
+				30 书签按钮 GitHub
+				31 书签按钮 力扣 (LeetCode) 全球极客挚爱的技术成长平台
+				32 书签按钮 (9封未读) 网易邮箱6.0版
+				33 书签按钮 计算机科学与技术学院
+				34 书签按钮 同济大学电子邮件系统
+				35 书签按钮 宝塔Linux面板
+				36 书签文件夹按钮 SII
+				37 书签文件夹按钮 升学
+				38 书签按钮 Google 学术搜索
+				39 弹出式按钮 包含隐藏书签的菜单
+				40 书签文件夹按钮 所有书签
+				41 分离器 分隔符
+			42 container
+				43 滚动区
+					44 HTML 内容 Installed GitHub App - nba-aws-hackathon-agent, URL: github.com/settings/installations/142013677
+						45 container
+							46 link Skip to content, Value: github.com/settings/installations/142013677#start-of-content
+							47 container Global navigation menu
+								48 弹出式按钮 Open menu
+								49 link Homepage ( g then d ), Value: github.com/
+								50 container Breadcrumbs
+									51 内容列表
+										52 link Settings, Value: github.com/settings
+								53 按钮 Open quick search dialog, type / to search
+								54 link Chat with Copilot, Value: github.com/copilot
+								55 弹出式按钮 Open Copilot…
+								56 弹出式按钮 Open agents panel
+								57 弹出式按钮 Create new...
+								58 link All issues ( g then i ), Value: github.com/issues
+								59 link All pull requests ( g then p ), Value: github.com/pulls
+								60 link All repositories, Value: github.com/repos
+								61 弹出式按钮 Open user navigation menu
+									62 图像 Haojie Hu
+						63 container
+							64 container Haojie Hu (Jackey0903) settings
+								65 图像 @Jackey0903
+								66 标题 Haojie Hu (Jackey0903) settings, Value: 1
+									67 link Haojie Hu (Jackey0903), Value: github.com/Jackey0903
+									68 文本 settings
+								69 文本 Your personal account
+							70 container User settings
+								71 内容列表
+									72 link Public profile, Value: github.com/settings/profile
+									73 link Account, Value: github.com/settings/admin
+									74 link Appearance, Value: github.com/settings/appearance
+									75 link Accessibility, Value: github.com/settings/accessibility
+									76 link Notifications, Value: github.com/settings/notifications
+									77 container
+										78 标题 Access, Value: 2
+											79 文本 Access
+										80 内容列表 Access
+											81 按钮 Billing and licensing
+											82 link Emails, Value: github.com/settings/emails
+											83 link Password and authentication, Value: github.com/settings/security
+											84 link Sessions, Value: github.com/settings/sessions
+											85 link SSH and GPG keys, Value: github.com/settings/keys
+											86 link Credentials, Value: github.com/settings/credentials
+											87 link Organizations, Value: github.com/settings/organizations
+											88 link Enterprises, Value: github.com/settings/enterprises
+											89 按钮 Moderation
+									90 container
+										91 标题 Code, planning, and automation, Value: 2
+											92 文本 Code, planning, and automation
+										93 内容列表 Code, planning, and automation
+											94 link Repositories, Value: github.com/settings/repositories
+											95 link Codespaces, Value: github.com/settings/codespaces
+											96 link Packages, Value: github.com/settings/packages
+											97 按钮 Copilot
+											98 link Pages, Value: github.com/settings/pages
+											99 link Saved replies, Value: github.com/settings/replies
+									100 container
+										101 标题 Security, Value: 2
+											102 文本 Security
+										103 内容列表 Security
+											104 link Code security, Value: github.com/settings/security_analysis
+									105 container
+										106 标题 Integrations, Value: 2
+											107 文本 Integrations
+										108 内容列表 Integrations
+											109 link Applications, Value: github.com/settings/installations
+											110 link Scheduled reminders, Value: github.com/settings/reminders
+									111 container
+										112 标题 Archives, Value: 2
+											113 文本 Archives
+										114 内容列表 Archives
+											115 link Security log, Value: github.com/settings/security-log
+											116 link Sponsorship log, Value: github.com/settings/sponsors-log
+									117 link Developer settings, Value: github.com/settings/apps
+							118 图像 nba-aws-hackathon-agent
+							119 标题 nba-aws-hackathon-agent, Value: 2
+								120 文本 nba-aws-hackathon-agent
+							121 container
+								122 文本  Installed
+								123 container Jun 23, 2026, 09:28 GMT+8
+									124 文本 4 months ago
+								125 文本  Developed by
+								126 link kelvinguo0210, Value: github.com/kelvinguo0210
+								127 link https://du5imhgxabl0d.cloudfront.net, Value: du5imhgxabl0d.cloudfront.net/
+							128 文本 Cloud Scoring Arena — auto-scores hackathon entries against AWS rubric.
+							129 标题 Permissions, Value: 2
+								130 文本 Permissions
+							131 内容列表
+								132 container
+									133 text Read  access to code and metadata
+							134 标题 Repository access, Value: 2
+								135 文本 Repository access
+							136 container
+								137 Repository access
+									138 文本 Repository access
+									139 单选按钮 All repositories, Value: 0
+									140 文本 This applies to all current and future repositories owned by the resource owner. Also includes public repositories (read-only).
+									141 单选按钮 Only select repositories, Value: 1
+									142 文本 Select at least one repository. Also includes public repositories (read-only).
+								143 弹出式按钮 Select repositories
+									144 文本 Select repositories
+								145 文本 Selected 1 repository.
+								146 container
+									147 按钮 Remove BroadcastCode-2026
+									148 container Jackey0903/BroadcastCode-2026
+										149 文本 Jackey0903
+										150 文本 /
+										151 文本 BroadcastCode-2026
+								152 按钮 (disabled) Save
+							153 按钮 (disabled) Cancel
+							154 标题 Danger zone, Value: 2
+								155 文本 Danger zone
+							156 按钮 Suspend
+							157 文本 Suspend your installation
+							158 文本 This will block the app access to your resources.
+							159 按钮 Uninstall
+							160 文本 Uninstall "nba-aws-hackathon-agent"
+							161 文本 This will remove the app and revoke access to all resources.
+						162 container
+							163 标题 Footer, Value: 2
+								164 文本 Footer
+							165 link GitHub Homepage, Value: github.com/
+							166 文本 © 2026 GitHub, Inc.
+							167 container Footer
+								168 标题 Footer navigation, Value: 3
+									169 文本 Footer navigation
+								170 内容列表 Footer navigation
+									171 link Terms, Value: docs.github.com/site-policy/github-terms/github-terms-of-service
+									172 link Privacy, Value: docs.github.com/site-policy/privacy-policies/github-privacy-statement
+									173 link Security, Value: github.com/security
+									174 link Status, Value: githubstatus.com/
+									175 link Community, Value: github.community/
+									176 link Docs, Value: docs.github.com/
+									177 link Contact, Value: support.github.com/?tags=dotcom-footer
+									178 按钮 Manage cookies
+									179 按钮 Do not share my personal information
+						180 container
+							181 图像
+							182 图像
+							183 图像
+							184 图像
+							185 图像
+							186 图像
+			187 弹出式按钮 标签页搜索
+			188 container
+				189 标签组
+					190 标签 (settable, boolean) Value: off, Jackey0903/BroadcastCode-2026: THE HIDDEN PLAY — NBA × AWS BroadcastCode 2026 · Team02 formal competition - 内存用量 - 391 MB
+						191 按钮 关闭
+					192 标签 (settable, boolean) Manage access, Value: off
+						193 按钮 关闭
+					194 标签 (settable, boolean) NBA × AWS Hackathon Judge - 内存用量 - 113 MB, Value: off
+						195 按钮 关闭
+					196 标签 (settable, boolean) NBA × AWS 黑客马拉松评委 - 内存用量 - 114 MB, Value: off
+						197 按钮 关闭
+					198 标签 (settable, boolean) 🏀 Broadcast Code 12h 深度赛场可视化 · 参赛终极指南 - 飞书云文档 - 内存用量 - 539 MB, Value: off
+						199 按钮 关闭
+					200 标签 (settable, boolean) [已合并] English version → 中英双语版 Quick Start - 飞书云文档 - 内存用量 - 426 MB, Value: off
+						201 按钮 关闭
+					202 标签 (settable, boolean) Value: off, ‬‌‌‍⁤​⁤⁣﻿‌⁢⁤‬​‌​⁡⁡﻿‬​⁤⁢⁤﻿​​⁣‍﻿⁤‌⁣‬⁤⁡⁡﻿​﻿⁣⁤﻿‌​⁤⁣⁢NBA × AWS Hackathon｜赛制与选手快速上手 Rules & Quick Start - 飞书云文档 - 内存用量 - 705 MB
+						203 按钮 关闭
+					204 标签 (selected, settable, boolean) Installed GitHub App - nba-aws-hackathon-agent - 内存用量 - 426 MB, Value: on
+						205 按钮 关闭
+			206 按钮 新标签页
+		207 container 翻译此页？
+			208 container
+				209 container
+					210 标签组 英语
+						211 标签 (selected, settable, boolean) 英语, Value: on
+						212 标签 (settable, boolean) 中文（简体）, Value: off
+					213 按钮 翻译选项
+					214 按钮 关闭
+	215 关闭按钮
+	216 全屏幕按钮 Help: 此按钮也可以执行缩放窗口的操作, Secondary Actions: 缩放窗口
+	217 最小化按钮
+218 menu bar
+	219 Chrome
+	220 文件
+	221 编辑
+	222 显示
+	223 历史记录
+	224 书签
+	225 个人资料
+	226 标签页
+	227 窗口
+	228 帮助
+
+The focused UI element is 44 HTML 内容 Installed GitHub App - nba-aws-hackathon-agent, URL: github.com/settings/installations/142013677
