@@ -1,0 +1,35 @@
+{
+  "scope": "Failed real AgentCore template practice run; preserved, not a completed render or scoring result",
+  "job": {
+    "createdAt": 1791609135.0,
+    "error": "故事生成失败，请查看运行记录后重试。",
+    "errorType": "RuntimeClientError",
+    "expiresAt": 1792213935.0,
+    "id": "bdc561bb978f49bab6aef3fd5cbd370c",
+    "jobId": "bdc561bb978f49bab6aef3fd5cbd370c",
+    "mode": "story",
+    "runId": "bdc561bb978f49bab6aef3fd5cbd370c",
+    "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:555726205424:runtime/Team02Readiness20261006-1cAKhm9LrD",
+    "runtimeSessionId": "adf82b4e-99dd-4844-a9d5-b0422e3c77e5",
+    "sample": "flagg",
+    "stage": "failed",
+    "status": "failed",
+    "updatedAt": 1791609182.0
+  },
+  "logGroup": "/aws/bedrock-agentcore/runtimes/Team02Readiness20261006-1cAKhm9LrD-DEFAULT",
+  "observedFailure": {
+    "event": "story_budget_exhausted",
+    "phase": "after_model_call",
+    "round": 6,
+    "elapsedSeconds": 41.37,
+    "totalTokens": 96660,
+    "maxTotalTokens": 90000
+  },
+  "observedRejectedIssues": [
+    "unapproved court wording and model-authored numeric prose",
+    "unknown evidence ID",
+    "short chapter caption exceeding reading budget",
+    "missing citation of actual inspected frame"
+  ],
+  "fix": "Combined repair hints for exact evidence IDs, inspected frame citations and per-chapter caption limits; does not raise inference budget or silently substitute a fixed story"
+}

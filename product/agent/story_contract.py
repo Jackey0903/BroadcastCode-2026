@@ -49,6 +49,11 @@ class StoryValidationError(ValueError):
     pass
 
 
+def caption_character_limit(start, end):
+    """Conservative on-screen reading budget, including punctuation."""
+    return max(4, min(42, math.floor((end - start) * CAPTION_CHARACTERS_PER_SECOND + 1e-6)))
+
+
 def number(value):
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         return False
@@ -325,7 +330,7 @@ def validate_plan(plan, story, request, inspected_frame_ids=None):
             if number(timestamp) and not str(source.get("kind", "")).lower().startswith("official"):
                 if not start - 0.5 <= timestamp <= end + 0.5:
                     raise StoryValidationError("chapter image evidence is outside its time range; move the chapter or cite relevant frames")
-        caption_limit = max(4, min(42, math.floor((end - start) * CAPTION_CHARACTERS_PER_SECOND + 1e-6)))
+        caption_limit = caption_character_limit(start, end)
         if len(prose["chapters"][index]["caption"]) > caption_limit:
             raise StoryValidationError(f"chapters[{index}].caption exceeds reading budget: shorten to {caption_limit} characters")
         entry = {"id": identifier, "start": start, "end": end,

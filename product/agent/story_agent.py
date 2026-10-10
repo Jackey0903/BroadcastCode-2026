@@ -5,7 +5,7 @@ import json
 import time
 
 from readiness_agent import MAX_IMAGE_BYTES, ModelOutputError, ValidationError, s3_location, validate_request
-from story_contract import (STORIES_KEY, STORY_PROTOCOL, StoryValidationError, allowed_court_locations, canonical_metrics,
+from story_contract import (STORIES_KEY, STORY_PROTOCOL, StoryValidationError, allowed_court_locations, canonical_metrics, caption_character_limit,
                             evidence_catalog, frame_id, select_story, validate_plan,
                             validate_story_source, validation_record)
 
@@ -199,8 +199,27 @@ class StoryAgent:
                     record["elapsedMs"] = round((self.clock() - tool_started) * 1000)
                     results.append({"toolResult": {"toolUseId": identifier, "status": "success", "content": content}})
                 except (StoryValidationError, ValidationError, json.JSONDecodeError) as error:
-                    record.update(status="rejected", result={"error": str(error)}, elapsedMs=round((self.clock() - tool_started) * 1000))
-                    results.append({"toolResult": {"toolUseId": identifier, "status": "error", "content": [{"json": {"error": str(error)}}]}})
+                    feedback = {"error": str(error)}
+                    if name == "validate_story":
+                        proposed = args.get("plan") if isinstance(args, dict) else None
+                        chapters = proposed.get("chapters", []) if isinstance(proposed, dict) else []
+                        limits = []
+                        for index, chapter in enumerate(chapters if isinstance(chapters, list) else []):
+                            if not isinstance(chapter, dict):
+                                continue
+                            start, end = chapter.get("start"), chapter.get("end")
+                            if (isinstance(start, (int, float)) and isinstance(end, (int, float))
+                                    and not isinstance(start, bool) and not isinstance(end, bool)
+                                    and 0 <= start < end <= request["video"]["duration_ms"] / 1000):
+                                limits.append({"chapter": index, "maxCaptionCharacters": caption_character_limit(start, end)})
+                        feedback["repairHints"] = {
+                            "mustCiteAtLeastOneActualFrame": sorted(inspected),
+                            "allowedEvidenceIds": [item["id"] for item in evidence_catalog(story, request["frames"])],
+                            "captionLimits": limits,
+                            "allowedCourtLocations": allowed_court_locations(story),
+                            "instruction": "Repair all fields together; use exact evidence IDs, cite an actually inspected frame, shorten captions, and do not copy numeric prose from editorial suggestions."}
+                    record.update(status="rejected", result=feedback, elapsedMs=round((self.clock() - tool_started) * 1000))
+                    results.append({"toolResult": {"toolUseId": identifier, "status": "error", "content": [{"json": feedback}]}})
                 except Exception as error:
                     record.update(status="failed", result={"errorType": type(error).__name__,
                                                            "awsErrorCode": getattr(error, "response", {}).get("Error", {}).get("Code")},

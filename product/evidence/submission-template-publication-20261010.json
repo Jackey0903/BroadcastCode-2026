@@ -1,0 +1,12 @@
+{
+  "verifiedAt": "2026-10-10T05:37:45.141998+00:00",
+  "jobId": "3526ae13a69b42c082b2fe4f0bacfa67",
+  "storyUrl": "https://deky02484tknr.cloudfront.net/product/data/stories.json",
+  "videoUrl": "https://deky02484tknr.cloudfront.net/product/outputs/3526ae13a69b42c082b2fe4f0bacfa67/enhanced.mp4",
+  "outputSha256": "f8d681433d4a49d58dd636b4307868029fabf5663de178bf800abaddead5a339",
+  "currentRuntimePublication": true,
+  "uploadedObjects": 3,
+  "unchangedObjectsVerifiedAndReused": 30,
+  "trainingCampPublished": false,
+  "formalSubmission": false
+}

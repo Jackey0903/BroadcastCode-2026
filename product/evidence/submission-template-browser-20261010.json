@@ -1,0 +1,253 @@
+{
+  "jobId": "3526ae13a69b42c082b2fe4f0bacfa67",
+  "firstAttempt": {
+    "schema": "broadcastcode-browser-playback-v1",
+    "recordedAt": "2026-10-10T05:28:27.820551+00:00",
+    "mediaUrl": "https://deky02484tknr.cloudfront.net/product/outputs/3526ae13a69b42c082b2fe4f0bacfa67/enhanced.mp4",
+    "browser": "Chrome/154.0.8037.98",
+    "method": "Independent headless Google Chrome; dedicated temporary profile; real-time playback.",
+    "passed": false,
+    "reason": "120-second observer deadline expired during remote media buffering. Chrome automatically cleaned up.",
+    "observerTimeoutSeconds": 120,
+    "startCurrentTime": 0,
+    "duration": 21.548005,
+    "currentTime": 12.8227,
+    "ended": false,
+    "error": null,
+    "seeking": false,
+    "paused": false,
+    "readyState": 3,
+    "networkState": 2,
+    "playingEventCount": 7,
+    "possibleRebufferResumptions": 6,
+    "bufferingCountNote": "waiting was not captured in this first probe; six repeat playing events suggest resumption after buffering, not a direct count of waiting events.",
+    "events": [
+      {
+        "event": "loadedmetadata",
+        "currentTime": 0,
+        "wallMs": 5892.5
+      },
+      {
+        "event": "play",
+        "currentTime": 0,
+        "wallMs": 5893.29999999702
+      },
+      {
+        "event": "playing",
+        "currentTime": 0.000731,
+        "wallMs": 6386.39999999851
+      },
+      {
+        "event": "playing",
+        "currentTime": 0.25558,
+        "wallMs": 7849.39999999851
+      },
+      {
+        "event": "playing",
+        "currentTime": 0.882413,
+        "wallMs": 11812.89999999851
+      },
+      {
+        "event": "playing",
+        "currentTime": 1.834707,
+        "wallMs": 28696
+      },
+      {
+        "event": "playing",
+        "currentTime": 3.854844,
+        "wallMs": 66015.5
+      },
+      {
+        "event": "playing",
+        "currentTime": 7.244887,
+        "wallMs": 100171.89999999851
+      },
+      {
+        "event": "playing",
+        "currentTime": 10.704479,
+        "wallMs": 123782.19999999925
+      }
+    ]
+  },
+  "retry": {
+    "schema": "broadcastcode-browser-playback-v1",
+    "startedAt": "2026-10-10T05:30:09.479Z",
+    "finishedAt": "2026-10-10T05:32:19.830Z",
+    "mediaUrl": "https://deky02484tknr.cloudfront.net/product/outputs/3526ae13a69b42c082b2fe4f0bacfa67/enhanced.mp4",
+    "browser": "Chrome/154.0.8037.98",
+    "method": "Independent headless Google Chrome, real-time video playback through CDP; dedicated temporary profile. Audio muted: decoded bytes and media errors checked, no subjective audibility claim.",
+    "events": [
+      {
+        "event": "stalled",
+        "currentTime": 0,
+        "wallMs": 3460.300000000745,
+        "utc": "2026-10-10T05:30:13.920Z"
+      },
+      {
+        "event": "loadedmetadata",
+        "currentTime": 0,
+        "wallMs": 12871,
+        "utc": "2026-10-10T05:30:23.328Z"
+      },
+      {
+        "event": "play",
+        "currentTime": 0,
+        "wallMs": 12871.39999999851,
+        "utc": "2026-10-10T05:30:23.328Z"
+      },
+      {
+        "event": "waiting",
+        "currentTime": 0,
+        "wallMs": 12871.39999999851,
+        "utc": "2026-10-10T05:30:23.328Z"
+      },
+      {
+        "event": "playing",
+        "currentTime": 0.000822,
+        "wallMs": 13510.39999999851,
+        "utc": "2026-10-10T05:30:23.967Z"
+      },
+      {
+        "event": "waiting",
+        "currentTime": 0.200044,
+        "wallMs": 13750,
+        "utc": "2026-10-10T05:30:24.206Z"
+      },
+      {
+        "event": "playing",
+        "currentTime": 0.255541,
+        "wallMs": 16940,
+        "utc": "2026-10-10T05:30:27.396Z"
+      },
+      {
+        "event": "waiting",
+        "currentTime": 0.995487,
+        "wallMs": 17724.10000000149,
+        "utc": "2026-10-10T05:30:28.180Z"
+      },
+      {
+        "event": "playing",
+        "currentTime": 1.045314,
+        "wallMs": 22440.89999999851,
+        "utc": "2026-10-10T05:30:32.896Z"
+      },
+      {
+        "event": "waiting",
+        "currentTime": 2.22501,
+        "wallMs": 23661.800000000745,
+        "utc": "2026-10-10T05:30:34.117Z"
+      },
+      {
+        "event": "playing",
+        "currentTime": 2.275798,
+        "wallMs": 30464.699999999255,
+        "utc": "2026-10-10T05:30:40.919Z"
+      },
+      {
+        "event": "waiting",
+        "currentTime": 4.335682,
+        "wallMs": 32565.800000000745,
+        "utc": "2026-10-10T05:30:43.020Z"
+      },
+      {
+        "event": "playing",
+        "currentTime": 4.388775,
+        "wallMs": 43935.89999999851,
+        "utc": "2026-10-10T05:30:54.389Z"
+      },
+      {
+        "event": "waiting",
+        "currentTime": 8.2487,
+        "wallMs": 47840.39999999851,
+        "utc": "2026-10-10T05:30:58.294Z"
+      },
+      {
+        "event": "playing",
+        "currentTime": 8.289941,
+        "wallMs": 69197.69999999925,
+        "utc": "2026-10-10T05:31:19.651Z"
+      },
+      {
+        "event": "waiting",
+        "currentTime": 11.629687,
+        "wallMs": 72579.10000000149,
+        "utc": "2026-10-10T05:31:23.032Z"
+      },
+      {
+        "event": "playing",
+        "currentTime": 11.680168,
+        "wallMs": 87528.30000000075,
+        "utc": "2026-10-10T05:31:37.981Z"
+      },
+      {
+        "event": "waiting",
+        "currentTime": 14.959767,
+        "wallMs": 90849,
+        "utc": "2026-10-10T05:31:41.302Z"
+      },
+      {
+        "event": "playing",
+        "currentTime": 15.000516,
+        "wallMs": 106626,
+        "utc": "2026-10-10T05:31:57.078Z"
+      },
+      {
+        "event": "waiting",
+        "currentTime": 18.900265,
+        "wallMs": 110569.5,
+        "utc": "2026-10-10T05:32:01.022Z"
+      },
+      {
+        "event": "suspend",
+        "currentTime": 18.900265,
+        "wallMs": 126104.80000000075,
+        "utc": "2026-10-10T05:32:16.557Z"
+      },
+      {
+        "event": "playing",
+        "currentTime": 18.947669,
+        "wallMs": 126105.19999999925,
+        "utc": "2026-10-10T05:32:16.558Z"
+      },
+      {
+        "event": "pause",
+        "currentTime": 21.548005,
+        "wallMs": 128766.30000000075,
+        "utc": "2026-10-10T05:32:19.219Z"
+      },
+      {
+        "event": "ended",
+        "currentTime": 21.548005,
+        "wallMs": 128770.30000000075,
+        "utc": "2026-10-10T05:32:19.223Z"
+      }
+    ],
+    "error": null,
+    "startTime": "2026-10-10T05:30:23.328Z",
+    "startCurrentTime": 0,
+    "ended": true,
+    "sourceSetAt": "2026-10-10T05:30:10.681Z",
+    "startWallMs": 12871,
+    "endWallMs": 128770.30000000075,
+    "currentTime": 21.548005,
+    "duration": 21.548005,
+    "paused": true,
+    "readyState": 4,
+    "networkState": 1,
+    "audioDecodedByteCount": 346391,
+    "videoDecodedByteCount": 9602631,
+    "playbackQuality": {
+      "totalVideoFrames": 646,
+      "droppedVideoFrames": 6,
+      "corruptedVideoFrames": 0
+    },
+    "wallSeconds": 115.89930000000075,
+    "waitingCount": 9,
+    "stalledCount": 1,
+    "initialLoadSeconds": 12.647,
+    "screenshot": "submission-template-browser-end-20261010.png",
+    "passed": true
+  },
+  "smoothPlaybackVerified": false,
+  "formalSubmission": false
+}

@@ -139,6 +139,26 @@ class StoryTests(unittest.TestCase):
         delivered = model.calls[1]["messages"][-1]["content"]
         self.assertTrue(any("image" in block for item in delivered for block in item["toolResult"]["content"]))
 
+    def test_rejected_plan_gets_frame_and_caption_hints_in_one_model_revision(self):
+        request, plan = fixture()
+        bad = copy.deepcopy(plan)
+        bad["chapters"][1].update(start=15, end=17, caption="持球者看向篮筐，防守人双臂举起，随后持球者完成出手。")
+        bad["chapters"][1]["evidenceIds"] = ["invented-frame"]
+        corrected = copy.deepcopy(bad)
+        corrected["chapters"][1].update(caption="防守人双臂举起。", evidenceIds=["frame-15000", "official-xfg"])
+        responses = [
+            tool_response(("inspect", "inspect_frames", {"frame_ids": ["frame-1000", "frame-15000"]}), ("read", "read_official_event", {})),
+            tool_response(("bad", "validate_story", {"plan": bad})),
+            tool_response(("fixed", "validate_story", {"plan": corrected})),
+        ]
+        result, _, model = execute(request=request, responses=responses)
+        feedback = result["trace"][-2]["result"]["repairHints"]
+        self.assertEqual(feedback["mustCiteAtLeastOneActualFrame"], ["frame-1000", "frame-15000"])
+        self.assertIn("official-xfg", feedback["allowedEvidenceIds"])
+        self.assertEqual(feedback["captionLimits"][1], {"chapter": 1, "maxCaptionCharacters": 16})
+        self.assertEqual(len(model.calls), 3)
+        self.assertEqual(result["status"], "completed")
+
     def test_short_chapter_requires_readable_caption_without_changing_its_time(self):
         request, plan = fixture()
         plan["chapters"][1].update(start=15, end=17,
