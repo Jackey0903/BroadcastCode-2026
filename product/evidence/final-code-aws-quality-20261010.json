@@ -1,0 +1,60 @@
+{
+  "schema": "gamebuddy-pre-submission-quality-v1",
+  "checkedAt": "2026-10-10T19:43:21.711884+08:00",
+  "scope": "One existing offline full gate against the live shared working tree; no new tests, training, rendering or deployment by this review.",
+  "headBeforeDocumentation": "fa10073dae7f9497af9222fe3aafdb4e04834f26",
+  "workingTreeStatusBeforeDocumentation": " M product/agent/main.py\n M product/scripts/serve.py\n M product/watch/content/content-panel.js\n?? .playwright-mcp/\n?? product/agent/doubao_tts.py\n?? product/agent/narration_agent.py\n?? product/agent/test_narration.py\n?? product/data/formal-dialogue.json\n?? product/evidence/formal-doubao-20261010.json\n?? product/evidence/formal-doubao-browser-20261010.json\n?? product/evidence/formal-narration-agentcore-20261010.json\n?? product/scripts/narrate_formal.py\n?? product/scripts/publish_formal.py\n?? product/scripts/run_narration.py\n",
+  "includesOtherAgentsUncommittedWork": true,
+  "offlineGate": {
+    "passed": true,
+    "behavioralTests": 504,
+    "skipped": 0,
+    "pythonSyntaxFiles": 117,
+    "javascriptSyntaxFiles": 45,
+    "cdkResources": 50,
+    "boundedRoles": 6,
+    "elapsedSeconds": 18.18,
+    "sourcePrivacyPassed": true,
+    "externalNetworkBlockedDuringTests": true,
+    "stdout": "PASS source privacy (no credentials or account notices)\nPASS syntax: 117 Python, 45 JavaScript files\nPASS behavioral tests: 504, no skips, external network blocked\nPASS offline CDK: 50 resources, 6 bounded roles, formal account/assets; synthesis-only media fixture\nPASS full quality gate in 18.18s; no deployment/inference/media-package certification\n"
+  },
+  "githubCI": {
+    "headSha": "fa10073dae7f9497af9222fe3aafdb4e04834f26",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Jackey0903/BroadcastCode-2026/actions/runs/38048955843",
+    "scope": "Committed version; does not certify current uncommitted narration/publication code."
+  },
+  "awsReadOnlySnapshot": {
+    "observedAt": "2026-10-10T19:27:00+08:00",
+    "origin": "Direct STS/CloudFormation/AgentCore/SageMaker/Lambda/CloudFront/SQS/DynamoDB/CloudWatch reads in this conversation; not re-probed by the offline gate.",
+    "account": "555726205424",
+    "region": "us-east-1",
+    "profile": "nba",
+    "role": "NBAHackathonParticipantRole",
+    "stack": "UPDATE_COMPLETE",
+    "agentCore": "READY",
+    "agentCoreVersion": "5",
+    "rlEndpoint": "InService",
+    "endpointConfig": "rl-scout-config-1010-144434",
+    "cloudFront": "Deployed",
+    "cloudFrontEnabled": true,
+    "apiWorkerNativeNarratorState": "Active / LastUpdateStatus Successful",
+    "renderDeadLetters": 0,
+    "deliveryDeadLetters": 0,
+    "matchingAlarmsInAlarm": 0,
+    "runBudgetUsed": 6,
+    "runBudgetLimit": 30
+  },
+  "acceptedMediaScope": {
+    "flaggRL": "06ddc49b5a1840dba23e3165bdab550a: actual RL -> AgentCore narrative -> burned MP4; local complete playback verified; past CloudFront playback buffered.",
+    "formalVisual": "55.055s / 3300 frames; source/event verified, full decode and local natural end recorded.",
+    "formalNarrationInProgress": "Other agent has new Doubao render/decode/browser receipts and a dedicated publish_formal.py; not a deployment/AgentCore/RL acceptance by this review."
+  },
+  "limitations": [
+    "Not an official code-quality score or organizer certification.",
+    "Offline CDK uses synthetic media and does not certify actual deployment packages.",
+    "Parallel edits after this run are not covered by this snapshot.",
+    "Formal publication, final narration provenance and Portal save receipt belong to the release owner."
+  ]
+}

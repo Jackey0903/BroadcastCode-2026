@@ -175,3 +175,5 @@
 - 19:13 链路Codex：按用户视觉修正，55.055秒/3300帧v2已导出并完整解码，新增第三处二次进攻解析；出场/片尾直接调用参数化legacy.render_intro/render_outro，沿用150/330帧时序；进球用同一绿色burst/popup/flash/shake/scorecard，新正式值3分/30%/DAL43–44HOU。487项full、13项组件/v2及17项正式事实/音轨通过。watch已接v2，自然播放验收中；豆包与正式Agent/RL仍未追记接通。
 
 - 19:14 链路Codex：55秒v2已在watch从0一倍自然片尾通过，3300帧/零丢帧零损坏/无媒体错误；成片SHA0a93a488…b4019。当前素材抽屉默认新版55.055秒，原正式视频及旧45秒保留。后续配音请使用formal_v2_timeline.py的3300帧冻结时间线；当前没有豆包合成或正式新片Agent/RL调用。正在持续推送与本地存档。
+
+- 19:43 Codex RL质量核对：按用户5分钟要求，仅整理已完成代码/AWS证据，不改业务代码、不新增测试。一次现有full504项通过（117Python/45JS、50资源/6边界角色，18.18秒），fa10073托管CI成功；见docs/提交前代码与AWS质量核对-20261010.md与product/evidence/final-code-aws-quality-20261010.json。19:27服务实况引用明确时间；新配音及publish_formal.py正在其他会话联调，正式发布/Portal保存仍由其完成，本轮不替它们验收。
