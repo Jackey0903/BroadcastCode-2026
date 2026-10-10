@@ -101,7 +101,7 @@ def handler(event, context):
                 'samples':[{'id':key,'name':item['video']['name'],'durationSeconds':item['video']['duration_ms']/1000}
                            for key,item in samples.items()],
                 'modes':['readiness','story'],
-                'notice':'关键一拍：真实 AgentCore 生成与完整视频烧录；官方评测协议待适配。'})
+                'notice':'GameBuddy：真实 AgentCore 生成与完整视频烧录；官方评测协议待适配。'})
         except (BotoCoreError, ClientError, OSError, ValueError, TypeError, KeyError, AttributeError) as error:
             return registry_unavailable(error)
     if method == 'POST' and path == '/api/jobs':

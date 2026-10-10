@@ -287,9 +287,128 @@ def validate_story_source(story, request):
     return story
 
 
-def validate_plan(plan, story, request, inspected_frame_ids=None):
-    if not isinstance(plan, dict) or set(plan) != {"perspective", "title", "summary", "chapters"}:
-        raise StoryValidationError("plan requires exactly perspective, title, summary, chapters")
+def canonical_rl_evidence(payload, story):
+    """Validate the typed bridge boundary, then copy selected facts verbatim.
+
+    The bridge separately verifies the frozen store and model lineage. Here we
+    enforce the story identity, source references, units and statistical grain;
+    season scores never pass through the shot-event probability validator.
+    """
+    if payload is None:
+        return None
+    if not isinstance(payload, dict):
+        raise StoryValidationError("rlEvidence must be a compact bridge object")
+    scout = payload.get("scout")
+    if not isinstance(scout, dict) or scout.get("available") is not True:
+        return None
+    for flag in ("trainedModelUsed", "selectionVerified", "lineageVerified", "actualRL", "modelInvoked", "modelInvokedThisRequest", "threeLayersCovered"):
+        if scout.get(flag) is not True:
+            raise StoryValidationError(f"RL evidence requires verified live model flag {flag}")
+    if scout.get("invocationMode") != "live":
+        raise StoryValidationError("RL narration requires this request's live selection")
+    rows, sources, periods = scout.get("evidence"), payload.get("sources"), payload.get("periods")
+    if (not isinstance(rows, list) or len(rows) != 3 or not isinstance(sources, dict)
+            or not isinstance(periods, dict)):
+        raise StoryValidationError("RL evidence requires exactly three typed facts and reference tables")
+    official = story.get("officialEvent", {})
+    player, game = str(official.get("playerId")), str(official.get("gameId"))
+    rules = {
+        ("basic", "PTS"): ("count", "player-game", "official_fact", "full_completed_game"),
+        ("advanced", "EFG_PCT"): ("fraction", "player-game", "derived_arithmetic", "full_completed_game"),
+        ("gravity", "OFF_BALL_PERIM_GRAV"): ("gravity_score", "player-season", "official_fact", "source_season_snapshot"),
+        ("leverage", "CREATION_LVG"): ("leverage_score", "player-season", "official_fact", "source_season_snapshot"),
+        ("shotdifficulty", "AVGSHOTQUALITY"): ("fraction", "player-season", "official_fact", "source_season_snapshot"),
+    }
+    result, used_sources, used_periods, seen, layers = [], {}, {}, set(), set()
+    for row in rows:
+        if not isinstance(row, dict):
+            raise StoryValidationError("RL evidence fact must be an object")
+        identifier = text(row.get("evidenceId"), "RL evidenceId", 100)
+        pair = text(row.get("family"), "RL family", 40), text(row.get("metric"), "RL metric", 60)
+        if pair not in rules or identifier in seen:
+            raise StoryValidationError("RL metric is unsupported or its evidence ID is duplicated")
+        unit, grain, claim, period_range = rules[pair]
+        if (row.get("unit"), row.get("grain"), row.get("claimType")) != (unit, grain, claim):
+            raise StoryValidationError("RL metric unit, grain or claim type differs from its contract")
+        if str(row.get("playerId")) != player or (grain == "player-game" and str(row.get("gameId")) != game):
+            raise StoryValidationError("RL player/game identity differs from this video's official event")
+        if grain == "player-season" and row.get("gameId") is not None:
+            raise StoryValidationError("RL season context must not be attributed to a game or shot")
+        value = row.get("value")
+        if not number(value):
+            raise StoryValidationError("RL metric value must be finite and numeric")
+        if unit == "count" and (value < 0 or value != math.floor(value) or value > 1000):
+            raise StoryValidationError("RL PTS must be a nonnegative whole-game count")
+        if unit == "fraction" and not 0 <= value <= (1.5 if pair == ("advanced", "EFG_PCT") else 1):
+            raise StoryValidationError("RL fraction differs from its metric's declared range")
+        display = text(row.get("display"), "RL display", 32)
+        expected = value * 100 if unit == "fraction" else value
+        display_value = display[:-1] if unit == "fraction" and display.endswith("%") else display
+        try:
+            matches = abs(float(display_value) - expected) <= (0.0051 if unit == "fraction" else 0.00051)
+        except ValueError:
+            matches = False
+        if not matches or (unit == "fraction" and not display.endswith("%")):
+            raise StoryValidationError("RL display must copy its typed source value")
+        source_ref = text(row.get("sourceRef"), "RL sourceRef", 100)
+        period_ref = text(row.get("periodRef"), "RL periodRef", 100)
+        source, period = sources.get(source_ref), periods.get(period_ref)
+        if not isinstance(source, dict) or not isinstance(period, dict):
+            raise StoryValidationError("RL source or statistical period reference is absent")
+        source_url = text(source.get("url"), "RL source URL", 2048)
+        url = urlsplit(source_url)
+        host = url.hostname or ""
+        if (url.scheme != "https" or url.username or url.password
+                or not any(host == domain or host.endswith("." + domain) for domain in ("nba.com", "nba.cn"))
+                or not re.fullmatch(r"[0-9a-f]{64}", str(source.get("sha256", "")))):
+            raise StoryValidationError("RL fact requires an official NBA URL and source SHA-256")
+        if period.get("range") != period_range or not isinstance(period.get("season"), str):
+            raise StoryValidationError("RL fact's statistical period does not match its grain")
+        text(row.get("label"), "RL metric label", 64)
+        result.append(copy.deepcopy(row))
+        used_sources[source_ref], used_periods[period_ref] = copy.deepcopy(source), copy.deepcopy(period)
+        seen.add(identifier)
+        layers.add(row["family"] if row["family"] in ("basic", "advanced") else "depth")
+    if layers != {"basic", "advanced", "depth"}:
+        raise StoryValidationError("RL facts must cover basic, derived efficiency and season depth layers")
+    return {"evidence": result, "sources": used_sources, "periods": used_periods}
+
+
+def validate_rl_narrative(plan, facts):
+    """Generated prose names scopes; source cards alone supply exact numbers."""
+    ids = plan.get("rlEvidenceIds")
+    expected = [row["evidenceId"] for row in facts["evidence"]]
+    if not isinstance(ids, list) or ids != expected:
+        raise StoryValidationError("rlEvidenceIds must exactly match this request's three selected evidence IDs in order")
+    narrative = text(plan.get("rlNarrative"), "rlNarrative", 50)
+    problems = model_text_problems(narrative, "rlNarrative")
+    # Metric words are permitted in this dedicated, scoped background sentence;
+    # unlike arbitrary chapter prose, no metric value is authored by the model.
+    problems = [problem for problem in problems if "numeric phrases" in problem]
+    depth = next(row for row in facts["evidence"] if row["grain"] == "player-season")
+    depth_words = {"gravity": ("关注", "引力"), "leverage": ("创造机会", "影响力"),
+                   "shotdifficulty": ("出手机会质量", "机会质量")}[depth["family"]]
+    checked = narrative
+    # The sourced name 创造机会影响力 is a season metric, not an assertion
+    # that this visible action created an opportunity. Exempt only its scoped
+    # metric name; ordinary causal phrases still fail below.
+    if depth["family"] == "leverage":
+        checked = checked.replace("赛季创造机会影响力", "赛季深度指标")
+    if problems or CAUSAL_INTENT.search(checked) or CLOCK_ASSERTION.search(checked):
+        raise StoryValidationError("rlNarrative must contain no authored numbers, causal/intent or clock claims")
+    if (not all(word in narrative for word in ("本场", "得分", "效率", "赛季", "仅作背景"))
+            or not any(word in narrative for word in depth_words)):
+        raise StoryValidationError("rlNarrative must mention 本场得分与效率、赛季深度指标 and explicitly 仅作背景")
+    return narrative
+
+
+def validate_plan(plan, story, request, inspected_frame_ids=None, rl_evidence=None):
+    facts = canonical_rl_evidence(request.get("rlEvidence") if rl_evidence is None else rl_evidence, story)
+    expected_fields = {"perspective", "title", "summary", "chapters"}
+    if facts:
+        expected_fields.update({"rlEvidenceIds", "rlNarrative"})
+    if not isinstance(plan, dict) or set(plan) != expected_fields:
+        raise StoryValidationError("plan requires exactly " + ", ".join(sorted(expected_fields)))
     option_ids = {option["id"] for option in story["storyOptions"]}
     if plan["perspective"] not in option_ids:
         raise StoryValidationError("perspective must come from this story's choices")
@@ -354,11 +473,14 @@ def validate_plan(plan, story, request, inspected_frame_ids=None):
         raise StoryValidationError("unverified official metric claims cannot be rendered")
     result["metrics"] = metrics
     result["associationMethod"] = "curated_practice_video_mapping_not_automatic_event_matching"
+    if facts:
+        result.update(rlEvidenceIds=list(plan["rlEvidenceIds"]), rlNarrative=validate_rl_narrative(plan, facts),
+                      rlEvidence=facts["evidence"], rlEvidenceSources=facts["sources"], rlEvidencePeriods=facts["periods"])
     return result
 
 
 def validation_record(plan, request, inspected_frame_ids):
-    return {"passed": True, "protocol": STORY_PROTOCOL,
+    record = {"passed": True, "protocol": STORY_PROTOCOL,
             "checks": ["known_evidence_ids", "cited_frames_actually_inspected", "source_time_bounds",
                        "nonoverlapping_chapters", "no_model_authored_numbers", "official_metrics_copied_verbatim",
                        "known_causal_static_phrases_rejected", "court_location_vocabulary_from_source_text",
@@ -366,3 +488,8 @@ def validation_record(plan, request, inspected_frame_ids):
             "chapterCount": len(plan["chapters"]), "sourceDurationMs": request["video"]["duration_ms"],
             "inspectedFrameIds": sorted(inspected_frame_ids),
             "scope": "Structural and provenance validation; not an independent factual or basketball-accuracy certification"}
+    if plan.get("rlEvidence"):
+        record["checks"].extend(["rl_live_selection_and_identity", "rl_typed_metric_values_and_displays",
+                                 "rl_official_sources_and_periods", "rl_three_layers_cited", "rl_narrative_scopes"])
+        record["rlEvidenceIds"] = list(plan["rlEvidenceIds"])
+    return record

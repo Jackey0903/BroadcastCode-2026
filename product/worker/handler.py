@@ -1,6 +1,7 @@
 """Queue worker for the product story pipeline, preserving legacy readiness jobs."""
 
 import json
+import hashlib
 import os
 from pathlib import Path
 import re
@@ -24,6 +25,8 @@ except ModuleNotFoundError:
 
 STORY_SAMPLES_KEY = "product/config/samples.json"
 OUTPUT_WIDTH, OUTPUT_HEIGHT = 1280, 900
+from rl_integration import start_selection, collect_selection, narrative_input, analysis_fields
+from rl_render import add_rl_filters
 
 
 def validate_request(request, bucket):
@@ -88,7 +91,10 @@ def validate_result(result, request):
     if len(inspected) < min(2, len(available)):
         raise legacy.JobError("insufficient actual inspected frame evidence")
     raw_plan = result.get("plan", {})
-    generated = {key: raw_plan.get(key) for key in ("perspective", "title", "summary", "chapters")}
+    plan_keys = ["perspective", "title", "summary", "chapters"]
+    if request.get("rlEvidence"):
+        plan_keys.extend(["rlEvidenceIds", "rlNarrative"])
+    generated = {key: raw_plan.get(key) for key in plan_keys}
     if validation_step.get("input", {}).get("plan") != generated:
         raise legacy.JobError("render plan differs from the actual validated tool input")
     normalized = validate_plan(generated, request["story"], request, inspected)
@@ -138,7 +144,7 @@ def render_story(source, output, result, context=None):
             clause += f":enable='{enable}'"
         filters.append(clause)
 
-    label("title", "关键一拍  /  " + plan["title"], 28, 21, 28)
+    label("title", "GameBuddy  /  " + plan["title"], 28, 21, 28)
     metrics = plan.get("metrics", [])
     if metrics:
         metric = metrics[0]
@@ -160,6 +166,7 @@ def render_story(source, output, result, context=None):
         source_label = "AI解读 · " + ("NBA官方数据 + 来源画面" if has_metric and has_frames else
                                        "NBA官方数据" if has_metric else "来源画面与策展证据")
         label(f"source-{index}", source_label, 820, 813, 14, "0x8d93a3", enable)
+    rl_receipt = add_rl_filters(filters, label, result)
     command = [ffmpeg, "-hide_banner", "-loglevel", "error", "-nostdin", "-y", "-i", str(source),
                "-map", "0:v:0", "-map", "0:a?", "-vf", ",".join(filters),
                "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-pix_fmt", "yuv420p",
@@ -169,6 +176,7 @@ def render_story(source, output, result, context=None):
         print(json.dumps({"event": "story_render_failed", "returnCode": process.returncode,
                           "stderr": process.stderr.decode("utf-8", "replace")[-2000:]}), flush=True)
         raise legacy.JobError("FFmpeg could not render the complete story")
+    return rl_receipt
 
 
 def record_render_delivery(job_id, table, events_client, bus_name):
@@ -184,7 +192,7 @@ def record_render_delivery(job_id, table, events_client, bus_name):
 
 
 def run_story_job(message, s3, table, agentcore, config, context=None, renderer=render_story,
-                  inspector=inspect_media, events_client=None):
+                  inspector=inspect_media, events_client=None, rl_runner=None):
     job_id, sample = legacy.validate_message(message)
     bucket, runtime = config["bucket"], config["runtime"]
     host = config["host"].removeprefix("https://").rstrip("/")
@@ -206,6 +214,9 @@ def run_story_job(message, s3, table, agentcore, config, context=None, renderer=
                    "video": sample_data.get("video"), "frames": sample_data.get("frames"), "story": story}
         validate_request(request, bucket)
         validate_story_source(story, request)
+        # Start the real selector while source media downloads and is inspected.
+        # The verified facts then enter the same AgentCore visual/narrative run.
+        pending_rl = start_selection(sample, config.get("enableRL", False), rl_runner)
         with tempfile.TemporaryDirectory(prefix="story-", dir="/tmp") as directory:
             work = Path(directory)
             source, output = work / "input.mp4", work / "enhanced.mp4"
@@ -217,6 +228,11 @@ def run_story_job(message, s3, table, agentcore, config, context=None, renderer=
             source_media = inspector(source, context)
             if abs(source_media["durationMs"] - request["video"]["duration_ms"]) > 250:
                 raise legacy.JobError("actual source duration differs from registered metadata")
+            rl_result = collect_selection(pending_rl, story)
+            if rl_result:
+                rl_input = narrative_input(rl_result['presentation'])
+                if rl_input:
+                    request['rlEvidence'] = rl_input
             session_id = str(uuid.uuid4())
             legacy.update_job(table, job_id, stage="analyzing", runtimeArn=runtime, runtimeSessionId=session_id)
             response = agentcore.invoke_agent_runtime(agentRuntimeArn=runtime, runtimeSessionId=session_id,
@@ -230,8 +246,10 @@ def run_story_job(message, s3, table, agentcore, config, context=None, renderer=
             if len(raw) > 1024 * 1024:
                 raise legacy.JobError("AgentCore response exceeds the product limit")
             result = validate_result(json.loads(raw), request)
+            if request.get('rlEvidence'):
+                result['rlEvidence'] = request['rlEvidence']
             legacy.update_job(table, job_id, stage="rendering", agentRounds=max(step["round"] for step in result["trace"]))
-            renderer(source, output, result, context)
+            rl_receipt = renderer(source, output, result, context)
             media = inspector(output, context)
             if (media["width"], media["height"]) != (OUTPUT_WIDTH, OUTPUT_HEIGHT):
                 raise legacy.JobError("story render dimensions differ from the safe-canvas contract")
@@ -266,6 +284,15 @@ def run_story_job(message, s3, table, agentcore, config, context=None, renderer=
                 "elapsedSeconds": round(time.monotonic() - started, 2),
                 "scope": "product_story_protocol_not_organizer_evaluation_schema",
             }
+            if rl_result:
+                audit_key = prefix + '/rl-audit.json'
+                audit_body = json.dumps(rl_result['audit'], ensure_ascii=False, allow_nan=False).encode()
+                s3.put_object(Bucket=bucket, Key=audit_key, Body=audit_body,
+                              ContentType='application/json; charset=utf-8',
+                              CacheControl='public,max-age=31536000,immutable')
+                analysis.update(analysis_fields(rl_result['presentation'], rl_receipt))
+                analysis['rlAudit'] = {'path': audit_key, 'url': f'https://{host}/{audit_key}',
+                    'sha256': hashlib.sha256(audit_body).hexdigest(), 'bytes': len(audit_body)}
             legacy.update_job(table, job_id, stage="publishing")
             s3.upload_file(str(output), bucket, prefix + "/enhanced.mp4",
                            ExtraArgs={"ContentType": "video/mp4", "CacheControl": "public,max-age=31536000,immutable"})
@@ -338,7 +365,8 @@ def handler(event, context):
     from botocore.config import Config
 
     config = {"bucket": os.environ["BUCKET"], "runtime": os.environ["RUNTIME_ARN"], "host": os.environ["CLOUDFRONT_HOST"],
-              "deliveryEventBus": os.environ.get("DELIVERY_EVENT_BUS")}
+              "deliveryEventBus": os.environ.get("DELIVERY_EVENT_BUS"),
+              "enableRL": os.environ.get("ENABLE_RL_SCOUT") == '1'}
     s3 = boto3.client("s3", region_name="us-east-1")
     table = boto3.resource("dynamodb", region_name="us-east-1").Table(os.environ.get("JOBS_TABLE") or os.environ["TABLE"])
     agentcore = boto3.client("bedrock-agentcore", region_name="us-east-1",

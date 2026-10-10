@@ -62,6 +62,15 @@ for name in ('worker', 'delivery'):
     for path in sorted((HERE / name).glob('*.py')):
         if not path.name.startswith('test_'):
             shutil.copyfile(path, destination / path.name)
+    if name == 'worker':
+        # Frozen inference bridge only: no GPU/training packages or local secrets.
+        rl_files = ('product_bridge.py', 'player_comparison.py', 'evidence_client.py',
+                    'evidence_env.py', 'evidence_store.py', 'depth_tasks.py',
+                    'data/evidence/store.json', 'results/evidence-v1/runtime-handoff.json')
+        for relative in rl_files:
+            target = destination / 'rl' / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(HERE / 'rl' / relative, target)
     lambda_artifacts[name] = sum(path.is_file() for path in destination.rglob('*'))
 print(json.dumps({'agentBytes': (BUILD / 'agent.zip').stat().st_size,
                   'workerFiles': lambda_artifacts['worker'], 'deliveryFiles': lambda_artifacts['delivery'],

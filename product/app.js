@@ -135,12 +135,16 @@ const worker = new lambda.Function(stack,'Worker',{
   logGroup:log('WorkerLogs'),layers:[layer],
   environment:{BUCKET:bucket.bucketName,TABLE:table.tableName,
     RUNTIME_ARN:runtime.attrAgentRuntimeArn,CLOUDFRONT_HOST:distribution.distributionDomainName,
-    DELIVERY_EVENT_BUS:deliveryBus.eventBusName},
+    DELIVERY_EVENT_BUS:deliveryBus.eventBusName,ENABLE_RL_SCOUT:'1'},
 });
 bucket.grantReadWrite(worker);table.grantReadWriteData(worker);
 worker.addToRolePolicy(new iam.PolicyStatement({
   actions:['bedrock-agentcore:InvokeAgentRuntime','bedrock-agentcore:StopRuntimeSession'],
   resources:[runtime.attrAgentRuntimeArn,runtime.attrAgentRuntimeArn+'/*'],
+}));
+worker.addToRolePolicy(new iam.PolicyStatement({
+  actions:['sagemaker:InvokeEndpoint'],
+  resources:[stack.formatArn({service:'sagemaker',resource:'endpoint',resourceName:'rl-scout'})],
 }));
 worker.addEventSource(new events.SqsEventSource(queue,{batchSize:1,reportBatchItemFailures:true}));
 deliveryBus.grantPutEventsTo(worker);

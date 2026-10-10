@@ -326,6 +326,13 @@ def build_plan(root, bucket, website, current_runtime_arn=None):
         watch_records.append(watch_history_record(report))
         story.update(sourceVideo=website + '/' + source_key, enhancedVideo=history['currentVideoUrl'],
                      analysisUrl=history['currentAnalysisUrl'], publication=history)
+        # Only the accepted current movie supplies RL usage. Never backfill an
+        # older movie from a standalone service demonstration or another run.
+        for field in ('scout', 'playerComparison', 'rlEvidenceSources', 'rlEvidencePeriods',
+                      'rlVideoUse', 'rlAudit'):
+            story.pop(field, None)
+            if field in analysis:
+                story[field] = copy.deepcopy(analysis[field])
     for story in published['stories']:
         references = [(story, 'poster')] + [(item, 'frameUrl') for item in story.get('evidence', []) if isinstance(item, dict)]
         for owner, field in references:

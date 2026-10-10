@@ -2,7 +2,29 @@ import { safeSourceUrl, formatVideoTime, formatBeijingDate, loadStoryRecord } fr
 
 const TITLES = { moments: ['关键时刻', 'MOMENTS'], data: ['这一球的数据', 'SHOT DATA'], sources: ['画面与出处', 'SOURCES'], library: ['选择比赛', 'MATCH LIBRARY'], history: ['成片与验收记录', 'RUN RECORD'] };
 const KINDS = { official: '官方记录', observation: '画面观察', video_frame: '实际输入帧' };
+const RL_LAYERS = { basic: '基础表现', advanced: '派生效率', gravity: '深度 · 引力', leverage: '深度 · 影响力', shotdifficulty: '深度 · 机会质量' };
+const PROFILE_SECTIONS = { gameOffense: '本场进攻', gameEfficiency: '本场效率', gameDefense: '本场防守', gameGeneral: '本场通用', seasonOffense: '赛季进攻背景', seasonDefense: '赛季防守背景', seasonShooting: '赛季投篮背景', seasonOverall: '赛季综合影响力' };
 let nextPanelId = 0;
+
+/** Service verification and use in this movie are independent claims. */
+export function rlMovieState(story) {
+  const scout = story?.scout;
+  const verified = !!scout && ['available', 'trainedModelUsed', 'selectionVerified', 'lineageVerified', 'actualRL', 'modelInvoked'].every(key => scout[key] === true);
+  const evidence = verified && Array.isArray(scout.evidence) ? scout.evidence : [];
+  const selectedIds = evidence.map(item => item.evidenceId).filter(Boolean);
+  const used = new Set(story?.rlVideoUse?.evidenceIdsUsed || []);
+  const inMovie = verified && story.enhancedAvailable === true && scout.threeLayersCovered === true
+    && story.rlVideoUse?.narrativeUsed === true && story.rlVideoUse?.burnedIntoVideo === true
+    && selectedIds.length >= 3 && selectedIds.every(id => used.has(id));
+  return { verified, evidence, inMovie, invocation: verified ? scout.invocationMode === 'live' && scout.modelInvokedThisRequest === true ? '成片任务实时调用 · 选证已核验' : '已保存模型调用回放 · 选证已核验' : '模型选证不可用或尚未核验' };
+}
+
+export function evidenceScope(evidence, story) {
+  const period = story?.rlEvidencePeriods?.[evidence?.periodRef];
+  if (evidence?.grain === 'player-game') return `本场赛后统计${period?.gameDate ? ` · ${period.gameDate}（NBA 东部日期）` : ''}${evidence.gameId ? ` · 比赛 ${evidence.gameId}` : ''}`;
+  if (evidence?.grain === 'player-season') return `${period?.season || '时期未记录'} 赛季来源快照 · 非本回合测量`;
+  return `统计粒度 ${evidence?.grain || '未记录'} · 时期 ${evidence?.periodRef || '未记录'}`;
+}
 
 function node(tag, className, text) {
   const element = document.createElement(tag);
@@ -124,10 +146,104 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
     body.append(eventSection);
     if (xfg && Number.isFinite(xfg.videoTime)) body.append(button(`回看数据节点 · ${formatVideoTime(xfg.videoTime)}`, 'content-primary', () => seek(xfg.videoTime, { evidence: xfg })));
     body.append(paragraph('xFG 描述这次出手机会；它不是球员赛季命中率、比赛胜率或命中保证。回看节点由编辑选择，不是比赛时钟的逐帧换算。', 'content-note'));
+    rlData(story);
+    playerData(story);
     const court = section('战术板的数据');
     court.append(paragraph(story.sample === 'flagg' ? '弗拉格样片使用编辑站位与球权示意。D / W 是匿名编号；空心点是过去的最近位置。' : '这段阿门样片没有配套的逐帧战术示意，战术板保持空白。'));
     court.append(paragraph('示意点、移动线路和篮球位置未经人类专家核准，不是官方追踪数据。', 'content-note'));
     body.append(court);
+  }
+  function rlData(story) {
+    if (!story.scout) return;
+    const state = rlMovieState(story), scout = story.scout;
+    const block = section('RL 数据球探');
+    block.classList.add('content-scout');
+    block.append(node('span', `content-badge${state.inMovie ? ' is-rl-movie' : ''}`, state.inMovie ? '三层证据已进入本片' : '本片 RL 烧录尚未验收'));
+    block.append(paragraph(state.invocation, 'content-copy'));
+    if (state.verified) {
+      block.append(paragraph(`${scout.model || '模型未记录'} · AWS SageMaker`, 'content-note'));
+      block.append(paragraph(`叙事采用 ${story.rlVideoUse?.narrativeUsed === true ? '是' : '否'} · 成片烧录 ${story.rlVideoUse?.burnedIntoVideo === true ? '是' : '否'}`, 'content-note'));
+      const cards = node('div', 'content-scout-cards');
+      for (const evidence of state.evidence) {
+        const card = node('article', 'content-scout-card');
+        card.append(node('span', 'content-eyebrow', RL_LAYERS[evidence.family] || evidence.family), node('h4', '', evidence.label || evidence.metric), node('strong', 'content-scout-value', evidence.display ?? '未记录'));
+        card.append(paragraph(evidenceScope(evidence, story), 'content-note'), paragraph(`原始值 ${evidence.value ?? '未记录'} · 单位 ${evidence.unit || '未记录'}`, 'content-note'));
+        const source = story.rlEvidenceSources?.[evidence.sourceRef];
+        appendLink(card, 'NBA 数据出处 ↗', source?.url);
+        card.append(node('code', 'content-source-path', evidence.evidenceId || '证据 ID 未记录'));
+        cards.append(card);
+      }
+      block.append(cards);
+      block.append(paragraph('RL 模型选择数据证据；程序核对来源与口径。赛季背景不证明这次防守的原因或这一球的胜负。', 'content-note'));
+    } else block.append(paragraph('当前成片继续使用原有官方数据；模型调用成功与烧录成功分别核验。', 'content-note'));
+    body.append(block);
+  }
+  function profileData(profile, label, story) {
+    if (!profile?.player) return null;
+    const block = section(`${label} · ${profile.player.displayName || profile.player.playerId}`);
+    block.classList.add('content-player-profile');
+    const facts = new Map((profile.facts || []).map(item => [item.evidenceId, item]));
+    block.append(paragraph(`球员 ${profile.player.playerId} · 比赛 ${profile.gameId || '未记录'}`, 'content-note'));
+    for (const [key, label] of Object.entries(PROFILE_SECTIONS)) {
+      const selected = (profile.sections?.[key] || []).map(id => facts.get(id)).filter(Boolean);
+      if (!selected.length) continue;
+      const group = node('details', 'content-profile-group');
+      group.append(node('summary', '', label));
+      const list = node('dl', 'content-profile-facts');
+      for (const fact of selected) {
+        const row = detail(fact.label || fact.metric, fact.display ?? '未记录');
+        row.title = `${evidenceScope(fact, story)} · 单位 ${fact.unit} · ${fact.evidenceId}`;
+        list.append(row);
+      }
+      group.append(list, paragraph(evidenceScope(selected[0], story), 'content-note'));
+      block.append(group);
+    }
+    if (profile.derived?.length) {
+      const group = node('details', 'content-profile-group'); group.append(node('summary', '', '同场计算与公式'));
+      for (const row of profile.derived) {
+        const item = section(row.label || row.metric);
+        item.append(paragraph(row.available === true ? row.displayValue : row.reasonCode === 'zero_denominator' ? '分母为零，未计算' : '不可计算'), paragraph(`${row.formula || '公式未记录'} · ${evidenceScope(row, story)}`, 'content-note'));
+        group.append(item);
+      }
+      block.append(group);
+    }
+    if (profile.missingMetrics?.length) block.append(paragraph(`未提供：${profile.missingMetrics.map(item => typeof item === 'string' ? item : item.metric || item.label).join(' · ')}`, 'content-note'));
+    return block;
+  }
+  function playerData(story) {
+    const comparison = story.playerComparison;
+    if (!comparison?.attacker) return;
+    const block = section('攻防背景与同场比较');
+    block.append(node('span', 'content-badge', '官方数据 + 确定性计算'), paragraph('两人的本场与赛季背景独立保留；这些比较由算术计算，不能记作 RL 推理。', 'content-note'));
+    const attacker = profileData(comparison.attacker, '进攻球员背景', story), opponent = profileData(comparison.opponent, '所选对手背景', story);
+    if (attacker) block.append(attacker);
+    if (opponent) block.append(opponent);
+    block.append(paragraph(comparison.matchupVerified === true ? '直接防守身份已另行核验；统计仍按各自范围展示。' : '所选对手是同场出场球员；未核验该时刻在场或直接防守身份。', 'content-note'));
+    if (comparison.opponentChoices?.length) {
+      const roster = node('details', 'content-profile-group');
+      roster.append(node('summary', '', `同场对手名单 · ${comparison.opponentChoices.length} 人`));
+      roster.append(paragraph(comparison.opponentChoices.map(player => `${player.displayName || player.playerId}${String(player.playerId) === String(comparison.selectedOpponentId) ? '（当前比较）' : ''}`).join(' · ')));
+      roster.append(paragraph('其他对手需重新生成其档案后比较；页面不以当前两人的统计替换。', 'content-note'));
+      block.append(roster);
+    }
+    const facts = new Map([...(comparison.attacker.facts || []), ...(comparison.opponent?.facts || [])].map(item => [item.evidenceId, item]));
+    const rows = comparison.comparisons || [];
+    if (rows.length) {
+      const group = node('details', 'content-profile-group'); group.open = true;
+      group.append(node('summary', '', '同口径差值 · 左侧减右侧'));
+      for (const row of rows) {
+        const card = node('article', 'content-comparison-row');
+        const [left, right] = (row.evidenceIds || []).map(id => facts.get(id));
+        card.append(node('h4', '', row.label || row.metric));
+        card.append(paragraph(`${left?.display ?? '未记录'}  /  ${right?.display ?? '未记录'}`, 'content-comparison-pair'));
+        card.append(paragraph(`差值 ${row.displayDifference ?? '未记录'} · ${row.differenceUnit === 'percentage_points' ? '百分点' : row.differenceUnit === 'count' ? '计数' : '来源分数'}`, 'content-note'));
+        card.append(paragraph(evidenceScope(row, story), 'content-note'));
+        group.append(card);
+      }
+      block.append(group);
+    }
+    block.append(paragraph('两人分数或效率差不等于直接对位优势；防守影响力、引力和机会质量保留来源分数，不换算为胜率。', 'content-note'));
+    body.append(block);
   }
   function evidenceCard(evidence, story = activeStory) {
     const card = section();
@@ -152,6 +268,27 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
     original.append(paragraph('原转播比分牌保留在画面内。', 'content-note'));
     original.append(node('code', 'content-source-path', `SHA-256 ${story.sourceVideoSha256 || '未记录'}`));
     body.append(original);
+    rlSources(story);
+  }
+  function rlSources(story) {
+    const facts = [...(rlMovieState(story).evidence || []), ...(story.playerComparison?.attacker?.facts || []), ...(story.playerComparison?.opponent?.facts || [])];
+    const refs = [...new Set(facts.map(item => item.sourceRef).filter(Boolean))];
+    if (!refs.length) return;
+    const block = section('RL 选证与球员档案出处');
+    block.append(paragraph('选证卡、球员档案和算术结果分别保留证据 ID；统计时期与画面时间不混用。', 'content-note'));
+    for (const ref of refs) {
+      const source = story.rlEvidenceSources?.[ref];
+      const card = node('details', 'content-profile-group'); card.append(node('summary', '', source?.rowKey || ref));
+      if (!source) card.append(paragraph(`来源引用 ${ref} 未提供原始记录。`, 'content-note'));
+      else {
+        appendLink(card, '打开 NBA 原始来源 ↗', source.url);
+        card.append(node('code', 'content-source-path', source.path), node('code', 'content-source-path', `SHA-256 ${source.sha256 || '未记录'}`));
+        card.append(paragraph(`取得于 ${formatBeijingDate(source.retrievedAt)}`, 'content-note'));
+      }
+      for (const fact of facts.filter(item => item.sourceRef === ref)) card.append(paragraph(`${fact.evidenceId} · ${fact.label || fact.metric} · ${evidenceScope(fact, story)}`, 'content-note'));
+      block.append(card);
+    }
+    body.append(block);
   }
   function library(story, catalog) {
     body.append(paragraph('公开训练样片', 'content-lead'));
@@ -190,6 +327,10 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
       chapters.append(row);
     }
     body.append(chapters);
+    const actualStory = { ...story, scout: record.analysis?.scout, playerComparison: record.analysis?.playerComparison, rlEvidenceSources: record.analysis?.rlEvidenceSources, rlEvidencePeriods: record.analysis?.rlEvidencePeriods, rlVideoUse: record.analysis?.rlVideoUse };
+    rlData(actualStory);
+    playerData(actualStory);
+    rlSources(actualStory);
     const trace = section('实际处理步骤');
     const names = { inspect_frames: '读取实际视频帧', read_official_event: '读取官方事件', validate_story: '校验章节与来源' };
     for (const step of record.analysis?.trace || []) trace.append(paragraph(`${step.step}. ${names[step.tool] || step.tool} · ${step.status === 'succeeded' ? '完成' : step.status}`, 'content-history-step'));
