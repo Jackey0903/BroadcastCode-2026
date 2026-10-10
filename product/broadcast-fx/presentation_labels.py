@@ -74,11 +74,13 @@ def draw_tactic_labels(layer, scene, name, t, morph, alpha):
             layer.paste(fx.text_rgba(f'0{j+1}', fx.DIN, 60, fx.ORANGE), 90, yy, alpha=a)
             layer.paste(fx.text_rgba(en, fx.DIN, 38, fx.CHALK, 1), 164, yy + 3, alpha=a)
             layer.paste(fx.text_rgba(cn, fx.CJK, 21, fx.MUTED), 166, yy + 52, alpha=a)
-        layer.paste(fx.text_rgba('READ THE FLOOR', fx.DIN, 38, fx.CYAN, 2), 1405, 350, alpha=alpha * morph)
+        layer.paste(fx.text_rgba('READ THE FLOOR', fx.DIN, 28, fx.CYAN, 2), 1405, 244, alpha=alpha * morph)
         for j, (en, cn) in enumerate(COPY[name]['aside']):
-            yy = 418 + j * 82
-            layer.paste(fx.text_rgba(en, fx.DIN, 32, fx.CHALK), 1405, yy, alpha=alpha * morph)
-            layer.paste(fx.text_rgba(cn, fx.CJK, 19, fx.MUTED), 1407, yy + 39, alpha=alpha * morph)
+            yy = 285 + j * 59
+            layer.paste(fx.text_rgba(en, fx.DIN, 27, fx.CHALK), 1405, yy, alpha=alpha * morph)
+            layer.paste(fx.text_rgba(cn, fx.CJK, 17, fx.MUTED), 1407, yy + 31, alpha=alpha * morph)
+        from presentation_stats import draw_player_cards
+        draw_player_cards(layer, name, t, morph, alpha)
     a = alpha * fx.ease_out((t - .24) / .35)
     fx.rect(layer, 65, 856, 1855, 978, fx.VOID, .86 * a)
     fx.rect(layer, 65, 856, 72, 978, fx.ORANGE, a)

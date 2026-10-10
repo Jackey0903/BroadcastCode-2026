@@ -78,7 +78,7 @@ def main():
     else:
         from formal.timeline import FRAME_COUNT, DURATION, SEGMENTS
     if args.output is None:
-        args.output = ROOT / ('product/build/ppt-demo-20261011/english-v3/GameBuddy-PPT-English-v3.mp4' if args.presentation_english else
+        args.output = ROOT / ('product/build/ppt-demo-20261011/english-v4/GameBuddy-PPT-English-v4.mp4' if args.presentation_english else
                              'product/build/ppt-demo-20261011/GameBuddy-PPT-55秒-干净画面.mp4' if args.presentation_clean else
                              'product/build/formal-assets/GameBuddy-正式资产联调-v2-55秒.mp4' if args.variant == 'flagg55' else
                              'product/build/formal-assets/GameBuddy-正式资产联调-v1.mp4')
@@ -128,7 +128,12 @@ def main():
         from presentation_labels import game_label
         receipt['gameHeader'] = {'matchup': game_label()[0], 'dateTime': game_label()[1],
                                  'basis': 'formal/data/official.json gameTimeUTC; America/Chicago local time'}
-        for name in ('presentation_labels.py', 'presentation_court.py', 'data/formal-presentation-court.json'):
+        from presentation_stats import card_data, STORE
+        receipt['presentationFocus'] = 'source-frame editorial soft masks; not automatic segmentation'
+        receipt['presentationPlayerCards'] = card_data()
+        receipt['playerEvidenceStoreSha256'] = digest(STORE)
+        for name in ('presentation_labels.py', 'presentation_court.py', 'data/formal-presentation-court.json',
+                     'presentation_stats.py', 'presentation_focus.py'):
             receipt['rendererHashes'][name] = digest(Path(__file__).parent / name)
     receipt_path = args.output.with_suffix('.manifest.json')
     receipt_path.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n')

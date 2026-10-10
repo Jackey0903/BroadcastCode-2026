@@ -49,6 +49,12 @@ def refine_scene(name, scene):
         reviewed = layout["players"][player["id"]]
         player["boardCourt"] = list(reviewed["court"])
         player["boardPositionBasis"] = reviewed["basis"]
+        if name == 'T3' and player['id'] == 'D7':
+            # Rechecking the spotlight frame reveals a foreground referee at
+            # the former foot anchor. Use Powell's visible torso, not that point.
+            player['image'] = [1152, 648]
+            player['anchorKind'] = 'body-only'
+            player['imageAnchorBasis'] = 'Visible torso; feet occluded by foreground referee'
     refined["boardArrows"] = deepcopy(layout["arrows"])
     refined["boardReview"] = layout["review"]
     return refined

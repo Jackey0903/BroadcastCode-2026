@@ -1,0 +1,357 @@
+{
+  "schema": "gamebuddy-ppt-player-focus-data-v4",
+  "createdAt": "2026-10-11T01:25:27.676463+08:00",
+  "output": "product/build/ppt-demo-20261011/english-v4/GameBuddy-PPT-English-v4.mp4",
+  "manifest": "product/build/ppt-demo-20261011/english-v4/GameBuddy-PPT-English-v4.manifest.json",
+  "outputSha256": "a5e38117a0e068ed0930b8c2482cc2fc7b3f83ed06f25e658fe2951a7aa51237",
+  "sizeBytes": 101282569,
+  "durationSeconds": 55.055,
+  "frameCount": 3300,
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "timelineMatchesV3": true,
+  "originalBroadcastAndFxAudioUnchanged": true,
+  "fullDecodePassed": true,
+  "focus": {
+    "sourceFrames": {
+      "T1": 240,
+      "T3": 480,
+      "T2": 719
+    },
+    "method": "Source-frame editorial visible-body soft masks; not automatic segmentation or tracking",
+    "T3PowellAnchor": "Visible torso [1152,648]; former foot anchor overlapped foreground referee. Board point unchanged."
+  },
+  "playerCards": {
+    "T1": [
+      {
+        "player": "#00  MAX CHRISTIE",
+        "value": "6.001",
+        "label": "PERIMETER GRAVITY",
+        "detail": "OFF-BALL · SOURCE SCORE",
+        "scope": "2025–26 SEASON SNAPSHOT",
+        "color": [
+          61,
+          154,
+          255
+        ],
+        "evidence": {
+          "family": "gravity",
+          "metric": "OFF_BALL_PERIM_GRAV",
+          "value": 6.001,
+          "unit": "gravity_score",
+          "playerId": "1631108",
+          "teamId": 1610612742,
+          "gameId": null,
+          "grain": "player-season",
+          "period": {
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "source_season_snapshot"
+          },
+          "asOf": null,
+          "source": {
+            "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+            "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+            "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+            "rowKey": "data.players[52]",
+            "retrievedAt": "2026-10-10T11:47:13+08:00"
+          },
+          "claimType": "official_fact",
+          "teamSemantics": "source_snapshot_label_not_historical_membership",
+          "evidenceId": "e668e9dec6274"
+        }
+      },
+      {
+        "player": "#10  JABARI SMITH JR.",
+        "value": "2.20",
+        "label": "DEFENSIVE LEVERAGE",
+        "detail": "SOURCE SCORE",
+        "scope": "2025–26 SEASON SNAPSHOT",
+        "color": [
+          102,
+          98,
+          255
+        ],
+        "evidence": {
+          "family": "leverage",
+          "metric": "DEF_LVG",
+          "value": 2.2,
+          "unit": "leverage_score",
+          "playerId": "1631095",
+          "teamId": 1610612745,
+          "gameId": null,
+          "grain": "player-season",
+          "period": {
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "source_season_snapshot"
+          },
+          "asOf": null,
+          "source": {
+            "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+            "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+            "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+            "rowKey": "data.players[44]",
+            "retrievedAt": "2026-10-10T11:47:30+08:00"
+          },
+          "claimType": "official_fact",
+          "teamSemantics": "source_snapshot_label_not_historical_membership",
+          "evidenceId": "efb6f98be6489"
+        }
+      }
+    ],
+    "T3": [
+      {
+        "player": "#7  DWIGHT POWELL",
+        "value": "1",
+        "label": "OFFENSIVE REBOUND",
+        "detail": "KEEPS THE POSSESSION ALIVE",
+        "scope": "THIS PLAY · Q2 5:03",
+        "color": [
+          255,
+          227,
+          111
+        ],
+        "evidence": {
+          "source": "product/broadcast-fx/formal/data/official.json",
+          "event": {
+            "actionNumber": 272,
+            "clock": "PT05M03.00S",
+            "period": 2,
+            "teamId": 1610612742,
+            "teamTricode": "DAL",
+            "personId": 203939,
+            "playerName": "Powell",
+            "playerNameI": "D. Powell",
+            "xLegacy": 0,
+            "yLegacy": 0,
+            "shotDistance": 0,
+            "shotResult": "",
+            "isFieldGoal": 0,
+            "scoreHome": "",
+            "scoreAway": "",
+            "pointsTotal": 0,
+            "location": "h",
+            "description": "Powell REBOUND (Off:1 Def:0)",
+            "actionType": "Rebound",
+            "subType": "Unknown",
+            "videoAvailable": 1,
+            "shotValue": 0,
+            "actionId": 191
+          }
+        }
+      },
+      {
+        "player": "#7  DWIGHT POWELL",
+        "value": "0.32",
+        "label": "REBOUND LEVERAGE",
+        "detail": "SOURCE SCORE",
+        "scope": "2025–26 SEASON SNAPSHOT",
+        "color": [
+          255,
+          227,
+          111
+        ],
+        "evidence": {
+          "family": "leverage",
+          "metric": "REB_LVG",
+          "value": 0.32,
+          "unit": "leverage_score",
+          "playerId": "203939",
+          "teamId": 1610612742,
+          "gameId": null,
+          "grain": "player-season",
+          "period": {
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "source_season_snapshot"
+          },
+          "asOf": null,
+          "source": {
+            "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+            "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+            "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+            "rowKey": "data.players[218]",
+            "retrievedAt": "2026-10-10T11:47:30+08:00"
+          },
+          "claimType": "official_fact",
+          "teamSemantics": "source_snapshot_label_not_historical_membership",
+          "evidenceId": "ecf35983866ae"
+        }
+      }
+    ],
+    "T2": [
+      {
+        "player": "#00  MAX CHRISTIE",
+        "value": "30%",
+        "label": "EXPECTED FG · xFG",
+        "detail": "25 FT · STEP-BACK THREE",
+        "scope": "THIS ATTEMPT · EVENT 273",
+        "color": [
+          61,
+          154,
+          255
+        ],
+        "evidence": {
+          "source": "product/broadcast-fx/formal/data/official.json",
+          "shot": {
+            "xfg": 0.3,
+            "xfgPercent": 30.0,
+            "shotDistanceFeet": 25,
+            "shotDistanceMetresDerived": 7.62,
+            "points": 3,
+            "made": true,
+            "description": "后撤步打板三分",
+            "officialDescription": "Christie 25' 3PT Step Back Bank Jump Shot (3 PTS)",
+            "rawGpShot": {
+              "shotDesc": "后撤步跳投打板",
+              "value": 0.3,
+              "newsId": null,
+              "gameId": "0022500356",
+              "eventId": 273,
+              "playerId": "1631108",
+              "shotType": "3分投篮",
+              "success": 1,
+              "period": 2,
+              "gameClock": "",
+              "side": "left",
+              "locX": "26",
+              "locY": "20"
+            },
+            "rawPbp": {
+              "actionNumber": 273,
+              "clock": "PT04M58.00S",
+              "period": 2,
+              "teamId": 1610612742,
+              "teamTricode": "DAL",
+              "personId": 1631108,
+              "playerName": "Christie",
+              "playerNameI": "M. Christie",
+              "xLegacy": 147,
+              "yLegacy": 200,
+              "shotDistance": 25,
+              "shotResult": "Made",
+              "isFieldGoal": 1,
+              "scoreHome": "43",
+              "scoreAway": "44",
+              "pointsTotal": 87,
+              "location": "h",
+              "description": "Christie 25' 3PT Step Back Bank Jump Shot (3 PTS)",
+              "actionType": "Made Shot",
+              "subType": "Step Back Bank Jump Shot",
+              "videoAvailable": 1,
+              "shotValue": 3,
+              "actionId": 192
+            },
+            "assist": {
+              "credited": false,
+              "basis": "No assist credited in official shot description; Powell offensive rebound is a separate event, not an assist."
+            }
+          }
+        }
+      },
+      {
+        "player": "#00  MAX CHRISTIE",
+        "value": "75%",
+        "label": "EFFECTIVE FG · eFG",
+        "detail": "1/2 FG · 1 MADE THREE",
+        "scope": "FINAL GAME · DERIVED EFFICIENCY",
+        "color": [
+          255,
+          227,
+          111
+        ],
+        "evidence": {
+          "family": "advanced",
+          "metric": "EFG_PCT",
+          "value": 0.75,
+          "unit": "fraction",
+          "playerId": "1631108",
+          "teamId": 1610612742,
+          "gameId": "0022500356",
+          "grain": "player-game",
+          "period": {
+            "gameDate": "2025-12-06",
+            "gameDateBasis": "NBA gameEt Eastern date",
+            "gameTimeUTC": "2025-12-07T01:30:00Z",
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "full_completed_game"
+          },
+          "asOf": null,
+          "source": {
+            "url": "https://www.nba.com/game/hou-vs-dal-0022500356/box-score",
+            "sha256": "9888c90b5bed6fe0f8da5f3d89c5df79a0c4b7e5412ebfea016375fb5070e792",
+            "path": "product/rl/data/three_layer/boxscore-0022500356.json",
+            "rowKey": "game.homeTeam.players[5].statistics",
+            "retrievedAt": "2026-10-10T05:11:36.269488+00:00",
+            "htmlSha256": "eab874be746c6d80afd33ad260b9905d73612c305b59bd4b5838de33b99cca8b"
+          },
+          "claimType": "derived_arithmetic",
+          "derivation": {
+            "kind": "derived",
+            "unit": "ratio",
+            "formula": "(FGM + 0.5 * FG3M) / FGA",
+            "operands": {
+              "FGM": 1,
+              "FG3M": 1,
+              "FGA": 2
+            },
+            "operandSource": {
+              "url": "https://www.nba.com/game/hou-vs-dal-0022500356/box-score",
+              "sha256": "9888c90b5bed6fe0f8da5f3d89c5df79a0c4b7e5412ebfea016375fb5070e792",
+              "path": "product/rl/data/three_layer/boxscore-0022500356.json",
+              "rowKey": "game.homeTeam.players[5].statistics",
+              "retrievedAt": "2026-10-10T05:11:36.269488+00:00",
+              "htmlSha256": "eab874be746c6d80afd33ad260b9905d73612c305b59bd4b5838de33b99cca8b"
+            },
+            "definitionSource": "https://www.nba.com/stats/help/faq"
+          },
+          "teamSemantics": "event_game_team",
+          "evidenceId": "e095ec00938d6"
+        }
+      }
+    ]
+  },
+  "playerEvidenceStoreSha256": "634b4210e3cbc0b50365ae2e7693bbcf495783a982cf4d14b8fa926a17033615",
+  "rawEvidenceHashes": {
+    "product/broadcast-fx/formal/data/official.json": "88d46126af782100ceb41c274055e2326de6ae60afbaf124e31ac54baa92ba92",
+    "product/broadcast-fx/formal/data/gpshot-christie.json": "09119ce4c5448ef7a7d74d2cb8a8beb376be57657f3ae464e4b4a2e51435788d",
+    "product/rl/data/depth/gravity-2025-26-regular.json": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+    "product/rl/data/depth/leverage-2025-26-regular.json": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+    "product/rl/data/three_layer/boxscore-0022500356.json": "9888c90b5bed6fe0f8da5f3d89c5df79a0c4b7e5412ebfea016375fb5070e792"
+  },
+  "actualOutputFramesCaptured": {
+    "439": "T1-focus",
+    "551": "T1-board",
+    "939": "T3-focus",
+    "1051": "T3-board",
+    "1448": "T2-focus",
+    "1560": "T2-board",
+    "3299": "ending"
+  },
+  "visualReviewPassed": true,
+  "lastFrameBlack": true,
+  "newAiNarrationUsed": false,
+  "voiceoverIntegrationPendingForThisMaster": true,
+  "newAgentCoreOrRlInvoked": false,
+  "webRoutesChanged": false,
+  "cloudDeployed": false,
+  "existingQualityGate": {
+    "passed": true,
+    "behavioralTests": 514,
+    "pythonFiles": 124,
+    "javascriptFiles": 53,
+    "durationSeconds": 27.23,
+    "newTestsAdded": false
+  },
+  "backup": {
+    "directory": "/Users/jack/work/BroadcastCode-backups/20261011-ppt-focus-data-v4",
+    "hashesVerified": true
+  },
+  "actualOutputFramesVisuallyReviewed": [
+    439,
+    939,
+    1051,
+    1560
+  ]
+}

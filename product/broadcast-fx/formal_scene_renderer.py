@@ -39,9 +39,15 @@ def render_scene(name, local_frame, count=210, workdir=None, scene_override=None
     release = fx.ease_in_out((t - (duration - .32)) / .32)
     morph *= 1 - release
     alpha = (1 - release) * min(1, .65 + t * 3)
-    layer = fx.Layers(fx.grade(base, sat=1 - .55 * morph,
-                             gain=1 - (.18 + .70 * morph) * (1 - release),
-                             vig=.35 * morph))
+    graded = fx.grade(base, sat=1 - .55 * morph,
+                      gain=1 - (.18 + .70 * morph) * (1 - release),
+                      vig=.35 * morph)
+    if presentation_english:
+        from presentation_focus import apply_focus, SOURCE_FRAMES, SOURCE_SHA256
+        if scene['frame'] != SOURCE_FRAMES[name] or raw['sourceSha256'] != SOURCE_SHA256:
+            raise ValueError('Presentation focus mask does not match the source frame')
+        graded = apply_focus(graded, name, t, morph, release)
+    layer = fx.Layers(graded)
     if morph > .001:
         for points, width in tactics.court_geometry():
             tactics.draw_path(layer, tactics.board_points(points), fx.CHALK,
