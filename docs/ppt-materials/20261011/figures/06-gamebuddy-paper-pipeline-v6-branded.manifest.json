@@ -1,0 +1,42 @@
+{
+  "asset": "06-gamebuddy-paper-pipeline-v6-branded.png",
+  "mode": "built-in image generation",
+  "size": [
+    1672,
+    941
+  ],
+  "bytes": 2020575,
+  "sha256": "15fbbe4a16f0d29652fe5367b6fe5645a155d6973da06a178d825e1e56536a86",
+  "edit_base": "06-gamebuddy-paper-pipeline-v3.png",
+  "brand_references": "brand-inputs/source-manifest.json",
+  "prompt_record": "06-gamebuddy-paper-pipeline-v6-branded.prompt.md",
+  "changes": [
+    "frontend basketball companion at header left",
+    "AWS color wordmark and NBA badge at header right",
+    "header white space and panel alignment",
+    "clear source label in production data card"
+  ],
+  "visual_review": [
+    "one mascot, no sprite grid",
+    "all thirteen business AWS capabilities retained",
+    "DynamoDB remains a state side branch",
+    "video goes to visual Agent and data goes to scout",
+    "automatic RL sample and editorial showcase remain separate",
+    "no invented numerical examples"
+  ],
+  "ocr_check": {
+    "target_label": "Official source",
+    "occurrences": 2,
+    "prior_misspelling_absent": true
+  },
+  "model_parameter_available": false,
+  "verified_model_id": null,
+  "offline_gate": {
+    "passed": true,
+    "behavioral_checks": 514,
+    "python_files": 126,
+    "javascript_files": 53,
+    "elapsed_seconds": 18.45,
+    "scope": "Offline source and template checks only; includes concurrent working-tree code, no cloud deployment or media-package certification"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "reference_only": true,
+  "nba_rasterization": "rsvg-convert --height 512",
+  "inputs": [
+    {
+      "path": "product/watch/companions/game-buddy/assets/game-buddy-crt.webp",
+      "role": "existing frontend sprite atlas",
+      "source_url": null,
+      "bytes": 1675922,
+      "sha256": "538dc8539ed19aaee6b3d29fe5fae6d555b19b21157ddbc0d9059b9049b28f86"
+    },
+    {
+      "path": "docs/ppt-materials/20261011/figures/brand-inputs/aws-logo-small.png",
+      "role": "AWS color logo reference",
+      "source_url": "https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_179x109.png",
+      "bytes": 3373,
+      "sha256": "94de254f3fadea01265e65c7430097f386db15d5d34372de344b2bd8670048b9"
+    },
+    {
+      "path": "docs/ppt-materials/20261011/figures/brand-inputs/nba-logo.svg",
+      "role": "NBA original logo reference",
+      "source_url": "https://cdn.nba.com/logos/leagues/logo-nba.svg",
+      "bytes": 2719,
+      "sha256": "1d36997ffe2a5bc436b895cc38c3117f02b03c947306ecc54b0f719e8800828a"
+    },
+    {
+      "path": "docs/ppt-materials/20261011/figures/brand-inputs/nba-logo.png",
+      "role": "NBA SVG rasterization for image-tool input",
+      "source_url": null,
+      "bytes": 34328,
+      "sha256": "459ae518c3afeb1efaf773dee5d698bd4b6815621bd677cfdc15911221da9cfa"
+    }
+  ]
+}
