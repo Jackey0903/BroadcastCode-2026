@@ -155,11 +155,12 @@ def make_overlay(segment, plan, story, font_path, source_time=None, source_image
     if segment.get('magnifier') and source_image is not None:
         draw_focus_card(image, segment, plan, fonts, source_image)
     else:
-        lines = wrap_text(draw, segment['narration'], fonts['body'], 864)
-        top = 469 - (len(lines)*25+16)
-        draw.rounded_rectangle((28, top, 932, 469), radius=8, fill=(8, 16, 22, 205))
-        for index, line in enumerate(lines):
-            draw.text((46, top+7+index*25), line, font=fonts['body'], fill=(249, 248, 243, 255))
+        if not plan.get('hideNarration'):
+            lines = wrap_text(draw, segment['narration'], fonts['body'], 864)
+            top = 469 - (len(lines)*25+16)
+            draw.rounded_rectangle((28, top, 932, 469), radius=8, fill=(8, 16, 22, 205))
+            for index, line in enumerate(lines):
+                draw.text((46, top+7+index*25), line, font=fonts['body'], fill=(249, 248, 243, 255))
         for annotation in segment.get('annotations', []):
             draw_annotation(draw, annotation, fonts)
     if segment['id'] in ('drive', 'finish') and source_time is not None:
@@ -178,10 +179,47 @@ def make_overlay(segment, plan, story, font_path, source_time=None, source_image
     return image.resize(OUTPUT_SIZE, Image.Resampling.LANCZOS)
 
 
-def render(sample, ffmpeg, font):
+def mix_voice(ffmpeg, out, plan, elapsed):
+    """Mix validated, timed WAV cues; lower game audio only while speech plays."""
+    from tts_trial import wav_duration
+    command = [ffmpeg, '-hide_banner', '-loglevel', 'error', '-y', '-i', str(out/'visual.mp4')]
+    filters, labels = [], []
+    previous_end = 0
+    for index, cue in enumerate(plan['voiceCues'], 1):
+        audio = (ROOT/cue['audioFile']).resolve()
+        if not audio.is_relative_to((ROOT/'product/build').resolve()):
+            raise ValueError('Voice assets must be under product/build.')
+        data = audio.read_bytes()
+        actual = wav_duration(data)
+        if file_hash(audio) != cue['audioSha256'] or abs(actual-cue['durationSeconds']) > .01:
+            raise ValueError('Voice cache integrity or duration mismatch.')
+        if cue['start'] < previous_end or cue['end'] > elapsed or abs(cue['end']-cue['start']-actual) > .01:
+            raise ValueError('Voice cue overlaps or exceeds the planned story.')
+        previous_end = cue['end']
+        command += ['-i', str(audio)]
+        label = f'voice{index}'
+        filters.append(f'[{index}:a]aresample=48000,aformat=channel_layouts=stereo,adelay={round(cue["start"]*1000)}:all=1[{label}]')
+        labels.append(f'[{label}]')
+    if not labels:
+        raise ValueError('Voice plan has no recorded cues.')
+    filters.append(''.join(labels) + f'amix=inputs={len(labels)}:normalize=0:duration=longest,apad,atrim=duration={elapsed},asplit=2[trigger][speech]')
+    filters.append('[0:a]volume=0.55[game]')
+    filters.append('[game][trigger]sidechaincompress=threshold=0.03:ratio=8:attack=15:release=400[quietgame]')
+    filters.append('[quietgame][speech]amix=inputs=2:duration=longest:normalize=0,alimiter=limit=0.95:level=false[mix]')
+    command += ['-filter_complex', ';'.join(filters), '-map', '0:v:0', '-map', '[mix]', '-c:v', 'copy',
+                '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-ac', '2', '-t', str(elapsed),
+                '-movflags', '+faststart', str(out/'enhanced.pending.mp4')]
+    run(command, out)
+    (out/'enhanced.pending.mp4').replace(out/'enhanced.mp4')
+    (out/'captions.vtt').write_bytes((out/'captions-plan.vtt').read_bytes())
+
+
+def render(sample, ffmpeg, font, voice=False):
     story = next(s for s in json.loads((ROOT/'product/data/stories.json').read_text(encoding='utf-8'))['stories'] if s['sample'] == sample)
-    plan_path = HERE/'story-plan.json'
+    plan_path = ROOT/'product/build/mlb-rhythm/flagg-voice/story-plan-voice.json' if voice else HERE/'story-plan.json'
     plan = json.loads(plan_path.read_text(encoding='utf-8'))
+    if voice and not plan.get('hasVoice'):
+        raise ValueError('Generate a real voice plan using tts_trial.py full first.')
     source = source_file(sample)
     if not source:
         raise ValueError('Restore the original practice video first.')
@@ -190,7 +228,7 @@ def render(sample, ffmpeg, font):
         raise ValueError('Source hash mismatch.')
     if not story['officialEvent']['verified'] or story['shotMetric']['rawValue'] != story['officialEvent']['expectedFg']:
         raise ValueError('The corresponding official shot is not verified.')
-    out = ROOT/f'product/build/mlb-rhythm/{sample}'
+    out = ROOT/f'product/build/mlb-rhythm/{sample}{"-voice" if voice else ""}'
     frames = out/'frames'
     frames.mkdir(parents=True, exist_ok=True)
     common = [ffmpeg, '-hide_banner', '-loglevel', 'error', '-y']
@@ -211,6 +249,8 @@ def render(sample, ffmpeg, font):
     files, time_map, elapsed, metric_at = [], [], 0, None
     for index, segment in enumerate(plan['segments']):
         duration = segment_duration(segment)
+        if voice:
+            duration = math.ceil(duration*OUTPUT_FPS-1e-8)/OUTPUT_FPS
         kind = segment['kind']
         overlay_dir = out/f'overlay-{index:02d}'
         overlay_dir.mkdir(exist_ok=True)
@@ -263,7 +303,9 @@ def render(sample, ffmpeg, font):
         elapsed += duration
         print(f'Rendered {index+1}/{len(plan["segments"])}: {segment["id"]}', flush=True)
     (out/'concat.txt').write_text(''.join(f"file '{file}'\n" for file in files), encoding='utf-8')
-    run(common + ['-f', 'concat', '-safe', '0', '-i', 'concat.txt', '-c', 'copy', '-movflags', '+faststart', 'enhanced.mp4'], out)
+    run(common + ['-f', 'concat', '-safe', '0', '-i', 'concat.txt', '-c', 'copy', '-movflags', '+faststart', 'visual.mp4' if voice else 'enhanced.mp4'], out)
+    if voice:
+        mix_voice(ffmpeg, out, plan, elapsed)
     evidence = {'sample': sample, 'planVersion': plan['version'], 'planSha256': file_hash(plan_path),
                 'sourceSha256': source_hash, 'outputSha256': file_hash(out/'enhanced.mp4'),
                 'officialEvent': story['officialEvent'], 'metric': story['shotMetric'], 'sourceTimeMap': time_map,
@@ -272,6 +314,10 @@ def render(sample, ffmpeg, font):
                 'reverseWindow': reverse, 'annotationBasis': plan['annotationBasis'], 'players': plan['players'],
                 'difficulty': plan['difficulty'], 'newAgentInvocation': False, 'preservesSourceTimeline': False,
                 'provenance': 'Local deterministic story edit. Full original possession is narrated chronologically after a hook and short reverse bridge.'}
+    if voice:
+        evidence['voice'] = plan['voice']
+        evidence['voiceCues'] = plan['voiceCues']
+        evidence['provenance'] += ' MiniMax generated narration is mixed at recorded cue times; captions are narration-unit timed.'
     (out/'evidence.json').write_text(json.dumps(evidence, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({'video': str(out/'enhanced.mp4'), 'reverse': str(out/'reverse.mp4'),
                       'sourceFrames': count, 'plannedDurationSeconds': elapsed}, ensure_ascii=False), flush=True)
@@ -282,5 +328,6 @@ if __name__ == '__main__':
     parser.add_argument('--sample', choices=['flagg'], default='flagg')
     parser.add_argument('--ffmpeg', required=True)
     parser.add_argument('--font', required=True)
+    parser.add_argument('--voice', action='store_true', help='Render the prepared MiniMax audio plan into a separate voice variant.')
     args = parser.parse_args()
-    render(args.sample, str(Path(args.ffmpeg).resolve()), Path(args.font).resolve())
+    render(args.sample, str(Path(args.ffmpeg).resolve()), Path(args.font).resolve(), args.voice)

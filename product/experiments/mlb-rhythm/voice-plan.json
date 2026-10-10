@@ -1,0 +1,21 @@
+{
+  "version": "minimax-trial-1",
+  "model": "speech-2.8-hd",
+  "voiceId": "Chinese (Mandarin)_Radio_Host",
+  "speed": 1.0,
+  "style": "中文故事型解说：开头简短好奇，分析清楚平缓，终结稍有情绪；表达风格通过稿件和选定音色实现，未假定API支持任意风格提示。",
+  "previewText": "这一球，怎么进的？独行侠三十二号，是二零二五年状元弗拉格。加福德过来掩护，但伊森绕了过去，仍在跟防。",
+  "introSource": "https://www.nba.com/news/dallas-mavericks-take-cooper-flagg-no-1-pick-nba-draft",
+  "maxTotalSeconds": 55,
+  "units": [
+    {"id": "hook", "stages": ["hook"], "text": "这一球，怎么进的？"},
+    {"id": "identity", "stages": ["setup"], "text": "独行侠三十二号，是二零二五年状元弗拉格。"},
+    {"id": "screen", "stages": ["screen-pause", "screen"], "text": "加福德过来掩护，但伊森绕了过去，仍在跟防。", "extendHold": "screen-pause", "maxExtraSeconds": 1.5},
+    {"id": "pressure", "stages": ["roll-pause", "reset"], "text": "伊森在身侧，申京也上前。第一波没能完成，弗拉格退回右侧。", "extendHold": "roll-pause", "maxExtraSeconds": 2.5},
+    {"id": "defender", "stages": ["defender-pause"], "text": "只剩七秒，伊森还在身前。他要再创造一次机会。", "extendHold": "defender-pause", "maxExtraSeconds": 2.5},
+    {"id": "drive", "stages": ["drive"], "text": "再次启动，伊森还在跟。"},
+    {"id": "finish-pressure", "stages": ["finish-pause"], "text": "篮下还有杜兰特。看他举起的手，和球的位置。", "extendHold": "finish-pause", "maxExtraSeconds": 2.5},
+    {"id": "finish", "stages": ["finish"], "text": "弗拉格，在夹缝中完成挑篮。"},
+    {"id": "outcome", "stages": ["outcome", "metric-hold"], "text": "这次出手的预期命中率，是百分之五十一。", "extendHold": "metric-hold", "maxExtraSeconds": 1.5}
+  ]
+}

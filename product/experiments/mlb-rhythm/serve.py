@@ -28,6 +28,13 @@ def catalog():
         files['/reverse.mp4'] = rendered.parent / 'reverse.mp4'
         files['/focus-14.png'] = rendered.parent / 'overlay-07/static.png'
         files['/focus-16.5.png'] = rendered.parent / 'overlay-09/static.png'
+    voice = ROOT / 'product/build/mlb-rhythm/flagg-voice'
+    files['/voice-preview.wav'] = voice / 'preview.wav'
+    files['/voice-preview.json'] = voice / 'preview.json'
+    files['/rendered-flagg-voice.mp4'] = voice / 'enhanced.mp4'
+    files['/voice-captions.vtt'] = voice / 'captions.vtt'
+    files['/voice-auditions.json'] = voice / 'auditions.json'
+    files['/original-commentary.wav'] = voice / 'original-commentary.wav'
     return files
 
 class Handler(BaseHTTPRequestHandler):
@@ -36,6 +43,9 @@ class Handler(BaseHTTPRequestHandler):
     def send_file(self, body):
         request_path = urlsplit(self.path).path
         path = self.server.files.get(request_path)
+        audition_match = re.fullmatch(r'/audition-([a-z0-9-]{1,40})\.wav', request_path)
+        if audition_match:
+            path = ROOT / 'product/build/mlb-rhythm/flagg-voice' / f'audition-{audition_match[1]}.wav'
         frame_match = re.fullmatch(r'/frames/frame-(\d{4})\.jpg', request_path)
         if frame_match and int(frame_match[1]) < 1291:
             path = ROOT / 'product/build/mlb-rhythm/flagg/frames' / f'frame-{frame_match[1]}.jpg'

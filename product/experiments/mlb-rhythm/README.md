@@ -4,7 +4,9 @@
 
 **当前状态（2026-10-10）：功能可演示，画面美观度尚未通过用户验收。** 用户反馈“展示是展示出来了，但是整个画面的美观度还是不行”，本轮按要求记录问题，视觉优化暂缓。具体表现、后续方向与验收标准见 [VISUAL-ISSUES.md](VISUAL-ISSUES.md)。下文功能验证不代表视觉质量已达标。
 
-**AI语音解说选型：** [VOICE-SYSTEM-RESEARCH.md](VOICE-SYSTEM-RESEARCH.md) 整理API接入建议、可靠性设计、当前口播时长问题、多人开发共享方式和待实施验证。建议先以MiniMax Speech 2.8 HD验证制作流程，豆包2.0作为中文表达对照；厂商稳定性尚未完成实测排名，当前演示尚未接入TTS。
+**AI语音解说试验：** MiniMax Speech 2.8 HD英文情绪版已接入完整回合，实际约41.14秒，使用 `English_Trustworthy_Man`。开场/突破惊讶、终结高兴、分析中性；保留同步标注，提供可选中文字幕和原音轨对照。完整解码及浏览器播放通过，用户反馈仍很AI、很假，听感验收失败，见 [VOICE-ISSUES.md](VOICE-ISSUES.md)；首轮中文Radio Host已弃用。打开 `http://127.0.0.1:4181/?version=6&voice=1`。运行方式与反馈见 [MINIMAX-TRIAL.md](MINIMAX-TRIAL.md)。厂商稳定性尚未实测排名；总体选型与云端可靠性规划见 [VOICE-SYSTEM-RESEARCH.md](VOICE-SYSTEM-RESEARCH.md)。
+
+**原比赛解说参考：** 已找到NBA官方同场集锦，并提取已有原片音轨供对照。英文试稿改为短动作句推进、终结后回看分析；未取得官方解说字幕，未声称逐句复盘或复制原台词。来源与边界见 [OFFICIAL-COMMENTARY-REFERENCE.md](OFFICIAL-COMMENTARY-REFERENCE.md)。
 
 ## 已完成
 

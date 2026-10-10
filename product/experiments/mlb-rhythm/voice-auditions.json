@@ -1,0 +1,13 @@
+{
+  "purpose": "用户拒绝首轮电台音色，保持Speech 2.8 HD，比较自然中文与英文声线。每种语言内部使用同稿，语言之间是口语化改写。不是音质排名。",
+  "texts": {
+    "Chinese": "这球最难的地方，你看这里。加福德想做个掩护，伊森却绕了过去，又跟上了弗拉格。弗拉格是独行侠二零二五年的状元。他退回来，再启动。篮下呢，还有杜兰特。",
+    "English": "Flagg. Eason stays with him. Seven on the clock. Flagg attacks again. Durant at the rim... and he gets it to go! Let's take another look. That's Cooper Flagg, Dallas's number one pick in twenty twenty-five. Eason gets around the screen. He's still on Flagg's hip. And Durant is right there in front of him."
+  },
+  "candidates": [
+    {"id": "cn-sincere", "label": "中文 A · 真诚青年候选", "language": "Chinese", "voiceId": "Chinese (Mandarin)_Sincere_Adult"},
+    {"id": "cn-gentle", "label": "中文 B · 温和青年候选", "language": "Chinese", "voiceId": "Chinese (Mandarin)_Gentle_Youth"},
+    {"id": "en-trustworthy", "label": "English A · 美式男声", "language": "English", "voiceId": "English_Trustworthy_Man"},
+    {"id": "en-gentle", "label": "English B · 温和美式男声", "language": "English", "voiceId": "English_Gentle-voiced_man"}
+  ]
+}

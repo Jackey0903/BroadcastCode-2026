@@ -1,5 +1,8 @@
 # BroadcastCode Team02：AI 接手说明
 
+> **2026-10-10 · 叙事实验分支进度：** MiniMax Speech 2.8 HD英文情绪解说已接入约41.14秒独行侠进攻视频，完成分段合成、时间轴同步、字幕及原声混音。用户反馈仍然“很AI、很假”，**当前语音听感未通过验收**；工程链路成功不代表声音自然。实现与试验记录见 [MiniMax试验](product/experiments/mlb-rhythm/MINIMAX-TRIAL.md)，待解决问题见 [语音听感问题](product/experiments/mlb-rhythm/VOICE-ISSUES.md)。成片与音频保留本机，API密钥不入库；这次更新不代表正式产品或AWS部署已更新。
+
+
 **2026-10-10 正式比赛：** 用户授权重新连接、创建并绑定新私有仓库。Team02 Portal 已锁定 [Jackey0903/BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026)，默认 `main`；赛事 App 仅对这个仓库读取代码和元数据。正式 AWS 账号为 **`555726205424`**，`nba` 身份验证成功，主办方 bootstrap／执行角色／权限边界存在。活跃产品配置已迁移，210 项离线测试通过；正式账号尚未部署产品、调用模型或验证 GPU，旧练习记录不替代新验收。见[正式重连说明](docs/正式比赛重连与新仓库-20261010.md)、[账号审计](product/evidence/formal-account-audit-20261010.json)及[绑定证据](product/evidence/formal-repository-binding-20261010.json)。本次代码同步已获明确授权，后续推送仍按用户指令判断。
 
 **10 月 9 日分工（历史）：** Claude 的前端已完成并经授权推送 `main`；用户随后授权检查前端、修复俯视板底角可见性和轨迹混乱。保留像素街机黑场视觉，本轮优化只本地保存；此后每次推送仍需明确授权。前端接手入口见[Claude 说明](docs/Claude前端接手说明.md)。

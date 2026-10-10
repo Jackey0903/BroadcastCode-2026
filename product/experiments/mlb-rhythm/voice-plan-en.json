@@ -1,0 +1,22 @@
+{
+  "version": "minimax-emotional-en-1",
+  "model": "speech-2.8-hd",
+  "voiceId": "English_Trustworthy_Man",
+  "language": "English",
+  "speed": 1.0,
+  "previewText": "Flagg attacks again. Eason stays with him. Durant at the rim... and he gets it to go! What a finish!",
+  "style": "开场惊讶、突破紧张、终结兴奋、回看平缓。通过情绪参数、短句和节奏实现，不模仿具体解说员身份。",
+  "introSource": "https://www.nba.com/news/dallas-mavericks-take-cooper-flagg-no-1-pick-nba-draft",
+  "maxTotalSeconds": 55,
+  "units": [
+    {"id": "hook", "stages": ["hook"], "text": "Oh, what a finish!", "caption": "这球，居然进了！", "emotion": "surprised"},
+    {"id": "identity", "stages": ["setup"], "text": "That's Cooper Flagg, Dallas's twenty twenty-five number-one pick.", "caption": "这是独行侠的弗拉格，2025年状元。", "emotion": "calm"},
+    {"id": "screen", "stages": ["screen-pause", "screen"], "text": "Gafford comes over to screen. Watch Eason. He gets around it and stays with Flagg.", "caption": "加福德尝试掩护；看伊森，绕过去后仍跟着弗拉格。", "emotion": "calm", "extendHold": "screen-pause", "maxExtraSeconds": 1.5},
+    {"id": "pressure", "stages": ["roll-pause", "reset"], "text": "Eason's still there. Sengun steps up, too. Flagg backs out. No clean opening yet.", "caption": "伊森仍在，申京也上前；弗拉格退回来，还没有轻松出手的空间。", "emotion": "calm", "extendHold": "roll-pause", "maxExtraSeconds": 2.5},
+    {"id": "defender", "stages": ["defender-pause"], "text": "Seven on the clock. Eason's still in front. Here comes Flagg again.", "caption": "进攻时间只剩约7秒，伊森仍在身前；弗拉格要再启动。", "emotion": "calm", "extendHold": "defender-pause", "maxExtraSeconds": 2.5},
+    {"id": "drive", "stages": ["drive"], "text": "Flagg drives! Eason stays!", "caption": "弗拉格突破！伊森继续跟防！", "emotion": "surprised"},
+    {"id": "finish-pressure", "stages": ["finish-pause"], "text": "And there's Durant. Look at that raised hand, and where Flagg holds the ball.", "caption": "篮下还有杜兰特；看举起的手，和弗拉格持球的位置。", "emotion": "calm", "extendHold": "finish-pause", "maxExtraSeconds": 2.5},
+    {"id": "finish", "stages": ["finish"], "text": "And in! What a finish!", "caption": "进了！在跟防和协防之间完成终结！", "emotion": "happy"},
+    {"id": "outcome", "stages": ["outcome", "metric-hold"], "text": "For this shot, the expected field goal percentage was fifty-one percent.", "caption": "本次出手的模型预期命中率为51%；不是替换球员后的预测。", "emotion": "calm", "extendHold": "metric-hold", "maxExtraSeconds": 1.5}
+  ]
+}
