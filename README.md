@@ -1,8 +1,10 @@
+**2026-10-10 产品命名：** 用户正式确定产品名为 **GameBuddy**。当前页面与演示文案使用此名，命名及发布交接见[品牌说明](docs/GameBuddy品牌命名-20261010.md)。
+
 **2026-10-10 三态观赛前端：** 新增独立 [product/watch](product/watch/README.md)，含中文组件调参、liquidGL 平滑取样优化和战术板方向修复；按用户授权提交到 `codex/watch-liquid-glass` 分支。46 项离线测试通过，最新 GPU 播放性能复测尚未完成，见 [修复状态](product/watch/docs/玻璃与方向修复-20261010.md)。后端和既有前端保留，未部署。
 
 **10月10日17:00 · 新前端联调：** 已合并前端分支`codex/watch-liquid-glass`（e49dedb），同源原片/增强片、真实验收记录与创作台已适配；456项门禁通过，本地三态与增强片自然片尾通过，玻璃开/关6秒均约60FPS零丢帧。正式资源已发布，线上页面/三态可用但媒体加载等待明显，本轮线上片尾未通过；Git/备份收尾中。配音由同学负责“视频→模型文字稿→TTS”后续联调，当前原增强片保留。见[本轮说明](docs/前端合并与联调-20261010.md)。
 
-# BroadcastCode「深度赛场」黑客松准备资料
+# GameBuddy · NBA × AWS BroadcastCode
 
 **10月10日17:00 · RL加入前后端联调：** 用户已要求一起接入，RL侧已提供[统一调用入口和轻量展示数据](docs/RL前后端联调入口-20261010.md)，一条真实端点调用及456项全门禁通过；模型/冻结数据未改，无新训练。看板#11交链路Codex接Worker、叙事/烧录与watch抽屉，当前不等于成片已使用。
 
@@ -55,7 +57,7 @@
 
 本项目的目标是参加 NBA / AWS BroadcastCode 12h 黑客松：用官方比赛视频和数据驱动 AI Agent 分析关键事件与战术，将真实数据标注烧录成完整增强视频，并通过 CloudFront 交互网页交付评委体验；解说可选。
 
-**已部署「关键一拍 / THE HIDDEN PLAY」正式产品：** [当前正式入口](https://deky02484tknr.cloudfront.net/product/)包含观看原片、选择关注点、关键动作慢放、官方出手数据与证据回看，以及真实 Agent 创作入口。产品工程在 [product/](product/README.md)，现场讲解在 [5 分钟演示脚本](product/PITCH.md)。两段公开练习片已与官方具体出手唯一匹配；两段旧练习成片保留为历史，当前正式账号新任务及浏览器完成情况见[本轮验收](docs/正式账号端到端验收-20261010.md)；最新回归与内容验收状态以[产品证据](product/evidence/README.md)为准。
+**GameBuddy 正式产品（页面改名待随联调发布）：** [当前正式入口](https://deky02484tknr.cloudfront.net/product/)包含观看原片、选择关注点、关键动作慢放、官方出手数据与证据回看，以及真实 Agent 创作入口。产品工程在 [product/](product/README.md)，现场讲解在 [5 分钟演示脚本](product/PITCH.md)。两段公开练习片已与官方具体出手唯一匹配；两段旧练习成片保留为历史，当前正式账号新任务及浏览器完成情况见[本轮验收](docs/正式账号端到端验收-20261010.md)；最新回归与内容验收状态以[产品证据](product/evidence/README.md)为准。
 
 原[练习入口](https://d2x8td5d05xg8h.cloudfront.net)与产品此前复用 Stack `BroadcastCodeTeam02Readiness20261006`，后续应从 `product/` 部署，避免旧工程覆盖新功能。旧 `aws-validation/` 对应资源已删除。正式账号当前从 `product/` 部署同名独立 Stack；受控输入接口已适配，完整官方评测协议与新考试素材验收仍待实际样例。
 

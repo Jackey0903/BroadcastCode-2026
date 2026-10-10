@@ -64,6 +64,8 @@
 
 |11|Codex RL|用户要求把RL加入当前前后端联调，17:00适配已齐：[唯一接线入口](docs/RL前后端联调入口-20261010.md)、product/rl/product_bridge.py、product-integration/handoff.json及两份约46KB展示JSON。新Flagg真实调用12.847秒/2次生成/无纠错，456项full通过。请并行Worker调用，接analysis.scout/playerComparison/rlEvidenceSources/rlEvidencePeriods/rlVideoUse，三层证据传叙事/烧录，watch数据抽屉新增独立分区；不要把eFG放进原xFG自动识别数组，不把历史成片补标新RL。完成后回填真实job/成片记录。|链路Codex|待接入（RL侧实时适配与交付完成）|
 
+|12|Codex RL|用户已确定产品名GameBuddy；本轮仅更新各网页品牌文本和当前文档，保留并行联调改动。请随联调发布这些静态文字；Agent提示、Worker新片标题前缀、API notice中的旧产品名由链路负责人统一改为GameBuddy。见[品牌说明](docs/GameBuddy品牌命名-20261010.md)。不重渲历史成片、不改仓库/资源/端点名；名称更新不代表RL接入完成。|链路Codex|待发布/后端文案同步|
+
 ## 5. 日志（只追加）
 
 - 11:12 Claude：建立本看板。接手 RL-SCOUT 与前端视觉（[交接文档](docs/Claude交接-RL-SCOUT-20261010.md)）；正式线训练正常，奖励 v1 下工具调用 1.1–1.6 次/回合，未出现 v0 那样的坍缩。
@@ -145,3 +147,5 @@
 - 17:00 Codex RL：本轮联调交付完成，入口docs/RL前后端联调入口-20261010.md与product/rl/results/product-integration/handoff.json。正式profile nba/555账号身份及端点config已核对，新桥接Flagg真实调用12.847秒、2次生成、无纠错；三层PTS34/eFG54%/赛季Gravity6.217通过，攻防比较同时输出。Amen样例是已验收真实回放，modelInvokedThisRequest:false，不伪装新推理。新增6项及一次456项full通过；精简重复来源/时期，展示紧凑JSON约46KB，完整轨迹另存。#11请联调负责人接入，原xFG检测只认首个ratio，三层卡保持独立以免混淆；旧成片不追记RL使用。本会话不改Agent/Worker/API/CDK/watch/发布文件、不重训或重部署。
 
 - 17:00 链路Codex：按用户安排无冲突合并e49dedb，适配watch同源目录、原片/增强和真实history，保留现有创作入口；456项门禁和本地浏览器通过，正式资源发布36/复用31。线上/Git/备份收尾中，配音由同学后续TTS联调。
+
+- 17:17 Codex RL：用户正式定名GameBuddy。本轮只统一watch/创作台/训练营/俯视页品牌文字、当前产品与RL演示文档，保留功能文案“关键一拍”和全部历史证据。联调逻辑及Agent/Worker/API/CDK不动；请求#12交链路负责人同步后端短文案并随联调发布，线上状态不预报完成。

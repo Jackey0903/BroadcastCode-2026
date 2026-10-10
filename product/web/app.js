@@ -55,7 +55,7 @@
     document.querySelectorAll(".story-select").forEach((button) => { const active = button.dataset.story === id; button.classList.toggle("active", active); button.setAttribute("aria-pressed", String(active)); });
     $("story-index").textContent = `PLAY ${String(state.stories.indexOf(story) + 1).padStart(2,"0")} / ${text(story.player.team, "NBA")}`;
     $("story-title").textContent = story.title; $("story-subtitle").textContent = story.subtitle;
-    $("story-kicker").textContent = text(story.kicker, "NBA · THE HIDDEN PLAY");
+    $("story-kicker").textContent = text(story.kicker, "NBA · GameBuddy");
     const g = story.game; const eventTime = [number(g.period) !== null ? `第${Number(g.period)}节` : text(g.period), text(g.clock)].filter(Boolean).join(" "); $("story-game").textContent = [`${story.officialEvent.verified === true ? "官方事件" : "比赛片段"}${eventTime ? ` ${eventTime}` : ""}`, g.score ? `得分后 ${text(g.score)}` : ""].filter(Boolean).join(" · ");
     $("hook-question").textContent = text(story.hook.question, "这次进攻，你首先关注谁？");
     $("takeaway").textContent = text(story.takeaway, "回到画面，分别核对观察、数据和解读。");
@@ -112,7 +112,7 @@
     const choice = array(state.story.hook.choices).find((item) => item.id === state.choice);
     $("reveal-title").textContent = text(choice?.revealTitle, text(state.story.hook.revealTitle, "再看一次，留意关键细节。"));
     $("reveal-body").textContent = text(choice?.revealBody, text(state.story.hook.revealBody, state.story.takeaway));
-    $("reveal-panel").querySelector(".eyebrow").textContent = choice?.label ? `你的关注点 / ${text(choice.label)}` : "THE HIDDEN PLAY";
+    $("reveal-panel").querySelector(".eyebrow").textContent = choice?.label ? `你的关注点 / ${text(choice.label)}` : "GameBuddy";
     state.phase = "reveal"; renderPhase(); renderEvidence(); renderFrameComparison(); announce("已揭示关键一拍，可以回到对应时刻核对。");
   }
   function renderFrameComparison() {

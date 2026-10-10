@@ -1,4 +1,4 @@
-# 关键一拍 · THE HIDDEN PLAY
+# GameBuddy
 
 **10 月10日正式环境：** 新私有 [BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026) / main 已上传并在Team02 Portal锁定。正式账号为555726205424，活跃目标见[deployment.json](deployment.json)；当前[正式入口](https://deky02484tknr.cloudfront.net/product/)已通过CDK部署并发布媒体，AgentCore READY。正式链路已跑通：弗拉格网页创建／真实生成／完整播放／内容通过，选为展示片；阿门7a2内容拒收保留，观看区沿用已验收历史ce008…并标注historical。本轮按用户要求不追加重跑，见[正式账号验收](../docs/正式账号端到端验收-20261010.md)。最新269项核心门禁通过；此前262项CI成功，最新CI另核对对应提交，旧练习CloudFront不当作当前入口。
 
