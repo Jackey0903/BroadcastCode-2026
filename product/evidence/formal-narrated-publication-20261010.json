@@ -23,6 +23,11 @@
       "key": "product/media/formal/manifest.json",
       "sha256": "a7fd9bedc374f197d456256e76d0420cd110634a2dcb46f12fcd3567bd795bbe",
       "sizeBytes": 4887
+    },
+    {
+      "key": "product/media/formal/source.mp4",
+      "sha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+      "sizeBytes": 90393523
     }
   ],
   "watchUrl": "https://deky02484tknr.cloudfront.net/product/watch/index.html?story=formal&version=enhanced",
@@ -57,5 +62,6 @@
     "mediaError": null,
     "mutedForPlaybackCheck": true,
     "humanVoiceAudition": false
-  }
+  },
+  "originalSourcePublished": true
 }
