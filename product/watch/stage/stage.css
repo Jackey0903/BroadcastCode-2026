@@ -20,15 +20,16 @@
  background:radial-gradient(ellipse at 78% 85%,#303246 0,transparent 62%),linear-gradient(135deg,#151a24,#0c1018 65%);
 }
 #stage[data-glass="css"] #ambience {display:none}
+/* Selected classic frost: 3px / .36 / 118% / .10 / .08 / .15.
+   Independent of retained liquidGL optical presets. */
 #stage:is([data-glass="css"],[data-glass="css-fallback"]) .glass-target {
- background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.025) 40%,rgba(15,22,35,.04)),var(--material-tint,rgba(15,22,35,.12));
- border:1px solid rgba(255,255,255,.24);
- box-shadow:inset 0 1px 0 rgba(255,255,255,.32),inset 0 -1px 0 rgba(255,255,255,.06),0 8px 24px rgba(0,0,0,.18);
- -webkit-backdrop-filter:blur(var(--material-blur,8px)) saturate(120%);
- backdrop-filter:blur(var(--material-blur,8px)) saturate(120%);
+ background:linear-gradient(155deg,rgba(255,255,255,.08),transparent 65%),rgba(18,24,34,.36);
+ border:1px solid rgba(255,255,255,.10);
+ box-shadow:0 8px 24px rgba(0,0,0,.14),inset 0 1px rgba(255,255,255,.08);
+ -webkit-backdrop-filter:blur(3px) saturate(118%);
+ backdrop-filter:blur(3px) saturate(118%);
 }
 #stage:is([data-glass="css"],[data-glass="css-fallback"]) :is(#court-shell,.content-sheet)>.glass-target {
- background:linear-gradient(145deg,rgba(90,108,144,.12),rgba(18,24,37,.06)),var(--material-solid,rgba(24,20,32,.28));
  -webkit-backdrop-filter:none;
  backdrop-filter:none;
 }
@@ -43,13 +44,20 @@
  backdrop-filter:none;
 }
 
-/* A faint court-color edge gives the adjacent panel depth without sampling video. */
-#stage:is([data-glass="css"],[data-glass="css-fallback"]) #court-shell>.glass-target {
- background:linear-gradient(145deg,color-mix(in srgb,var(--material-accent) 5%,rgba(40,48,67,.12)),rgba(18,24,37,.06)),var(--material-solid,rgba(24,20,32,.28));
-}
-
 /* Keep labels legible over bright court colors without another dark surface. */
 #stage:is([data-glass="css"],[data-glass="css-fallback"]) :is(#controls-host .player-controls-content,#top-tabs .glass-content,.popover>.glass-content,.rate-menu .glass-content) {
  text-shadow:0 1px 3px rgba(0,0,0,.72);
 }
 #stage:is([data-glass="css"],[data-glass="css-fallback"]) .popover .keyboard-hint {color:#e3e7f0}
+
+/* Flat selected surfaces, with no metallic bevel or nested backdrop blur. */
+#stage:is([data-glass="css"],[data-glass="css-fallback"]) :is(#top-tabs button.selected,.mode-choices button.active,.court-segment-highlight) {
+ background:rgba(255,255,255,.15);
+ border-color:transparent;
+ box-shadow:inset 0 1px rgba(255,255,255,.08);
+}
+#stage:is([data-glass="css"],[data-glass="css-fallback"]) .court-segments {
+ background:linear-gradient(155deg,rgba(255,255,255,.08),transparent 65%),rgba(18,24,34,.36);
+ border:1px solid rgba(255,255,255,.10);
+ box-shadow:inset 0 1px rgba(255,255,255,.08);
+}
