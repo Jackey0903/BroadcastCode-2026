@@ -8,9 +8,48 @@
 
 .popover{width:var(--menus-width,350px);border-radius:var(--menus-radius,24px);font-size:var(--menus-font-size,16px)}.popover>.glass-content{padding:var(--menus-padding,22px);background:#151c2699}.popover h2{font-size:var(--menus-title-size,19px)}.mode-choices button{border-radius:var(--menus-item-radius,15px)}.left-drawer .dock-mascot svg{width:var(--mascot-size,40px);height:var(--mascot-size,40px)}
 
-#stage[data-glass="css-fallback"]::after{content:"当前使用基础玻璃外观 · 可继续观看";position:absolute;z-index:90;left:50%;bottom:10px;transform:translateX(-50%);padding:6px 14px;border-radius:12px;background:#302823eb;color:#ffdcb5;font-size:12px;pointer-events:none}
 
 /* GPU tint owns material tone. Readability masks remain for CSS fallback only. */
 #stage[data-glass="gpu"] :is(.content-sheet-foreground,#court-foreground),
 #stage[data-glass="gpu"] .popover>.glass-content,
 #stage[data-glass="gpu"] .player-controls .rate-menu .glass-content{background:transparent}
+
+/* Competition default: only compact surfaces use native backdrop blur.
+   The scene is static; no video-to-canvas copies or liquidGL render loop. */
+#stage[data-glass="css"] #scene {
+ background:radial-gradient(ellipse at 78% 85%,#303246 0,transparent 62%),linear-gradient(135deg,#151a24,#0c1018 65%);
+}
+#stage[data-glass="css"] #ambience {display:none}
+#stage:is([data-glass="css"],[data-glass="css-fallback"]) .glass-target {
+ background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.025) 40%,rgba(15,22,35,.04)),var(--material-tint,rgba(15,22,35,.12));
+ border:1px solid rgba(255,255,255,.24);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.32),inset 0 -1px 0 rgba(255,255,255,.06),0 8px 24px rgba(0,0,0,.18);
+ -webkit-backdrop-filter:blur(var(--material-blur,8px)) saturate(120%);
+ backdrop-filter:blur(var(--material-blur,8px)) saturate(120%);
+}
+#stage:is([data-glass="css"],[data-glass="css-fallback"]) :is(#court-shell,.content-sheet)>.glass-target {
+ background:linear-gradient(145deg,rgba(90,108,144,.12),rgba(18,24,37,.06)),var(--material-solid,rgba(24,20,32,.28));
+ -webkit-backdrop-filter:none;
+ backdrop-filter:none;
+}
+#stage:is([data-glass="css"],[data-glass="css-fallback"]) :is(#court-foreground,.content-sheet-foreground),
+#stage:is([data-glass="css"],[data-glass="css-fallback"]) .popover>.glass-content,
+#stage:is([data-glass="css"],[data-glass="css-fallback"]) .player-controls .rate-menu .glass-content {background:transparent}
+
+/* Avoid re-rasterizing backdrop blur while the 350ms geometry animation moves.
+   Compact surfaces regain their native frosted material once the layout settles. */
+#stage[data-glass="css"]:is([data-phase="opening"],[data-phase="closing"]) .glass-target {
+ -webkit-backdrop-filter:none;
+ backdrop-filter:none;
+}
+
+/* A faint court-color edge gives the adjacent panel depth without sampling video. */
+#stage:is([data-glass="css"],[data-glass="css-fallback"]) #court-shell>.glass-target {
+ background:linear-gradient(145deg,color-mix(in srgb,var(--material-accent) 5%,rgba(40,48,67,.12)),rgba(18,24,37,.06)),var(--material-solid,rgba(24,20,32,.28));
+}
+
+/* Keep labels legible over bright court colors without another dark surface. */
+#stage:is([data-glass="css"],[data-glass="css-fallback"]) :is(#controls-host .player-controls-content,#top-tabs .glass-content,.popover>.glass-content,.rate-menu .glass-content) {
+ text-shadow:0 1px 3px rgba(0,0,0,.72);
+}
+#stage:is([data-glass="css"],[data-glass="css-fallback"]) .popover .keyboard-hint {color:#e3e7f0}

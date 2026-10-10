@@ -1,7 +1,7 @@
 import {baseline,getConfig,subscribe,updateConfig} from './config/config.js';
 import {createStageLayout} from './stage/layout.js';
 import {GlassManager} from './glass/glass-manager.js';
-import {paintAmbienceSource} from './glass/ambience-source.js';
+import {paintAmbienceSource,stopAmbienceSource,ambienceSourceStatus} from './glass/ambience-source.js';
 import {createPlayerControls} from './media/player-controls.js';
 import {createDrawer} from './navigation/drawer.js';
 import {loadCatalog} from './adapters/catalog.js';
@@ -50,7 +50,7 @@ function displayedCourtTime(){
  return video.ended&&Number.isFinite(lastFrame)&&lastFrame<=t&&t-lastFrame<=.1?lastFrame:t;
 }
 function syncContent(){if(!story)return;court.update(story.sample==='flagg'?courtData:null,displayedCourtTime(),focusId);syncAnnotations();const chapters=story.chapters||[];const current=[...chapters].reverse().find(c=>video.currentTime>=(c.start??c.time??0))||chapters[0];const key=current?JSON.stringify(current):story.id;if(key!==lastChapter){lastChapter=key;$('#moment-kicker').textContent=current?.title||'关键一拍 · 原片';$('#moment-title').textContent=current?.headline||current?.title||story.title||'看懂这一拍';$('#moment-subtitle').textContent=current?.caption||current?.description||current?.text||story.subtitle||'';}$('#moment-heading').hidden=!getConfig().annotations.enabled;}
-function paintAmbience(){paintAmbienceSource($('#ambience'),video,stage);}
+function paintAmbience(){if(!glass?.enabled)return;paintAmbienceSource($('#ambience'),video,stage);}
 function frame(now,meta){if(destroyed)return;if(Number.isFinite(meta?.mediaTime))lastFrame=meta.mediaTime;checkClipEnd(video.currentTime);paintAmbience();syncContent();mediaCallback=video.requestVideoFrameCallback?.(frame)||0;}
 function cancelClipPlayback(){const clip=clipPlayback;clipPlayback=null;if(clip&&Number.isFinite(clip.restoreRate))video.playbackRate=clip.restoreRate;}
 function checkClipEnd(t){
@@ -135,11 +135,11 @@ window.addEventListener('broadcast-layout-request',e=>{if(!['immersive','fullCou
 window.addEventListener('broadcast-inspector-state',e=>{activeMenu=e.detail.open?'inspector':null;showControls();});
 window.addEventListener('broadcast-config-pick',e=>{activeMenu=e.detail.active?'inspector-pick':null;showControls();});
 $('#heading-mascot').dataset.component='mascot';
-window.broadcastDiagnostics=()=>({glass:glass?.status(),layout:layout.rects,mode:layout.mode,media:{src:video.currentSrc,time:video.currentTime,displayedCourtTime:displayedCourtTime(),lastDecodedFrameTime:Number.isFinite(lastFrame)?lastFrame:null,status:story?.media?.source?.status||'unloaded',duration:video.duration,paused:video.paused,ended:video.ended,videoWidth:video.videoWidth,videoHeight:video.videoHeight,quality:(()=>{const q=video.getVideoPlaybackQuality?.();return q?{totalVideoFrames:q.totalVideoFrames,droppedVideoFrames:q.droppedVideoFrames,corruptedVideoFrames:q.corruptedVideoFrames}:null;})()},annotations:{validHeadAnchors:story?.videoHeadAnchors?.length||0},config:getConfig()});
+window.broadcastDiagnostics=()=>({glass:glass?.status(),ambience:ambienceSourceStatus($('#ambience')),layout:layout.rects,mode:layout.mode,media:{src:video.currentSrc,time:video.currentTime,displayedCourtTime:displayedCourtTime(),lastDecodedFrameTime:Number.isFinite(lastFrame)?lastFrame:null,status:story?.media?.source?.status||'unloaded',duration:video.duration,paused:video.paused,ended:video.ended,videoWidth:video.videoWidth,videoHeight:video.videoHeight,quality:(()=>{const q=video.getVideoPlaybackQuality?.();return q?{totalVideoFrames:q.totalVideoFrames,droppedVideoFrames:q.droppedVideoFrames,corruptedVideoFrames:q.corruptedVideoFrames}:null;})()},annotations:{validHeadAnchors:story?.videoHeadAnchors?.length||0},config:getConfig()});
 window.broadcastUI={setMode,openAutomatic,openDrawer:()=>drawer.setOpen(true),openInspector:()=>inspector.open(),selectStory:(id)=>selectStory(catalog.find(s=>s.sample===id)),video,layout,getConfig,updateConfig,showControls,glass:()=>glass};
 // Glass and the inspector are independent of successful media decoding. Their
 // controls remain usable when a local MP4 is missing, and loadeddata can recover.
-glass=new GlassManager(stage,getConfig);glass.start();applyConfig();
+glass=new GlassManager(stage,getConfig,{enabled:new URLSearchParams(location.search).get('glass')==='liquid',onModeChange:enabled=>{if(enabled)paintAmbience();else stopAmbienceSource($('#ambience'));}});glass.start();applyConfig();
 if(video.requestVideoFrameCallback)mediaCallback=video.requestVideoFrameCallback(frame);else video.addEventListener('timeupdate',frame);
 const initialMode=new URLSearchParams(location.search).get('mode');if(['fullCourt','halfCourt'].includes(initialMode))setMode(initialMode,true);showControls();
 try{
@@ -148,4 +148,4 @@ try{
  catch(error){courtData=null;showNotice('战术示意暂不可用：'+error.message);}
  selectStory(catalog[0]);
 }catch(error){showNotice('载入失败：'+error.message);$('#load-error').hidden=false;console.error(error);}
-window.addEventListener('pagehide',event=>{if(event.persisted)return;destroyed=true;seekRequest++;cancelClipPlayback();clearTimeout(rightTimer);clearTimeout(leftTimer);clearTimeout(idleTimer);clearTimeout(noticeTimer);unsubscribeConfig();inspector?.destroy();glass?.destroy();layout.destroy();controls.destroy();court.destroy();annotations.destroy();video.cancelVideoFrameCallback?.(mediaCallback);video.removeEventListener('timeupdate',frame);});
+window.addEventListener('pagehide',event=>{if(event.persisted)return;destroyed=true;seekRequest++;cancelClipPlayback();clearTimeout(rightTimer);clearTimeout(leftTimer);clearTimeout(idleTimer);clearTimeout(noticeTimer);unsubscribeConfig();inspector?.destroy();glass?.destroy();stopAmbienceSource($('#ambience'));layout.destroy();controls.destroy();court.destroy();annotations.destroy();video.cancelVideoFrameCallback?.(mediaCallback);video.removeEventListener('timeupdate',frame);});

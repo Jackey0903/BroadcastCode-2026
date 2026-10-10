@@ -1,7 +1,7 @@
 /** One bitmap is both visible behind the UI and sampled by liquidGL.
  * Reads the existing video; it creates no second player or media clock.
  */
-const observed = new WeakSet(), softwareBuffers = new WeakMap();
+const observed = new WeakMap(), softwareBuffers = new WeakMap();
 let nativeFilterSupport;
 function supportsCanvasFilter() {
   if (nativeFilterSupport !== undefined) return nativeFilterSupport;
@@ -46,6 +46,7 @@ export function softenAmbiencePixels(data, width, height, radius, scratch) {
 }
 
 export function paintAmbienceSource(canvas, video, stage) {
+  if (stage.dataset.glass === 'css') return;
   if (!canvas || video.readyState < 2 || !video.videoWidth) return;
   const width = 384;
   const height = Math.max(1, Math.round(width * stage.clientHeight / Math.max(1, stage.clientWidth)));
@@ -91,9 +92,22 @@ export function paintAmbienceSource(canvas, video, stage) {
   canvas.dataset.filterBaked = 'true';
   canvas.dataset.filterMethod = native ? 'canvas2d-native' : 'software-box-blur';
   if (!observed.has(canvas)) {
-    observed.add(canvas);
     const resize = new ResizeObserver(() => paintAmbienceSource(canvas, video, stage));
     resize.observe(stage);
-    window.addEventListener('pagehide', () => resize.disconnect(), { once: true });
+    const stop = () => stopAmbienceSource(canvas);
+    observed.set(canvas, { resize, stop });
+    window.addEventListener('pagehide', stop, { once: true });
   }
+}
+
+// Release the liquid-only observer on an engine switch, not just at page close.
+export function stopAmbienceSource(canvas) {
+ const state = observed.get(canvas);
+ if (!state) return;
+ state.resize.disconnect();
+ window.removeEventListener('pagehide', state.stop);
+ observed.delete(canvas);
+}
+export function ambienceSourceStatus(canvas) {
+ return { observerActive: observed.has(canvas), paintedFrames: Number(canvas?.dataset.liquidFrame) || 0 };
 }

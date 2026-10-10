@@ -28,6 +28,7 @@ export function createInspector() {
   element.className = 'config-inspector'; element.dataset.liquidIgnore = '';
   element.setAttribute('aria-label', '中文可视化调参');
   element.innerHTML = `<div class="inspector-heading"><div><h2>可视化调参</h2><p>点选组件 · 实时预览 · 仅本机保存</p></div><button type="button" class="inspector-close" aria-label="关闭调参">×</button></div>
+    <label class="inspector-group-picker">材质模式<select class="material-mode" aria-label="材质模式"><option value="css">CSS 毛玻璃 · 比赛默认</option><option value="liquid">Liquid Glass · 备用光学效果</option></select></label><p class="inspector-material-note"></p>
     <div class="inspector-tools"><button type="button" data-action="pick">在画面中点选</button><button type="button" data-action="undo">撤销</button><button type="button" data-action="redo">重做</button></div>
     <div class="inspector-component-grid" aria-label="选择组件">${['dock','fullCourt','halfCourt','controls','content','menus','topbar','heading','mascot','courtTheme'].map(group => `<button type="button" data-component-choice="${group}">${labels[group][0]}</button>`).join('')}</div>
     <label class="inspector-group-picker">正在调整<select class="group-select" aria-label="参数组">${Object.entries(labels).map(([group, [title]]) => `<option value="${group}">${title}</option>`).join('')}</select></label>
@@ -36,7 +37,7 @@ export function createInspector() {
     <button type="button" data-action="reset-group" class="inspector-reset-group">恢复当前组件</button>
     <details class="inspector-reference"><summary>三张原图基准 · 一键恢复</summary><div class="inspector-reference-grid">${referenceStates.map(([mode,file,title]) => `<button type="button" data-reference="${mode}"><img src="${new URL('./references/' + file, import.meta.url).href}" alt="${title}原图"><span>恢复${title}</span></button>`).join('')}</div><p>恢复全部显示参数并进入对应形态，可撤销参数。</p></details>
     <details class="inspector-presets"><summary>命名预设 · 仅本机浏览器</summary><div class="preset-save-row"><input class="preset-name" type="text" maxlength="48" placeholder="新预设名称" aria-label="预设名称"><button type="button" data-action="preset-create">新建</button></div><select class="preset-select" aria-label="已保存预设"><option value="">尚无命名预设</option></select><div class="preset-actions"><button type="button" data-action="preset-load">应用</button><button type="button" data-action="preset-update">更新</button><button type="button" data-action="preset-rename">重命名</button><button type="button" data-action="preset-delete">删除</button></div></details>
-    <details class="inspector-diagnostics"><summary>实际 liquidGL 渲染状态</summary><pre aria-live="off"></pre></details>
+    <details class="inspector-diagnostics"><summary>实际材质与渲染状态</summary><pre aria-live="off"></pre></details>
     <p class="inspector-note">调参只影响界面与球场皮肤；球员身份、坐标、比分与来源保持只读。</p><p class="inspector-message" role="status" aria-live="polite"></p>
     <div class="inspector-footer"><button type="button" data-action="save" class="inspector-primary">保存当前配置</button><button type="button" data-action="export">导出 JSON</button><button type="button" data-action="import">导入 JSON</button><input type="file" accept="application/json,.json" hidden aria-label="导入本机显示预设"></div>`;
   const $ = selector => element.querySelector(selector);
@@ -77,6 +78,17 @@ export function createInspector() {
   }
   function sync() {
     const config = getConfig(), status = getConfigStatus();
+    const liquid = !!window.broadcastUI?.glass()?.enabled;
+    $('.material-mode').value = liquid ? 'liquid' : 'css';
+    $('.inspector-material-note').textContent = liquid
+      ? '液态光学效果已请求启用；实际初始化结果见下方渲染状态。切换材质不会覆盖预设。'
+      : 'CSS 模式：折射、边缘深度和边缘宽度仅保留配置，暂不生效。小组件磨砂映射为 6–10px 模糊，染色不透明度按保存值的 28% 呈现；战术板按 65% 呈现、不做模糊。内容抽屉保留至少 42% 底色以保证阅读。';
+    fields.querySelectorAll('[data-key]').forEach(input => {
+      const opticalOnly = ['refraction','bevelDepth','bevelWidth'].includes(input.dataset.key);
+      const largeFrost = input.dataset.key === 'frost' && ['fullCourt','halfCourt','content'].includes(picker.value);
+      input.disabled = !liquid && (opticalOnly || largeFrost);
+      input.title = input.disabled ? '参数已保留，仅在 Liquid Glass 模式生效' : '';
+    });
     fields.querySelectorAll('[data-key]').forEach(input => { const value = config[picker.value][input.dataset.key]; if (input.type === 'checkbox') input.checked = value; else if (input !== document.activeElement || input.type !== 'number') input.value = value; });
     fields.querySelectorAll('[data-color-for]').forEach(output => { output.textContent = config[picker.value][output.dataset.colorFor]; });
     $('[data-action="undo"]').disabled = !status.canUndo; $('[data-action="redo"]').disabled = !status.canRedo;
@@ -104,6 +116,7 @@ export function createInspector() {
   function onPickClick(event) { if (!picking) return; const target = pickTarget(event.target); if (!target || !Object.hasOwn(labels,target.dataset.component)) return; event.preventDefault(); event.stopImmediatePropagation(); const group = target.dataset.component; clearPicking(); selectComponent(group); open(); }
   function onPickKey(event) { if (picking && event.key === 'Escape') { event.preventDefault(); event.stopImmediatePropagation(); clearPicking(); open(); } }
   document.addEventListener('pointermove', onPickMove, true); document.addEventListener('click', onPickClick, true); document.addEventListener('keydown', onPickKey, true);
+  $('.material-mode').addEventListener('change', () => { window.broadcastUI?.glass()?.setEnabled($('.material-mode').value === 'liquid'); sync(); diagnostics(); });
   picker.addEventListener('change', () => selectComponent(picker.value));
   $('.inspector-close').addEventListener('click', close); element.addEventListener('close', () => clearInterval(diagnosticTimer));
   element.addEventListener('keydown', event => { if (event.key === 'Escape') { event.stopPropagation(); close(); } });

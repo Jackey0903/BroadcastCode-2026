@@ -1,0 +1,654 @@
+ %CPU COMM
+  4.3 /sbin/launchd
+  2.5 /usr/libexec/logd
+  0.0 /usr/libexec/UserEventAgent
+  1.9 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/Support/fseventsd
+  0.0 /System/Library/PrivateFrameworks/MediaRemote.framework/Support/mediaremoted
+  0.0 /usr/sbin/systemstats
+  0.0 /usr/libexec/configd
+  0.0 /System/Library/CoreServices/powerd.bundle/powerd
+  0.0 /usr/libexec/IOMFB_bics_daemon
+  0.0 /usr/libexec/remoted
+  0.0 /System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd_system
+  0.0 /usr/libexec/watchdogd
+  1.7 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds
+  0.0 /usr/libexec/kernelmanagerd
+  0.0 /usr/libexec/diskarbitrationd
+  0.0 /usr/sbin/syslogd
+  0.0 /usr/libexec/thermalmonitord
+  0.2 /System/Library/PrivateFrameworks/CoreDuetContext.framework/Resources/contextstored
+  0.0 /usr/libexec/xprotectd
+  1.2 /usr/libexec/opendirectoryd
+  0.2 /System/Library/PrivateFrameworks/ApplePushService.framework/apsd
+  2.9 /System/Library/CoreServices/launchservicesd
+  0.0 /usr/libexec/timed
+  0.0 /System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/Resources/usbmuxd
+  0.0 /usr/sbin/securityd
+  0.2 /usr/libexec/locationd
+  0.0 /usr/libexec/nesessionmanager
+  0.0 autofsd
+  0.1 /usr/libexec/dasd
+  0.2 /usr/sbin/distnoted
+  0.4 /usr/libexec/PerfPowerServices
+  0.0 /System/Library/CoreServices/logind
+  0.0 /System/Library/PrivateFrameworks/GenerationalStorage.framework/Versions/A/Support/revisiond
+  0.0 /usr/sbin/KernelEventAgent
+  0.0 /usr/libexec/usermanagerd
+  2.0 /usr/sbin/bluetoothd
+  0.9 /usr/sbin/notifyd
+  0.1 /usr/libexec/corebrightnessd
+  0.0 /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/Resources/com.apple.cmio.registerassistantservice
+ 56.5 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+  2.7 /System/Library/PrivateFrameworks/TCC.framework/Support/tccd
+  5.7 /usr/sbin/cfprefsd
+  1.6 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+  2.7 /usr/libexec/runningboardd
+  0.0 /System/Library/CoreServices/coreservicesd
+  2.7 /usr/libexec/trustd
+  0.1 /usr/libexec/clocksyncd
+  0.0 /usr/libexec/apfsd
+  0.0 /usr/libexec/lsd
+  0.0 /usr/libexec/nehelper
+  0.0 /usr/libexec/airportd
+  0.0 /System/Library/PrivateFrameworks/CoreAnalytics.framework/Support/analyticsd
+  0.0 /usr/libexec/biometrickitd
+  0.3 /usr/libexec/symptomsd
+  0.5 /System/Library/Frameworks/Security.framework/Versions/A/XPCServices/authd.xpc/Contents/MacOS/authd
+  3.0 /usr/libexec/syspolicyd
+  0.0 /usr/sbin/distnoted
+  0.4 /System/Library/PrivateFrameworks/BiomeStreams.framework/Support/biomed
+  0.9 /usr/sbin/mDNSResponder
+  0.0 /usr/libexec/ApplicationFirewall/socketfilterfw
+  0.0 /usr/sbin/mDNSResponderHelper
+  1.2 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+  0.0 /System/Library/CoreServices/TimeMachine/backupd
+  0.0 /System/Library/PrivateFrameworks/SystemStatusServer.framework/Support/systemstatusd
+  0.0 /usr/sbin/distnoted
+  0.0 /usr/libexec/eligibilityd
+  0.0 /usr/libexec/mobileactivationd
+  0.0 /usr/sbin/WirelessRadioManagerd
+  0.0 /usr/libexec/searchpartyd
+  0.0 /System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Resources/backgroundtaskmanagementd
+  0.0 /usr/sbin/distnoted
+  0.0 /usr/libexec/com.apple.cmio.videodriverkithostextension.systemextension/Contents/MacOS/com.apple.cmio.videodriverkithostextension
+  0.0 /usr/sbin/appleh13camerad
+  0.0 /usr/sbin/distnoted
+  0.2 /usr/libexec/gamepolicyd
+  0.0 /usr/libexec/cameracaptured
+  0.0 /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/Resources/UVCAssistant.systemextension/Contents/MacOS/UVCAssistant
+  0.0 /System/Library/CoreServices/appleeventsd
+  0.0 /usr/sbin/coreaudiod
+  4.5 /System/Library/DriverExtensions/com.apple.DriverKit-AppleBCMWLAN.dext/com.apple.DriverKit-AppleBCMWLAN
+  0.0 /System/Library/DriverExtensions/com.apple.DriverKit-IOUserDockChannelSerial.dext/com.apple.DriverKit-IOUserDockChannelSerial
+  0.0 /System/Library/DriverExtensions/com.apple.AppleUserHIDDrivers.dext/com.apple.AppleUserHIDDrivers
+  0.0 /usr/sbin/distnoted
+  0.0 /usr/sbin/distnoted
+  0.0 /usr/sbin/distnoted
+  0.0 Core Audio Driver (BlackHole2ch.driver)
+  0.0 /System/Library/CoreServices/Software Update.app/Contents/Resources/suhelperd
+  0.0 /usr/sbin/distnoted
+  0.0 /usr/sbin/BTLEServer
+  0.0 Core Audio Driver (ToDeskOutputDriver.driver)
+  0.0 Core Audio Driver (WMAudioPlugin.driver)
+  0.0 /System/Library/Frameworks/LocalAuthentication.framework/Support/coreauthd
+  0.0 /usr/libexec/modelmanagerd
+  0.0 /usr/libexec/audiomxd
+  0.0 /usr/sbin/distnoted
+  0.2 /usr/libexec/wifip2pd
+  1.8 /usr/sbin/distnoted
+  3.6 /usr/sbin/cfprefsd
+  0.0 /usr/libexec/secd
+  0.2 /usr/libexec/UserEventAgent
+  0.1 /System/Library/CoreServices/CoreServicesUIAgent.app/Contents/MacOS/CoreServicesUIAgent
+  0.0 /usr/sbin/universalaccessd
+  8.7 /System/Library/CoreServices/WindowManager.app/Contents/MacOS/WindowManager
+  1.9 /usr/libexec/pboard
+  0.0 /usr/libexec/lsd
+  7.5 /System/Library/PrivateFrameworks/BiomeStreams.framework/Support/BiomeAgent
+  0.0 /System/Library/PrivateFrameworks/UserNotificationsCore.framework/Support/usernotificationsd
+  0.0 /System/Library/PrivateFrameworks/TCC.framework/Support/tccd
+  0.0 /System/Library/PrivateFrameworks/CloudKitDaemon.framework/Support/cloudd
+  0.1 /usr/libexec/rapportd
+  0.0 /System/Library/CoreServices/WallpaperAgent.app/Contents/MacOS/WallpaperAgent
+  1.1 /usr/libexec/trustd
+  0.0 /System/Library/Frameworks/Accounts.framework/Versions/A/Support/accountsd
+  0.0 /System/Library/CoreServices/audioaccessoryd
+  0.0 /usr/libexec/neagent
+  0.0 /usr/libexec/networkserviceproxy
+  0.0 /usr/libexec/containermanagerd
+  0.0 /usr/libexec/linkd
+  0.0 /usr/libexec/nsurlsessiond
+  0.0 /usr/libexec/knowledge-agent
+ 17.4 /System/Library/CoreServices/MenuBarAgent.app/Contents/MacOS/MenuBarAgent
+  0.0 /usr/libexec/findmydevice-user-agent
+  0.0 /System/Library/PrivateFrameworks/IDS.framework/identityservicesd.app/Contents/MacOS/identityservicesd
+  0.3 /System/Library/CoreServices/talagentd
+  0.4 /usr/sbin/usernoted
+  0.6 /usr/libexec/sharingd
+  1.8 /System/Library/CoreServices/Dock.app/Contents/MacOS/Dock
+  0.3 /System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter
+  0.1 /System/Library/CoreServices/SystemUIServer.app/Contents/MacOS/SystemUIServer
+  0.8 /System/Library/CoreServices/Finder.app/Contents/MacOS/Finder
+  9.1 /System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Support/fontd
+  0.0 /usr/libexec/ContinuityCaptureAgent
+  0.0 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/XPCServices/com.apple.hiservices-xpcservice.xpc/Contents/MacOS/com.apple.hiservices-xpcservice
+  0.0 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Support/fontworker
+  0.0 /System/Library/CoreServices/sharedfilelistd
+  0.0 automountd
+  0.7 /System/Library/PrivateFrameworks/ViewBridge.framework/Versions/A/XPCServices/ViewBridgeAuxiliary.xpc/Contents/MacOS/ViewBridgeAuxiliary
+  0.0 /System/Library/Frameworks/CryptoTokenKit.framework/ctkd
+  0.0 /System/Library/PrivateFrameworks/FileProvider.framework/Support/fileproviderd
+  0.0 /System/Library/PrivateFrameworks/AMPDevices.framework/Versions/A/Support/AMPDeviceDiscoveryAgent
+  0.1 /System/Library/PrivateFrameworks/UserActivity.framework/Agents/useractivityd
+  0.0 /System/Library/CoreServices/Dock.app/Contents/XPCServices/com.apple.dock.extra.xpc/Contents/MacOS/com.apple.dock.extra
+  0.2 /System/Library/CoreServices/CoreLocationAgent.app/Contents/MacOS/CoreLocationAgent
+  2.3 /System/Library/PrivateFrameworks/CoreDuetContext.framework/Resources/ContextStoreAgent
+  0.1 /System/Library/CoreServices/AccessibilityUIServer.app/Contents/MacOS/AccessibilityUIServer
+  1.0 /System/Applications/Siri AI.app/Contents/MacOS/Siri AI
+  0.0 /System/Library/ExtensionKit/Extensions/WallpaperImageExtension.appex/Contents/MacOS/WallpaperImageExtension
+  2.3 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+  0.4 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+  0.0 /System/Library/PrivateFrameworks/TelephonyUtilities.framework/callservicesd
+  0.0 /System/Library/ExtensionKit/Extensions/WallpaperAerialsExtension.appex/Contents/MacOS/WallpaperAerialsExtension
+  0.0 /System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod
+  0.0 /System/Library/CoreServices/Dock.app/Contents/XPCServices/com.apple.dock.external.extra.arm64.xpc/Contents/MacOS/com.apple.dock.external.extra.arm64
+  0.0 /usr/libexec/rosetta/oahd
+  0.0 /System/Library/PrivateFrameworks/IMCore.framework/imagent.app/Contents/MacOS/imagent
+  0.4 /System/Library/Frameworks/LocalAuthentication.framework/Support/coreauthd
+  0.0 /System/Library/Frameworks/CryptoTokenKit.framework/ctkd
+  0.0 /Applications/DoubaoWork.app/Contents/PlugIns/finder-ext.appex/Contents/MacOS/finder-ext
+  0.0 /Applications/Utilities/Adobe Sync/CoreSync/Core Sync.app/Contents/PlugIns/ACCFinderSync.appex/Contents/MacOS/ACCFinderSync
+  0.0 /System/Library/PrivateFrameworks/AgentSessionKitRuntime.framework/Versions/A/agentstored
+  0.0 /System/Library/PrivateFrameworks/StatusKit.framework/StatusKitAgent
+  0.0 /usr/libexec/nearbyd
+  0.1 /usr/libexec/fskitd
+  0.0 /usr/sbin/filecoordinationd
+  0.0 /System/Library/PrivateFrameworks/DoNotDisturbServer.framework/Support/donotdisturbd
+  0.1 /System/Library/CoreServices/WiFiAgent.app/Contents/MacOS/WiFiAgent
+  0.0 /usr/libexec/studentd
+  0.0 /Applications/Keka.app/Contents/PlugIns/KekaFinderIntegration.appex/Contents/MacOS/KekaFinderIntegration
+  0.0 /System/Library/PrivateFrameworks/CommunicationsFilter.framework/CMFSyncAgent
+  0.0 /System/Library/CoreServices/UIKitSystem.app/Contents/MacOS/UIKitSystem
+  0.1 /System/Library/CoreServices/NotificationCenter.app/Contents/MacOS/NotificationCenter
+  0.0 /System/Library/PrivateFrameworks/CloudDocs.framework/PlugIns/com.apple.CloudDocs.iCloudDriveFileProvider.appex/Contents/MacOS/com.apple.CloudDocs.iCloudDriveFileProvider
+  0.0 /usr/libexec/rtcreportingd
+  0.0 /System/Library/PrivateFrameworks/HearingCore.framework/heard
+  0.0 /System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd
+  0.2 /System/Library/Frameworks/InputMethodKit.framework/Resources/imklaunchagent
+  0.1 /System/Library/CoreServices/Siri.app/Contents/MacOS/Siri
+  0.0 /System/Library/Image Capture/Support/icdd
+  0.0 /System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/AirPlayUIAgent
+  0.1 /System/Library/CoreServices/diagnostics_agent
+  0.3 /System/Library/CoreServices/TextInputMenuAgent.app/Contents/MacOS/TextInputMenuAgent
+  0.0 /System/Library/Frameworks/CryptoTokenKit.framework/ctkahp.bundle/Contents/MacOS/ctkahp
+ 11.2 /System/Library/PrivateFrameworks/TextInputUIMacHelper.framework/Versions/A/XPCServices/CursorUIViewService.xpc/Contents/MacOS/CursorUIViewService
+  1.0 /System/Library/Input Methods/SCIM.app/Contents/PlugIns/SCIM_Extension.appex/Contents/MacOS/SCIM_Extension
+  0.0 /System/Library/Input Methods/PressAndHold.app/Contents/PlugIns/PAH_Extension.appex/Contents/MacOS/PAH_Extension
+  0.0 /System/Library/PrivateFrameworks/AuthKit.framework/Versions/A/Support/akd
+  0.0 /System/Library/DriverExtensions/IOUserBluetoothSerialDriver.dext/IOUserBluetoothSerialDriver
+  0.0 /System/Library/DriverExtensions/IOUserBluetoothSerialDriver.dext/IOUserBluetoothSerialDriver
+  0.0 /System/Library/PrivateFrameworks/CoreADI.framework/adid
+  0.0 /System/Library/PrivateFrameworks/MediaRemote.framework/Support/mediaremoteagent
+  0.0 /usr/libexec/avconferenced
+  0.0 /usr/libexec/appleaccountd
+  0.0 /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/CVMServer
+  0.0 /System/Library/CoreServices/UniversalControl.app/Contents/MacOS/UniversalControl
+  0.0 /usr/libexec/SidecarRelay
+  0.0 /System/Library/PrivateFrameworks/AssistantServices.framework/Versions/A/Support/assistantd
+  0.0 /usr/libexec/searchpartyuseragent
+  0.0 /System/Library/PrivateFrameworks/SiriInference.framework/Versions/A/siriinferenced
+  0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdbulkimport
+  0.0 /usr/sbin/netbiosd
+  0.0 /System/Library/PrivateFrameworks/PackageKit.framework/Resources/installd
+  0.0 /System/Library/PrivateFrameworks/PackageKit.framework/Resources/system_installd
+  0.0 /usr/sbin/distnoted
+  0.2 /System/Applications/System Settings.app/Contents/MacOS/System Settings
+  0.0 /System/Library/ExtensionKit/Extensions/GeneralSettings.appex/Contents/MacOS/GeneralSettings
+  0.0 /System/Library/ExtensionKit/Extensions/FamilySettings.appex/Contents/MacOS/FamilySettings
+  0.0 /System/Library/ExtensionKit/Extensions/AppleIDSettings.appex/Contents/MacOS/AppleIDSettings
+  0.0 /System/Library/ExtensionKit/Extensions/FollowUpSettingsExtension.appex/Contents/MacOS/FollowUpSettingsExtension
+  0.0 /System/Library/ExtensionKit/Extensions/ClassroomSettings.appex/Contents/MacOS/ClassroomSettings
+  0.0 /System/Library/ExtensionKit/Extensions/HeadphoneSettingsExtension.appex/Contents/MacOS/HeadphoneSettingsExtension
+  0.0 /System/Library/CoreServices/SubmitDiagInfo
+  0.1 /System/Library/CoreServices/Dock.app/Contents/XPCServices/DockHelper.xpc/Contents/MacOS/DockHelper
+  0.0 /usr/sbin/BTLEServerAgent
+  0.0 /System/Library/ExtensionKit/Extensions/Wi-Fi.appex/Contents/MacOS/Wi-Fi
+  0.0 /usr/libexec/wifivelocityd
+  0.0 /usr/sbin/distnoted
+  0.0 /usr/sbin/distnoted
+  0.3 /private/var/folders/2g/1dhvxgb94xx3jhw4nlqz5h4w0000gn/X/DF44DE81-C6E5-5BF6-A5AA-4E1426C184A8/d/Wrapper/Stash.app/Stash
+  0.0 /System/Library/PrivateFrameworks/CoreFP.framework/Versions/A/fairplayd
+  0.0 /usr/sbin/distnoted
+  0.0 /System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper
+  0.0 /usr/sbin/distnoted
+  0.0 /usr/sbin/systemstats
+ 48.9 /Applications/ChatGPT.app/Contents/MacOS/ChatGPT
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/browser_crashpad_handler
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/browser_crashpad_handler
+ 20.5 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Service).app/Contents/MacOS/Codex (Service)
+  0.4 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Service).app/Contents/MacOS/Codex (Service)
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Service).app/Contents/MacOS/Codex (Service)
+  0.0 /Applications/ChatGPT.app/Contents/Resources/native/bare-modifier-monitor
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+ 27.2 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Service).app/Contents/MacOS/Codex (Service)
+  0.0 /System/Library/PrivateFrameworks/PassKitCore.framework/passd
+  6.1 /Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex
+  0.0 /System/Library/PrivateFrameworks/People.framework/peopled
+  0.0 /usr/sbin/distnoted
+  0.0 /System/Library/CoreServices/Siri.app/Contents/XPCServices/SiriNCService.xpc/Contents/MacOS/SiriNCService
+  0.0 /System/Library/ExtensionKit/Extensions/GameControllerSettingsIntents.appex/Contents/MacOS/GameControllerSettingsIntents
+  0.0 /System/Library/ExtensionKit/Extensions/ProfilesSettingsIntents.appex/Contents/MacOS/ProfilesSettingsIntents
+  0.0 /System/Library/ExtensionKit/Extensions/SiriSetupSettingsIntents.appex/Contents/MacOS/SiriSetupSettingsIntents
+  0.0 /System/Library/ExtensionKit/Extensions/PlaceholderSettingsSearchTermsIntents.appex/Contents/MacOS/PlaceholderSettingsSearchTermsIntents
+  0.0 /System/Library/ExtensionKit/Extensions/ControlCenterSettingsIntents.appex/Contents/MacOS/ControlCenterSettingsIntents
+  0.0 /System/Library/ExtensionKit/Extensions/SoftwareUpdateSettingsExtensionIntents.appex/Contents/MacOS/SoftwareUpdateSettingsExtensionIntents
+  0.0 /System/Library/ExtensionKit/Extensions/BiometricsAndPasswordSettingsAppIntentsExtension.appex/Contents/MacOS/BiometricsAndPasswordSettingsAppIntentsExtension
+  0.0 /System/Library/ExtensionKit/Extensions/WiFiMacSettingsIntents.appex/Contents/MacOS/WiFiMacSettingsIntents
+  0.0 /System/Library/ExtensionKit/Extensions/TrackpadIntentsExtension.appex/Contents/MacOS/TrackpadIntentsExtension
+  0.0 /System/Library/ExtensionKit/Extensions/DateTimeIntentsExtension.appex/Contents/MacOS/DateTimeIntentsExtension
+  0.0 /System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app/Contents/Extensions/SafariLinkExtension.appex/Contents/MacOS/SafariLinkExtension
+  0.0 /System/Applications/Calendar.app/Contents/Extensions/CalendarIntentsExtension.appex/Contents/MacOS/CalendarIntentsExtension
+  0.0 /System/Library/ExtensionKit/Extensions/PasswordSettingsAppIntentsExtension.appex/Contents/MacOS/PasswordSettingsAppIntentsExtension
+  0.0 /System/Applications/Messages.app/Contents/Extensions/MessagesActionExtension.appex/Contents/MacOS/MessagesActionExtension
+  0.0 /System/Library/ExtensionKit/Extensions/DesktopSettingsIntents.appex/Contents/MacOS/DesktopSettingsIntents
+  0.0 /System/Library/ExtensionKit/Extensions/WallpaperSettingsIntents.appex/Contents/MacOS/WallpaperSettingsIntents
+  0.0 /System/Library/ExtensionKit/Extensions/NotificationsSettingsIntents.appex/Contents/MacOS/NotificationsSettingsIntents
+  0.0 /System/Library/ExtensionKit/Extensions/KeyboardSettingsIntents.appex/Contents/MacOS/KeyboardSettingsIntents
+  0.0 /System/Library/ExtensionKit/Extensions/VpnSettingsIntents.appex/Contents/MacOS/VpnSettingsIntents
+  0.0 /System/Library/ExtensionKit/Extensions/StartupDiskWidgetExtension.appex/Contents/MacOS/StartupDiskWidgetExtension
+  0.0 /System/Library/ExtensionKit/Extensions/FamilyIntents.appex/Contents/MacOS/FamilyIntents
+  0.0 /System/Library/ExtensionKit/Extensions/AccountsUISettingsAppIntents.appex/Contents/MacOS/AccountsUISettingsAppIntents
+  0.0 /System/Library/ExtensionKit/Extensions/InternationalSettingsExtension.appex/Contents/MacOS/InternationalSettingsExtension
+  0.0 /System/Library/ExtensionKit/Extensions/AppleAccountIntents_macOS.appex/Contents/MacOS/AppleAccountIntents_macOS
+  0.0 /System/Library/ExtensionKit/Extensions/ScreenTimeAppIntentsExtension.appex/Contents/MacOS/ScreenTimeAppIntentsExtension
+  0.0 /System/Library/ExtensionKit/Extensions/ClassroomDeviceExpert.appex/Contents/MacOS/ClassroomDeviceExpert
+  0.0 /System/Library/ExtensionKit/Extensions/TimeMachineSettingsIntents.appex/Contents/MacOS/TimeMachineSettingsIntents
+  0.0 /System/Library/ExtensionKit/Extensions/BluetoothSettingsAppIntentsWidgetExtension.appex/Contents/MacOS/BluetoothSettingsAppIntentsWidgetExtension
+  0.0 /System/Library/ExtensionKit/Extensions/AccessibilitySettingsSearchExtension.appex/Contents/MacOS/AccessibilitySettingsSearchExtension
+  0.0 /usr/libexec/spotlightknowledged.importer
+  0.0 /System/Library/PrivateFrameworks/DeviceCheckInternal.framework/devicecheckd
+  0.0 /Users/wuguangyu/.codex/computer-use/Codex Computer Use.app/Contents/MacOS/SkyComputerUseService
+  0.1 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /System/Library/ExtensionKit/Extensions/StorageSettingsIntentsExtension.appex/Contents/MacOS/StorageSettingsIntentsExtension
+  0.0 /System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /usr/sbin/distnoted
+  0.0 /System/Library/ExtensionKit/Extensions/SpotlightSettingsIntentsExtension.appex/Contents/MacOS/SpotlightSettingsIntentsExtension
+  0.0 /System/Library/ExtensionKit/Extensions/CDsAndDvDsSettingsIntents.appex/Contents/MacOS/CDsAndDvDsSettingsIntents
+  0.0 /System/Library/ExtensionKit/Extensions/ClassKitAppIntents.appex/Contents/MacOS/ClassKitAppIntents
+  0.0 /System/Library/ExtensionKit/Extensions/MouseIntentsExtension.appex/Contents/MacOS/MouseIntentsExtension
+  0.0 /System/Library/CoreServices/CrashReporterSupportHelper
+  0.0 /System/Library/ExtensionKit/Extensions/GameCenterSettingsSearchExtension.appex/Contents/MacOS/GameCenterSettingsSearchExtension
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /System/Library/ExtensionKit/Extensions/DoNotDisturbAppIntents.appex/Contents/MacOS/DoNotDisturbAppIntents
+  0.0 /System/Library/ExtensionKit/Extensions/PrefPaneSearchIntent.appex/Contents/MacOS/PrefPaneSearchIntent
+  0.0 /System/Library/ExtensionKit/Extensions/BatterySettingsIntentsExtension.appex/Contents/MacOS/BatterySettingsIntentsExtension
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex-code-mode-host
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex
+  0.1 /System/Applications/TV.app/Contents/MacOS/TV
+  0.0 /System/Library/PrivateFrameworks/WatchListKit.framework/Support/watchlistd
+  0.0 /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent
+  0.0 /System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService
+  0.0 /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPCServices/VTDecoderXPCService.xpc/Contents/MacOS/VTDecoderXPCService
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.2 /System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService
+  0.0 /System/Library/Frameworks/QuickLookUI.framework/Versions/A/XPCServices/QuickLookUIService.xpc/Contents/MacOS/QuickLookUIService
+  0.3 /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+  0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/chrome_crashpad_handler
+ 33.9 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper
+  0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper
+  0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper
+  0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+  0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+  0.0 /System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper
+  0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+  0.0 /System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService
+ 18.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+  0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper
+  0.0 /opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python
+  0.0 /usr/sbin/distnoted
+  0.0 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+  0.6 /private/var/folders/2g/1dhvxgb94xx3jhw4nlqz5h4w0000gn/X/BA897D15-BE4D-5E22-8C7F-555FB3F8A0D3/d/Wrapper/discover.app/discover
+  0.0 /System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper
+  0.8 /Applications/WeChat.app/Contents/MacOS/WeChat
+  0.0 /Applications/WeChat.app/Contents/Frameworks/crashpad_handler
+  0.1 /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents/MacOS/WeChatAppEx
+  0.0 /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper.app/Contents/MacOS/WeChatAppEx Helper
+  2.2 /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (GPU).app/Contents/MacOS/WeChatAppEx Helper (GPU)
+  0.0 /System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper
+  0.0 /Applications/WeChat.app/Contents/Frameworks/wxocr
+  0.0 /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper.app/Contents/MacOS/WeChatAppEx Helper
+  0.0 /Applications/WeChat.app/Contents/Frameworks/wxplayer
+  0.0 /Applications/WeChat.app/Contents/Frameworks/wxutility
+  0.1 /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (Renderer).app/Contents/MacOS/WeChatAppEx Helper (Renderer)
+  0.1 /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (Renderer).app/Contents/MacOS/WeChatAppEx Helper (Renderer)
+  3.2 /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (Renderer).app/Contents/MacOS/WeChatAppEx Helper (Renderer)
+  0.4 /Applications/WeChat.app/Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (Renderer).app/Contents/MacOS/WeChatAppEx Helper (Renderer)
+  0.0 /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPCServices/VTDecoderXPCService.xpc/Contents/MacOS/VTDecoderXPCService
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /System/Library/CoreServices/Dock.app/Contents/XPCServices/com.apple.dock.external.extra.arm64.xpc/Contents/MacOS/com.apple.dock.external.extra.arm64
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+  0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+  0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+  0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+  0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdwrite
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService
+ 19.7 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 node
+  0.0 node
+  0.0 /usr/libexec/fskit_agent
+  0.0 /System/Library/ExtensionKit/Extensions/com.apple.fskit.exfat.appex/Contents/MacOS/com.apple.fskit.exfat
+  0.0 /System/Library/PrivateFrameworks/UserFS.framework/userfsd
+  0.0 /System/Library/PrivateFrameworks/UVFSXPCService.framework/Versions/A/XPCServices/UVFSService.xpc/Contents/MacOS/UVFSService
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex
+  0.0 /Users/wuguangyu/Applications/Macs Fan Control.app/Contents/MacOS/Macs Fan Control
+  0.0 /Library/PrivilegedHelperTools/com.crystalidea.macsfancontrol.smcwrite
+  0.0 /System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper
+  0.0 /System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  1.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /usr/sbin/distnoted
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.1 /System/Applications/TextEdit.app/Contents/MacOS/TextEdit
+  0.2 /System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/com.apple.appkit.xpc.openAndSavePanelService.xpc/Contents/MacOS/com.apple.appkit.xpc.openAndSavePanelService
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /usr/libexec/mobileassetd
+  0.0 /usr/libexec/audioanalyticsd
+  0.0 /usr/libexec/containermanagerd_system
+  0.0 /System/Library/PrivateFrameworks/SyncedDefaults.framework/Support/syncdefaultsd
+  0.0 /System/Library/CoreServices/Keychain Circle Notification.app/Contents/MacOS/Keychain Circle Notification
+  0.0 /System/Library/Frameworks/Security.framework/Versions/A/XPCServices/com.apple.CodeSigningHelper.xpc/Contents/MacOS/com.apple.CodeSigningHelper
+  0.0 /usr/libexec/spotlightknowledged.updater
+  0.0 /usr/libexec/AirPlayXPCHelper
+  0.0 /usr/libexec/replayd
+  0.0 /System/Library/Frameworks/Intents.framework/XPCServices/intents_helper.xpc/Contents/MacOS/intents_helper
+  0.0 /System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/XPCServices/SetStoreUpdateService.xpc/Contents/MacOS/SetStoreUpdateService
+  3.7 /usr/libexec/coreduetd
+  0.0 /usr/libexec/amfid
+  0.0 /System/Library/PrivateFrameworks/CoreAnalytics.framework/Support/analyticsagent
+  0.0 /System/Library/PrivateFrameworks/HomeKitDaemon.framework/Support/homed
+  0.0 /usr/libexec/securityd_system
+  0.0 /System/Library/PrivateFrameworks/CloudTelemetry.framework/Support/cloudtelemetryd
+  0.0 /usr/libexec/findmybeaconingd
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex
+  0.0 /System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/XPCServices/SetStoreUpdateService.xpc/Contents/MacOS/SetStoreUpdateService
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /usr/libexec/smd
+  0.0 /System/Library/PrivateFrameworks/CacheDelete.framework/deleted
+  0.0 /usr/libexec/pkd
+  0.0 /usr/libexec/triald_system
+  0.0 /System/Library/CoreServices/TimeMachine/backupd-helper
+  0.0 /System/Library/PrivateFrameworks/AppStoreDaemon.framework/Support/appstoreagent
+  0.0 /usr/libexec/triald
+  0.0 /usr/libexec/AssetCache/AssetCache
+  0.0 /System/Library/Frameworks/QuickLookThumbnailing.framework/Support/com.apple.quicklook.ThumbnailsAgent
+  0.0 /System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod
+  0.0 /usr/libexec/secinitd
+  0.0 /System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod
+  0.0 /System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod
+  0.0 /System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod
+  0.0 /System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod
+  0.0 /System/Library/PrivateFrameworks/CoreSymbolication.framework/coresymbolicationd
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPCServices/VTDecoderXPCService.xpc/Contents/MacOS/VTDecoderXPCService
+  0.0 /System/Library/Frameworks/Metal.framework/Versions/A/XPCServices/MTLCompilerService.xpc/Contents/MacOS/MTLCompilerService
+  2.9 /usr/libexec/duetexpertd
+  0.0 /usr/libexec/routined
+  0.0 /System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/XPCServices/SetStoreUpdateService.xpc/Contents/MacOS/SetStoreUpdateService
+  0.0 /System/Library/PrivateFrameworks/iCloudDriveCore.framework/Versions/A/Support/bird
+  0.0 /System/Library/PrivateFrameworks/iCloudDriveService.framework/XPCServices/ContainerMetadataExtractor.xpc/Contents/MacOS/ContainerMetadataExtractor
+  0.0 /System/Library/PrivateFrameworks/VoiceShortcuts.framework/Versions/A/Support/siriactionsd
+  0.3 /System/Library/PrivateFrameworks/WorkflowKit.framework/XPCServices/ShortcutsViewService.xpc/Contents/MacOS/ShortcutsViewService
+  0.0 /System/Library/PrivateFrameworks/SessionCore.framework/Support/liveactivitiesd
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex
+  0.0 /System/Library/Services/AppleSpell.service/Contents/MacOS/AppleSpell
+  0.0 /usr/libexec/keyboardservicesd
+  0.0 /System/Library/PrivateFrameworks/Synapse.framework/Support/contentlinkingd
+  0.0 /usr/libexec/PowerUIAgent
+  0.0 /System/Library/CoreServices/pbs
+  0.4 /usr/libexec/proactived
+  0.0 /System/Library/PrivateFrameworks/IntelligenceFlowContextRuntime.framework/Versions/A/intelligencecontextd
+  0.0 /usr/libexec/dmd
+  0.0 /usr/libexec/sandboxd
+  1.0 /System/Library/PrivateFrameworks/IntelligencePlatformCompute.framework/Versions/A/XPCServices/IntelligencePlatformComputeService.xpc/Contents/MacOS/IntelligencePlatformComputeService
+  0.0 /System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/XPCServices/SetStoreUpdateService.xpc/Contents/MacOS/SetStoreUpdateService
+  0.7 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  1.8 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  1.3 /Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex
+  0.0 /Users/wuguangyu/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/CUALockScreenGuardian.app/Contents/MacOS/CUALockScreenGuardian
+  0.0 /System/Library/CoreServices/iconservicesagent
+  0.0 /System/Library/CoreServices/iconservicesd
+  0.3 /System/Library/CoreServices/TextInputSwitcher.app/Contents/MacOS/TextInputSwitcher
+  0.0 /System/Cryptexes/App/usr/libexec/AuthenticationServicesAgent
+  0.0 /System/Library/CoreServices/PowerChime.app/Contents/MacOS/PowerChime
+  0.0 cloudphotod
+  0.1 /System/Library/PrivateFrameworks/AppSSO.framework/Support/AppSSOAgent.app/Contents/MacOS/AppSSOAgent
+  0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/managedcorespotlightd
+  0.0 /System/Library/Frameworks/LocalAuthentication.framework/Support/coreautha.bundle/Contents/MacOS/coreautha
+  0.0 /System/Library/Frameworks/AudioToolbox.framework/AudioComponentRegistrar
+  0.0 /System/iOSSupport/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking
+  0.0 /usr/sbin/distnoted
+  0.0 /System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/com.apple.Safari.SafeBrowsing.Service
+  0.0 /usr/libexec/GamePolicyAgent
+ 14.4 /private/var/folders/2g/1dhvxgb94xx3jhw4nlqz5h4w0000gn/X/DF44DE81-C6E5-5BF6-A5AA-4E1426C184A8/d/Wrapper/Stash.app/PlugIns/StashTunnel.appex/StashTunnel
+  0.0 /System/Library/CoreServices/UserNotificationCenter.app/Contents/MacOS/UserNotificationCenter
+  0.9 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  1.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /System/Library/PrivateFrameworks/IMTransferServices.framework/IMTransferAgent.app/Contents/MacOS/IMTransferAgent
+  0.0 /System/Library/Frameworks/Metal.framework/Versions/A/XPCServices/MTLCompilerService.xpc/Contents/MacOS/MTLCompilerService
+  0.0 /System/Library/PrivateFrameworks/SiriAnalytics.framework/Versions/A/XPCServices/SAExtensionOrchestrator.xpc/Contents/MacOS/SAExtensionOrchestrator
+  0.0 /System/Library/ExtensionKit/Extensions/AppleIntelligenceReportingSELFIngestor.appex/Contents/MacOS/AppleIntelligenceReportingSELFIngestor
+  0.0 /System/Library/ExtensionKit/Extensions/IFTelemetrySELFIngestor.appex/Contents/MacOS/IFTelemetrySELFIngestor
+  0.0 /System/Library/ExtensionKit/Extensions/IFTranscriptSELFIngestor.appex/Contents/MacOS/IFTranscriptSELFIngestor
+  0.0 /System/Library/ExtensionKit/Extensions/GMSSELFIngestor.appex/Contents/MacOS/GMSSELFIngestor
+  0.0 /System/Library/ExtensionKit/Extensions/BiomeSELFIngestor.appex/Contents/MacOS/BiomeSELFIngestor
+  0.0 /System/Library/PrivateFrameworks/XprotectFramework.framework/Versions/A/XPCServices/XprotectService.xpc/Contents/MacOS/XprotectService
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /usr/libexec/sysmond
+  0.0 /System/Library/PrivateFrameworks/CacheDelete.framework/deleted_helper
+  0.0 /System/Library/PrivateFrameworks/CloudKitDaemon.framework/Support/cloudd
+  0.0 /System/Library/PrivateFrameworks/GeoServices.framework/geodMachServiceBridge
+  0.0 /usr/sbin/spindump
+  0.0 /usr/libexec/powerdatad
+  0.0 /System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/XPCServices/SetStoreUpdateService.xpc/Contents/MacOS/SetStoreUpdateService
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 node
+  0.0 node
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /usr/libexec/spindump_agent
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /System/Cryptexes/App/usr/libexec/SafariLaunchAgent
+  0.0 /usr/libexec/swcd
+  0.0 /System/Library/PrivateFrameworks/EmailDaemon.framework/Versions/A/maild
+  0.0 /System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Support/BackgroundTaskManagementAgent.app/Contents/MacOS/BackgroundTaskManagementAgent
+  0.0 /usr/libexec/tipsd
+  0.0 doubleagentd
+  0.1 npm pack ffprobe-static@3.1.0
+  0.0 /Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.1 /Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex
+  0.0 /usr/libexec/countryd
+  0.0 /System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Resources/commerce
+  0.0 /usr/libexec/feedbackd
+  0.0 /usr/libexec/assessmentagent
+  0.0 /System/Library/Frameworks/CoreTelephony.framework/Support/CommCenter
+  0.0 /usr/libexec/biomesyncd
+  0.0 /usr/libexec/ospredictiond
+  0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+  0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+  0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+  0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+  0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+  0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+  0.0 /System/Library/Frameworks/Contacts.framework/Support/contactsd
+  0.3 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+  0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+  0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+  0.0 /usr/libexec/powerexperienced
+  0.0 /Users/wuguangyu/.local/bin/officecli
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  0.0 /opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+  0.0 node
+  0.0 node
+  0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+  6.0 node
+ 57.5 /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+  0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/chrome_crashpad_handler
+  0.3 /System/Library/CoreServices/ManagedClient.app/Contents/MacOS/ManagedClient
+  0.7 /usr/libexec/mdmclient
+ 26.7 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper (GPU).app/Contents/MacOS/Google Chrome Helper (GPU)
+  3.5 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper
+  1.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper
+  2.1 /System/Library/PrivateFrameworks/HelpData.framework/Versions/A/Resources/helpd
+ 30.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+  5.0 /System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/XPCServices/SetStoreUpdateService.xpc/Contents/MacOS/SetStoreUpdateService
+ 11.3 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+ 12.6 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.39/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+  3.3 /System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper
+  0.3 ps
