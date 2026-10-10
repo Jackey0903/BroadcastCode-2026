@@ -1,0 +1,19 @@
+{
+  "verifiedAt": "2026-10-10T11:15:39.522Z",
+  "url": "http://127.0.0.1:4173/product/watch/?story=formal&version=enhanced&cut=v2",
+  "mediaUrl": "http://127.0.0.1:4173/product/media/formal/enhanced.mp4",
+  "naturalPlaybackFromZero": true,
+  "ended": true,
+  "durationSeconds": 55.055,
+  "currentTime": 55.055,
+  "variant": "enhanced",
+  "width": 1920,
+  "height": 1080,
+  "quality": {
+    "totalVideoFrames": 3300,
+    "droppedVideoFrames": 0,
+    "corruptedVideoFrames": 0
+  },
+  "error": null,
+  "scope": "Local 55.055-second formal movie; no new AgentCore, RL, Doubao or cloud publication"
+}

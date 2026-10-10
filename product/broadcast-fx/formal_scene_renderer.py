@@ -24,10 +24,10 @@ def board_position(image):
                      260 + (y - 350) / 700 * 555], dtype=float)
 
 
-def render_scene(name, local_frame, count=210, workdir=None):
+def render_scene(name, local_frame, count=210, workdir=None, scene_override=None):
     workdir = Path(workdir or ROOT / "product/build/formal-video")
     raw = json.loads(ANNOTATIONS.read_text())
-    scene = dict(raw["scenes"][name])
+    scene = dict(scene_override or raw["scenes"][name])
     base = cv2.imread(str(workdir / f"frames/f{scene['frame']:04d}.jpg"))
     if base is None:
         raise FileNotFoundError("Missing source-bound formal frame")
@@ -63,9 +63,13 @@ def render_scene(name, local_frame, count=210, workdir=None):
                             active=player["id"] in ("D00", "D7"),
                             perspective=1 - morph,
                             body_only=player["anchorKind"] == "body-only")
-    scene.update({"badge": "01 / DRIVE" if name == "T1" else "02 / RESET",
+    scene.update({"badge": "01 / DRIVE" if name == "T1" else "03 / RESET" if name == "T2" else "02 / SECOND CHANCE",
                   "steps": [("DRIVE", "持球切入"), ("PRESSURE", "防守向球侧收紧"), ("REBOUND", "争取第二次机会")] if name == "T1" else [("SCREEN", "7号形成掩护位置"), ("RESET", "00号向中路横移"), ("STEP BACK", "后撤步三分出手")],
                   "aside": ["先看持球人的位置", "再看队友与防守", "最后看出手空间"]})
+    if scene_override:
+        for key in ("steps", "aside", "badge"):
+            if key in scene_override:
+                scene[key] = scene_override[key]
     tactics._title_and_notes(layer, scene, t, morph, alpha)
     return layer.compose(.65)
 

@@ -171,3 +171,7 @@
 - 18:58 Codex视频：formal/ 独立59.94fps正式视觉版已完成，2710帧/45.211833秒，SHA3330fe41…5e5b；全片音视频解码、真实浏览器最终从0至45.212秒ended/error:null、17项专属及487项full通过。事件273/xFG30%；外层formal_render.py/网页/云链路仍由并行会话负责，本片不补标RL/Agent执行。正在仅提交本方文件、推正式origin并本地媒体备份。交接 docs/正式视频视觉复现-20261010.md。
 
 - 18:58 链路Codex：本轮代码/证据cef0243已推正式origin/main；638源码及Git bundle恢复核对、3份正式媒体复制哈希通过，备份BroadcastCode-backups/20261010-1858-formal-assets。正式原片13.5秒数据节点在45秒编辑版正确映射到22.509秒，editorial回执可读；当前只认证本地视觉联调。
+
+- 19:13 链路Codex：按用户视觉修正，55.055秒/3300帧v2已导出并完整解码，新增第三处二次进攻解析；出场/片尾直接调用参数化legacy.render_intro/render_outro，沿用150/330帧时序；进球用同一绿色burst/popup/flash/shake/scorecard，新正式值3分/30%/DAL43–44HOU。487项full、13项组件/v2及17项正式事实/音轨通过。watch已接v2，自然播放验收中；豆包与正式Agent/RL仍未追记接通。
+
+- 19:14 链路Codex：55秒v2已在watch从0一倍自然片尾通过，3300帧/零丢帧零损坏/无媒体错误；成片SHA0a93a488…b4019。当前素材抽屉默认新版55.055秒，原正式视频及旧45秒保留。后续配音请使用formal_v2_timeline.py的3300帧冻结时间线；当前没有豆包合成或正式新片Agent/RL调用。正在持续推送与本地存档。

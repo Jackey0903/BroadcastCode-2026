@@ -401,7 +401,7 @@ def draw_burst(L, t, t0, center, color, dur=0.75, big=1.0):
         line(L.glow, (cx + r0 * math.cos(a), cy + r0 * math.sin(a) * 0.6),
              (cx + r1 * math.cos(a), cy + r1 * math.sin(a) * 0.6), scale_c(color, (1 - p) * 1.3), 1, 5)
 
-def draw_scorecard(L, t, t0, alpha):
+def draw_scorecard(L, t, t0, alpha, before=103, after=105, opponent=107):
     if alpha <= 0.01:
         return
     k = ease_out((t - t0) / 0.4)
@@ -410,12 +410,12 @@ def draw_scorecard(L, t, t0, alpha):
     rect(L, cx - 300, y, cx + 300, y + 92, (8, 9, 11), 0.7 * alpha)
     rect(L, cx - 300, y + 88, cx + 300, y + 92, GREEN, alpha)
     flip = clamp((t - t0 - 0.25) / 0.25)
-    dal = "105" if flip >= 1 else "103"
+    dal = str(after) if flip >= 1 else str(before)
     L.paste(text_rgba("DAL", DIN, 44, MUTED, 3), cx - 270, y + 46, alpha=alpha, anchor="lc")
     L.paste(text_rgba(dal, DIN, 84, GREEN if flip >= 1 else CHALK), cx - 60, y + 50, alpha=alpha,
             scale=1 + 0.25 * (1 - flip) * (flip > 0), anchor="rc")
     L.paste(text_rgba("—", DIN, 60, MUTED), cx, y + 46, alpha=alpha, anchor="c")
-    L.paste(text_rgba("107", DIN, 84, CHALK), cx + 60, y + 50, alpha=alpha, anchor="lc")
+    L.paste(text_rgba(str(opponent), DIN, 84, CHALK), cx + 60, y + 50, alpha=alpha, anchor="lc")
     L.paste(text_rgba("HOU", DIN, 44, MUTED, 3), cx + 270, y + 46, alpha=alpha, anchor="rc")
 
 def vignette_mask():
@@ -479,9 +479,10 @@ def render(name, i, n):
     return render_outro(i, n)
 
 # ---------------------------------------------------------------- intro
-def render_intro(i, n):
+def render_intro(i, n, base_frame=None, copy=None):
     t = i / FPS
-    base = src_frame(6)
+    base = src_frame(6) if base_frame is None else base_frame
+    copy = copy or {}
     blur = cv2.GaussianBlur(base, (0, 0), 6 * (1 - ease_in_out(clamp((t - 1.9) / 0.6))) + 0.01)
     L = Layers(grade(blur, sat=0.6, gain=0.35 + 0.65 * ease_in_out(clamp((t - 1.9) / 0.6)), vig=0.6))
     # scan sweep
@@ -494,15 +495,15 @@ def render_intro(i, n):
     x = 150
     if t > 0.28:
         k = back_out(clamp((t - 0.28) / 0.2))
-        L.paste(text_rgba("DOWN 4", DIN, 250, CHALK, 6, 0, (0, 0, 0), 0.16), x, 300, alpha=al * clamp((t - 0.28) / 0.06), scale=1.4 - 0.4 * k)
+        L.paste(text_rgba(copy.get("headline", "DOWN 4"), DIN, 250, CHALK, 6, 0, (0, 0, 0), 0.16), x, 300, alpha=al * clamp((t - 0.28) / 0.06), scale=1.4 - 0.4 * k)
     if t > 0.7:
         k = ease_out((t - 0.7) / 0.3)
-        L.paste(text_rgba("1:51 LEFT · 4TH QTR", DIN, 92, ORANGE, 6), x + 8 - 60 * (1 - k), 560, alpha=al * k)
-        L.paste(text_rgba("落后 4 分 · 还剩 1分51秒", CJK, 46, CHALK), x + 10 - 60 * (1 - k), 668, alpha=al * k)
+        L.paste(text_rgba(copy.get("contextEn", "1:51 LEFT · 4TH QTR"), DIN, 92, ORANGE, 6), x + 8 - 60 * (1 - k), 560, alpha=al * k)
+        L.paste(text_rgba(copy.get("contextCn", "落后 4 分 · 还剩 1分51秒"), CJK, 46, CHALK), x + 10 - 60 * (1 - k), 668, alpha=al * k)
     if t > 1.25:
         k = ease_out((t - 1.25) / 0.35)
         rect(L, 0, 770, (x + 760) * k, 846, BLUE, 0.92 * al)
-        L.paste(text_rgba("#32  COOPER FLAGG", DIN, 64, (255, 255, 255), 4), x + 10, 780, alpha=al * clamp((t - 1.4) / 0.2))
+        L.paste(text_rgba(copy.get("player", "#32  COOPER FLAGG"), DIN, 64, (255, 255, 255), 4), x + 10, 780, alpha=al * clamp((t - 1.4) / 0.2))
         L.paste(text_rgba("DAL", PIX, 24, CHALK), x + 690, 796, alpha=al * clamp((t - 1.4) / 0.2))
     if 1.95 < t:   # diagonal wipe
         p = ease_in_out((t - 1.95) / 0.5)
@@ -572,7 +573,7 @@ def render_rewind(i, n):
     return out
 
 # ---------------------------------------------------------------- slow replay + freeze
-def court_card():
+def court_card(shot=None):
     """Pixel-style half court (right basket) with the official shot location; RGBA."""
     w, h = 420, 300
     im = Image.new("RGBA", (w, h), (8, 9, 11, 215)); d = ImageDraw.Draw(im)
@@ -588,11 +589,17 @@ def court_card():
     d.arc([X(5.25) - 23.75 * ft, Y(25) - 23.75 * ft, X(5.25) + 23.75 * ft, Y(25) + 23.75 * ft], 112, 248, fill=chalk, width=2)
     d.line([X(0), Y(8), X(0), Y(42)], fill=chalk, width=3)
     d.ellipse([X(5.25) - 0.75 * ft, Y(25) - 0.75 * ft, X(5.25) + 0.75 * ft, Y(25) + 0.75 * ft], outline=rgb(ORANGE) + (255,), width=3)
-    sx, sy = 94 - 0.89 * 94, 0.55 * 50     # official locX/locY (% of full court), side=right
+    if shot is None:
+        sx, sy = 94 - 0.89 * 94, 0.55 * 50
+    else:
+        sx = float(shot["locX"]) / 100 * 94
+        if shot["side"] == "right":
+            sx = 94 - sx
+        sy = float(shot["locY"]) / 100 * 50
     d.line([X(5.25), Y(25), X(sx), Y(sy)], fill=rgb(LED) + (255,), width=2)
     d.ellipse([X(sx) - 9, Y(sy) - 9, X(sx) + 9, Y(sy) + 9], fill=rgb(ORANGE) + (255,), outline=rgb(CHALK) + (255,), width=2)
     f = font(PIX, 24); d.text((14, 8), "SHOT CHART · 官方出手点", font=f, fill=rgb(CHALK) + (255,))
-    f2 = font(DIN, 34); d.text((X(sx) - 120, Y(sy) + 14), "5 FT", font=f2, fill=rgb(LED) + (255,))
+    f2 = font(DIN, 34); d.text((X(sx) - 120, Y(sy) + 14), "5 FT" if shot is None else shot["distance"], font=f2, fill=rgb(LED) + (255,))
     return np.array(im)
 COURT = None
 
@@ -638,11 +645,16 @@ def render_slow(name, j, i, n):
         img = shake(img, ft, 0.0, 12, 0.25)
     return img
 
-def render_freeze(L, ft, dur):
+def render_freeze(L, ft, dur, shot=None):
     global COURT
-    if COURT is None:
-        COURT = court_card()
-    bx, by = BALL[1007]
+    if shot is None:
+        if COURT is None:
+            COURT = court_card()
+        chart, (bx, by) = COURT, BALL[1007]
+    else:
+        chart, (bx, by) = court_card(shot), shot["ball"]
+    xfg = .51 if shot is None else shot["xfg"]
+    xfg_label = f"{xfg * 100:.0f}%"
     # release marker
     k = ease_out(ft / 0.35)
     r = 90 - 40 * k
@@ -662,14 +674,16 @@ def render_freeze(L, ft, dur):
     rect(L, x0, y0, x0 + 6, y0 + 610, PURPLE, al)
     L.paste(text_rgba("OFFICIAL · NBA 官方数据", PIX, 24, VIOLET), x0 + 28, y0 + 22, alpha=al)
     xk = ease_out((ft - 0.45) / 0.7)
-    val = int(round(51 * xk))  # User-approved reveal animation; the settled official value is 51%.
+    val = int(round(xfg * 100 * xk))  # Intermediate values are reveal animation only.
     L.paste(text_rgba(f"{val}%", DIN, 168, (255, 255, 255)), x0 + 26, y0 + 50, alpha=al)
     L.paste(text_rgba("xFG", DIN, 56, ORANGE, 3), x0 + 300, y0 + 74, alpha=al)
     L.paste(text_rgba("预期命中率", CJK, 24, CHALK), x0 + 300, y0 + 140, alpha=al)
     rect(L, x0 + 28, y0 + 230, x0 + 442, y0 + 242, (55, 55, 55), 0.8 * al)
-    rect(L, x0 + 28, y0 + 230, x0 + 28 + 414 * 0.51 * xk, y0 + 242, ORANGE, al)
-    line(L.glow, (x0 + 28, y0 + 236), (x0 + 28 + 414 * 0.51 * xk, y0 + 236), scale_c(ORANGE, al), 1, 10)
+    rect(L, x0 + 28, y0 + 230, x0 + 28 + 414 * xfg * xk, y0 + 242, ORANGE, al)
+    line(L.glow, (x0 + 28, y0 + 236), (x0 + 28 + 414 * xfg * xk, y0 + 236), scale_c(ORANGE, al), 1, 10)
     rows = [("5 FT", "出手距离 · 官方逐回合"), ("FINGER ROLL", "突破挑篮 · Driving Finger Roll Layup"), ("Q4 · 1:34", "第四节 1分34秒")]
+    if shot is not None:
+        rows = shot["rows"]
     for idx, (a, b) in enumerate(rows):
         rk = ease_out((ft - 0.7 - idx * 0.15) / 0.35)
         yy = y0 + 270 + idx * 74
@@ -677,30 +691,32 @@ def render_freeze(L, ft, dur):
         L.paste(text_rgba(b, CJK, 20, MUTED), x0 + 30 + 30 * (1 - rk), yy + 44, alpha=al * rk)
     sk = ease_out((ft - 1.15) / 0.4)
     rect(L, x0 + 28, y0 + 500, x0 + 442, y0 + 502, (80, 80, 80), al * sk)
-    L.paste(text_rgba("NBA · EVENT 666", PIX, 24, VIOLET), x0 + 28, y0 + 514, alpha=al * sk)
-    L.paste(text_rgba("官方出手质量 · xFG 51%", CJK, 30, CHALK), x0 + 28, y0 + 552, alpha=al * sk)
+    L.paste(text_rgba("NBA · EVENT 666" if shot is None else f"NBA · EVENT {shot['eventId']}", PIX, 24, VIOLET), x0 + 28, y0 + 514, alpha=al * sk)
+    L.paste(text_rgba(f"官方出手质量 · xFG {xfg_label}", CJK, 30, CHALK), x0 + 28, y0 + 552, alpha=al * sk)
     # shot chart (left)
     ck = ease_out((ft - 0.3) / 0.45)
-    L.paste(COURT, 70 - 60 * (1 - ck), 470, alpha=ck)
-    draw_caption(L, ft, 0.25, dur - 0.05, "OFFICIAL xFG 51%", "官方预期投篮命中率：51%", PURPLE)
+    L.paste(chart, 70 - 60 * (1 - ck), 470, alpha=ck)
+    draw_caption(L, ft, 0.25, dur - 0.05, f"OFFICIAL xFG {xfg_label}", f"官方预期投篮命中率：{xfg_label}", PURPLE)
 
 # ---------------------------------------------------------------- outro
-def render_outro(i, n):
+def render_outro(i, n, base_frame=None, copy=None):
     t = i / FPS
-    base = slow_frame(504)
+    base = slow_frame(504) if base_frame is None else base_frame
+    copy = copy or {}
     k0 = ease_in_out(t / 0.5)
     img = cv2.GaussianBlur(base, (0, 0), 1 + 9 * k0)
     L = Layers(grade(img, sat=1 - 0.5 * k0, gain=1 - 0.72 * k0, vig=0.8))
     cx = WIDTH / 2
     a1 = ease_out((t - 0.25) / 0.4)
-    L.paste(text_rgba("COOPER FLAGG", DIN, 132, CHALK, 8), cx, 250 - 40 * (1 - a1), alpha=a1, anchor="c")
-    L.paste(text_rgba("弗拉格  ·  DAL #32", CJK, 40, MUTED), cx, 340, alpha=a1, anchor="c")
+    L.paste(text_rgba(copy.get("nameEn", "COOPER FLAGG"), DIN, 132, CHALK, 8), cx, 250 - 40 * (1 - a1), alpha=a1, anchor="c")
+    L.paste(text_rgba(copy.get("nameCn", "弗拉格  ·  DAL #32"), CJK, 40, MUTED), cx, 340, alpha=a1, anchor="c")
     a2 = back_out(clamp((t - 0.55) / 0.3))
-    num = 34  # The official event records 34 PTS after this basket.
+    num = copy.get("points", 34)
     L.paste(text_rgba(str(num), DIN, 300, ORANGE, 0, 0, (0, 0, 0), 0.12), cx - 40, 560, alpha=clamp((t - 0.55) / 0.1), scale=1.3 - 0.3 * a2, anchor="rc")
     L.paste(text_rgba("PTS", DIN, 110, CHALK, 6), cx - 10, 600, alpha=clamp((t - 0.6) / 0.15), anchor="lc")
-    L.paste(text_rgba("本场得分", CJK, 34, MUTED), cx - 6, 672, alpha=clamp((t - 0.6) / 0.15), anchor="lc")
+    L.paste(text_rgba(copy.get("pointsLabel", "本场得分"), CJK, 34, MUTED), cx - 6, 672, alpha=clamp((t - 0.6) / 0.15), anchor="lc")
     chips = [("xFG 51%", ORANGE), ("5 FT · FINGER ROLL", CHALK), ("Q4 · 1:34", FLAME), ("DAL 105 — 107 HOU", GREEN)]
+    chips = copy.get("chips", chips)
     total = sum(text_w(c, DIN, 44, 2) + 60 for c, _ in chips) - 24
     x = cx - total / 2
     for idx, (c, col) in enumerate(chips):

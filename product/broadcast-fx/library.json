@@ -249,7 +249,7 @@
       "module": "broadcast_fx.legacy",
       "symbol": "broadcast_fx.legacy.draw_scorecard",
       "file": "broadcast_fx/legacy.py",
-      "signature": "draw_scorecard(L, t, t0, alpha)",
+      "signature": "draw_scorecard(L, t, t0, alpha, before=103, after=105, opponent=107)",
       "initialization": [
         "broadcast_fx.legacy.configure(workdir)"
       ],
@@ -258,7 +258,7 @@
         "effect": "Mutates the provided legacy.Layers instance; call layer.compose() to obtain a BGR uint8 frame."
       },
       "scope": "bound-to-current-source",
-      "notes": "Current values are fixed to this event: DAL 103 transitions to 105, HOU 107. It is not a parameterized scoreboard API; new events require a reviewed implementation change."
+      "notes": "Defaults preserve original Flagg animation. For another verified event pass official before/after/opponent scores explicitly."
     },
     {
       "id": "official-shot-card",
@@ -266,7 +266,7 @@
       "module": "broadcast_fx.legacy",
       "symbol": "broadcast_fx.legacy.render_freeze",
       "file": "broadcast_fx/legacy.py",
-      "signature": "render_freeze(L, ft, dur)",
+      "signature": "render_freeze(L, ft, dur, shot=None)",
       "initialization": [
         "broadcast_fx.legacy.configure(workdir)"
       ],
@@ -275,7 +275,7 @@
         "effect": "Mutates the provided legacy.Layers instance; call layer.compose() to obtain a BGR uint8 frame."
       },
       "scope": "bound-to-current-source",
-      "notes": "ft/dur are freeze-local seconds. Current panel uses NBA event 666, xFG 51%, 5 FT, Q4 1:34 and the source-frame 1007 ball anchor. Previous RL 58% comparison was removed. New events need their own verified data.",
+      "notes": "Defaults preserve Flagg source binding. Explicit shot supplies new-source ball anchor, official xFG/coordinates/side/distance/eventId/rows; never use the default values for a new clip.",
       "related_api": [
         {
           "module": "broadcast_fx.legacy",
@@ -586,5 +586,17 @@
     "git": "Python code, JSON annotations, library catalog and documentation",
     "generated_media": "../build/broadcast-fx/ is ignored by Git; preserve original media, frame caches, outputs and manifests in a separate local backup.",
     "fonts": "Repository Fusion Pixel under OFL or locally installed system fonts. Do not redistribute system fonts."
+  },
+  "formal_v2_reuse": {
+    "entry": "render_formal_assets.py --variant flagg55",
+    "render_module": "formal_v2_render.py",
+    "timeline": "formal_v2_timeline.py",
+    "source_sha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+    "duration_seconds": 55.055,
+    "intro": "legacy.render_intro(i, n, base_frame=formal_frame, copy=formal_copy); same scan/back-out/diagonal wipe and 150-frame duration",
+    "outro": "legacy.render_outro(i, n, base_frame=formal_frame, copy=formal_copy); same blur/bounce/chips/fade and 330-frame duration",
+    "goal": "legacy.draw_burst / draw_popup / draw_scorecard / shake; actual source net anchor, GREEN theme, +3 and DAL40→43/HOU44",
+    "data": "legacy.render_freeze(L, ft, dur, shot=formal_shot); official event273 / xFG0.3 / 25FT; no inherited Flagg values",
+    "tracking": "Short source-bound editorial body/ball anchors only; null ball anchors break interpolation; no old track.json and no automated tracking."
   }
 }

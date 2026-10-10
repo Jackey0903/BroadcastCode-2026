@@ -63,11 +63,11 @@ def half_speed(signal):
     return np.frombuffer(result.stdout, dtype="<f4").reshape(-1, 2).copy()
 
 
-def assemble_audio(source_audio, slow_audio):
+def assemble_audio(source_audio, slow_audio, segments=SEGMENTS, frame_count=FRAME_COUNT):
     """Place source-contiguous live spans and split a single half-speed replay."""
-    result = np.zeros((frame_sample(FRAME_COUNT), 2), np.float32)
+    result = np.zeros((frame_sample(frame_count), 2), np.float32)
     records, replay_at = [], 0
-    for segment in SEGMENTS:
+    for segment in segments:
         start = frame_sample(segment["start"])
         end = frame_sample(segment["start"] + segment["count"])
         count, name = end - start, segment["name"]
@@ -99,7 +99,7 @@ def assemble_audio(source_audio, slow_audio):
                     "safetyGain": safety_gain, "peak": float(np.max(np.abs(result)))}
 
 
-def build_audio(source, output):
+def build_audio(source, output, segments=SEGMENTS, frame_count=FRAME_COUNT):
     source, output = Path(source).resolve(), Path(output).resolve()
     if source == output:
         raise ValueError("Output must not overwrite the source")
@@ -113,7 +113,7 @@ def build_audio(source, output):
     start = round(12.0 * SAMPLE_RATE)
     end = round((12.0 + 195 / float(FPS)) * SAMPLE_RATE)
     slow = half_speed(original[start:end])
-    audio, metadata = assemble_audio(original, slow)
+    audio, metadata = assemble_audio(original, slow, segments, frame_count)
     output.parent.mkdir(parents=True, exist_ok=True)
     with wave.open(str(output), "wb") as stream:
         stream.setnchannels(2)

@@ -1,0 +1,301 @@
+{
+  "schema": "gamebuddy-formal-asset-edit-v1",
+  "createdAt": "2026-10-10T11:11:07.395421+00:00",
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "outputSha256": "0a93a488fa4f79e5a3ac87c68506ff447d461c30a59bec472ebbedd16edb4019",
+  "sizeBytes": 102852965,
+  "durationSeconds": 55.055,
+  "frameCount": 3300,
+  "audio": {
+    "segments": [
+      {
+        "name": "intro",
+        "start": 0,
+        "count": 150,
+        "sourceStart": 0.0,
+        "sourceRate": 0.0,
+        "outputSample": 0,
+        "sampleCount": 120120,
+        "audioKind": "procedural-sfx-no-speech"
+      },
+      {
+        "name": "live",
+        "start": 150,
+        "count": 241,
+        "sourceStart": 0.0,
+        "sourceRate": 1.0,
+        "outputSample": 120120,
+        "sampleCount": 192993,
+        "sourceSampleStart": 0,
+        "sourceSampleEndExclusive": 192993,
+        "audioKind": "original-broadcast",
+        "gain": 0.9
+      },
+      {
+        "name": "T1",
+        "start": 391,
+        "count": 260,
+        "sourceStart": 240.0,
+        "sourceRate": 0.0,
+        "outputSample": 313113,
+        "sampleCount": 208208,
+        "audioKind": "procedural-sfx-no-speech"
+      },
+      {
+        "name": "live",
+        "start": 651,
+        "count": 240,
+        "sourceStart": 241.0,
+        "sourceRate": 1.0,
+        "outputSample": 521321,
+        "sampleCount": 192192,
+        "sourceSampleStart": 192993,
+        "sourceSampleEndExclusive": 385185,
+        "audioKind": "original-broadcast",
+        "gain": 0.9
+      },
+      {
+        "name": "T3",
+        "start": 891,
+        "count": 270,
+        "sourceStart": 480.0,
+        "sourceRate": 0.0,
+        "outputSample": 713513,
+        "sampleCount": 216216,
+        "audioKind": "procedural-sfx-no-speech"
+      },
+      {
+        "name": "live",
+        "start": 1161,
+        "count": 239,
+        "sourceStart": 481.0,
+        "sourceRate": 1.0,
+        "outputSample": 929729,
+        "sampleCount": 191391,
+        "sourceSampleStart": 385185,
+        "sourceSampleEndExclusive": 576576,
+        "audioKind": "original-broadcast",
+        "gain": 0.9
+      },
+      {
+        "name": "T2",
+        "start": 1400,
+        "count": 260,
+        "sourceStart": 719.0,
+        "sourceRate": 0.0,
+        "outputSample": 1121120,
+        "sampleCount": 208208,
+        "audioKind": "procedural-sfx-no-speech"
+      },
+      {
+        "name": "live",
+        "start": 1660,
+        "count": 704,
+        "sourceStart": 720.0,
+        "sourceRate": 1.0,
+        "outputSample": 1329328,
+        "sampleCount": 563763,
+        "sourceSampleStart": 576576,
+        "sourceSampleEndExclusive": 1140339,
+        "audioKind": "original-broadcast",
+        "gain": 0.9
+      },
+      {
+        "name": "rewind",
+        "start": 2364,
+        "count": 54,
+        "sourceStart": 1423.0,
+        "sourceRate": -13.277722277722278,
+        "outputSample": 1893091,
+        "sampleCount": 43243,
+        "audioKind": "procedural-sfx-no-speech"
+      },
+      {
+        "name": "replay1",
+        "start": 2418,
+        "count": 186,
+        "sourceStart": 719.2807192807193,
+        "sourceRate": 0.5,
+        "outputSample": 1936334,
+        "sampleCount": 148949,
+        "replaySampleStart": 0,
+        "audioKind": "same-source-half-speed-broadcast",
+        "gain": 0.48
+      },
+      {
+        "name": "metric",
+        "start": 2604,
+        "count": 162,
+        "sourceStart": 812.2807192807193,
+        "sourceRate": 0.0,
+        "outputSample": 2085283,
+        "sampleCount": 129730,
+        "audioKind": "procedural-sfx-no-speech"
+      },
+      {
+        "name": "replay2",
+        "start": 2766,
+        "count": 204,
+        "sourceStart": 812.2807192807193,
+        "sourceRate": 0.5,
+        "outputSample": 2215013,
+        "sampleCount": 163363,
+        "replaySampleStart": 148949,
+        "audioKind": "same-source-half-speed-broadcast",
+        "gain": 0.48
+      },
+      {
+        "name": "outro",
+        "start": 2970,
+        "count": 330,
+        "sourceStart": 1423.0,
+        "sourceRate": 0.0,
+        "outputSample": 2378376,
+        "sampleCount": 264264,
+        "audioKind": "procedural-sfx-no-speech"
+      }
+    ],
+    "peakBeforeSafetyGain": 0.8579562306404114,
+    "safetyGain": 1.0,
+    "peak": 0.8579562306404114,
+    "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+    "outputSha256": "0f68ee449a3876ddd69978210b92c802d29811c2a159caeface1257fba7d1e76",
+    "sampleRate": 48000,
+    "channels": 2,
+    "samples": 2642640,
+    "sampleCount": 2642640,
+    "durationSeconds": 55.055,
+    "speech": "Original formal-source broadcast only; no new TTS or AI voiceover",
+    "legacyMediaUsed": false
+  },
+  "segments": [
+    {
+      "name": "intro",
+      "start": 0,
+      "count": 150,
+      "sourceStart": 0.0,
+      "sourceRate": 0.0
+    },
+    {
+      "name": "live",
+      "start": 150,
+      "count": 241,
+      "sourceStart": 0.0,
+      "sourceRate": 1.0
+    },
+    {
+      "name": "T1",
+      "start": 391,
+      "count": 260,
+      "sourceStart": 240.0,
+      "sourceRate": 0.0
+    },
+    {
+      "name": "live",
+      "start": 651,
+      "count": 240,
+      "sourceStart": 241.0,
+      "sourceRate": 1.0
+    },
+    {
+      "name": "T3",
+      "start": 891,
+      "count": 270,
+      "sourceStart": 480.0,
+      "sourceRate": 0.0
+    },
+    {
+      "name": "live",
+      "start": 1161,
+      "count": 239,
+      "sourceStart": 481.0,
+      "sourceRate": 1.0
+    },
+    {
+      "name": "T2",
+      "start": 1400,
+      "count": 260,
+      "sourceStart": 719.0,
+      "sourceRate": 0.0
+    },
+    {
+      "name": "live",
+      "start": 1660,
+      "count": 704,
+      "sourceStart": 720.0,
+      "sourceRate": 1.0
+    },
+    {
+      "name": "rewind",
+      "start": 2364,
+      "count": 54,
+      "sourceStart": 1423.0,
+      "sourceRate": -13.277722277722278
+    },
+    {
+      "name": "replay1",
+      "start": 2418,
+      "count": 186,
+      "sourceStart": 719.2807192807193,
+      "sourceRate": 0.5
+    },
+    {
+      "name": "metric",
+      "start": 2604,
+      "count": 162,
+      "sourceStart": 812.2807192807193,
+      "sourceRate": 0.0
+    },
+    {
+      "name": "replay2",
+      "start": 2766,
+      "count": 204,
+      "sourceStart": 812.2807192807193,
+      "sourceRate": 0.5
+    },
+    {
+      "name": "outro",
+      "start": 2970,
+      "count": 330,
+      "sourceStart": 1423.0,
+      "sourceRate": 0.0
+    }
+  ],
+  "renderSeconds": 168.68,
+  "fullDecodePassed": true,
+  "browserPlaybackPassed": true,
+  "editorial": true,
+  "agentCoreInvoked": false,
+  "rlInvoked": false,
+  "assetLibrary": "product/broadcast-fx/library.json",
+  "sourceAnnotations": "product/broadcast-fx/formal/data/annotations.json",
+  "variant": "flagg55",
+  "reuse": [
+    "Layers",
+    "draw_marker",
+    "draw_path",
+    "court_geometry",
+    "board_points",
+    "_title_and_notes",
+    "draw_burst",
+    "render_intro",
+    "render_outro",
+    "draw_popup",
+    "draw_scorecard",
+    "draw_ball_trail",
+    "render_freeze"
+  ],
+  "rendererHashes": {
+    "render_formal_assets.py": "073d69e08edb8022de57b402b79e49e480bc34740c398abca2b7f4da510a192c",
+    "formal_scene_renderer.py": "28fb43aa730f794eb33c2752cf3ff1a371015afdf4dbdef32c34e56e9973a8b0",
+    "render.py": "ffee3ee9bf7b3b388260a37016aa562645d0434f6ef18ca84d6295f09452a76d"
+  },
+  "browserRecord": "product/evidence/formal-v2-55-browser-20261010.json",
+  "mediaPath": "product/build/formal-assets/GameBuddy-正式资产联调-v2-55秒.mp4",
+  "styleHashes": {
+    "product/broadcast-fx/formal_v2_render.py": "0fbb714630f152f9f42625f22d45e74682a102b5d3b540e360bb74ec1f762d4b",
+    "product/broadcast-fx/formal_v2_timeline.py": "f442cb2ada5801bc536aee614aa81fd7613c18bb97307d2bc7d46b8839949e61",
+    "product/broadcast-fx/formal_scene_renderer.py": "28fb43aa730f794eb33c2752cf3ff1a371015afdf4dbdef32c34e56e9973a8b0",
+    "product/broadcast-fx/broadcast_fx/legacy.py": "54ea71e0d41fb2671cc0bbb1a2761e4306e4cc74773b11cbd801f44dbaec2115"
+  }
+}

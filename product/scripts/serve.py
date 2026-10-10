@@ -186,8 +186,13 @@ class Catalog:
             self.issues.append("formal: 正式原片缺失或哈希不符。")
             return
         self.files["/product/media/formal/source.mp4"] = source
-        output = checked_file(self.root, "product/build/formal-assets/GameBuddy-正式资产联调-v1.mp4")
-        receipt = checked_file(self.root, "product/build/formal-assets/GameBuddy-正式资产联调-v1.manifest.json")
+        output = receipt = None
+        for filename in ("GameBuddy-正式资产联调-v2-55秒", "GameBuddy-正式资产联调-v1"):
+            candidate = checked_file(self.root, f"product/build/formal-assets/{filename}.mp4")
+            candidate_receipt = checked_file(self.root, f"product/build/formal-assets/{filename}.manifest.json")
+            if candidate and candidate_receipt:
+                output, receipt = candidate, candidate_receipt
+                break
         if not output or not receipt:
             return
         try:
