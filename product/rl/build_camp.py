@@ -35,6 +35,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--job", required=True)
     p.add_argument("--groups", type=int, default=6)
+    p.add_argument("--story", nargs="*", default=[], help="other runs (any reward version) for the reward-iteration story")
     a = p.parse_args()
     s3 = boto3.Session(profile_name=PROFILE, region_name=REGION).client("s3")
     prefix = f"rl-scout/checkpoints/{a.job}/"
@@ -86,6 +87,21 @@ def main():
             "base": finals.get(f"final_base_{name}"), "trained": finals.get(f"final_trained_{name}"),
         }
 
+    # Reward iteration: how each reward version shaped tool use and whether GRPO groups kept any signal.
+    story = []
+    for job in dict.fromkeys(a.story + [a.job]):
+        rows = metrics if job == a.job else read_lines(s3, f"rl-scout/checkpoints/{job}/metrics.jsonl")
+        steps = [m for m in rows if m["kind"] == "train"]
+        head = next((m for m in rows if m["kind"] == "data"), {})
+        story.append({
+            "job": job, "rewardVersion": head.get("rewardVersion", "v0"), "testH2H": head.get("test_h2h"),
+            "curve": [{"step": m["step"], "tools": m["toolsPerEpisode"], "mae": m["mae"],
+                       "flat": m.get("flatGroups", 1.0 if m.get("loss") == 0.0 else None)} for m in steps],
+            "evalCurve": [{k: m.get(k) for k in ("step", "mae", "toolsPerEpisode")} for m in rows if m["kind"] == "eval"],
+            "final": {m["kind"]: {k: m.get(k) for k in ("mae", "toolsPerEpisode", "groundedRate", "episodes")}
+                      for m in rows if m["kind"].startswith("final_")},
+        })
+
     manifest = json.loads((HERE / "data" / "manifest.json").read_text())
     report = {
         "job": a.job, "model": data_row.get("model"), "status": "done" if any(m["kind"] == "done" for m in metrics) else "training",
@@ -94,7 +110,7 @@ def main():
                  "trainFocus": data_row.get("trainFocus"), "testH2H": data_row.get("test_h2h"),
                  "testLeague": data_row.get("test_league"), "source": manifest["source"]},
         "curve": curve, "evalCurve": evals, "groups": picked, "scoreboard": board,
-        "calibration": scatter, "toolMix": tool_mix,
+        "calibration": scatter, "toolMix": tool_mix, "rewardStory": story,
         "claudeModel": baselines.get("model"),
         "honesty": ["奖励来自 NBA 官方出手质量值（基于追踪数据的官方模型），程序自动计算，无人工打分。",
                     "火箭 vs 独行侠交手比赛整场不参与训练，作为模拟考场测试集。",
