@@ -1,0 +1,22 @@
+{
+  "schema": "rl-scout-limited-integration-progress-v1",
+  "updatedAt": "2026-10-10T14:41:20.663742+08:00",
+  "targetAt": "2026-10-10T16:00:00+08:00",
+  "deadline": "2026-10-10T16:30:00+08:00",
+  "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+  "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+  "stage": "cpu_merge_in_progress",
+  "endpoint": "rl-scout",
+  "endpointUpdated": false,
+  "guardedServiceVerified": false,
+  "workerIntegrated": false,
+  "checks": {
+    "fullPassed": true,
+    "fullCount": 384,
+    "fullSeconds": 13.86,
+    "scopedClientTests": 5,
+    "defaultEfgChangedAfterFull": true,
+    "defaultEfgScopedTestsPassed": true
+  },
+  "claim": "Composite product candidate based on actual SFT+RL checkpoint; original raw validation failure and RL non-improvement remain unchanged."
+}

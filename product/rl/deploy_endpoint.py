@@ -37,7 +37,8 @@ def main():
     sm.create_model(ModelName=model_name, ExecutionRoleArn=ROLE, Tags=TAGS, PrimaryContainer={
         "Image": IMAGE, "ModelDataUrl": data,
         "Environment": {"SAGEMAKER_PROGRAM": "inference.py", "SAGEMAKER_SUBMIT_DIRECTORY": "/opt/ml/model/code",
-                        "SAGEMAKER_REGION": REGION, "SAGEMAKER_MODEL_SERVER_TIMEOUT": "120"}})
+                        "SAGEMAKER_REGION": REGION, "SAGEMAKER_MODEL_SERVER_TIMEOUT": "120",
+                        "SAGEMAKER_MODEL_SERVER_WORKERS": "1"}})
     sm.create_endpoint_config(EndpointConfigName=config_name, Tags=TAGS, ProductionVariants=[{
         "VariantName": "AllTraffic", "ModelName": model_name, "InstanceType": a.instance, "InitialInstanceCount": 1,
         "ContainerStartupHealthCheckTimeoutInSeconds": 900, "ModelDataDownloadTimeoutInSeconds": 900}])

@@ -1,0 +1,880 @@
+{
+  "schema": "rl-scout-evidence-release-plan-v1",
+  "createdAt": "2026-10-10T14:32:42.699003+08:00",
+  "status": "acceptance_design_revised_not_executed",
+  "deadline": "2026-10-10T16:30:00+08:00",
+  "scope": "Only existing HOU/DAL evidence selection adapter + deterministic source guard + at most one model correction; no new training/test-based model selection",
+  "candidate": {
+    "job": "rl-scout-evidence-3b-two-teams-1010-052032",
+    "stage": "adapter-rl",
+    "selectionBasis": "New user-authorized product integration candidate; not a new validation winner",
+    "actualOptimizerUpdates": 7,
+    "rawValidation": {
+      "success": 15,
+      "n": 16,
+      "criticalErrors": 1
+    },
+    "rawHistoricalTest": {
+      "success": 16,
+      "n": 16,
+      "use": "Previously reported context only; do not rerun or use for selection"
+    },
+    "rawEvaluationGatePassed": false,
+    "rawReleaseEligible": false,
+    "rawSelectedStage": "sft",
+    "rlGainOverSftObserved": 0,
+    "preserveFiles": [
+      "product/rl/results/evidence-v1/comparison.json",
+      "product/rl/results/evidence-v1/evaluation-rl-val.jsonl",
+      "product/rl/results/evidence-v1/evaluation-sft-val.jsonl"
+    ],
+    "prohibitedClaims": [
+      "raw RL passed the old gate",
+      "RL improved held-out accuracy over SFT",
+      "guarded composite accuracy is model-only accuracy",
+      "video recognition was trained or improved"
+    ]
+  },
+  "frozenInputs": {
+    "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+    "storeFileSha256": "634b4210e3cbc0b50365ae2e7693bbcf495783a982cf4d14b8fa926a17033615",
+    "tasksFileSha256": "8fc7b96dd588bb093c0830af46d66b2a1109a0c7dba83dbdbc59538938842510",
+    "rawRlValSha256": "4a266f3f35a0cb5ba303facb4f35240738a46358c48aae6142d7b9ffdfa61e4e",
+    "rawComparisonSha256": "1f1d134a717919f68c9ffdc81782f5160839fe8b13d05efa1bbeffaec25002cf"
+  },
+  "metricCatalog": [
+    {
+      "family": "basic",
+      "metric": "PTS",
+      "label": "本场得分",
+      "unit": "count",
+      "grain": "player-game",
+      "scopeNote": "官方完整比赛计数",
+      "samples": {
+        "flagg": {
+          "value": 34,
+          "evidenceId": "e10e1bdacb4be",
+          "claimType": "official_fact",
+          "period": {
+            "gameDate": "2026-01-31",
+            "gameDateBasis": "NBA gameEt Eastern date",
+            "gameTimeUTC": "2026-02-01T01:30:00Z",
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "full_completed_game"
+          },
+          "source": {
+            "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+            "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+            "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+            "rowKey": "game.awayTeam.players[0].statistics",
+            "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+            "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+          }
+        },
+        "amen": {
+          "value": 20,
+          "evidenceId": "e9797141313d0",
+          "claimType": "official_fact",
+          "period": {
+            "gameDate": "2026-01-03",
+            "gameDateBasis": "NBA gameEt Eastern date",
+            "gameTimeUTC": "2026-01-04T01:30:00Z",
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "full_completed_game"
+          },
+          "source": {
+            "url": "https://www.nba.com/game/hou-vs-dal-0022500491/box-score",
+            "sha256": "9d678924c9fb78f73ea8bf2404106a1acdd88fbbbf54706a22af321d5cbddec2",
+            "path": "product/rl/data/three_layer/boxscore-0022500491.json",
+            "rowKey": "game.awayTeam.players[4].statistics",
+            "retrievedAt": "2026-10-10T05:10:10.543768+00:00",
+            "htmlSha256": "2bcdf26cbb9f9dfed45d953f695efef9469139987968081dcb0f1081223892cc"
+          }
+        }
+      }
+    },
+    {
+      "family": "advanced",
+      "metric": "EFG_PCT",
+      "label": "本场有效命中率",
+      "unit": "fraction",
+      "grain": "player-game",
+      "scopeNote": "(FGM+0.5*FG3M)/FGA；程序派生，显示时×100%",
+      "samples": {
+        "flagg": {
+          "value": 0.54,
+          "evidenceId": "e09ba1fae361c",
+          "claimType": "derived_arithmetic",
+          "period": {
+            "gameDate": "2026-01-31",
+            "gameDateBasis": "NBA gameEt Eastern date",
+            "gameTimeUTC": "2026-02-01T01:30:00Z",
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "full_completed_game"
+          },
+          "source": {
+            "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+            "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+            "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+            "rowKey": "game.awayTeam.players[0].statistics",
+            "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+            "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+          }
+        },
+        "amen": {
+          "value": 0.4444444444444444,
+          "evidenceId": "ebbfd38bd24cb",
+          "claimType": "derived_arithmetic",
+          "period": {
+            "gameDate": "2026-01-03",
+            "gameDateBasis": "NBA gameEt Eastern date",
+            "gameTimeUTC": "2026-01-04T01:30:00Z",
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "full_completed_game"
+          },
+          "source": {
+            "url": "https://www.nba.com/game/hou-vs-dal-0022500491/box-score",
+            "sha256": "9d678924c9fb78f73ea8bf2404106a1acdd88fbbbf54706a22af321d5cbddec2",
+            "path": "product/rl/data/three_layer/boxscore-0022500491.json",
+            "rowKey": "game.awayTeam.players[4].statistics",
+            "retrievedAt": "2026-10-10T05:10:10.543768+00:00",
+            "htmlSha256": "2bcdf26cbb9f9dfed45d953f695efef9469139987968081dcb0f1081223892cc"
+          }
+        }
+      }
+    },
+    {
+      "family": "advanced",
+      "metric": "TS_PCT",
+      "label": "本场真实命中率",
+      "unit": "fraction",
+      "grain": "player-game",
+      "scopeNote": "PTS/[2*(FGA+0.44*FTA)]；程序派生，显示时×100%",
+      "samples": {
+        "flagg": {
+          "value": 0.5782312925170068,
+          "evidenceId": "e7cba3bbeefc6",
+          "claimType": "derived_arithmetic",
+          "period": {
+            "gameDate": "2026-01-31",
+            "gameDateBasis": "NBA gameEt Eastern date",
+            "gameTimeUTC": "2026-02-01T01:30:00Z",
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "full_completed_game"
+          },
+          "source": {
+            "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+            "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+            "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+            "rowKey": "game.awayTeam.players[0].statistics",
+            "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+            "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+          }
+        },
+        "amen": {
+          "value": 0.5060728744939271,
+          "evidenceId": "e50974d3777b5",
+          "claimType": "derived_arithmetic",
+          "period": {
+            "gameDate": "2026-01-03",
+            "gameDateBasis": "NBA gameEt Eastern date",
+            "gameTimeUTC": "2026-01-04T01:30:00Z",
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "full_completed_game"
+          },
+          "source": {
+            "url": "https://www.nba.com/game/hou-vs-dal-0022500491/box-score",
+            "sha256": "9d678924c9fb78f73ea8bf2404106a1acdd88fbbbf54706a22af321d5cbddec2",
+            "path": "product/rl/data/three_layer/boxscore-0022500491.json",
+            "rowKey": "game.awayTeam.players[4].statistics",
+            "retrievedAt": "2026-10-10T05:10:10.543768+00:00",
+            "htmlSha256": "2bcdf26cbb9f9dfed45d953f695efef9469139987968081dcb0f1081223892cc"
+          }
+        }
+      }
+    },
+    {
+      "family": "gravity",
+      "metric": "OFF_BALL_PERIM_GRAV",
+      "label": "赛季无球外线引力",
+      "unit": "gravity_score",
+      "grain": "player-season",
+      "scopeNote": "2025-26 Regular Season快照；不是百分比，不是本回合测量",
+      "samples": {
+        "flagg": {
+          "value": 6.217,
+          "evidenceId": "ebf0d7b4f48f7",
+          "claimType": "official_fact",
+          "period": {
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "source_season_snapshot"
+          },
+          "source": {
+            "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+            "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+            "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+            "rowKey": "data.players[54]",
+            "retrievedAt": "2026-10-10T11:47:13+08:00"
+          }
+        },
+        "amen": {
+          "value": -2.273,
+          "evidenceId": "e1de36a2698b8",
+          "claimType": "official_fact",
+          "period": {
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "source_season_snapshot"
+          },
+          "source": {
+            "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+            "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+            "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+            "rowKey": "data.players[203]",
+            "retrievedAt": "2026-10-10T11:47:13+08:00"
+          }
+        }
+      }
+    },
+    {
+      "family": "leverage",
+      "metric": "CREATION_LVG",
+      "label": "赛季创造机会影响力",
+      "unit": "leverage_score",
+      "grain": "player-season",
+      "scopeNote": "2025-26 Regular Season快照；原始分数，不声称胜率百分点或本回合因果",
+      "samples": {
+        "flagg": {
+          "value": 1.77,
+          "evidenceId": "ea0fe91c4ffdb",
+          "claimType": "official_fact",
+          "period": {
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "source_season_snapshot"
+          },
+          "source": {
+            "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+            "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+            "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+            "rowKey": "data.players[19]",
+            "retrievedAt": "2026-10-10T11:47:30+08:00"
+          }
+        },
+        "amen": {
+          "value": 1.49,
+          "evidenceId": "e0fe2b07c736c",
+          "claimType": "official_fact",
+          "period": {
+            "season": "2025-26",
+            "seasonType": "Regular Season",
+            "range": "source_season_snapshot"
+          },
+          "source": {
+            "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+            "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+            "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+            "rowKey": "data.players[28]",
+            "retrievedAt": "2026-10-10T11:47:30+08:00"
+          }
+        }
+      }
+    }
+  ],
+  "sampleTypedRequests": [
+    {
+      "name": "flagg",
+      "apiStatus": "proposed typed release request; map to actual endpoint schema, not an assertion this API already exists",
+      "request": {
+        "schema": "rl-scout-evidence-inference-request-v1",
+        "requestId": "release-demo-flagg-20261010",
+        "playerId": "1642843",
+        "teamId": 1610612742,
+        "gameId": "0022500701",
+        "season": "2025-26",
+        "seasonType": "Regular Season",
+        "asOf": null,
+        "requestedGrain": null,
+        "causal": false,
+        "metrics": [
+          {
+            "family": "basic",
+            "metric": "PTS",
+            "grain": "player-game"
+          },
+          {
+            "family": "advanced",
+            "metric": "EFG_PCT",
+            "grain": "player-game"
+          },
+          {
+            "family": "gravity",
+            "metric": "OFF_BALL_PERIM_GRAV",
+            "grain": "player-season"
+          }
+        ],
+        "relations": [
+          "volume_efficiency_context",
+          "game_season_attention_context"
+        ],
+        "maxCorrections": 1
+      },
+      "prompt": "选择本场得分、本场有效命中率，以及赛季无球外线引力；保留单场与赛季两个范围，不作因果解释。",
+      "offlineExpectedOnly": {
+        "status": "ok",
+        "evidenceIds": [
+          "e09ba1fae361c",
+          "e10e1bdacb4be",
+          "ebf0d7b4f48f7"
+        ],
+        "values": [
+          {
+            "family": "gravity",
+            "metric": "OFF_BALL_PERIM_GRAV",
+            "value": 6.217,
+            "unit": "gravity_score",
+            "grain": "player-season"
+          },
+          {
+            "family": "advanced",
+            "metric": "EFG_PCT",
+            "value": 0.54,
+            "unit": "fraction",
+            "grain": "player-game"
+          },
+          {
+            "family": "basic",
+            "metric": "PTS",
+            "value": 34,
+            "unit": "count",
+            "grain": "player-game"
+          }
+        ]
+      },
+      "displayContract": "每片最多显示这3项；PTS和eFG标本场赛后，depth标2025-26赛季背景。所有数值由来源store回填。EFG显示54.0%或44.4%，原始全精度保留。"
+    },
+    {
+      "name": "amen",
+      "apiStatus": "proposed typed release request; map to actual endpoint schema, not an assertion this API already exists",
+      "request": {
+        "schema": "rl-scout-evidence-inference-request-v1",
+        "requestId": "release-demo-amen-20261010",
+        "playerId": "1641708",
+        "teamId": 1610612745,
+        "gameId": "0022500491",
+        "season": "2025-26",
+        "seasonType": "Regular Season",
+        "asOf": null,
+        "requestedGrain": null,
+        "causal": false,
+        "metrics": [
+          {
+            "family": "basic",
+            "metric": "PTS",
+            "grain": "player-game"
+          },
+          {
+            "family": "advanced",
+            "metric": "EFG_PCT",
+            "grain": "player-game"
+          },
+          {
+            "family": "leverage",
+            "metric": "CREATION_LVG",
+            "grain": "player-season"
+          }
+        ],
+        "relations": [
+          "volume_efficiency_context",
+          "game_season_impact_context"
+        ],
+        "maxCorrections": 1
+      },
+      "prompt": "选择本场得分、本场有效命中率，以及赛季创造机会影响力；保留单场与赛季两个范围，不作因果解释。",
+      "offlineExpectedOnly": {
+        "status": "ok",
+        "evidenceIds": [
+          "e0fe2b07c736c",
+          "e9797141313d0",
+          "ebbfd38bd24cb"
+        ],
+        "values": [
+          {
+            "family": "leverage",
+            "metric": "CREATION_LVG",
+            "value": 1.49,
+            "unit": "leverage_score",
+            "grain": "player-season"
+          },
+          {
+            "family": "advanced",
+            "metric": "EFG_PCT",
+            "value": 0.4444444444444444,
+            "unit": "fraction",
+            "grain": "player-game"
+          },
+          {
+            "family": "basic",
+            "metric": "PTS",
+            "value": 20,
+            "unit": "count",
+            "grain": "player-game"
+          }
+        ]
+      },
+      "displayContract": "每片最多显示这3项；PTS和eFG标本场赛后，depth标2025-26赛季背景。所有数值由来源store回填。EFG显示54.0%或44.4%，原始全精度保留。"
+    }
+  ],
+  "productionGuard": {
+    "mayRead": [
+      "typed request metric/family/player/team/game/season/grain/as-of/causal constraints",
+      "actual tool result trace and source records",
+      "frozen source hashes and deterministic formulas"
+    ],
+    "mustNotRead": [
+      "task.oracle",
+      "offlineExpectedOnly",
+      "validation task ID to expected answer lookup",
+      "test outputs"
+    ],
+    "checks": [
+      "Exact allowed JSON schema and types; no free-form numeric claims",
+      "Every selected evidenceId was actually returned to this model call; matching source/store hashes",
+      "Exact requested metric coverage, with no extras or duplicate IDs",
+      "All player/game/team identities match; season snapshot cannot become event fact",
+      "Allow only requested, source-supported context relations; no causal assertion",
+      "Validate unavailable against typed request and source availability; DNP/zero denominator stays unavailable",
+      "Copy numbers/units/period/source from frozen store; recompute derived operand formulas before rendering"
+    ],
+    "oneCorrection": {
+      "maximum": 1,
+      "feedback": "Machine-readable error codes and the request/schema constraints, never the expected evidence IDs or offline oracle answer",
+      "reuse": "Same frozen store and same caller request; record any additional real tool calls",
+      "failure": "Return blocked/unavailable to caller with explicit model/guard status. Any deterministic display fallback must say trainedModelUsed=false and is not counted as model+guard task success."
+    }
+  },
+  "minimumAcceptanceMatrix": [
+    {
+      "id": "A-lineage",
+      "runs": "1 artifact/runtime inspection, no model benchmark",
+      "mustPass": "Base model ID + adapter-rl artifact SHA + store hash recorded; actual runtime loads this adapter and logs request/model/tool trace. trainedModelUsed true only after actual model invocation."
+    },
+    {
+      "id": "B-paired-known-val",
+      "runs": 16,
+      "taskIds": [
+        "2b2385356882aa1b3b21",
+        "2dad175fcb9e3c89092b",
+        "48ef0bf427f28f83390c",
+        "66da35ce2084fa0d2f53",
+        "7928bcaa007a69bb65d2",
+        "9d8998134089f5a697f7",
+        "a5b94283dca613e9ac4b",
+        "ab7cfd0accabd14839d8",
+        "bcc97ce32d64268a797a",
+        "c13911ec4c768e91ba5b",
+        "c5c78c1d6f5bcdbd6013",
+        "d79d56abe24f9b826464",
+        "d832ba1d9e1ba337133c",
+        "f3a91765c49f297586b7",
+        "fa7d0e0880dd5e6fa43e",
+        "fec963cb544523c6a036"
+      ],
+      "procedure": "For each same known val task, record first raw answer and final post-guard answer from one execution; at most one correction. Score both with the unchanged evaluator outside the production guard. Compare against archived raw rows separately, never overwrite. Fix decoding settings and adapter/store hashes across all rows.",
+      "mustPass": "16/16 final correct with schema/facts/scope/relations/availability, zero critical errors, no correct-first-answer regression; otherwise report blocked cases and do not claim release gate passed. Also report first-attempt accuracy, correction count, corrected successes, blocked count and latency."
+    },
+    {
+      "id": "C-train-derived-boundaries",
+      "runs": 4,
+      "cases": [
+        {
+          "edgeId": "release-edge-missing_family",
+          "selectionRule": "Pick lexicographically smallest TRAIN task ID in this category, without consulting validation failure answer",
+          "originTaskId": "11b51bc4d838aa838f57",
+          "originSplit": "train",
+          "category": "missing_family",
+          "prompt": "查询这名球员赛季的平均出手机会质量；没有官方记录时说明缺失。",
+          "request": {
+            "asOf": null,
+            "causal": false,
+            "gameId": null,
+            "playerId": "1642384",
+            "requestedGrain": null
+          },
+          "requiredFamilies": [
+            "shotdifficulty"
+          ],
+          "offlineExpectedOnly": {
+            "evidenceIds": [],
+            "reasonCode": "metric_not_available",
+            "relations": [],
+            "status": "unavailable"
+          },
+          "acceptance": "Correct unavailable reason, empty evidenceIds/relations; never substitute season evidence or invent zero. These are train-derived robustness checks, not held-out generalization."
+        },
+        {
+          "edgeId": "release-edge-event_boundary",
+          "selectionRule": "Pick lexicographically smallest TRAIN task ID in this category, without consulting validation failure answer",
+          "originTaskId": "032beee4805b2b710264",
+          "originSplit": "train",
+          "category": "event_boundary",
+          "prompt": "请给出视频这一次进攻中的整体影响力测量值，不能用赛季平均替代。",
+          "request": {
+            "asOf": null,
+            "causal": false,
+            "gameId": null,
+            "playerId": "1631095",
+            "requestedGrain": "event"
+          },
+          "requiredFamilies": [
+            "leverage"
+          ],
+          "offlineExpectedOnly": {
+            "evidenceIds": [],
+            "reasonCode": "event_granularity_not_available",
+            "relations": [],
+            "status": "unavailable"
+          },
+          "acceptance": "Correct unavailable reason, empty evidenceIds/relations; never substitute season evidence or invent zero. These are train-derived robustness checks, not held-out generalization."
+        },
+        {
+          "edgeId": "release-edge-as_of_boundary",
+          "selectionRule": "Pick lexicographically smallest TRAIN task ID in this category, without consulting validation failure answer",
+          "originTaskId": "201ff68c31c6f98529a3",
+          "originSplit": "train",
+          "category": "as_of_boundary",
+          "prompt": "只使用2026-01-04开赛前已知资料，查询球员的总体防守关注，不得使用赛后完整赛季快照。",
+          "request": {
+            "asOf": "2026-01-04",
+            "causal": false,
+            "gameId": null,
+            "playerId": "1631108",
+            "requestedGrain": null
+          },
+          "requiredFamilies": [
+            "gravity"
+          ],
+          "offlineExpectedOnly": {
+            "evidenceIds": [],
+            "reasonCode": "historical_as_of_not_available",
+            "relations": [],
+            "status": "unavailable"
+          },
+          "acceptance": "Correct unavailable reason, empty evidenceIds/relations; never substitute season evidence or invent zero. These are train-derived robustness checks, not held-out generalization."
+        },
+        {
+          "edgeId": "release-edge-causal_boundary",
+          "selectionRule": "Pick lexicographically smallest TRAIN task ID in this category, without consulting validation failure answer",
+          "originTaskId": "0800e8321a5e7bed7a22",
+          "originSplit": "train",
+          "category": "causal_boundary",
+          "prompt": "官方数据能否证明这名球员导致了视频这一回合队友的空位？请选择支撑这种因果结论的证据。",
+          "request": {
+            "asOf": null,
+            "causal": true,
+            "gameId": null,
+            "playerId": "1628963",
+            "requestedGrain": "event"
+          },
+          "requiredFamilies": [
+            "gravity"
+          ],
+          "offlineExpectedOnly": {
+            "evidenceIds": [],
+            "reasonCode": "causal_evidence_not_available",
+            "relations": [],
+            "status": "unavailable"
+          },
+          "acceptance": "Correct unavailable reason, empty evidenceIds/relations; never substitute season evidence or invent zero. These are train-derived robustness checks, not held-out generalization."
+        }
+      ],
+      "mustPass": "4/4 correct unavailable and exact reasonCode, no factual substitution; maximum one correction each."
+    },
+    {
+      "id": "D-two-product-requests",
+      "runs": 2,
+      "caseNames": [
+        "flagg",
+        "amen"
+      ],
+      "mustPass": "Actual deployed/integrated runtime selects all 3 requested metric IDs, preserves single-game vs season scope and copies exact source values; final displayed labels round correctly without changing units. Product evidence records adapter lineage and whether correction occurred."
+    },
+    {
+      "id": "E-local-guard-rejections",
+      "runs": "2 cheap local mutations, no model invocation",
+      "cases": [
+        "Take a TRAIN player DNP game and request TS/EFG: both remain unavailable, never 0%.",
+        "Replace one tool-selected evidence ID with another player/game record from TRAIN data or change a source hash: guard rejects before renderer."
+      ],
+      "mustPass": "Both deterministic checks reject unsupported facts. Inputs come from TRAIN/store, not known validation failure."
+    }
+  ],
+  "reporting": {
+    "separateColumns": [
+      "archived raw RL val",
+      "first attempt in current serving runtime",
+      "after guard/one correction",
+      "train-derived edge robustness",
+      "two product smoke requests"
+    ],
+    "releaseLanguage": "已接入真实训练权重；程序校验来源并允许一次纠错。原始模型验证15/16、未过旧零关键错误门槛；另行报告复合服务的实际结果。",
+    "noTestRerun": true,
+    "stopRule": "Finish the fixed 16+4+2 serving cases and two local guard checks; do not broaden tests without a new failure. At deadline, report actual working state and remaining blocker."
+  },
+  "activeRevision": 2,
+  "revisions": [
+    {
+      "revision": 2,
+      "createdAt": "2026-10-10T14:38:06.899514+08:00",
+      "instructionSource": "Parent/user implementation scope clarification: existing client accepts only two registered events and typed three-layer product requests",
+      "supersedes": [
+        "minimumAcceptanceMatrix B-paired-known-val",
+        "minimumAcceptanceMatrix C-train-derived-boundaries serving execution",
+        "sampleTypedRequests proposed request schema",
+        "minimumAcceptanceMatrix D/E earlier version"
+      ],
+      "activePlan": {
+        "endpointLineage": "Run check_evidence_endpoint.py only after the new evidence package is deployed to rl-scout; old endpoint is rejected before health. A passing endpoint-check proves lineage only, never raw or semantic quality.",
+        "actualProductRequests": [
+          {
+            "caseId": "flagg-gravity",
+            "request": {
+              "playerId": "1642843",
+              "gameId": "0022500701",
+              "eventId": 666,
+              "requiredMetrics": [
+                {
+                  "family": "basic",
+                  "metric": "PTS",
+                  "grain": "player-game"
+                },
+                {
+                  "family": "advanced",
+                  "metric": "EFG_PCT",
+                  "grain": "player-game"
+                },
+                {
+                  "family": "gravity",
+                  "metric": "OFF_BALL_PERIM_GRAV",
+                  "grain": "player-season"
+                }
+              ],
+              "requiredRelations": [
+                "volume_efficiency_context",
+                "game_season_attention_context"
+              ],
+              "grain": "mixed_game_season_context"
+            },
+            "priority": "core"
+          },
+          {
+            "caseId": "flagg-leverage",
+            "request": {
+              "playerId": "1642843",
+              "gameId": "0022500701",
+              "eventId": 666,
+              "requiredMetrics": [
+                {
+                  "family": "basic",
+                  "metric": "PTS",
+                  "grain": "player-game"
+                },
+                {
+                  "family": "advanced",
+                  "metric": "EFG_PCT",
+                  "grain": "player-game"
+                },
+                {
+                  "family": "leverage",
+                  "metric": "CREATION_LVG",
+                  "grain": "player-season"
+                }
+              ],
+              "requiredRelations": [
+                "volume_efficiency_context",
+                "game_season_impact_context"
+              ],
+              "grain": "mixed_game_season_context"
+            },
+            "priority": "one_or_two_depth_variants_per_clip"
+          },
+          {
+            "caseId": "flagg-shotdifficulty",
+            "request": {
+              "playerId": "1642843",
+              "gameId": "0022500701",
+              "eventId": 666,
+              "requiredMetrics": [
+                {
+                  "family": "basic",
+                  "metric": "PTS",
+                  "grain": "player-game"
+                },
+                {
+                  "family": "advanced",
+                  "metric": "EFG_PCT",
+                  "grain": "player-game"
+                },
+                {
+                  "family": "shotdifficulty",
+                  "metric": "AVGSHOTQUALITY",
+                  "grain": "player-season"
+                }
+              ],
+              "requiredRelations": [
+                "volume_efficiency_context",
+                "game_season_shotquality_context"
+              ],
+              "grain": "mixed_game_season_context"
+            },
+            "priority": "one_or_two_depth_variants_per_clip"
+          },
+          {
+            "caseId": "amen-gravity",
+            "request": {
+              "playerId": "1641708",
+              "gameId": "0022500491",
+              "eventId": 396,
+              "requiredMetrics": [
+                {
+                  "family": "basic",
+                  "metric": "PTS",
+                  "grain": "player-game"
+                },
+                {
+                  "family": "advanced",
+                  "metric": "EFG_PCT",
+                  "grain": "player-game"
+                },
+                {
+                  "family": "gravity",
+                  "metric": "OFF_BALL_PERIM_GRAV",
+                  "grain": "player-season"
+                }
+              ],
+              "requiredRelations": [
+                "volume_efficiency_context",
+                "game_season_attention_context"
+              ],
+              "grain": "mixed_game_season_context"
+            },
+            "priority": "one_or_two_depth_variants_per_clip"
+          },
+          {
+            "caseId": "amen-leverage",
+            "request": {
+              "playerId": "1641708",
+              "gameId": "0022500491",
+              "eventId": 396,
+              "requiredMetrics": [
+                {
+                  "family": "basic",
+                  "metric": "PTS",
+                  "grain": "player-game"
+                },
+                {
+                  "family": "advanced",
+                  "metric": "EFG_PCT",
+                  "grain": "player-game"
+                },
+                {
+                  "family": "leverage",
+                  "metric": "CREATION_LVG",
+                  "grain": "player-season"
+                }
+              ],
+              "requiredRelations": [
+                "volume_efficiency_context",
+                "game_season_impact_context"
+              ],
+              "grain": "mixed_game_season_context"
+            },
+            "priority": "core"
+          },
+          {
+            "caseId": "amen-shotdifficulty",
+            "request": {
+              "playerId": "1641708",
+              "gameId": "0022500491",
+              "eventId": 396,
+              "requiredMetrics": [
+                {
+                  "family": "basic",
+                  "metric": "PTS",
+                  "grain": "player-game"
+                },
+                {
+                  "family": "advanced",
+                  "metric": "EFG_PCT",
+                  "grain": "player-game"
+                },
+                {
+                  "family": "shotdifficulty",
+                  "metric": "AVGSHOTQUALITY",
+                  "grain": "player-season"
+                }
+              ],
+              "requiredRelations": [
+                "volume_efficiency_context",
+                "game_season_shotquality_context"
+              ],
+              "grain": "mixed_game_season_context"
+            },
+            "priority": "one_or_two_depth_variants_per_clip"
+          }
+        ],
+        "maximumRealProductRequests": 6,
+        "minimumCoreProductRequests": 2,
+        "localBoundaryChecks": [
+          {
+            "case": "wrong event ID",
+            "expected": "unverified_event_identity before generation"
+          },
+          {
+            "case": "wrong metric even when numerical value equals requested metric",
+            "expected": "reject identity/metric mismatch; numeric equality cannot replace metric identity"
+          },
+          {
+            "case": "invented or unobserved source/evidence ID",
+            "expected": "reject before renderer; no fallback counted as model success"
+          },
+          {
+            "case": "old 0.5B/model lineage",
+            "expected": "reject before numerical output is used"
+          }
+        ],
+        "localBoundaryEvidence": "Reuse the client dedicated 5-test result and reference its actual output; this revision did not run those tests or create new test cases.",
+        "acceptance": "Both core requests and any executed variants return exactly requested three layers, supported context relations and original source values after at most one correction, with current adapter lineage. No wrong metric/source/scope reaches renderer. Record every attempted case including failures; do not retry until lucky.",
+        "reportFields": [
+          "caseId",
+          "endpoint",
+          "sourceTrainingJob",
+          "adapterSha256",
+          "storeSha256",
+          "raw first selection",
+          "validation errors",
+          "correctionUsed",
+          "final selected IDs",
+          "hydrated numeric values/units/periods",
+          "available",
+          "elapsedSeconds"
+        ],
+        "stopRule": "At most six real product cases plus existing client local boundaries; do not expand the endpoint API or add a generic benchmark executor solely for acceptance."
+      },
+      "rawEvaluationBoundary": {
+        "known16Val": "Keep existing raw 15/16 and criticalErrorRate 1/16 as historical evidence; do not run or claim a guard-after 16/16 benchmark.",
+        "test": "No new test-set evaluation or model selection.",
+        "oldGate": "comparison.json evaluationGatePassed=false/releaseEligible=false unchanged.",
+        "newClaim": "Only report actual model-plus-guard product requests that were executed; never reinterpret raw failure as passed or claim unseen-video accuracy."
+      },
+      "status": "revised_design_only_not_executed"
+    }
+  ]
+}

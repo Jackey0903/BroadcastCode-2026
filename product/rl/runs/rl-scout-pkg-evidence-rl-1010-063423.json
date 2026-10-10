@@ -1,0 +1,103 @@
+{
+  "TrainingJobName": "rl-scout-pkg-evidence-rl-1010-063423",
+  "AlgorithmSpecification": {
+    "TrainingImage": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:2.9.0-gpu-py312-cu130-ubuntu22.04-sagemaker",
+    "TrainingInputMode": "File"
+  },
+  "RoleArn": "arn:aws:iam::555726205424:role/NBAHackathonWorkloadRole",
+  "HyperParameters": {
+    "sagemaker_program": "\"package_evidence.py\"",
+    "sagemaker_submit_directory": "\"s3://nba-hackathon-555726205424-team02/rl-scout/code/rl-scout-pkg-evidence-rl-1010-063423/sourcedir.tar.gz\"",
+    "sagemaker_region": "\"us-east-1\"",
+    "sagemaker_container_log_level": "20"
+  },
+  "InputDataConfig": [
+    {
+      "ChannelName": "adapter",
+      "DataSource": {
+        "S3DataSource": {
+          "S3DataType": "S3Prefix",
+          "S3DataDistributionType": "FullyReplicated",
+          "S3Uri": "s3://nba-hackathon-555726205424-team02/rl-scout/checkpoints/rl-scout-evidence-3b-two-teams-1010-052032/adapter-rl/"
+        }
+      }
+    },
+    {
+      "ChannelName": "report",
+      "DataSource": {
+        "S3DataSource": {
+          "S3DataType": "S3Prefix",
+          "S3DataDistributionType": "FullyReplicated",
+          "S3Uri": "s3://nba-hackathon-555726205424-team02/rl-scout/checkpoints/rl-scout-evidence-3b-two-teams-1010-052032/training-report.json"
+        }
+      }
+    },
+    {
+      "ChannelName": "metrics",
+      "DataSource": {
+        "S3DataSource": {
+          "S3DataType": "S3Prefix",
+          "S3DataDistributionType": "FullyReplicated",
+          "S3Uri": "s3://nba-hackathon-555726205424-team02/rl-scout/checkpoints/rl-scout-evidence-3b-two-teams-1010-052032/metrics.jsonl"
+        }
+      }
+    },
+    {
+      "ChannelName": "source",
+      "DataSource": {
+        "S3DataSource": {
+          "S3DataType": "S3Prefix",
+          "S3DataDistributionType": "FullyReplicated",
+          "S3Uri": "s3://nba-hackathon-555726205424-team02/rl-scout/code/rl-scout-evidence-3b-two-teams-1010-052032/sourcedir.tar.gz"
+        }
+      }
+    }
+  ],
+  "OutputDataConfig": {
+    "S3OutputPath": "s3://nba-hackathon-555726205424-team02/rl-scout/output"
+  },
+  "ResourceConfig": {
+    "InstanceType": "ml.m5.2xlarge",
+    "InstanceCount": 1,
+    "VolumeSizeInGB": 100
+  },
+  "StoppingCondition": {
+    "MaxRuntimeInSeconds": 1800
+  },
+  "Environment": {
+    "PYTHONUNBUFFERED": "1",
+    "HF_HOME": "/tmp/hf",
+    "TOKENIZERS_PARALLELISM": "false",
+    "RL_PACKAGE_JOB": "rl-scout-pkg-evidence-rl-1010-063423"
+  },
+  "Tags": [
+    {
+      "Key": "project",
+      "Value": "broadcastcode"
+    },
+    {
+      "Key": "component",
+      "Value": "rl-scout"
+    },
+    {
+      "Key": "owner",
+      "Value": "codex"
+    },
+    {
+      "Key": "scope",
+      "Value": "HOU-DAL-evidence-package"
+    }
+  ],
+  "EvidencePackageSource": {
+    "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+    "baseModel": "Qwen/Qwen2.5-3B-Instruct",
+    "baseRevision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+    "selectedStage": "rl",
+    "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+    "tasksSha256": "c0a45e7df1a2a56100de0aa7023f209b865f239d617e47fa749bcf5995647ff4",
+    "sourceArchiveSha256": "fb08ee6b1fd9fe6ddd8ca3f1222ad392a9cf00acabf1c24220e0f2fe22af2b7f",
+    "optimizerUpdateSteps": 7,
+    "updateGroups": 9
+  },
+  "CodeArchiveSha256": "2c11b36b60d0971b7319a58574d27511897b7a0832717ceffe0d48a458edafe9"
+}
