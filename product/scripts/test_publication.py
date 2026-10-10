@@ -621,5 +621,46 @@ class PublicationTests(unittest.TestCase):
         self.assertTrue(plan.summary()['historicalRepublish'])
 
 
+    def install_watch_fixture(self):
+        from watch_assets import WATCH_PUBLIC_FILES
+        for name in WATCH_PUBLIC_FILES:
+            self.write('product/watch/' + name, b'/* explicit test runtime asset */')
+        self.save('product/watch/data/stories.json', {'stories': [{'sample': 'stale-fixture'}]})
+        for name in ('preview.py', 'tests/config.test.js', 'dev/references/private.png', '.env'):
+            self.write('product/watch/' + name, b'private-unpublished-fixture')
+
+    def test_watch_uses_current_verified_catalog_and_original_report_facts(self):
+        self.install_watch_fixture()
+        plan = self.plan()
+        assets = {asset.key: asset for asset in plan.assets}
+        shared = json.loads(assets['product/data/stories.json'].body)
+        watch = json.loads(assets['product/watch/data/stories.json'].body)
+        self.assertEqual(shared, watch)
+        records = json.loads(assets['product/watch/data/history.json'].body)['records']
+        self.assertEqual({r['jobId'] for r in records}, {story['showcaseJobId'] for story in shared['stories']})
+        for record in records:
+            original = self.reports[record['sample']]
+            self.assertEqual(record['analysis'], original['analysis'])
+            self.assertEqual(record['verifiedAt'], original['verifiedAt'])
+            self.assertEqual(record['contentReview'], original['contentReview'])
+        for name in ('preview.py', 'tests/config.test.js', 'dev/references/private.png', '.env'):
+            self.assertNotIn('product/watch/' + name, assets)
+        self.assertEqual(assets['product/watch/data/history.json'].cache_control, 'no-store')
+
+    def test_watch_missing_runtime_asset_aborts_before_upload(self):
+        self.install_watch_fixture()
+        (self.root / 'product/watch/glass/optics-model.js').unlink()
+        with self.assertRaises(PublicationError):
+            self.plan()
+        self.assertFalse(self.s3.puts)
+
+    def test_watch_credentials_in_runtime_asset_aborts_publication(self):
+        self.install_watch_fixture()
+        self.write('product/watch/app.js', b'const secret="' + b'AK' + b'IA' + b'Q' * 16 + b'";')
+        with self.assertRaises(PublicationError):
+            self.plan()
+        self.assertFalse(self.s3.puts)
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -1,5 +1,7 @@
 # 关键一拍 · 产品验收记录
 
+最新watch联调证据：`watch-integration-quality-20261010.json`（450项）、`watch-local-integration-20261010.json`（实际界面/播放与有限性能）、`watch-formal-publication-20261010.json`（真实上传），保留旧缺失资产与工具诊断失败记录；线上核查另存`watch-formal-integration-20261010.json`。说明见[前端联调](../../docs/前端合并与联调-20261010.md)。
+
 **10月10日15:06 · AWS托管交付增量与交接：** [独立验证/负例](native-delivery-verifier-20261010.json)、[33对象缓存迁移/真实Hit](native-cache-publication-20261010.json)、[完整Chrome播放](native-cache-browser-20261010.json)、[监控/边界](native-observability-20261010.json)和[385项门禁](native-quality-20261010.json)通过。[EventBridge正例与后续未知发布](native-delivery-workflow-20261010.json)证明原片verified:true、真实场景标签，但首配音失败；新版兼容修复虽部署，仍未云验收。保留[失败配音](native-media-failed-20261010.json)与[慢上传中止](native-cache-publication-aborted-20261010.json)。完整下一步见[交接](../../docs/Agent交接-20261010-1506.md)，不把SFN成功当可选媒体完成。
 
 **10月10日13:34 · 今日短片模板：** 不足一分钟独行侠进攻解读优先。橙黑配色、短字幕、18.5秒揭示官方xFG已经真实烧录，新弗拉格任务[3526记录](run-3526ae13a69b42c082b2fe4f0bacfa67.json)67.17秒完成，21.548秒/H.264/1280×900/音轨/SHA/Range206通过；图像内容复核通过，选择新片为观看区默认。真实Chrome自然播放至结尾，但跨区加载慢：首载12.647秒，播放墙钟115.899秒、9次等待；[浏览器与首轮超时](submission-template-browser-20261010.json)如实保留。初轮模型预算失败见[诊断](submission-template-failed-20261010.json)。本轮统一326项门禁通过，三个必要回归覆盖字幕、揭示时间与一次修复提示；未将三层证据/新训练模型包装成已接入。本片仍是登记练习素材，正式新输入与Portal提交另验收。

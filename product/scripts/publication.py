@@ -16,6 +16,7 @@ from pathlib import Path
 import re
 from urllib.parse import urlsplit
 from serve import SOURCES, checked_file
+from watch_assets import WATCH_PUBLIC_FILES, watch_history_record
 
 WEB_FILES = ('index.html', 'app.js', 'styles.css', 'broadcast.css', 'atmosphere.js',
              'arcade.css', 'arcade.js', 'assets/grain.svg', 'assets/fonts/OFL.txt',
@@ -249,6 +250,7 @@ def build_plan(root, bucket, website, current_runtime_arn=None):
     provenance = _json(root, 'product/research/frame-provenance.json')
     indexed = {f.get('file'): f for f in provenance.get('frames', []) if isinstance(f, dict)}
     assets, manifest, published = [], {}, copy.deepcopy(document)
+    watch_records = []
     has_historical_source = False
     frame_keys = set()
     for story in published['stories']:
@@ -321,6 +323,7 @@ def build_plan(root, bucket, website, current_runtime_arn=None):
         copied_analysis['publication'] = copy.deepcopy(history)
         assets.append(Asset(f'product/outputs/{job_id}/enhanced.mp4', enhanced, 'video/mp4', True))
         assets.append(_json_asset(f'product/outputs/{job_id}/analysis.json', copied_analysis, True))
+        watch_records.append(watch_history_record(report))
         story.update(sourceVideo=website + '/' + source_key, enhancedVideo=history['currentVideoUrl'],
                      analysisUrl=history['currentAnalysisUrl'], publication=history)
     for story in published['stories']:
@@ -347,6 +350,16 @@ def build_plan(root, bucket, website, current_runtime_arn=None):
         assets.append(Asset('product/' + name, body, mimetypes.guess_type(name)[0] or 'application/octet-stream'))
     for name in ('event-bindings.json', 'video-anchors.json'):
         assets.append(_json_asset('product/data/' + name, _json(root, 'product/data/' + name)))
+    # Publish only the received frontend runtime allowlist. Its stale local
+    # stories fixture is replaced by this same accepted product catalog.
+    if checked_file(root, 'product/watch/index.html'):
+        for name in WATCH_PUBLIC_FILES:
+            body = _read(root, 'product/watch/' + name)
+            _private_check(body, 'product/watch/' + name)
+            assets.append(Asset('product/watch/' + name, body,
+                                mimetypes.guess_type(name)[0] or 'text/plain'))
+        assets.append(_json_asset('product/watch/data/stories.json', published))
+        assets.append(_json_asset('product/watch/data/history.json', {'records': watch_records}))
     # URLs are exposed only after their media/config dependencies.
     assets.append(_json_asset('product/data/stories.json', published))
     if len({a.key for a in assets}) != len(assets):

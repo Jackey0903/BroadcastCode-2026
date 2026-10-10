@@ -8,6 +8,7 @@ import mimetypes
 from pathlib import Path
 import re
 from urllib.parse import unquote, urlsplit
+from watch_assets import WATCH_PUBLIC_FILES, watch_history_record
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCES = {
@@ -41,6 +42,7 @@ class Catalog:
     def __init__(self, root=ROOT):
         self.root = Path(root).resolve()
         self.files, self.jobs, self.issues = {}, {}, []
+        self.watch_history = {"records": []}
         self.manifest = json.loads((self.root / "product/data/stories.json").read_text())
         self.manifest["preview"] = {"mode": "offline", "historical": True}
         for name in ("index.html", "app.js", "styles.css", "broadcast.css", "atmosphere.js", "arcade.css", "arcade.js", "camp.html", "camp.css", "camp.js",
@@ -49,6 +51,12 @@ class Catalog:
             file = checked_file(self.root, f"product/web/{name}")
             if file:
                 self.files[f"/product/{name}"] = file
+        # Only the frontend's explicit runtime assets; never serve its dev docs,
+        # test suites, Python preview or source-control/configuration files.
+        for name in WATCH_PUBLIC_FILES:
+            file = checked_file(self.root, f"product/watch/{name}")
+            if file:
+                self.files[f"/product/watch/{name}"] = file
         # RL-SCOUT training camp data, built from the real SageMaker run (product/rl/build_camp.py).
         camp = checked_file(self.root, "product/data/rl/training-camp.json")
         if camp:
@@ -88,6 +96,7 @@ class Catalog:
                 story["enhancedVideo"] = story["analysisUrl"] = None
                 self.issues.append(f"{sample}: 已验收成片缺失或核验失败，请恢复本地媒体存档。")
                 continue
+            self.watch_history["records"].append(watch_history_record(report))
             local_base = f"/product/outputs/{job_id}"
             self.files[f"{local_base}/enhanced.mp4"] = media
             # Keep original analysis/provenance intact; only presentation URLs change.
@@ -104,7 +113,7 @@ class Catalog:
                             "verifiedAt": report["verifiedAt"],
                             "originalVideoUrl": report["videoUrl"],
                             "originalAnalysisUrl": report["analysisUrl"],
-                            "notice": "10 月 7 日真实生成的历史结果；本地回看，没有发起新推理。"},
+                            "notice": "已核验真实运行的留存结果；本地回看，没有发起新推理。"},
             }
             story["enhancedVideo"] = f"{local_base}/enhanced.mp4"
             story["analysisUrl"] = f"{local_base}/analysis.json"
@@ -168,9 +177,9 @@ def handler_for(catalog):
             if ".." in Path(path).parts or "\0" in path or "\\" in path:
                 self.send_error(404)
                 return
-            if path in ("/", "/product", "/product/court-lab"):
+            if path in ("/", "/product", "/product/court-lab", "/product/watch"):
                 query = urlsplit(self.path).query
-                destination = "/product/court-lab/" if path == "/product/court-lab" else "/product/"
+                destination = "/product/watch/" if path == "/product/watch" else "/product/court-lab/" if path == "/product/court-lab" else "/product/"
                 self.send_response(301)
                 self.send_header("Location", destination + ("?" + query if query else ""))
                 self.send_header("Content-Length", "0")
@@ -180,11 +189,16 @@ def handler_for(catalog):
                 path = "/product/index.html"
             if path == "/product/court-lab/":
                 path = "/product/court-lab/index.html"
+            if path == "/product/watch/":
+                path = "/product/watch/index.html"
             if path == "/api/status":
                 self.json_response(catalog.status())
                 return
-            if path == "/product/data/stories.json":
+            if path in ("/product/data/stories.json", "/product/watch/data/stories.json"):
                 self.json_response(catalog.manifest)
+                return
+            if path == "/product/watch/data/history.json":
+                self.json_response(catalog.watch_history)
                 return
             if path.startswith("/api/jobs/"):
                 job = catalog.jobs.get(path.removeprefix("/api/jobs/"))

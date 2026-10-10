@@ -1,0 +1,511 @@
+{
+  "checkedAt": "2026-10-10T07:52:09.014745+00:00",
+  "account": "555726205424",
+  "region": "us-east-1",
+  "profile": "nba",
+  "jobId": "3526ae13a69b42c082b2fe4f0bacfa67",
+  "executionArn": "arn:aws:states:us-east-1:555726205424:execution:Team02ProductDelivery20261010:native-v2-compat-3526ae13-ws9OS984",
+  "scope": "Read-only download and independent local verification of already generated optional AWS native media. No Polly, Rekognition, Agent, StartExecution, PutEvents or uploads. Not the default frontend video and not organizer scoring certification.",
+  "calls": [
+    {
+      "operation": "sts:GetCallerIdentity",
+      "status": "success",
+      "seconds": 28.354
+    },
+    {
+      "operation": "s3:GetObject narration.json",
+      "status": "success",
+      "seconds": 20.34
+    },
+    {
+      "operation": "s3:GetObject narration.mp3",
+      "status": "success",
+      "seconds": 3.072
+    },
+    {
+      "operation": "s3:GetObject narrated.mp4",
+      "status": "success",
+      "seconds": 6.002
+    },
+    {
+      "operation": "s3:GetObject enhanced.mp4",
+      "status": "success",
+      "seconds": 1.417
+    },
+    {
+      "operation": "local:ffprobe",
+      "exitCode": 0,
+      "seconds": 0.084
+    },
+    {
+      "operation": "local:ffmpeg",
+      "exitCode": 0,
+      "seconds": 0.017
+    },
+    {
+      "operation": "local:ffprobe",
+      "exitCode": 0,
+      "seconds": 0.014
+    },
+    {
+      "operation": "local:ffprobe",
+      "exitCode": 0,
+      "seconds": 0.035
+    },
+    {
+      "operation": "local:ffmpeg",
+      "exitCode": 0,
+      "seconds": 0.336
+    },
+    {
+      "operation": "local:ffprobe",
+      "exitCode": 0,
+      "seconds": 0.019
+    },
+    {
+      "operation": "local:ffmpeg",
+      "exitCode": 0,
+      "seconds": 0.017
+    },
+    {
+      "operation": "local:ffprobe",
+      "exitCode": 0,
+      "seconds": 0.014
+    },
+    {
+      "operation": "local:ffprobe",
+      "exitCode": 0,
+      "seconds": 0.024
+    },
+    {
+      "operation": "local:ffmpeg",
+      "exitCode": 0,
+      "seconds": 0.334
+    },
+    {
+      "operation": "local:ffprobe",
+      "exitCode": 0,
+      "seconds": 0.017
+    },
+    {
+      "operation": "local:ffmpeg",
+      "exitCode": 0,
+      "seconds": 0.03
+    },
+    {
+      "operation": "local:ffmpeg",
+      "exitCode": 0,
+      "seconds": 0.024
+    },
+    {
+      "operation": "local:ffmpeg",
+      "exitCode": 0,
+      "seconds": 0.203
+    }
+  ],
+  "failures": [],
+  "checks": {
+    "execution_original_verified": true,
+    "native_success_receipt": true,
+    "formal_identity": true,
+    "narration.json_complete_download": true,
+    "downloaded_receipt_matches_execution": true,
+    "narration.mp3_complete_download": true,
+    "actual_audio_sha256": true,
+    "actual_audio_byte_count": true,
+    "narrated.mp4_complete_download": true,
+    "actual_video_sha256": true,
+    "actual_video_byte_count": true,
+    "enhanced.mp4_complete_download": true,
+    "cloud_original_sha256_unchanged": true,
+    "local_original_sha256_unchanged": true,
+    "video_h264_1280x900": true,
+    "two_aac_audio_tracks": true,
+    "speech_default_original_secondary": true,
+    "complete_timeline_duration": true,
+    "independent_full_decode": true,
+    "actual_composed_mp3_duration": true,
+    "cloud_measured_segments_fit_windows": true,
+    "late_official_metric_window": true,
+    "no_early_official_metric_text": true,
+    "original_aac_track_bitstream_preserved": true,
+    "ai_declaration_visible_in_sampled_frame": true
+  },
+  "files": {
+    "narration.json": {
+      "s3Key": "product/outputs/3526ae13a69b42c082b2fe4f0bacfa67/narration.json",
+      "bytes": 12755,
+      "sha256": "b18d0fc14099e100b1ebfcd884241d33739ba2e680efa7796367b7309222a9ea",
+      "metadataSha256": "b18d0fc14099e100b1ebfcd884241d33739ba2e680efa7796367b7309222a9ea",
+      "contentType": "application/json",
+      "cacheControl": "no-store",
+      "etag": "\"b21b5971acae62797ec05219212bb885\"",
+      "downloadSeconds": 0.33,
+      "localPath": "product/build/verified/3526ae13a69b42c082b2fe4f0bacfa67/narration.json"
+    },
+    "narration.mp3": {
+      "s3Key": "product/outputs/3526ae13a69b42c082b2fe4f0bacfa67/narration.mp3",
+      "bytes": 346029,
+      "sha256": "fa5e42aac9b79b19e8b07e4a72b6d23f55a52a0a1a78d274a155704bcd3e26e0",
+      "metadataSha256": "fa5e42aac9b79b19e8b07e4a72b6d23f55a52a0a1a78d274a155704bcd3e26e0",
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "etag": "\"1213784b1ebcfd2e5455b222eb86976e\"",
+      "downloadSeconds": 24.802,
+      "localPath": "product/build/verified/3526ae13a69b42c082b2fe4f0bacfa67/narration.mp3"
+    },
+    "narrated.mp4": {
+      "s3Key": "product/outputs/3526ae13a69b42c082b2fe4f0bacfa67/narrated.mp4",
+      "bytes": 8819934,
+      "sha256": "01ef41edc0adb1fb3e1b9547edcc04d9341dfbb547328fe98f4a1899fb5d5b10",
+      "metadataSha256": "01ef41edc0adb1fb3e1b9547edcc04d9341dfbb547328fe98f4a1899fb5d5b10",
+      "contentType": "video/mp4",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "etag": "\"30e369bd19c77e8632de4d2d9ca63cf2\"",
+      "downloadSeconds": 317.96,
+      "localPath": "product/build/verified/3526ae13a69b42c082b2fe4f0bacfa67/narrated.mp4"
+    },
+    "enhanced.mp4": {
+      "s3Key": "product/outputs/3526ae13a69b42c082b2fe4f0bacfa67/enhanced.mp4",
+      "bytes": 9974389,
+      "sha256": "f8d681433d4a49d58dd636b4307868029fabf5663de178bf800abaddead5a339",
+      "metadataSha256": "f8d681433d4a49d58dd636b4307868029fabf5663de178bf800abaddead5a339",
+      "contentType": "video/mp4",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "etag": "\"6949b443fbf25a3a966a6aa34437b673\"",
+      "downloadSeconds": 141.738
+    }
+  },
+  "browserPlaybackVerified": false,
+  "speechListeningVerified": false,
+  "individualPollyClipsIndependentlyAvailable": false,
+  "segmentDurationSource": "Actual Polly segment durations stored by the successful cloud narrator; segments are not separate saved artifacts.",
+  "identity": {
+    "Account": "555726205424",
+    "Arn": "arn:aws:sts::555726205424:assumed-role/NBAHackathonParticipantRole/botocore-session-1791618729"
+  },
+  "priorLocalReceiptSha256": "7b10a76fbd70b1e5a9f440d576b177606460bbf7b81dd1a759b7ee9d759d2170",
+  "mediaProbe": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "width": 1280,
+        "height": 900,
+        "coded_width": 1280,
+        "coded_height": 900,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "64:45",
+        "pix_fmt": "yuv420p",
+        "level": 32,
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "refs": 1,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "time_base": "1/15360",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 330752,
+        "duration": "21.533333",
+        "bit_rate": "3009293",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "646",
+        "extradata_size": 42,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "vendor_id": "[0][0][0][0]"
+        }
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "sample_fmt": "fltp",
+        "sample_rate": "44100",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/44100",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 949253,
+        "duration": "21.525011",
+        "bit_rate": "128578",
+        "nb_frames": "928",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler",
+          "vendor_id": "[0][0][0][0]"
+        }
+      },
+      {
+        "index": 2,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "sample_fmt": "fltp",
+        "sample_rate": "44100",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x3",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/44100",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 950267,
+        "duration": "21.548005",
+        "bit_rate": "128464",
+        "nb_frames": "929",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 0,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler",
+          "vendor_id": "[0][0][0][0]"
+        }
+      }
+    ],
+    "format": {
+      "filename": "/Users/jack/work/BroadcastCode/product/build/verified/3526ae13a69b42c082b2fe4f0bacfa67/narrated.mp4",
+      "nb_streams": 3,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "21.548005",
+      "size": "8819934",
+      "bit_rate": "3274524",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "encoder": "Lavf58.24.100"
+      }
+    }
+  },
+  "actualDurationSeconds": 21.548005,
+  "status": "verified",
+  "completedAt": "2026-10-10T08:08:19.024489+00:00",
+  "verificationAttempts": [
+    {
+      "status": "local_check_threshold_corrected",
+      "initialFailedCheck": "complete_timeline_duration",
+      "initialThresholdMs": 1,
+      "acceptedProjectThresholdMs": 250,
+      "initialFailureRecords": [
+        {
+          "errorType": "AssertionError",
+          "check": "complete_timeline_duration"
+        }
+      ],
+      "explanation": "The first local check mistakenly required FFprobe 8.0.1 duration to equal the FFprobe 4.1 cloud receipt within 1ms. Project media acceptance permits 250ms for container/audio timing. Final checks compare the new media directly with the same local probe of the unchanged original, and also check the cloud receipt within 250ms. No cloud regeneration or reread."
+    },
+    {
+      "status": "local_probe_threshold_corrected",
+      "initialFailureRecords": [
+        {
+          "errorType": "AssertionError",
+          "check": "actual_composed_mp3_duration"
+        }
+      ],
+      "acceptedProjectThresholdMs": 250,
+      "explanation": "Cross-version cloud FFprobe 4.1 versus local FFprobe 8.0.1 durations can include different MP3/AAC padding accounting. Final checks use accepted 250ms and directly compare local narrated/original MP4 duration; content SHA remains exact. No cloud regeneration or reread."
+    }
+  ],
+  "localMediaToolVersions": {
+    "ffmpeg": "ffmpeg version 8.0.1 Copyright (c) 2000-2025 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.0.1 Copyright (c) 2007-2025 the FFmpeg developers"
+  },
+  "originalMediaProbe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "duration": "21.533333"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "duration": "21.548005"
+      }
+    ],
+    "format": {
+      "duration": "21.548005"
+    }
+  },
+  "durationComparison": {
+    "localNarratedSeconds": 21.548005,
+    "localOriginalSeconds": 21.548005,
+    "differenceFromOriginalMs": 0.0,
+    "differenceFromCloudReceiptMs": -23.995,
+    "toleranceMs": 250
+  },
+  "audioProbe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "codec_type": "audio"
+      }
+    ],
+    "format": {
+      "duration": "21.548125"
+    }
+  },
+  "audioDurationComparison": {
+    "localSeconds": 21.548125,
+    "cloudReceiptSeconds": 21.6,
+    "differenceMs": -51.875,
+    "toleranceMs": 250
+  },
+  "segmentChecks": [
+    {
+      "kind": "chapter",
+      "chapterIndex": 0,
+      "start": 0.0,
+      "end": 9.0,
+      "text": "末节，独行侠落后，弗拉格持球。",
+      "audioDurationSeconds": 2.592,
+      "fitsWindow": true
+    },
+    {
+      "kind": "chapter",
+      "chapterIndex": 1,
+      "start": 9.0,
+      "end": 15.5,
+      "text": "弗拉格持球向禁区附近推进。",
+      "audioDurationSeconds": 2.136,
+      "fitsWindow": true
+    },
+    {
+      "kind": "chapter",
+      "chapterIndex": 2,
+      "start": 15.5,
+      "end": 17.4,
+      "text": "篮下起跳。",
+      "audioDurationSeconds": 0.84,
+      "fitsWindow": true
+    },
+    {
+      "kind": "official_metric",
+      "start": 18.5,
+      "end": 21.548118,
+      "text": "官方机会参考，51.0%。",
+      "audioDurationSeconds": 2.568,
+      "fitsWindow": true
+    }
+  ],
+  "originalAudioElementaryStream": {
+    "originalSha256": "28053d4b80803ad9ecaaa6470b1a5e8856222967f5d4d9d67cb9027ccc4af053",
+    "derivedSecondarySha256": "28053d4b80803ad9ecaaa6470b1a5e8856222967f5d4d9d67cb9027ccc4af053",
+    "bytes": 352894
+  },
+  "declarationFrame": {
+    "path": "product/evidence/native-media-compat-declaration-20261010.png",
+    "sourceSecond": 1,
+    "sha256": "60ac1f7029575c215e9dc0df271312cd44cd4778f66a4442994553e6caebef66",
+    "visualInspection": "passed",
+    "observedText": "AI语音解读 · Amazon Polly",
+    "observation": "One decoded frame at 1.0s visibly includes the AI narration disclosure in the top black header. This check does not certify every frame or subjective audio quality."
+  },
+  "limits": [
+    "This optional generated version verifies AWS media capability only; it is not selected as the default frontend output.",
+    "No browser end-to-end playback or speech listening was performed in this audit.",
+    "Segment durations and texts are from the successful cloud narrator receipt; individual raw Polly clips are not independently retained.",
+    "No idempotent cloud replay was performed because the user delegated subsequent TTS integration and prohibited more native service/workflow calls.",
+    "Rekognition labels identify scene hints only, not player identities or basketball correctness."
+  ]
+}

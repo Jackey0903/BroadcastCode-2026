@@ -303,5 +303,6 @@
   $("create-form").addEventListener("submit",submitJob);$("check-service").addEventListener("click",checkService);$("refresh-job").addEventListener("click",()=>{state.pollErrors=0;state.pollStart=Date.now();stopPoll();pollJob();});$("generated-video").addEventListener("error",()=>{if(state.resultUrl)jobError("成片暂时无法播放，任务结果仍已保存。可打开完整 MP4 检查，或重新查询。 ");});
   document.addEventListener("keydown",(event)=>{if(event.key==="Escape"&&state.theater){theater(false);return;}if(event.ctrlKey||event.metaKey||event.altKey||event.target.closest("input,textarea,select,button,a,summary,[contenteditable]"))return;if(state.view!=="watch")return;if(event.key.toLowerCase()==="t"){event.preventDefault();theater();}else if(event.key===" "&&event.target!==video){event.preventDefault();video.paused?playVideo():video.pause();}else if(event.key==="ArrowRight"&&event.target!==video){event.preventDefault();seekTo((video.currentTime||0)+5,!video.paused);}else if(event.key==="ArrowLeft"&&event.target!==video){event.preventDefault();seekTo(Math.max(0,(video.currentTime||0)-5),!video.paused);}});
   window.addEventListener("online",()=>{if(state.jobId&&state.busy&&!state.polling){state.pollStart=Date.now();pollJob();}});window.addEventListener("pagehide",stopPoll);
+  if(location.hash==="#creator")setView("create");
   loadStories().then(()=>{restoreJob();});
 })();

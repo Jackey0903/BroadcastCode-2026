@@ -1,1 +1,12 @@
-{"name":"broadcastcode-three-state-ui","version":"1.0.0","private":true,"type":"module","scripts":{"test":"node --test tests/*.test.js annotations/*.test.js glass/*.test.js"},"dependencies":{"liquid-gl":"3.0.0"}}
+{
+  "name": "broadcastcode-three-state-ui",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js annotations/*.test.js glass/*.test.js adapters/*.test.js"
+  },
+  "dependencies": {
+    "liquid-gl": "3.0.0"
+  }
+}

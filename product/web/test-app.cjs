@@ -54,7 +54,7 @@ function fixture(status = 200, body = {}, initialUrl = "https://product.invalid/
     document: { getElementById: get, createElement: (tag) => new Element(tag), createElementNS: (_ns, tag) => new Element(tag), body: new Element("body"), querySelectorAll: () => [], addEventListener() {} },
     window: { addEventListener() {}, scrollTo() {} },
     matchMedia: () => ({ matches: false }),
-    location: { get origin() { return currentUrl.origin; }, get href() { return currentUrl.href; } },
+    location: { get origin() { return currentUrl.origin; }, get href() { return currentUrl.href; }, get hash() { return currentUrl.hash; } },
     history: { replaceState(_state, _title, address) { currentUrl = new URL(address); } },
     sessionStorage: { getItem: (key) => storage.get(key) ?? null, setItem: (key, value) => storage.set(key, value), removeItem: (key) => storage.delete(key) },
     setTimeout(callback, delay) { const id = ++tick; timers.set(id, { callback, delay }); return id; }, clearTimeout: (id) => timers.delete(id),
@@ -277,4 +277,13 @@ test("playback completion names the actual original or enhanced version", () => 
     run.get("story-video").listeners.ended();
     assert.equal(run.state.phase,"choose");assert.equal(run.get("page-announcement").textContent,`${label}播放结束。现在选择你的关注点。`);
   }
+});
+
+
+test("watch creator link opens the existing workspace without starting a job", async () => {
+  const run = fixture(200, {}, "https://product.invalid/product/index.html#creator");
+  await Promise.resolve();
+  assert.equal(run.get("create-view").hidden, false);
+  assert.equal(run.get("watch-view").hidden, true);
+  assert.ok(run.requests.every(request => request.options?.method !== "POST"));
 });

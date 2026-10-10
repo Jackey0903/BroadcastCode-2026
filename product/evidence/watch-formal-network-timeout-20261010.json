@@ -1,0 +1,778 @@
+{
+  "url": "https://deky02484tknr.cloudfront.net/product/watch/index.html?story=flagg",
+  "startedAt": "2026-10-10T08:58:29.576Z",
+  "viewport": [
+    1512,
+    949
+  ],
+  "attempts": 1,
+  "errors": [],
+  "checks": [
+    {
+      "name": "same-origin source playback metadata",
+      "passed": true,
+      "src": "https://deky02484tknr.cloudfront.net/samples/flagg.mp4"
+    },
+    {
+      "name": "three-state immersive",
+      "passed": true,
+      "layout": {
+        "video": {
+          "x": 0,
+          "y": 49.25,
+          "width": 1512,
+          "height": 850.5
+        },
+        "panel": {
+          "x": 1512,
+          "y": 16,
+          "width": 0,
+          "height": 917
+        },
+        "controls": {
+          "x": 98.28,
+          "y": 759,
+          "width": 1315.44,
+          "height": 66
+        },
+        "open": 0,
+        "half": 0,
+        "width": 1512,
+        "height": 949
+      },
+      "glassBackend": "webgpu"
+    },
+    {
+      "name": "three-state fullCourt",
+      "passed": true,
+      "layout": {
+        "video": {
+          "x": 100,
+          "y": 185.435,
+          "width": 1017.12,
+          "height": 572.13
+        },
+        "panel": {
+          "x": 1133.12,
+          "y": 16,
+          "width": 362.88,
+          "height": 917
+        },
+        "controls": {
+          "x": 100,
+          "y": 849,
+          "width": 1017.1199999999999,
+          "height": 66
+        },
+        "open": 1,
+        "half": 0,
+        "width": 1512,
+        "height": 949
+      },
+      "glassBackend": "webgpu"
+    },
+    {
+      "name": "three-state halfCourt",
+      "passed": true,
+      "layout": {
+        "video": {
+          "x": 100,
+          "y": 210.94999999999993,
+          "width": 926.4000000000001,
+          "height": 521.1000000000001
+        },
+        "panel": {
+          "x": 1042.4,
+          "y": 16,
+          "width": 453.59999999999997,
+          "height": 917
+        },
+        "controls": {
+          "x": 100,
+          "y": 849,
+          "width": 926.4000000000001,
+          "height": 66
+        },
+        "open": 1,
+        "half": 1,
+        "width": 1512,
+        "height": 949
+      },
+      "glassBackend": "webgpu"
+    },
+    {
+      "name": "8-second corner player retained",
+      "passed": true,
+      "corner": {
+        "transform": "translate(5.024009324009324 2)",
+        "display": "inline",
+        "opacity": "1",
+        "position": "2",
+        "title": "D1 · 编辑示意位置 · 未经人工复核",
+        "time": "0:08"
+      }
+    }
+  ],
+  "networkErrors": [],
+  "performance": [],
+  "screenshots": [
+    "watch-formal-immersive-20261010.png",
+    "watch-formal-fullCourt-20261010.png",
+    "watch-formal-halfCourt-20261010.png",
+    "watch-formal-corner-8s-20261010.png"
+  ],
+  "browser": "Chrome/154.0.8037.98",
+  "gpuInspection": "Recorded through actual WebGL canvas after initialization.",
+  "gpu": [
+    {
+      "available": false
+    },
+    {
+      "available": false
+    }
+  ],
+  "initial": {
+    "glass": {
+      "library": "liquid-gl",
+      "version": "3.0.0",
+      "sourceCommit": "88f681ab7035fd55b04f63edff1841e32c4199e9",
+      "vendorPatch": "broadcastcode-optics-smooth-v5",
+      "backend": "webgpu",
+      "ready": true,
+      "enabled": true,
+      "lenses": 9,
+      "canvases": 2,
+      "reports": [
+        {
+          "targetId": "glass-0",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 1,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4,
+            "sourcePixelSize": [
+              0.0006613756613756613,
+              0.001053740779768177
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 10.719999999999999
+          },
+          "liveCanvasUpdates": 2,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-1",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 1,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4,
+            "sourcePixelSize": [
+              0.0006613756613756613,
+              0.001053740779768177
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 10.719999999999999
+          },
+          "liveCanvasUpdates": 2,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-2",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 1,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4,
+            "sourcePixelSize": [
+              0.0006613756613756613,
+              0.001053740779768177
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 10.719999999999999
+          },
+          "liveCanvasUpdates": 2,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-3",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 0,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4.8,
+            "sourcePixelSize": [
+              1,
+              1
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 11.52
+          },
+          "liveCanvasUpdates": 2,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-4",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 1,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4,
+            "sourcePixelSize": [
+              0.0006613756613756613,
+              0.001053740779768177
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 10.719999999999999
+          },
+          "liveCanvasUpdates": 2,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-5",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 0,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4.8,
+            "sourcePixelSize": [
+              1,
+              1
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 11.52
+          },
+          "liveCanvasUpdates": 2,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-6",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 0,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4.8,
+            "sourcePixelSize": [
+              1,
+              1
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 11.52
+          },
+          "liveCanvasUpdates": 2,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-7",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 0,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4.8,
+            "sourcePixelSize": [
+              1,
+              1
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 11.52
+          },
+          "liveCanvasUpdates": 2,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-8",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 1,
+          "destroyed": false,
+          "ancestorOpacity": 0,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4.8,
+            "sourcePixelSize": [
+              1,
+              1
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 11.52
+          },
+          "liveCanvasUpdates": 0,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "devicePixelRatio": 1,
+      "viewport": [
+        1512,
+        949
+      ],
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    "layout": {
+      "video": {
+        "x": 0,
+        "y": 49.25,
+        "width": 1512,
+        "height": 850.5
+      },
+      "panel": {
+        "x": 1512,
+        "y": 16,
+        "width": 0,
+        "height": 917
+      },
+      "controls": {
+        "x": 98.28,
+        "y": 759,
+        "width": 1315.44,
+        "height": 66
+      },
+      "open": 0,
+      "half": 0,
+      "width": 1512,
+      "height": 949
+    },
+    "mode": "immersive",
+    "media": {
+      "src": "https://deky02484tknr.cloudfront.net/samples/flagg.mp4",
+      "time": 0,
+      "displayedCourtTime": 0,
+      "lastDecodedFrameTime": null,
+      "variant": "source",
+      "status": "loading",
+      "duration": 21.548118,
+      "paused": true,
+      "ended": false,
+      "videoWidth": 1920,
+      "videoHeight": 1080,
+      "quality": {
+        "totalVideoFrames": 0,
+        "droppedVideoFrames": 0,
+        "corruptedVideoFrames": 0
+      }
+    },
+    "annotations": {
+      "validHeadAnchors": 0
+    },
+    "config": {
+      "layout": {
+        "padding": 16,
+        "gap": 16,
+        "dockWidth": 72,
+        "fullWidth": 0.24,
+        "halfWidth": 0.3
+      },
+      "motion": {
+        "open": 350,
+        "morph": 300,
+        "close": 220,
+        "hideDelay": 150,
+        "controlsIdle": 2000
+      },
+      "appearance": {
+        "panelRadius": 28,
+        "videoRadius": 20,
+        "controlRadius": 22,
+        "titleSize": 28,
+        "bodySize": 16
+      },
+      "glass": {
+        "refraction": 0.012,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15,
+        "frost": 2,
+        "tintAlpha": 0.38
+      },
+      "annotations": {
+        "mascotSize": 40,
+        "labelSize": 15,
+        "enabled": true
+      },
+      "dock": {
+        "width": 72,
+        "radius": 28,
+        "iconSize": 26,
+        "gap": 18,
+        "tint": "#10131c",
+        "tintAlpha": 0.4,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 3,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "fullCourt": {
+        "width": 0.24,
+        "courtRadius": 10,
+        "radius": 28,
+        "fontSize": 16,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "woodColor": "#d9ad7a",
+        "paintColor": "#aa1734",
+        "lineColor": "#fff8ec",
+        "lineWidth": 0.24,
+        "markerSize": 2.05,
+        "tint": "#181420",
+        "tintAlpha": 0.42,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 3,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "halfCourt": {
+        "width": 0.3,
+        "courtRadius": 8,
+        "radius": 28,
+        "fontSize": 16,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "woodColor": "#d9ad7a",
+        "paintColor": "#aa1734",
+        "lineColor": "#fff8ec",
+        "lineWidth": 0.24,
+        "markerSize": 2.05,
+        "tint": "#181420",
+        "tintAlpha": 0.42,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 3,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "controls": {
+        "height": 66,
+        "radius": 22,
+        "fontSize": 17,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "iconSize": 26,
+        "gap": 16,
+        "tint": "#0c1019",
+        "tintAlpha": 0.38,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 2,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "content": {
+        "width": 370,
+        "maxHeight": 680,
+        "fontSize": 13,
+        "titleSize": 21,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "padding": 22,
+        "radius": 26,
+        "tint": "#191d24",
+        "tintAlpha": 0.56,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 3,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "menus": {
+        "width": 350,
+        "compactWidth": 120,
+        "fontSize": 16,
+        "titleSize": 19,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "padding": 22,
+        "radius": 24,
+        "itemRadius": 15,
+        "tint": "#151c26",
+        "tintAlpha": 0.64,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 3,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "topbar": {
+        "fontSize": 16,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "radius": 22,
+        "gap": 16,
+        "tint": "#10131c",
+        "tintAlpha": 0.38,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 2,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "heading": {
+        "fontSize": 28,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "tint": "#10131c",
+        "tintAlpha": 0.38,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 2,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "mascot": {
+        "size": 40,
+        "color": "#ee963f",
+        "expression": "happy",
+        "style": "classic",
+        "labelSize": 15,
+        "fontFamily": "default",
+        "fontWeight": "default"
+      },
+      "courtTheme": {
+        "preset": "source"
+      }
+    }
+  },
+  "failure": "CDP timeout Runtime.evaluate",
+  "passed": false,
+  "finishedAt": "2026-10-10T09:00:33.805Z"
+}

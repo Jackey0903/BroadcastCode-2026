@@ -23,14 +23,13 @@
 
 ## 2. Codex 当前状态（Codex 填写）
 
-**更新时间15:06；用户要求记录并交接。** 最新唯一接续入口：[进度、结果、未完成与下一步](docs/Agent交接-20261010-1506.md)。今日仍是一段不足一分钟独行侠进攻解读，18:00正式输入、20:00提交；主3526片与代码先保住。
+**更新时间17:00。** 本轮按用户新安排合并前端并适配同源产品；详见[前端合并联调](docs/前端合并与联调-20261010.md)。
 
-- 最新3526正式账号样片可交付：21.548秒、橙黑短字幕、完整原片/音轨、官方51%，实际Agent4轮5工具67.17秒；新缓存实测完整Chrome片尾，首载1.987秒、总墙钟53.658秒，仍6次中途等待，不能称流畅。
-- 新增AWS已部署：EventBridge、STANDARD Step Functions、独立验证与可选媒体Lambda、6告警/看板、媒体独立缓存。50资源/6角色边界，最终385项离线门禁通过；独立验证/缺失任务负例、33对象缓存checksum/RangeHit、真实失败指标有证据。
-- **Polly派生尚未完成**：14:48事件实际触发工作流、原片verified:true，Rekognition7标签真实返回；首配音CalledProcessError回退。FFmpeg4.1兼容修复已于14:58部署；15:00PutEvents响应超时publication_unconfirmed，随后只读未见新执行，停止盲重发。云端新版媒体/成功幂等重放/派生MP4下载仍待做；原片不受影响，证据保留。
-- Worker业务EMF已配置但尚无新任务样本，原渲染DLQ故障演练未做。完整官方评测schema未知；新增加服务不称评分认证。
-- 前端继续由队友做，不改视觉；**三层数据和新训练模型尚未进入本Worker/成片**，请求#1/#2/#7未完成。RL独立会话状态另读第3节/最新交付，不改它的模型或未提交文件。
-- 用户随后要求立即停止：本轮文档/代码已保存本机，尚未提交/推送或生成新备份，下一位按分工明确暂存后同步；不再新增云验证。
+- 原前端e49dedb无冲突合入main（6fe0ad0），903291a先保护既有后端。新watch与原创作台互通；3526正式账号训练样片与ce008历史片保持不同来源，同源目录/验收记录、原片/增强切换通过。俯视仍编辑示意，不称自动追踪。
+- 456项统一门禁通过；本地10项界面核查、完整增强片/音频解码、8秒D1通过，无脚本/资源错误。玻璃开/关各6秒，约60FPS、360帧0丢帧，是本机有限测量。三张实际参考图已明确入白名单并lazy加载。
+- 正式67对象已发布（36变化/31复用），不重传主媒体、不新推理；新入口 https://deky02484tknr.cloudfront.net/product/watch/index.html?story=flagg ，线上页面/三态可用，但60秒增强片仅2.023秒，等帧/加载受阻，无脚本/HTTP资源错误；线上完整片尾未通过。Git推送/备份进行中。
+- 配音用户已交同学试音；路线视频→模型文字稿→TTS，不继续替其选音色。先前固定名AWS兼容执行已SUCCEEDED/native.available:true，25项派生媒体核验通过，原音比特流不变；不切换默认观看区，幂等重放/听感未做。
+- 三层证据/训练模型仍未在本Worker烧录；RL交付与球员比较按第3节最新事实，不把服务通过写成成片集成完成。正式18:00新输入、20:00提交仍需完成，完整官方评测schema未知。
 
 ## 3. RL-SCOUT 当前状态（Claude → Codex RL 接手）
 
@@ -62,6 +61,7 @@
 |8|Codex RL|14:30用户要求两小时内接入使用。请准备打包evidence_client.py/evidence_env.py/evidence_store.py/depth_tasks.py及data/evidence/store.json；按[新策略后端交接](docs/RL模型限时交付-20261010.md)接三层证据选取，沿用同rl-scout端点但与旧xFG协议不同。可并行接线，等请求#6提供真实expectedLineage后再启用。失败照常出片且不标trainedModelUsed；最多一次纠错/90秒，建议与视觉步骤并行，不叠加到已用满的120秒预算。|链路Codex|待处理|
 |9|Codex RL|15:58用户明确要求视频突出RL创新，覆盖旧#4未决定的xFG估计HUD。请优先完成#7/#8，再按[展示规格](docs/RL展示说明-20261010.md)烧录“RL 数据球探 / AWS SageMaker · 3B”短标及三层卡片，深度赛场为重点；将真实采用的证据ID与模型来源写入产物，再由前端显示已生成结果。静态兜底不标本片由RL选证；只补一条真实完整样片，不扩训练。请回填实际job/成片证据。|链路Codex（接口/烧录）与前端队友（视觉）|待处理|
 |10|Codex RL|用户要求更丰富攻防球员数据与对比，已交[画像/计算接口与两样例](docs/RL攻防球员画像与对比-20261010.md)。请打包player_comparison.py，复用原store，给球员详情增加进攻/防守/对比入口与同场对手选择；视频只选一至两项相关指标。建议独立analysis.playerComparison，确定性计算不冒充RL输出，未核实主防人不得标直接对位。新增6项及RL66项通过；本轮一次full遇并行test_publication.py的save_json缺失，请发布负责人修复后统一验收。|链路Codex（接口/成片）与前端队友（展示）|待处理|
+
 |11|Codex RL|用户要求把RL加入当前前后端联调，17:00适配已齐：[唯一接线入口](docs/RL前后端联调入口-20261010.md)、product/rl/product_bridge.py、product-integration/handoff.json及两份约46KB展示JSON。新Flagg真实调用12.847秒/2次生成/无纠错，456项full通过。请并行Worker调用，接analysis.scout/playerComparison/rlEvidenceSources/rlEvidencePeriods/rlVideoUse，三层证据传叙事/烧录，watch数据抽屉新增独立分区；不要把eFG放进原xFG自动识别数组，不把历史成片补标新RL。完成后回填真实job/成片记录。|链路Codex|待接入（RL侧实时适配与交付完成）|
 
 ## 5. 日志（只追加）
@@ -143,3 +143,5 @@
 - 16:55 Codex RL：用户确认另一个进程正在新前端/后端联调，并要求一起接入RL。本会话新增请求#11，准备统一产品适配、轻量展示JSON与真实/回放来源标记；不碰对方在改的watch、API、Worker、发布/CDK文件，不开新训练。现有RL端点与原六例验收继续复用，当前前端仍仅展示原xFG，实际接入待联调负责人。
 
 - 17:00 Codex RL：本轮联调交付完成，入口docs/RL前后端联调入口-20261010.md与product/rl/results/product-integration/handoff.json。正式profile nba/555账号身份及端点config已核对，新桥接Flagg真实调用12.847秒、2次生成、无纠错；三层PTS34/eFG54%/赛季Gravity6.217通过，攻防比较同时输出。Amen样例是已验收真实回放，modelInvokedThisRequest:false，不伪装新推理。新增6项及一次456项full通过；精简重复来源/时期，展示紧凑JSON约46KB，完整轨迹另存。#11请联调负责人接入，原xFG检测只认首个ratio，三层卡保持独立以免混淆；旧成片不追记RL使用。本会话不改Agent/Worker/API/CDK/watch/发布文件、不重训或重部署。
+
+- 17:00 链路Codex：按用户安排无冲突合并e49dedb，适配watch同源目录、原片/增强和真实history，保留现有创作入口；456项门禁和本地浏览器通过，正式资源发布36/复用31。线上/Git/备份收尾中，配音由同学后续TTS联调。

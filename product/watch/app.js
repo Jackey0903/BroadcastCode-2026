@@ -12,17 +12,17 @@ import {mascotSVG,createAnnotationLayer} from './annotations/annotations.js';
 import {createInspector} from './dev/inspector.js';
 
 const $=s=>document.querySelector(s),stage=$('#stage'),video=$('#match-video');
-let catalog=[],story=null,courtData=null,focusId=null,activeMenu=null,manual=false,rightTimer=0,leftTimer=0,idleTimer=0,noticeTimer=0;
+let catalog=[],story=null,mediaVariant='source',courtData=null,focusId=null,activeMenu=null,manual=false,rightTimer=0,leftTimer=0,idleTimer=0,noticeTimer=0;
 let layout,glass,inspector,lastFrame=NaN,mediaCallback=0,lastChapter='';
 let clipPlayback=null,seekRequest=0,mediaLoad=0,destroyed=false,dockPinned=false;
 const showNotice=message=>{const el=$('#notice');el.textContent=message;el.hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>el.hidden=true,3400);};
-const content=createContentPanel({onSeek:seekContent,onStory:s=>{selectStory(s);content.close();},onClose:()=>{activeMenu=inspector?.isOpen?'inspector':null;}});
+const content=createContentPanel({onSeek:seekContent,onStory:(s,variant)=>{selectStory(s,variant);content.close();},onClose:()=>{activeMenu=inspector?.isOpen?'inspector':null;}});
 stage.append(content.element);content.element.dataset.component='content';
 const court=createCourtPanel({onMode:mode=>setMode(mode,true),onSelect:id=>{focusId=id;syncContent();},onEvidence:()=>openContent('sources')});
 $('#court-foreground').append(court.element);
 const annotations=createAnnotationLayer({video,onSelect:id=>{focusId=id;syncContent();}});$('#annotation-host').append(annotations.element);
 const controls=createPlayerControls({video,stage,onSettings:()=>toggleSettings(),onError:showNotice,onMenuChange:value=>{activeMenu=value;showControls();}});$('#controls-host').append(controls.element);
-const drawer=createDrawer({onAction:action=>{if(action==='watch')setMode('immersive');else if(action==='settings')toggleSettings();else if(action==='annotations')toggleAnalysis();else openContent(action);},mascot:mascotSVG(44)});$('#drawer-host').append(drawer.element);drawer.element.dataset.component='dock';
+const drawer=createDrawer({onAction:action=>{if(action==='watch')setMode('immersive');else if(action==='settings')toggleSettings();else if(action==='annotations')toggleAnalysis();else if(action==='creator')location.assign('/product/index.html#creator');else openContent(action);},mascot:mascotSVG(44)});$('#drawer-host').append(drawer.element);drawer.element.dataset.component='dock';
 $('#heading-mascot').innerHTML=mascotSVG(43);
 function componentConfig(){const c=getConfig();return {...c,layout:{...c.layout,dockWidth:c.dock?.width??c.layout.dockWidth,fullWidth:c.fullCourt?.width??c.layout.fullWidth,halfWidth:c.halfCourt?.width??c.layout.halfWidth}};}
 layout=createStageLayout({stage,video,surface:$('#video-surface'),panel:$('#court-shell'),controls:$('#controls-host'),config:componentConfig,onFrame:r=>{
@@ -42,14 +42,14 @@ function showControls(){stage.classList.remove('controls-hidden');clearTimeout(i
 function toggleSettings(force){const el=$('#settings'),open=force??el.hidden;el.hidden=!open;activeMenu=open?'settings':null;$('#more-button').setAttribute('aria-expanded',String(open));updateModeButtons();showControls();}
 function openContent(kind){if(!story){showNotice('比赛目录尚未载入，请稍后重试。');return;}toggleSettings(false);activeMenu='content';drawer.setOpen(true);content.open(kind,story,catalog);showControls();}
 function toggleAnalysis(){const c=getConfig();updateConfig({annotations:{enabled:!c.annotations.enabled}});}
-function syncAnnotations(){if(!story)return;annotations.update({time:video.currentTime,anchors:story.videoHeadAnchors||[],focusId,enabled:getConfig().annotations.enabled,rect:layout?.rects?.video});}
+function syncAnnotations(){if(!story)return;annotations.update({time:video.currentTime,anchors:mediaVariant==='source'?(story.videoHeadAnchors||[]):[],focusId,enabled:mediaVariant==='source'&&getConfig().annotations.enabled,rect:layout?.rects?.video});}
 function displayedCourtTime(){
  // A container's end can be later than its last decoded frame. At ended, retain
  // the actual displayed frame PTS; never relabel an offscreen point as current.
  const t=video.currentTime;
  return video.ended&&Number.isFinite(lastFrame)&&lastFrame<=t&&t-lastFrame<=.1?lastFrame:t;
 }
-function syncContent(){if(!story)return;court.update(story.sample==='flagg'?courtData:null,displayedCourtTime(),focusId);syncAnnotations();const chapters=story.chapters||[];const current=[...chapters].reverse().find(c=>video.currentTime>=(c.start??c.time??0))||chapters[0];const key=current?JSON.stringify(current):story.id;if(key!==lastChapter){lastChapter=key;$('#moment-kicker').textContent=current?.title||'关键一拍 · 原片';$('#moment-title').textContent=current?.headline||current?.title||story.title||'看懂这一拍';$('#moment-subtitle').textContent=current?.caption||current?.description||current?.text||story.subtitle||'';}$('#moment-heading').hidden=!getConfig().annotations.enabled;}
+function syncContent(){if(!story)return;court.update(story.sample==='flagg'?courtData:null,displayedCourtTime(),focusId);syncAnnotations();const chapters=story.chapters||[];const current=[...chapters].reverse().find(c=>video.currentTime>=(c.start??c.time??0))||chapters[0];const key=current?JSON.stringify(current):story.id;if(key!==lastChapter){lastChapter=key;$('#moment-kicker').textContent=current?.title||'关键一拍 · 原片';$('#moment-title').textContent=current?.headline||current?.title||story.title||'看懂这一拍';$('#moment-subtitle').textContent=current?.caption||current?.description||current?.text||story.subtitle||'';}$('#moment-heading').hidden=mediaVariant==='enhanced'||!getConfig().annotations.enabled;}
 function paintAmbience(){paintAmbienceSource($('#ambience'),video,stage);}
 function frame(now,meta){if(destroyed)return;if(Number.isFinite(meta?.mediaTime))lastFrame=meta.mediaTime;checkClipEnd(video.currentTime);paintAmbience();syncContent();mediaCallback=video.requestVideoFrameCallback?.(frame)||0;}
 function cancelClipPlayback(){const clip=clipPlayback;clipPlayback=null;if(clip&&Number.isFinite(clip.restoreRate))video.playbackRate=clip.restoreRate;}
@@ -66,9 +66,9 @@ function waitForMetadata(load){
   let timer;
   const cleanup=()=>{clearTimeout(timer);video.removeEventListener('loadedmetadata',ready);video.removeEventListener('error',failed);};
   const ready=()=>{cleanup();load===mediaLoad?resolve():reject(new Error('素材已切换。'));};
-  const failed=()=>{cleanup();reject(new Error('原片暂时无法播放，请恢复本地素材后重试。'));};
+  const failed=()=>{cleanup();reject(new Error('视频暂时无法播放，请检查素材地址后重试。'));};
   video.addEventListener('loadedmetadata',ready);video.addEventListener('error',failed);
-  timer=setTimeout(()=>{cleanup();reject(new Error('等待原片超时，请检查本地素材后重试。'));},8000);
+  timer=setTimeout(()=>{cleanup();reject(new Error('等待视频超时，请检查网络或素材后重试。'));},8000);
   if(video.error)failed();
  });
 }
@@ -91,7 +91,12 @@ async function seekContent(time,meta={}){
   // Evidence and attention-point jumps stay paused so the referenced frame is inspectable.
  }catch(error){if(request===seekRequest&&!destroyed){cancelClipPlayback();showNotice(error.message||String(error));}}
 }
-function selectStory(next){if(!next)return;seekRequest++;mediaLoad++;cancelClipPlayback();story=next;lastFrame=NaN;lastChapter='';focusId=null;video.pause();$('#load-error').hidden=true;if(next.media?.source)next.media.source.status='loading';video.src=next.src||next.sourceVideo;video.load();court.setStory(next);court.setTheme(courtThemeId());syncContent();layout.draw();}
+function activeMedia(){return story?.media?.[mediaVariant];}
+function selectStory(next,variant='source'){
+ if(!next)return;if(variant==='enhanced'&&!next.enhancedAvailable){showNotice('此素材尚无可核验的同源增强成片。');return;}
+ seekRequest++;mediaLoad++;cancelClipPlayback();story=next;mediaVariant=variant==='enhanced'?'enhanced':'source';lastFrame=NaN;lastChapter='';focusId=null;video.pause();$('#load-error').hidden=true;
+ if(activeMedia())activeMedia().status='loading';video.src=mediaVariant==='enhanced'?next.enhancedVideo:next.sourceVideo;video.setAttribute('aria-label',mediaVariant==='enhanced'?'已烧录解读的比赛成片':'真实比赛原片');video.load();court.setStory(next);court.setTheme(courtThemeId());syncContent();layout.draw();
+}
 function courtThemeId(c=getConfig()){
  const home=story?.game?.homeTeam;const source=home==='DAL'?'dallas':home==='HOU'?'houston':story?.sample==='amen'?'dallas':'houston';
  return ({source,rockets:'houston',mavericks:'dallas',neutral:'neutral'})[c.courtTheme?.preset||'source']||source;
@@ -116,9 +121,9 @@ for(const name of ['seeked','loadeddata','pause','ended'])video.addEventListener
 video.addEventListener('timeupdate',()=>checkClipEnd(video.currentTime));
 video.addEventListener('seeking',()=>{if(clipPlayback&&(video.currentTime<clipPlayback.start-.05||video.currentTime>clipPlayback.end+.05))cancelClipPlayback();});
 video.addEventListener('loadedmetadata',()=>{layout.draw();});
-video.addEventListener('loadeddata',()=>{$('#load-error').hidden=true;if(story?.media?.source)story.media.source.status='available';glass?.apply();});
-video.addEventListener('error',()=>{cancelClipPlayback();if(story?.media?.source)story.media.source.status='missing';$('#load-error').hidden=false;showControls();});
-$('#retry-media').onclick=()=>{seekRequest++;mediaLoad++;cancelClipPlayback();lastFrame=NaN;$('#load-error').hidden=true;if(story?.media?.source)story.media.source.status='loading';video.load();};
+video.addEventListener('loadeddata',()=>{$('#load-error').hidden=true;if(activeMedia())activeMedia().status='available';glass?.apply();});
+video.addEventListener('error',()=>{cancelClipPlayback();if(activeMedia())activeMedia().status='missing';$('#load-error').hidden=false;showControls();});
+$('#retry-media').onclick=()=>{seekRequest++;mediaLoad++;cancelClipPlayback();lastFrame=NaN;$('#load-error').hidden=true;if(activeMedia())activeMedia().status='loading';video.load();};
 
 function revealComponent(group){
  clearTimeout(leftTimer);clearTimeout(rightTimer);showControls();
@@ -135,17 +140,19 @@ window.addEventListener('broadcast-layout-request',e=>{if(!['immersive','fullCou
 window.addEventListener('broadcast-inspector-state',e=>{activeMenu=e.detail.open?'inspector':null;showControls();});
 window.addEventListener('broadcast-config-pick',e=>{activeMenu=e.detail.active?'inspector-pick':null;showControls();});
 $('#heading-mascot').dataset.component='mascot';
-window.broadcastDiagnostics=()=>({glass:glass?.status(),layout:layout.rects,mode:layout.mode,media:{src:video.currentSrc,time:video.currentTime,displayedCourtTime:displayedCourtTime(),lastDecodedFrameTime:Number.isFinite(lastFrame)?lastFrame:null,status:story?.media?.source?.status||'unloaded',duration:video.duration,paused:video.paused,ended:video.ended,videoWidth:video.videoWidth,videoHeight:video.videoHeight,quality:(()=>{const q=video.getVideoPlaybackQuality?.();return q?{totalVideoFrames:q.totalVideoFrames,droppedVideoFrames:q.droppedVideoFrames,corruptedVideoFrames:q.corruptedVideoFrames}:null;})()},annotations:{validHeadAnchors:story?.videoHeadAnchors?.length||0},config:getConfig()});
-window.broadcastUI={setMode,openAutomatic,openDrawer:()=>drawer.setOpen(true),openInspector:()=>inspector.open(),selectStory:(id)=>selectStory(catalog.find(s=>s.sample===id)),video,layout,getConfig,updateConfig,showControls,glass:()=>glass};
+window.broadcastDiagnostics=()=>({glass:glass?.status(),layout:layout.rects,mode:layout.mode,media:{src:video.currentSrc,time:video.currentTime,displayedCourtTime:displayedCourtTime(),lastDecodedFrameTime:Number.isFinite(lastFrame)?lastFrame:null,variant:mediaVariant,status:activeMedia()?.status||'unloaded',duration:video.duration,paused:video.paused,ended:video.ended,videoWidth:video.videoWidth,videoHeight:video.videoHeight,quality:(()=>{const q=video.getVideoPlaybackQuality?.();return q?{totalVideoFrames:q.totalVideoFrames,droppedVideoFrames:q.droppedVideoFrames,corruptedVideoFrames:q.corruptedVideoFrames}:null;})()},annotations:{validHeadAnchors:mediaVariant==='source'?(story?.videoHeadAnchors?.length||0):0},config:getConfig()});
+window.broadcastUI={setMode,openAutomatic,openDrawer:()=>drawer.setOpen(true),openInspector:()=>inspector.open(),selectStory:(id,variant='source')=>selectStory(catalog.find(s=>s.sample===id),variant),video,layout,getConfig,updateConfig,showControls,glass:()=>glass};
 // Glass and the inspector are independent of successful media decoding. Their
 // controls remain usable when a local MP4 is missing, and loadeddata can recover.
 glass=new GlassManager(stage,getConfig);glass.start();applyConfig();
 if(video.requestVideoFrameCallback)mediaCallback=video.requestVideoFrameCallback(frame);else video.addEventListener('timeupdate',frame);
+$('#load-error h2').textContent='视频暂时无法播放';$('#load-error p').textContent='请检查素材与网络后重试。';
 const initialMode=new URLSearchParams(location.search).get('mode');if(['fullCourt','halfCourt'].includes(initialMode))setMode(initialMode,true);showControls();
 try{
  catalog=await loadCatalog();
  try{const response=await fetch('./data/flagg.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();courtData=globalThis.CourtLab.validateDataset(data);}
  catch(error){courtData=null;showNotice('战术示意暂不可用：'+error.message);}
- selectStory(catalog[0]);
+ const params=new URLSearchParams(location.search),selected=catalog.find(s=>s.sample===params.get('story'))||catalog[0];
+ selectStory(selected,params.get('version')==='enhanced'&&selected?.enhancedAvailable?'enhanced':'source');
 }catch(error){showNotice('载入失败：'+error.message);$('#load-error').hidden=false;console.error(error);}
 window.addEventListener('pagehide',event=>{if(event.persisted)return;destroyed=true;seekRequest++;cancelClipPlayback();clearTimeout(rightTimer);clearTimeout(leftTimer);clearTimeout(idleTimer);clearTimeout(noticeTimer);unsubscribeConfig();inspector?.destroy();glass?.destroy();layout.destroy();controls.destroy();court.destroy();annotations.destroy();video.cancelVideoFrameCallback?.(mediaCallback);video.removeEventListener('timeupdate',frame);});

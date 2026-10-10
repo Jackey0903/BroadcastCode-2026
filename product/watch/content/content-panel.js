@@ -1,6 +1,6 @@
-import { safeSourceUrl, formatVideoTime, formatBeijingDate } from '../adapters/catalog.js';
+import { safeSourceUrl, formatVideoTime, formatBeijingDate, loadStoryRecord } from '../adapters/catalog.js';
 
-const TITLES = { moments: ['关键时刻', 'MOMENTS'], data: ['这一球的数据', 'SHOT DATA'], sources: ['画面与出处', 'SOURCES'], library: ['选择比赛', 'MATCH LIBRARY'], history: ['历史成片记录', 'HISTORY'] };
+const TITLES = { moments: ['关键时刻', 'MOMENTS'], data: ['这一球的数据', 'SHOT DATA'], sources: ['画面与出处', 'SOURCES'], library: ['选择比赛', 'MATCH LIBRARY'], history: ['成片与验收记录', 'RUN RECORD'] };
 const KINDS = { official: '官方记录', observation: '画面观察', video_frame: '实际输入帧' };
 let nextPanelId = 0;
 
@@ -61,6 +61,7 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
   let openState = false;
   let lastFocus = null;
   let activeStory = null;
+  let historyRequest = 0;
 
   function seek(time, metadata = {}) {
     const value = Number(time);
@@ -158,49 +159,61 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
       const card = section();
       card.classList.add('content-library-card');
       if (item.id === story.id) card.classList.add('is-selected');
-      card.append(node('span', 'content-eyebrow', item.id === story.id ? '正在观看' : '本地素材'), node('h3', '', `${item.player?.team || ''} · ${item.opponent || ''}`), paragraph(item.title));
+      card.append(node('span', 'content-eyebrow', item.id === story.id ? '正在观看' : '已登记素材'), node('h3', '', `${item.player?.team || ''} · ${item.opponent || ''}`), paragraph(item.title));
       card.append(paragraph(`${item.player?.name || ''} · ${Number(item.durationSeconds || 0).toFixed(2)} 秒 · ${item.game?.date || ''} 北京时间`, 'content-note'));
       const sourceStatus = item.media?.source?.status;
-      card.append(paragraph(sourceStatus === 'missing' || sourceStatus === 'error' ? '原片未加载，请恢复本地素材。' : sourceStatus === 'available' || sourceStatus === 'ready' ? '原片已就绪' : '打开后从本机读取原片', 'content-media-status'));
-      const choose = button(item.id === story.id ? '重新观看' : '观看原片', 'content-primary', () => { onStory(item); close(false); });
+      card.append(paragraph(sourceStatus === 'missing' || sourceStatus === 'error' ? '原片未加载，请检查素材与网络。' : sourceStatus === 'available' || sourceStatus === 'ready' ? '原片已就绪' : '打开后读取同源原片', 'content-media-status'));
+      const choose = button(item.id === story.id ? '重新观看' : '观看原片', 'content-primary', () => { onStory(item, 'source'); close(false); });
       card.append(choose);
-      const enhanced = button('增强成片 · 本机未恢复', 'content-secondary', () => {});
-      enhanced.disabled = true; card.append(enhanced);
-      if (item.history) card.append(button('查看历史验收记录', 'content-text-button', () => open('history', item, catalog)));
+      const enhanced = button(item.enhancedAvailable ? '观看增强成片' : '增强成片暂不可用', 'content-secondary', () => { onStory(item, 'enhanced'); close(false); });
+      enhanced.disabled = !item.enhancedAvailable; card.append(enhanced);
+      if (item.history || item.enhancedAvailable) card.append(button('查看成片验收记录', 'content-text-button', () => open('history', item, catalog)));
       body.append(card);
     }
-    body.append(paragraph('原片从本机读取。历史增强视频尚未恢复，当前仅可查看其记录。', 'content-note'));
+    body.append(paragraph('原片与增强成片均使用已登记的同源媒体。增强成片保留原视频时间轴；编辑战术板不是官方逐帧追踪。', 'content-note'));
   }
-  function history(story) {
-    const record = story.history;
-    if (!record) { body.append(paragraph('当前素材没有已保存的历史成片记录。')); return; }
-    body.append(node('span', 'content-badge', '历史记录 · 2026.10.07'), paragraph(record.analysis?.summary || '', 'content-lead'));
+  function renderHistory(story, record) {
+    body.replaceChildren();
+    if (!record) { body.append(paragraph('当前素材没有已保存的成片记录。')); return; }
+    const historical = record.historical === true || !story.enhancedAvailable;
+    body.append(node('span', 'content-badge', historical ? '历史运行 · 原始验收' : '正式账号运行 · 原始验收'), paragraph(record.analysis?.summary || '', 'content-lead'));
     const status = section('验收状态');
-    status.append(paragraph(record.contentReview?.acceptedForShowcase ? '当时的 AI 内容复核已接受为展示版本。' : '当时记录未标记为接受展示。'));
-    status.append(paragraph('这份记录来自之前的真实运行；本轮没有发起新推理。本机尚无增强 MP4，历史验收不等于当前已恢复播放。', 'content-note'));
+    status.append(paragraph(record.contentReview?.acceptedForShowcase === true ? '原始 AI 内容复核已接受为展示版本。' : '此记录没有已接受展示的内容复核标志。'));
+    status.append(paragraph('记录来自实际运行，本面板不会发起新推理。原始播放验收只描述当时结果；当前能否播放以播放器为准。', 'content-note'));
     const details = node('dl', 'content-details');
-    details.append(detail('核验时间', formatBeijingDate(record.verifiedAt)), detail('时长', `${Number(record.durationSeconds).toFixed(3)} 秒`), detail('画面', `${record.width} × ${record.height}`), detail('音轨', record.audioPresent ? '保留' : '未记录'), detail('历史播放', record.browserPlaybackVerified ? '已核对至片尾' : '见原记录'), detail('处理耗时', `${record.elapsedSeconds} 秒`));
+    details.append(detail('核验时间', formatBeijingDate(record.verifiedAt)), detail('时长', Number.isFinite(record.durationSeconds) ? `${record.durationSeconds.toFixed(3)} 秒` : null), detail('画面', record.width && record.height ? `${record.width} × ${record.height}` : null), detail('音轨', record.audioPresent === true ? '保留' : '未记录'), detail('原始播放', record.browserPlaybackVerified === true ? '已核对至片尾' : '未记录'), detail('处理耗时', Number.isFinite(record.elapsedSeconds) ? `${record.elapsedSeconds} 秒` : null));
     status.append(details); body.append(status);
-    const chapters = section('历史成片中的章节');
+    const chapters = section('实际成片中的章节');
     for (const chapter of record.analysis?.plan?.chapters || []) {
       const row = section(chapter.title);
-      row.append(paragraph(chapter.caption), button(`在原片回看 ${formatVideoTime(chapter.start)}`, 'content-text-button', () => { if (story.id !== activeStory?.id) onStory(story); seek(chapter.start, { chapter, historical: true }); }));
+      row.append(paragraph(chapter.caption), button(`在原片回看 ${formatVideoTime(chapter.start)}`, 'content-text-button', () => { onStory(story, 'source'); seek(chapter.start, { chapter, historical }); }));
       chapters.append(row);
     }
     body.append(chapters);
-    const trace = section('当时的处理步骤');
+    const trace = section('实际处理步骤');
     const names = { inspect_frames: '读取实际视频帧', read_official_event: '读取官方事件', validate_story: '校验章节与来源' };
     for (const step of record.analysis?.trace || []) trace.append(paragraph(`${step.step}. ${names[step.tool] || step.tool} · ${step.status === 'succeeded' ? '完成' : step.status}`, 'content-history-step'));
     body.append(trace);
     const archive = section('记录标识');
     archive.append(node('code', 'content-source-path', `Job ${record.jobId}`), node('code', 'content-source-path', `MP4 SHA-256 ${record.outputSha256}`), node('code', 'content-source-path', record.recordSource));
-    body.append(archive, paragraph('历史内容复核由 AI 助手完成，未经人类篮球专家认证。', 'content-note'));
+    body.append(archive, paragraph('内容复核由 AI 助手完成，未经人类篮球专家认证；记录时间不会改写为页面打开时间。', 'content-note'));
+  }
+  function history(story) {
+    const request = historyRequest;
+    if (!story.enhancedAvailable) { renderHistory(story, story.history); return; }
+    body.append(paragraph('正在读取同源成片验收记录……', 'content-lead'));
+    loadStoryRecord(story).then(record => {
+      if (request === historyRequest && openState && activeStory === story && element.dataset.kind === 'history') renderHistory(story, record);
+    }).catch(error => {
+      if (request !== historyRequest || !openState || activeStory !== story || element.dataset.kind !== 'history') return;
+      body.replaceChildren(paragraph(error.message || '成片记录暂不可用。'), paragraph('原片与增强成片播放不受此记录读取失败影响。', 'content-note'));
+    });
   }
   function open(kind, story, catalog = []) {
     if (!TITLES[kind]) throw new Error(`未知抽屉类型：${kind}`);
     if (!story) throw new Error('打开内容抽屉需要比赛素材。');
     if (!openState) lastFocus = document.activeElement;
-    activeStory = story;
+    activeStory = story; historyRequest++;
     const [label, english] = TITLES[kind];
     title.textContent = label; eyebrow.textContent = english;
     element.dataset.kind = kind;
@@ -212,7 +225,7 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
   }
   function close(restoreFocus = true) {
     if (!openState) return;
-    element.hidden = true; openState = false;
+    element.hidden = true; openState = false; historyRequest++;
     if (restoreFocus && lastFocus?.isConnected) lastFocus.focus({ preventScroll: true });
     onClose();
   }

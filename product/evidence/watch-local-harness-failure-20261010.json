@@ -1,0 +1,18 @@
+{
+  "url": "http://127.0.0.1:4173/product/watch/index.html?story=flagg",
+  "startedAt": "2026-10-10T08:25:19.594Z",
+  "viewport": [
+    1512,
+    949
+  ],
+  "attempts": 1,
+  "errors": [],
+  "checks": [],
+  "networkErrors": [],
+  "performance": [],
+  "screenshots": [],
+  "browser": "Chrome/154.0.8037.98",
+  "failure": "SystemInfo.getInfo is only supported on the browser target",
+  "passed": false,
+  "finishedAt": "2026-10-10T08:25:20.210Z"
+}

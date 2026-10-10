@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-10T17:11:32.653131+08:00",
+  "command": "python3 product/scripts/check.py --full",
+  "passed": true,
+  "behavioralTests": 456,
+  "noSkips": true,
+  "externalNetworkBlocked": true,
+  "seconds": 17.27,
+  "pythonFiles": 81,
+  "javascriptFiles": 41,
+  "cdkResources": 50,
+  "boundedRoles": 6,
+  "scope": "Current integration source/privacy/offline behavior and actual CDK synthesis; not live inference or score certification",
+  "files": {
+    "product/scripts/check.py": "3d09032f36a878da822197cc81ac8198f4b4a4858f0082e9f5c8c134e78c2ce1",
+    "product/scripts/publication.py": "9b37e217b083c7e4a55a788b32c816cb7aa4ec9867f5492603c9606d40dc7ece",
+    "product/scripts/serve.py": "b6d38e9d5a15cde39fded456ac3baa7d68bc28103e9ad17ed496236f05fb5f7e",
+    "product/scripts/watch_assets.py": "6d7eb0f6352adaf778a4ea995823affa3e53fe2db605f0a0d75da6b40c7b4a7b",
+    "product/watch/adapters/catalog.js": "d1e2ad2885cc98a886e721342790fafdf7edbc58d6525e49f8261985461203f4",
+    "product/watch/app.js": "f12ca8a3b016973f6f921db38994af338a5e9d5ea2f4a1dd716289b187ee790b",
+    "product/watch/content/content-panel.js": "721e91ced1be11fc6e9cb2fcff21f5837c1eaa5aac44d056b5fa3dcf50e94cd8",
+    "product/watch/dev/inspector.js": "2e0b71a1c9ca02852a9823b282c5b1899c5484705bcefa09f1e40f7e0a47e9a3",
+    "product/watch/navigation/drawer.js": "df0e9d524525a290474d5d4b7956273226106534549bcb7d27f2dd3b597dcc01",
+    "product/web/app.js": "390758b41751e98df3bd42a42793506954a5414d39bc331a14f39968113dd5a8",
+    "product/web/index.html": "3966fb1c2d834a416d20d4b06ba13413b5b750ef256fe287c6bebc6663673fb6"
+  },
+  "failuresPreserved": {
+    "testHarness": "watch-local-harness-failure-20261010.json",
+    "missingPublicAssets": "watch-local-missing-assets-20261010.json",
+    "initialTestIntegration": "Watch package-relative inspections required their own cwd; legacy app fixtures retained the startup seam. All suites now run with no skips."
+  }
+}

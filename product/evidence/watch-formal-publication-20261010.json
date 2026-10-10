@@ -1,0 +1,507 @@
+{
+  "startedAt": "2026-10-10T09:06:40.527001+00:00",
+  "account": "555726205424",
+  "region": "us-east-1",
+  "profile": "nba",
+  "website": "https://deky02484tknr.cloudfront.net/product/watch/index.html?story=flagg",
+  "newInference": false,
+  "newDeployment": false,
+  "publicationPlan": {
+    "bucket": "broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4",
+    "website": "https://deky02484tknr.cloudfront.net/product/",
+    "historicalRepublish": true,
+    "newInference": false,
+    "courtLabPublished": false,
+    "trainingCamp": {
+      "published": false,
+      "dataValidation": "unavailable",
+      "mainPipelineIntegration": false
+    },
+    "objects": [
+      {
+        "key": "samples/flagg.mp4",
+        "bytes": 83907519,
+        "sha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "frames/flagg-00.2s.jpg",
+        "bytes": 183572,
+        "sha256": "9549e289a2f6f2aa4c2f40aee696750ad4269619acac349eb17376f18b38de21",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "frames/flagg-09s.jpg",
+        "bytes": 205602,
+        "sha256": "8c6c47d0edf25d1d0a584fa1f05506d2e73d9cb0624689aa1066da93795389dd",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "frames/flagg-15.5s.jpg",
+        "bytes": 203239,
+        "sha256": "687495fbe7688aa3d9c26897ee8db55f155d3ae69aa5b5d9072742ba7936b3c3",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "frames/flagg-16.5s.jpg",
+        "bytes": 215650,
+        "sha256": "1c0acae0ef157566cdd73045fa13e0e943ae3f6cf66ed2eb56b6235f99c09c01",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "frames/flagg-17.0s.jpg",
+        "bytes": 200085,
+        "sha256": "b915b99b43c11215ab9dcda42ec89f28b6d875f37624f1eec159c5f854e7b8e6",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "frames/flagg-21s.jpg",
+        "bytes": 195091,
+        "sha256": "ef7dd61b8ef78f03244265ad9b4a7350c47ab414500e70ce0c86352e425158df",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "product/outputs/3526ae13a69b42c082b2fe4f0bacfa67/enhanced.mp4",
+        "bytes": 9974389,
+        "sha256": "f8d681433d4a49d58dd636b4307868029fabf5663de178bf800abaddead5a339",
+        "cacheControl": "public, max-age=31536000, immutable",
+        "prerequisite": true
+      },
+      {
+        "key": "product/outputs/3526ae13a69b42c082b2fe4f0bacfa67/analysis.json",
+        "bytes": 45470,
+        "sha256": "3b5978cc946bc30b98ab759c5546538d01f720506cb413ad54bee8e14156ca11",
+        "cacheControl": "public, max-age=31536000, immutable",
+        "prerequisite": true
+      },
+      {
+        "key": "samples/amen.mp4",
+        "bytes": 87308125,
+        "sha256": "7ec745f5f1e75b0c6d6dd27d409875f67c2ac3ab76c73f7123794c96be5aee22",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "frames/amen-00s.jpg",
+        "bytes": 216113,
+        "sha256": "d15cca0502396684dbe924c58bd3531c4015fa5e98723377db3ae7e04ea72f5c",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "frames/amen-15s.jpg",
+        "bytes": 247922,
+        "sha256": "5075aba9e9cf1566011d1aefb2cd79d823a777721c5b8821205427f7b4f506bb",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "frames/amen-16.0s.jpg",
+        "bytes": 236224,
+        "sha256": "ac04d79d2d1c04bab2f82ce4a0c672a3c6f06bfe9294bc9e839919eed70793d1",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "frames/amen-17.5s.jpg",
+        "bytes": 230053,
+        "sha256": "d514a20a52ba2ddfe9d9ba949d44fefa39e342b967deb77bbee3e949c669450e",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "frames/amen-18s.jpg",
+        "bytes": 231039,
+        "sha256": "cd662b57258d6b0d3435b9e413b9bafe73633749c785fdc898cbfab04c47b3ba",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "frames/amen-21s.jpg",
+        "bytes": 250866,
+        "sha256": "811439829c00323146e4480d4f5c763035859a6fde9e7c758c05a175387a31af",
+        "cacheControl": "public, max-age=86400",
+        "prerequisite": true
+      },
+      {
+        "key": "product/outputs/ce008e75d25d4e2e8e88b57412f6c762/enhanced.mp4",
+        "bytes": 14989055,
+        "sha256": "8b0a20d36e5f63898e3c36676f3d491164ae77fe3aafc292b15fb6f7d178033f",
+        "cacheControl": "public, max-age=31536000, immutable",
+        "prerequisite": true
+      },
+      {
+        "key": "product/outputs/ce008e75d25d4e2e8e88b57412f6c762/analysis.json",
+        "bytes": 37274,
+        "sha256": "dc07d9b9aff1f7a19fa724cbae06a24a4071fc555236357f0e152d39778353ec",
+        "cacheControl": "public, max-age=31536000, immutable",
+        "prerequisite": true
+      },
+      {
+        "key": "config/samples.json",
+        "bytes": 2989,
+        "sha256": "cbfa1c2887d72cc001e633e8db5057c39c5c51eeb8227512914a54ade1676628",
+        "cacheControl": "no-store",
+        "prerequisite": true
+      },
+      {
+        "key": "product/config/samples.json",
+        "bytes": 2989,
+        "sha256": "cbfa1c2887d72cc001e633e8db5057c39c5c51eeb8227512914a54ade1676628",
+        "cacheControl": "no-store",
+        "prerequisite": true
+      },
+      {
+        "key": "product/index.html",
+        "bytes": 14726,
+        "sha256": "30bea6248acc2606c955e4d2ddefa0de493b156b5ea86fa62168363af1b02019",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/app.js",
+        "bytes": 46827,
+        "sha256": "390758b41751e98df3bd42a42793506954a5414d39bc331a14f39968113dd5a8",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/styles.css",
+        "bytes": 32901,
+        "sha256": "74eab49ac94373b78c189dfa09ff5bc9efcadd57b927cbe58da8a8eca621e841",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/broadcast.css",
+        "bytes": 23635,
+        "sha256": "0422cca3e8f6092c4ef561b9c13ac41841bf805f6b8308f92cb515dc594e0cc6",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/atmosphere.js",
+        "bytes": 11344,
+        "sha256": "c61b44117c53173897a493be58e61f7a8abf4348a5e8c67d84132bb7e4aae912",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/arcade.css",
+        "bytes": 46763,
+        "sha256": "92804a132e4454d216484717c4e745b1135fdc23739249a88f4d578c0d8c2d9f",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/arcade.js",
+        "bytes": 17268,
+        "sha256": "55204339c959a34b0ea5b6476ea41088225653b1c68138bc469a90635d8a0388",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/assets/grain.svg",
+        "bytes": 396,
+        "sha256": "bd396a4cfddf2ec4607ddbc0c06cd5bcf6db7f8ed3b3283935b66a4a26c3e525",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/assets/fonts/OFL.txt",
+        "bytes": 4447,
+        "sha256": "6f4007802d1f082674726446865a0a37b8fb38673dd347a77ca0b1b72d86aaf8",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2",
+        "bytes": 731360,
+        "sha256": "e902e82f30d93f2f4a29a21f7b8c5d6565be0377663ceecda093b968d8ade4a5",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/data/event-bindings.json",
+        "bytes": 8839,
+        "sha256": "2f3133b7aa45f989a0faf99ff5ce8b47cb894a0c8304b8c342f4aab5ae8b13b3",
+        "cacheControl": "no-store",
+        "prerequisite": false
+      },
+      {
+        "key": "product/data/video-anchors.json",
+        "bytes": 4537,
+        "sha256": "e6b9d1a34a24edc4ec04aa5a09f57f976cb984020392947cf875884126e31fa1",
+        "cacheControl": "no-store",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/index.html",
+        "bytes": 3458,
+        "sha256": "52e5435cfe07bd1a7a8a9478b293871df592a541946db0f6ec7bce2fe4b117b0",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/app.js",
+        "bytes": 20031,
+        "sha256": "f12ca8a3b016973f6f921db38994af338a5e9d5ea2f4a1dd716289b187ee790b",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/adapters/catalog.js",
+        "bytes": 5435,
+        "sha256": "d1e2ad2885cc98a886e721342790fafdf7edbc58d6525e49f8261985461203f4",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/adapters/historical-records.js",
+        "bytes": 34969,
+        "sha256": "59b01f8a80dc9d46ae519c0b01bd6474c10a84d16740e1b0add7aca69d7623c0",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/annotations/annotations.css",
+        "bytes": 1090,
+        "sha256": "040356a1dc5deaa5ee7f2af9f16054e64e6b677d3b7c83a2fbeeb94e0fcdc671",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/annotations/annotations.js",
+        "bytes": 3702,
+        "sha256": "bfed4e84cc32fb9ce1c839577613e5db5ce7e6a5f18c43e004fd9e7b024bdf27",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/annotations/mascot.js",
+        "bytes": 1844,
+        "sha256": "8fbd15bf4306f129faa4dac8c10b1042f8367dafef649b8402cb9e63d3a474ae",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/config/config.js",
+        "bytes": 19049,
+        "sha256": "bc18d4bcf13c4f6695bae3abf18a2e79fc7e4dcbac53a735c85e604cb5202ea0",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/content/content-panel.js",
+        "bytes": 16311,
+        "sha256": "721e91ced1be11fc6e9cb2fcff21f5837c1eaa5aac44d056b5fa3dcf50e94cd8",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/content/content.css",
+        "bytes": 8463,
+        "sha256": "6ecb6d64785d4a5d35a3b76ad5091ab3475fa777b7aa4c8dd55a7670a914b085",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/court/court-geometry.js",
+        "bytes": 3953,
+        "sha256": "6536bcddd5c58e10c5a519d31d02f544a911a16a7001e2b72caf755272b89712",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/court/court-panel.js",
+        "bytes": 12740,
+        "sha256": "09eb934e9ec6cc4d146a2c21159d9f3dcd9ba664b5f9c718ce0226cecda20eaa",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/court/court.css",
+        "bytes": 8740,
+        "sha256": "6b5c99117d638818cc5aac2a4ba2bbc0a3764e5485ab1d773de55cd5c9499a93",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/court/themes.js",
+        "bytes": 767,
+        "sha256": "c21e7b40b9fb734bd02d404df759e64a90ab77f63d8a92efd5eddd0248af82ad",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/data/flagg.json",
+        "bytes": 97199,
+        "sha256": "0a27a869e2eb2a0106f17942e0fa4ec07c55baccd370ce6216c9f5c6187a134d",
+        "cacheControl": "no-store",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/dev/inspector.css",
+        "bytes": 7128,
+        "sha256": "65d8cbf5d6286d7bb9cb01400d6f28b360ca71e02eac1216ad49a2b0f7376834",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/dev/inspector.js",
+        "bytes": 20014,
+        "sha256": "2e0b71a1c9ca02852a9823b282c5b1899c5484705bcefa09f1e40f7e0a47e9a3",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/dev/references/01_immersive.png",
+        "bytes": 2055582,
+        "sha256": "f0f7a88eff40f61d807b0ca58505b285387b677a3c3e39be44e46592888680ed",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/dev/references/02_full_court.png",
+        "bytes": 2173231,
+        "sha256": "30f411defc08f8d04afbcfa2a4b7850946a1ecb020ae23722346a230ce5878b8",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/dev/references/03_half_court.png",
+        "bytes": 2208659,
+        "sha256": "eeb4023ada2092480c0d867a89e4c13be7523cd5f001c49aaec85c280a4a1ce5",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/glass/ambience-source.js",
+        "bytes": 5256,
+        "sha256": "b5ca307cb2dc751305e215599cb1c8f8a2ce8213f91671e9e546dbf518db00d8",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/glass/glass-manager.js",
+        "bytes": 2878,
+        "sha256": "69928f9bd9b23aa6178c0b94ea107c2d46f8d9212f33b6cba92ccce1b28cc619",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/glass/optics-model.js",
+        "bytes": 4837,
+        "sha256": "90e29ff188e4e716d32101ff24d7dce93d1b8ec9c65f7048822807b17371372f",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/media/media.css",
+        "bytes": 5716,
+        "sha256": "f82be9d44e50c8ffa3758a3b00e9a767793c112b5d87cc7bef6765d988f340de",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/media/player-controls.js",
+        "bytes": 9635,
+        "sha256": "d615275f52c29a8866179799ae252f4effd877f9f5e13605a97c1b7bce421507",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/navigation/drawer.js",
+        "bytes": 1683,
+        "sha256": "df0e9d524525a290474d5d4b7956273226106534549bcb7d27f2dd3b597dcc01",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/stage/layout.js",
+        "bytes": 3341,
+        "sha256": "2ca8877aa210ef279c13242e82a31037d305af2afe49e82e358d6114d1844e84",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/stage/stage.css",
+        "bytes": 7792,
+        "sha256": "12c29a3a620aab84d4c194feb54d0895f6acd2ef749460acef2a081af25ee605",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/vendor/court-viewer.js",
+        "bytes": 21157,
+        "sha256": "512f4fd2124ba5e75f5728b7489e39f90d7b37009de4a46de8cc9e0903d2a8e5",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/vendor/liquid-gl/liquidGL.js",
+        "bytes": 302092,
+        "sha256": "a70f08fb7f1e247c01f46d56ab0591b93f39aa48d0c92d95b0a720f268262f10",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/vendor/liquid-gl/liquidGL-helper.js",
+        "bytes": 13366,
+        "sha256": "5260e13442ab3ce39dbfc5b70a582fb4752402ceffee2dcae8b860e9c0389938",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/vendor/liquid-gl/LICENSE",
+        "bytes": 1730,
+        "sha256": "b0a6dd5a8ecb67e51faa7c4f66988be318a53dfcc024ccdad0a261707b2f65aa",
+        "cacheControl": "public, max-age=0, must-revalidate",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/data/stories.json",
+        "bytes": 35473,
+        "sha256": "e6ab97e7842053dc82312326c0e13ddd25dfc41e6f5ce7aca0ad75a489611644",
+        "cacheControl": "no-store",
+        "prerequisite": false
+      },
+      {
+        "key": "product/watch/data/history.json",
+        "bytes": 95996,
+        "sha256": "56fed9dab95dc7c0f6085919bf76039ae05c08109b4f643c82985cb3d99f4a07",
+        "cacheControl": "no-store",
+        "prerequisite": false
+      },
+      {
+        "key": "product/data/stories.json",
+        "bytes": 35473,
+        "sha256": "e6ab97e7842053dc82312326c0e13ddd25dfc41e6f5ce7aca0ad75a489611644",
+        "cacheControl": "no-store",
+        "prerequisite": false
+      }
+    ]
+  },
+  "mutations": [
+    {
+      "operation": "PutObject",
+      "key": "product/watch/app.js",
+      "bytes": 20031,
+      "sha256": "f12ca8a3b016973f6f921db38994af338a5e9d5ea2f4a1dd716289b187ee790b"
+    }
+  ],
+  "status": "published",
+  "publishedKeys": [
+    "product/watch/app.js"
+  ],
+  "publishedCount": 1,
+  "reusedCount": 66,
+  "finishedAt": "2026-10-10T09:06:50.057937+00:00"
+}

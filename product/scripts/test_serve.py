@@ -216,5 +216,35 @@ class PreviewTest(unittest.TestCase):
         self.assertTrue(catalog.status()["preview"]["issues"])
 
 
+    def test_watch_serves_only_runtime_and_shared_verified_records(self):
+        for name in ('index.html', 'app.js', 'glass/optics-model.js'):
+            self.write('product/watch/' + name, b'watch-runtime')
+        self.write('product/watch/preview.py', b'private')
+        self.write('product/watch/dev/references/private.png', b'private')
+        catalog = Catalog(self.root)
+        self.server.RequestHandlerClass = handler_for(catalog)
+        self.assertEqual(self.request('/product/watch/')[0], 200)
+        self.assertEqual(self.request('/product/watch/glass/optics-model.js')[2], b'watch-runtime')
+        for name in ('preview.py', 'dev/references/private.png'):
+            self.assertEqual(self.request('/product/watch/' + name)[0], 404)
+        status, _, body = self.request('/product/watch/data/stories.json')
+        self.assertEqual(status, 200)
+        self.assertEqual(json.loads(body), catalog.manifest)
+        records = json.loads(self.request('/product/watch/data/history.json')[2])['records']
+        self.assertEqual(records[0]['jobId'], JOB)
+        self.assertEqual(records[0]['contentReview'], self.report['contentReview'])
+        self.assertEqual(records[0]['analysis'], self.report['analysis'])
+
+    def test_watch_symlink_is_not_served(self):
+        self.write('product/watch/app.js', b'watch-runtime')
+        self.write('.env', b'private')
+        file = self.root / 'product/watch/app.js'
+        catalog = Catalog(self.root)
+        self.server.RequestHandlerClass = handler_for(catalog)
+        file.unlink()
+        file.symlink_to(self.root / '.env')
+        self.assertEqual(self.request('/product/watch/app.js')[0], 404)
+
+
 if __name__ == "__main__":
     unittest.main()

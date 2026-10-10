@@ -152,12 +152,20 @@ def python_suite(name, minimum, env):
 
 
 def node_suite(env):
+    def run(files, minimum, cwd):
+        output = execute(['node', '--test', '--test-reporter=tap', *map(str, files)], env=env, cwd=cwd)
+        totals = {key: int(value) for key, value in re.findall(r'^# (tests|pass|fail|skipped|cancelled) (\d+)\s*$', output, re.M)}
+        if totals.get('tests', 0) < minimum or totals.get('pass') != totals.get('tests') or any(totals.get(k, 0) for k in ('fail', 'skipped', 'cancelled')):
+            raise CheckFailure(f'Node: incomplete or skipped suites: {totals}')
+        return totals['tests']
     files = sorted((PRODUCT / 'web').glob('test-*.cjs')) + sorted((PRODUCT / 'tests').glob('test_*.js'))
-    output = execute(['node', '--test', '--test-reporter=tap', *map(str, files)], env=env)
-    totals = {key: int(value) for key, value in re.findall(r'^# (tests|pass|fail|skipped|cancelled) (\d+)\s*$', output, re.M)}
-    if totals.get('tests', 0) < 134 or totals.get('pass') != totals.get('tests') or any(totals.get(k, 0) for k in ('fail', 'skipped', 'cancelled')):
-        raise CheckFailure(f'Node: incomplete or skipped suites: {totals}')
-    return totals['tests']
+    main_count = run(files, 134, ROOT)
+    watch_files = sorted((PRODUCT / 'watch').rglob('*.test.js'))
+    if len(watch_files) < 8:
+        raise CheckFailure('Merged watch frontend test suites are missing.')
+    # Received frontend source inspections intentionally resolve from its package
+    # directory, as npm test does. Keep both complete suites and the same guard.
+    return main_count + run(watch_files, 52, PRODUCT / 'watch')
 
 
 def run_tests(env):
