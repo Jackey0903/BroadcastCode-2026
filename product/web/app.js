@@ -2,10 +2,12 @@
 
 (() => {
   const $ = (id) => document.getElementById(id);
-  const KNOWN = new Set(["flagg", "amen"]);
+  const SAMPLE_ID = /^[a-z0-9][a-z0-9_-]{0,59}$/;
   const KINDS = { observation: "画面观察", official: "官方数据", interpretation: "篮球解读" };
   const STORE = "hidden-play-studio-job-v1";
-  const state = { stories: [], story: null, version: "source", phase: "watch", choice: null, panel: "story", view: "watch", theater: false, mediaToken: 0, serviceReady: false, available: new Set(), sampleListKnown: false, busy: false, submitting: false, polling: false, jobId: null, jobSample: null, timer: null, pollErrors: 0, pollStart: 0, resultUrl: null, offline: false };
+  const state = { stories: [], registered: new Set(), story: null, version: "source", phase: "watch", choice: null, panel: "story", view: "watch", theater: false, mediaToken: 0, serviceReady: false, available: new Set(), sampleListKnown: false, busy: false, submitting: false, polling: false, jobId: null, jobSample: null, timer: null, pollErrors: 0, pollStart: 0, resultUrl: null, offline: false };
+  const registered = (sample) => typeof sample === "string" && SAMPLE_ID.test(sample) && state.registered.has(sample);
+  const creatable = (sample) => registered(sample) && state.sampleListKnown && state.available.has(sample);
   const video = $("story-video");
   const text = (value, fallback = "") => ["string", "number", "boolean"].includes(typeof value) ? String(value) : fallback;
   const array = (value) => Array.isArray(value) ? value : [];
@@ -194,8 +196,8 @@
     state.story.evidence.forEach((evidence)=>{const focused=selectedEvidence.has(evidence.id);const item=node("article",`evidence-item${focused?" perspective-evidence":""}`);item.id=`evidence-${text(evidence.id)}`;item.append(node("p","eyebrow",`${KINDS[evidence.kind]||"来源资料"}${focused?" / 当前关注点":""}`),node("h4","",evidence.title),node("p","",evidence.body));const actions=node("div","evidence-actions");const seconds=number(evidence.videoTime);if(seconds!==null){const button=node("button","",`↺ ${time(seconds)} 回到画面`);button.type="button";button.addEventListener("click",()=>{seekTo(seconds,false);video.focus();});actions.append(button);}const source=link(`${text(evidence.sourceLabel,"原始来源")} ↗`,evidence.sourceUrl);if(source)actions.append(source);item.append(actions);panel.append(item);});
   }
   async function loadStories() {
-    try{const response=await fetch("/product/data/stories.json",{cache:"no-store"});if(!response.ok)throw new Error(`资料请求返回 ${response.status}`);const data=await response.json();configurePreview(data.preview);state.stories=array(data.stories).filter((s)=>s&&KNOWN.has(s.id)).map(normalise);if(!state.stories.length)throw new Error("案例资料暂未提供");renderSelectors();const selected=new URL(location.href).searchParams.get("story");selectStory(state.stories.find((s)=>s.id===selected)?.id||state.stories[0].id);}
-    catch(error){$("data-notice").hidden=false;$("data-notice").textContent=`影片资料暂时未能加载。${error.message}，请稍后刷新页面。`;$("case-count").textContent="资料暂不可用";$("video-empty").querySelector("p").textContent="等待案例资料";$("watch-original").disabled=true;$("enter-choice").disabled=true;}
+    try{const response=await fetch("/product/data/stories.json",{cache:"no-store"});if(!response.ok)throw new Error(`资料请求返回 ${response.status}`);const data=await response.json();const seen=new Set();state.stories=array(data.stories).filter((s)=>s&&typeof s.id==="string"&&SAMPLE_ID.test(s.id)&&!seen.has(s.id)&&seen.add(s.id)).map(normalise);state.registered=new Set(state.stories.map((s)=>s.id));if(!state.stories.length)throw new Error("案例资料暂未提供");configurePreview(data.preview);renderSelectors();const selected=new URL(location.href).searchParams.get("story");selectStory(state.stories.find((s)=>s.id===selected)?.id||state.stories[0].id);}
+    catch(error){state.stories=[];state.registered.clear();state.story=null;syncCreate();$("data-notice").hidden=false;$("data-notice").textContent=`影片资料暂时未能加载。${error.message}，请稍后刷新页面。`;$("case-count").textContent="资料暂不可用";$("video-empty").querySelector("p").textContent="等待案例资料";$("watch-original").disabled=true;$("enter-choice").disabled=true;}
   }
   async function api(path,options={}) {
     const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),options.method==="POST"?30000:20000);
@@ -205,8 +207,8 @@
     }catch(error){if(error.name==="AbortError")throw new Error("请求等待超时，后台可能仍在处理。");throw error;}finally{clearTimeout(timer);}
   }
   function syncCreate() {
-    const chosen=$("create-form").querySelector('input[name="sample"]:checked');const permitted=chosen&&(!state.sampleListKnown||state.available.has(chosen.value));$("generate-button").disabled=state.offline||!state.serviceReady||state.busy||state.submitting||!permitted;$("generate-label").textContent=state.offline?"本地回看 · 暂不生成":state.submitting?"正在提交…":state.busy?"本次任务处理中…":"生成新的增强成片";
-    $("create-form").querySelectorAll('input[name="sample"]').forEach((input)=>{input.disabled=state.busy||state.submitting||(state.sampleListKnown&&!state.available.has(input.value));});$("refresh-job").disabled=state.polling||!state.jobId;
+    const chosen=$("create-form").querySelector('input[name="sample"]:checked');const permitted=chosen&&creatable(chosen.value);$("generate-button").disabled=state.offline||!state.serviceReady||state.busy||state.submitting||!permitted;$("generate-label").textContent=state.offline?"本地回看 · 暂不生成":state.submitting?"正在提交…":state.busy?"本次任务处理中…":"生成新的增强成片";
+    $("create-form").querySelectorAll('input[name="sample"]').forEach((input)=>{input.disabled=state.busy||state.submitting||!creatable(input.value);});$("refresh-job").disabled=state.polling||!state.jobId;
     $("local-history-actions").querySelectorAll("button").forEach((button)=>{button.disabled=state.polling;});
   }
   function configurePreview(preview) {
@@ -217,17 +219,17 @@
     $("studio-description").textContent="回看两份真实 Agent 生成的作品，以及图像读取、官方数据与章节校验记录。这里展示的是已保存结果。";
     if(!state.jobId){$("job-badge").textContent="历史回看";$("job-message").textContent="选择左侧历史记录，查看已验收的成片和依据。";}
     if(Array.isArray(preview.jobs)){
-      const jobs=preview.jobs.filter((job)=>KNOWN.has(job.sample)&&/^[a-f0-9]{32}$/.test(job.jobId));
+      const jobs=preview.jobs.filter((job)=>job&&registered(job.sample)&&/^[a-f0-9]{32}$/.test(job.jobId));
       $("local-history").hidden=!jobs.length;$("local-history-actions").replaceChildren();
-      jobs.forEach((job)=>{const button=node("button","",`${job.sample==="flagg"?"弗拉格":"阿门"} · 历史成片与处理记录 ↗`);button.type="button";button.addEventListener("click",()=>openHistory(job));$("local-history-actions").append(button);});
+      jobs.forEach((job)=>{const story=state.stories.find((item)=>item.id===job.sample);const label=text(story?.player?.name,{flagg:"弗拉格",amen:"阿门"}[job.sample]||job.sample);const button=node("button","",`${label} · 历史成片与处理记录 ↗`);button.type="button";button.addEventListener("click",()=>openHistory(job));$("local-history-actions").append(button);});
     }
     if(array(preview.issues).length){$("data-notice").hidden=false;$("data-notice").textContent=array(preview.issues).map((item)=>text(item)).join(" ");}
     syncCreate();
   }
-  function openHistory(job){if(state.polling)return;stopPoll();resetGeneration();state.jobId=job.jobId;state.jobSample=job.sample;state.busy=true;state.pollStart=Date.now();state.pollErrors=0;rememberJob();$("job-message").textContent="正在读取本地历史结果，没有启动新创作。";pollJob();}
+  function openHistory(job){if(state.polling||!job||!registered(job.sample)||!/^[a-f0-9]{32}$/.test(job.jobId))return;stopPoll();resetGeneration();state.jobId=job.jobId;state.jobSample=job.sample;state.busy=true;state.pollStart=Date.now();state.pollErrors=0;rememberJob();$("job-message").textContent="正在读取本地历史结果，没有启动新创作。";pollJob();}
   async function checkService() {
     $("check-service").disabled=true;$("service-status").textContent="检查创作服务…";
-    try{const data=await api("/api/status");configurePreview(data.preview);const supportsStory=array(data.modes).includes("story");state.serviceReady=!state.offline&&supportsStory&&data.ready!==false&&!["failed","offline","unavailable","error"].includes(String(data.status).toLowerCase());state.sampleListKnown=Array.isArray(data.samples);state.available=new Set(array(data.samples).filter((s)=>typeof s==="string"||(s&&s.available!==false&&s.enabled!==false)).map((s)=>typeof s==="string"?s:s.id||s.sample||s.key));$("service-status").textContent=state.offline?"本地历史回看 · 新生成暂不可用":state.serviceReady?"故事创作服务已就绪":!supportsStory?"故事创作服务尚未开放，暂不能生成":"创作服务暂未就绪";}
+    try{const data=await api("/api/status");configurePreview(data.preview);const supportsStory=array(data.modes).includes("story");state.serviceReady=!state.offline&&supportsStory&&data.ready!==false&&!["failed","offline","unavailable","error"].includes(String(data.status).toLowerCase());state.sampleListKnown=Array.isArray(data.samples);state.available=new Set(array(data.samples).filter((s)=>typeof s==="string"||(s&&s.available!==false&&s.enabled!==false)).map((s)=>typeof s==="string"?s:s.id||s.sample||s.key).filter(registered));$("service-status").textContent=state.offline?"本地历史回看 · 新生成暂不可用":state.serviceReady?"故事创作服务已就绪":!supportsStory?"故事创作服务尚未开放，暂不能生成":"创作服务暂未就绪";}
     catch(error){state.serviceReady=false;$("service-status").textContent=`服务暂不可达：${error.message}`;}
     finally{$("service-dot").className=`service-dot ${state.serviceReady?"ready":"unavailable"}`;$("check-service").disabled=false;syncCreate();}
   }
@@ -237,7 +239,7 @@
   function resetGeneration(){state.resultUrl=null;$("generated-video").pause();$("generated-video").removeAttribute("src");$("generated-video").load();$("generated-video").hidden=true;$("generation-placeholder").hidden=false;$("generation-actions").hidden=true;$("actual-analysis").hidden=true;$("technical-details").hidden=true;$("actual-summary").textContent="";$("actual-observations").replaceChildren();jobError("");}
   function stopPoll(){clearTimeout(state.timer);state.timer=null;}
   function schedulePoll(delay=3000){stopPoll();if(Date.now()-state.pollStart>20*60*1000){$("job-message").textContent="自动查询已暂停。任务可能仍在继续，可重新查询同一编号。";return;}state.timer=setTimeout(pollJob,delay);}
-  async function submitJob(event){event.preventDefault();if($("generate-button").disabled)return;const sample=$("create-form").querySelector('input[name="sample"]:checked')?.value;if(!KNOWN.has(sample))return;stopPoll();resetGeneration();state.busy=true;state.submitting=true;state.jobId=null;state.jobSample=sample;forgetJob();$("job-reference").hidden=true;$("job-badge").textContent="正在提交";$("job-badge").className="job-badge running";$("job-message").textContent="正在向服务提交这次创作请求…";syncCreate();
+  async function submitJob(event){event.preventDefault();if($("generate-button").disabled||state.offline||!state.serviceReady||state.busy||state.submitting)return;const sample=$("create-form").querySelector('input[name="sample"]:checked')?.value;if(!creatable(sample))return;stopPoll();resetGeneration();state.busy=true;state.submitting=true;state.jobId=null;state.jobSample=sample;forgetJob();$("job-reference").hidden=true;$("job-badge").textContent="正在提交";$("job-badge").className="job-badge running";$("job-message").textContent="正在向服务提交这次创作请求…";syncCreate();
     try{const data=await api("/api/jobs",{method:"POST",body:JSON.stringify({sample,mode:"story"})});if(typeof data.jobId!=="string"||!data.jobId)throw new Error("服务未返回任务编号，提交结果尚未确认。");state.jobId=data.jobId;rememberJob();renderJob(data);state.pollStart=Date.now();state.pollErrors=0;pollJob();}
     catch(error){state.busy=false;$("job-badge").textContent="提交未确认";$("job-badge").className="job-badge failed";$("job-message").textContent="没有获得可查询的任务编号。";jobError(`${error.message} 页面没有自动重提；如果请求已被服务接收，后台可能仍在执行，请核对后再重新启动。`);}
     finally{state.submitting=false;syncCreate();}}
@@ -246,7 +248,7 @@
     finally{state.polling=false;syncCreate();}}
   function renderJob(data){
     // A restoring/in-flight task owns its sample selection only until it settles.
-    if(state.busy&&KNOWN.has(data.sample)){
+    if(state.busy&&registered(data.sample)){
       state.jobSample=data.sample;
       $("create-form").querySelectorAll('input[name="sample"]').forEach((input)=>{input.checked=input.value===data.sample;});
     }
@@ -286,7 +288,7 @@
     const validation=analysis.validation||job.validation;const validationLabel=$("run-validation");
     if(validation&&typeof validation==="object"){const names={known_evidence_ids:"依据编号可回溯",cited_frames_actually_inspected:"本轮输入帧已读取，另含预先整理的画面依据",source_time_bounds:"时码位于原片内",nonoverlapping_chapters:"章节无重叠",no_model_authored_numbers:"无模型自造数值",official_metrics_copied_verbatim:"官方数值原样引用"};const checks=array(validation.checks).map((check)=>names[check]||text(check));validationLabel.textContent=`${validation.passed===true?"结构与来源校验通过":validation.passed===false?"结构与来源校验未通过":"服务返回校验记录"}${checks.length?`：${checks.join("、")}`:""}。这些检查不等于独立的篮球事实认证。`;}else validationLabel.textContent=typeof validation==="string"?validation:"服务尚未返回结构与来源校验记录。";
   }
-  function restoreJob(){let stored;try{stored=JSON.parse(sessionStorage.getItem(STORE)||"null");}catch{}const id=new URL(location.href).searchParams.get("job")||stored?.jobId;if(typeof id!=="string"||!/^[a-zA-Z0-9_-]{1,128}$/.test(id))return;state.jobId=id;state.jobSample=stored?.sample;state.busy=true;state.pollStart=Date.now();setView("create");$("job-message").textContent="正在恢复上次任务，只查询状态，不会重新生成。";pollJob();}
+  function restoreJob(){let stored;try{stored=JSON.parse(sessionStorage.getItem(STORE)||"null");}catch{}const id=new URL(location.href).searchParams.get("job")||stored?.jobId;if(typeof id!=="string"||!/^[a-zA-Z0-9_-]{1,128}$/.test(id))return;state.jobId=id;state.jobSample=registered(stored?.sample)?stored.sample:null;state.busy=true;state.pollStart=Date.now();setView("create");$("job-message").textContent="正在恢复上次任务，只查询状态，不会重新生成。";pollJob();}
   function theater(force){const active=typeof force==="boolean"?force:!state.theater;state.theater=active;document.body.classList.toggle("is-theater",active);$("theater-toggle").setAttribute("aria-pressed",String(active));$("theater-toggle").setAttribute("title",active?"退出剧场模式（Esc）":"切换剧场模式（T）");document.querySelectorAll(".masthead,.site-footer,#watch-view > :not(#film-room),#create-view").forEach((el)=>{el.inert=active;});if(active){$("film-room").setAttribute("role","dialog");$("film-room").setAttribute("aria-modal","true");$("theater-toggle").focus();}else{$("film-room").removeAttribute("role");$("film-room").removeAttribute("aria-modal");$("theater-toggle").focus();}}
 
   document.querySelectorAll("[data-view]").forEach((button)=>button.addEventListener("click",()=>setView(button.dataset.view,true)));

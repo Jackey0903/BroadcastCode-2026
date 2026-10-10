@@ -1,2 +1,9 @@
-# Same SDK release used by the successful earlier runtime validation.
+# Exact seven pure-Python SDK distributions audited for the real deployment.
+# Install into readiness-lab/.venv before running product/scripts/build.py.
 boto3==1.43.108
+botocore==1.43.108
+s3transfer==0.19.2
+jmespath==1.1.0
+python-dateutil==2.9.0.post0
+urllib3==2.8.0
+six==1.17.0

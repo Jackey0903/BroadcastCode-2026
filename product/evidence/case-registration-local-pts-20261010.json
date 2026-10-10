@@ -1,0 +1,44 @@
+{
+  "capturedAtUtc": "2026-10-10T02:31:38.717899+00:00",
+  "scope": "local_synthetic_media_integration_not_contest_or_cloud_acceptance",
+  "implementation": "product/scripts/register_case.py",
+  "host": {
+    "system": "Darwin",
+    "architecture": "arm64",
+    "ffmpeg": "/opt/homebrew/bin/ffmpeg",
+    "ffprobe": "/opt/homebrew/bin/ffprobe",
+    "ffmpegVersion": "ffmpeg version 8.0.1 Copyright (c) 2000-2025 the FFmpeg developers"
+  },
+  "source": {
+    "kind": "locally_generated_synthetic_test_pattern",
+    "generator": "ffmpeg lavfi testsrc2=size=64x64:rate=5:duration=1, MPEG-4 MP4",
+    "durationMs": 1000.0,
+    "width": 64,
+    "height": 64,
+    "hasAudio": false,
+    "sha256": "abe1afd860f1b33df84ef8e5bf8480fb4226da7232e4dd3e31ab0aca4470582b"
+  },
+  "observation": {
+    "requestedSeconds": 0.31,
+    "actualSeconds": 0.4,
+    "timestampSource": "ffmpeg_showinfo_video_timeline",
+    "frameSha256": "0c127f4107468a296a4e253e180f6e1b991ad08f9012b67e6a7b451fecbffdc7",
+    "frameBytes": 2245,
+    "actualPtsDiffersFromRequested": true,
+    "existingInternalInputAndStoryValidation": "existing_internal_input_and_story_contract_passed"
+  },
+  "automatedUnitTests": {
+    "passed": 6,
+    "skipped": 0,
+    "ffmpegRequired": false,
+    "absenceSimulation": "All shutil.which calls mocked to return None; six tests passed"
+  },
+  "formalMaterial": false,
+  "officialEvaluationSchemaVerified": false,
+  "cloudCalls": 0,
+  "newInference": false,
+  "newRender": false,
+  "cloudPublished": false,
+  "temporaryGeneratedMediaRetained": false,
+  "limits": "Tests this one-second synthetic clip and selected frame only; no NBA content or long-video performance claim"
+}

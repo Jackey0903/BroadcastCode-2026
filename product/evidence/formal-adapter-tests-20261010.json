@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-10T02:54:20.164199+00:00",
+  "command": "python3 product/scripts/check.py --full",
+  "passed": true,
+  "tests": 262,
+  "skipped": 0,
+  "externalTestNetworkBlocked": true,
+  "durationSeconds": 8.97,
+  "cdk": {
+    "resources": 23,
+    "boundedRoles": 2,
+    "account": "555726205424",
+    "region": "us-east-1",
+    "offlineSynthesisMediaFixture": true
+  },
+  "sourceSha256": {
+    "product/api/handler.py": "7268249b1a83f04b0c042e5e62010d3fef60529b0c01fa62c7a7b03b3437214f",
+    "product/worker/handler.py": "91df56189f5f3b939359211ac148a0166eaf41630ab63ef40e44759b22dabaf4",
+    "product/worker/readiness_worker.py": "f67e99a85c705acd7f3b469d3db2bb6951d816dfb58281785dcbea2c635d97ac",
+    "product/web/app.js": "99ccabd32cf4116affa6b4cb37cf6d6605279cb534f2f43cb86b71a103360e67",
+    "product/scripts/register_case.py": "effaa74b7587efffa9a1d5ace6a81373a51be420eeb0a040c0e1c69ff09aec6f",
+    "product/scripts/publication.py": "f2b7e6d430ea66f2339eb870be547da778608b669c901a8f64bccaaebeb72803",
+    "product/agent/requirements.txt": "fb020350fe34315024ed2ba2c9be4122395549b159413614a6d5bd5b822e2abe"
+  },
+  "scope": "source_behavior_template_checks_not_cloud_or_official_scoring"
+}

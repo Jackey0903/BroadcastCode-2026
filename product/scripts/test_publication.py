@@ -1,4 +1,5 @@
 """Offline verified publication tests; tiny fixtures, no AWS or actual media."""
+import base64
 import copy
 import hashlib
 import io
@@ -7,6 +8,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'agent'))
 from readiness_agent import PROTOCOL, validate_request
@@ -16,10 +18,17 @@ from serve import SOURCES
 OWNER = '555726205424'
 BUCKET = 'new-formal-product-bucket'
 WEBSITE = 'https://new-formal.cloudfront.net'
+CURRENT_RUNTIME = 'arn:aws:bedrock-agentcore:us-east-1:555726205424:runtime/current-formal-runtime'
 
 
 def sha(body):
     return hashlib.sha256(body).hexdigest()
+
+
+class FakeS3Error(Exception):
+    def __init__(self, code):
+        self.response = {'Error': {'Code': code}}
+        super().__init__(code)
 
 
 class FakeS3:
@@ -29,18 +38,25 @@ class FakeS3:
     def put_object(self, **request):
         assert request['ExpectedBucketOwner'] == OWNER
         assert request['Bucket'] == BUCKET
+        assert request['ChecksumSHA256'] == base64.b64encode(hashlib.sha256(request['Body']).digest()).decode('ascii')
         self.objects[request['Key']] = copy.deepcopy(request)
         self.puts.append(request['Key'])
 
     def head_object(self, **request):
         assert request['ExpectedBucketOwner'] == OWNER
+        assert request['Bucket'] == BUCKET
         self.reads.append(request['Key'])
+        if request['Key'] not in self.objects:
+            raise FakeS3Error('404')
         stored = self.objects[request['Key']]
         return {'ContentLength': len(stored['Body']), 'Metadata': stored['Metadata']}
 
     def get_object(self, **request):
         assert request['ExpectedBucketOwner'] == OWNER
+        assert request['Bucket'] == BUCKET
         self.reads.append(request['Key'])
+        if request['Key'] not in self.objects:
+            raise FakeS3Error('NoSuchKey')
         return {'Body': io.BytesIO(self.objects[request['Key']]['Body'])}
 
 
@@ -276,6 +292,143 @@ class PublicationTests(unittest.TestCase):
         with self.assertRaisesRegex(PublicationError, 'Unpublished curated frame'):
             self.plan()
         self.assertFalse(self.s3.puts)
+
+    def test_reuse_identical_snapshot_has_zero_puts(self):
+        plan = self.plan()
+        publish_plan(plan, self.s3, OWNER)
+        self.s3.puts.clear()
+        self.s3.reads.clear()
+        uploaded = publish_plan(plan, self.s3, OWNER, reuse_unchanged=True)
+        self.assertEqual(uploaded, [])
+        self.assertEqual(self.s3.puts, [])
+        # JSON requires head plus actual body; media is verified by head.
+        for asset in plan.assets:
+            expected_reads = 2 if asset.content_type == 'application/json' else 1
+            self.assertEqual(self.s3.reads.count(asset.key), expected_reads)
+
+    def test_reuse_same_length_different_hash_uploads_only_changed_frozen_body(self):
+        plan = self.plan()
+        publish_plan(plan, self.s3, OWNER)
+        self.s3.puts.clear()
+        key = 'samples/amen.mp4'
+        self.s3.objects[key]['Metadata']['sha256'] = '0' * 64
+        expected = next(asset.body for asset in plan.assets if asset.key == key)
+        (self.root / SOURCES['amen']).write_bytes(b'replaced-after-plan-was-frozen')
+        progress = []
+        uploaded = publish_plan(plan, self.s3, OWNER, reuse_unchanged=True,
+                                progress=lambda key, size: progress.append((key, size)))
+        self.assertEqual(uploaded, [key])
+        self.assertEqual(self.s3.puts, [key])
+        self.assertEqual(self.s3.objects[key]['Body'], expected)
+        self.assertEqual(progress, [(key, len(expected))])
+
+    def test_reuse_json_with_matching_head_but_different_bytes_is_rewritten(self):
+        plan = self.plan()
+        publish_plan(plan, self.s3, OWNER)
+        self.s3.puts.clear()
+        key = 'config/samples.json'
+        original = self.s3.objects[key]['Body']
+        self.s3.objects[key]['Body'] = b'X' + original[1:]
+        uploaded = publish_plan(plan, self.s3, OWNER, reuse_unchanged=True)
+        self.assertEqual(uploaded, [key])
+        self.assertEqual(self.s3.objects[key]['Body'], original)
+
+    def test_reuse_missing_object_uploads_only_that_asset(self):
+        plan = self.plan()
+        publish_plan(plan, self.s3, OWNER)
+        key = 'samples/amen.mp4'
+        self.s3.objects.pop(key)
+        self.s3.puts.clear()
+        uploaded = publish_plan(plan, self.s3, OWNER, reuse_unchanged=True)
+        self.assertEqual(uploaded, [key])
+        self.assertIn(key, self.s3.objects)
+
+    def test_reuse_access_or_transport_error_stops_before_any_writes(self):
+        plan = self.plan()
+        publish_plan(plan, self.s3, OWNER)
+        self.s3.puts.clear()
+        # The first candidate is changed, but a later failed read prevents even
+        # that already verified local body from being uploaded.
+        self.s3.objects[plan.assets[0].key]['Metadata']['sha256'] = '0' * 64
+        head = self.s3.head_object
+        for error in (FakeS3Error('AccessDenied'), FakeS3Error('SlowDown'), OSError('offline transport failure')):
+            def fail_late(**request):
+                if request['Key'] == plan.assets[-1].key:
+                    raise error
+                return head(**request)
+            with self.subTest(error=type(error).__name__), patch.object(self.s3, 'head_object', side_effect=fail_late):
+                with self.assertRaisesRegex(PublicationError, 'Unreadable existing'):
+                    publish_plan(plan, self.s3, OWNER, reuse_unchanged=True)
+            self.assertEqual(self.s3.puts, [])
+
+    def test_reuse_json_get_failure_is_not_treated_as_changed_content(self):
+        plan = self.plan()
+        publish_plan(plan, self.s3, OWNER)
+        self.s3.puts.clear()
+        with patch.object(self.s3, 'get_object', side_effect=FakeS3Error('AccessDenied')):
+            with self.assertRaisesRegex(PublicationError, 'Unreadable existing'):
+                publish_plan(plan, self.s3, OWNER, reuse_unchanged=True)
+        self.assertEqual(self.s3.puts, [])
+
+    def test_reuse_json_disappearing_after_head_is_uploaded_only_on_no_such_key(self):
+        plan = self.plan()
+        publish_plan(plan, self.s3, OWNER)
+        self.s3.puts.clear()
+        key = 'config/samples.json'
+        get = self.s3.get_object
+
+        def missing_json(**request):
+            if request['Key'] == key:
+                raise FakeS3Error('NoSuchKey')
+            return get(**request)
+
+        with patch.object(self.s3, 'get_object', side_effect=missing_json):
+            uploaded = publish_plan(plan, self.s3, OWNER, reuse_unchanged=True)
+        self.assertEqual(uploaded, [key])
+        self.assertEqual(self.s3.puts, [key])
+
+    def test_reuse_cannot_be_combined_with_web_only(self):
+        with self.assertRaisesRegex(PublicationError, 'mutually exclusive'):
+            publish_plan(self.plan(), self.s3, OWNER, web_only=True, reuse_unchanged=True)
+        self.assertEqual(self.s3.reads, [])
+        self.assertEqual(self.s3.puts, [])
+
+    def test_matching_current_runtime_marks_formal_reports_current_without_changing_evidence(self):
+        originals = {}
+        for sample in SOURCES:
+            report = copy.deepcopy(self.reports[sample])
+            report['analysis']['runtimeArn'] = CURRENT_RUNTIME
+            report['verifiedAt'] = '2026-10-10T05:00:00+00:00'
+            self.save(self.report_path(sample), report)
+            originals[sample] = copy.deepcopy(report)
+        plan = build_plan(self.root, BUCKET, WEBSITE, current_runtime_arn=CURRENT_RUNTIME)
+        assets = {asset.key: asset for asset in plan.assets}
+        document = json.loads(assets['product/data/stories.json'].body)
+        self.assertFalse(document['publication']['historical'])
+        self.assertFalse(plan.summary()['historicalRepublish'])
+        for story in document['stories']:
+            self.assertFalse(story['publication']['historical'])
+            self.assertFalse(story['publication']['newInference'])
+            self.assertEqual(story['publication']['kind'], 'verified-current-publication')
+            report = originals[story['id']]
+            analysis_key = f"product/outputs/{story['showcaseJobId']}/analysis.json"
+            analysis = json.loads(assets[analysis_key].body)
+            provenance = analysis.pop('publication')
+            self.assertEqual(analysis, report['analysis'])
+            self.assertEqual(provenance['originalVerifiedAt'], report['verifiedAt'])
+            self.assertEqual(provenance['originalRuntimeArn'], CURRENT_RUNTIME)
+            self.assertEqual(json.loads((self.root / self.report_path(story['id'])).read_bytes()), report)
+
+    def test_mixed_current_and_historical_sources_are_classified_per_story(self):
+        report = copy.deepcopy(self.reports['flagg'])
+        report['analysis']['runtimeArn'] = CURRENT_RUNTIME
+        self.save(self.report_path('flagg'), report)
+        plan = build_plan(self.root, BUCKET, WEBSITE, current_runtime_arn=CURRENT_RUNTIME)
+        document = json.loads(next(asset.body for asset in plan.assets if asset.key == 'product/data/stories.json'))
+        by_id = {story['id']: story['publication'] for story in document['stories']}
+        self.assertFalse(by_id['flagg']['historical'])
+        self.assertTrue(by_id['amen']['historical'])
+        self.assertTrue(plan.summary()['historicalRepublish'])
 
 
 if __name__ == '__main__':

@@ -10,7 +10,8 @@ const { webcrypto, createHash } = require("node:crypto");
 const JOB = "b".repeat(32);
 const STORE = "hidden-play-studio-job-v1";
 
-function fixture(status = 200, body = {}) {
+function fixture(status = 200, body = {}, initialUrl = "https://product.invalid/product/") {
+  const radios = new Set();
   class Element {
     constructor(tag = "div") {
       this.tagName = tag.toUpperCase(); this.children = []; this.attributes = {}; this.listeners = {}; this.dataset = {};
@@ -18,7 +19,10 @@ function fixture(status = 200, body = {}) {
       this.currentTime = 0; this.duration = 22; this.playbackRate = 1; this.paused = true; this.readyState = 1;
       this.style = { setProperty(key, value) { this[key] = value; } };
       const classes = new Set(); this.classList = { toggle(key, active) { if (active ?? !classes.has(key)) classes.add(key); else classes.delete(key); }, contains(key) { return classes.has(key); }, add(key) { classes.add(key); } };
+      if (this.tagName === "INPUT") radios.add(this);
     }
+    get checked() { return Boolean(this._checked); }
+    set checked(value) { this._checked = Boolean(value); if (this._checked && this.name === "sample") for (const radio of radios) if (radio !== this && radio.name === this.name) radio._checked = false; }
     get textContent() { return this._text + this.children.map((c) => c.textContent).join(""); }
     set textContent(value) { this._text = String(value); this.children = []; }
     get childNodes() { return this.children; }
@@ -39,12 +43,13 @@ function fixture(status = 200, body = {}) {
   }
   const elements = new Map();
   const get = (id) => { if (!elements.has(id)) elements.set(id, new Element(id.includes("video") ? "video" : "div")); return elements.get(id); };
-  const input = new Element("input"); input.value = "flagg"; input.checked = true;
-  const amen = new Element("input"); amen.value = "amen";
-  get("create-form").querySelector = (selector) => selector.includes(":checked") ? [input, amen].find((item)=>item.checked) : selector.includes('value="amen"') ? amen : input;
-  get("create-form").querySelectorAll = () => [input, amen];
+  const input = new Element("input"); input.name = "sample"; input.value = "flagg"; input.checked = true;
+  const amen = new Element("input"); amen.name = "sample"; amen.value = "amen";
+  const samples = () => { const rendered = get("create-samples").children.flatMap((label) => label.children.filter((child) => child.tagName === "INPUT")); return rendered.length ? rendered : [input, amen]; };
+  get("create-form").querySelector = (selector) => selector.includes(":checked") ? samples().find((item)=>item.checked) : samples().find((item)=>item.value===selector.match(/value="([^"]+)"/)?.[1]);
+  get("create-form").querySelectorAll = samples;
   const timers = new Map(), requests = [], storage = new Map();
-  let tick = 0, currentUrl = new URL("https://product.invalid/product/");
+  let tick = 0, currentUrl = new URL(initialUrl);
   const sandbox = {
     document: { getElementById: get, createElement: (tag) => new Element(tag), createElementNS: (_ns, tag) => new Element(tag), body: new Element("body"), querySelectorAll: () => [], addEventListener() {} },
     window: { addEventListener() {}, scrollTo() {} },
@@ -60,9 +65,9 @@ function fixture(status = 200, body = {}) {
   const seam = "  loadStories().then(()=>{restoreJob();});";
   assert.ok(source.includes(seam));
   vm.createContext(sandbox);
-  vm.runInContext(source.replace(seam, "  globalThis.audit={state,api,checkService,renderJob,pollJob,setMedia,renderOfficial,reveal,keyTime,normalise,renderRunFacts,loadStories,submitJob,syncCreate,renderFrameComparison,configurePreview,openHistory};"), sandbox);
-  Object.assign(sandbox.audit.state, { jobId: JOB, jobSample: "flagg", serviceReady: true, pollStart: Date.now() });
-  return { ...sandbox.audit, get, requests, timers, storage, input, amen, currentUrl: () => currentUrl };
+  vm.runInContext(source.replace(seam, "  globalThis.audit={state,api,checkService,renderJob,pollJob,setMedia,renderOfficial,reveal,keyTime,normalise,renderRunFacts,loadStories,submitJob,syncCreate,renderFrameComparison,configurePreview,openHistory,restoreJob};"), sandbox);
+  Object.assign(sandbox.audit.state, { stories: [story(), story({id:"amen"})].map(sandbox.audit.normalise), registered: new Set(["flagg", "amen"]), available: new Set(["flagg", "amen"]), sampleListKnown: true, jobId: JOB, jobSample: "flagg", serviceReady: true, pollStart: Date.now() });
+  return { ...sandbox.audit, get, requests, timers, storage, input, amen, samples, currentUrl: () => currentUrl, setResponse(nextBody, nextStatus = 200) { body = nextBody; status = nextStatus; } };
 }
 function story(overrides = {}) { return { id: "flagg", title: "真实片段", sourceVideo: "/samples/flagg.mp4", enhancedVideo: "/products/flagg.mp4", durationSeconds: 22, hook: { choices: [] }, chapters: [], evidence: [], officialEvent: {}, ...overrides }; }
 function completed(overrides = {}) { return { status: "completed", mode: "story", videoUrl: "/result.mp4", analysis: { protocol_version: "product-story-v1", summary: "实际分析", evidence: [], trace: [] }, ...overrides }; }
@@ -81,6 +86,42 @@ test("ready story service enables only supported sample inputs", async () => {
 test("empty available samples keeps creation disabled", async () => {
   const run = fixture(200, { ready: true, samples: [], modes: ["story"] }); await run.checkService();
   assert.equal(run.get("generate-button").disabled, true); assert.equal(run.input.disabled, true);
+});
+test("registered case is selectable, submitted once, and restored after refresh using only GET", async () => {
+  const id = "registered-01", data = {stories:[story(), story({id, title:"已登记片段", sourceVideo:`/samples/${id}.mp4`, enhancedVideo:undefined})]};
+  const run = fixture(200, data, `https://product.invalid/product/?story=${id}`);
+  await run.loadStories();
+  assert.equal(run.state.story.id,id);assert.equal(run.samples().find((sample)=>sample.checked).value,id);
+  assert.equal(run.get("generate-button").disabled,true);assert.equal(run.get("court-lab-link").hidden,true);
+  run.renderFrameComparison();assert.equal(run.get("frame-comparison").hidden,true);
+  run.setResponse({ready:true,modes:["story"],samples:[{id,available:true},"not-registered"]});await run.checkService();
+  assert.deepEqual([...run.state.available],[id]);assert.equal(run.get("generate-button").disabled,false);
+  run.setResponse({jobId:JOB,sample:id,mode:"story",status:"queued"},202);
+  await run.submitJob({preventDefault(){}});await new Promise(setImmediate);
+  const posts=run.requests.filter((request)=>request.options.method==="POST");
+  assert.equal(posts.length,1);assert.deepEqual(JSON.parse(posts[0].options.body),{sample:id,mode:"story"});
+  const saved=run.storage.get(STORE);assert.equal(JSON.parse(saved).sample,id);
+  const refreshed=fixture(200,data,run.currentUrl().href);await refreshed.loadStories();
+  refreshed.storage.set(STORE,saved);refreshed.setResponse(completed({sample:id}));refreshed.restoreJob();await new Promise(setImmediate);
+  assert.equal(refreshed.state.jobSample,id);assert.equal(refreshed.state.busy,false);
+  assert.equal(refreshed.samples().find((sample)=>sample.checked).value,id);
+  assert.equal(refreshed.requests.filter((request)=>request.url===`/api/jobs/${JOB}`).length,1);
+  assert.equal(refreshed.requests.filter((request)=>request.options.method==="POST").length,0);
+});
+test("creation requires the loaded registry and explicit enabled API sample intersection", async () => {
+  const id="registered-01",data={stories:[story(),story({id}),story({id}),story({id:"https://elsewhere.invalid/video.mp4"}),story({id:"UPPER"}),story({id:"x".repeat(61)})]};
+  const run=fixture(200,data,"https://product.invalid/product/?story=not-registered");await run.loadStories();
+  assert.deepEqual(Array.from(run.state.registered),["flagg",id]);assert.equal(run.state.story.id,"flagg");
+  for(const samples of [["not-registered","https://elsewhere.invalid/video.mp4"],[{id,enabled:false}],undefined]){
+    run.setResponse({ready:true,modes:["story"],...(samples===undefined?{}:{samples})});await run.checkService();
+    assert.equal(run.get("generate-button").disabled,true);assert.ok(run.samples().every((sample)=>sample.disabled));
+    const selected=run.samples().find((sample)=>sample.checked);
+    for(const value of ["not-registered","https://elsewhere.invalid/video.mp4",id]){
+      selected.value=value;run.get("generate-button").disabled=false;await run.submitJob({preventDefault(){}});
+    }
+    selected.value="flagg";
+  }
+  assert.equal(run.requests.filter((request)=>request.options.method==="POST").length,0);
 });
 for (const result of [completed({ mode: "readiness" }), completed({ analysis: { protocol_version: "team02-readiness-v1" } }), completed({ mode: undefined })]) {
   test(`completed legacy result is not exposed as product success (${result.mode}/${result.analysis.protocol_version})`, () => {

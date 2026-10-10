@@ -1,15 +1,26 @@
 #!/usr/bin/env python3
-"""Build product deployment assets locally, preserving the readiness lab source."""
+"""Build product assets locally with the exact audited SDK versions.
+
+First install product/agent/requirements.txt into readiness-lab/.venv:
+readiness-lab/.venv/bin/python -m pip install -r product/agent/requirements.txt
+Then run readiness-lab/.venv/bin/python product/scripts/build.py.
+"""
 import hashlib
 import importlib.util
 import json
 from pathlib import Path
 import shutil
 import zipfile
+from build_dependencies import BuildDependencyError, verify_dependencies
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = ROOT / 'product'
 BUILD = HERE / 'build'
+try:
+    sdk_versions = verify_dependencies(HERE / 'agent/requirements.txt')
+except BuildDependencyError as error:
+    raise SystemExit(str(error)) from error
+# No deployment artifact is created or replaced before the version check.
 BUILD.mkdir(exist_ok=True)
 expected = json.loads((ROOT / 'readiness-lab/tool-fingerprints.json').read_text())
 for relative, digest in expected.items():
@@ -50,4 +61,5 @@ for path in sorted((HERE / 'worker').glob('*.py')):
     if not path.name.startswith('test_'):
         shutil.copyfile(path, worker / path.name)
 print(json.dumps({'agentBytes': (BUILD / 'agent.zip').stat().st_size,
-                  'workerFiles': len(list(worker.rglob('*'))), 'mediaToolHashesVerified': True}))
+                  'workerFiles': len(list(worker.rglob('*'))), 'mediaToolHashesVerified': True,
+                  'sdkVersions': sdk_versions}))

@@ -4,6 +4,7 @@ Every immutable upload body is checked before writes. Historical reports keep
 their original runtime/trace, with separate current presentation URLs. No CDK,
 model, job table or arbitrary-input adapter is invoked by this module.
 """
+import base64
 import copy
 from dataclasses import dataclass
 import hashlib
@@ -20,7 +21,7 @@ WEB_FILES = ('index.html', 'app.js', 'styles.css', 'broadcast.css', 'atmosphere.
              'assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2')
 FRAME_NAMES = {'flagg': ('00.2s', '09s', '15.5s', '16.5s', '17.0s', '21s'),
                'amen': ('00s', '15s', '16.0s', '17.5s', '18s', '21s')}
-NOTICE = '10月7日已验收的真实历史成片，按原哈希重新发布；不是正式账号新推理或正式评分结果。'
+NOTICE = '已验收的真实生成结果，按原哈希发布；回看不会发起新推理，非官方评分结果。'
 SECRET_PATTERNS = (
     re.compile(rb'\b(?:AKIA|ASIA)[A-Z0-9]{16}\b'),
     re.compile(rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----'),
@@ -49,10 +50,11 @@ class PublicationPlan:
     bucket: str
     website: str
     assets: tuple
+    historical_republish: bool = True
 
     def summary(self):
         return {'bucket': self.bucket, 'website': self.website + '/product/',
-                'historicalRepublish': True, 'newInference': False, 'courtLabPublished': False,
+                'historicalRepublish': self.historical_republish, 'newInference': False, 'courtLabPublished': False,
                 'objects': [{'key': a.key, 'bytes': len(a.body), 'sha256': a.sha256,
                              'prerequisite': a.prerequisite} for a in self.assets]}
 
@@ -118,7 +120,7 @@ def _dimension(value, label):
     return value
 
 
-def build_plan(root, bucket, website):
+def build_plan(root, bucket, website, current_runtime_arn=None):
     """Verify and freeze all required local assets; no S3 reads or local writes."""
     root = Path(root).resolve()
     host = urlsplit(website)
@@ -136,6 +138,7 @@ def build_plan(root, bucket, website):
     provenance = _json(root, 'product/research/frame-provenance.json')
     indexed = {f.get('file'): f for f in provenance.get('frames', []) if isinstance(f, dict)}
     assets, manifest, published = [], {}, copy.deepcopy(document)
+    has_historical_source = False
     frame_keys = set()
     for story in published['stories']:
         sample, job_id = story['id'], story.get('showcaseJobId')
@@ -193,7 +196,10 @@ def build_plan(root, bucket, website):
                 or abs(_number(analysis['outputVideo'].get('durationMs'), sample + ' output timeline') / 1000 - duration) > .25):
             raise PublicationError(f'Historical media timeline/size mismatch: {sample}')
         base = website + f'/product/outputs/{job_id}'
-        history = {'historical': True, 'newInference': False, 'kind': 'verified-historical-republication',
+        historical = current_runtime_arn is None or analysis.get('runtimeArn') != current_runtime_arn
+        has_historical_source = has_historical_source or historical
+        history = {'historical': historical, 'newInference': False,
+            'kind': 'verified-historical-republication' if historical else 'verified-current-publication',
             'notice': NOTICE, 'originalJobId': job_id, 'originalVerifiedAt': report.get('verifiedAt'),
             'originalRuntimeArn': analysis.get('runtimeArn'), 'originalVideoUrl': report.get('videoUrl'),
             'originalAnalysisUrl': report.get('analysisUrl'), 'evidenceFile': report_relative,
@@ -214,7 +220,8 @@ def build_plan(root, bucket, website):
                 if value not in frame_keys:
                     raise PublicationError(f'Unpublished curated frame reference: {value}')
                 owner[field] = website + value
-    published['publication'] = {'mode': 'verified-historical-republication', 'historical': True,
+    published['publication'] = {'mode': 'verified-historical-republication' if has_historical_source else 'verified-current-publication',
+                                'historical': has_historical_source,
                                 'newInference': False, 'notice': NOTICE}
     assets.extend([_json_asset('config/samples.json', manifest, True),
                    _json_asset('product/config/samples.json', manifest, True)])
@@ -229,11 +236,44 @@ def build_plan(root, bucket, website):
     assets.append(_json_asset('product/data/stories.json', published))
     if len({a.key for a in assets}) != len(assets):
         raise PublicationError('Duplicate publication asset key.')
-    return PublicationPlan(bucket, website, tuple(assets))
+    return PublicationPlan(bucket, website, tuple(assets), has_historical_source)
 
 
-def publish_plan(plan, s3, expected_owner, web_only=False):
-    """Apply a verified snapshot; web-only verifies all prerequisites before writes."""
+def _remote_matches(asset, plan, s3, expected_owner, allow_missing=False):
+    """Verify controlled existing content; transport/access failures never mean missing.
+
+    Media may be reused only by matching length and the stored SHA-256 metadata.
+    JSON must also match every byte, because manifests control source identities
+    and links. Reads are bounded by the already frozen local asset body.
+    """
+    try:
+        head = s3.head_object(Bucket=plan.bucket, Key=asset.key, ExpectedBucketOwner=expected_owner)
+        if head.get('ContentLength') != len(asset.body) or head.get('Metadata', {}).get('sha256') != asset.sha256:
+            return False
+        if asset.content_type == 'application/json':
+            response = s3.get_object(Bucket=plan.bucket, Key=asset.key, ExpectedBucketOwner=expected_owner)
+            body = response['Body']
+            try:
+                return body.read(len(asset.body) + 1) == asset.body
+            finally:
+                body.close()
+        return True
+    except Exception as error:
+        code = getattr(error, 'response', {}).get('Error', {}).get('Code')
+        if allow_missing and code in ('404', 'NoSuchKey'):
+            return False
+        raise PublicationError(f'Unreadable existing publication object: {asset.key}') from error
+
+
+def publish_plan(plan, s3, expected_owner, web_only=False, progress=None, reuse_unchanged=False):
+    """Apply a verified snapshot after completing the selected remote preflight.
+
+    Web-only requires every media/config dependency to exist and match. Reuse
+    mode tolerates missing or changed controlled objects and uploads only those
+    frozen bodies. Both stop before any write if verification cannot complete.
+    """
+    if web_only and reuse_unchanged:
+        raise PublicationError('web_only and reuse_unchanged are mutually exclusive.')
     if not re.fullmatch(r'[0-9]{12}', expected_owner):
         raise PublicationError('Expected bucket owner must be the verified account.')
     if web_only:
@@ -241,24 +281,27 @@ def publish_plan(plan, s3, expected_owner, web_only=False):
             if not asset.prerequisite:
                 continue
             try:
-                head = s3.head_object(Bucket=plan.bucket, Key=asset.key, ExpectedBucketOwner=expected_owner)
-                if head.get('ContentLength') != len(asset.body) or head.get('Metadata', {}).get('sha256') != asset.sha256:
+                if not _remote_matches(asset, plan, s3, expected_owner):
                     raise PublicationError(f'Current publication prerequisite differs: {asset.key}')
-                if asset.content_type == 'application/json':
-                    response = s3.get_object(Bucket=plan.bucket, Key=asset.key, ExpectedBucketOwner=expected_owner)
-                    if response['Body'].read(len(asset.body) + 1) != asset.body:
-                        raise PublicationError(f'Current configuration/analysis differs: {asset.key}')
-            except PublicationError:
-                raise
             except Exception as error:
                 raise PublicationError(f'Missing/unreadable publication prerequisite: {asset.key}; use full publication.') from error
+    candidates = [asset for asset in plan.assets if not (web_only and asset.prerequisite)]
+    if reuse_unchanged:
+        # Finish every read first: a late access/transport error must not leave a
+        # partially updated page or consume an expensive media retransmission.
+        candidates = [asset for asset in candidates
+                      if not _remote_matches(asset, plan, s3, expected_owner, allow_missing=True)]
     uploaded = []
-    for asset in plan.assets:
-        if web_only and asset.prerequisite:
-            continue
+    for asset in candidates:
+        # A precomputed checksum retains S3 integrity validation without an
+        # SDK-generated streaming checksum trailer on large local uploads.
+        checksum = base64.b64encode(bytes.fromhex(asset.sha256)).decode('ascii')
         s3.put_object(Bucket=plan.bucket, Key=asset.key, Body=asset.body, ExpectedBucketOwner=expected_owner,
                       ContentLength=len(asset.body), ContentType=asset.content_type,
+                      ChecksumSHA256=checksum,
                       CacheControl='no-store' if asset.content_type == 'application/json' else 'no-cache',
                       Metadata={'sha256': asset.sha256})
         uploaded.append(asset.key)
+        if progress is not None:
+            progress(asset.key, len(asset.body))
     return uploaded

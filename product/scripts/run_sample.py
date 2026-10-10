@@ -4,14 +4,24 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 import time
 import urllib.error
 import urllib.request
 from deployment import load_outputs
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def registered_id(value):
+    if not re.fullmatch(r'[a-z0-9][a-z0-9_-]{0,59}', value):
+        raise argparse.ArgumentTypeError('Use a lowercase registered ID of at most 60 characters, not a URL or path.')
+    return value
+
+
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--sample', choices=['flagg', 'amen'], required=True)
+parser.add_argument('--sample', type=registered_id, required=True,
+                    help='ID already registered in the deployment input manifest.')
 parser.add_argument('--wait', action='store_true')
 args = parser.parse_args()
 BASE = load_outputs()['Website'].rstrip('/')

@@ -1,0 +1,307 @@
+{
+  "agent": {
+    "allEntriesContentSha256": "f7e91e92b875e2ec7fe720694f2cd27a14473a86ab1e98441fa199a478499d35",
+    "businessSources": [
+      {
+        "entry": "build_package.py",
+        "matchesCurrentSource": true,
+        "packagedSha256": "6194d5bf5fcf3b8ab80ca72beb321f1c874d95a0ceb33f1f5c384acccf65d4d4",
+        "source": "product/agent/build_package.py",
+        "sourceSha256": "6194d5bf5fcf3b8ab80ca72beb321f1c874d95a0ceb33f1f5c384acccf65d4d4"
+      },
+      {
+        "entry": "main.py",
+        "matchesCurrentSource": true,
+        "packagedSha256": "319eebd9379acb15263089f1a3c838157e08dfface97005172b968f2c6b8240f",
+        "source": "product/agent/main.py",
+        "sourceSha256": "319eebd9379acb15263089f1a3c838157e08dfface97005172b968f2c6b8240f"
+      },
+      {
+        "entry": "readiness_agent.py",
+        "matchesCurrentSource": true,
+        "packagedSha256": "e0fc659d15244e892cfc06f8a98c16a0097e5fa814b912c0a309c9a1a8d9bc65",
+        "source": "product/agent/readiness_agent.py",
+        "sourceSha256": "e0fc659d15244e892cfc06f8a98c16a0097e5fa814b912c0a309c9a1a8d9bc65"
+      },
+      {
+        "entry": "story_agent.py",
+        "matchesCurrentSource": true,
+        "packagedSha256": "7449c50e4cd8aa3d97eae6e1d1cb05de55215d9a690d0cfba9708b0288ffee78",
+        "source": "product/agent/story_agent.py",
+        "sourceSha256": "7449c50e4cd8aa3d97eae6e1d1cb05de55215d9a690d0cfba9708b0288ffee78"
+      },
+      {
+        "entry": "story_contract.py",
+        "matchesCurrentSource": true,
+        "packagedSha256": "b9454aa667f3198f704b0da42e1c97619bb144ded564e603d63d75ee96b819dc",
+        "source": "product/agent/story_contract.py",
+        "sourceSha256": "b9454aa667f3198f704b0da42e1c97619bb144ded564e603d63d75ee96b819dc"
+      }
+    ],
+    "bytes": 16537594,
+    "crcFailureEntry": null,
+    "crcValid": true,
+    "entryCount": 2158,
+    "nativeExtensions": [],
+    "path": "product/build/agent.zip",
+    "pythonFileCount": 199,
+    "sensitiveEntryPaths": [],
+    "sha256": "c6f8902dcf2501a3ba540d26023f43ab2b9c90dcb204c100c42f329cd0aec092",
+    "symlinkEntries": [],
+    "uncompressedBytes": 22598199,
+    "uniqueEntryNames": true
+  },
+  "allChecksPassed": true,
+  "auditedAt": "2026-10-10T02:51:01.569795+00:00",
+  "checks": {
+    "agentCurrentBusinessSourcesMatch": true,
+    "agentEntriesUnique": true,
+    "agentZipCrcValid": true,
+    "allFourToolFingerprintsMatch": true,
+    "allSevenSdkPackageContentsMatchInstalled": true,
+    "allSevenSdkPinsMatchInstalled": true,
+    "formalConfigurationMatches": true,
+    "mediaToolsLinuxElfX8664Executable": true,
+    "noArtifactSymlinks": true,
+    "noCredentialPatternsInBusinessSources": true,
+    "noNativeSdkExtensions": true,
+    "noOld962BusinessHardcoding": true,
+    "noSensitiveArtifactPaths": true,
+    "python312SyntaxPasses": true,
+    "toolSetExactlyReviewed": true,
+    "workerCurrentBusinessSourcesMatch": true,
+    "workerPlusLayerBelow250MiB": true
+  },
+  "configuration": {
+    "account": "555726205424",
+    "bucketFromLocalOutputs": "broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4",
+    "buildScriptSha256": "16a8f9abb32b7f58004c8aac524a11537c05c337001f1b78cbb8c1f4c7932275",
+    "deploymentConfigSha256": "3ac67734b95d7afbb24248aa20f0daa7b26f121591e5adada22cdf257a23b0e9",
+    "outputsSha256": "0e038d528953f6dd8f99fecf535ddd5f662eef62f875800ac4d6e4053a24be76",
+    "outputsSource": "product/outputs.json",
+    "profile": "nba",
+    "region": "us-east-1",
+    "requirementsSha256": "fb020350fe34315024ed2ba2c9be4122395549b159413614a6d5bd5b822e2abe",
+    "runtimeArnFromLocalOutputs": "arn:aws:bedrock-agentcore:us-east-1:555726205424:runtime/Team02Readiness20261006-1cAKhm9LrD",
+    "source": "product/deployment.json",
+    "stackName": "BroadcastCodeTeam02Readiness20261006",
+    "websiteFromLocalOutputs": "https://deky02484tknr.cloudfront.net"
+  },
+  "lambdaSize": {
+    "belowLimit": true,
+    "combinedBytes": 171757978,
+    "layerBytes": 149157585,
+    "limitBytes": 262144000,
+    "workerBytes": 22600393
+  },
+  "limitations": [
+    "Readiness and deployment state must come from separate current cloud evidence; local outputs are configuration, not a live status query.",
+    "Python 3.12 syntax and pure-Python SDK package agreement do not certify AgentCore startup, model permission or Linux FFmpeg execution.",
+    "Credential scanning is bounded source/path inspection, not a proof against arbitrary encoded secrets."
+  ],
+  "mediaLayer": {
+    "extraFiles": [],
+    "fileCount": 4,
+    "files": [
+      {
+        "bytes": 68174760,
+        "elf64LittleEndian": true,
+        "elfMachine": 62,
+        "elfMagic": true,
+        "executable": true,
+        "expectedSha256": "6d0c625dbd3f604ed2618981ba6fee7e29678855ab741d654cfc9effb0226624",
+        "fingerprintMatches": true,
+        "linuxX8664": true,
+        "path": "readiness-lab/build/layer/bin/ffmpeg",
+        "sha256": "6d0c625dbd3f604ed2618981ba6fee7e29678855ab741d654cfc9effb0226624",
+        "symlink": false
+      },
+      {
+        "bytes": 64541160,
+        "elf64LittleEndian": true,
+        "elfMachine": 62,
+        "elfMagic": true,
+        "executable": true,
+        "expectedSha256": "e3624d8ff953c7e2f1f3e3ee24bfa64399bcb3bd5c302b2216d3f794b31bbbf6",
+        "fingerprintMatches": true,
+        "linuxX8664": true,
+        "path": "readiness-lab/build/layer/bin/ffprobe",
+        "sha256": "e3624d8ff953c7e2f1f3e3ee24bfa64399bcb3bd5c302b2216d3f794b31bbbf6",
+        "symlink": false
+      },
+      {
+        "bytes": 4301,
+        "expectedSha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+        "fingerprintMatches": true,
+        "path": "readiness-lab/build/layer/fonts/LICENSE.txt",
+        "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+        "symlink": false
+      },
+      {
+        "bytes": 16437364,
+        "expectedSha256": "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b",
+        "fingerprintMatches": true,
+        "path": "readiness-lab/build/layer/fonts/NotoSansCJKsc-Regular.otf",
+        "sha256": "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b",
+        "symlink": false
+      }
+    ],
+    "missingFiles": [],
+    "path": "readiness-lab/build/layer",
+    "reviewedFingerprintSource": "readiness-lab/tool-fingerprints.json",
+    "uncompressedBytes": 149157585
+  },
+  "noCloudOrSecretReads": {
+    "awsRequests": 0,
+    "buildExecuted": false,
+    "deploymentArtifactsModified": false,
+    "homeCredentialsRead": false,
+    "networkRequests": 0,
+    "ssoCacheRead": false
+  },
+  "privacyScan": {
+    "artifactSymlinks": [],
+    "businessSourceFileCount": 8,
+    "credentialPatternFiles": [],
+    "old962BusinessFiles": [],
+    "scanScope": "credential patterns and old account literals in application business sources; sensitive local credential/SSO/.env paths and symlinks across complete archives and artifact directories; SDK files verified against installed distributions rather than misclassifying SDK credential-provider/service-model code as private credentials",
+    "secretValuesNeverRecorded": true
+  },
+  "python312Syntax": {
+    "agentFiles": 199,
+    "failures": [],
+    "method": "ast.parse(feature_version=(3,12)); structural syntax check, not Linux execution",
+    "workerFiles": 197
+  },
+  "scope": "offline_current_artifact_audit_not_runtime_ready_deployment_success_inference_gpu_or_scoring_validation",
+  "sdk": {
+    "contentComparison": "all files selected by the current build.py, excluding pycache/pyc/pyo, compared byte-for-byte to audited local distributions",
+    "distributions": [
+      {
+        "agentContentMatchesInstalled": true,
+        "agentMismatches": [],
+        "distribution": "boto3",
+        "fileCount": 56,
+        "installedContentSha256": "f9cbdb0784e7c156bccb97bf4449e00f8e8d4fff29e51655d4dbe799bb35cb08",
+        "installedVersion": "1.43.108",
+        "moduleOrigin": "readiness-lab/.venv/lib/python3.14/site-packages/boto3/__init__.py",
+        "pinMatches": true,
+        "pinnedVersion": "1.43.108",
+        "workerContentMatchesInstalled": true,
+        "workerMismatches": []
+      },
+      {
+        "agentContentMatchesInstalled": true,
+        "agentMismatches": [],
+        "distribution": "botocore",
+        "fileCount": 2015,
+        "installedContentSha256": "ae006504763dcb61d6b06f42f04f133c08043d2d81f9ba74f0f693f7ce0c911f",
+        "installedVersion": "1.43.108",
+        "moduleOrigin": "readiness-lab/.venv/lib/python3.14/site-packages/botocore/__init__.py",
+        "pinMatches": true,
+        "pinnedVersion": "1.43.108",
+        "workerContentMatchesInstalled": true,
+        "workerMismatches": []
+      },
+      {
+        "agentContentMatchesInstalled": true,
+        "agentMismatches": [],
+        "distribution": "s3transfer",
+        "fileCount": 16,
+        "installedContentSha256": "9cf070088f172203814b39ee6801621ca9daccf1613e9b53eea3c8a1d30bef65",
+        "installedVersion": "0.19.2",
+        "moduleOrigin": "readiness-lab/.venv/lib/python3.14/site-packages/s3transfer/__init__.py",
+        "pinMatches": true,
+        "pinnedVersion": "0.19.2",
+        "workerContentMatchesInstalled": true,
+        "workerMismatches": []
+      },
+      {
+        "agentContentMatchesInstalled": true,
+        "agentMismatches": [],
+        "distribution": "jmespath",
+        "fileCount": 8,
+        "installedContentSha256": "81629306a6221dfa1e5cf35caf960ce43f73f821ca00acefe77cbf0cdb9303b9",
+        "installedVersion": "1.1.0",
+        "moduleOrigin": "readiness-lab/.venv/lib/python3.14/site-packages/jmespath/__init__.py",
+        "pinMatches": true,
+        "pinnedVersion": "1.1.0",
+        "workerContentMatchesInstalled": true,
+        "workerMismatches": []
+      },
+      {
+        "agentContentMatchesInstalled": true,
+        "agentMismatches": [],
+        "distribution": "python-dateutil",
+        "fileCount": 19,
+        "installedContentSha256": "5eac917fa822a6499f7fd8e68695541b84d57b86377cf1891de4245ba40c68cb",
+        "installedVersion": "2.9.0.post0",
+        "moduleOrigin": "readiness-lab/.venv/lib/python3.14/site-packages/dateutil/__init__.py",
+        "pinMatches": true,
+        "pinnedVersion": "2.9.0.post0",
+        "workerContentMatchesInstalled": true,
+        "workerMismatches": []
+      },
+      {
+        "agentContentMatchesInstalled": true,
+        "agentMismatches": [],
+        "distribution": "urllib3",
+        "fileCount": 38,
+        "installedContentSha256": "a24e9b797c804b544a3b012bf613f8100b3474e00287edef3213e80aa9a5e375",
+        "installedVersion": "2.8.0",
+        "moduleOrigin": "readiness-lab/.venv/lib/python3.14/site-packages/urllib3/__init__.py",
+        "pinMatches": true,
+        "pinnedVersion": "2.8.0",
+        "workerContentMatchesInstalled": true,
+        "workerMismatches": []
+      },
+      {
+        "agentContentMatchesInstalled": true,
+        "agentMismatches": [],
+        "distribution": "six",
+        "fileCount": 1,
+        "installedContentSha256": "b57c70b80f2f27cca3404dafa09d15824cf687040e73cfad270a560f99e181ec",
+        "installedVersion": "1.17.0",
+        "moduleOrigin": "readiness-lab/.venv/lib/python3.14/site-packages/six.py",
+        "pinMatches": true,
+        "pinnedVersion": "1.17.0",
+        "workerContentMatchesInstalled": true,
+        "workerMismatches": []
+      }
+    ],
+    "fileCount": 2153,
+    "requirements": "product/agent/requirements.txt"
+  },
+  "worker": {
+    "allFilesContentSha256": "80c2e9325f64b1071f6fffd06fcdbc24aad53bf41923a01c3bfbc2b3c0136a62",
+    "businessSources": [
+      {
+        "entry": "handler.py",
+        "matchesCurrentSource": true,
+        "packagedSha256": "91df56189f5f3b939359211ac148a0166eaf41630ab63ef40e44759b22dabaf4",
+        "source": "product/worker/handler.py",
+        "sourceSha256": "91df56189f5f3b939359211ac148a0166eaf41630ab63ef40e44759b22dabaf4"
+      },
+      {
+        "entry": "readiness_worker.py",
+        "matchesCurrentSource": true,
+        "packagedSha256": "f67e99a85c705acd7f3b469d3db2bb6951d816dfb58281785dcbea2c635d97ac",
+        "source": "product/worker/readiness_worker.py",
+        "sourceSha256": "f67e99a85c705acd7f3b469d3db2bb6951d816dfb58281785dcbea2c635d97ac"
+      },
+      {
+        "entry": "story_contract.py",
+        "matchesCurrentSource": true,
+        "packagedSha256": "b9454aa667f3198f704b0da42e1c97619bb144ded564e603d63d75ee96b819dc",
+        "source": "product/agent/story_contract.py",
+        "sourceSha256": "b9454aa667f3198f704b0da42e1c97619bb144ded564e603d63d75ee96b819dc"
+      }
+    ],
+    "fileCount": 2156,
+    "nativeExtensions": [],
+    "path": "product/build/worker",
+    "pythonFileCount": 197,
+    "sensitiveEntryPaths": [],
+    "uncompressedBytes": 22600393
+  }
+}

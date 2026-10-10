@@ -15,6 +15,7 @@ import uuid
 
 PROTOCOL = "team02-readiness-v1"
 MAX_INPUT_BYTES = 256 * 1024 * 1024
+SAMPLE_ID = re.compile(r'[a-z0-9][a-z0-9_-]{0,59}')
 
 
 class JobError(ValueError):
@@ -27,8 +28,8 @@ def validate_message(message):
     job_id, sample = message.get("jobId"), message.get("sample")
     if not isinstance(job_id, str) or not re.fullmatch(r"[A-Za-z0-9_-]{1,80}", job_id):
         raise JobError("invalid jobId")
-    if sample not in ("flagg", "amen"):
-        raise JobError("sample must be flagg or amen")
+    if not isinstance(sample, str) or SAMPLE_ID.fullmatch(sample) is None:
+        raise JobError("sample must be a safe registered ID")
     return job_id, sample
 
 
@@ -187,13 +188,26 @@ def run_job(message, s3, table, agentcore, config, context=None, renderer=render
         if not isinstance(entry, dict) or not isinstance(entry.get("video"), dict) or not isinstance(entry.get("frames"), list):
             raise JobError("sample manifest is missing video or frames")
         video = entry["video"]
+        if video.get("id") != sample:
+            raise JobError("registered video identity differs from the selected sample")
         key = configured_key(video.get("s3_uri"), bucket)
-        if not isinstance(video.get("duration_ms"), (int, float)) or not 0 < video["duration_ms"] <= 600000:
+        duration = video.get("duration_ms")
+        if (not isinstance(duration, (int, float)) or isinstance(duration, bool)
+                or not math.isfinite(duration) or not 0 < duration <= 600000):
             raise JobError("invalid source video duration")
         if not 1 <= len(entry["frames"]) <= 6:
             raise JobError("sample requires 1 to 6 source frames")
+        timestamps = set()
         for frame in entry["frames"]:
+            if not isinstance(frame, dict):
+                raise JobError("registered frame must be an object")
+            timestamp = frame.get("timestamp_ms")
+            if (not isinstance(timestamp, (int, float)) or isinstance(timestamp, bool)
+                    or not math.isfinite(timestamp) or not 0 <= timestamp <= duration
+                    or timestamp in timestamps or frame.get("format") not in ("jpeg", "png")):
+                raise JobError("invalid registered frame metadata")
             configured_key(frame.get("s3_uri"), bucket)
+            timestamps.add(timestamp)
         with tempfile.TemporaryDirectory(prefix="readiness-", dir="/tmp") as workspace:
             work = Path(workspace)
             source, output = work / "input.mp4", work / "enhanced.mp4"

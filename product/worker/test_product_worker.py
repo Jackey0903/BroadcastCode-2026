@@ -12,6 +12,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "agent"))
 from test_story import BUCKET, FakeS3, execute, fixture
 from handler import process_records, run_job, run_story_job
+from readiness_worker import JobError, validate_message
 
 CONFIG = {"bucket": BUCKET, "runtime": "test-runtime", "host": "test.cloudfront.net"}
 
@@ -146,6 +147,85 @@ class WorkerTests(unittest.TestCase):
         self.assertEqual(second, {"batchItemFailures": []})
         self.assertEqual(table.item["status"], "failed")
         self.assertEqual(runtime.calls, 1)
+
+    def test_queue_accepts_safe_registered_ids_but_never_urls_or_paths(self):
+        for sample in ('flagg', 'amen', 'formal-play-1', 'a' * 60):
+            self.assertEqual(validate_message({'jobId': 'job-1', 'sample': sample}), ('job-1', sample))
+        for sample in ('', '../flagg', 'https://example.invalid/video.mp4', 's3://other/video.mp4',
+                       '_budget', 'Flagg', 'FORMAL-PLAY', 'a' * 61, None, [], {}, True):
+            with self.subTest(sample=sample), self.assertRaises(JobError):
+                validate_message({'jobId': 'job-1', 'sample': sample})
+
+    def test_new_registered_story_runs_through_the_same_validated_pipeline(self):
+        request, plan = fixture()
+        sample = 'formal-play-1'
+        request['video']['id'] = request['story']['id'] = sample
+        request['video']['s3_uri'] = f's3://{BUCKET}/samples/{sample}.mp4'
+        result, _, _ = execute(request=request, plan=plan)
+
+        class RegisteredS3(FakeS3):
+            def get_object(self, **kwargs):
+                if kwargs['Key'] == 'product/config/samples.json':
+                    self.reads.append(kwargs['Key'])
+                    entry = {key: request[key] for key in ('video', 'frames')}
+                    return {'Body': io.BytesIO(json.dumps({sample: entry}).encode())}
+                return super().get_object(**kwargs)
+
+        s3, table, runtime = RegisteredS3(request), FakeTable(), FakeRuntime(result)
+        with redirect_stdout(io.StringIO()):
+            response = run_story_job({'jobId': 'job-1', 'sample': sample, 'mode': 'story'},
+                                     s3, table, runtime, CONFIG, renderer=fake_renderer, inspector=fake_inspector)
+        self.assertEqual(response['status'], 'completed')
+        self.assertEqual(table.item['sample'], sample)
+        self.assertEqual(runtime.calls, 1)
+        self.assertEqual(json.loads(s3.objects['product/outputs/job-1/analysis.json'])['sample'], sample)
+
+    def test_unregistered_safe_id_fails_before_model_or_media_publication(self):
+        request, _ = fixture()
+        s3, table, runtime = FakeS3(request), FakeTable(), FakeRuntime()
+        with redirect_stdout(io.StringIO()):
+            response = run_story_job({'jobId': 'job-1', 'sample': 'not-registered', 'mode': 'story'},
+                                     s3, table, runtime, CONFIG, renderer=fake_renderer, inspector=fake_inspector)
+        self.assertEqual(response['status'], 'failed')
+        self.assertEqual(runtime.calls, 0)
+        self.assertEqual(s3.uploads, [])
+
+    def test_cross_bucket_registered_media_fails_before_model_spend(self):
+        for field in ('video', 'frame'):
+            request, _ = fixture()
+            target = request['video'] if field == 'video' else request['frames'][0]
+            target['s3_uri'] = 's3://unregistered-bucket/input.mp4'
+            with self.subTest(field=field):
+                response, s3, _, runtime = self.run_case(s3=FakeS3(request))
+                self.assertEqual(response['status'], 'failed')
+                self.assertEqual(runtime.calls, 0)
+                self.assertEqual(s3.uploads, [])
+
+    def test_readiness_worker_rejects_bad_registered_metadata_before_inference(self):
+        bad_requests = []
+        wrong_id, _ = fixture()
+        wrong_id['video']['id'] = 'another-id'
+        bad_requests.append(wrong_id)
+        bool_duration, _ = fixture()
+        bool_duration['video']['duration_ms'] = True
+        bad_requests.append(bool_duration)
+        duplicate_frames, _ = fixture()
+        duplicate_frames['frames'] *= 2
+        bad_requests.append(duplicate_frames)
+        outside_frame, _ = fixture()
+        outside_frame['frames'][0]['timestamp_ms'] = 23000
+        bad_requests.append(outside_frame)
+        external_frame, _ = fixture()
+        external_frame['frames'][0]['s3_uri'] = 'https://example.invalid/frame.jpg'
+        bad_requests.append(external_frame)
+        for request in bad_requests:
+            s3, table, runtime = FakeS3(request), FakeTable(), FakeRuntime()
+            with self.subTest(request=request), redirect_stdout(io.StringIO()):
+                response = run_job({'jobId': 'job-1', 'sample': 'flagg', 'mode': 'readiness'},
+                                   s3, table, runtime, CONFIG, renderer=fake_renderer, inspector=fake_inspector)
+            self.assertEqual(response['status'], 'failed')
+            self.assertEqual(runtime.calls, 0)
+            self.assertEqual(s3.uploads, [])
 
 
 if __name__ == "__main__":

@@ -1,9 +1,10 @@
 """Offline API boundary checks. AWS modules are replaced before handler import.
 
-Run: python3 -m unittest discover -s readiness-lab/api -p 'test_*.py' -v
+Run: python3 -m unittest discover -s product/api -p 'test_*.py' -v
 These tests do not establish deployment, IAM, capacity, or video-playback success.
 """
 
+import copy
 import importlib.util
 import io
 import json
@@ -24,6 +25,17 @@ class FakeClientError(Exception):
         super().__init__(code)
 
 
+class FakeBotoCoreError(Exception):
+    """Represent transport errors without an installed or active SDK."""
+
+
+def registered_entry(sample, duration=22000):
+    return {'video': {'id': sample, 'name': f'{sample}.mp4',
+                      's3_uri': f's3://offline-bucket/samples/{sample}.mp4', 'duration_ms': duration},
+            'frames': [{'timestamp_ms': 1000, 'format': 'jpeg',
+                        's3_uri': f's3://offline-bucket/frames/{sample}.jpg'}]}
+
+
 def event(method, path, body=None):
     request = {"requestContext": {"http": {"method": method}}, "rawPath": path}
     if body is not None:
@@ -42,6 +54,7 @@ class HandlerBoundaryTests(unittest.TestCase):
         botocore = types.ModuleType("botocore")
         exceptions = types.ModuleType("botocore.exceptions")
         exceptions.ClientError = FakeClientError
+        exceptions.BotoCoreError = FakeBotoCoreError
         botocore.exceptions = exceptions
         modules = patch.dict("sys.modules", {"boto3": boto, "botocore": botocore, "botocore.exceptions": exceptions})
         environment = patch.dict(os.environ, {
@@ -57,6 +70,7 @@ class HandlerBoundaryTests(unittest.TestCase):
         spec = importlib.util.spec_from_file_location("readiness_api_under_test", Path(__file__).with_name("handler.py"))
         self.module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(self.module)
+        self.set_manifest({'flagg': registered_entry('flagg'), 'amen': registered_entry('amen')})
 
     def invoke(self, request, expected_status):
         response = self.module.handler(request, None)
@@ -66,11 +80,18 @@ class HandlerBoundaryTests(unittest.TestCase):
         return json.loads(response["body"])
 
     def set_manifest(self, value):
-        self.s3.get_object.return_value = {"Body": io.BytesIO(json.dumps(value).encode())}
+        raw = json.dumps(value).encode()
+        self.s3.get_object.side_effect = lambda **kwargs: {"Body": io.BytesIO(raw)}
+
+    def assert_no_work_started(self):
+        self.table.update_item.assert_not_called()
+        self.table.put_item.assert_not_called()
+        self.sqs.send_message.assert_not_called()
 
     def test_invalid_samples_and_request_shapes_have_no_aws_writes(self):
         for payload in ({}, {"sample": "external-url"}, {"sample": "https://example.invalid/a.mp4"},
-                        {"sample": "../amen"}, {"sample": None}, {"sample": []}, [], "null", "not-json"):
+                        {"sample": "../amen"}, {"sample": "Flagg"}, {"sample": "a" * 61},
+                        {"sample": None}, {"sample": []}, [], "null", "not-json"):
             with self.subTest(payload=payload):
                 result = self.invoke(event("POST", "/api/jobs", payload), 400)
                 self.assertIn("error", result)
@@ -131,8 +152,8 @@ class HandlerBoundaryTests(unittest.TestCase):
 
     def test_status_manifest_matches_frontend_sample_contract(self):
         self.set_manifest({
-            "flagg": {"video": {"name": "训练_弗拉格.mp4", "duration_ms": 21548}},
-            "amen": {"video": {"name": "训练_阿门.mp4", "duration_ms": 22895}},
+            'flagg': registered_entry('flagg', duration=21548),
+            'amen': registered_entry('amen', duration=22895),
         })
         result = self.invoke(event("GET", "/api/status"), 200)
         self.assertEqual(result["status"], "ready")
@@ -153,10 +174,71 @@ class HandlerBoundaryTests(unittest.TestCase):
     def test_bad_manifest_returns_json_unavailable_instead_of_crashing(self):
         for manifest in (b"not-json", b"null", b"[]", b'{"flagg": {}}'):
             with self.subTest(manifest=manifest):
+                self.s3.get_object.side_effect = None
                 self.s3.get_object.return_value = {"Body": io.BytesIO(manifest)}
                 result = self.invoke(event("GET", "/api/status"), 503)
                 self.assertIn("error", result)
         self.sqs.send_message.assert_not_called()
+
+    def test_new_registered_case_can_be_queued_without_a_hardcoded_name(self):
+        self.set_manifest({'formal-play-1': registered_entry('formal-play-1')})
+        result = self.invoke(event('POST', '/api/jobs', {'sample': 'formal-play-1', 'mode': 'story'}), 202)
+        self.s3.get_object.assert_called_once_with(Bucket='offline-bucket', Key='config/samples.json')
+        message = json.loads(self.sqs.send_message.call_args.kwargs['MessageBody'])
+        self.assertEqual(message, {'jobId': result['jobId'], 'sample': 'formal-play-1', 'mode': 'story'})
+        self.assertEqual(self.table.put_item.call_args.kwargs['Item']['sample'], 'formal-play-1')
+
+    def test_unknown_safe_id_does_not_spend_budget_or_enqueue(self):
+        result = self.invoke(event('POST', '/api/jobs', {'sample': 'not-registered'}), 400)
+        self.assertNotIn('jobId', result)
+        self.assert_no_work_started()
+
+    def test_registered_lowercase_id_can_reach_the_shared_60_character_limit(self):
+        sample = 'a' * 60
+        self.set_manifest({sample: registered_entry(sample)})
+        self.invoke(event('POST', '/api/jobs', {'sample': sample, 'mode': 'story'}), 202)
+        self.assertEqual(self.table.put_item.call_args.kwargs['Item']['sample'], sample)
+
+    def test_registry_read_errors_do_not_spend_budget_or_enqueue(self):
+        for error in (FakeClientError('NoSuchKey'), FakeClientError('AccessDenied'),
+                      FakeBotoCoreError('offline connection failure'), OSError('offline stream failure')):
+            with self.subTest(error=type(error).__name__):
+                self.s3.get_object.side_effect = error
+                result = self.invoke(event('POST', '/api/jobs', {'sample': 'flagg'}), 503)
+                self.assertNotIn('jobId', result)
+        self.assert_no_work_started()
+
+    def test_malformed_registry_is_unavailable_before_any_write(self):
+        valid = {'flagg': registered_entry('flagg')}
+        wrong_identity = copy.deepcopy(valid)
+        wrong_identity['flagg']['video']['id'] = 'amen'
+        wrong_bucket = copy.deepcopy(valid)
+        wrong_bucket['flagg']['video']['s3_uri'] = 's3://another-bucket/source.mp4'
+        external_frame = copy.deepcopy(valid)
+        external_frame['flagg']['frames'][0]['s3_uri'] = 'https://example.invalid/image.jpg'
+        null_duration = copy.deepcopy(valid)
+        null_duration['flagg']['video']['duration_ms'] = None
+        bool_duration = copy.deepcopy(valid)
+        bool_duration['flagg']['video']['duration_ms'] = True
+        infinite_time = copy.deepcopy(valid)
+        infinite_time['flagg']['frames'][0]['timestamp_ms'] = float('inf')
+        duplicate_time = copy.deepcopy(valid)
+        duplicate_time['flagg']['frames'] *= 2
+        for manifest in ({}, [], None, {'../flagg': registered_entry('flagg')}, {'flagg': {}},
+                         wrong_identity, wrong_bucket, external_frame, null_duration, bool_duration,
+                         infinite_time, duplicate_time):
+            with self.subTest(manifest=manifest):
+                self.set_manifest(manifest)
+                self.invoke(event('POST', '/api/jobs', {'sample': 'flagg'}), 503)
+        self.assert_no_work_started()
+
+    def test_registry_size_is_bounded_and_stream_is_closed(self):
+        body = io.BytesIO(b' ' * (self.module.MAX_REGISTRY_BYTES + 1))
+        self.s3.get_object.side_effect = None
+        self.s3.get_object.return_value = {'Body': body}
+        self.invoke(event('POST', '/api/jobs', {'sample': 'flagg'}), 503)
+        self.assertTrue(body.closed)
+        self.assert_no_work_started()
 
     def test_missing_job_is_distinct_from_transient_lookup_failure(self):
         job_id = "a" * 32
