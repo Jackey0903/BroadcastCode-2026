@@ -1,0 +1,95 @@
+{
+  "publishedAt": "2026-10-10T11:20:36.033472+00:00",
+  "team": "02",
+  "product": "GameBuddy",
+  "account": "555726205424",
+  "website": "https://deky02484tknr.cloudfront.net/readme",
+  "source": "README.md",
+  "sourceSha256": "34bb201fbf3ebd1cb7fa2fb46039dc998fef0c5390cb3a3a4ca1599f1a6b6a02",
+  "bucket": "broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4",
+  "distribution": "EHVA243L9H495",
+  "invalidationId": "I2F8XBBVCXHCG2JPDVA5L0R42R",
+  "assets": [
+    {
+      "key": "readme",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
+      "bytes": 19455
+    },
+    {
+      "key": "product/readme",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
+      "bytes": 19455
+    },
+    {
+      "key": "readme/index.html",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
+      "bytes": 19455
+    },
+    {
+      "key": "product/readme/index.html",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
+      "bytes": 19455
+    },
+    {
+      "key": "readme.md",
+      "contentType": "text/markdown; charset=utf-8",
+      "sha256": "34bb201fbf3ebd1cb7fa2fb46039dc998fef0c5390cb3a3a4ca1599f1a6b6a02",
+      "bytes": 15924
+    },
+    {
+      "key": "readme-assets/overview.jpg",
+      "contentType": "image/jpeg",
+      "sha256": "d74b0ffbe876eaa227fcc70675e205bcb88de45b50b89041077227ee3c5a637a",
+      "bytes": 161916
+    }
+  ],
+  "publicChecks": [
+    {
+      "url": "https://deky02484tknr.cloudfront.net/readme",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
+      "bytes": 19455
+    },
+    {
+      "url": "https://deky02484tknr.cloudfront.net/product/readme",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
+      "bytes": 19455
+    },
+    {
+      "url": "https://deky02484tknr.cloudfront.net/readme/index.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
+      "bytes": 19455
+    },
+    {
+      "url": "https://deky02484tknr.cloudfront.net/product/readme/index.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
+      "bytes": 19455
+    },
+    {
+      "url": "https://deky02484tknr.cloudfront.net/readme.md",
+      "httpStatus": 200,
+      "contentType": "text/markdown",
+      "sha256": "34bb201fbf3ebd1cb7fa2fb46039dc998fef0c5390cb3a3a4ca1599f1a6b6a02",
+      "bytes": 15924
+    },
+    {
+      "url": "https://deky02484tknr.cloudfront.net/readme-assets/overview.jpg",
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "sha256": "d74b0ffbe876eaa227fcc70675e205bcb88de45b50b89041077227ee3c5a637a",
+      "bytes": 161916
+    }
+  ],
+  "scope": "Static README and explicit overview image only; existing application and media are unchanged."
+}

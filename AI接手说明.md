@@ -16,6 +16,8 @@
 
 # GameBuddy · Team02：AI 接手说明
 
+**10月10日 · README 公网页面：** 已按用户提供的主办方说明，将根 README 的16项创新点发布到正式作品的 `/readme`；Team02 标识、配图和 Markdown 下载已上线，另支持 `/product/readme`。6项公开资产均通过 HTTP 200、内容类型及 SHA-256 核验。仅发布静态说明白名单，未重新部署主产品或调用模型。复现入口为 `product/scripts/publish_readme.py --publish`，实际发布使用 `readiness-lab/.venv/bin/python`、`nba` profile；证据见 [README 发布核验](product/evidence/readme-publication-20261010.json)。
+
 **10月10日17:00 · RL加入前后端联调：** 用户已要求一起接入，RL侧已提供[统一调用入口和轻量展示数据](docs/RL前后端联调入口-20261010.md)，一条真实端点调用及456项全门禁通过；模型/冻结数据未改，无新训练。看板#11交链路Codex接Worker、叙事/烧录与watch抽屉，当前不等于成片已使用。
 
 **10月10日16:10 · 攻防档案与比较：** 按用户要求新增[球员画像/同场对比接口与样例](docs/RL攻防球员画像与对比-20261010.md)，展示进攻、抢断/盖帽/防守篮板、深度防守影响力，并做eFG百分点差等计算。冻结训练数据及模型不变；后端/前端接入见看板#10，未确认主防人不标直接对位。

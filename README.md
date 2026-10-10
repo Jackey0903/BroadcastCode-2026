@@ -4,6 +4,8 @@
 
 ### Your AI Basketball Buddy · 陪你看懂每一个回合
 
+[Team02 · 公开作品亮点说明](https://deky02484tknr.cloudfront.net/readme)
+
 **读懂数据，看清关键一拍，听懂篮球故事。**
 
 GameBuddy 将 NBA 基础数据、高阶数据与深度赛场数据融合，结合强化学习数据球探、多模态智能体、关键回合可视化和个性化 AI 解说，把真实比赛片段转化为有画面依据、有数据支撑、可以交互探索的篮球解读。
