@@ -34,5 +34,13 @@
       "bytes": 23017
     }
   ],
-  "videoChanged": false
+  "videoChanged": false,
+  "browser": {
+    "sourceOutputSecond": 6.7,
+    "sourceFrameSecond": 4.004,
+    "fullCourtVisiblePlayers": 9,
+    "halfCourtVisiblePlayers": 9,
+    "mediaError": null,
+    "note": "Initial seek loaded asynchronously; checked again after the decoded frame reached the tactical anchor."
+  }
 }
