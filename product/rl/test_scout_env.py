@@ -75,6 +75,11 @@ class Actions(unittest.TestCase):
         self.assertEqual(env.parse_action('{"tools": ["weather"]}')[0], "invalid")
         self.assertEqual(env.parse_action('{"tools": []}')[0], "invalid")
 
+    def test_malformed_tool_lists_are_invalid_not_fatal(self):
+        self.assertEqual(env.parse_action('{"tools": [{"name": "zone_reference"}]}'), ("invalid", None, True))
+        self.assertEqual(env.parse_action('{"tools": ["zone_reference", {"x": 1}, 3]}'), ("tools", ["zone_reference"], True))
+        self.assertEqual(env.parse_action('{"tools": [["zone_reference"]]}'), ("invalid", None, True))
+
     def test_answers_and_garbage(self):
         kind, payload, invalid = env.parse_action('{"quality": 0.42, "reason": "禁区两分"}')
         self.assertEqual((kind, payload["quality"], invalid), ("answer", 0.42, False))

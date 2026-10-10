@@ -17,7 +17,7 @@ HERE = Path(__file__).resolve().parent
 OUT = HERE.parents[0] / "evidence" / "rl-scout-20261010.json"
 BUCKET, REGION, PROFILE = "nba-hackathon-555726205424-team02", "us-east-1", "nba"
 RUNS = {"rl-scout-early-3b-1010-104358": "v0", "rl-scout-main-3b-v1-1010-105846": "v1",
-        "rl-scout-main-3b-v2-1010-111807": "v2"}
+        "rl-scout-main-3b-v2-1010-111807": "v2", "rl-scout-main-3b-v2-1010-113144": "v2"}
 REWARDS = {
     "v0": "0.75·(1−((q̂−y)/0.4)²) + 0.15·格式 + 0.10·有据 − 0.03·工具数 − 0.2·无效",
     "v1": "0.75·max(0, 1−|q̂−y|/0.5) + 0.15·格式 + 0.10·有据 − 0.01·工具数 − 0.2·无效",

@@ -193,7 +193,8 @@ def parse_action(text):
         return "invalid", None, True
     if "tools" in data:
         names = data["tools"] if isinstance(data["tools"], list) else []
-        valid = [n for n in dict.fromkeys(names) if n in TOOLS]
+        # Sampled policies sometimes emit objects ({"name": ...}) or numbers: never crash, count them invalid.
+        valid = [n for n in dict.fromkeys(n for n in names if isinstance(n, str)) if n in TOOLS]
         invalid = not valid or len(valid) != len(names)
         return ("tools", valid, invalid) if valid else ("invalid", None, True)
     if "quality" in data:
