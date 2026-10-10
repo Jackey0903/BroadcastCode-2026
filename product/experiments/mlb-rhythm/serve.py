@@ -8,7 +8,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 
 def source_file(sample):
-    names = {'amen': ['训练_阿门1月4日 .mp4', 'amen.mp4'], 'flagg': ['训练_弗拉格2月1日.mp4', 'flagg.mp4']}
+    names = {'flagg': ['训练_弗拉格2月1日.mp4', 'flagg.mp4']}
     base = ROOT / 'data/reference/train_video/train_video'
     return next((base / name for name in names[sample] if (base / name).is_file()), None)
 
@@ -18,6 +18,7 @@ def catalog():
     files = {'/': HERE / 'index.html', '/index.html': HERE / 'index.html', '/stories.json': manifest}
     for story in stories['stories']:
         sample = story['sample']
+        if sample != 'flagg': continue
         source = source_file(sample)
         if source:
             with source.open('rb') as stream: actual = hashlib.file_digest(stream, 'sha256').hexdigest()
@@ -56,7 +57,7 @@ class Handler(BaseHTTPRequestHandler):
                         block = stream.read(min(remaining, 256 * 1024))
                         if not block: break
                         self.wfile.write(block); remaining -= len(block)
-            except (BrokenPipeError, ConnectionResetError): pass
+            except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError): pass
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(); parser.add_argument('--port', type=int, default=4180)
