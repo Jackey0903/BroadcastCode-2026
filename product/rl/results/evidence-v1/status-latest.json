@@ -1,14 +1,69 @@
 {
-  "capturedAt": "2026-10-10T13:21:43.217317+08:00",
+  "capturedAt": "2026-10-10T13:32:39.013824+08:00",
   "job": "rl-scout-evidence-3b-two-teams-1010-052032",
   "status": "InProgress",
-  "secondaryStatus": "Pending",
+  "secondaryStatus": "Training",
   "failure": null,
   "instance": "ml.g5.xlarge",
-  "trainingSeconds": null,
-  "gpu": null,
-  "lastEvent": null,
-  "evaluations": [],
+  "trainingSeconds": 485,
+  "gpu": {
+    "allocatedGiB": 2.607,
+    "budgetScope": "training/evaluation after model loading; CPU merge excluded",
+    "gpu": "NVIDIA A10G",
+    "kind": "model_loaded",
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "packages": {
+      "bitsandbytes": "0.48.1",
+      "peft": "0.17.1",
+      "torch": "2.9.0+cu130",
+      "transformers": "4.57.1"
+    },
+    "quantization": "nf4-double-bfloat16",
+    "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+    "seconds": 0.0,
+    "trainableParameters": 29933568
+  },
+  "lastEvent": {
+    "completed": 16,
+    "epoch": 1,
+    "kind": "sft",
+    "loss": 0.019766,
+    "seconds": 231.14
+  },
+  "evaluations": [
+    {
+      "complete": true,
+      "coverage": 0.0,
+      "criticalErrorRate": 1.0,
+      "episodes": 16,
+      "expectedEpisodes": 16,
+      "formatRate": 0.0,
+      "kind": "evaluation",
+      "meanReward": -1.002375,
+      "schemaRate": 0.0,
+      "seconds": 103.74,
+      "split": "val",
+      "stage": "base",
+      "successRate": 0.0,
+      "validRate": 0.0
+    },
+    {
+      "complete": true,
+      "coverage": 0.0,
+      "criticalErrorRate": 1.0,
+      "episodes": 16,
+      "expectedEpisodes": 16,
+      "formatRate": 0.0,
+      "kind": "evaluation",
+      "meanReward": -1.00225,
+      "schemaRate": 0.0,
+      "seconds": 202.37,
+      "split": "test",
+      "stage": "base",
+      "successRate": 0.0,
+      "validRate": 0.0
+    }
+  ],
   "report": null,
   "modelDeployed": false
 }

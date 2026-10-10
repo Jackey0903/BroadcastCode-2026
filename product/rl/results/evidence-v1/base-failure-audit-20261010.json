@@ -1,0 +1,20 @@
+{
+  "job": "rl-scout-evidence-3b-two-teams-1010-052032",
+  "capturedAt": "2026-10-10T13:34:33.575626+08:00",
+  "method": "Read-only sample: first 3 episodes from each base val/test S3 evaluation; not exhaustive.",
+  "sourcePrefix": "s3://nba-hackathon-555726205424-team02/rl-scout/checkpoints/rl-scout-evidence-3b-two-teams-1010-052032/",
+  "findings": [
+    {
+      "taskId": "2dad175fcb9e3c89092b",
+      "split": "val",
+      "observation": "Advanced tool executed. Final answer retained tools, omitted required status, and selected both TS and eFG rather than required evidence."
+    },
+    {
+      "taskId": "48ef0bf427f28f83390c",
+      "split": "val",
+      "observation": "Tool returned historical_as_of_not_available. Final answer retained tools, omitted status, and returned reasonCode:null."
+    }
+  ],
+  "conclusion": "Sample shows real output protocol and evidence/boundary failures. No shared tool execution or parser fault identified; retain strict scoring and await same-ID SFT/RL evaluation.",
+  "limits": "Zero protocol/task success does not imply zero basketball understanding. No trained-stage comparison available yet."
+}
