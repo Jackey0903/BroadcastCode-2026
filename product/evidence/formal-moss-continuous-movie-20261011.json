@@ -1,11 +1,11 @@
 {
   "schema": "gamebuddy-moss-continuous-movie-v2",
-  "createdAt": "2026-10-10T17:34:39.279161+00:00",
+  "createdAt": "2026-10-10T17:42:29.542126+00:00",
   "output": "product/build/ppt-demo-20261011/GameBuddy-PPT-55s-MOSS-Continuous-v2.mp4",
-  "outputSha256": "c70ccc5403dd30c203a3ed43d6a14c43b98d2ece344d5ac9ffe40c99f5126180",
-  "sizeBytes": 101294549,
-  "visualPath": "product/build/ppt-demo-20261011/english-v4/GameBuddy-PPT-English-v4.mp4",
-  "visualSha256": "a5e38117a0e068ed0930b8c2482cc2fc7b3f83ed06f25e658fe2951a7aa51237",
+  "outputSha256": "6948b99bc48f0c1d573129919993cc06fd13d110248a0e2b8a8c2912169010f8",
+  "sizeBytes": 101335961,
+  "visualPath": "product/build/ppt-demo-20261011/english-v5/GameBuddy-PPT-English-v5.mp4",
+  "visualSha256": "bf23c8425dcd5474f1c50bc396f597df00ec987997c0863c5334212705748bb3",
   "speechSha256": "3ca34fff8b00290e8589bd7145fe86160b76198e4b478afcebc0bf3ad5989411",
   "audioReceiptPath": "product/build/moss-continuous-v2/audio-receipt.json",
   "durationSeconds": 55.055,
@@ -40,7 +40,7 @@
         "start_time": "0.000000",
         "duration_ts": 3303300,
         "duration": "55.055000",
-        "bit_rate": "14509858",
+        "bit_rate": "14513196",
         "bits_per_raw_sample": "8",
         "nb_frames": "3300",
         "extradata_size": 44,
@@ -92,10 +92,10 @@
         "time_base": "1/48000",
         "start_pts": 0,
         "start_time": "0.000000",
-        "duration_ts": 2604000,
-        "duration": "54.250000",
-        "bit_rate": "199332",
-        "nb_frames": "2544",
+        "duration_ts": 2637792,
+        "duration": "54.954000",
+        "bit_rate": "199366",
+        "nb_frames": "2577",
         "extradata_size": 5,
         "disposition": {
           "default": 1,
@@ -134,8 +134,8 @@
       "format_long_name": "QuickTime / MOV",
       "start_time": "0.000000",
       "duration": "55.055000",
-      "size": "101294549",
-      "bit_rate": "14719033",
+      "size": "101335961",
+      "bit_rate": "14725051",
       "probe_score": 100,
       "tags": {
         "major_brand": "isom",
@@ -148,24 +148,26 @@
   "fullDecodePassed": true,
   "videoStreamCopied": true,
   "addedVisualOverlays": false,
+  "encodedVideoStreamSha256": "738731802a65f616856818a020a9f2eadc9619034ddd2409957fcb185d2f9c1c",
+  "videoStreamIdentityVerified": true,
   "humanVoiceStyleApproved": false,
   "pptPlaybackTested": false,
   "awsInvoked": false,
   "published": false,
   "backgroundMix": "Centered original commentary attenuated and ducked; no isolated crowd claim",
-  "encodedVideoStreamSha256": "0d06ed965d779fb06948d6ec28d4f8166256d95bf1e6008aa3a35e7ddbc4dcf1",
-  "videoStreamIdentityVerified": true,
   "existingOfflineQualityGate": {
     "passed": true,
     "tests": 514,
     "skips": 0,
     "seconds": 30.11,
-    "mediaCertification": false
+    "mediaCertification": false,
+    "timing": "before final v5 visual swap; subsequent swap independently decoded and stream-hash verified"
   },
   "localMediaBackup": {
     "path": "/Users/jack/work/BroadcastCode-backups/20261011-moss-continuous-v2",
     "files": 79,
     "recoveryHashesVerified": true,
-    "includesApiKey": false
+    "includesApiKey": false,
+    "priorV4ArchivePreserved": true
   }
 }

@@ -172,11 +172,14 @@ def generate(plan, directory, key):
 
 def latest_visual(plan):
     candidates = []
+    reference = ROOT / plan['visualMaster']['path']
+    frozen_segments = json.loads(reference.with_suffix('.manifest.json').read_text())['segments']
     for manifest in (ROOT / 'product/build/ppt-demo-20261011').glob('english-v*/GameBuddy-PPT-English-v*.manifest.json'):
         master = json.loads(manifest.read_text())
         if (master.get('sourceSha256') == SOURCE_SHA and master.get('presentationClean') is True
                 and master.get('fullDecodePassed') is True and master.get('frameCount') == FRAMES
-                and master.get('durationSeconds') == DURATION):
+                and master.get('durationSeconds') == DURATION
+                and master.get('segments') == frozen_segments):
             video = manifest.with_name(manifest.name.removesuffix('.manifest.json') + '.mp4')
             if video.is_file():
                 candidates.append((int(re.search(r'english-v(\d+)', str(manifest))[1]), video, master))

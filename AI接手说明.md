@@ -2,7 +2,7 @@
 
 **10月11日 · 聚光与球员数据v4：** 55.055秒英文母版已加入三处攻防柔光/可见轮廓和六张球员数据卡，覆盖基础、eFG及深度赛场引力/影响力/xFG；赛季、全场与本次出手分开标注。原分段及配音时间点不变，整片解码、画面核对及一次514项门禁通过。[最新母版与配音交接](docs/PPT英文画面与战术板精修-20261011.md)。
 
-**10月11日 · 连续MOSS双人解说v2已完成：** 用户已接受16段稿并授权MOSS；两位新原创音色、55.055秒音轨和v4画面合成均真实完成，先交音轨试听再合成。入口为[新连续配音脚本](product/scripts/narrate_moss_continuous.py)，使用[已授权稿](product/data/formal-dialogue-en-v2.json)，实际状态看[音轨](product/evidence/formal-moss-continuous-audio-20261011.json)/[成片](product/evidence/formal-moss-continuous-movie-20261011.json)回执；draft-v2保留审稿历史。13项核心转写匹配，−42dB下无超过250毫秒静音，完整解码/3300帧/视频流一致通过；ASR对His season有音近误识别，不称逐字或人工听感验收。详见[本轮交接](docs/连续MOSS双人解说与最新画面合成-20261011.md)。仅本地影音优化，不改AWS、前端、视觉渲染器或正式提交片。
+**10月11日 · 连续MOSS双人解说v2已完成：** 用户已接受16段稿并授权MOSS；两位新原创音色、55.055秒音轨和v5画面合成均真实完成，先交音轨试听再合成。入口为[新连续配音脚本](product/scripts/narrate_moss_continuous.py)，使用[已授权稿](product/data/formal-dialogue-en-v2.json)，实际状态看[音轨](product/evidence/formal-moss-continuous-audio-20261011.json)/[成片](product/evidence/formal-moss-continuous-movie-20261011.json)回执；draft-v2保留审稿历史。13项核心转写匹配，−42dB下无超过250毫秒静音，完整解码/3300帧/视频流一致通过；ASR对His season有音近误识别，不称逐字或人工听感验收。详见[本轮交接](docs/连续MOSS双人解说与最新画面合成-20261011.md)。仅本地影音优化，不改AWS、前端、视觉渲染器或正式提交片。
 
 **10月11日 · 英文首尾v3：** 开场改为DOWN BY 4 / SECOND CHANCE，片尾以DOWN BY 1、43–44比分呼应，复用开场动效并整组滑出收黑，首尾全英文。55.055秒时间轴不变，独立母版已导出、完整解码及一次514项门禁通过。[最新画面与配音交接](docs/PPT英文画面与战术板精修-20261011.md)。
 
