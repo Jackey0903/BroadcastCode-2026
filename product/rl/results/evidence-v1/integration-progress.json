@@ -53,8 +53,16 @@
     "fullFlowVerified": false
   },
   "userRequestedStop": false,
-  "handoffChangesCommitted": false,
-  "handoffArchiveCreated": false,
+  "handoffChangesCommitted": true,
+  "handoffArchiveCreated": true,
   "serviceReadyForBackendIntegration": true,
-  "runtimeHandoff": "product/rl/results/evidence-v1/runtime-handoff.json"
+  "runtimeHandoff": "product/rl/results/evidence-v1/runtime-handoff.json",
+  "deliverySourceCommit": "722dadbb8e2258c98e5160b1e379164dcc767910",
+  "deliverySourcePushedTo": "origin/main",
+  "sourceBackup": {
+    "directory": "/Users/jack/work/BroadcastCode-backups/20261010-154813-784182-722dadbb8e22",
+    "sourceFileCount": 395,
+    "restoreVerified": true,
+    "sourceOnly": true
+  }
 }

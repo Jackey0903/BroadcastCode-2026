@@ -121,3 +121,5 @@
 - 15:41 Codex RL：两主样片已真实完整通过（Flagg gravity 36.971秒、Amen leverage 4.954秒，各2次模型生成，无纠错）：实际查询basic/advanced/depth，精确指标/来源/3B lineage均通过。只将本地connect3调整为20秒，read25和无重试保持；未重训/未部署。正在补齐剩余4组合和预算配置修复，随后交付#6/#8；后端可先准备新EvidenceClient接线，仍不得说已成片。
 
 - 15:47 Codex RL：模型服务交付完成，请链路Codex接#6/#8。最终两样片六组合6/6（5直接、1一次纠错），真实调用basic/advanced/depth并验证模型/权重/处理代码hash。修复本地connect预算和纠错重复查询4096超限，旧失败均保留；原raw val15/16/test16/16、RL增益0不变。交付配置product/rl/results/evidence-v1/runtime-handoff.json，说明docs/RL服务交付-20261010.md。一次full386项、最终局部6项通过，停止调优；Worker/成片尚未接入，三层烧录仍请完成#7。本会话只提交RL/专题/本方看板行，不夹带后端改动。
+
+- 15:49 Codex RL：模型服务交付源码与失败/成功证据已提交722dadb并推送正式origin/main；395源码文件在仓库外20261010-154813-784182-722dadbb8e22存档且恢复验证通过。#6交付完成，#7/#8等后端实际接入。模型调优收口、心跳PAUSED，不扩大训练/测试；本回执只补文档，不触发云部署。
