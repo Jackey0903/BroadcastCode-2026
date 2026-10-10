@@ -12,7 +12,8 @@ export function geometry(width,height,aspect,open,half,config){
  const fitted=fitContain(slotWidth,slotHeight,aspect);
  const video={x:left+(slotWidth-fitted.width)/2,y:top+(slotHeight-fitted.height)/2,...fitted};
  const panel={x:width-padding*open-panelWidth,y:padding,width:panelWidth,height:height-2*padding};
- const controlLeft=mix(Math.max(24,width*.065),left,open);
+ // Reserve the left corner for the 120px ambient character plus a 20px gap.
+ const controlLeft=Math.max(156,mix(Math.max(24,width*.065),left,open));
  const controlRight=mix(width*.935,width-right,open);
  const controls={x:controlLeft,y:mix(height-190,height-100,open),width:Math.max(1,Math.min(controlRight,panel.x-gap*open)-controlLeft),height:config.controls?.height||66};
  return {video,panel,controls,open,half,width,height};

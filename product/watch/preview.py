@@ -33,7 +33,7 @@ class Handler(SimpleHTTPRequestHandler):
   else:
    target=(ROOT/path.lstrip('/')).resolve()
    if target.is_dir():target=target/'index.html'
-   if not target.is_relative_to(ROOT) or target.suffix not in ('.html','.js','.css','.json','.svg','.png','.jpg','.md','.txt'):
+   if not target.is_relative_to(ROOT) or target.suffix not in ('.html','.js','.css','.json','.svg','.png','.jpg','.webp','.md','.txt'):
     self.send_error(404);return
   if not target.is_file():self.send_error(404);return
   size=target.stat().st_size;start=0;end=size-1;status=200

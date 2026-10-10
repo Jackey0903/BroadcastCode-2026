@@ -10,8 +10,11 @@ import {createCourtPanel} from './court/court-panel.js';
 import {getCourtTheme} from './court/themes.js';
 import {createAnnotationLayer} from './annotations/annotations.js';
 import {createInspector} from './dev/inspector.js';
+import {mountGameBuddyAmbient} from './companions/game-buddy/game-buddy-embed.js';
 
 const $=s=>document.querySelector(s),stage=$('#stage'),video=$('#match-video');
+// User-requested ambient character only; independent of voice and match events.
+const buddy=mountGameBuddyAmbient($('#game-buddy-slot'),{width:120,sequence:['idle','running-right','running-left','waving','jumping','failed','waiting','running','review']});
 let catalog=[],story=null,mediaVariant='source',courtData=null,focusId=null,activeMenu=null,leftTimer=0,idleTimer=0,noticeTimer=0;
 let layout,glass,inspector,lastFrame=NaN,mediaCallback=0,lastChapter='';
 let clipPlayback=null,seekRequest=0,mediaLoad=0,destroyed=false,dockPinned=false;
@@ -177,4 +180,4 @@ try{
  catch(error){courtData=null;showNotice('战术示意暂不可用：'+error.message);}
  const params=new URLSearchParams(location.search),selected=catalog.find(s=>s.sample===params.get('sample'))||catalog[0];selectStory(selected,params.get('variant')==='enhanced'?'enhanced':'source');
 }catch(error){showNotice('载入失败：'+error.message);$('#load-error').hidden=false;console.error(error);}
-window.addEventListener('pagehide',event=>{if(event.persisted)return;destroyed=true;seekRequest++;cancelClipPlayback();clearTimeout(leftTimer);clearTimeout(idleTimer);clearTimeout(noticeTimer);clearTimeout(titleTimer);unsubscribeConfig();inspector?.destroy();glass?.destroy();stopAmbienceSource($('#ambience'));layout.destroy();controls.destroy();court.destroy();annotations.destroy();video.cancelVideoFrameCallback?.(mediaCallback);video.removeEventListener('timeupdate',frame);});
+window.addEventListener('pagehide',event=>{if(event.persisted)return;destroyed=true;buddy.destroy();seekRequest++;cancelClipPlayback();clearTimeout(leftTimer);clearTimeout(idleTimer);clearTimeout(noticeTimer);clearTimeout(titleTimer);unsubscribeConfig();inspector?.destroy();glass?.destroy();stopAmbienceSource($('#ambience'));layout.destroy();controls.destroy();court.destroy();annotations.destroy();video.cancelVideoFrameCallback?.(mediaCallback);video.removeEventListener('timeupdate',frame);});
