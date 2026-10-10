@@ -1,0 +1,238 @@
+{
+  "version": "gamebuddy-formal-local-v1",
+  "purpose": "正式视频本地联调目录；成片编辑记录与云端 Agent 运行证据分别保留。",
+  "stories": [
+    {
+      "id": "formal",
+      "sample": "formal",
+      "title": "第二次机会，后撤步三分",
+      "subtitle": "克里斯蒂 · 独行侠对阵火箭 · 正式比赛素材",
+      "kicker": "正式比赛 · 二次进攻",
+      "player": {
+        "name": "马克斯·克里斯蒂",
+        "number": "00",
+        "team": "独行侠",
+        "teamAbbreviation": "DAL"
+      },
+      "opponent": "火箭",
+      "game": {
+        "date": "2025-12-07",
+        "dateTimezone": "Asia/Shanghai",
+        "localDate": "2025-12-06",
+        "period": 2,
+        "clock": "4:58",
+        "score": "独行侠 43 — 44 火箭",
+        "homeTeam": "DAL",
+        "awayTeam": "HOU",
+        "gameId": "0022500356"
+      },
+      "durationSeconds": 23.777234,
+      "sourceVideo": "/product/media/formal/source.mp4",
+      "sourceVideoSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+      "originalSourceUrl": "https://du5imhgxabl0d.cloudfront.net/portal",
+      "sourceLabel": "主办方正式比赛视频 · 用户已下载",
+      "poster": null,
+      "enhancedVideo": null,
+      "analysisUrl": null,
+      "production": {
+        "mode": "editorial",
+        "status": "source-ready",
+        "agentCoreUsedForThisRender": false,
+        "rlModelUsedForThisRender": false,
+        "aiNarrationUsed": false,
+        "preservesSourceTimeline": false
+      },
+      "officialEvent": {
+        "eventId": 273,
+        "actionId": 192,
+        "gameId": "0022500356",
+        "playerId": "1631108",
+        "period": 2,
+        "clock": "PT04M58.00S",
+        "expectedFg": 0.3,
+        "made": true,
+        "shotValue": 3,
+        "description": "Christie 25' 3PT Step Back Bank Jump Shot (3 PTS)",
+        "scoreBefore": {
+          "home": 40,
+          "away": 44
+        },
+        "scoreAfter": {
+          "home": 43,
+          "away": 44
+        },
+        "officialShot": {
+          "shotDesc": "后撤步跳投打板",
+          "value": 0.3,
+          "newsId": null,
+          "gameId": "0022500356",
+          "eventId": 273,
+          "playerId": "1631108",
+          "shotType": "3分投篮",
+          "success": 1,
+          "period": 2,
+          "gameClock": "",
+          "side": "left",
+          "locX": "26",
+          "locY": "20"
+        },
+        "officialPlayByPlay": {
+          "actionNumber": 273,
+          "clock": "PT04M58.00S",
+          "period": 2,
+          "teamId": 1610612742,
+          "teamTricode": "DAL",
+          "personId": 1631108,
+          "playerName": "Christie",
+          "playerNameI": "M. Christie",
+          "xLegacy": 147,
+          "yLegacy": 200,
+          "shotDistance": 25,
+          "shotResult": "Made",
+          "isFieldGoal": 1,
+          "scoreHome": "43",
+          "scoreAway": "44",
+          "pointsTotal": 87,
+          "location": "h",
+          "description": "Christie 25' 3PT Step Back Bank Jump Shot (3 PTS)",
+          "actionType": "Made Shot",
+          "subType": "Step Back Bank Jump Shot",
+          "videoAvailable": 1,
+          "shotValue": 3,
+          "actionId": 192
+        },
+        "evidenceUrls": [
+          "https://www.nba.com/game/hou-vs-dal-0022500356/play-by-play",
+          "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500356&playerId=1631108"
+        ]
+      },
+      "videoHeadAnchors": [],
+      "chapters": [
+        {
+          "start": 0,
+          "end": 7.2,
+          "title": "首次突破与篮下争抢",
+          "caption": "官方本回合先记录克里斯蒂两分抛投未中并被封盖；此段画面有篮下争抢。",
+          "kind": "observation",
+          "evidenceIds": [
+            "formal-frame-review"
+          ]
+        },
+        {
+          "start": 7.2,
+          "end": 11.0,
+          "title": "重新组织",
+          "caption": "克里斯蒂在右侧重新持球。官方随后记录鲍威尔进攻篮板；广播钟与PBP钟有偏差，不逐帧硬对齐。",
+          "kind": "observation",
+          "evidenceIds": [
+            "formal-frame-review"
+          ]
+        },
+        {
+          "start": 11.0,
+          "end": 13.5,
+          "title": "撤步出手",
+          "caption": "00号横向运球、后撤步到三分线外起跳出手。",
+          "kind": "observation",
+          "evidenceIds": [
+            "formal-frame-review"
+          ]
+        },
+        {
+          "start": 13.5,
+          "end": 16.4,
+          "title": "打板命中",
+          "caption": "篮球经篮板、篮圈入网；官方记25英尺后撤步打板三分。",
+          "kind": "observation",
+          "evidenceIds": [
+            "formal-frame-review"
+          ]
+        },
+        {
+          "start": 16.4,
+          "end": 23.777234,
+          "title": "比分确认",
+          "caption": "转播随后切到克里斯蒂近景，比分最终更新至独行侠43、火箭44。",
+          "kind": "observation",
+          "evidenceIds": [
+            "formal-frame-review"
+          ]
+        }
+      ],
+      "keyMoment": {
+        "start": 11,
+        "end": 16.4,
+        "playbackRate": 0.5
+      },
+      "evidence": [
+        {
+          "id": "formal-final-shot",
+          "kind": "official",
+          "title": "后撤步打板三分 · xFG 30.0%",
+          "body": "本值只对应最后一次三分出手 event 273；首次两分出手是另一条记录，不能混用。",
+          "value": 0.3,
+          "display": "30.0%",
+          "unit": "ratio",
+          "eventId": 273,
+          "gameId": "0022500356",
+          "videoTime": 13.5,
+          "videoTimeMeaning": "原片出手附近的编辑回看锚点；不是官方事件时钟逐帧换算。",
+          "officialClock": "4:58",
+          "period": 2,
+          "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500356&playerId=1631108",
+          "sourceLabel": "NBA 深度赛场逐次出手记录",
+          "sourcePath": "product/broadcast-fx/data/formal-gpshot-christie.json"
+        },
+        {
+          "id": "formal-frame-review",
+          "kind": "observation",
+          "title": "正式视频画面观察",
+          "body": "二次进攻、撤步出手及比分更新使用这段正式视频；定格与动画是编辑解说图形，未生成逐帧官方追踪。",
+          "sourceUrl": "/product/media/formal/source.mp4",
+          "sourceLabel": "主办方正式视频",
+          "sourcePath": "data/正式视频.mp4",
+          "humanExpertReviewed": false
+        }
+      ],
+      "storyOptions": [],
+      "hook": {
+        "question": "这次二次进攻，先看哪一拍？",
+        "choiceMode": "attention",
+        "isQuiz": false,
+        "choices": [
+          {
+            "id": "rebound",
+            "label": "争取第二次机会",
+            "revealTitle": "首次出手受阻，回合继续",
+            "revealBody": "官方记录鲍威尔抢到进攻篮板，独行侠重新获得出手机会。",
+            "focusTime": 8,
+            "evidenceIds": [
+              "formal-frame-review"
+            ]
+          },
+          {
+            "id": "release",
+            "label": "后撤步与防守",
+            "revealTitle": "迎着举手干扰完成出手",
+            "revealBody": "看持球人的横移和后撤，再看两名防守人的相对位置。",
+            "focusTime": 13.5,
+            "evidenceIds": [
+              "formal-frame-review"
+            ]
+          },
+          {
+            "id": "data",
+            "label": "这一球的数据",
+            "revealTitle": "结果与出手机会一起看",
+            "revealBody": "这球得到三分；官方记录本次出手的预期命中率为30%。",
+            "focusTime": 15,
+            "evidenceIds": [
+              "formal-final-shot"
+            ]
+          }
+        ],
+        "answerMeaning": "编辑推荐关注点，没有唯一正确答案。"
+      }
+    }
+  ]
+}

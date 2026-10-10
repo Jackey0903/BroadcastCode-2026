@@ -1,0 +1,596 @@
+{
+  "schema": "gamebuddy-formal-editorial-annotations-v1",
+  "sourceVideo": "data/正式视频.mp4",
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "sourceFps": "60000/1001",
+  "frameIndexBasis": "zero-based source frames at 60000/1001 fps",
+  "canvas": [
+    1920,
+    1080
+  ],
+  "coordinateSpace": "original image pixels",
+  "review": "Assistant visual annotation, not automatic tracking or a human expert review",
+  "disclosureCn": "编辑战术示意 · 非自动追踪",
+  "disclosureEn": "EDITORIAL BREAKDOWN · NOT AUTOMATED TRACKING",
+  "boundaries": [
+    "No official event identity or xFG is asserted by these annotations.",
+    "Arrows express short editorial action directions, not reconstructed player trajectories.",
+    "Hidden feet stay null. Referees and audience are excluded.",
+    "Jersey numbers that are obscured in the selected frame may be cross-checked on nearby source frames and are marked numberVisible=false."
+  ],
+  "scenes": {
+    "T1": {
+      "key": "T1",
+      "sourceSeconds": 4.004,
+      "requestedSourceSeconds": 4.0,
+      "frame": 240,
+      "sourceImage": "product/build/formal-video/frames/f0240.jpg",
+      "titleCn": "切入吸引防守",
+      "titleEn": "DRIVE & DRAW",
+      "captionCn": "00号持球切入，红衣防守向球侧收紧。",
+      "captionEn": "00 drives as the red jerseys close around the ball.",
+      "caption": "00号持球切入，红衣防守向球侧收紧。",
+      "roles": [
+        "持球切入",
+        "篮下接应",
+        "防守收紧"
+      ],
+      "visiblePlayerCount": 9,
+      "clockObserved": {
+        "period": 2,
+        "gameClock": "5:09",
+        "shotClock": "11",
+        "basis": "visible broadcast graphic; editorial reading"
+      },
+      "players": [
+        {
+          "id": "D00",
+          "team": "offense",
+          "number": "00",
+          "numberVisible": true,
+          "body": [
+            1065,
+            790
+          ],
+          "foot": [
+            1050,
+            940
+          ],
+          "image": [
+            1050,
+            940
+          ],
+          "anchorKind": "visible-foot",
+          "role": "ball_handler",
+          "notes": "蓝色落地鞋可见；身体向篮下转",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "D7",
+          "team": "offense",
+          "number": "7",
+          "numberVisible": false,
+          "body": [
+            1250,
+            530
+          ],
+          "foot": null,
+          "image": [
+            1250,
+            530
+          ],
+          "anchorKind": "body-only",
+          "role": "interior_teammate",
+          "notes": "下肢与红衣30号和持球人重叠，不画足圈",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "D32",
+          "team": "offense",
+          "number": "32",
+          "numberVisible": true,
+          "body": [
+            1290,
+            850
+          ],
+          "foot": null,
+          "image": [
+            1290,
+            850
+          ],
+          "anchorKind": "body-only",
+          "role": "near_side_teammate",
+          "notes": "近边鞋底与前排观众重叠，取消原足圈；仅身体高亮。",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "DfarA",
+          "team": "offense",
+          "number": null,
+          "numberVisible": false,
+          "body": [
+            822,
+            327
+          ],
+          "foot": null,
+          "image": [
+            822,
+            327
+          ],
+          "anchorKind": "body-only",
+          "role": "far_side_teammate",
+          "notes": "快速移动且部分被红衣7号遮挡，不命名不画足圈",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "R7",
+          "team": "defense",
+          "number": "7",
+          "numberVisible": true,
+          "body": [
+            815,
+            458
+          ],
+          "foot": [
+            805,
+            588
+          ],
+          "image": [
+            805,
+            588
+          ],
+          "anchorKind": "visible-foot",
+          "role": "far_side_defender",
+          "notes": "",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "R1",
+          "team": "defense",
+          "number": "1",
+          "numberVisible": false,
+          "body": [
+            1182,
+            397
+          ],
+          "foot": null,
+          "image": [
+            1182,
+            397
+          ],
+          "anchorKind": "body-only",
+          "role": "baseline_defender",
+          "notes": "脚被篮下球员遮挡；号码由邻近帧交叉核对",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "R30",
+          "team": "defense",
+          "number": "30",
+          "numberVisible": false,
+          "body": [
+            1175,
+            523
+          ],
+          "foot": null,
+          "image": [
+            1175,
+            523
+          ],
+          "anchorKind": "body-only",
+          "role": "interior_defender",
+          "notes": "红色球衣30号是球员；不要与前景黑灰裁判30号混淆",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "R10",
+          "team": "defense",
+          "number": "10",
+          "numberVisible": false,
+          "body": [
+            920,
+            744
+          ],
+          "foot": [
+            838,
+            889
+          ],
+          "image": [
+            838,
+            889
+          ],
+          "anchorKind": "visible-foot",
+          "role": "on_ball_defender",
+          "notes": "绿色鞋可见；这是红衣球员10号",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "R20",
+          "team": "defense",
+          "number": "20",
+          "numberVisible": false,
+          "body": [
+            1235,
+            711
+          ],
+          "foot": null,
+          "image": [
+            1235,
+            711
+          ],
+          "anchorKind": "body-only",
+          "role": "ball_side_defender",
+          "notes": "身体下半部分被深衣32号遮挡",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        }
+      ],
+      "arrows": [
+        {
+          "id": "drive",
+          "points": [
+            [
+              1050,
+              913
+            ],
+            [
+              1115,
+              825
+            ]
+          ],
+          "coordinateSpace": "source-image-pixels",
+          "kind": "offense",
+          "label": "持球向篮下",
+          "basis": "short editorial action-direction illustration; not a measured trajectory",
+          "drawEndpointDot": false
+        },
+        {
+          "id": "close_space",
+          "points": [
+            [
+              870,
+              870
+            ],
+            [
+              955,
+              825
+            ]
+          ],
+          "coordinateSpace": "source-image-pixels",
+          "kind": "defense",
+          "label": "防守向球侧收紧",
+          "basis": "short editorial action-direction illustration; not a measured trajectory",
+          "drawEndpointDot": false
+        }
+      ],
+      "excluded": [
+        {
+          "kind": "referee",
+          "number": "30",
+          "body": [
+            1155,
+            885
+          ],
+          "reason": "黑灰裁判服，不是球员"
+        },
+        {
+          "kind": "sideline_background",
+          "body": [
+            1237,
+            358
+          ],
+          "reason": "位于界外替补席前，与场内球员重叠；不当作第十名球员补齐"
+        },
+        {
+          "kind": "off_screen_teammate",
+          "reason": "第五名独行侠球员未清楚入镜；不补坐标"
+        }
+      ]
+    },
+    "T2": {
+      "key": "T2",
+      "sourceSeconds": 11.995316666666668,
+      "requestedSourceSeconds": 12.0,
+      "frame": 719,
+      "sourceImage": "product/build/formal-video/frames/f0719.jpg",
+      "titleCn": "借掩护回到中路",
+      "titleEn": "SCREEN & RESET",
+      "captionCn": "00号向中路运球，7号在身旁形成掩护位置。",
+      "captionEn": "00 dribbles toward the middle, with 7 in screening position.",
+      "caption": "00号向中路运球，7号在身旁形成掩护位置。",
+      "roles": [
+        "持球转向",
+        "近侧掩护",
+        "无球切入"
+      ],
+      "visiblePlayerCount": 9,
+      "clockObserved": {
+        "period": 2,
+        "gameClock": "5:01",
+        "shotClock": "3.3",
+        "basketShotClock": "3.2",
+        "basis": "visible broadcast graphic; on-screen displays differ by 0.1 s; no synthetic precision"
+      },
+      "players": [
+        {
+          "id": "D00",
+          "team": "offense",
+          "number": "00",
+          "numberVisible": true,
+          "body": [
+            1185,
+            800
+          ],
+          "foot": null,
+          "image": [
+            1185,
+            800
+          ],
+          "anchorKind": "body-only",
+          "role": "ball_handler",
+          "notes": "下肢与裁判及前排观众重叠，不画足圈",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "D7",
+          "team": "offense",
+          "number": "7",
+          "numberVisible": true,
+          "body": [
+            956,
+            745
+          ],
+          "foot": [
+            915,
+            882
+          ],
+          "image": [
+            915,
+            882
+          ],
+          "anchorKind": "visible-foot",
+          "role": "screener",
+          "notes": "可见双脚近地位置；不判定掩护是否合法",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "D32",
+          "team": "offense",
+          "number": "32",
+          "numberVisible": false,
+          "body": [
+            523,
+            574
+          ],
+          "foot": null,
+          "image": [
+            523,
+            574
+          ],
+          "anchorKind": "body-only",
+          "role": "off_ball_cutter",
+          "notes": "快速跑动，两脚腾挪，不画落地圈；红鞋仅作观察",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "D10",
+          "team": "offense",
+          "number": "10",
+          "numberVisible": true,
+          "body": [
+            805,
+            373
+          ],
+          "foot": [
+            816,
+            460
+          ],
+          "image": [
+            816,
+            460
+          ],
+          "anchorKind": "visible-foot",
+          "role": "far_side_teammate",
+          "notes": "远侧深衣10号确是球员，身体与球衣可见",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "R7",
+          "team": "defense",
+          "number": "7",
+          "numberVisible": true,
+          "body": [
+            559,
+            480
+          ],
+          "foot": [
+            611,
+            586
+          ],
+          "image": [
+            611,
+            586
+          ],
+          "anchorKind": "visible-foot",
+          "role": "far_side_defender",
+          "notes": "",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "R1",
+          "team": "defense",
+          "number": "1",
+          "numberVisible": false,
+          "body": [
+            1050,
+            487
+          ],
+          "foot": [
+            1070,
+            570
+          ],
+          "image": [
+            1070,
+            570
+          ],
+          "anchorKind": "visible-foot",
+          "role": "interior_defender",
+          "notes": "",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "R30",
+          "team": "defense",
+          "number": "30",
+          "numberVisible": false,
+          "body": [
+            1003,
+            681
+          ],
+          "foot": null,
+          "image": [
+            1003,
+            681
+          ],
+          "anchorKind": "body-only",
+          "role": "screen_defender",
+          "notes": "红衣大个下肢被掩护队友及持球人遮挡",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "R10",
+          "team": "defense",
+          "number": "10",
+          "numberVisible": false,
+          "body": [
+            1230,
+            756
+          ],
+          "foot": [
+            1334,
+            877
+          ],
+          "image": [
+            1334,
+            877
+          ],
+          "anchorKind": "visible-foot",
+          "role": "on_ball_defender",
+          "notes": "只标可见绿色鞋，原片号码由邻近帧核对",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "R20",
+          "team": "defense",
+          "number": "20",
+          "numberVisible": false,
+          "body": [
+            569,
+            737
+          ],
+          "foot": [
+            476,
+            854
+          ],
+          "image": [
+            476,
+            854
+          ],
+          "anchorKind": "visible-foot",
+          "role": "help_defender",
+          "notes": "",
+          "positionBasis": "assistant visual review of this source frame; editorial pixel anchor",
+          "humanExpertReviewed": false
+        }
+      ],
+      "arrows": [
+        {
+          "id": "middle_drive",
+          "points": [
+            [
+              1190,
+              903
+            ],
+            [
+              1080,
+              881
+            ]
+          ],
+          "coordinateSpace": "source-image-pixels",
+          "kind": "offense",
+          "label": "向中路运球",
+          "basis": "short editorial action-direction illustration; not a measured trajectory",
+          "drawEndpointDot": false
+        },
+        {
+          "id": "off_ball_cut",
+          "points": [
+            [
+              561,
+              602
+            ],
+            [
+              692,
+              618
+            ]
+          ],
+          "coordinateSpace": "source-image-pixels",
+          "kind": "offense",
+          "label": "无球切入方向",
+          "basis": "short editorial action-direction illustration; not a measured trajectory",
+          "drawEndpointDot": false
+        },
+        {
+          "id": "on_ball_follow",
+          "points": [
+            [
+              1294,
+              861
+            ],
+            [
+              1230,
+              843
+            ]
+          ],
+          "coordinateSpace": "source-image-pixels",
+          "kind": "defense",
+          "label": "跟随持球方向",
+          "basis": "short editorial action-direction illustration; not a measured trajectory",
+          "drawEndpointDot": false
+        }
+      ],
+      "excluded": [
+        {
+          "kind": "referee",
+          "number": "30",
+          "body": [
+            1049,
+            825
+          ],
+          "reason": "黑灰裁判服，不是球员"
+        },
+        {
+          "kind": "partial_player",
+          "side": "left_edge",
+          "reason": "只见肢体片段，不补全身份或足点"
+        }
+      ]
+    }
+  }
+}

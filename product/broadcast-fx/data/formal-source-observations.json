@@ -1,0 +1,493 @@
+{
+  "schema": "gamebuddy-formal-source-observations-v1",
+  "createdAt": "2026-10-10T10:19:37.453060+00:00",
+  "source": {
+    "path": "data/正式视频.mp4",
+    "sha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+    "durationSeconds": 23.777234,
+    "width": 1920,
+    "height": 1080,
+    "frameRate": "60000/1001",
+    "bytes": 90393523,
+    "origin": "user supplied formal competition video"
+  },
+  "method": "AI assistant reviewed source frames; positions are editorial image anchors, not player tracking or official court coordinates",
+  "humanExpertReviewed": false,
+  "officialEventBinding": "product/broadcast-fx/data/formal-event-binding.json",
+  "identity": {
+    "gameId": "0022500356",
+    "gameDateLocal": "2025-12-06",
+    "gameDateBeijing": "2025-12-07",
+    "home": "DAL",
+    "away": "HOU",
+    "period": 2,
+    "playerId": "1631108",
+    "playerName": "Max Christie",
+    "playerNameZh": "马克斯·克里斯蒂",
+    "jerseyNumber": "00"
+  },
+  "officialEvent": {
+    "eventId": 273,
+    "actionId": 192,
+    "gameId": "0022500356",
+    "playerId": "1631108",
+    "period": 2,
+    "clock": "PT04M58.00S",
+    "expectedFg": 0.3,
+    "made": true,
+    "shotValue": 3,
+    "description": "Christie 25' 3PT Step Back Bank Jump Shot (3 PTS)",
+    "scoreBefore": {
+      "home": 40,
+      "away": 44
+    },
+    "scoreAfter": {
+      "home": 43,
+      "away": 44
+    },
+    "officialShot": {
+      "shotDesc": "后撤步跳投打板",
+      "value": 0.3,
+      "newsId": null,
+      "gameId": "0022500356",
+      "eventId": 273,
+      "playerId": "1631108",
+      "shotType": "3分投篮",
+      "success": 1,
+      "period": 2,
+      "gameClock": "",
+      "side": "left",
+      "locX": "26",
+      "locY": "20"
+    },
+    "officialPlayByPlay": {
+      "actionNumber": 273,
+      "clock": "PT04M58.00S",
+      "period": 2,
+      "teamId": 1610612742,
+      "teamTricode": "DAL",
+      "personId": 1631108,
+      "playerName": "Christie",
+      "playerNameI": "M. Christie",
+      "xLegacy": 147,
+      "yLegacy": 200,
+      "shotDistance": 25,
+      "shotResult": "Made",
+      "isFieldGoal": 1,
+      "scoreHome": "43",
+      "scoreAway": "44",
+      "pointsTotal": 87,
+      "location": "h",
+      "description": "Christie 25' 3PT Step Back Bank Jump Shot (3 PTS)",
+      "actionType": "Made Shot",
+      "subType": "Step Back Bank Jump Shot",
+      "videoAvailable": 1,
+      "shotValue": 3,
+      "actionId": 192
+    }
+  },
+  "officialSequence": [
+    {
+      "actionNumber": 268,
+      "clock": "PT05M28.00S",
+      "period": 2,
+      "teamId": 1610612745,
+      "teamTricode": "HOU",
+      "personId": 1631095,
+      "playerName": "Smith Jr.",
+      "playerNameI": "J. Smith Jr.",
+      "xLegacy": 0,
+      "yLegacy": 90,
+      "shotDistance": 9,
+      "shotResult": "Made",
+      "isFieldGoal": 1,
+      "scoreHome": "40",
+      "scoreAway": "44",
+      "pointsTotal": 84,
+      "location": "v",
+      "description": "Smith Jr. 9' Driving Floating Jump Shot (6 PTS) (Durant 2 AST)",
+      "actionType": "Made Shot",
+      "subType": "Driving Floating Jump Shot",
+      "videoAvailable": 1,
+      "shotValue": 2,
+      "actionId": 188
+    },
+    {
+      "actionNumber": 270,
+      "clock": "PT05M06.00S",
+      "period": 2,
+      "teamId": 1610612742,
+      "teamTricode": "DAL",
+      "personId": 1631108,
+      "playerName": "Christie",
+      "playerNameI": "M. Christie",
+      "xLegacy": 72,
+      "yLegacy": 52,
+      "shotDistance": 9,
+      "shotResult": "Missed",
+      "isFieldGoal": 1,
+      "scoreHome": "",
+      "scoreAway": "",
+      "pointsTotal": 0,
+      "location": "h",
+      "description": "MISS Christie 9' Driving Floating Jump Shot",
+      "actionType": "Missed Shot",
+      "subType": "Driving Floating Jump Shot",
+      "videoAvailable": 1,
+      "shotValue": 2,
+      "actionId": 189
+    },
+    {
+      "actionNumber": 270,
+      "clock": "PT05M06.00S",
+      "period": 2,
+      "teamId": 1610612745,
+      "teamTricode": "HOU",
+      "personId": 1631095,
+      "playerName": "Smith Jr.",
+      "playerNameI": "J. Smith Jr.",
+      "xLegacy": 0,
+      "yLegacy": 0,
+      "shotDistance": 0,
+      "shotResult": "",
+      "isFieldGoal": 0,
+      "scoreHome": "",
+      "scoreAway": "",
+      "pointsTotal": 0,
+      "location": "v",
+      "description": "Smith Jr. BLOCK (1 BLK)",
+      "actionType": "",
+      "subType": "",
+      "videoAvailable": 1,
+      "shotValue": 2,
+      "actionId": 190
+    },
+    {
+      "actionNumber": 272,
+      "clock": "PT05M03.00S",
+      "period": 2,
+      "teamId": 1610612742,
+      "teamTricode": "DAL",
+      "personId": 203939,
+      "playerName": "Powell",
+      "playerNameI": "D. Powell",
+      "xLegacy": 0,
+      "yLegacy": 0,
+      "shotDistance": 0,
+      "shotResult": "",
+      "isFieldGoal": 0,
+      "scoreHome": "",
+      "scoreAway": "",
+      "pointsTotal": 0,
+      "location": "h",
+      "description": "Powell REBOUND (Off:1 Def:0)",
+      "actionType": "Rebound",
+      "subType": "Unknown",
+      "videoAvailable": 1,
+      "shotValue": 0,
+      "actionId": 191
+    },
+    {
+      "actionNumber": 273,
+      "clock": "PT04M58.00S",
+      "period": 2,
+      "teamId": 1610612742,
+      "teamTricode": "DAL",
+      "personId": 1631108,
+      "playerName": "Christie",
+      "playerNameI": "M. Christie",
+      "xLegacy": 147,
+      "yLegacy": 200,
+      "shotDistance": 25,
+      "shotResult": "Made",
+      "isFieldGoal": 1,
+      "scoreHome": "43",
+      "scoreAway": "44",
+      "pointsTotal": 87,
+      "location": "h",
+      "description": "Christie 25' 3PT Step Back Bank Jump Shot (3 PTS)",
+      "actionType": "Made Shot",
+      "subType": "Step Back Bank Jump Shot",
+      "videoAvailable": 1,
+      "shotValue": 3,
+      "actionId": 192
+    }
+  ],
+  "visibleScoreboard": {
+    "start": {
+      "sourceTimeSeconds": 0,
+      "gameClock": "5:13",
+      "shotClock": "15",
+      "home": 40,
+      "away": 44
+    },
+    "release": {
+      "sourceTimeSeconds": 13.5,
+      "gameClock": "4:59",
+      "shotClock": "1.8",
+      "home": 40,
+      "away": 44
+    },
+    "end": {
+      "sourceTimeSeconds": 23,
+      "gameClock": "4:58",
+      "shotClock": "24",
+      "home": 43,
+      "away": 44
+    }
+  },
+  "chapters": [
+    {
+      "sourceStart": 0,
+      "sourceEnd": 7.2,
+      "label": "首次突破与篮下争抢",
+      "description": "官方本回合先记录克里斯蒂两分抛投未中并被封盖；此段画面有篮下争抢。"
+    },
+    {
+      "sourceStart": 7.2,
+      "sourceEnd": 11.0,
+      "label": "重新组织",
+      "description": "克里斯蒂在右侧重新持球。官方随后记录鲍威尔进攻篮板；广播钟与PBP钟有偏差，不逐帧硬对齐。"
+    },
+    {
+      "sourceStart": 11.0,
+      "sourceEnd": 13.5,
+      "label": "撤步出手",
+      "description": "00号横向运球、后撤步到三分线外起跳出手。"
+    },
+    {
+      "sourceStart": 13.5,
+      "sourceEnd": 16.4,
+      "label": "打板命中",
+      "description": "篮球经篮板、篮圈入网；官方记25英尺后撤步打板三分。"
+    },
+    {
+      "sourceStart": 16.4,
+      "sourceEnd": 23.777234,
+      "label": "比分确认",
+      "description": "转播随后切到克里斯蒂近景，比分最终更新至独行侠43、火箭44。"
+    }
+  ],
+  "freezeFrames": [
+    {
+      "sourceTimeSeconds": 8.0,
+      "label": "右侧重新组织",
+      "sourceFrame": "product/build/formal/source-frames/08.0s.jpg",
+      "markers": [
+        {
+          "label": "克里斯蒂 00",
+          "bodyCenter": [
+            1590,
+            780
+          ],
+          "footPoint": null,
+          "reason": "脚部被原比分牌遮挡，不虚构足点"
+        },
+        {
+          "label": "持球防守人 10",
+          "bodyCenter": [
+            1460,
+            738
+          ],
+          "footPoint": [
+            1408,
+            876
+          ]
+        },
+        {
+          "label": "鲍威尔 7",
+          "bodyCenter": [
+            1152,
+            648
+          ],
+          "footPoint": [
+            1127,
+            784
+          ]
+        }
+      ],
+      "caption": "二次进攻，球回到右侧。"
+    },
+    {
+      "sourceTimeSeconds": 13.5,
+      "label": "后撤步三分",
+      "sourceFrame": "product/build/formal/source-frames/13.5s.jpg",
+      "markers": [
+        {
+          "label": "克里斯蒂 00",
+          "bodyCenter": [
+            615,
+            734
+          ],
+          "footPoint": [
+            631,
+            914
+          ],
+          "airborne": true
+        },
+        {
+          "label": "正面举手防守人",
+          "bodyCenter": [
+            703,
+            737
+          ],
+          "footPoint": [
+            726,
+            904
+          ]
+        },
+        {
+          "label": "侧方扑防人 10",
+          "bodyCenter": [
+            810,
+            812
+          ],
+          "footPoint": [
+            868,
+            967
+          ]
+        }
+      ],
+      "ballCenter": [
+        694,
+        417
+      ],
+      "rimCenter": [
+        1249,
+        287
+      ],
+      "caption": "后撤步三分，仍有防守举手。"
+    }
+  ],
+  "shotMoment": {
+    "releaseTimeSecondsApprox": 13.5,
+    "basketTimeSecondsApprox": 15.0,
+    "exactAutomaticDetection": false,
+    "officialClock": "PT04M58.00S",
+    "observedReleaseGameClock": "4:59",
+    "observedReleaseShotClock": "1.8"
+  },
+  "recommendedMetric": {
+    "name": "预期投篮命中率",
+    "shortName": "xFG",
+    "rawValue": 0.3,
+    "displayValue": "30.0%",
+    "gameId": "0022500356",
+    "eventId": 273,
+    "source": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500356&playerId=1631108",
+    "referenceScope": "single shot opportunity; not player make guarantee, not win probability",
+    "animationNote": "如用0→30%计数，只有最终30.0%为官方记录，动画中间值仅转场"
+  },
+  "boundaries": [
+    "原片包含两次出手：首次两分未中event270/xFG17.7%，最后三分命中event273/xFG30.0%，不得混淆。",
+    "未播放罚球，成片比分收束只能用43–44，不能提前加入随后44–44。",
+    "本文不作犯规判定；官方后续罚球/犯规记录不自动转成画面裁判结论。",
+    "广播时钟与官方事件时钟有偏差，源时间是编辑锚点。",
+    "定格/慢放/箭头是解说图形；球员位置不能包装成逐帧官方追踪。"
+  ],
+  "sourceFrames": [
+    {
+      "sourceTimeSeconds": 0.0,
+      "path": "product/build/formal/source-frames/00.0s.jpg",
+      "sha256": "db8ce4f9fdff634f3e280c2ebaddb3de0a5c97ea3c4cd22918d28b0c2e3aa2bf"
+    },
+    {
+      "sourceTimeSeconds": 2.0,
+      "path": "product/build/formal/source-frames/02.0s.jpg",
+      "sha256": "9e0a970c0da439d4e9887a771fd88e7657f6871b95e60438bd308291229e1d44"
+    },
+    {
+      "sourceTimeSeconds": 4.0,
+      "path": "product/build/formal/source-frames/04.0s.jpg",
+      "sha256": "29fa17dfc55f20c3fe93f845bdbc86a5853d47133d1263425f827ccde84c7d9b"
+    },
+    {
+      "sourceTimeSeconds": 6.0,
+      "path": "product/build/formal/source-frames/06.0s.jpg",
+      "sha256": "7e402d5ad298adff6daa9b30a856f145e85dfc47c621b145d77aee82de8232b4"
+    },
+    {
+      "sourceTimeSeconds": 8.0,
+      "path": "product/build/formal/source-frames/08.0s.jpg",
+      "sha256": "49968bee3a34c4baf842b5b13be3401aa840d580f57189de835513fcf379abee"
+    },
+    {
+      "sourceTimeSeconds": 10.0,
+      "path": "product/build/formal/source-frames/10.0s.jpg",
+      "sha256": "dead12a59a897fdbc874375c0ecac79ae7fbbf095744aa3427104738bd8e9868"
+    },
+    {
+      "sourceTimeSeconds": 11.0,
+      "path": "product/build/formal/source-frames/11.0s.jpg",
+      "sha256": "797665eb63617fabc1f47af6979687b2f5a902b0aded79b81cdb8b4edcd14ef2"
+    },
+    {
+      "sourceTimeSeconds": 12.0,
+      "path": "product/build/formal/source-frames/12.0s.jpg",
+      "sha256": "986368bb5f27b110fdb4873730e055847cb9d30bbdbd89203607619e37194aa2"
+    },
+    {
+      "sourceTimeSeconds": 12.5,
+      "path": "product/build/formal/source-frames/12.5s.jpg",
+      "sha256": "6111fd629ac95380138c06088b880f742044effa8c43209870c829c99f702c28"
+    },
+    {
+      "sourceTimeSeconds": 13.0,
+      "path": "product/build/formal/source-frames/13.0s.jpg",
+      "sha256": "38535090c77777c51e2900ad582d62828d43bc6e802ef2374da640fe8abfc2d5"
+    },
+    {
+      "sourceTimeSeconds": 13.5,
+      "path": "product/build/formal/source-frames/13.5s.jpg",
+      "sha256": "4cfd1751d33dd00352a5613a03d3f153307cdd057a3a111808e60a439acf75c2"
+    },
+    {
+      "sourceTimeSeconds": 14.0,
+      "path": "product/build/formal/source-frames/14.0s.jpg",
+      "sha256": "4fd621b7fd0333c293fecf3d075826b37dee7075c9e6b58c1f2cd925b333c7c9"
+    },
+    {
+      "sourceTimeSeconds": 14.5,
+      "path": "product/build/formal/source-frames/14.5s.jpg",
+      "sha256": "283f69652b94eaa529b83c7b106eb5fa6dba22c58f37e346d1698e9be49c04d9"
+    },
+    {
+      "sourceTimeSeconds": 15.0,
+      "path": "product/build/formal/source-frames/15.0s.jpg",
+      "sha256": "35d40d276d25a1367d3adb0c611f2af8d1585f5f0658062df22e20b7696bd091"
+    },
+    {
+      "sourceTimeSeconds": 16.0,
+      "path": "product/build/formal/source-frames/16.0s.jpg",
+      "sha256": "c5afe150d4a0749c00bc8f0ceb8cbc2f7cb96ce8cab333f421b9b01e345eefc2"
+    },
+    {
+      "sourceTimeSeconds": 18.0,
+      "path": "product/build/formal/source-frames/18.0s.jpg",
+      "sha256": "ea093c8aad7c36d385aaf67501dbbd7366818cc2d5ea2881fbbad707fb56a9ff"
+    },
+    {
+      "sourceTimeSeconds": 20.0,
+      "path": "product/build/formal/source-frames/20.0s.jpg",
+      "sha256": "d7106021ef033ef38038573f2e3028978061c934cb16141a8345bc204de08ebe"
+    },
+    {
+      "sourceTimeSeconds": 23.0,
+      "path": "product/build/formal/source-frames/23.0s.jpg",
+      "sha256": "8c429314b9973fac9e5be0fac7146b4f18d4cb476a5924e6e7f89717895881c6"
+    }
+  ],
+  "provenance": {
+    "nbaPage": {
+      "url": "https://www.nba.com/game/hou-vs-dal-0022500356/play-by-play",
+      "retrievedAt": "2026-10-10T10:17:38.908479+00:00",
+      "htmlSha256": "ea5917e988f0d2786d5d7dfe49344ff93c0cb2dbec398df76746a3fceed25a0f",
+      "jsonPath": "__NEXT_DATA__.props.pageProps"
+    },
+    "gpShot": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500356&playerId=1631108",
+      "savedPath": "product/broadcast-fx/data/formal-gpshot-christie.json",
+      "sha256": "09119ce4c5448ef7a7d74d2cb8a8beb376be57657f3ae464e4b4a2e51435788d"
+    }
+  }
+}

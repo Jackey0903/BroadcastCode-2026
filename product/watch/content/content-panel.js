@@ -149,7 +149,7 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
     rlData(story);
     playerData(story);
     const court = section('战术板的数据');
-    court.append(paragraph(story.sample === 'flagg' ? '弗拉格样片使用编辑站位与球权示意。D / W 是匿名编号；空心点是过去的最近位置。' : '这段阿门样片没有配套的逐帧战术示意，战术板保持空白。'));
+    court.append(paragraph(story.sample === 'flagg' ? '弗拉格样片使用编辑站位与球权示意。D / W 是匿名编号；空心点是过去的最近位置。' : story.sample === 'formal' ? '本片战术定格与俯视图已烧录到特效版本。右侧战术板没有正式素材的连续追踪点位。' : '这段阿门样片没有配套的逐帧战术示意，战术板保持空白。'));
     court.append(paragraph('示意点、移动线路和篮球位置未经人类专家核准，不是官方追踪数据。', 'content-note'));
     body.append(court);
   }
@@ -264,7 +264,7 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
     body.append(paragraph('每条观察与数值，都保留原有来源。', 'content-lead'));
     for (const evidence of story.evidence || []) body.append(evidenceCard(evidence, story));
     const original = section('素材来源');
-    appendLink(original, '主办方公开训练视频包 ↗', story.originalSourceUrl);
+    appendLink(original, story.sample === 'formal' ? '主办方正式比赛素材 ↗' : '主办方公开训练视频包 ↗', story.originalSourceUrl);
     original.append(paragraph('原转播比分牌保留在画面内。', 'content-note'));
     original.append(node('code', 'content-source-path', `SHA-256 ${story.sourceVideoSha256 || '未记录'}`));
     body.append(original);
@@ -291,7 +291,7 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
     body.append(block);
   }
   function library(story, catalog) {
-    body.append(paragraph('公开训练样片', 'content-lead'));
+    body.append(paragraph(story.sample === 'formal' ? '正式比赛素材' : '公开训练样片', 'content-lead'));
     for (const item of catalog) {
       const card = section();
       card.classList.add('content-library-card');
@@ -307,11 +307,19 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
       if (item.history || item.enhancedAvailable) card.append(button('查看成片验收记录', 'content-text-button', () => open('history', item, catalog)));
       body.append(card);
     }
-    body.append(paragraph('原片与增强成片均使用已登记的同源媒体。增强成片保留原视频时间轴；编辑战术板不是官方逐帧追踪。', 'content-note'));
+    body.append(paragraph(story.sample === 'formal' ? '正式原片与特效成片分开播放；特效版包含定格与回放，回看节点按编辑时间线定位。' : '原片与增强成片均使用已登记的同源媒体。增强成片保留原视频时间轴；编辑战术板不是官方逐帧追踪。', 'content-note'));
   }
   function renderHistory(story, record) {
     body.replaceChildren();
     if (!record) { body.append(paragraph('当前素材没有已保存的成片记录。')); return; }
+    if (record.mode === 'editorial') {
+      body.append(node('span', 'content-badge', '正式素材 · 本地特效成片'));
+      body.append(paragraph('复用 GameBuddy 视觉资产：球员高亮、战术定格、俯视示意、慢放与官方数据揭示。', 'content-lead'));
+      const facts = node('dl', 'content-details');
+      facts.append(detail('时长', `${record.durationSeconds.toFixed(3)} 秒`), detail('画面', `${record.width} × ${record.height}`), detail('完整解码', record.fullVideoAudioDecode ? '通过' : '待完成'), detail('声音', record.aiNarrationUsed ? 'AI 配音' : '正式原片广播与提示音'));
+      body.append(facts, node('code', 'content-source-path', `源片 SHA-256 ${record.sourceSha256}`), node('code', 'content-source-path', `成片 SHA-256 ${record.outputSha256}`), paragraph('本轮为视觉联调版本。正式素材的 Agent 与豆包解说接入分别记录进度。', 'content-note'));
+      return;
+    }
     const historical = record.historical === true || !story.enhancedAvailable;
     body.append(node('span', 'content-badge', historical ? '历史运行 · 原始验收' : '正式账号运行 · 原始验收'), paragraph(record.analysis?.summary || '', 'content-lead'));
     const status = section('验收状态');

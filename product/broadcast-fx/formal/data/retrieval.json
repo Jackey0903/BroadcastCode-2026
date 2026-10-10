@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://www.nba.com/game/hou-vs-dal-0022500356/play-by-play",
+    "httpStatus": 200,
+    "retrievedAt": "2026-10-10T10:15:45.970829+00:00",
+    "receivedSha256": "ea5917e988f0d2786d5d7dfe49344ff93c0cb2dbec398df76746a3fceed25a0f",
+    "receivedBytes": 495976,
+    "savedSha256": "0864ff18e0a4fe4e9bdab8eebcacce9aeb63d73e6bc292d13042b86fe3f13c85",
+    "savedBytes": 323876,
+    "earlierFetch": {
+      "retrievedAt": "2026-10-10T10:15:21.247567+00:00",
+      "savedSha256": "220b589973bda6761f301a4ca14eca892f9411540e444bd8ecbe18b0b0fa9ebc",
+      "savedBytes": 323735
+    },
+    "note": "Second successful read returned the same HTML hash; retained snapshot includes extraction timestamp and original HTML hash. Earlier factual snapshot metadata preserved separately."
+  },
+  {
+    "url": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500356&playerId=1631108",
+    "httpStatus": 200,
+    "retrievedAt": "2026-10-10T10:14:49.993722+00:00",
+    "receivedSha256": "09119ce4c5448ef7a7d74d2cb8a8beb376be57657f3ae464e4b4a2e51435788d",
+    "receivedBytes": 1016,
+    "savedSha256": "09119ce4c5448ef7a7d74d2cb8a8beb376be57657f3ae464e4b4a2e51435788d",
+    "savedBytes": 1016
+  }
+]

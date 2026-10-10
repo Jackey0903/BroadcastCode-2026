@@ -1,0 +1,109 @@
+{
+  "schema": "gamebuddy-formal-visual-library-v1",
+  "name": "GameBuddy · Christie second chance",
+  "source": {
+    "path": "../../../data/正式视频.mp4",
+    "sha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+    "canvas": [
+      1920,
+      1080
+    ],
+    "frameRate": "60000/1001",
+    "frameCount": 1424
+  },
+  "output": {
+    "path": "../../build/formal-video/GameBuddy-克里斯蒂二次进攻-正式版.mp4",
+    "expectedFrameCount": 2710,
+    "expectedDurationSeconds": 45.21183333333333,
+    "actualValidation": "../../build/formal-video/render-evidence.json"
+  },
+  "entrypoints": {
+    "render": "render.py",
+    "timeline": "timeline.py",
+    "audio": "audio.py",
+    "instructions": "README.md",
+    "tests": [
+      "test_data.py",
+      "test_timeline.py"
+    ]
+  },
+  "data": {
+    "official": "data/official.json",
+    "freezeAnnotations": "data/annotations.json",
+    "replayAnchors": "data/replay_anchors.json",
+    "sourceEvidence": [
+      "data/nba-page-christie.json",
+      "data/gpshot-christie.json",
+      "data/官方事件核验.md"
+    ]
+  },
+  "reusableComponents": [
+    {
+      "name": "generic-compositing-type-glow",
+      "module": "../broadcast_fx/legacy.py",
+      "symbols": [
+        "Layers",
+        "text_rgba",
+        "grade",
+        "rect",
+        "line",
+        "ellipse",
+        "draw_burst"
+      ],
+      "restriction": "Use generic primitives only; do not call old-source configure, trackers or scene renderers."
+    },
+    {
+      "name": "short-player-markers-and-editorial-arrows",
+      "module": "../broadcast_fx/tactics.py",
+      "symbols": [
+        "draw_marker",
+        "draw_path"
+      ],
+      "restriction": "Use this source annotations; body-only markers when feet are hidden. No extrapolation or invented identities."
+    },
+    {
+      "name": "frame-exact-cut",
+      "module": "timeline.py",
+      "symbols": [
+        "SEGMENTS",
+        "locate_frame",
+        "source_frame_at",
+        "frame_sample"
+      ],
+      "restriction": "Formal source binding and complete 0..1423 live coverage; replay is an additional excerpt."
+    },
+    {
+      "name": "same-source-broadcast-and-procedural-sfx",
+      "module": "audio.py",
+      "symbols": [
+        "build_audio"
+      ],
+      "restriction": "48 kHz stereo, original source broadcast and half-speed replay only; no new voiceover."
+    },
+    {
+      "name": "official-count-up-card",
+      "module": "render.py",
+      "symbols": [
+        "metric"
+      ],
+      "restriction": "Animation 0→30%; final 30% is NBA event 273 xFG. Intermediate values are an entrance animation."
+    }
+  ],
+  "boundaries": {
+    "editorial": true,
+    "humanExpertReviewed": false,
+    "automatedTracking": false,
+    "officialTracking": false,
+    "agentCoreInvoked": false,
+    "rlInvoked": false,
+    "cloudPipelineIntegrated": false,
+    "newAiVoiceover": false,
+    "notes": [
+      "Visual coordinates and tactical arrows are assistant-reviewed short editorial annotations in source pixels.",
+      "Official data provides the shot fact, not a frame-by-frame player path.",
+      "This library enables reuse but does not certify an Agent, RL model, web interface or cloud deployment executed it.",
+      "Existing frame caches require source binding checks before reuse; do not use old Flagg/Amen cached frames.",
+      "Full encoded playback and media validation are separate from offline tests."
+    ]
+  }
+}

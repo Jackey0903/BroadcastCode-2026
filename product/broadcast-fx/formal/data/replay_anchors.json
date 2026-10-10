@@ -1,0 +1,264 @@
+{
+  "schema": "gamebuddy-short-editorial-replay-anchors-v1",
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "sourceVideo": "data/正式视频.mp4",
+  "sourceFps": "60000/1001",
+  "canvas": [
+    1920,
+    1080
+  ],
+  "coordinateSpace": "original source image pixels",
+  "player": "DAL 00",
+  "provenance": "Assistant visual review of individual source frames; manual short-window editorial anchors, not automated tracking",
+  "maxInterpolationGapSeconds": 0.31,
+  "extrapolate": false,
+  "anchors": [
+    {
+      "sourceSeconds": 12,
+      "frame": 719,
+      "body": [
+        1185,
+        800
+      ],
+      "foot": null,
+      "anchorKind": "body-only"
+    },
+    {
+      "sourceSeconds": 12.25,
+      "frame": 734,
+      "body": [
+        1005,
+        800
+      ],
+      "foot": null,
+      "anchorKind": "body-only"
+    },
+    {
+      "sourceSeconds": 12.5,
+      "frame": 749,
+      "body": [
+        883,
+        780
+      ],
+      "foot": null,
+      "anchorKind": "body-only"
+    },
+    {
+      "sourceSeconds": 12.75,
+      "frame": 764,
+      "body": [
+        786,
+        788
+      ],
+      "foot": null,
+      "anchorKind": "body-only"
+    },
+    {
+      "sourceSeconds": 13,
+      "frame": 779,
+      "body": [
+        693,
+        780
+      ],
+      "foot": null,
+      "anchorKind": "body-only"
+    },
+    {
+      "sourceSeconds": 13.25,
+      "frame": 794,
+      "body": [
+        639,
+        788
+      ],
+      "foot": null,
+      "anchorKind": "body-only"
+    },
+    {
+      "sourceSeconds": 13.5,
+      "frame": 809,
+      "body": [
+        620,
+        711
+      ],
+      "foot": null,
+      "anchorKind": "body-only"
+    },
+    {
+      "sourceSeconds": 13.75,
+      "frame": 824,
+      "body": [
+        590,
+        713
+      ],
+      "foot": null,
+      "anchorKind": "body-only"
+    }
+  ],
+  "ballAnchors": [
+    {
+      "sourceSeconds": 13.5,
+      "frame": 809,
+      "position": [
+        678,
+        445
+      ],
+      "provenance": "Manual source-frame visual anchor; uncertain or off-frame centers omitted"
+    },
+    {
+      "sourceSeconds": 13.75,
+      "frame": 824,
+      "position": [
+        805,
+        183
+      ],
+      "provenance": "Manual source-frame visual anchor; uncertain or off-frame centers omitted"
+    },
+    {
+      "sourceSeconds": 14,
+      "frame": 839,
+      "position": [
+        928,
+        40
+      ],
+      "provenance": "Manual source-frame visual anchor; uncertain or off-frame centers omitted"
+    },
+    {
+      "sourceSeconds": 14.25,
+      "frame": 854,
+      "position": null,
+      "provenance": "Manual source-frame visual anchor; uncertain or off-frame centers omitted"
+    },
+    {
+      "sourceSeconds": 14.5,
+      "frame": 869,
+      "position": [
+        1150,
+        45
+      ],
+      "provenance": "Manual source-frame visual anchor; uncertain or off-frame centers omitted"
+    },
+    {
+      "sourceSeconds": 14.75,
+      "frame": 884,
+      "position": [
+        1255,
+        170
+      ],
+      "provenance": "Manual source-frame visual anchor; uncertain or off-frame centers omitted"
+    },
+    {
+      "sourceSeconds": 14.85,
+      "frame": 890,
+      "position": [
+        1295,
+        240
+      ],
+      "provenance": "Manual source-frame visual anchor; uncertain or off-frame centers omitted"
+    },
+    {
+      "sourceSeconds": 14.915,
+      "frame": 894,
+      "position": [
+        1283,
+        283
+      ],
+      "provenance": "Manual source-frame visual anchor; uncertain or off-frame centers omitted"
+    },
+    {
+      "sourceSeconds": 15,
+      "frame": 899,
+      "position": null,
+      "provenance": "Manual source-frame visual anchor; uncertain or off-frame centers omitted"
+    },
+    {
+      "sourceSeconds": 15.1,
+      "frame": 905,
+      "position": null,
+      "provenance": "Manual source-frame visual anchor; uncertain or off-frame centers omitted"
+    }
+  ],
+  "rimAnchors": [
+    {
+      "sourceSeconds": 13.5,
+      "position": [
+        1258,
+        279
+      ]
+    },
+    {
+      "sourceSeconds": 13.75,
+      "position": [
+        1258,
+        292
+      ]
+    },
+    {
+      "sourceSeconds": 14,
+      "position": [
+        1255,
+        310
+      ]
+    },
+    {
+      "sourceSeconds": 14.25,
+      "position": [
+        1257,
+        324
+      ]
+    },
+    {
+      "sourceSeconds": 14.5,
+      "position": [
+        1256,
+        329
+      ]
+    },
+    {
+      "sourceSeconds": 14.75,
+      "position": [
+        1257,
+        329
+      ]
+    },
+    {
+      "sourceSeconds": 15.1,
+      "position": [
+        1257,
+        327
+      ]
+    }
+  ],
+  "events": {
+    "release": {
+      "sourceSeconds": 13.5,
+      "frame": 809,
+      "observedIntervalSeconds": [
+        13.463,
+        13.497
+      ],
+      "note": "f807 ball near fingertips; f809 clearly separate. Use 13.50 as safe freeze."
+    },
+    "bank": {
+      "sourceSeconds": 14.88,
+      "observedIntervalSeconds": [
+        14.848,
+        14.915
+      ],
+      "note": "Approximate contact interval inferred from visible ball changing horizontal direction adjacent to backboard; no invented contact point."
+    },
+    "net": {
+      "sourceSeconds": 15.1,
+      "observedIntervalSeconds": [
+        14.982,
+        15.1
+      ],
+      "note": "At 14.982 ball at rim; by 15.048 net clearly deforms downward. Safe burst at 15.10; made caption at 15.15 or later."
+    }
+  },
+  "usageNotes": [
+    "Do not interpolate ball through a null anchor or bridge the off-screen arc at 14.25 seconds.",
+    "Body anchors locate a short editorial highlight only; no full-court or automated tracking claim.",
+    "Rim anchors are approximate image positions in a moving camera shot, not court/world coordinates.",
+    "Initial blocked-attempt action begins about 4.7 seconds; 5.65..7.8 mainly covers loose ball/rebound/recycling. Official PBP event clock is not an exact visible-frame clock mapping."
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "schema": "gamebuddy-formal-source-binding-v1",
+  "anchor": {
+    "gameId": "0022500356",
+    "playerId": "1631108",
+    "teamId": 1610612742,
+    "period": 2,
+    "jerseyNumber": "00",
+    "clipClockStartSeconds": 313,
+    "clipClockEndSeconds": 298,
+    "scoreBefore": {
+      "home": 40,
+      "away": 44
+    },
+    "scoreAfter": {
+      "home": 43,
+      "away": 44
+    },
+    "made": true,
+    "shotValue": 3,
+    "annotationMethod": "AI assistant visual review of extracted source frames; official NBA.com PBP + NBA China gpShot event join; no OCR or automatic tracking; human expert not reviewed"
+  },
+  "binding": {
+    "verified": true,
+    "status": "verified",
+    "candidates": [
+      {
+        "actionNumber": 270,
+        "actionId": 189,
+        "clock": "PT05M06.00S",
+        "checks": {
+          "uniquePbpEvent": true,
+          "team": true,
+          "made": false,
+          "shotValue": false
+        },
+        "errors": [
+          "PBP score.home: missing or invalid integer"
+        ],
+        "passed": false
+      },
+      {
+        "actionNumber": 273,
+        "actionId": 192,
+        "clock": "PT04M58.00S",
+        "checks": {
+          "uniquePbpEvent": true,
+          "team": true,
+          "made": true,
+          "shotValue": true,
+          "scoreAfter": true,
+          "scoreBefore": true,
+          "uniqueEventIdJoin": true,
+          "shotGame": true,
+          "shotPlayer": true,
+          "shotPeriod": true,
+          "shotMade": true,
+          "shotType": true,
+          "metricRange": true
+        },
+        "errors": [],
+        "passed": true,
+        "matched": {
+          "eventId": 273,
+          "actionId": 192,
+          "gameId": "0022500356",
+          "playerId": "1631108",
+          "period": 2,
+          "clock": "PT04M58.00S",
+          "expectedFg": 0.3,
+          "made": true,
+          "shotValue": 3,
+          "description": "Christie 25' 3PT Step Back Bank Jump Shot (3 PTS)",
+          "scoreBefore": {
+            "home": 40,
+            "away": 44
+          },
+          "scoreAfter": {
+            "home": 43,
+            "away": 44
+          },
+          "officialShot": {
+            "shotDesc": "后撤步跳投打板",
+            "value": 0.3,
+            "newsId": null,
+            "gameId": "0022500356",
+            "eventId": 273,
+            "playerId": "1631108",
+            "shotType": "3分投篮",
+            "success": 1,
+            "period": 2,
+            "gameClock": "",
+            "side": "left",
+            "locX": "26",
+            "locY": "20"
+          },
+          "officialPlayByPlay": {
+            "actionNumber": 273,
+            "clock": "PT04M58.00S",
+            "period": 2,
+            "teamId": 1610612742,
+            "teamTricode": "DAL",
+            "personId": 1631108,
+            "playerName": "Christie",
+            "playerNameI": "M. Christie",
+            "xLegacy": 147,
+            "yLegacy": 200,
+            "shotDistance": 25,
+            "shotResult": "Made",
+            "isFieldGoal": 1,
+            "scoreHome": "43",
+            "scoreAway": "44",
+            "pointsTotal": 87,
+            "location": "h",
+            "description": "Christie 25' 3PT Step Back Bank Jump Shot (3 PTS)",
+            "actionType": "Made Shot",
+            "subType": "Step Back Bank Jump Shot",
+            "videoAvailable": 1,
+            "shotValue": 3,
+            "actionId": 192
+          }
+        }
+      }
+    ],
+    "errors": [],
+    "matched": {
+      "eventId": 273,
+      "actionId": 192,
+      "gameId": "0022500356",
+      "playerId": "1631108",
+      "period": 2,
+      "clock": "PT04M58.00S",
+      "expectedFg": 0.3,
+      "made": true,
+      "shotValue": 3,
+      "description": "Christie 25' 3PT Step Back Bank Jump Shot (3 PTS)",
+      "scoreBefore": {
+        "home": 40,
+        "away": 44
+      },
+      "scoreAfter": {
+        "home": 43,
+        "away": 44
+      },
+      "officialShot": {
+        "shotDesc": "后撤步跳投打板",
+        "value": 0.3,
+        "newsId": null,
+        "gameId": "0022500356",
+        "eventId": 273,
+        "playerId": "1631108",
+        "shotType": "3分投篮",
+        "success": 1,
+        "period": 2,
+        "gameClock": "",
+        "side": "left",
+        "locX": "26",
+        "locY": "20"
+      },
+      "officialPlayByPlay": {
+        "actionNumber": 273,
+        "clock": "PT04M58.00S",
+        "period": 2,
+        "teamId": 1610612742,
+        "teamTricode": "DAL",
+        "personId": 1631108,
+        "playerName": "Christie",
+        "playerNameI": "M. Christie",
+        "xLegacy": 147,
+        "yLegacy": 200,
+        "shotDistance": 25,
+        "shotResult": "Made",
+        "isFieldGoal": 1,
+        "scoreHome": "43",
+        "scoreAway": "44",
+        "pointsTotal": 87,
+        "location": "h",
+        "description": "Christie 25' 3PT Step Back Bank Jump Shot (3 PTS)",
+        "actionType": "Made Shot",
+        "subType": "Step Back Bank Jump Shot",
+        "videoAvailable": 1,
+        "shotValue": 3,
+        "actionId": 192
+      }
+    }
+  }
+}

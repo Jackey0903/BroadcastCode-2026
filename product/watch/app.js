@@ -4,7 +4,7 @@ import {GlassManager} from './glass/glass-manager.js';
 import {paintAmbienceSource,stopAmbienceSource,ambienceSourceStatus} from './glass/ambience-source.js';
 import {createPlayerControls} from './media/player-controls.js';
 import {createDrawer} from './navigation/drawer.js';
-import {loadCatalog} from './adapters/catalog.js';
+import {loadCatalog,sourceToOutputTime,outputToSourceTime} from './adapters/catalog.js';
 import {createContentPanel} from './content/content-panel.js';
 import {createCourtPanel} from './court/court-panel.js';
 import {getCourtTheme} from './court/themes.js';
@@ -49,7 +49,7 @@ function displayedCourtTime(){
  const t=video.currentTime;
  return video.ended&&Number.isFinite(lastFrame)&&lastFrame<=t&&t-lastFrame<=.1?lastFrame:t;
 }
-function syncContent(){if(!story)return;court.update(story.sample==='flagg'?courtData:null,displayedCourtTime(),focusId);syncAnnotations();const chapters=story.chapters||[];const current=[...chapters].reverse().find(c=>video.currentTime>=(c.start??c.time??0))||chapters[0];const key=current?JSON.stringify(current):story.id;if(key!==lastChapter){lastChapter=key;$('#moment-kicker').textContent=current?.title||'GameBuddy · 原片';$('#moment-title').textContent=current?.headline||current?.title||story.title||'看懂这一拍';$('#moment-subtitle').textContent=current?.caption||current?.description||current?.text||story.subtitle||'';}$('#moment-heading').hidden=mediaVariant==='enhanced'||!getConfig().annotations.enabled;}
+function syncContent(){if(!story)return;court.update(story.sample==='flagg'?courtData:null,displayedCourtTime(),focusId);syncAnnotations();const chapters=story.chapters||[],sourceTime=mediaVariant==='enhanced'?outputToSourceTime(story,video.currentTime):video.currentTime;const current=[...chapters].reverse().find(c=>sourceTime>=(c.start??c.time??0))||chapters[0];const key=current?JSON.stringify(current):story.id;if(key!==lastChapter){lastChapter=key;$('#moment-kicker').textContent=current?.title||'GameBuddy · 原片';$('#moment-title').textContent=current?.headline||current?.title||story.title||'看懂这一拍';$('#moment-subtitle').textContent=current?.caption||current?.description||current?.text||story.subtitle||'';}$('#moment-heading').hidden=mediaVariant==='enhanced'||!getConfig().annotations.enabled;}
 function paintAmbience(){if(!glass?.enabled)return;paintAmbienceSource($('#ambience'),video,stage);}
 function frame(now,meta){if(destroyed)return;if(Number.isFinite(meta?.mediaTime))lastFrame=meta.mediaTime;checkClipEnd(video.currentTime);paintAmbience();syncContent();mediaCallback=video.requestVideoFrameCallback?.(frame)||0;}
 function cancelClipPlayback(){const clip=clipPlayback;clipPlayback=null;if(clip&&Number.isFinite(clip.restoreRate))video.playbackRate=clip.restoreRate;}
@@ -79,9 +79,12 @@ async function seekContent(time,meta={}){
  content.close();showControls();
  try{
   await waitForMetadata(load);if(request!==seekRequest||destroyed)return;
-  const start=Math.max(0,Math.min(video.duration,Number(time)||0));
+  const mapped=mediaVariant==='enhanced'?sourceToOutputTime(story,time):time;
+  if(mapped===null)throw new Error('此节点未出现在当前剪辑中，请切换原片回看。');
+  const start=Math.max(0,Math.min(video.duration,Number(mapped)||0));
   const requestedEnd=Number.isFinite(meta.end)?meta.end:typeof meta.chapter==='object'?meta.chapter?.end:NaN;
-  const end=Number.isFinite(requestedEnd)?Math.min(video.duration,requestedEnd):NaN;
+  const mappedEnd=Number.isFinite(requestedEnd)&&mediaVariant==='enhanced'?sourceToOutputTime(story,requestedEnd):requestedEnd;
+  const end=Number.isFinite(mappedEnd)?Math.min(video.duration,mappedEnd):NaN;
   const restoreRate=video.playbackRate;video.pause();video.currentTime=start;
   if(Number.isFinite(end)&&end>start){
    const playbackRate=Number.isFinite(meta.playbackRate)&&meta.playbackRate>0?meta.playbackRate:restoreRate;
@@ -150,9 +153,9 @@ $('#load-error h2').textContent='视频暂时无法播放';$('#load-error p').te
 const initialMode=new URLSearchParams(location.search).get('mode');if(['fullCourt','halfCourt'].includes(initialMode))setMode(initialMode,true);showControls();
 try{
  catalog=await loadCatalog();
- try{const response=await fetch('./data/flagg.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();courtData=globalThis.CourtLab.validateDataset(data);}
+ if(catalog.some(s=>s.sample==='flagg'))try{const response=await fetch('./data/flagg.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();courtData=globalThis.CourtLab.validateDataset(data);}
  catch(error){courtData=null;showNotice('战术示意暂不可用：'+error.message);}
  const params=new URLSearchParams(location.search),selected=catalog.find(s=>s.sample===params.get('story'))||catalog[0];
- selectStory(selected,params.get('version')==='enhanced'&&selected?.enhancedAvailable?'enhanced':'source');
+ selectStory(selected,(params.get('version')==='enhanced'||(!params.has('version')&&selected?.sample==='formal'))&&selected?.enhancedAvailable?'enhanced':'source');
 }catch(error){showNotice('载入失败：'+error.message);$('#load-error').hidden=false;console.error(error);}
 window.addEventListener('pagehide',event=>{if(event.persisted)return;destroyed=true;seekRequest++;cancelClipPlayback();clearTimeout(rightTimer);clearTimeout(leftTimer);clearTimeout(idleTimer);clearTimeout(noticeTimer);unsubscribeConfig();inspector?.destroy();glass?.destroy();stopAmbienceSource($('#ambience'));layout.destroy();controls.destroy();court.destroy();annotations.destroy();video.cancelVideoFrameCallback?.(mediaCallback);video.removeEventListener('timeupdate',frame);});
