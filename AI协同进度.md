@@ -46,6 +46,8 @@
 
 - **16:10攻防档案与计算已交付。** 新增player_comparison.py与两样例，主例各38项事实/7项公式，双人18项同口径比较；按#10接入。冻结store/模型不变，确定性数据保持trainedModelUsed:false，官方未给主防人身份。新增6项、最终RL66项通过；一次full被并行修改的test_publication.py三处save_json缺失阻断，已交链路负责人，不重复全测、不改其代码。
 
+- **17:00本轮联调适配完成。** [唯一联调入口](docs/RL前后端联调入口-20261010.md)、[模块/数据清单](product/rl/results/product-integration/handoff.json)；新ProductBridge实时Flagg调用12.847秒/2次生成/无纠错通过，另有Amen明确标记的真实回放。6项适配检查及一次full456项通过，16:10并行发布测试错误本轮不再复现。展示JSON紧凑约46KB，独立scout/对比/来源/时期引用表，原模型/store不变；#11请本轮直接接入，当前页面和成片仍未由RL会话改动。
+
 ## 4. 相互请求
 
 |#|提出|请求|接收|状态|
@@ -60,6 +62,7 @@
 |8|Codex RL|14:30用户要求两小时内接入使用。请准备打包evidence_client.py/evidence_env.py/evidence_store.py/depth_tasks.py及data/evidence/store.json；按[新策略后端交接](docs/RL模型限时交付-20261010.md)接三层证据选取，沿用同rl-scout端点但与旧xFG协议不同。可并行接线，等请求#6提供真实expectedLineage后再启用。失败照常出片且不标trainedModelUsed；最多一次纠错/90秒，建议与视觉步骤并行，不叠加到已用满的120秒预算。|链路Codex|待处理|
 |9|Codex RL|15:58用户明确要求视频突出RL创新，覆盖旧#4未决定的xFG估计HUD。请优先完成#7/#8，再按[展示规格](docs/RL展示说明-20261010.md)烧录“RL 数据球探 / AWS SageMaker · 3B”短标及三层卡片，深度赛场为重点；将真实采用的证据ID与模型来源写入产物，再由前端显示已生成结果。静态兜底不标本片由RL选证；只补一条真实完整样片，不扩训练。请回填实际job/成片证据。|链路Codex（接口/烧录）与前端队友（视觉）|待处理|
 |10|Codex RL|用户要求更丰富攻防球员数据与对比，已交[画像/计算接口与两样例](docs/RL攻防球员画像与对比-20261010.md)。请打包player_comparison.py，复用原store，给球员详情增加进攻/防守/对比入口与同场对手选择；视频只选一至两项相关指标。建议独立analysis.playerComparison，确定性计算不冒充RL输出，未核实主防人不得标直接对位。新增6项及RL66项通过；本轮一次full遇并行test_publication.py的save_json缺失，请发布负责人修复后统一验收。|链路Codex（接口/成片）与前端队友（展示）|待处理|
+|11|Codex RL|用户要求把RL加入当前前后端联调，17:00适配已齐：[唯一接线入口](docs/RL前后端联调入口-20261010.md)、product/rl/product_bridge.py、product-integration/handoff.json及两份约46KB展示JSON。新Flagg真实调用12.847秒/2次生成/无纠错，456项full通过。请并行Worker调用，接analysis.scout/playerComparison/rlEvidenceSources/rlEvidencePeriods/rlVideoUse，三层证据传叙事/烧录，watch数据抽屉新增独立分区；不要把eFG放进原xFG自动识别数组，不把历史成片补标新RL。完成后回填真实job/成片记录。|链路Codex|待接入（RL侧实时适配与交付完成）|
 
 ## 5. 日志（只追加）
 
@@ -136,3 +139,7 @@
 - 15:58 Codex RL：用户要求突出RL创新并询问接入状态。只读核对当前Worker/Agent及共享看板，尚无新EvidenceClient/三层RL成片集成证据；真实3B服务六例已通过不变。新增请求#9与[展示规格](docs/RL展示说明-20261010.md)，明确短标、三层数据卡、讲解用语、实际调用/成片标记条件；弗拉格34分/eFG54%/赛季引力6.217有真实请求来源。旧#4可选xFG HUD已由本请求覆盖；后端与队友接线，不修改其文件，不新训/云调用/重复测试。
 
 - 16:10 Codex RL：用户要求更多攻防数据和对比，已新增独立player_comparison.py、两份真实样例及[交接文档](docs/RL攻防球员画像与对比-20261010.md)。弗拉格/阿门同场eFG54%/46.67%，差7.33个百分点；零失误不输出无穷。防守有STL/BLK/DREB与赛季DEF_LVG/ON_BALL_DEF_LVG；压力属于投篮球员承受压力，主防人仍未知。数据接口保留来源、公式、粒度，冻结store和模型不变，无新训练/云操作。6项新增检查、RL66项通过；一次full因并行修改的PublicationTests.save_json缺失3错未通过，请链路Codex处理该发布测试，本会话不越界改。看板#10待接入，不称视频已使用。
+
+- 16:55 Codex RL：用户确认另一个进程正在新前端/后端联调，并要求一起接入RL。本会话新增请求#11，准备统一产品适配、轻量展示JSON与真实/回放来源标记；不碰对方在改的watch、API、Worker、发布/CDK文件，不开新训练。现有RL端点与原六例验收继续复用，当前前端仍仅展示原xFG，实际接入待联调负责人。
+
+- 17:00 Codex RL：本轮联调交付完成，入口docs/RL前后端联调入口-20261010.md与product/rl/results/product-integration/handoff.json。正式profile nba/555账号身份及端点config已核对，新桥接Flagg真实调用12.847秒、2次生成、无纠错；三层PTS34/eFG54%/赛季Gravity6.217通过，攻防比较同时输出。Amen样例是已验收真实回放，modelInvokedThisRequest:false，不伪装新推理。新增6项及一次456项full通过；精简重复来源/时期，展示紧凑JSON约46KB，完整轨迹另存。#11请联调负责人接入，原xFG检测只认首个ratio，三层卡保持独立以免混淆；旧成片不追记RL使用。本会话不改Agent/Worker/API/CDK/watch/发布文件、不重训或重部署。

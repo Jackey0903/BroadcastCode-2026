@@ -1,0 +1,178 @@
+{
+  "schema": "rl-scout-product-integration-handoff-v1",
+  "createdAt": "2026-10-10T09:01:50.392243+00:00",
+  "status": "rl_adapter_live_verified_backend_pending",
+  "instructions": "docs/RL前后端联调入口-20261010.md",
+  "sharedBoardRequest": 11,
+  "endpoint": "rl-scout",
+  "expectedLineage": {
+    "schema": "rl-scout-evidence-lineage-v1",
+    "policy": "evidence-v1",
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "baseModel": "Qwen/Qwen2.5-3B-Instruct",
+    "baseRevision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+    "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+    "selectedStage": "rl",
+    "trainingSelectedStage": "sft",
+    "actualRL": true,
+    "optimizerUpdateSteps": 7,
+    "updateGroups": 9,
+    "rlSamplingSteps": 30,
+    "storeSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+    "tasksSha256": "c0a45e7df1a2a56100de0aa7023f209b865f239d617e47fa749bcf5995647ff4",
+    "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+    "sourceArchiveSha256": "fb08ee6b1fd9fe6ddd8ca3f1222ad392a9cf00acabf1c24220e0f2fe22af2b7f",
+    "rawEvaluationReleaseGatePassed": false,
+    "semanticValidationRequired": true,
+    "packageJob": "rl-scout-pkg-evidence-rl-1010-063423",
+    "frozenStoreFileSha256": "89ddf4ad6128845690fcaebb1ba8eec481a4e29495477913e55882fd9d89cf33",
+    "frozenTasksFileSha256": "8fc7b96dd588bb093c0830af46d66b2a1109a0c7dba83dbdbc59538938842510",
+    "handlerSha256": "e455a032899a8a2d01aaa29f870472ca1570dc4379ff15f9966a57bc856d2b70",
+    "metricsSha256": "ae5b8c61b6479c3e0d3bddff3c62758207ac1ece405a30ffe238abde4af93b91",
+    "trainingReportSha256": "16e2937181d4721d7b201cf8ea89b1080bce790000def677ffb39fe09db99704",
+    "adapterConfigSha256": "faacebc9ef7e6a843d375f469b6176f94e5e6a378fdae361703a9151fdd9fc86",
+    "adapterSha256": "9ae9cf4bbba57e2367a8b58e942c7774047ec94c4eecfae9497b49eda1e4e7a6",
+    "endpoint": "rl-scout",
+    "endpointConfig": "rl-scout-config-1010-144434",
+    "sagemakerModel": "rl-scout-model-1010-144434",
+    "mergedWeightsSha256": "00be65f61faef6fc3b764923f7d8ee4bd1f92acca7d4feeebc50ac73600f5f67"
+  },
+  "modules": [
+    {
+      "path": "product/rl/product_bridge.py",
+      "sha256": "f2812b20e8514ffa0891ed1c49c6f9165dc3460b2ef18f2c44d0c8c800ed74ec",
+      "fileBytes": 13890
+    },
+    {
+      "path": "product/rl/player_comparison.py",
+      "sha256": "2d4bf9cc1c85b1266b3d262a7e16d399eee76f047b2f8773e069671e31270919",
+      "fileBytes": 11963
+    },
+    {
+      "path": "product/rl/evidence_client.py",
+      "sha256": "e62b30a84f0a6c288e2d9f540b490140ee143ce29e7f36c2f669d39fd4e41b07",
+      "fileBytes": 17789
+    },
+    {
+      "path": "product/rl/evidence_env.py",
+      "sha256": "5c2074461bf09b4566ed78fa2ad8554306fd411e109ab6e6c1404cd83b529f03",
+      "fileBytes": 21440
+    },
+    {
+      "path": "product/rl/evidence_store.py",
+      "sha256": "b4d623f9d659ca441fd7e3b18f82c19d8809d547872272fc77cd27060496aaca",
+      "fileBytes": 13791
+    },
+    {
+      "path": "product/rl/depth_tasks.py",
+      "sha256": "40baf066e3258c225a1005380bad5c42dac612be75fe3724df46d7db3020d51e",
+      "fileBytes": 18578
+    },
+    {
+      "path": "product/rl/data/evidence/store.json",
+      "sha256": "634b4210e3cbc0b50365ae2e7693bbcf495783a982cf4d14b8fa926a17033615",
+      "fileBytes": 2106909
+    },
+    {
+      "path": "product/rl/results/evidence-v1/runtime-handoff.json",
+      "sha256": "d83e8de83eb86f647c4b673ca03554a98488d489af59d6d089cb28f160f72128",
+      "fileBytes": 5428
+    }
+  ],
+  "maxCompactPresentationBytes": 48000,
+  "toolSpec": {
+    "name": "query_rl_scout",
+    "description": "For a registered video, select three-layer evidence with the trained RL data scout. Choose spacing, creation or shot_quality based on the user question; optionally select an opposing player for deterministic profile comparison. This does not identify a defender.",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "storyId",
+        "focus"
+      ],
+      "properties": {
+        "storyId": {
+          "type": "string",
+          "enum": [
+            "flagg",
+            "amen"
+          ]
+        },
+        "focus": {
+          "type": "string",
+          "enum": [
+            "spacing",
+            "creation",
+            "shot_quality"
+          ]
+        },
+        "opponentId": {
+          "type": "string",
+          "pattern": "^[0-9]+$"
+        }
+      }
+    }
+  },
+  "validation": {
+    "newAdapterChecksPassed": 6,
+    "fullGatePassed": true,
+    "fullGateTestCount": 456,
+    "fullGateSeconds": 16.98,
+    "realNewModelRequests": 1,
+    "fullGateScope": "offline checks on current shared working tree; does not certify cloud integration or video"
+  },
+  "workerIntegrated": false,
+  "webIntegrated": false,
+  "renderVerified": false,
+  "newTrainingStarted": false,
+  "endpointUpdated": false,
+  "examples": [
+    {
+      "path": "product/rl/results/product-integration/flagg-live-20261010.json",
+      "sha256": "5b3f7e6383addfcaa8f2186780256c47125421626b8598d0e466ea758a3d9524",
+      "fileBytes": 60499,
+      "sample": "flagg",
+      "mode": "live",
+      "available": true,
+      "modelInvokedThisRequest": true,
+      "modelCalls": 2,
+      "elapsedSeconds": 12.847,
+      "correctionUsed": false,
+      "compactBytes": 46082,
+      "videoUsed": false
+    },
+    {
+      "path": "product/rl/results/product-integration/amen-recorded-replay-20261010.json",
+      "sha256": "070fb13098557b3c20ea4e61fe22b90786de40a440270ba759c3d9ff4d65a76d",
+      "fileBytes": 61047,
+      "sample": "amen",
+      "mode": "recorded_live_replay",
+      "available": true,
+      "modelInvokedThisRequest": false,
+      "modelCalls": 2,
+      "elapsedSeconds": 4.954,
+      "correctionUsed": false,
+      "compactBytes": 46562,
+      "videoUsed": false
+    }
+  ],
+  "analysisFields": {
+    "scout": "presentation.scout",
+    "playerComparison": "presentation.playerComparison",
+    "rlEvidenceSources": "presentation.sources",
+    "rlEvidencePeriods": "presentation.periods",
+    "rlVideoUse": "presentation.videoUse"
+  },
+  "remaining": [
+    "Workload role InvokeEndpoint permission if absent",
+    "Parallel Worker call and source-backed narration integration",
+    "Extend metrics/evidence validation and render selected source values",
+    "Publish compact fields and display watch data/source cards",
+    "One complete real-video integration receipt"
+  ],
+  "liveAudit": {
+    "path": "product/rl/results/product-integration/flagg-live-20261010.audit.json",
+    "sha256": "7e51ee50b157595f8f521589b687f70157afda6de26062f5e8da1558c674e7df",
+    "fileBytes": 20429
+  }
+}
