@@ -69,6 +69,10 @@ def draw_annotation(draw, annotation, fonts):
     if rx > 0 and ry > 0:
         draw.ellipse((x-rx, y-ry, x+rx, y+ry),
                      fill=rgba(color, 23), outline=rgba(color, 240), width=3)
+    if annotation.get('foot'):
+        fx, fy, frx, fry = annotation['foot']
+        draw.ellipse((fx-frx, fy-fry, fx+frx, fy+fry),
+                     fill=rgba(color, 30), outline=rgba(color), width=3)
     if annotation.get('arrow'):
         arrow(draw, annotation['arrow'], rgba(color))
     if annotation.get('label'):
@@ -122,10 +126,19 @@ def draw_focus_card(image, segment, plan, fonts, source_image):
         ink = spot['color']
         draw.ellipse((x-rx, y-ry, x+rx, y+ry), fill=rgba(ink, 38), outline=rgba(ink), width=3)
         if spot.get('label'):
-            draw.text((x-rx, y+ry+5), spot['label'], font=fonts['label'], fill=rgba(ink), stroke_width=2, stroke_fill=(0, 0, 0, 230))
+            label_at = tuple(spot.get('labelAt', (x-rx, y+ry+5)))
+            draw.text(label_at, spot['label'], font=fonts['label'], fill=rgba(ink), stroke_width=2, stroke_fill=(0, 0, 0, 230))
     bx, by = focus['ball']
     draw.ellipse((bx-13, by-13, bx+13, by+13), outline=(255, 226, 96, 255), width=3)
     draw.text((bx+18, by-13), '球', font=fonts['label'], fill=(255, 226, 96, 255), stroke_width=2, stroke_fill=(0, 0, 0, 230))
+    if focus.get('pressureBadge'):
+        draw.rounded_rectangle((678, 28, 930, 77), radius=8, fill=(21, 16, 7, 240), outline=(255, 187, 93, 255), width=2)
+        draw.text((693, 37), focus['pressureBadge'], font=fonts['title'], fill=(255, 202, 105, 255))
+    if focus.get('hand'):
+        hx, hy = focus['hand']
+        draw.ellipse((hx-5, hy-5, hx+5, hy+5), outline=rgba(color), width=2)
+        draw.text((hx-108, hy-36), '举起的防守手', font=fonts['label'], fill=rgba(color), stroke_width=2, stroke_fill=(0, 0, 0, 230))
+        arrow(draw, (hx-24, hy-10, hx-6, hy-2), rgba(color))
 
 
 def make_overlay(segment, plan, story, font_path, source_time=None, source_image=None):
@@ -153,6 +166,10 @@ def make_overlay(segment, plan, story, font_path, source_time=None, source_image
         focus = focus_at(plan.get('focusTrack'), source_time)
         if focus:
             draw_annotation(draw, {**focus, 'color': '#ff974f'}, fonts)
+        defender = focus_at(plan.get('defenderTrack'), source_time)
+        if defender:
+            draw_annotation(draw, {**defender, 'color': '#75d6e8', 'label': '伊森 #17 · 跟防',
+                                  'lx': defender['x']+30, 'ly': defender['y']-defender['ry']-35}, fonts)
     if segment.get('metric'):
         draw.rounded_rectangle((735, 93, 931, 191), radius=12, fill=(8, 16, 22, 225))
         draw.text((753, 103), '本次出手 · 官方 xFG', font=fonts['small'], fill=(212, 219, 219, 255))
