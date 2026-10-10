@@ -15,7 +15,7 @@ def source_file(sample):
 def catalog():
     manifest = ROOT / 'product/data/stories.json'
     stories = json.loads(manifest.read_text(encoding='utf-8'))
-    files = {'/': HERE / 'index.html', '/index.html': HERE / 'index.html', '/stories.json': manifest}
+    files = {'/': HERE / 'index.html', '/index.html': HERE / 'index.html', '/stories.json': manifest, '/story-plan.json': HERE / 'story-plan.json', '/data-plan.md': HERE / 'DATA-PLAN.md'}
     for story in stories['stories']:
         sample = story['sample']
         if sample != 'flagg': continue
@@ -25,13 +25,18 @@ def catalog():
             if actual == story['sourceVideoSha256']: files[f'/samples/{sample}.mp4'] = source
         rendered = ROOT / f'product/build/mlb-rhythm/{sample}/enhanced.mp4'
         files[f'/rendered-{sample}.mp4'] = rendered
+        files['/reverse.mp4'] = rendered.parent / 'reverse.mp4'
     return files
 
 class Handler(BaseHTTPRequestHandler):
     def do_HEAD(self): self.send_file(False)
     def do_GET(self): self.send_file(True)
     def send_file(self, body):
-        path = self.server.files.get(urlsplit(self.path).path)
+        request_path = urlsplit(self.path).path
+        path = self.server.files.get(request_path)
+        frame_match = re.fullmatch(r'/frames/frame-(\d{4})\.jpg', request_path)
+        if frame_match and int(frame_match[1]) < 1291:
+            path = ROOT / 'product/build/mlb-rhythm/flagg/frames' / f'frame-{frame_match[1]}.jpg'
         if not path or not path.is_file(): self.send_error(404); return
         size = path.stat().st_size
         start, end, status = 0, size - 1, 200

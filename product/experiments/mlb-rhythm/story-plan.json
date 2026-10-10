@@ -1,0 +1,42 @@
+{
+  "version": "flagg-integrated-story-v3",
+  "fps": 59.94005994005994,
+  "width": 960,
+  "height": 540,
+  "sourceFrameCount": 1291,
+  "annotationBasis": "Editor-selected broadcast frames; image coordinates, not official player tracking or measured court coverage.",
+  "reverseWindow": {"start": 16.3, "end": 17.4, "rate": 0.65},
+  "segments": [
+    {"id":"hook","kind":"play","start":15.4,"end":17.9,"rate":1,"chapter":"先看这一球","title":"这一球，怎么进的？","narration":"先记住这次挑篮。答案，要从进攻的起点说起。"},
+    {"id":"rewind","kind":"reverse","start":16.3,"end":17.4,"rate":0.65,"chapter":"短暂回溯 · 倒放","title":"回到起跳之前","narration":"把这一刻记住。现在，从头看它如何发生。"},
+    {"id":"setup","kind":"play","start":0,"end":6,"rate":1,"chapter":"01  推进与落位","title":"先看队友怎样站开","narration":"弗拉格持球推进，队友先往前场落位。"},
+    {"id":"screen-pause","kind":"hold","start":6,"duration":2.2,"chapter":"02  右侧配合","title":"目光移到持球人身边","narration":"看右侧：21号队友来到持球人附近。","annotations":[{"x":706,"y":273,"rx":35,"ry":67,"label":"21号队友 · 靠近持球侧","lx":494,"ly":113,"color":"#ff974f","arrow":[658,145,702,210]}]},
+    {"id":"screen","kind":"play","start":6,"end":12,"rate":1,"chapter":"02  右侧配合","title":"配合发生在球的这一侧","narration":"两人靠近右侧。继续看，队友随后往哪里走。"},
+    {"id":"roll-pause","kind":"hold","start":12,"duration":2.2,"chapter":"03  队友向篮下移动","title":"一人往里走，一人留在外线","narration":"21号向篮下移动，弗拉格仍在右侧持球。","annotations":[{"x":514,"y":281,"rx":35,"ry":69,"label":"21号队友 · 向篮下移动","lx":225,"ly":108,"color":"#ff974f","arrow":[430,143,501,220]}]},
+    {"id":"reset","kind":"play","start":12,"end":14,"rate":1,"chapter":"03  重新寻找突破机会","title":"球仍在弗拉格手上","narration":"球没有传出去，进攻继续留在右侧。"},
+    {"id":"defender-pause","kind":"hold","start":14,"duration":3,"chapter":"04  他面对谁？","title":"17号：塔里·伊森","narration":"伊森在正面。官方身高2.03米，选秀资料臂展约2.18米。","annotations":[{"x":594,"y":243,"rx":32,"ry":60,"label":"伊森 #17 · 正面防守","lx":407,"ly":116,"color":"#75d6e8","arrow":[554,148,588,184]}]},
+    {"id":"drive","kind":"play","start":14,"end":16.5,"rate":1,"chapter":"04  突破接上终结","title":"目光跟着持球人","narration":"弗拉格继续向篮筐突破，篮下的防守也进入画面。"},
+    {"id":"finish-pause","kind":"hold","start":16.5,"duration":3.4,"chapter":"05  篮下还有一道防守","title":"杜兰特举起双臂","narration":"篮下7号杜兰特举臂，弗拉格已经起跳。看球与防守手臂的位置。","annotations":[{"x":471,"y":228,"rx":31,"ry":73,"label":"弗拉格 #32 · 起跳挑篮","lx":551,"ly":149,"color":"#ff974f","arrow":[552,179,492,189]},{"x":436,"y":227,"rx":0,"ry":0,"label":"杜兰特 #7 · 正面举臂","lx":195,"ly":75,"color":"#75d6e8","arrow":[391,108,436,153]}]},
+    {"id":"finish","kind":"play","start":16.5,"end":19.5,"rate":1,"chapter":"05  完成这一回合","title":"把球送进篮筐","narration":"弗拉格完成挑篮。比分来到独行侠105，火箭107。"},
+    {"id":"outcome","kind":"play","start":19.5,"end":21.548118,"rate":1,"chapter":"06  结果与机会","title":"这次命中，机会并非必进","narration":"本次出手的官方 xFG 为51.0%。它描述出手机会，不预测换一个人的结果。","metric":true},
+    {"id":"metric-hold","kind":"hold","start":21.5,"duration":2.4,"chapter":"06  结果与机会","title":"这一球的机会：51.0%","narration":"一次命中，来自前面的推进、配合和最后的终结。","metric":true}
+  ],
+  "focusTrack": [
+    {"t":15.8,"x":554,"y":226,"rx":48,"ry":55},
+    {"t":16.1,"x":510,"y":242,"rx":32,"ry":62},
+    {"t":16.3,"x":489,"y":242,"rx":28,"ry":74},
+    {"t":16.5,"x":471,"y":231,"rx":30,"ry":68},
+    {"t":16.7,"x":444,"y":227,"rx":28,"ry":82},
+    {"t":16.9,"x":415,"y":235,"rx":29,"ry":87}
+  ],
+  "players": [
+    {"id":1631106,"name":"塔里·伊森","jersey":17,"role":"突破前的正面防守者","height":"2.03米","wingspan":"约2.18米（2022选秀资料）","heightSource":"https://www.nba.com/player/1631106/tari-eason/profile","wingspanSource":"https://www.nba.com/draft/2022/prospects/tari-eason","frameEvidence":[12,14,15.8],"identityBasis":"画面球衣17号与NBA球员档案交叉核对"},
+    {"id":201142,"name":"凯文·杜兰特","jersey":7,"role":"终结时篮下举臂的防守者","height":"2.11米","wingspan":null,"heightSource":"https://www.nba.com/player/201142/kevin-durant","wingspanSource":null,"frameEvidence":[16.5,17.4],"identityBasis":"画面球衣7号与NBA球员档案交叉核对"}
+  ],
+  "difficulty": {
+    "title":"换成普通球员，会更难在哪里？",
+    "points":["突破时，需要在贴近防守的情况下保持运球控制。","到篮下，还要同时处理举起的手臂、起跳与出手时机。","如果控球、出手高度或出手速度不足，球可能更容易进入防守者的干扰范围。"],
+    "limit":"这是动作难点的条件分析。现有视频不能判断某个替代球员一定被断或被盖，也不能给出对应概率。",
+    "coverage":"高亮与箭头表示画面观察位置。真实覆盖面积需要球场标定、姿态与移动数据；臂展不能直接换算为本回合的防守面积。"
+  }
+}
