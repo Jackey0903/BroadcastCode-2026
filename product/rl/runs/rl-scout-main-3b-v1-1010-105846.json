@@ -1,0 +1,79 @@
+{
+ "TrainingJobName": "rl-scout-main-3b-v1-1010-105846",
+ "AlgorithmSpecification": {
+  "TrainingImage": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:2.9.0-gpu-py312-cu130-ubuntu22.04-sagemaker",
+  "TrainingInputMode": "File",
+  "MetricDefinitions": [
+   {
+    "Name": "train:reward",
+    "Regex": "METRIC step=\\d+ reward=(-?[0-9.]+)"
+   },
+   {
+    "Name": "train:mae",
+    "Regex": "METRIC step=\\d+ reward=\\S+ mae=([0-9.]+)"
+   },
+   {
+    "Name": "train:tools",
+    "Regex": "tools=([0-9.]+)"
+   },
+   {
+    "Name": "eval:mae",
+    "Regex": "eval_mae=([0-9.]+)"
+   },
+   {
+    "Name": "eval:reward",
+    "Regex": "eval_reward=(-?[0-9.]+)"
+   }
+  ]
+ },
+ "RoleArn": "arn:aws:iam::555726205424:role/NBAHackathonWorkloadRole",
+ "HyperParameters": {
+  "sagemaker_program": "\"train_grpo.py\"",
+  "sagemaker_submit_directory": "\"s3://nba-hackathon-555726205424-team02/rl-scout/code/rl-scout-main-3b-v1-1010-105846/sourcedir.tar.gz\"",
+  "sagemaker_region": "\"us-east-1\"",
+  "sagemaker_container_log_level": "20",
+  "model": "\"Qwen/Qwen2.5-3B-Instruct\"",
+  "steps": "400",
+  "time-budget": "6000",
+  "prompts-per-step": "8",
+  "group": "8",
+  "eval-every": "15",
+  "eval-n": "96",
+  "final-eval-n": "400",
+  "save-every": "20",
+  "rollout-every": "5",
+  "max-new": "160",
+  "micro-batch": "8",
+  "lr": "0.00001",
+  "focus-ratio": "0.8"
+ },
+ "OutputDataConfig": {
+  "S3OutputPath": "s3://nba-hackathon-555726205424-team02/rl-scout/output"
+ },
+ "ResourceConfig": {
+  "InstanceType": "ml.g5.4xlarge",
+  "InstanceCount": 1,
+  "VolumeSizeInGB": 100
+ },
+ "StoppingCondition": {
+  "MaxRuntimeInSeconds": 8400
+ },
+ "CheckpointConfig": {
+  "S3Uri": "s3://nba-hackathon-555726205424-team02/rl-scout/checkpoints/rl-scout-main-3b-v1-1010-105846",
+  "LocalPath": "/opt/ml/checkpoints"
+ },
+ "Tags": [
+  {
+   "Key": "project",
+   "Value": "broadcastcode"
+  },
+  {
+   "Key": "component",
+   "Value": "rl-scout"
+  },
+  {
+   "Key": "owner",
+   "Value": "claude"
+  }
+ ]
+}

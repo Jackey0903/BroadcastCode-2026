@@ -69,7 +69,7 @@ class Runner:
         self.eval_set = (rng.sample(sets["h2h"], min(2 * third, len(sets["h2h"])))
                          + rng.sample(sets["league"], min(third, len(sets["league"]))))
         self.final_sets = {name: rng.sample(rows, min(args.final_eval_n, len(rows))) for name, rows in sets.items() if rows}
-        self.log("data", train=len(self.train), trainFocus=len(self.train_focus),
+        self.log("data", rewardVersion=env.REWARD_VERSION, train=len(self.train), trainFocus=len(self.train_focus),
                  **{f"test_{k}": len(v) for k, v in sets.items()}, model=args.model)
 
         self.tok = AutoTokenizer.from_pretrained(args.model)

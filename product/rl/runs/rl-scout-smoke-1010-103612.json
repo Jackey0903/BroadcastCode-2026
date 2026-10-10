@@ -1,0 +1,76 @@
+{
+ "TrainingJobName": "rl-scout-smoke-1010-103612",
+ "AlgorithmSpecification": {
+  "TrainingImage": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:2.9.0-gpu-py312-cu130-ubuntu22.04-sagemaker",
+  "TrainingInputMode": "File",
+  "MetricDefinitions": [
+   {
+    "Name": "train:reward",
+    "Regex": "METRIC step=\\d+ reward=(-?[0-9.]+)"
+   },
+   {
+    "Name": "train:mae",
+    "Regex": "METRIC step=\\d+ reward=\\S+ mae=([0-9.]+)"
+   },
+   {
+    "Name": "train:tools",
+    "Regex": "tools=([0-9.]+)"
+   },
+   {
+    "Name": "eval:mae",
+    "Regex": "eval_mae=([0-9.]+)"
+   },
+   {
+    "Name": "eval:reward",
+    "Regex": "eval_reward=(-?[0-9.]+)"
+   }
+  ]
+ },
+ "RoleArn": "arn:aws:iam::555726205424:role/NBAHackathonWorkloadRole",
+ "HyperParameters": {
+  "sagemaker_program": "\"train_grpo.py\"",
+  "sagemaker_submit_directory": "\"s3://nba-hackathon-555726205424-team02/rl-scout/code/rl-scout-smoke-1010-103612/sourcedir.tar.gz\"",
+  "sagemaker_region": "\"us-east-1\"",
+  "sagemaker_container_log_level": "20",
+  "model": "\"Qwen/Qwen2.5-0.5B-Instruct\"",
+  "steps": "3",
+  "prompts-per-step": "4",
+  "group": "4",
+  "eval-n": "12",
+  "final-eval-n": "12",
+  "eval-every": "2",
+  "save-every": "2",
+  "rollout-every": "1",
+  "max-new": "128",
+  "merge": "1"
+ },
+ "OutputDataConfig": {
+  "S3OutputPath": "s3://nba-hackathon-555726205424-team02/rl-scout/output"
+ },
+ "ResourceConfig": {
+  "InstanceType": "ml.g6e.2xlarge",
+  "InstanceCount": 1,
+  "VolumeSizeInGB": 100
+ },
+ "StoppingCondition": {
+  "MaxRuntimeInSeconds": 2400
+ },
+ "CheckpointConfig": {
+  "S3Uri": "s3://nba-hackathon-555726205424-team02/rl-scout/checkpoints/rl-scout-smoke-1010-103612",
+  "LocalPath": "/opt/ml/checkpoints"
+ },
+ "Tags": [
+  {
+   "Key": "project",
+   "Value": "broadcastcode"
+  },
+  {
+   "Key": "component",
+   "Value": "rl-scout"
+  },
+  {
+   "Key": "owner",
+   "Value": "claude"
+  }
+ ]
+}

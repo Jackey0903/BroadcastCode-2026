@@ -1,0 +1,73 @@
+{
+ "TrainingJobName": "rl-scout-pkg-smoke-1010-104634",
+ "AlgorithmSpecification": {
+  "TrainingImage": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:2.9.0-gpu-py312-cu130-ubuntu22.04-sagemaker",
+  "TrainingInputMode": "File",
+  "MetricDefinitions": [
+   {
+    "Name": "train:reward",
+    "Regex": "METRIC step=\\d+ reward=(-?[0-9.]+)"
+   },
+   {
+    "Name": "train:mae",
+    "Regex": "METRIC step=\\d+ reward=\\S+ mae=([0-9.]+)"
+   },
+   {
+    "Name": "train:tools",
+    "Regex": "tools=([0-9.]+)"
+   },
+   {
+    "Name": "eval:mae",
+    "Regex": "eval_mae=([0-9.]+)"
+   },
+   {
+    "Name": "eval:reward",
+    "Regex": "eval_reward=(-?[0-9.]+)"
+   }
+  ]
+ },
+ "RoleArn": "arn:aws:iam::555726205424:role/NBAHackathonWorkloadRole",
+ "HyperParameters": {
+  "sagemaker_program": "\"package_model.py\"",
+  "sagemaker_submit_directory": "\"s3://nba-hackathon-555726205424-team02/rl-scout/code/rl-scout-pkg-smoke-1010-104634/sourcedir.tar.gz\"",
+  "sagemaker_region": "\"us-east-1\"",
+  "sagemaker_container_log_level": "20"
+ },
+ "OutputDataConfig": {
+  "S3OutputPath": "s3://nba-hackathon-555726205424-team02/rl-scout/output"
+ },
+ "ResourceConfig": {
+  "InstanceType": "ml.m5.2xlarge",
+  "InstanceCount": 1,
+  "VolumeSizeInGB": 100
+ },
+ "StoppingCondition": {
+  "MaxRuntimeInSeconds": 1800
+ },
+ "Tags": [
+  {
+   "Key": "project",
+   "Value": "broadcastcode"
+  },
+  {
+   "Key": "component",
+   "Value": "rl-scout"
+  },
+  {
+   "Key": "owner",
+   "Value": "claude"
+  }
+ ],
+ "InputDataConfig": [
+  {
+   "ChannelName": "merged",
+   "DataSource": {
+    "S3DataSource": {
+     "S3DataType": "S3Prefix",
+     "S3DataDistributionType": "FullyReplicated",
+     "S3Uri": "s3://nba-hackathon-555726205424-team02/rl-scout/checkpoints/rl-scout-smoke-g5-1010-103752/merged/"
+    }
+   }
+  }
+ ]
+}

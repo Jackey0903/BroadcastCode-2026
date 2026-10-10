@@ -1,0 +1,11 @@
+{
+ "endpoint": "rl-scout",
+ "model": "rl-scout-model-1010-105225",
+ "config": "rl-scout-config-1010-105225",
+ "modelData": "s3://nba-hackathon-555726205424-team02/rl-scout/output/rl-scout-pkg-smoke-1010-104634/output/model.tar.gz",
+ "instance": "ml.g5.xlarge",
+ "image": "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-inference:2.6.0-gpu-py312-cu124-ubuntu22.04-sagemaker",
+ "createdAt": "1010-105225",
+ "status": "InService",
+ "failureReason": null
+}

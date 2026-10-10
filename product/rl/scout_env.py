@@ -18,9 +18,14 @@ TOOLS = ("zone_reference", "move_reference", "player_profile")
 TEST_FROM = "2026-03-01"
 PRACTICE_GAMES = ("0022500491", "0022500701")
 MIN_MOVE_SAMPLES = 15
-TOOL_COST, INVALID_PENALTY = 0.03, 0.2
+# Reward v1 (10:58): v0 used a squared calibration term with scale 0.4 and 0.03 per tool, which made
+# "call zone_reference only and copy its mean" optimal (extra tools gained < 0.01, cost 0.03) and the
+# GRPO groups collapsed. v1 aligns calibration with the reported metric (absolute error) and lowers
+# the tool cost so useful information is worth fetching.
+REWARD_VERSION = "v1"
+TOOL_COST, INVALID_PENALTY = 0.01, 0.2
 WEIGHTS = {"calibration": 0.75, "format": 0.15, "grounded": 0.10}
-CALIBRATION_SCALE = 0.4
+CALIBRATION_SCALE = 0.5
 MAX_REASON_CHARS = 80
 
 SYSTEM_PROMPT = (
@@ -213,7 +218,7 @@ def reward(answer, quality, tools_used, invalid, context):
     reason = answer.get("reason")
     if prediction is not None and 0 <= prediction <= 1:
         parts["prediction"] = round(prediction, 4)
-        parts["calibration"] = max(0.0, 1 - ((prediction - quality) / CALIBRATION_SCALE) ** 2)
+        parts["calibration"] = max(0.0, 1 - abs(prediction - quality) / CALIBRATION_SCALE)
         if isinstance(reason, str) and 0 < len(reason) <= MAX_REASON_CHARS and set(answer) <= {"quality", "reason"}:
             parts["format"] = 1.0
     if isinstance(reason, str) and reason and prediction is not None:

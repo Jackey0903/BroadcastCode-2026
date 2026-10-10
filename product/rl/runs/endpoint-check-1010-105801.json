@@ -1,0 +1,30 @@
+[
+ {
+  "case": "nba-gpshot-amen-0022500491.json",
+  "eventId": 396,
+  "official": 0.445,
+  "seconds": 7.01,
+  "available": true,
+  "typicalQuality": 0.95,
+  "reason": "出手距离和命中率符合 NBA 的常规标准",
+  "toolsUsed": [],
+  "model": "rl-scout",
+  "source": "AI 估计（强化学习球探）",
+  "difficultyDelta": -0.505,
+  "label": "tougher"
+ },
+ {
+  "case": "nba-gpshot-flagg-0022500701.json",
+  "eventId": 666,
+  "official": 0.51,
+  "seconds": 1.01,
+  "available": true,
+  "typicalQuality": 0.95,
+  "reason": "出手质量较高",
+  "toolsUsed": [],
+  "model": "rl-scout",
+  "source": "AI 估计（强化学习球探）",
+  "difficultyDelta": -0.44,
+  "label": "tougher"
+ }
+]

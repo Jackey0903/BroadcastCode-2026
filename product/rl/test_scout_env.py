@@ -90,11 +90,16 @@ class Reward(unittest.TestCase):
         self.assertEqual((parts["calibration"], parts["format"], parts["grounded"]), (1.0, 1.0, 1.0))
         self.assertAlmostEqual(parts["total"], 1.0 - env.TOOL_COST, places=4)
 
-    def test_calibration_is_squared_and_floored(self):
+    def test_calibration_is_linear_in_absolute_error_and_floored(self):
         near = env.reward({"quality": 0.55, "reason": "接近均值"}, 0.45, [], False, self.CONTEXT)
         far = env.reward({"quality": 0.95, "reason": "很好"}, 0.45, [], False, self.CONTEXT)
-        self.assertAlmostEqual(near["calibration"], 1 - (0.1 / 0.4) ** 2, places=6)
-        self.assertEqual(far["calibration"], 0.0)
+        self.assertAlmostEqual(near["calibration"], 1 - 0.1 / env.CALIBRATION_SCALE, places=6)
+        self.assertAlmostEqual(far["calibration"], 0.0, places=9)
+
+    def test_useful_extra_tool_can_pay_for_itself(self):
+        one = env.reward({"quality": 0.36, "reason": "x"}, 0.45, ["zone_reference"], False, "")
+        two = env.reward({"quality": 0.38, "reason": "x"}, 0.45, ["zone_reference", "player_profile"], False, "")
+        self.assertGreater(two["total"], one["total"])
 
     def test_invented_numbers_are_not_grounded(self):
         parts = env.reward({"quality": 0.45, "reason": "防守人距离3.2英尺"}, 0.45, [], False, self.CONTEXT)

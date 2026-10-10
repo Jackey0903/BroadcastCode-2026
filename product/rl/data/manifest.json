@@ -1,0 +1,33 @@
+{
+ "source": "NBA China official endpoints (api.nba.cn inside/game, season/shotDifficulty, gpShot)",
+ "season": "2025-26",
+ "fetchedAt": "2026-10-10T10:58:35+08:00",
+ "games": 233,
+ "teams": 33,
+ "profiledPlayers": 125,
+ "shots": 15171,
+ "dateRange": [
+  "2025-11-01",
+  "2026-04-10"
+ ],
+ "stepDays": 4,
+ "gamesPerDate": 2,
+ "practiceGamesIncluded": [
+  "0022500491",
+  "0022500701"
+ ],
+ "focusTeams": [
+  1610612742,
+  1610612745
+ ],
+ "focusGames": 154,
+ "headToHeadGames": [
+  "0022500160",
+  "0022500356",
+  "0022500491",
+  "0022500701"
+ ],
+ "missingPlayerGames": 517,
+ "offline": true,
+ "note": "Shots cover profiled (season shot-difficulty) players only; no game-level roster endpoint is available."
+}
