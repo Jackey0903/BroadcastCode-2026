@@ -1,0 +1,14 @@
+{
+  "capturedAt": "2026-10-10T13:21:43.217317+08:00",
+  "job": "rl-scout-evidence-3b-two-teams-1010-052032",
+  "status": "InProgress",
+  "secondaryStatus": "Pending",
+  "failure": null,
+  "instance": "ml.g5.xlarge",
+  "trainingSeconds": null,
+  "gpu": null,
+  "lastEvent": null,
+  "evaluations": [],
+  "report": null,
+  "modelDeployed": false
+}

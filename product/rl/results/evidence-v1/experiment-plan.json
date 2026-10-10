@@ -1,0 +1,57 @@
+{
+  "schema": "rl-scout-evidence-experiment-plan-v1",
+  "registeredAt": "2026-10-10T05:20:15.967321+00:00",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "instance": "ml.g5.xlarge",
+  "instanceCount": 1,
+  "trainEvalBudgetSeconds": 3600,
+  "maxRuntimeSeconds": 5400,
+  "scope": "HOU/DAL structured evidence selection; no visual weight training",
+  "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+  "environmentStoreDigest": "d4968456aa2749ea42deaf0e64aa3b58ac9dec5cb145245ccb6d1c1d370bd96a",
+  "counts": {
+    "train": 565,
+    "val": 149,
+    "test": 153
+  },
+  "categories": {
+    "missing_family": 53,
+    "basic_lookup": 102,
+    "advanced_lookup": 83,
+    "basic_advanced": 83,
+    "depth_lookup": 314,
+    "event_boundary": 46,
+    "causal_boundary": 18,
+    "as_of_boundary": 20,
+    "joint_three_layer": 148
+  },
+  "trainingSamplingWeights": {
+    "joint_three_layer": 0.35,
+    "basic_advanced": 0.2,
+    "basic_lookup": 0.075,
+    "advanced_lookup": 0.075,
+    "depth_lookup": 0.15,
+    "missing_family": 0.05,
+    "event_boundary": 0.04,
+    "as_of_boundary": 0.035,
+    "causal_boundary": 0.025
+  },
+  "method": "verified SFT plus group-normalized single-update on-policy gradient; temperature=1, no reference KL",
+  "evaluation": "same frozen stratified 16 val and 16 test at base/SFT/RL; player-group holdout; Flagg in val; test not used for stage selection",
+  "releaseGate": {
+    "completeComparison": true,
+    "schemaRateMin": 0.99,
+    "criticalErrorRateMax": 0,
+    "successRateMin": 0.9,
+    "mustNotDegradeAgainstBaseOnValidation": true,
+    "actualEndpointLineageRequired": true
+  },
+  "limits": [
+    "Small retrieval evaluation does not certify arbitrary basketball reasoning or video recognition.",
+    "Current season depth is retrospective context; game facts are full completed-game results.",
+    "Derived eFG/TS are not directly returned official advanced fields.",
+    "All four games were used in development; no unseen-game claim."
+  ],
+  "launchStatus": "created",
+  "job": "rl-scout-evidence-3b-two-teams-1010-052032"
+}

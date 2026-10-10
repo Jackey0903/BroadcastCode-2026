@@ -1,0 +1,35 @@
+{
+  "schema": "three-layer-source-audit-v2",
+  "generatedAt": "2026-10-10T05:12:24.050413+00:00",
+  "games": 4,
+  "playerGameRows": 102,
+  "teamGameRows": 8,
+  "uniquePlayers": 31,
+  "playedRows": 86,
+  "didNotPlayRows": 16,
+  "metricsAvailable": {
+    "EFG_PCT": 83,
+    "TS_PCT": 83
+  },
+  "sourcePaths": [
+    "product/rl/data/three_layer/boxscore-0022500160.json",
+    "product/rl/data/three_layer/boxscore-0022500356.json",
+    "product/rl/data/three_layer/boxscore-0022500491.json",
+    "product/rl/data/three_layer/boxscore-0022500701.json"
+  ],
+  "contextPath": "product/rl/data/three_layer/context.json",
+  "validation": "Allowed team IDs; scoring identity; attempts >= makes; player counting sums match team totals; DNP efficiency null",
+  "advancedOfficialReturned": [],
+  "advancedDerived": [
+    "EFG_PCT",
+    "TS_PCT"
+  ],
+  "notAvailable": [
+    "official ORTG",
+    "official DRTG",
+    "official USG%",
+    "official AST%",
+    "official pace"
+  ],
+  "notTrainingEvidence": true
+}
