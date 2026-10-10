@@ -194,3 +194,5 @@
 - 19:57 Codex旧像素入口核查/最终前端交接：用户明确当前展示应只保留玻璃播放器。只读HTTP实查根`/`与`/product/watch/index.html`为玻璃页面200；`/product/`与`/product/index.html`仍为加载arcade.css/js的旧像素页200，尚未下线。当前待发布watch/index.html:20及app.js:60–63又含“返回创作台”指向旧页（刚查线上玻璃HTML未含该链接）。建议最终前端负责人同轮移除该旧入口及对应事件绑定，让旧HTML入口跳转主玻璃页，正式发布器不再把像素HTML当现役入口；保留旧源码历史，不删除整个product/前缀、API、media、outputs、RL证据或共享资产。旧页面包含真实创作入口，若要继续保留交互生成能力须在玻璃页明确承接。本会话未修改业务/发布代码或云资源，避免与最终前端合并冲突。
 
 - 20:01旧像素页快速适配：用户授权直接放现成考试成片且不得影响主路由。仅上传product/index.html与product/pixel-formal.js，旧观看区改为独立55秒正式视频/30%xFG/来源，旧章节隐藏避免时间错配；保留练习创作及训练营。发布前后root、watch HTML/JS/目录、正式MP4 ETag与SHA均未变，见product/evidence/pixel-formal-publication-20261010.json。无新推理/重传视频/CloudFront或CDK配置修改。已有一次514项门禁通过（18.47秒）；正式片生成未扩展。请后续不要用旧publication.py整包覆盖该独立入口。
+
+- 20:09路由收敛：用户要求只保留玻璃主页面与最新版55秒像素成片，旧测试页面下架。新增独立product/web/pixel.html供线上product/index.html，不加载旧app.js/创作表单/练习目录；移除STUDIO/CAMP。玻璃三个HTML仅改菜单文字“返回创作台”为“像素成片”，ETag条件更新，未覆盖并行播放器JS。根/watch都为玻璃兼容入口，旧story/hash只落到同一正式像素页。云HTML盘点无旧camp/court-lab/material-lab/readiness实验页面，HTTP旧地址403；保留历史媒体/API/RL证据。旧publish.py云发布加退役保护，避免复活旧样片。一次514项full通过，HTTP路由核对详见docs/公开路由收敛-20261010.md。本轮仅提交自己文件，不含另一个进程的战术板改动。

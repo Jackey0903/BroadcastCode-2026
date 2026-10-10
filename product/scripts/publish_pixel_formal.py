@@ -9,7 +9,7 @@ from deployment import load_deployment, load_outputs, validate_identity
 ROOT = Path(__file__).resolve().parents[2]
 ASSETS = {
     "product/pixel-formal.js": ROOT / "product/web/pixel-formal.js",
-    "product/index.html": ROOT / "product/web/index.html",
+    "product/index.html": ROOT / "product/web/pixel.html",
 }
 PROTECTED = ("index.html", "product/watch/index.html", "product/watch/app.js",
              "product/watch/data/stories.json", "product/media/formal/enhanced.mp4")

@@ -91,12 +91,15 @@ class Catalog:
         formal = checked_file(self.root, "product/data/formal-story.json")
         self.manifest = json.loads((formal or self.root / "product/data/stories.json").read_text())
         self.manifest["preview"] = {"mode": "offline", "historical": not bool(formal)}
-        for name in ("index.html", "app.js", "styles.css", "broadcast.css", "atmosphere.js", "arcade.css", "arcade.js", "camp.html", "camp.css", "camp.js",
+        for name in ("index.html", "app.js", "pixel-formal.js", "styles.css", "broadcast.css", "atmosphere.js", "arcade.css", "arcade.js", "camp.html", "camp.css", "camp.js",
                      "assets/grain.svg", "assets/fonts/OFL.txt",
                      "assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2"):
             file = checked_file(self.root, f"product/web/{name}")
             if file:
                 self.files[f"/product/{name}"] = file
+        pixel = checked_file(self.root, "product/web/pixel.html")
+        if pixel:
+            self.files["/product/index.html"] = pixel
         # Only the frontend's explicit runtime assets; never serve its dev docs,
         # test suites, Python preview or source-control/configuration files.
         for name in WATCH_PUBLIC_FILES:
@@ -295,7 +298,7 @@ def handler_for(catalog):
                 return
             if path in ("/", "/product", "/product/court-lab", "/product/watch"):
                 query = urlsplit(self.path).query
-                destination = "/product/watch/" if path == "/product/watch" else "/product/court-lab/" if path == "/product/court-lab" else "/product/"
+                destination = "/product/watch/" if path == "/product/watch" or (path == "/" and checked_file(catalog.root, "product/web/pixel.html")) else "/product/court-lab/" if path == "/product/court-lab" else "/product/"
                 self.send_response(301)
                 self.send_header("Location", destination + ("?" + query if query else ""))
                 self.send_header("Content-Length", "0")

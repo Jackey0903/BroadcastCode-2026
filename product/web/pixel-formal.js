@@ -1,16 +1,13 @@
 "use strict";
 
-// The formal showcase is independent of the legacy creator and glass player.
+// Standalone formal-film controls; no creator API or practice catalog is loaded.
 const formalExamPlayer = document.getElementById("formal-exam-player");
-for (const control of document.querySelectorAll('.main-nav [data-view="create"]')) {
-  control.addEventListener("click", () => formalExamPlayer.pause());
-}
 window.addEventListener("pagehide", () => formalExamPlayer.pause());
 
-// Prevent the hidden legacy film's document shortcuts from starting its audio.
+// Keyboard playback supplements native video controls.
 document.addEventListener("keydown", (event) => {
   if (document.getElementById("watch-view").hidden || event.ctrlKey || event.metaKey || event.altKey) return;
-  if (![" ", "ArrowLeft", "ArrowRight", "t", "T"].includes(event.key)) return;
+  if (![" ", "ArrowLeft", "ArrowRight"].includes(event.key)) return;
   if (event.target.closest("input,textarea,select,button,a,summary,[contenteditable]")) return;
   event.stopImmediatePropagation();
   if (event.target === formalExamPlayer) return; // Keep native video controls.

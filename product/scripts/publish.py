@@ -23,6 +23,8 @@ def main():
     mode.add_argument('--reuse-unchanged', action='store_true')
     parser.add_argument('--dry-run', action='store_true')
     args = parser.parse_args()
+    if not args.dry_run and (ROOT / "product/web/pixel.html").is_file():
+        raise SystemExit("Practice-page publication is retired. Use publish_formal.py for glass or publish_pixel_formal.py for the formal pixel page.")
     target = load_deployment()
     outputs = load_outputs(target=target)
     # Complete every local verification before client creation or S3 writes.

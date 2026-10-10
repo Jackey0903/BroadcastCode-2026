@@ -1,0 +1,157 @@
+{
+  "checkedAt": "2026-10-10T12:08:17.780250+00:00",
+  "navigationOnly": [
+    {
+      "key": "index.html",
+      "changed": true,
+      "beforeSha256": "82b9e04bf68306501fbdd73a5b23318e4b20195f0da31b3f359f45df88c1c92b",
+      "afterSha256": "c0a399400fa16c30ddfab217e4a52a2009b43bd08cab7add77833c75300cb1e7",
+      "change": "Only visible label: 返回创作台 → 像素成片; existing URL remains a compatibility alias"
+    },
+    {
+      "key": "product/watch/index.html",
+      "changed": true,
+      "beforeSha256": "24aeeb19c6502582d077a5b3aebe8c8149e52c5d712dfd00fecd57a7babbac90",
+      "afterSha256": "9cb4caf1902c970cfc0ade299aef6543b60cf775839a5dd33388270d3021cdad",
+      "change": "Only visible label: 返回创作台 → 像素成片; existing URL remains a compatibility alias"
+    },
+    {
+      "key": "product/watch/",
+      "changed": true,
+      "beforeSha256": "24aeeb19c6502582d077a5b3aebe8c8149e52c5d712dfd00fecd57a7babbac90",
+      "afterSha256": "9cb4caf1902c970cfc0ade299aef6543b60cf775839a5dd33388270d3021cdad",
+      "change": "Only visible label: 返回创作台 → 像素成片; existing URL remains a compatibility alias"
+    }
+  ],
+  "removedCloudPages": [],
+  "newInference": false,
+  "apiChanged": false,
+  "publishedHtmlKeys": [
+    "index.html",
+    "product/index.html",
+    "product/readme",
+    "product/readme/index.html",
+    "product/watch/",
+    "product/watch/index.html",
+    "readme",
+    "readme/index.html"
+  ],
+  "oldExperimentHtmlAbsent": true,
+  "httpChecks": [
+    {
+      "path": "/",
+      "status": 200,
+      "url": "https://deky02484tknr.cloudfront.net/",
+      "glass": true,
+      "formalPixel": false,
+      "legacyCreator": false,
+      "legacyScript": false,
+      "oldCreatorLabel": false
+    },
+    {
+      "path": "/index.html",
+      "status": 200,
+      "url": "https://deky02484tknr.cloudfront.net/index.html",
+      "glass": true,
+      "formalPixel": false,
+      "legacyCreator": false,
+      "legacyScript": false,
+      "oldCreatorLabel": false
+    },
+    {
+      "path": "/product",
+      "status": 200,
+      "url": "https://deky02484tknr.cloudfront.net/product/",
+      "glass": false,
+      "formalPixel": true,
+      "legacyCreator": false,
+      "legacyScript": false,
+      "oldCreatorLabel": false
+    },
+    {
+      "path": "/product/",
+      "status": 200,
+      "url": "https://deky02484tknr.cloudfront.net/product/",
+      "glass": false,
+      "formalPixel": true,
+      "legacyCreator": false,
+      "legacyScript": false,
+      "oldCreatorLabel": false
+    },
+    {
+      "path": "/product/index.html?story=flagg#creator",
+      "status": 200,
+      "url": "https://deky02484tknr.cloudfront.net/product/index.html?story=flagg#creator",
+      "glass": false,
+      "formalPixel": true,
+      "legacyCreator": false,
+      "legacyScript": false,
+      "oldCreatorLabel": false
+    },
+    {
+      "path": "/product/watch/",
+      "status": 200,
+      "url": "https://deky02484tknr.cloudfront.net/product/watch/",
+      "glass": true,
+      "formalPixel": false,
+      "legacyCreator": false,
+      "legacyScript": false,
+      "oldCreatorLabel": false
+    },
+    {
+      "path": "/product/watch/index.html?story=amen",
+      "status": 200,
+      "url": "https://deky02484tknr.cloudfront.net/product/watch/index.html?story=amen",
+      "glass": true,
+      "formalPixel": false,
+      "legacyCreator": false,
+      "legacyScript": false,
+      "oldCreatorLabel": false
+    },
+    {
+      "path": "/readme",
+      "status": 200,
+      "url": "https://deky02484tknr.cloudfront.net/readme",
+      "glass": false,
+      "formalPixel": false,
+      "legacyCreator": false,
+      "legacyScript": false,
+      "oldCreatorLabel": false
+    },
+    {
+      "path": "/product/camp.html",
+      "status": 403
+    },
+    {
+      "path": "/product/court-lab/",
+      "status": 403
+    },
+    {
+      "path": "/product/court-lab/index.html",
+      "status": 403
+    },
+    {
+      "path": "/product/watch/material-lab/index.html",
+      "status": 403
+    },
+    {
+      "path": "/product/watch/annotations/fixture.html",
+      "status": 403
+    },
+    {
+      "path": "/readiness-lab/index.html",
+      "status": 403
+    },
+    {
+      "path": "/aws-validation/index.html",
+      "status": 403
+    }
+  ],
+  "quality": {
+    "existingFullGate": true,
+    "behavioralTests": 514,
+    "seconds": 18.41,
+    "newTestsAdded": false
+  },
+  "browserPlaybackRepeated": false
+}

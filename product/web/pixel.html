@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="data:,">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07080b">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="回到决定一球的瞬间。真实比赛画面、可核对的数据，以及你可能漏看的那个细节。">
+  <title>GameBuddy · AI 篮球伙伴</title>
+  <link rel="preload" href="./assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./arcade.css">
+  <script src="./arcade.js" defer></script>
+  <script src="./pixel-formal.js" defer></script>
+  <style>
+    #formal-exam-player { display: block; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+    #formal-showcase .story-panel { padding: 24px; }
+    #formal-showcase h2 { margin: 12px 0; }
+    #formal-showcase p { line-height: 1.7; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+  <header class="masthead">
+    <a class="brand" href="./" aria-label="GameBuddy 首页">
+      <svg class="brand-symbol" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path class="px-leather" d="M2 0h2v1H2zM5 0h1v1H5zM1 1h3v1H1zM5 1h2v1H5zM0 2h4v2H0zM5 2h3v2H5zM0 5h4v1H0zM5 5h3v1H5zM1 6h3v1H1zM5 6h2v1H5zM2 7h2v1H2zM5 7h1v1H5z"/><path class="px-seam" d="M4 0h1v8H4zM0 4h8v1H0z"/><path class="px-shine" d="M2 1h1v1H2zM1 2h1v1H1z"/></svg>
+      <span class="brand-name">GameBuddy<small>AI 篮球伙伴</small></span>
+    </a>
+    <nav class="main-nav" aria-label="主要导航">
+      <a class="nav-link" href="/"><b>MATCH</b><span>玻璃播放器</span></a>
+      <a class="nav-link active" href="/product/" aria-current="page"><b>FILM</b><span>55秒成片</span></a>
+      <a class="nav-link" href="/readme"><b>ABOUT</b><span>作品说明</span></a>
+    </nav>
+    <div class="edition"><span class="edition-dot" aria-hidden="true"></span>NBA × AWS<small>TEAM 02</small></div>
+  </header>
+
+  <main id="main-content">
+    <section id="watch-view" class="view" aria-label="观看比赛故事">
+      <div class="arcade-hero" data-arcade-hero>
+        <p class="hero-kicker"><span>NBA × AWS</span><span>BROADCASTCODE 2026</span><span>TEAM 02</span></p>
+        <h1 class="arcade-title">
+          <span class="sr-only">GameBuddy · AI 篮球伙伴</span>
+          <span class="mark-row"><canvas class="mark mark-primary" data-pixel-text="GameBuddy" data-palette="fire" data-depth="1" data-fill=".7" data-max="12" aria-hidden="true"></canvas></span>
+          <span class="mark-row"><canvas class="mark mark-secondary" data-pixel-text="AI 篮球伙伴" data-palette="chalk" data-depth="1" data-fill=".5" data-max="6" aria-hidden="true"></canvas></span>
+          <span class="mark-fallback" aria-hidden="true"><b>GameBuddy</b><small>AI 篮球伙伴</small></span>
+        </h1>
+        <p class="hero-line"><strong>再看一拍，看懂比赛。</strong><span>REAL FOOTAGE · OFFICIAL DATA · THE BEAT YOU MISSED</span></p>
+        <div class="hero-actions">
+          <a class="press-start" href="#formal-showcase"><i class="px-cursor" aria-hidden="true"></i><span>PRESS START</span><small>进入影片室</small></a>
+          <ul class="hero-signals" aria-label="体验内容">
+            <li><svg viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 0h1v7H1zM2 1h1v5H2zM3 2h1v3H3zM4 3h1v1H4z"/></svg>REPLAY</li>
+            <li><svg viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 6h7v1H0zM1 3h1v3H1zM3 0h1v6H3zM5 2h1v4H5z"/></svg>OFFICIAL DATA</li>
+            <li><svg viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 1h7v1H0zM0 5h7v1H0zM0 2h1v3H0zM6 2h1v3H6zM2 3h1v1H2zM4 3h1v1H4z"/></svg>AI FILM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="court-band" aria-hidden="true"><canvas id="arcade-court"></canvas></div>
+
+      <section id="formal-showcase" class="film-room" aria-labelledby="formal-title">
+        <div class="screen-column">
+          <div class="broadcast-strip"><span class="replay-tag">FINAL FILM</span><span>正式考试视频 · 55 秒双人解说</span></div>
+          <video id="formal-exam-player" controls playsinline preload="metadata" aria-label="克里斯蒂正式考试解读成片">
+            <source src="/product/media/formal/enhanced.mp4" type="video/mp4">
+            你的浏览器暂不支持视频，请打开下方完整成片。
+          </video>
+          <p class="version-note">AI 双人解说 · 豆包语音。战术标记为编辑示意，完整解读已烧录进视频。</p>
+          <div class="story-footer"><a class="text-link" href="/product/media/formal/enhanced.mp4" target="_blank" rel="noopener">打开完整成片 ↗</a> · <a class="text-link" href="/product/media/formal/source.mp4" target="_blank" rel="noopener">查看考试原片 ↗</a></div>
+        </div>
+        <aside class="story-panel">
+          <p class="eyebrow">DALLAS × HOUSTON · 正式考试素材</p>
+          <h2 id="formal-title">封盖之后，再争一拍</h2>
+          <p>鲍威尔争回进攻篮板，克里斯蒂重新组织，后撤步打板三分命中。</p>
+          <p><strong>官方出手 xFG：30%</strong><br>本次出手机会参考，非球员个人命中率。</p>
+          <p>得分后：独行侠 43 — 44 火箭<br>第二节 · 4:58 · 事件 273</p>
+          <a class="text-link" href="/product/media/formal/manifest.json" target="_blank" rel="noopener">查看成片来源与制作记录 ↗</a>
+        </aside>
+      </section>
+
+    </section>
+  </main>
+  <footer class="site-footer"><a href="/" class="footer-brand">GameBuddy<span>AI 篮球伙伴</span></a><p>正式考试素材 · 独行侠 vs 火箭 · AI 双人解说</p></footer>
+</body>
+</html>

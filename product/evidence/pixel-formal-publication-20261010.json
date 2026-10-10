@@ -1,19 +1,19 @@
 {
-  "checkedAt": "2026-10-10T12:01:28.920189+00:00",
+  "checkedAt": "2026-10-10T12:08:14.310672+00:00",
   "account": "555726205424",
   "url": "https://deky02484tknr.cloudfront.net/product/",
   "uploaded": [
     {
       "key": "product/pixel-formal.js",
-      "etag": "\"23e5b5ae4c26208b1a688999a3586254\"",
-      "bytes": 1368,
-      "sha256": "e80c8a3162cc32e5d35d91cce379ba971f9fe96aa155b7f34a02cbdcc447c82a"
+      "etag": "\"f952ab22b95329bbd6b9a69ae9929757\"",
+      "bytes": 1182,
+      "sha256": "5557db3c2134e10b798352e71435fe1be16123240dbf230d93fa84fdc821ef02"
     },
     {
       "key": "product/index.html",
-      "etag": "\"c401d8abd822c02f4425b662abd527a3\"",
-      "bytes": 17059,
-      "sha256": "1f65de1a4bf231b2a1beee2c0cd7ee3aa48af7cb802a345edc6afff9da1003ee"
+      "etag": "\"b57c50fdedc859019f19784a971c8a1e\"",
+      "bytes": 5921,
+      "sha256": "43d9108fb991f7e5ecde148db86f4c45c690cc400a9fe742931ad7ec0c7c5e37"
     }
   ],
   "protectedBefore": {
@@ -28,9 +28,9 @@
       "sha256": "24aeeb19c6502582d077a5b3aebe8c8149e52c5d712dfd00fecd57a7babbac90"
     },
     "product/watch/app.js": {
-      "etag": "\"477d03edadf208c4bac1bb67858c1b8f\"",
-      "bytes": 22590,
-      "sha256": "42393f3b60fede2aacfdbecadbddd90226619e9558e2741939ee24a94124c6dd"
+      "etag": "\"8717a82ce67b00bb3f93f68a5ff73db0\"",
+      "bytes": 23017,
+      "sha256": "d557c547deecb23a728c3c7bd859dfe8a5b7d29b2081486e760b92d1da566eef"
     },
     "product/watch/data/stories.json": {
       "etag": "\"44d8de846bbcfc2fbdc015cd12806211\"",
@@ -55,9 +55,9 @@
       "sha256": "24aeeb19c6502582d077a5b3aebe8c8149e52c5d712dfd00fecd57a7babbac90"
     },
     "product/watch/app.js": {
-      "etag": "\"477d03edadf208c4bac1bb67858c1b8f\"",
-      "bytes": 22590,
-      "sha256": "42393f3b60fede2aacfdbecadbddd90226619e9558e2741939ee24a94124c6dd"
+      "etag": "\"8717a82ce67b00bb3f93f68a5ff73db0\"",
+      "bytes": 23017,
+      "sha256": "d557c547deecb23a728c3c7bd859dfe8a5b7d29b2081486e760b92d1da566eef"
     },
     "product/watch/data/stories.json": {
       "etag": "\"44d8de846bbcfc2fbdc015cd12806211\"",
