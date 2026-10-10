@@ -48,6 +48,11 @@ def render_scene(name, local_frame, count=210, workdir=None, scene_override=None
             raise ValueError('Presentation focus mask does not match the source frame')
         graded = apply_focus(graded, name, t, morph, release)
     layer = fx.Layers(graded)
+    if presentation_english:
+        from presentation_space import draw_space, SOURCE_FRAMES as SPACE_FRAMES
+        if name in SPACE_FRAMES and scene['frame'] != SPACE_FRAMES[name]:
+            raise ValueError('Presentation space polygon does not match the source frame')
+        draw_space(layer, name, t, morph, release)
     if morph > .001:
         for points, width in tactics.court_geometry():
             tactics.draw_path(layer, tactics.board_points(points), fx.CHALK,

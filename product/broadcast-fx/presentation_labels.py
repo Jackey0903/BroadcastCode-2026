@@ -79,8 +79,9 @@ def draw_tactic_labels(layer, scene, name, t, morph, alpha):
             yy = 285 + j * 59
             layer.paste(fx.text_rgba(en, fx.DIN, 27, fx.CHALK), 1405, yy, alpha=alpha * morph)
             layer.paste(fx.text_rgba(cn, fx.CJK, 17, fx.MUTED), 1407, yy + 31, alpha=alpha * morph)
-        from presentation_stats import draw_player_cards
+        from presentation_stats import draw_player_cards, draw_defense_card
         draw_player_cards(layer, name, t, morph, alpha)
+        draw_defense_card(layer, name, t, morph, alpha)
     a = alpha * fx.ease_out((t - .24) / .35)
     fx.rect(layer, 65, 856, 1855, 978, fx.VOID, .86 * a)
     fx.rect(layer, 65, 856, 72, 978, fx.ORANGE, a)
