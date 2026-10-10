@@ -1,3 +1,5 @@
+**2026-10-10 三态观赛前端：** 新增独立 [product/watch](product/watch/README.md)，含中文组件调参、liquidGL 平滑取样优化和战术板方向修复；按用户授权提交到 `codex/watch-liquid-glass` 分支。46 项离线测试通过，最新 GPU 播放性能复测尚未完成，见 [修复状态](product/watch/docs/玻璃与方向修复-20261010.md)。后端和既有前端保留，未部署。
+
 # BroadcastCode「深度赛场」黑客松准备资料
 
 **最新分工：** Claude 的前端已完成并经授权推送 `main`；用户随后授权检查前端、修复俯视板底角可见性和轨迹混乱。保留像素街机黑场视觉，本轮优化只本地保存；此后每次推送仍需明确授权。前端接手入口见[Claude 说明](docs/Claude前端接手说明.md)。
