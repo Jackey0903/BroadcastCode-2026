@@ -1,0 +1,7 @@
+{
+  "exported": 3,
+  "legacyImport": true,
+  "presetCreateApply": true,
+  "resetComponent": true,
+  "removedElementsNotRestored": true
+}

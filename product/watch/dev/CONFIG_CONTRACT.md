@@ -1,6 +1,6 @@
 # 可视化调参接口
 
-`createInspector()` 可从正常本地页面设置入口打开。返回 `element`、`open()`、`close()`、`selectComponent(group)`、`isOpen` 和 `destroy()`。非模态窗口，可拖动标题调整位置。原图缩略图是开发包原文件复制，未修改。
+`createInspector()` 可从正常本地页面设置入口打开。返回 `element`、`open()`、`close()`、`selectComponent(group)`、`isOpen` 和 `destroy()`。非模态窗口，可拖动标题调整位置。三态恢复按钮保留原有显示参数；缩略图已从活动前端撤下。
 
 ## 组件分组
 
@@ -11,15 +11,15 @@
 - `menus`：width（观看设置宽度）、compactWidth（倍速等紧凑菜单宽度）、fontSize、titleSize、padding、radius、itemRadius，以及独立玻璃参数。
 - `topbar`：fontSize、radius、gap，以及完整独立玻璃参数。
 - `heading`：fontSize，以及完整独立玻璃参数；color 控制标题文字，玻璃参数控制标题胶囊。
-- `mascot`：size、color、expression（happy/focus）、style（classic/minimal）、labelSize。
+- `annotations`：enabled、labelSize、fontFamily、fontWeight；保留纯文字标注。
 - `courtTheme.preset`：source / neutral / rockets / mavericks；只改变皮肤，不改变比赛资料。
 - `layout`、`motion`、`appearance`、`annotations` 保留整体参数。`glass` 明确标为批量调整组，会同步修改 dock/fullCourt/halfCourt/controls/content/menus/topbar/heading 八组。单独调整任一组件不会传到其他组件。
 
 独立玻璃参数：tint（严格六位十六进制色值）、tintAlpha、color、refraction、frost、bevelDepth、bevelWidth。每个组件默认值和精确边界由 `config/config.js` 的冻结 `baseline` / `schema` 定义。
 
-独立字体参数：`fullCourt`、`halfCourt`、`controls`、`content`、`menus`、`topbar`、`heading`、`mascot` 各自包含 `fontFamily` 与 `fontWeight`。`fontFamily` 枚举为 `default/system/pingfang/songti/mono`，分别对应原图默认、系统字体、苹方、宋体、等宽；白名单 CSS 栈由导出的 `fontFamilies` 定义，只用本机字体。`fontWeight` 是字符串枚举 `default/300/400/500/600/700/800`。默认均为 `default`，不输出覆盖，所以原有 550/620/730 等层级保持原样。选择具体字重后，当前组件内的文字统一使用该值。两字段均无跨组别名或批量传播。Dock 为纯 SVG 图标，不提供无效的字体字段。
+独立字体参数：`fullCourt`、`halfCourt`、`controls`、`content`、`menus`、`topbar`、`heading`、`annotations` 各自包含 `fontFamily` 与 `fontWeight`。`fontFamily` 枚举为 `default/system/pingfang/songti/mono`，分别对应原图默认、系统字体、苹方、宋体、等宽；白名单 CSS 栈由导出的 `fontFamilies` 定义，只用本机字体。`fontWeight` 是字符串枚举 `default/300/400/500/600/700/800`。默认均为 `default`，不输出覆盖，所以原有 550/620/730 等层级保持原样。选择具体字重后，当前组件内的文字统一使用该值。两字段均无跨组别名或批量传播。Dock 为纯 SVG 图标，不提供无效的字体字段。
 
-兼容别名同步：layout.dockWidth ↔ dock.width；layout.fullWidth ↔ fullCourt.width；layout.halfWidth ↔ halfCourt.width；appearance.controlRadius ↔ controls.radius；appearance.titleSize ↔ heading.fontSize；annotations.mascotSize ↔ mascot.size；annotations.labelSize ↔ mascot.labelSize。整体面板圆角及整体玻璃调节是明确的批量入口，独立组件修改不会改变其他组件。
+兼容别名同步：layout.dockWidth ↔ dock.width；layout.fullWidth ↔ fullCourt.width；layout.halfWidth ↔ halfCourt.width；appearance.controlRadius ↔ controls.radius；appearance.titleSize ↔ heading.fontSize。整体面板圆角及整体玻璃调节是明确的批量入口，独立组件修改不会改变其他组件。
 
 ## 配置与存储
 
@@ -29,7 +29,7 @@
 
 命名预设：`listPresets()`、`savePreset(name,{overwrite:false})`、`loadPreset(name)`、`renamePreset(oldName,newName)`、`deletePreset(name)`。新增同名不会静默覆盖，更新按钮显式覆盖所选项。最多 50 个预设，名称 1–48 字。存储仅使用当前来源的 localStorage，不发送数据。
 
-导出版本为 2；完整导入严格校验版本、组、字段、类型、数值边界、颜色和枚举，校验成功才整体替换。旧版本 1 导入会迁移兼容字段。旧版 v2 完整配置/命名预设若八组均没有字体字段，会统一补 `default`，其余字段仍须完整；只缺部分字体字段的文件会拒绝。迁移不自动覆盖本机存储。非法导入不修改当前值和撤销历史。预览不会自动持久保存。
+导出版本为 3；完整导入严格校验版本、组、字段、类型、数值边界、颜色和枚举，校验成功才整体替换。旧版本 1/2 及 v2 命名预设在读取时验证并转换：退役图形参数不进入新配置，关联文字字号与字体转入 annotations，其余布局、颜色、光学与组件设置保持原值。旧版 v2 在所有字体字段都不存在时统一补 default；部分缺失仍拒绝。读取不会覆盖原存储，保存或更新后才写入版本 3。非法导入不修改当前值和撤销历史。
 
 ## 事件
 
@@ -55,6 +55,6 @@ Inspector 向 window 派发：
 | content | `[data-component="content"]` 及后代，包括动态更新的抽屉内容 |
 | menus | `[data-component="menus"]` 及后代，覆盖观看设置与倍速菜单 |
 | topbar / heading | `#top-tabs` / `#moment-heading` 及后代 |
-| mascot | `.annotation-layer .mascot-label` 及后代，不制造缺失的头锚 |
+| annotations | `.annotation-layer .annotation-label` 及后代，不制造缺失的头锚 |
 
 播放器已应用 `--controls-height/radius/font-size/icon-size/gap/color`。倍速菜单另用 `--menus-compact-width/radius/font-size/item-radius/color`，保持与控制条独立。其余组件由对应组件层接入；GlassManager 读取各组光学参数并把 tint 与 tintAlpha 组合成 RGBA。调参面板读取 `window.broadcastDiagnostics` 对象或函数，展示实际引擎/状态，不把 CSS 降级报告为 liquidGL 成功。

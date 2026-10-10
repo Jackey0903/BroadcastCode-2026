@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/*.test.js annotations/*.test.js glass/*.test.js adapters/*.test.js"
+    "test": "node --test tests/*.test.js annotations/*.test.js glass/*.test.js adapters/*.test.js content/*.test.js"
   },
   "dependencies": {
     "liquid-gl": "3.0.0"

@@ -3,8 +3,11 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { normalizeStory, sameOriginAsset, loadStoryRecord } from './catalog.js';
 const BASE = 'https://deky02484tknr.cloudfront.net/product/watch/';
-const original = JSON.parse(await readFile(new URL('../../data/stories.json', import.meta.url), 'utf8')).stories.find(s => s.sample === 'flagg');
-const accepted = JSON.parse(await readFile(new URL(`../../evidence/run-${original.showcaseJobId}.json`, import.meta.url), 'utf8'));
+// Contract fixture only: no fake run is added to the real catalog.
+const seed = JSON.parse(await readFile(new URL('../data/stories.json', import.meta.url), 'utf8')).stories.find(s => s.sample === 'flagg');
+const jobId = 'c'.repeat(32), outputSha256 = 'd'.repeat(64);
+const original = { ...seed, showcaseJobId: jobId, showcaseOutputSha256: outputSha256, enhancedVideo: `/product/outputs/${jobId}/enhanced.mp4`, analysisUrl: `/product/outputs/${jobId}/analysis.json` };
+const accepted = { jobId, sample: seed.sample, mode: 'story', outputSha256, verifiedAt: '2026-10-10T00:00:00Z', contentReview: { acceptedForShowcase: true }, analysis: { runId: jobId, sample: seed.sample, preservesSourceTimeline: true, outputVideo: { sha256: outputSha256 }, sourceVideo: { sha256: seed.sourceVideoSha256 } } };
 test('same-origin registered enhanced pair stays available; current run does not inherit October 7 history', () => {
  const s = normalizeStory(original, BASE);
  assert.equal(s.sourceVideo, '/samples/flagg.mp4'); assert.equal(s.enhancedVideo, `/product/outputs/${original.showcaseJobId}/enhanced.mp4`); assert.equal(s.analysisUrl, `/product/outputs/${original.showcaseJobId}/analysis.json`); assert.equal(s.enhancedAvailable, true); assert.equal(s.history, null);

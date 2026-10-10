@@ -42,9 +42,9 @@ test('component settings stay independent, with only documented legacy aliases a
   const api = await fresh();
   const allowedPropagation = {
     layout: ['dock', 'fullCourt', 'halfCourt'], appearance: ['fullCourt', 'halfCourt', 'controls', 'heading'],
-    glass: ['dock', 'fullCourt', 'halfCourt', 'controls', 'content', 'menus', 'topbar', 'heading'], annotations: ['mascot'],
+    glass: ['dock', 'fullCourt', 'halfCourt', 'controls', 'content', 'menus', 'topbar', 'heading'],
     dock: ['layout'], fullCourt: ['layout'], halfCourt: ['layout'], controls: ['appearance'],
-    heading: ['appearance'], mascot: ['annotations'],
+    heading: ['appearance'],
   };
   for (const group of Object.keys(api.baseline)) {
     api.resetConfig();

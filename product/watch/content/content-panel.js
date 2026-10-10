@@ -1,6 +1,6 @@
 import { safeSourceUrl, formatVideoTime, formatBeijingDate, loadStoryRecord } from '../adapters/catalog.js';
 
-const TITLES = { moments: ['关键时刻', 'MOMENTS'], data: ['这一球的数据', 'SHOT DATA'], sources: ['画面与出处', 'SOURCES'], library: ['选择比赛', 'MATCH LIBRARY'], history: ['成片与验收记录', 'RUN RECORD'] };
+const TITLES = { moments: ['回看', 'CHAPTERS'], data: ['这一球的数据', 'SHOT DATA'], sources: ['画面与出处', 'SOURCES'], library: ['片段', 'MATCH LIBRARY'], history: ['成片与验收记录', 'RUN RECORD'] };
 const KINDS = { official: '官方记录', observation: '画面观察', video_frame: '实际输入帧' };
 const RL_LAYERS = { basic: '基础表现', advanced: '派生效率', gravity: '深度 · 引力', leverage: '深度 · 影响力', shotdifficulty: '深度 · 机会质量' };
 const PROFILE_SECTIONS = { gameOffense: '本场进攻', gameEfficiency: '本场效率', gameDefense: '本场防守', gameGeneral: '本场通用', seasonOffense: '赛季进攻背景', seasonDefense: '赛季防守背景', seasonShooting: '赛季投篮背景', seasonOverall: '赛季综合影响力' };
@@ -84,6 +84,7 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
   let lastFocus = null;
   let activeStory = null;
   let historyRequest = 0;
+  let view = {};
 
   function seek(time, metadata = {}) {
     const value = Number(time);
@@ -96,33 +97,28 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
     return names.length ? names.join(' · ') : '来源随历史记录保存';
   }
   function moments(story) {
-    body.append(paragraph('回看同一回合，选择你想看的这一拍。', 'content-lead'));
-    const chapterList = section();
-    for (const [index, chapter] of (story.chapters || []).entries()) {
-      const card = button('', 'content-moment', () => seek(chapter.start, { chapter, playbackRate: 1 }));
-      card.append(node('span', 'content-moment-index', String(index + 1).padStart(2, '0')));
-      const copy = node('span', 'content-moment-copy');
-      copy.append(node('strong', '', chapter.title), node('span', '', chapter.caption), node('small', '', `${formatVideoTime(chapter.start)} — ${formatVideoTime(chapter.end)} · ${KINDS[chapter.kind] || '编辑章节'}`));
-      card.append(copy, node('span', 'content-moment-arrow', '↗'));
-      card.title = evidenceDetails(chapter.evidenceIds);
-      chapterList.append(card);
-    }
-    body.append(chapterList);
-    if (story.keyMoment) {
-      const key = story.keyMoment;
-      const replay = button(`慢看关键一拍 · ${formatVideoTime(key.start)}`, 'content-primary', () => seek(key.start, { playbackRate: key.playbackRate || 0.5, end: key.end, chapter: 'keyMoment' }));
-      body.append(replay);
-    }
-    if (story.storyOptions?.length) {
-      const options = section('换个关注点');
-      for (const option of story.storyOptions) {
-        const item = button('', 'content-focus-option', () => seek(option.focusTime, { focus: option.id }));
-        item.append(node('strong', '', option.label), node('span', '', option.description));
-        options.append(item);
+    const pref=view.preferences||{player:'all',familiarity:'beginner',purpose:'enjoy'};
+    const events=(view.events||[]).filter(e=>pref.player==='all'||e.playerIds.includes(pref.player));
+    body.append(paragraph(pref.purpose==='analyze'?'展开章节查看观察与依据。':'按章节回看这一回合。','content-lead'));
+    for(const [index,chapter] of (story.chapters||[]).entries()) {
+      const card=section();card.classList.add('content-chapter');
+      card.append(node('h3','content-section-title',`${String(index+1).padStart(2,'0')} · ${chapter.title}`));
+      card.append(paragraph(chapter.caption));
+      card.append(button(`回放 ${formatVideoTime(chapter.start)} — ${formatVideoTime(chapter.end)}`,'content-text-button',()=>seek(chapter.start,{chapter,playbackRate:1})),button('慢放 0.5×','content-text-button',()=>seek(chapter.start,{chapter,playbackRate:.5})));
+      const points=events.filter(e=>e.time>=chapter.start&&e.time<chapter.end);
+      const details=node('details','content-profile-group');details.append(node('summary','',`关注点与依据 · ${points.length}`));
+      details.open=pref.purpose==='analyze';
+      for(const event of points){
+        const row=section();row.append(button(`${formatVideoTime(event.time)} · ${event.copy?.[pref.familiarity]||event.text}`,'content-text-button',()=>seek(event.time,{evidence:event})));
+        row.append(paragraph(event.sourceLabel,'content-note'));
+        if(pref.purpose==='analyze')row.append(paragraph(evidenceDetails(event.evidenceIds),'content-note'));
+        details.append(row);
       }
-      body.append(options);
+      if(!points.length)details.append(paragraph('本章没有该关注对象的可核验提醒。','content-note'));
+      card.append(details);body.append(card);
     }
-    body.append(paragraph('时间码为视频时间。章节与慢看节点来自已核查的编辑素材；官方比赛时钟单独保留。', 'content-note'));
+    if(pref.familiarity==='beginner')body.append(paragraph('进攻看如何创造出手机会；防守看如何限制对手；无球指未持球时的表现。现有提醒沿用来源原文。','content-note'));
+    body.append(paragraph('观察来自已查看的源帧；时间码是视频时间，不是官方时钟逐帧换算。无球事件及可靠位置映射待联调。','content-note'));
   }
   function data(story) {
     const event = story.officialEvent || {};
@@ -149,7 +145,7 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
     rlData(story);
     playerData(story);
     const court = section('战术板的数据');
-    court.append(paragraph(story.sample === 'flagg' ? '弗拉格样片使用编辑站位与球权示意。D / W 是匿名编号；空心点是过去的最近位置。' : story.sample === 'formal' ? '本片战术定格与俯视图已烧录到特效版本。右侧战术板没有正式素材的连续追踪点位。' : '这段阿门样片没有配套的逐帧战术示意，战术板保持空白。'));
+    court.append(paragraph(story.sample === 'flagg' ? '弗拉格样片使用编辑站位与球权示意。D / W 是匿名编号；空心点是过去的最近位置。' : '这段阿门样片没有配套的逐帧战术示意，战术板保持空白。'));
     court.append(paragraph('示意点、移动线路和篮球位置未经人类专家核准，不是官方追踪数据。', 'content-note'));
     body.append(court);
   }
@@ -264,10 +260,15 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
     body.append(paragraph('每条观察与数值，都保留原有来源。', 'content-lead'));
     for (const evidence of story.evidence || []) body.append(evidenceCard(evidence, story));
     const original = section('素材来源');
-    appendLink(original, story.sample === 'formal' ? '主办方正式比赛素材 ↗' : '主办方公开训练视频包 ↗', story.originalSourceUrl);
+    appendLink(original, '主办方公开训练视频包 ↗', story.originalSourceUrl);
     original.append(paragraph('原转播比分牌保留在画面内。', 'content-note'));
+    if(view.media?.width)original.append(paragraph(`当前媒体 ${view.media.width} × ${view.media.height} · ${view.media.variant==='enhanced'?'增强成片':'原片'}`,'content-note'));
     original.append(node('code', 'content-source-path', `SHA-256 ${story.sourceVideoSha256 || '未记录'}`));
     body.append(original);
+    const court = section('战术示意来源');
+    court.append(paragraph(story.sample === 'flagg' ? 'D / W 为匿名编号；示意站位未经人工复核。空心虚线点保留过去位置，不代表当前可见。' : '当前素材没有逐帧战术坐标，待联调。', 'content-note'));
+    if (story.sample === 'flagg') appendLink(court, '查看原始编辑示意 JSON ↗', new URL('../data/flagg.json', import.meta.url).href);
+    body.append(court);
     rlSources(story);
   }
   function rlSources(story) {
@@ -291,7 +292,7 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
     body.append(block);
   }
   function library(story, catalog) {
-    body.append(paragraph(story.sample === 'formal' ? '正式比赛素材' : '公开训练样片', 'content-lead'));
+    body.append(paragraph('公开训练样片', 'content-lead'));
     for (const item of catalog) {
       const card = section();
       card.classList.add('content-library-card');
@@ -307,7 +308,7 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
       if (item.history || item.enhancedAvailable) card.append(button('查看成片验收记录', 'content-text-button', () => open('history', item, catalog)));
       body.append(card);
     }
-    body.append(paragraph(story.sample === 'formal' ? '正式原片与特效成片分开播放；特效版包含定格与回放，回看节点按编辑时间线定位。' : '原片与增强成片均使用已登记的同源媒体。增强成片保留原视频时间轴；编辑战术板不是官方逐帧追踪。', 'content-note'));
+    body.append(paragraph('原片与增强成片均使用已登记的同源媒体。成片保留原比赛回合，可能包含编辑暂停与回放；战术板为编辑示意。', 'content-note'));
   }
   function renderHistory(story, record) {
     body.replaceChildren();
@@ -359,11 +360,11 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
       body.replaceChildren(paragraph(error.message || '成片记录暂不可用。'), paragraph('原片与增强成片播放不受此记录读取失败影响。', 'content-note'));
     });
   }
-  function open(kind, story, catalog = []) {
+  function open(kind, story, catalog = [], options = {}) {
     if (!TITLES[kind]) throw new Error(`未知抽屉类型：${kind}`);
     if (!story) throw new Error('打开内容抽屉需要比赛素材。');
     if (!openState) lastFocus = document.activeElement;
-    activeStory = story; historyRequest++;
+    activeStory = story; view = options; historyRequest++;
     const [label, english] = TITLES[kind];
     title.textContent = label; eyebrow.textContent = english;
     element.dataset.kind = kind;

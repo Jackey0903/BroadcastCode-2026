@@ -1,0 +1,527 @@
+{
+  "browser": "155.0.8059.39",
+  "viewport": [
+    1512,
+    949
+  ],
+  "date": "2026-10-10T10:36:28.511Z",
+  "styles": {
+    "background": "linear-gradient(155deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0) 65%) repeat scroll 0% 0% / auto padding-box border-box, rgba(18, 24, 34, 0.36) none repeat scroll 0% 0% / auto padding-box border-box",
+    "filter": "blur(3px) saturate(1.18)",
+    "border": "1px solid rgba(255, 255, 255, 0.1)",
+    "shadow": "rgba(0, 0, 0, 0.14) 0px 8px 24px 0px, rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+    "court": "none"
+  },
+  "runs": [
+    {
+      "transitions": false,
+      "total": 1287,
+      "dropped": 0,
+      "raf": {
+        "frames": 1296,
+        "mean": 16.66597222222234,
+        "p95": 16.700000000000728,
+        "max": 16.80000000000291,
+        "over25": 0
+      },
+      "diagnostics": {
+        "glass": {
+          "library": "liquid-gl",
+          "version": "3.0.0",
+          "sourceCommit": "88f681ab7035fd55b04f63edff1841e32c4199e9",
+          "vendorPatch": "broadcastcode-optics-smooth-v5",
+          "mode": "css",
+          "backend": "css",
+          "ambience": "static-gradient",
+          "initialized": false,
+          "renderers": 0,
+          "ready": true,
+          "enabled": false,
+          "lenses": 0,
+          "canvases": 0,
+          "reports": [],
+          "errors": [],
+          "devicePixelRatio": 1,
+          "viewport": [
+            1512,
+            949
+          ],
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+        },
+        "ambience": {
+          "observerActive": false,
+          "paintedFrames": 0
+        },
+        "layout": {
+          "video": {
+            "x": 0,
+            "y": 49.25,
+            "width": 1512,
+            "height": 850.5
+          },
+          "panel": {
+            "x": 1512,
+            "y": 16,
+            "width": 0,
+            "height": 917
+          },
+          "controls": {
+            "x": 98.28,
+            "y": 759,
+            "width": 1315.44,
+            "height": 66
+          },
+          "open": 0,
+          "half": 0,
+          "width": 1512,
+          "height": 949
+        },
+        "mode": "immersive",
+        "media": {
+          "src": "http://127.0.0.1:4189/samples/flagg.mp4",
+          "time": 21.548118,
+          "displayedCourtTime": 21.521522,
+          "lastDecodedFrameTime": 21.521522,
+          "status": "available",
+          "duration": 21.548118,
+          "paused": true,
+          "ended": true,
+          "videoWidth": 1920,
+          "videoHeight": 1080,
+          "quality": {
+            "totalVideoFrames": 1338,
+            "droppedVideoFrames": 0,
+            "corruptedVideoFrames": 0
+          }
+        },
+        "annotations": {
+          "validHeadAnchors": 0
+        },
+        "config": {
+          "layout": {
+            "padding": 16,
+            "gap": 16,
+            "dockWidth": 72,
+            "fullWidth": 0.24,
+            "halfWidth": 0.3
+          },
+          "motion": {
+            "open": 350,
+            "morph": 300,
+            "close": 220,
+            "hideDelay": 150,
+            "controlsIdle": 2000
+          },
+          "appearance": {
+            "panelRadius": 28,
+            "videoRadius": 20,
+            "controlRadius": 22,
+            "titleSize": 28,
+            "bodySize": 16
+          },
+          "glass": {
+            "refraction": 0.012,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15,
+            "frost": 2,
+            "tintAlpha": 0.38
+          },
+          "annotations": {
+            "labelSize": 15,
+            "enabled": true,
+            "fontFamily": "default",
+            "fontWeight": "default"
+          },
+          "dock": {
+            "width": 72,
+            "radius": 28,
+            "iconSize": 26,
+            "gap": 18,
+            "tint": "#10131c",
+            "tintAlpha": 0.4,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 3,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "fullCourt": {
+            "width": 0.24,
+            "courtRadius": 10,
+            "radius": 28,
+            "fontSize": 16,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "woodColor": "#d9ad7a",
+            "paintColor": "#aa1734",
+            "lineColor": "#fff8ec",
+            "lineWidth": 0.24,
+            "markerSize": 2.05,
+            "tint": "#181420",
+            "tintAlpha": 0.42,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 3,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "halfCourt": {
+            "width": 0.3,
+            "courtRadius": 8,
+            "radius": 28,
+            "fontSize": 16,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "woodColor": "#d9ad7a",
+            "paintColor": "#aa1734",
+            "lineColor": "#fff8ec",
+            "lineWidth": 0.24,
+            "markerSize": 2.05,
+            "tint": "#181420",
+            "tintAlpha": 0.42,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 3,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "controls": {
+            "height": 66,
+            "radius": 22,
+            "fontSize": 17,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "iconSize": 26,
+            "gap": 16,
+            "tint": "#0c1019",
+            "tintAlpha": 0.38,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 2,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "content": {
+            "width": 370,
+            "maxHeight": 680,
+            "fontSize": 13,
+            "titleSize": 21,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "padding": 22,
+            "radius": 26,
+            "tint": "#191d24",
+            "tintAlpha": 0.56,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 3,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "menus": {
+            "width": 350,
+            "compactWidth": 120,
+            "fontSize": 16,
+            "titleSize": 19,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "padding": 22,
+            "radius": 24,
+            "itemRadius": 15,
+            "tint": "#151c26",
+            "tintAlpha": 0.64,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 3,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "topbar": {
+            "fontSize": 16,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "radius": 22,
+            "gap": 16,
+            "tint": "#10131c",
+            "tintAlpha": 0.38,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 2,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "heading": {
+            "fontSize": 28,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "tint": "#10131c",
+            "tintAlpha": 0.38,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 2,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "courtTheme": {
+            "preset": "source"
+          }
+        }
+      }
+    },
+    {
+      "transitions": true,
+      "total": 1287,
+      "dropped": 0,
+      "raf": {
+        "frames": 1296,
+        "mean": 16.665972222222223,
+        "p95": 16.799999999995634,
+        "max": 16.80000000000291,
+        "over25": 0
+      },
+      "diagnostics": {
+        "glass": {
+          "library": "liquid-gl",
+          "version": "3.0.0",
+          "sourceCommit": "88f681ab7035fd55b04f63edff1841e32c4199e9",
+          "vendorPatch": "broadcastcode-optics-smooth-v5",
+          "mode": "css",
+          "backend": "css",
+          "ambience": "static-gradient",
+          "initialized": false,
+          "renderers": 0,
+          "ready": true,
+          "enabled": false,
+          "lenses": 0,
+          "canvases": 0,
+          "reports": [],
+          "errors": [],
+          "devicePixelRatio": 1,
+          "viewport": [
+            1512,
+            949
+          ],
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+        },
+        "ambience": {
+          "observerActive": false,
+          "paintedFrames": 0
+        },
+        "layout": {
+          "video": {
+            "x": 100,
+            "y": 185.435,
+            "width": 1017.12,
+            "height": 572.13
+          },
+          "panel": {
+            "x": 1133.12,
+            "y": 16,
+            "width": 362.88,
+            "height": 917
+          },
+          "controls": {
+            "x": 100,
+            "y": 849,
+            "width": 1017.1199999999999,
+            "height": 66
+          },
+          "open": 1,
+          "half": 0,
+          "width": 1512,
+          "height": 949
+        },
+        "mode": "immersive",
+        "media": {
+          "src": "http://127.0.0.1:4189/samples/flagg.mp4",
+          "time": 21.548118,
+          "displayedCourtTime": 21.521522,
+          "lastDecodedFrameTime": 21.521522,
+          "status": "available",
+          "duration": 21.548118,
+          "paused": true,
+          "ended": true,
+          "videoWidth": 1920,
+          "videoHeight": 1080,
+          "quality": {
+            "totalVideoFrames": 2629,
+            "droppedVideoFrames": 0,
+            "corruptedVideoFrames": 0
+          }
+        },
+        "annotations": {
+          "validHeadAnchors": 0
+        },
+        "config": {
+          "layout": {
+            "padding": 16,
+            "gap": 16,
+            "dockWidth": 72,
+            "fullWidth": 0.24,
+            "halfWidth": 0.3
+          },
+          "motion": {
+            "open": 350,
+            "morph": 300,
+            "close": 220,
+            "hideDelay": 150,
+            "controlsIdle": 2000
+          },
+          "appearance": {
+            "panelRadius": 28,
+            "videoRadius": 20,
+            "controlRadius": 22,
+            "titleSize": 28,
+            "bodySize": 16
+          },
+          "glass": {
+            "refraction": 0.012,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15,
+            "frost": 2,
+            "tintAlpha": 0.38
+          },
+          "annotations": {
+            "labelSize": 15,
+            "enabled": true,
+            "fontFamily": "default",
+            "fontWeight": "default"
+          },
+          "dock": {
+            "width": 72,
+            "radius": 28,
+            "iconSize": 26,
+            "gap": 18,
+            "tint": "#10131c",
+            "tintAlpha": 0.4,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 3,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "fullCourt": {
+            "width": 0.24,
+            "courtRadius": 10,
+            "radius": 28,
+            "fontSize": 16,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "woodColor": "#d9ad7a",
+            "paintColor": "#aa1734",
+            "lineColor": "#fff8ec",
+            "lineWidth": 0.24,
+            "markerSize": 2.05,
+            "tint": "#181420",
+            "tintAlpha": 0.42,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 3,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "halfCourt": {
+            "width": 0.3,
+            "courtRadius": 8,
+            "radius": 28,
+            "fontSize": 16,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "woodColor": "#d9ad7a",
+            "paintColor": "#aa1734",
+            "lineColor": "#fff8ec",
+            "lineWidth": 0.24,
+            "markerSize": 2.05,
+            "tint": "#181420",
+            "tintAlpha": 0.42,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 3,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "controls": {
+            "height": 66,
+            "radius": 22,
+            "fontSize": 17,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "iconSize": 26,
+            "gap": 16,
+            "tint": "#0c1019",
+            "tintAlpha": 0.38,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 2,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "content": {
+            "width": 370,
+            "maxHeight": 680,
+            "fontSize": 13,
+            "titleSize": 21,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "padding": 22,
+            "radius": 26,
+            "tint": "#191d24",
+            "tintAlpha": 0.56,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 3,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "menus": {
+            "width": 350,
+            "compactWidth": 120,
+            "fontSize": 16,
+            "titleSize": 19,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "padding": 22,
+            "radius": 24,
+            "itemRadius": 15,
+            "tint": "#151c26",
+            "tintAlpha": 0.64,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 3,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "topbar": {
+            "fontSize": 16,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "radius": 22,
+            "gap": 16,
+            "tint": "#10131c",
+            "tintAlpha": 0.38,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 2,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "heading": {
+            "fontSize": 28,
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "tint": "#10131c",
+            "tintAlpha": 0.38,
+            "color": "#f6f7fa",
+            "refraction": 0.012,
+            "frost": 2,
+            "bevelDepth": 0.08,
+            "bevelWidth": 0.15
+          },
+          "courtTheme": {
+            "preset": "source"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "changedFromLocalBaseline": [
+    "product/watch/README.md",
+    "product/watch/adapters/catalog.js",
+    "product/watch/app.js",
+    "product/watch/content/content-panel.js",
+    "product/watch/content/content.css",
+    "product/watch/court/court-panel.js",
+    "product/watch/court/court.css",
+    "product/watch/dev/inspector.js",
+    "product/watch/index.html",
+    "product/watch/media/media.css",
+    "product/watch/media/player-controls.js",
+    "product/watch/navigation/drawer.js",
+    "product/watch/package.json",
+    "product/watch/stage/stage.css"
+  ],
+  "protectedFiles": {
+    "product/watch/assets/teams/README.md": "bad88fdf1de5387c543faaec6d7e4607ab1adca00f606aa531982a6e45aa3c97",
+    "product/watch/assets/teams/dallas-mavericks.svg": "1547494512746c1827808f1650407e675025b20b07bb5bd185093ac49630db5c",
+    "product/watch/assets/teams/houston-rockets.svg": "9a0fd3d351f0726db427e8bed6db098bf88d15e98582b4b8dfd5a3638d6263f0",
+    "product/watch/commentary/README.md": "48ab6f886881a823ebcb8195ee15effd2fa268b0e1095c69984cf98f3312eaa0",
+    "product/watch/commentary/flagg-buddy.json": "ea894b91199be2747fa599bd8060dd28107697aa37de7e7ec0db43315821b252",
+    "product/watch/commentary/flagg-passion.json": "3f03649d6011b3e5458571e88a1e0632174e4e091909148f01b30577c3484923",
+    "product/watch/commentary/flagg.json": "06c17912ad4745ab9fa58035b789f0af9b493386bd5a0a6011ce8d5196a2c031",
+    "product/watch/commentary/generate.py": "aaccc614fdba6a5c70e620403d32058f53c483fe92ab5a8fcee5f6f03e0cd296",
+    "product/watch/commentary/index.html": "41a7e788643e8538505d41484584d45ea0fb04eca24c2b5834b4b75b2623ca41",
+    "product/watch/commentary/preview.py": "a11fffa8c5fb9849ea623fed89d694717323cc3d503634598d258f7e7f9ce8ff",
+    "AI接手说明.md": "17f393e6b4a4c142aa56e22db61946a455b4e28c65919c7e476447bcb84a7d7a",
+    "README.md": "204c480787a5d50f41958acbb632e36cea063fa72dc033a02c81c8f9b9f81418",
+    "product/watch/annotations/annotations.css": "2a7c0395ae36591bfa5b78decf8ca2f49114ab8a87816f89cb419d40f15d9858",
+    "product/watch/annotations/annotations.js": "c0530d3633922dc02f478cd5276aa59218c780869e54b9293f4da5c3fd2865e2",
+    "product/watch/config/config.js": "55a77229dbcd1ec8b354c7b8deca8f8700ba5a9876b9f5b7e93beafaab52d63d",
+    "product/watch/court/court-geometry.js": "6eafb2d0a9134d616ee8be1a27b0c0cb4ab72b96d4d2fd57aefbc4e16861efb0",
+    "product/watch/court/themes.js": "6d691be9bada633ed53bed67f5436df9d88e5332da37ea19d2f970f6b9187a23"
+  },
+  "unchanged": true,
+  "outsideWatchChanged": [],
+  "deletedRemainAbsent": {
+    "product/watch/annotations/mascot.js": true,
+    "product/watch/dev/references/01_immersive.png": true,
+    "product/watch/dev/references/02_full_court.png": true,
+    "product/watch/dev/references/03_half_court.png": true
+  }
+}

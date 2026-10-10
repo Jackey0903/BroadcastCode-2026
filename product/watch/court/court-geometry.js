@@ -48,7 +48,7 @@ export function createCourtGeometry() {
   <g data-group="paint-and-lines">${end}<g transform="translate(50 94) rotate(180)">${end}</g>
     <g class="court-lines"><rect x=".12" y=".12" width="49.76" height="93.76"/><path d="M0 47H50M0 28H2M48 28H50M0 66H2M48 66H50"/><circle cx="25" cy="47" r="6"/><circle cx="25" cy="47" r="2"/></g>
   </g>
-  <g data-group="team-wordmark" class="court-brand"><text class="court-center-mark" x="25" y="47" text-anchor="middle" dominant-baseline="central">HOU</text></g>
+  <g data-group="team-wordmark" class="court-brand" pointer-events="none"><image class="court-center-logo" x="16" y="38" width="18" height="18" preserveAspectRatio="xMidYMid meet" role="img" style="display:none"/><text class="court-center-mark" x="25" y="47" text-anchor="middle" dominant-baseline="central">HOU</text></g>
   <g data-group="routes"></g><g data-group="players"></g><g data-group="ball"></g>`;
   return { svg, id, routes: svg.querySelector('[data-group="routes"]'), players: svg.querySelector('[data-group="players"]'), ball: svg.querySelector('[data-group="ball"]') };
 }

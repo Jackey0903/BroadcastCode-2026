@@ -4,12 +4,22 @@
 <body><main id="stage" data-glass="css" aria-label="GameBuddy 观赛播放器" tabindex="-1">
 <div id="scene"><canvas id="ambience" aria-hidden="true"></canvas><div class="scene-shade"></div><div id="video-surface" data-liquid-dynamic-container><video id="match-video" playsinline preload="auto" crossorigin="anonymous" aria-label="真实比赛原片"></video></div></div>
 <div id="annotation-host" data-liquid-ignore></div>
-<div id="moment-heading" data-liquid-ignore><div class="moment-pill glass-shell"><div class="glass-target"></div><div class="glass-content"><span id="heading-mascot"></span><span id="moment-kicker">GameBuddy</span></div></div><h1 id="moment-title"></h1><p id="moment-subtitle"></p></div>
-<nav id="top-tabs" class="glass-shell" aria-label="分析入口"><div class="glass-target"></div><div class="glass-content"><button data-content="moments">关键时刻</button><button id="analysis-button" class="selected" aria-pressed="false">战术分析</button><button data-content="data">球员数据</button></div></nav>
-<button id="more-button" class="glass-shell icon-button" aria-label="观看设置" aria-expanded="false"><span class="glass-target"></span><span class="glass-content">•••</span></button>
+<div id="game-buddy-slot" data-liquid-ignore aria-hidden="true" style="position:absolute;left:16px;bottom:calc(var(--controls-height,66px) + 32px);z-index:20;pointer-events:none"></div>
+<div id="moment-heading" data-liquid-ignore><div class="moment-pill glass-shell"><div class="glass-target"></div><div class="glass-content"><span id="moment-kicker">关键一拍</span></div></div><h1 id="moment-title"></h1><p id="moment-subtitle"></p></div>
 <aside id="court-shell" class="glass-shell" aria-label="独立球队战术板" inert><div class="glass-target"></div><div id="court-foreground" class="glass-content"></div><button id="court-close" aria-label="收起战术板">×</button></aside>
 <div id="controls-host"></div><div id="drawer-host"></div>
 <button id="left-edge" class="edge-hotzone" aria-label="打开操作抽屉"></button><button id="right-edge" class="edge-hotzone" aria-label="展开半场战术板"></button>
-<div id="settings" data-component="menus" class="glass-shell popover" hidden role="dialog" aria-label="观看设置"><div class="glass-target"></div><div class="glass-content"><h2>观看设置</h2><div class="mode-choices"><button data-mode="immersive">沉浸式</button><button data-mode="fullCourt">全场</button><button data-mode="halfCourt">半场</button></div><label class="setting-row">视频解释图层 <input type="checkbox" id="analysis-toggle" checked></label><button data-content="sources" class="setting-row">数据与素材来源 <span>›</span></button><button data-content="library" class="setting-row">原片与历史成片 <span>›</span></button><button id="style-inspector" class="setting-row" hidden>外观与组件 <span>›</span></button><p class="keyboard-hint">空格 播放 · F 全屏 · Esc 返回观看</p></div></div>
+<div id="settings" data-component="menus" class="glass-shell popover" hidden role="dialog" aria-label="更多"><div class="glass-target"></div><div class="glass-content"><h2>更多</h2>
+<details id="watch-preferences"><summary>观赛偏好</summary>
+<label class="preference-row">关注球员<select id="follow-player" aria-label="关注球员"><option value="all">全队</option></select></label>
+<label class="preference-row">篮球熟悉程度<select id="familiarity" aria-label="篮球熟悉程度"><option value="beginner">入门</option><option value="familiar">熟悉</option></select></label>
+<label class="preference-row">观看目的<select id="watch-purpose" aria-label="观看目的"><option value="enjoy">享受比赛</option><option value="analyze">深入分析</option></select></label>
+<p id="preference-status" class="keyboard-hint"></p></details>
+<details><summary>观看设置</summary><label class="setting-row">视频解释图层 <input type="checkbox" id="analysis-toggle" checked></label><p id="media-info" class="keyboard-hint">等待媒体信息</p></details>
+<button id="style-inspector" class="setting-row">外观与组件 <span>›</span></button>
+<details><summary>项目与制作</summary><button data-content="sources" class="setting-row">完整来源 <span>›</span></button><button data-content="history" class="setting-row">运行记录 <span>›</span></button><a class="setting-row" href="/product/index.html#creator">返回创作台 <span>›</span></a></details>
+<details><summary>帮助</summary><p class="keyboard-hint">左侧移入找操作；点击右侧看战术。空格播放 · F 全屏 · Esc 逐层返回。增强片的烧录内容不随偏好变化。</p></details>
+</div></div>
+<button id="follow-reminder" class="glass-shell" hidden aria-label="查看当前提醒依据"><span class="glass-target"></span><span class="glass-content"></span></button>
 <div id="notice" role="status" hidden></div><div id="load-error" hidden><h2>原片暂时无法播放</h2><p>请检查本地素材是否存在。不会用图片代替视频。</p><button id="retry-media">重新加载</button></div>
 </main><script src="./vendor/court-viewer.js"></script><script type="module" src="./app.js"></script></body></html>

@@ -104,7 +104,8 @@
         "evidenceUrls": [
           "https://www.nba.com/game/hou-vs-dal-0022500356/play-by-play",
           "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500356&playerId=1631108"
-        ]
+        ],
+        "verified": true
       },
       "videoHeadAnchors": [],
       "chapters": [

@@ -20,6 +20,7 @@ from watch_assets import WATCH_PUBLIC_FILES
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--media-only',action='store_true',help='Replace final media/catalog/root after the watch assets have already been published')
+    parser.add_argument('--web-only',action='store_true',help='Publish player assets, root and verified catalog without uploading video again')
     args=parser.parse_args()
     import boto3
     from boto3.s3.transfer import TransferConfig
@@ -50,6 +51,11 @@ def main():
         keys={'product/media/formal/enhanced.mp4','product/media/formal/manifest.json',
               'product/watch/data/stories.json','index.html'}
         objects={key:value for key,value in objects.items() if key in keys}
+    if args.web_only:
+        objects={key:value for key,value in objects.items() if not key.endswith('.mp4')}
+    # Commit the public root after every dependent asset/catalog is ready.
+    root=objects.pop('index.html',None)
+    if root:objects['index.html']=root
     target=load_deployment();outputs=load_outputs(target=target)
     session=boto3.Session(profile_name='nba',region_name='us-east-1')
     sdk=Config(connect_timeout=8,read_timeout=120,retries={'total_max_attempts':2})
@@ -76,7 +82,8 @@ def main():
             'outputSha256':production['outputSha256'],'sourceSha256':production['sourceSha256'],
             'aiNarrationUsed':True,'agentCoreNarration':production.get('narration',{}).get('agentCore',{}).get('invoked') is True,
             'rootUrl':outputs['Website'],'cloudFrontPlaybackVerified':False}
-    (ROOT/'product/evidence/formal-narrated-publication-20261010.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
+    evidence_name='watch-prd-v2-publication-20261010.json' if args.web_only else 'formal-narrated-publication-20261010.json'
+    (ROOT/'product/evidence'/evidence_name).write_text(json.dumps(result,ensure_ascii=False,indent=2))
     print(json.dumps({'watchUrl':result['watchUrl'],'publishedObjects':len(uploaded)},ensure_ascii=False),flush=True)
 
 

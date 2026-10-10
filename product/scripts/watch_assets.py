@@ -6,13 +6,17 @@ The catalog is generated from the current validated product manifest separately.
 """
 
 WATCH_PUBLIC_FILES = (
+    'companions/game-buddy/game-buddy-embed.js',
+    'companions/game-buddy/sprite-atlas.js',
+    'companions/game-buddy/assets/game-buddy-crt.webp',
+    'assets/teams/dallas-mavericks.svg',
+    'assets/teams/houston-rockets.svg',
     'index.html',
     'app.js',
     'adapters/catalog.js',
     'adapters/historical-records.js',
     'annotations/annotations.css',
     'annotations/annotations.js',
-    'annotations/mascot.js',
     'config/config.js',
     'content/content-panel.js',
     'content/content.css',
@@ -23,9 +27,6 @@ WATCH_PUBLIC_FILES = (
     'data/flagg.json',
     'dev/inspector.css',
     'dev/inspector.js',
-    'dev/references/01_immersive.png',
-    'dev/references/02_full_court.png',
-    'dev/references/03_half_court.png',
     'glass/ambience-source.js',
     'glass/glass-manager.js',
     'glass/optics-model.js',
