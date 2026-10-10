@@ -1,0 +1,718 @@
+{
+  "schema": "gamebuddy-moss-local-commentary-v1",
+  "createdAt": "2026-10-10T16:51:57.941008+00:00",
+  "output": "product/build/formal-assets/GameBuddy-55s-MOSS-English.mp4",
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "visualSha256": "0a93a488fa4f79e5a3ac87c68506ff447d461c30a59bec472ebbedd16edb4019",
+  "outputSha256": "11e2ba23a841e3e025d77b4113da36311e4e067df42e8785db242e268c393dd8",
+  "sizeBytes": 76158103,
+  "durationSeconds": 55.055,
+  "frameCount": 3300,
+  "probe": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "width": 1920,
+        "height": 1080,
+        "coded_width": 1920,
+        "coded_height": 1080,
+        "has_b_frames": 2,
+        "pix_fmt": "yuv420p",
+        "level": 42,
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "refs": 1,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "60000/1001",
+        "avg_frame_rate": "60000/1001",
+        "time_base": "1/60000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 3303300,
+        "duration": "55.055000",
+        "bit_rate": "10860508",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "3300",
+        "extradata_size": 44,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "vendor_id": "[0][0][0][0]",
+          "encoder": "Lavc62.11.100 libx264"
+        }
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "sample_fmt": "fltp",
+        "sample_rate": "48000",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 2635776,
+        "duration": "54.912000",
+        "bit_rate": "193617",
+        "nb_frames": "2575",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "eng",
+          "handler_name": "SoundHandler",
+          "vendor_id": "[0][0][0][0]"
+        }
+      }
+    ],
+    "format": {
+      "filename": "/Users/jack/work/BroadcastCode/product/build/formal-assets/GameBuddy-55s-MOSS-English.mp4",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "55.055000",
+      "size": "76158103",
+      "bit_rate": "11066475",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "title": "GameBuddy · Second Chance",
+        "encoder": "Lavf62.3.100"
+      }
+    }
+  },
+  "fullDecodePassed": true,
+  "published": false,
+  "humanVoiceReviewPassed": false,
+  "pptPlaybackTested": false,
+  "agentCoreInvokedThisRun": false,
+  "rlInvokedThisRun": false,
+  "remoteProvider": "MOSS official API",
+  "localStages": [
+    "fitting",
+    "mixing",
+    "video_export"
+  ],
+  "voiceDesign": "Original voices from text descriptions; no real commentator references",
+  "planSha256": "ba9f62954e31861db12e61013ed124995d9323a6369a08865ac3df65c4f457ca",
+  "speechSha256": "8636d90cb692d70fce7b73c7555b800f6890c8e3234bded77626b84c99c18eab",
+  "cues": [
+    {
+      "id": "hook",
+      "role": "A",
+      "start": 0.18,
+      "end": 2.4,
+      "text": "One stop. One more chance.",
+      "subtitleZh": "一次防守，仍有下一次机会。",
+      "direction": "Confident opening hook, compact, warm anticipation.",
+      "evidenceIds": [
+        "formal-frame-review"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "9e9ce91d-e55c-4d53-bccc-caa8570ddfb4",
+      "requestId": null,
+      "textSha256": "eada9b643ca96f1f81b27578e6daf2530d94d37f3a3c79ba16b8c602007fd171",
+      "requestedDurationSeconds": 2.1399999999999997,
+      "audioSha256": "f9418f961f6dcac795c020634c3e52888a6b87595bed08562e789a820614f5ca",
+      "audioBytes": 111438,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 2.32,
+      "fittedDurationSeconds": 1.995917,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 2.32,
+          "trimmedSeconds": 2.000625,
+          "tempo": 1.0
+        }
+      ]
+    },
+    {
+      "id": "drive",
+      "role": "A",
+      "start": 2.75,
+      "end": 6.3,
+      "text": "Christie drives. Houston closes the lane.",
+      "subtitleZh": "克里斯蒂切入，火箭收紧禁区。",
+      "direction": "Live action call, quick and precise, build anticipation.",
+      "evidenceIds": [
+        "formal-frame-review"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "9e9ce91d-e55c-4d53-bccc-caa8570ddfb4",
+      "requestId": null,
+      "textSha256": "96951bf5372a1f0f57b6c8c8cf098902c74798f563d59ae7dd703b5f16ee46ab",
+      "requestedDurationSeconds": 3.4699999999999998,
+      "audioSha256": "6cb024d003b0ed9046fbccb4d8b490c978f5bb365a40798d95544c924a83cd10",
+      "audioBytes": 142158,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 2.96,
+      "fittedDurationSeconds": 2.435292,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 2.96,
+          "trimmedSeconds": 2.442375,
+          "tempo": 1.0
+        }
+      ]
+    },
+    {
+      "id": "scramble",
+      "role": "B",
+      "start": 6.7,
+      "end": 10.55,
+      "text": "Freeze it. Look at the help around the ball.",
+      "subtitleZh": "暂停看这一拍：球侧的协防正在收紧。",
+      "direction": "Direct the viewer's attention in a conversational tactical breakdown.",
+      "evidenceIds": [
+        "formal-frame-review"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "2885a8f6-52d5-4cde-92ab-bb1953146697",
+      "requestId": null,
+      "textSha256": "842405e3da0bf1e9fbb538d3deca02f8ace8130e149304a75a678f0f9cd25f47",
+      "requestedDurationSeconds": 3.7700000000000005,
+      "audioSha256": "e33c97fc8e52f72d17a3639c4b138dddbfc410113edb013d0c9b932ab331c02d",
+      "audioBytes": 138318,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 2.88,
+      "fittedDurationSeconds": 2.403292,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 2.88,
+          "trimmedSeconds": 2.410042,
+          "tempo": 1.0
+        }
+      ]
+    },
+    {
+      "id": "rebound",
+      "role": "A",
+      "start": 12.0,
+      "end": 14.85,
+      "text": "Blocked! Powell keeps it alive!",
+      "subtitleZh": "被封盖！鲍威尔抢回球权！",
+      "direction": "Two compact energetic calls. Punch Blocked, then a relieved recovery, not a scream.",
+      "evidenceIds": [
+        "pbp-270",
+        "pbp-272"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "9e9ce91d-e55c-4d53-bccc-caa8570ddfb4",
+      "requestId": null,
+      "textSha256": "f0dba7df8918a1978de0cbac347b1b25b7b073ab21b425a4a6d4519d734f7732",
+      "requestedDurationSeconds": 2.7699999999999996,
+      "audioSha256": "820b2945862030586b5c620bafe0d2757f2427b3b49dda1a5783e9e0967e7061",
+      "audioBytes": 130638,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 2.72,
+      "fittedDurationSeconds": 2.056938,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 2.72,
+          "trimmedSeconds": 2.061917,
+          "tempo": 1.0
+        }
+      ]
+    },
+    {
+      "id": "second-chance",
+      "role": "B",
+      "start": 15.15,
+      "end": 19.15,
+      "text": "That rebound gives Dallas another chance.",
+      "subtitleZh": "这次前场篮板，给独行侠第二次机会。",
+      "direction": "Explain the value of the offensive rebound with a warm confident emphasis on another chance.",
+      "evidenceIds": [
+        "pbp-272"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "2885a8f6-52d5-4cde-92ab-bb1953146697",
+      "requestId": null,
+      "textSha256": "f3d0828f0fe5deffd518ea486c61d73dc13520b31fb65a13420b37ac060ca18d",
+      "requestedDurationSeconds": 3.919999999999998,
+      "audioSha256": "52a162c48e3b04af326533984e2c713a0f1dbf562d4853b849dc1de338b63eba",
+      "audioBytes": 145998,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 3.04,
+      "fittedDurationSeconds": 2.505563,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 3.04,
+          "trimmedSeconds": 2.513292,
+          "tempo": 1.0
+        }
+      ]
+    },
+    {
+      "id": "reset",
+      "role": "A",
+      "start": 19.6,
+      "end": 23.1,
+      "text": "Back to Christie. Time to reset.",
+      "subtitleZh": "球回到克里斯蒂，进攻重新组织。",
+      "direction": "Settle briefly after the scramble; keep a live-broadcast rhythm.",
+      "evidenceIds": [
+        "formal-frame-review"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "9e9ce91d-e55c-4d53-bccc-caa8570ddfb4",
+      "requestId": null,
+      "textSha256": "f14e14c70f7ea950f868cc46f05e11984e32a06f003e08694498619ce47c712c",
+      "requestedDurationSeconds": 3.42,
+      "audioSha256": "d661385995107364954f1ec7cd1ea1bfcff5879e64f845a65982514fdab42a8b",
+      "audioBytes": 130638,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 2.72,
+      "fittedDurationSeconds": 2.104479,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 2.72,
+          "trimmedSeconds": 2.107875,
+          "tempo": 1.0
+        }
+      ]
+    },
+    {
+      "id": "screen",
+      "role": "B",
+      "start": 23.6,
+      "end": 27.35,
+      "text": "Watch the screen, and the space on the right.",
+      "subtitleZh": "注意掩护，以及右侧的出手空间。",
+      "direction": "Calm tactical explanation with short natural phrasing; emphasize screen and space.",
+      "evidenceIds": [
+        "formal-frame-review"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "2885a8f6-52d5-4cde-92ab-bb1953146697",
+      "requestId": null,
+      "textSha256": "b1f41731e96a0e3bb5831e9b6aa421288d7ec792b01aa8e6a7cc0649b045f0b6",
+      "requestedDurationSeconds": 3.67,
+      "audioSha256": "82c464678a55a4e847d38253349939b7cb08e11528565fad82982adf8687d9e3",
+      "audioBytes": 145998,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 3.04,
+      "fittedDurationSeconds": 2.606958,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 3.04,
+          "trimmedSeconds": 2.611167,
+          "tempo": 1.0
+        }
+      ]
+    },
+    {
+      "id": "release",
+      "role": "A",
+      "start": 27.8,
+      "end": 30.6,
+      "text": "Christie, side-step... lets it fly!",
+      "subtitleZh": "克里斯蒂横移，出手！",
+      "direction": "Build suspense, brief pause after side-step, sharp rising energy on lets it fly. Do not announce a result.",
+      "evidenceIds": [
+        "formal-frame-review"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "9e9ce91d-e55c-4d53-bccc-caa8570ddfb4",
+      "requestId": null,
+      "textSha256": "1e34cd023bc69c6a3756cabd161f8142e6547d5607c45108d85c424fda26e1c7",
+      "requestedDurationSeconds": 2.7200000000000006,
+      "audioSha256": "0c6c0d969e374d6720c135c36032e107b44e025344ca2ddf23ed2ec5d0660574",
+      "audioBytes": 130638,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 2.72,
+      "fittedDurationSeconds": 2.138333,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 2.72,
+          "trimmedSeconds": 2.139083,
+          "tempo": 1.0
+        }
+      ]
+    },
+    {
+      "id": "make",
+      "role": "A",
+      "start": 31.05,
+      "end": 33.25,
+      "text": "Off the glass! Three!",
+      "subtitleZh": "打板！三分命中！",
+      "direction": "Explosive made-basket payoff, projected and genuinely surprised, a short breath between phrases. No prolonged screaming.",
+      "evidenceIds": [
+        "formal-final-shot",
+        "formal-frame-review"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "9e9ce91d-e55c-4d53-bccc-caa8570ddfb4",
+      "requestId": null,
+      "textSha256": "b1af8b0a6b57423faf0eec9a341c475636b481be94929ff7d690e147dd26dae1",
+      "requestedDurationSeconds": 2.119999999999999,
+      "audioSha256": "c33e209b114ab3e7720c8636d4096f3475ae38226f45d779deaac10778308e15",
+      "audioBytes": 130638,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 2.72,
+      "fittedDurationSeconds": 2.128104,
+      "tempo": 1.1235849056603777,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 2.72,
+          "trimmedSeconds": 2.382,
+          "tempo": 1.1235849056603777
+        }
+      ]
+    },
+    {
+      "id": "score",
+      "role": "B",
+      "start": 33.6,
+      "end": 37.0,
+      "text": "Dallas cuts it to one.",
+      "subtitleZh": "独行侠43比44，只差一分。",
+      "direction": "Warm reaction to the partner's call, then clearly explain the score.",
+      "evidenceIds": [
+        "pbp-273"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "2885a8f6-52d5-4cde-92ab-bb1953146697",
+      "requestId": null,
+      "textSha256": "23a66581e8cc859dd2f5796a6e330843b0a8762661ee42f0c8bd534e26897e3c",
+      "requestedDurationSeconds": 3.3199999999999985,
+      "audioSha256": "35e5b45156ffe183935acbf613619eb7d8325babdd9282a41dd52b0b242d051e",
+      "audioBytes": 76878,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 1.6,
+      "fittedDurationSeconds": 1.144979,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 1.6,
+          "trimmedSeconds": 1.147083,
+          "tempo": 1.0
+        }
+      ]
+    },
+    {
+      "id": "question",
+      "role": "A",
+      "start": 37.3,
+      "end": 39.3,
+      "text": "How tough was that shot?",
+      "subtitleZh": "这一球，到底有多难？",
+      "direction": "Ask the color analyst a real short question, curious rather than theatrical.",
+      "evidenceIds": [
+        "formal-frame-review"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "9e9ce91d-e55c-4d53-bccc-caa8570ddfb4",
+      "requestId": null,
+      "textSha256": "a0d6e39aa0272746469c5e557f275e61270cd6f55a710b46aceebe3952998092",
+      "requestedDurationSeconds": 1.92,
+      "audioSha256": "92de5b1a519e1d7916bed4320a1225bbcd3f9ba8ea4c96c0b244209957a30b18",
+      "audioBytes": 92238,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 1.92,
+      "fittedDurationSeconds": 1.489958,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 1.92,
+          "trimmedSeconds": 1.494625,
+          "tempo": 1.0
+        }
+      ]
+    },
+    {
+      "id": "replay",
+      "role": "B",
+      "start": 40.65,
+      "end": 43.3,
+      "text": "Space created. Still contested.",
+      "subtitleZh": "撤步拉开空间，防守仍有干扰。",
+      "direction": "Measured replay analysis with a real pause between the two clauses.",
+      "evidenceIds": [
+        "formal-frame-review"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "2885a8f6-52d5-4cde-92ab-bb1953146697",
+      "requestId": null,
+      "textSha256": "01ddf90c5c157e40148511b1cd80f71c7b37b511c5a84abb73db93e76e11608e",
+      "requestedDurationSeconds": 2.5699999999999985,
+      "audioSha256": "73a3a233e994ec9236b16b798dba3122d91c0e938b884054af7208b2f6ff7df9",
+      "audioBytes": 130638,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 2.72,
+      "fittedDurationSeconds": 1.670646,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 2.72,
+          "trimmedSeconds": 1.679125,
+          "tempo": 1.0
+        }
+      ]
+    },
+    {
+      "id": "metric",
+      "role": "B",
+      "start": 43.55,
+      "end": 47.7,
+      "text": "The official expected field-goal rate? Just thirty percent.",
+      "subtitleZh": "官方预期命中率：只有30%。",
+      "direction": "Explain the metric clearly, conversationally; emphasize thirty percent without presenting it as certainty.",
+      "evidenceIds": [
+        "formal-final-shot"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "2885a8f6-52d5-4cde-92ab-bb1953146697",
+      "requestId": null,
+      "textSha256": "ad54d4457f8e90645e55a787ab49180a96efb2f703e722a7df90687c1663904a",
+      "requestedDurationSeconds": 4.070000000000006,
+      "audioSha256": "5d6d78fba0dcb13b57331dd8370f66680c81ee8096744e77998c49701c209c46",
+      "audioBytes": 195918,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 4.08,
+      "fittedDurationSeconds": 3.90525,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 4.08,
+          "trimmedSeconds": 3.91125,
+          "tempo": 1.0
+        }
+      ]
+    },
+    {
+      "id": "result",
+      "role": "A",
+      "start": 47.9,
+      "end": 49.4,
+      "text": "A tough three!",
+      "subtitleZh": "高难度三分！",
+      "direction": "Short satisfied reaction, energized but quieter than the first made-basket call.",
+      "evidenceIds": [
+        "formal-final-shot"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "9e9ce91d-e55c-4d53-bccc-caa8570ddfb4",
+      "requestId": null,
+      "textSha256": "8b717dabd2eeb53361d68ef414ebd44ffc2edef4ee5113bcd578194c7703522d",
+      "requestedDurationSeconds": 1.42,
+      "audioSha256": "d11dbeddf65bcd87520a5524626a0847a00d132901eb8ad443afccb7b96e2fe9",
+      "audioBytes": 99918,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 2.08,
+      "fittedDurationSeconds": 1.055729,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 2.08,
+          "trimmedSeconds": 1.059583,
+          "tempo": 1.0
+        }
+      ]
+    },
+    {
+      "id": "outro",
+      "role": "B",
+      "start": 49.85,
+      "end": 54.7,
+      "text": "A second chance. A patient reset. GameBuddy shows you why.",
+      "subtitleZh": "篮板续命，耐心重组。GameBuddy，陪你看懂每一拍。",
+      "direction": "Warm concluding insight, a small pause after each clause, confident brand close without an advertising voice.",
+      "evidenceIds": [
+        "pbp-272",
+        "pbp-273",
+        "formal-frame-review"
+      ],
+      "provider": "MOSS",
+      "model": "moss-ttsd-1.0",
+      "voiceId": "2885a8f6-52d5-4cde-92ab-bb1953146697",
+      "requestId": null,
+      "textSha256": "2c44cd44af496467ee6e9c1083e9e8335b26c883ab715abf8379bbf245facf66",
+      "requestedDurationSeconds": 4.770000000000001,
+      "audioSha256": "a182f470633b06b4c2ec8f643a17274e94e0da0fb11a2fb48dd11700bab17e88",
+      "audioBytes": 184398,
+      "voiceDesignModel": "moss-voice-generator-1.0",
+      "referencePerson": null,
+      "remoteSynthesis": true,
+      "cacheHit": false,
+      "rawDurationSeconds": 3.84,
+      "fittedDurationSeconds": 2.734146,
+      "tempo": 1.0,
+      "attempts": [
+        {
+          "model": "moss-ttsd-1.0",
+          "rawSeconds": 3.84,
+          "trimmedSeconds": 2.743833,
+          "tempo": 1.0
+        }
+      ]
+    }
+  ],
+  "declaration": "AI COMMENTARY · MOSS · ORIGINAL VOICES",
+  "mix": "centered broadcast speech attenuated, sidechain ducked; no isolated crowd claim",
+  "dialogueQualityAccepted": false,
+  "asrReview": {
+    "model": "moss-transcribe-diarize-pro",
+    "wholeTrackTranscript": "One stop. One more chance. Christie drives. HoustonFreeze it. Look at the help around the ball.Block. Powell keeps it alive.That offensive rebound gives Stalis another chance.Back to Christie. Time.Watch the screen and the space on the right.Christie drives. Off the glass. Three.Dallas cuts it to one.How tough was that shot?Space created. The official expected field goal rate, just thirty percent.A tough three.A second chance, a patient reset.",
+    "isolatedChecks": [
+      {
+        "cue": "drive",
+        "text": "Christie drives. Houston.",
+        "ok": true
+      },
+      {
+        "cue": "release",
+        "text": "First he drives. Ooh.",
+        "ok": true
+      },
+      {
+        "cue": "outro",
+        "text": "A second chance, a patient reset.",
+        "ok": true
+      }
+    ],
+    "finding": "Multiple short-cue transcriptions omit requested clauses; candidate rejected pending a clearer MOSS rendering. ASR is not a human listening verdict."
+  }
+}

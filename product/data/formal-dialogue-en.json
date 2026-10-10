@@ -1,0 +1,43 @@
+{
+  "schema": "gamebuddy-moss-dialogue-v1",
+  "durationSeconds": 55.055,
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "visualSha256": "1417d270fb76f7d3d77ad436d7fff0b549de89e262f907bfabb30e47dac2bbb3",
+  "visualPath": "product/build/ppt-demo-20261011/GameBuddy-PPT-55秒-干净画面.mp4",
+  "presentationClean": true,
+  "language": "English",
+  "declaration": "AI COMMENTARY · MOSS · ORIGINAL VOICES",
+  "roles": {
+    "A": "An original male American basketball play-by-play announcer in his thirties. Bright resonant mid-baritone, crisp consonants, athletic breath support, slightly gritty texture. Natural conversational North American English. Fast compact phrases, rhythmic pauses, rising anticipation, strong but controlled excitement on the made basket. Speak as if watching the action courtside, never like reading an advertisement. No imitation of a named person. Voice only, no music or crowd effects.",
+    "B": "An original male American basketball color analyst in his fifties. Deep warm bass-baritone with a relaxed, mildly husky texture, clearly different from the play-by-play host. Natural North American English, conversational and observant. Explain one detail at a time with confident short phrases, clear emphasis and real pauses. Warm engagement rather than flat narration. No imitation of a named person. Voice only, no music or crowd effects."
+  },
+  "facts": {
+    "gameId": "0022500356", "eventId": 273,
+    "player": "Max Christie", "offensiveRebound": "Dwight Powell",
+    "shot": "25-foot step-back bank three-pointer made",
+    "expectedFg": 0.3, "scoreAfter": "DAL 43 — HOU 44",
+    "firstVisibleMakeOutputSecond": 30.79,
+    "officialTrackingAvailable": false
+  },
+  "evidenceUrls": [
+    "https://www.nba.com/game/hou-vs-dal-0022500356/play-by-play",
+    "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500356&playerId=1631108"
+  ],
+  "cues": [
+    {"id":"hook","role":"A","start":0.18,"end":2.4,"text":"One stop. One more chance.","subtitleZh":"一次防守，仍有下一次机会。","direction":"Confident opening hook, compact, warm anticipation.","evidenceIds":["formal-frame-review"]},
+    {"id":"drive","role":"A","start":2.75,"end":6.3,"text":"Christie drives. Houston closes the lane.","subtitleZh":"克里斯蒂切入，火箭收紧禁区。","direction":"Live action call, quick and precise, build anticipation.","evidenceIds":["formal-frame-review"]},
+    {"id":"scramble","role":"B","start":6.7,"end":10.55,"text":"Freeze it. Look at the help around the ball.","subtitleZh":"暂停看这一拍：球侧的协防正在收紧。","direction":"Direct the viewer's attention in a conversational tactical breakdown.","evidenceIds":["formal-frame-review"]},
+    {"id":"rebound","role":"A","start":12.0,"end":14.85,"text":"Blocked! Powell keeps it alive!","subtitleZh":"被封盖！鲍威尔抢回球权！","direction":"Two compact energetic calls. Punch Blocked, then a relieved recovery, not a scream.","evidenceIds":["pbp-270","pbp-272"]},
+    {"id":"second-chance","role":"B","start":15.15,"end":19.15,"text":"That rebound gives Dallas another chance.","subtitleZh":"这次前场篮板，给独行侠第二次机会。","direction":"Explain the value of the offensive rebound with a warm confident emphasis on another chance.","evidenceIds":["pbp-272"]},
+    {"id":"reset","role":"A","start":19.6,"end":23.1,"text":"Back to Christie. Time to reset.","subtitleZh":"球回到克里斯蒂，进攻重新组织。","direction":"Settle briefly after the scramble; keep a live-broadcast rhythm.","evidenceIds":["formal-frame-review"]},
+    {"id":"screen","role":"B","start":23.6,"end":27.35,"text":"Watch the screen, and the space on the right.","subtitleZh":"注意掩护，以及右侧的出手空间。","direction":"Calm tactical explanation with short natural phrasing; emphasize screen and space.","evidenceIds":["formal-frame-review"]},
+    {"id":"release","role":"A","start":27.8,"end":30.6,"text":"Christie, side-step... lets it fly!","subtitleZh":"克里斯蒂横移，出手！","direction":"Build suspense, brief pause after side-step, sharp rising energy on lets it fly. Do not announce a result.","evidenceIds":["formal-frame-review"]},
+    {"id":"make","role":"A","start":31.05,"end":33.25,"text":"Off the glass! Three!","subtitleZh":"打板！三分命中！","direction":"Explosive made-basket payoff, projected and genuinely surprised, a short breath between phrases. No prolonged screaming.","evidenceIds":["formal-final-shot","formal-frame-review"]},
+    {"id":"score","role":"B","start":33.6,"end":37.0,"text":"Dallas cuts it to one.","subtitleZh":"独行侠43比44，只差一分。","direction":"Warm reaction to the partner's call, then clearly explain the score.","evidenceIds":["pbp-273"]},
+    {"id":"question","role":"A","start":37.3,"end":39.3,"text":"How tough was that shot?","subtitleZh":"这一球，到底有多难？","direction":"Ask the color analyst a real short question, curious rather than theatrical.","evidenceIds":["formal-frame-review"]},
+    {"id":"replay","role":"B","start":40.65,"end":43.3,"text":"Space created. Still contested.","subtitleZh":"撤步拉开空间，防守仍有干扰。","direction":"Measured replay analysis with a real pause between the two clauses.","evidenceIds":["formal-frame-review"]},
+    {"id":"metric","role":"B","start":43.55,"end":47.7,"text":"The official expected field-goal rate? Just thirty percent.","subtitleZh":"官方预期命中率：只有30%。","direction":"Explain the metric clearly, conversationally; emphasize thirty percent without presenting it as certainty.","evidenceIds":["formal-final-shot"]},
+    {"id":"result","role":"A","start":47.9,"end":49.4,"text":"A tough three!","subtitleZh":"高难度三分！","direction":"Short satisfied reaction, energized but quieter than the first made-basket call.","evidenceIds":["formal-final-shot"]},
+    {"id":"outro","role":"B","start":49.85,"end":54.7,"text":"A second chance. A patient reset. Game Buddy shows you why.","subtitleZh":"篮板续命，耐心重组。GameBuddy，陪你看懂每一拍。","direction":"Warm concluding insight, a small pause after each clause, confident brand close without an advertising voice.","evidenceIds":["pbp-272","pbp-273","formal-frame-review"]}
+  ]
+}
