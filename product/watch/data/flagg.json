@@ -1,0 +1,3679 @@
+{
+  "schema": "court-lab-v1",
+  "sample": "flagg",
+  "presentation": "schematic",
+  "sourceSha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+  "sourceVideo": "/samples/flagg.mp4",
+  "videoSize": [
+    1280,
+    720
+  ],
+  "court": {
+    "length": 94,
+    "width": 50,
+    "unit": "ft",
+    "origin": "left-baseline-near-sideline"
+  },
+  "window": [
+    0,
+    21.548118
+  ],
+  "provenance": {
+    "method": "AI-edited source-frame tactical schematic: coarse body/floor court layouts in early frames; manual lane-corner foot projection and explicit ground inferences in later frames; no automatic tracking",
+    "warning": "全片低精度战术示意。画面脚点/地面编辑、身体场地推断和过去快照是不同依据；未知位置不补新坐标。匿名编号与持球阶段均为 AI 画面编辑，未经人类专家核准；不是官方逐帧坐标、自动跟踪、精确运动轨迹或官方深度数据。点之间为示意移动，空中脚和空中球不作为地面测量。端线外发球员仅以 x=0 端线图示表示。",
+    "reviewed": false,
+    "officialTracking": false,
+    "accuracyMeasured": false,
+    "acceptedAsAutomaticTracking": false,
+    "independentExpertReview": false,
+    "annotations": "flagg-annotations.json",
+    "generator": "generate_schematic.py",
+    "interpolation": "linear schematic movement between image-edited anchors up to 1.25s; unknown intervals preserve only the past snapshot, never a new observation",
+    "earlyAnnotations": "flagg-early-annotations.json",
+    "sourceDurationSeconds": 21.548118,
+    "rawFlowEvidence": "flow-flagg.json",
+    "possessionAnnotations": "ball-possession-annotations.json",
+    "possessionBoundaryBasis": "source-frame editorial transition brackets; not exact automatic release or catch times"
+  },
+  "tracks": [
+    {
+      "id": "W1",
+      "team": "white",
+      "label": "W1",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 0.0,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-closeup-0",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.06673333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.20020000000000002,
+          "x": 29,
+          "y": 34,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 1.0010000000000001,
+          "x": 25,
+          "y": 37,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 2.0020000000000002,
+          "x": 22,
+          "y": 42,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 3.003,
+          "x": 13,
+          "y": 40,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 4.0040000000000004,
+          "x": 6,
+          "y": 29,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 5.005,
+          "x": 7,
+          "y": 18,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 6.006011111111112,
+          "x": 7,
+          "y": 14,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 7.007011111111112,
+          "x": 7,
+          "y": 13,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.008011111111111,
+          "x": 7,
+          "y": 12,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.992322222222223,
+          "x": 5.47,
+          "y": 10.08,
+          "image": [
+            282,
+            501
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 5.359,
+          "y": 9.62,
+          "image": [
+            240,
+            508
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.993322222222222,
+          "x": 5.124,
+          "y": 9.642,
+          "image": [
+            255,
+            516
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 5.956,
+          "y": 11.109,
+          "image": [
+            318,
+            525
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 6.955,
+          "y": 12.9,
+          "image": [
+            376,
+            529
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 7.306,
+          "y": 13.579,
+          "image": [
+            391,
+            535
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 7.023,
+          "y": 13.781,
+          "image": [
+            381,
+            535
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 12.996333333333334,
+          "x": 11.855,
+          "y": 10.958,
+          "image": [
+            430,
+            573
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 13.997333333333334,
+          "x": 13.046,
+          "y": 10.028,
+          "image": [
+            390,
+            588
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 14.998333333333337,
+          "x": 13.783,
+          "y": 12.912,
+          "image": [
+            465,
+            565
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 15.999333333333334,
+          "x": 12.143,
+          "y": 12.752,
+          "image": [
+            499,
+            577
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 16.499833333333335,
+          "x": 13.564,
+          "y": 15.402,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "running airborne feet; approximate floor under body, not shoe pixel"
+        },
+        {
+          "t": 17.000333333333334,
+          "x": 17.69,
+          "y": 20.663,
+          "image": [
+            826,
+            551
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.500833333333333,
+          "x": 19.742,
+          "y": 24.175,
+          "image": [
+            950,
+            533
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.75107777777778,
+          "x": 20.766,
+          "y": 26.6,
+          "image": [
+            1014,
+            516
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 18.001333333333335,
+          "x": 22.015,
+          "y": 29.693,
+          "image": [
+            1078,
+            493
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 19.002333333333333,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 20.003333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 21.004333333333335,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 21.521522222222224,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        }
+      ]
+    },
+    {
+      "id": "W2",
+      "team": "white",
+      "label": "W2",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 0.0,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-closeup-0",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.06673333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.20020000000000002,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 1.0010000000000001,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 2.0020000000000002,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 3.003,
+          "x": 13,
+          "y": 5,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 4.0040000000000004,
+          "x": 12,
+          "y": 6,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 5.005,
+          "x": 19,
+          "y": 10,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 6.006011111111112,
+          "x": 18,
+          "y": 9,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 7.007011111111112,
+          "x": 16,
+          "y": 9,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.008011111111111,
+          "x": 15,
+          "y": 8,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.992322222222223,
+          "x": 14.211,
+          "y": 8.172,
+          "image": [
+            491,
+            533
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 15.147,
+          "y": 6.659,
+          "image": [
+            471,
+            551
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.993322222222222,
+          "x": 15.16,
+          "y": 6.883,
+          "image": [
+            493,
+            558
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 13.318,
+          "y": 6.473,
+          "image": [
+            469,
+            581
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 16.03,
+          "y": 9.279,
+          "image": [
+            593,
+            580
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 18.924,
+          "y": 12.102,
+          "image": [
+            704,
+            579
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 22.066,
+          "y": 13.997,
+          "image": [
+            798,
+            568
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 12.996333333333334,
+          "x": 26.893,
+          "y": 15.439,
+          "image": [
+            897,
+            562
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 13.997333333333334,
+          "x": 25.917,
+          "y": 14.093,
+          "image": [
+            801,
+            574
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 14.998333333333337,
+          "x": 25.28,
+          "y": 13.128,
+          "image": [
+            814,
+            585
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 15.999333333333334,
+          "x": 25.299,
+          "y": 12.599,
+          "image": [
+            914,
+            614
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 16.499833333333335,
+          "x": 26.949,
+          "y": 14.068,
+          "image": [
+            1036,
+            629
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.000333333333334,
+          "x": 28.929,
+          "y": 13.454,
+          "image": [
+            1177,
+            665
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.500833333333333,
+          "x": 28.193,
+          "y": 12.18,
+          "image": [
+            1196,
+            703
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.75107777777778,
+          "x": 28.684,
+          "y": 11.739,
+          "image": [
+            1210,
+            712
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 18.001333333333335,
+          "x": 27.474,
+          "y": 12.156,
+          "image": [
+            1161,
+            705
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 19.002333333333333,
+          "x": 28.443,
+          "y": 8.59,
+          "image": [
+            1036,
+            688
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 20.003333333333334,
+          "x": 19.699,
+          "y": 7.841,
+          "image": [
+            632,
+            629
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 21.004333333333335,
+          "x": 14.474,
+          "y": 7.455,
+          "image": [
+            414,
+            562
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 21.521522222222224,
+          "x": 7.768,
+          "y": 11.778,
+          "image": [
+            278,
+            510
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        }
+      ]
+    },
+    {
+      "id": "W3",
+      "team": "white",
+      "label": "W3",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 0.0,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-closeup-0",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.06673333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.20020000000000002,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 1.0010000000000001,
+          "x": 20,
+          "y": 37,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 2.0020000000000002,
+          "x": 21,
+          "y": 36,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 3.003,
+          "x": 18,
+          "y": 37,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 4.0040000000000004,
+          "x": 18,
+          "y": 39,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 5.005,
+          "x": 15,
+          "y": 42,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 6.006011111111112,
+          "x": 13,
+          "y": 43,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 7.007011111111112,
+          "x": 10,
+          "y": 39,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.008011111111111,
+          "x": 10,
+          "y": 38,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.992322222222223,
+          "x": 8.622,
+          "y": 36.503,
+          "image": [
+            559,
+            319
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 9.647,
+          "y": 34.581,
+          "image": [
+            536,
+            333
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.993322222222222,
+          "x": 10.162,
+          "y": 34.68,
+          "image": [
+            568,
+            342
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 10.792,
+          "y": 32.626,
+          "image": [
+            602,
+            373
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 10.616,
+          "y": 32.628,
+          "image": [
+            623,
+            386
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.494833333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_other_players"
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 9.968,
+          "y": 37.4,
+          "image": [
+            654,
+            366
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 12.996333333333334,
+          "x": 12.235,
+          "y": 38.507,
+          "image": [
+            665,
+            365
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 13.997333333333334,
+          "x": 13.068,
+          "y": 41.35,
+          "image": [
+            667,
+            351
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 14.998333333333337,
+          "x": 11.807,
+          "y": 41.347,
+          "image": [
+            645,
+            347
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 15.999333333333334,
+          "x": 8.059,
+          "y": 37.142,
+          "image": [
+            624,
+            385
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 16.499833333333335,
+          "x": 6.681,
+          "y": 28.972,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "jumping contest; approximate launch/landing area on floor"
+        },
+        {
+          "t": 17.000333333333334,
+          "x": 6.826,
+          "y": 26.393,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "landing feet hidden among players; coarse ground area"
+        },
+        {
+          "t": 17.500833333333333,
+          "x": 5.931,
+          "y": 25.706,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "feet obscured behind white28 near basket; approximate visible-body floor area"
+        },
+        {
+          "t": 17.75107777777778,
+          "x": 5.949,
+          "y": 25.807,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "feet obscured behind white28 while collecting ball; rough floor area"
+        },
+        {
+          "t": 18.001333333333335,
+          "x": 3.594,
+          "y": 25.478,
+          "image": [
+            453,
+            483
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 19.002333333333333,
+          "x": 2.478,
+          "y": 26.21,
+          "image": [
+            352,
+            464
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 20.003333333333334,
+          "x": 0,
+          "y": 25,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "visible inbounder outside baseline; editorial tactical layout represents this at baseline x=0, not a measured foot projection"
+        },
+        {
+          "t": 21.004333333333335,
+          "x": 0,
+          "y": 25,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "visible inbounder outside baseline; editorial tactical layout represents this at baseline x=0, not a measured foot projection"
+        },
+        {
+          "t": 21.521522222222224,
+          "x": 0,
+          "y": 25,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "visible inbounder outside baseline; editorial tactical layout represents this at baseline x=0, not a measured foot projection"
+        }
+      ]
+    },
+    {
+      "id": "W4",
+      "team": "white",
+      "label": "W4",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 0.0,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-closeup-0",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.06673333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.20020000000000002,
+          "x": 25,
+          "y": 27,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 1.0010000000000001,
+          "x": 25,
+          "y": 25,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 2.0020000000000002,
+          "x": 24,
+          "y": 26,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 3.003,
+          "x": 22,
+          "y": 27,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 4.0040000000000004,
+          "x": 22,
+          "y": 27,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 5.005,
+          "x": 24,
+          "y": 29,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 6.006011111111112,
+          "x": 25,
+          "y": 31,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 7.007011111111112,
+          "x": 24,
+          "y": 25,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.008011111111111,
+          "x": 22,
+          "y": 24,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.992322222222223,
+          "x": 22.156,
+          "y": 21.511,
+          "image": [
+            790,
+            434
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 22.902,
+          "y": 22.27,
+          "image": [
+            780,
+            430
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.993322222222222,
+          "x": 23.024,
+          "y": 26.031,
+          "image": [
+            823,
+            412
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 17.062,
+          "y": 28.818,
+          "image": [
+            728,
+            405
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 15.405,
+          "y": 30.056,
+          "image": [
+            723,
+            409
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 10.223,
+          "y": 31.615,
+          "image": [
+            623,
+            401
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 9.882,
+          "y": 28.471,
+          "image": [
+            587,
+            425
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 12.996333333333334,
+          "x": 10.355,
+          "y": 26.464,
+          "image": [
+            536,
+            439
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 13.997333333333334,
+          "x": 9.661,
+          "y": 27.672,
+          "image": [
+            480,
+            432
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 14.998333333333337,
+          "x": 9.547,
+          "y": 25.213,
+          "image": [
+            470,
+            448
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 15.999333333333334,
+          "x": 7.077,
+          "y": 20.895,
+          "image": [
+            451,
+            493
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 16.499833333333335,
+          "x": 6.178,
+          "y": 23.183,
+          "image": [
+            490,
+            486
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.000333333333334,
+          "x": 7.256,
+          "y": 22.568,
+          "image": [
+            522,
+            507
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.500833333333333,
+          "x": 7.837,
+          "y": 20.548,
+          "image": [
+            523,
+            535
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.75107777777778,
+          "x": 7.437,
+          "y": 19.157,
+          "image": [
+            498,
+            551
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 18.001333333333335,
+          "x": 7.467,
+          "y": 19.474,
+          "image": [
+            500,
+            550
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 19.002333333333333,
+          "x": 13.798,
+          "y": 18.498,
+          "image": [
+            644,
+            560
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 20.003333333333334,
+          "x": 19.431,
+          "y": 17.32,
+          "image": [
+            696,
+            533
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 21.004333333333335,
+          "x": 26.572,
+          "y": 17.715,
+          "image": [
+            798,
+            492
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 21.521522222222224,
+          "x": 28.461,
+          "y": 18.595,
+          "image": [
+            871,
+            486
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        }
+      ]
+    },
+    {
+      "id": "W5",
+      "team": "white",
+      "label": "W5",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 0.0,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-closeup-0",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.06673333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.20020000000000002,
+          "x": 46,
+          "y": 24,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 1.0010000000000001,
+          "x": 41,
+          "y": 24,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 2.0020000000000002,
+          "x": 38,
+          "y": 24,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 3.003,
+          "x": 36,
+          "y": 24,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 4.0040000000000004,
+          "x": 34,
+          "y": 24,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 5.005,
+          "x": 34,
+          "y": 24,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 6.006011111111112,
+          "x": 33,
+          "y": 25,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 7.007011111111112,
+          "x": 32,
+          "y": 25,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.008011111111111,
+          "x": 29,
+          "y": 27,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.992322222222223,
+          "x": 29.423,
+          "y": 27.486,
+          "image": [
+            1004,
+            399
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 32.871,
+          "y": 25.614,
+          "image": [
+            1053,
+            417
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.993322222222222,
+          "x": 30.607,
+          "y": 27.952,
+          "image": [
+            1025,
+            407
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 26.91,
+          "y": 26.366,
+          "image": [
+            970,
+            435
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 19.799,
+          "y": 28.596,
+          "image": [
+            826,
+            425
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 14.167,
+          "y": 34.282,
+          "image": [
+            736,
+            390
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 13.43,
+          "y": 36.469,
+          "image": [
+            728,
+            378
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 12.996333333333334,
+          "x": 16.733,
+          "y": 35.28,
+          "image": [
+            747,
+            391
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 13.997333333333334,
+          "x": 20.884,
+          "y": 36.147,
+          "image": [
+            812,
+            395
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 14.998333333333337,
+          "x": 20.301,
+          "y": 37.231,
+          "image": [
+            813,
+            382
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 15.999333333333334,
+          "x": 14.02,
+          "y": 38.063,
+          "image": [
+            768,
+            387
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 16.499833333333335,
+          "x": 12.444,
+          "y": 31.867,
+          "image": [
+            736,
+            434
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.000333333333334,
+          "x": 9.747,
+          "y": 28.885,
+          "image": [
+            657,
+            462
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.500833333333333,
+          "x": 7.297,
+          "y": 27.969,
+          "image": [
+            584,
+            468
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.75107777777778,
+          "x": 7.476,
+          "y": 27.397,
+          "image": [
+            594,
+            475
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 18.001333333333335,
+          "x": 6.937,
+          "y": 27.487,
+          "image": [
+            579,
+            474
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 19.002333333333333,
+          "x": 7.39,
+          "y": 26.065,
+          "image": [
+            508,
+            477
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 20.003333333333334,
+          "x": 6.629,
+          "y": 22.599,
+          "image": [
+            380,
+            462
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 21.004333333333335,
+          "x": 6.518,
+          "y": 18.292,
+          "image": [
+            326,
+            454
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 21.521522222222224,
+          "x": 8.089,
+          "y": 19.04,
+          "image": [
+            380,
+            448
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "team": "dark",
+      "label": "D1",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 0.0,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-closeup-0",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.06673333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.20020000000000002,
+          "x": 35,
+          "y": 39,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 1.0010000000000001,
+          "x": 30,
+          "y": 38,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 2.0020000000000002,
+          "x": 27,
+          "y": 38,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 3.003,
+          "x": 18,
+          "y": 41,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 4.0040000000000004,
+          "x": 2,
+          "y": 25,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 5.005,
+          "x": 2,
+          "y": 13,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 6.006011111111112,
+          "x": 2,
+          "y": 9,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 7.007011111111112,
+          "x": 2,
+          "y": 8,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.008011111111111,
+          "x": 2,
+          "y": 5,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.992322222222223,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 9.492822222222223,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 9.993322222222222,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 10.493822222222223,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 10.994322222222223,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 11.494833333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 11.995333333333335,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 12.996333333333334,
+          "x": 10.042,
+          "y": 3.264,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foreground foot hidden by audience and score graphic; rough ground position from lower-body scene"
+        },
+        {
+          "t": 13.997333333333334,
+          "x": 14.185,
+          "y": 4.041,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot below score graphic; coarse lower-body ground estimate"
+        },
+        {
+          "t": 14.998333333333337,
+          "x": 14.321,
+          "y": 5.956,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot hidden by score graphic; coarse lower-body ground estimate"
+        },
+        {
+          "t": 15.999333333333334,
+          "x": 21.838,
+          "y": 10.147,
+          "image": [
+            778,
+            632
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 16.499833333333335,
+          "x": 23.836,
+          "y": 16.206,
+          "image": [
+            947,
+            596
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.000333333333334,
+          "x": 28.3,
+          "y": 19.246,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "feet crowded behind white1 near image border; rough lower-body floor estimate"
+        },
+        {
+          "t": 17.500833333333333,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 17.75107777777778,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 18.001333333333335,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 19.002333333333333,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 20.003333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 21.004333333333335,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 21.521522222222224,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "team": "dark",
+      "label": "D2",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 0.0,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-closeup-0",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.06673333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.20020000000000002,
+          "x": 30,
+          "y": 9,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 1.0010000000000001,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 2.0020000000000002,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 3.003,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 4.0040000000000004,
+          "x": 16,
+          "y": 6,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 5.005,
+          "x": 19,
+          "y": 8,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 6.006011111111112,
+          "x": 17,
+          "y": 6,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 7.007011111111112,
+          "x": 16,
+          "y": 4,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.008011111111111,
+          "x": 15,
+          "y": 3,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.992322222222223,
+          "x": 14.858,
+          "y": 1.118,
+          "image": [
+            447,
+            603
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.492822222222223,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 9.993322222222222,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 10.493822222222223,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 10.994322222222223,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_foreground_or_scoreboard"
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 24.503,
+          "y": 8.935,
+          "image": [
+            850,
+            628
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 27.332,
+          "y": 9.446,
+          "image": [
+            919,
+            625
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 12.996333333333334,
+          "x": 29.541,
+          "y": 10.344,
+          "image": [
+            949,
+            620
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 13.997333333333334,
+          "x": 29.909,
+          "y": 9.371,
+          "image": [
+            884,
+            629
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 14.998333333333337,
+          "x": 29.504,
+          "y": 8.016,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "feet behind score graphic; coarse lower-body ground estimate"
+        },
+        {
+          "t": 15.999333333333334,
+          "x": 28.631,
+          "y": 8.514,
+          "image": [
+            1005,
+            674
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 16.499833333333335,
+          "x": 30.792,
+          "y": 10.44,
+          "image": [
+            1151,
+            686
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.000333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 17.500833333333333,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 17.75107777777778,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 18.001333333333335,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 19.002333333333333,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 20.003333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 21.004333333333335,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 21.521522222222224,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "team": "dark",
+      "label": "D3",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 0.0,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-closeup-0",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.06673333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.20020000000000002,
+          "x": 42,
+          "y": 47,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 1.0010000000000001,
+          "x": 33,
+          "y": 47,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 2.0020000000000002,
+          "x": 25,
+          "y": 45,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 3.003,
+          "x": 10,
+          "y": 45,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 4.0040000000000004,
+          "x": 13,
+          "y": 46,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 5.005,
+          "x": 11,
+          "y": 48,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 6.006011111111112,
+          "x": 10,
+          "y": 49,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 7.007011111111112,
+          "x": 9,
+          "y": 48,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.008011111111111,
+          "x": 9,
+          "y": 48,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.992322222222223,
+          "x": 8.501,
+          "y": 48.331,
+          "image": [
+            624,
+            255
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 9.752,
+          "y": 48.011,
+          "image": [
+            614,
+            259
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.993322222222222,
+          "x": 10.119,
+          "y": 47.637,
+          "image": [
+            640,
+            270
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 10.347,
+          "y": 47.746,
+          "image": [
+            680,
+            285
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 11.283,
+          "y": 48.122,
+          "image": [
+            729,
+            295
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.494833333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "feet_not_clear_near_far_sideline"
+        },
+        {
+          "t": 11.995333333333335,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "feet_not_clear_near_far_sideline"
+        },
+        {
+          "t": 12.996333333333334,
+          "x": 22.92,
+          "y": 47.215,
+          "image": [
+            936,
+            333
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 13.997333333333334,
+          "x": 14,
+          "y": 48,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        },
+        {
+          "t": 14.998333333333337,
+          "x": 9,
+          "y": 48,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        },
+        {
+          "t": 15.999333333333334,
+          "x": 5,
+          "y": 48,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        },
+        {
+          "t": 16.499833333333335,
+          "x": 5,
+          "y": 48,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        },
+        {
+          "t": 17.000333333333334,
+          "x": 4,
+          "y": 48,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        },
+        {
+          "t": 17.500833333333333,
+          "x": 5,
+          "y": 48,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        },
+        {
+          "t": 17.75107777777778,
+          "x": 5,
+          "y": 48,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        },
+        {
+          "t": 18.001333333333335,
+          "x": 4,
+          "y": 48,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "far-side body visible near sideline; coarse editorial layout because four-lane-corner calibration is unreliable here"
+        },
+        {
+          "t": 19.002333333333333,
+          "x": 12.344,
+          "y": 44.955,
+          "image": [
+            823,
+            333
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 20.003333333333334,
+          "x": 22.747,
+          "y": 37.521,
+          "image": [
+            900,
+            381
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 21.004333333333335,
+          "x": 36.212,
+          "y": 32.772,
+          "image": [
+            1065,
+            401
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 21.521522222222224,
+          "x": 38.442,
+          "y": 27.803,
+          "image": [
+            1138,
+            429
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "team": "dark",
+      "label": "D4",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 0.0,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-closeup-0",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.06673333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.20020000000000002,
+          "x": 58,
+          "y": 33,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 1.0010000000000001,
+          "x": 48,
+          "y": 33,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 2.0020000000000002,
+          "x": 36,
+          "y": 34,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 3.003,
+          "x": 30,
+          "y": 34,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 4.0040000000000004,
+          "x": 28,
+          "y": 34,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 5.005,
+          "x": 28,
+          "y": 29,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 6.006011111111112,
+          "x": 29,
+          "y": 28,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 7.007011111111112,
+          "x": 30,
+          "y": 24,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.008011111111111,
+          "x": 27,
+          "y": 23,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.992322222222223,
+          "x": 24.368,
+          "y": 24.561,
+          "image": [
+            862,
+            414
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 26.756,
+          "y": 28.078,
+          "image": [
+            904,
+            392
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.993322222222222,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_other_players"
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 28.91,
+          "y": 30.083,
+          "image": [
+            1039,
+            410
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 26.256,
+          "y": 27.244,
+          "image": [
+            991,
+            444
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 22.114,
+          "y": 27.211,
+          "image": [
+            895,
+            455
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 14.842,
+          "y": 27.043,
+          "image": [
+            699,
+            445
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 12.996333333333334,
+          "x": 8.645,
+          "y": 23.592,
+          "image": [
+            469,
+            457
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 13.997333333333334,
+          "x": 5.806,
+          "y": 19.782,
+          "image": [
+            298,
+            485
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 14.998333333333337,
+          "x": 5.854,
+          "y": 15.329,
+          "image": [
+            261,
+            526
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 15.999333333333334,
+          "x": 8.6,
+          "y": 14.443,
+          "image": [
+            417,
+            552
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 16.499833333333335,
+          "x": 9.574,
+          "y": 17.052,
+          "image": [
+            516,
+            548
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.000333333333334,
+          "x": 11.644,
+          "y": 20.401,
+          "image": [
+            631,
+            537
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.500833333333333,
+          "x": 10.685,
+          "y": 23.719,
+          "image": [
+            645,
+            513
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.75107777777778,
+          "x": 9.859,
+          "y": 24.562,
+          "image": [
+            638,
+            506
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 18.001333333333335,
+          "x": 10.457,
+          "y": 25.452,
+          "image": [
+            667,
+            501
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 19.002333333333333,
+          "x": 21.315,
+          "y": 25.919,
+          "image": [
+            946,
+            511
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 20.003333333333334,
+          "x": 35,
+          "y": 26,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "body and leg partly visible at right edge; coarse court layout, foot contact cannot be isolated"
+        },
+        {
+          "t": 21.004333333333335,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        },
+        {
+          "t": 21.521522222222224,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "offscreen",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "outside current crop; retain only previous tactical snapshot in display"
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "team": "dark",
+      "label": "D5",
+      "identityStatus": "anonymous",
+      "points": [
+        {
+          "t": 0.0,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-closeup-0",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.06673333333333334,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "no previous floor-space anchor; never borrow future frame"
+        },
+        {
+          "t": 0.20020000000000002,
+          "x": 73,
+          "y": 23,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 1.0010000000000001,
+          "x": 67,
+          "y": 22,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 2.0020000000000002,
+          "x": 60,
+          "y": 22,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 3.003,
+          "x": 53,
+          "y": 22,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 4.0040000000000004,
+          "x": 47,
+          "y": 23,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 5.005,
+          "x": 42,
+          "y": 23,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 6.006011111111112,
+          "x": 39,
+          "y": 28,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 7.007011111111112,
+          "x": 37,
+          "y": 30,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.008011111111111,
+          "x": 36,
+          "y": 29,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "approximate_editorial_court_layout; not homography measurement"
+        },
+        {
+          "t": 8.992322222222223,
+          "x": 36.1,
+          "y": 25.684,
+          "image": [
+            1176,
+            421
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.492822222222223,
+          "x": 36.202,
+          "y": 28.306,
+          "image": [
+            1148,
+            401
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 9.993322222222222,
+          "x": null,
+          "y": null,
+          "image": null,
+          "status": "occluded",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "foot_contact_obscured_by_other_players"
+        },
+        {
+          "t": 10.493822222222223,
+          "x": 20.539,
+          "y": 33.958,
+          "image": [
+            841,
+            374
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 10.994322222222223,
+          "x": 17.311,
+          "y": 35.922,
+          "image": [
+            803,
+            372
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.494833333333334,
+          "x": 13.793,
+          "y": 36.664,
+          "image": [
+            742,
+            374
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 11.995333333333335,
+          "x": 16.999,
+          "y": 42.711,
+          "image": [
+            846,
+            346
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 12.996333333333334,
+          "x": 20.449,
+          "y": 40.624,
+          "image": [
+            857,
+            365
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 13.997333333333334,
+          "x": 28.704,
+          "y": 42.812,
+          "image": [
+            1018,
+            368
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 14.998333333333337,
+          "x": 24.864,
+          "y": 46.115,
+          "image": [
+            948,
+            338
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 15.999333333333334,
+          "x": 9.861,
+          "y": 40.961,
+          "image": [
+            692,
+            366
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 16.499833333333335,
+          "x": 7.932,
+          "y": 31.028,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "airborne layup; approximate launch/landing area, not airborne shoe projection"
+        },
+        {
+          "t": 17.000333333333334,
+          "x": 7.218,
+          "y": 25.992,
+          "image": null,
+          "status": "inferred",
+          "segment": "flagg-wide-1",
+          "reviewed": false,
+          "reason": "landing feet hidden among players; coarse ground area"
+        },
+        {
+          "t": 17.500833333333333,
+          "x": 4.803,
+          "y": 21.524,
+          "image": [
+            442,
+            518
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 17.75107777777778,
+          "x": 4.218,
+          "y": 22.299,
+          "image": [
+            435,
+            512
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 18.001333333333335,
+          "x": 3.92,
+          "y": 20.256,
+          "image": [
+            395,
+            532
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 19.002333333333333,
+          "x": 11.047,
+          "y": 18.011,
+          "image": [
+            550,
+            558
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 20.003333333333334,
+          "x": 18.799,
+          "y": 15.35,
+          "image": [
+            663,
+            550
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 21.004333333333335,
+          "x": 17.291,
+          "y": 11.497,
+          "image": [
+            526,
+            529
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        },
+        {
+          "t": 21.521522222222224,
+          "x": 10.703,
+          "y": 12.276,
+          "image": [
+            359,
+            511
+          ],
+          "status": "estimated",
+          "segment": "flagg-wide-1",
+          "reviewed": false
+        }
+      ]
+    }
+  ],
+  "schematic": {
+    "maxGapSeconds": 1.25,
+    "holdLastKnown": true,
+    "holdAcrossSegments": true
+  },
+  "scenes": [
+    {
+      "id": "flagg-closeup-0",
+      "start": 0,
+      "end": 0.06673333333333334,
+      "type": "closeup",
+      "label": "开场人物特写，尚无可用的球场快照"
+    },
+    {
+      "id": "flagg-wide-1",
+      "start": 0.06673333333333334,
+      "end": 21.548118,
+      "type": "wide",
+      "label": "连续侧视比赛画面；编辑站位和当前已知快照"
+    }
+  ],
+  "possession": [
+    {
+      "start": 0.0,
+      "end": 0.06673333333333334,
+      "holder": null,
+      "phase": "unknown",
+      "label": "人物特写 · 球未入镜",
+      "source": "editorial"
+    },
+    {
+      "start": 0.06673333333333334,
+      "end": 16.8,
+      "holder": "D5",
+      "phase": "held",
+      "label": "D5（深衣32）持球推进",
+      "source": "editorial"
+    },
+    {
+      "start": 16.8,
+      "end": 17.35,
+      "holder": null,
+      "phase": "shot",
+      "label": "出手 · 球在空中／篮圈附近",
+      "source": "editorial"
+    },
+    {
+      "start": 17.35,
+      "end": 17.65,
+      "holder": null,
+      "phase": "score",
+      "label": "命中 · 球穿网落下",
+      "source": "editorial"
+    },
+    {
+      "start": 17.65,
+      "end": 17.75,
+      "holder": "W3",
+      "phase": "change",
+      "label": "球权转换 · W3（白衣7）收球",
+      "source": "editorial"
+    },
+    {
+      "start": 17.75,
+      "end": 18.75,
+      "holder": "W3",
+      "phase": "held",
+      "label": "W3（白衣7）取球退向底线",
+      "source": "editorial"
+    },
+    {
+      "start": 18.75,
+      "end": 20.6,
+      "holder": "W3",
+      "phase": "held",
+      "label": "W3（白衣7）准备发球",
+      "source": "editorial"
+    },
+    {
+      "start": 20.6,
+      "end": 21.2,
+      "holder": null,
+      "phase": "pass",
+      "label": "击地发球 · W3 → W2",
+      "source": "editorial"
+    },
+    {
+      "start": 21.2,
+      "end": 21.548118,
+      "holder": "W2",
+      "phase": "held",
+      "label": "W2（白衣1）接球推进",
+      "source": "editorial"
+    }
+  ],
+  "ball": {
+    "kind": "court-schematic",
+    "points": [
+      {
+        "t": 16.8,
+        "x": 7.2,
+        "y": 28.5,
+        "status": "inferred",
+        "image": null,
+        "segment": "flagg-wide-1",
+        "reviewed": false,
+        "reason": "court-schematic shot diagram from approximate edited shooter launch area to left rim; not airborne-ball measurement"
+      },
+      {
+        "t": 17.349999,
+        "x": 5.25,
+        "y": 25,
+        "status": "inferred",
+        "image": null,
+        "segment": "flagg-wide-1",
+        "reviewed": false,
+        "reason": "court-schematic shot diagram from approximate edited shooter launch area to left rim; not airborne-ball measurement"
+      },
+      {
+        "t": 17.35,
+        "x": 5.25,
+        "y": 25,
+        "status": "inferred",
+        "image": null,
+        "segment": "flagg-wide-1",
+        "reviewed": false,
+        "reason": "court-schematic rim symbol during made basket; depth and airborne ball height are not represented"
+      },
+      {
+        "t": 17.649998999999998,
+        "x": 5.25,
+        "y": 25,
+        "status": "inferred",
+        "image": null,
+        "segment": "flagg-wide-1",
+        "reviewed": false,
+        "reason": "court-schematic rim symbol during made basket; depth and airborne ball height are not represented"
+      },
+      {
+        "t": 17.65,
+        "x": 5.25,
+        "y": 25,
+        "status": "inferred",
+        "image": null,
+        "segment": "flagg-wide-1",
+        "reviewed": false,
+        "reason": "court-schematic possession change near rim; edited diagram only"
+      },
+      {
+        "t": 17.749999,
+        "x": 5.95,
+        "y": 25.8,
+        "status": "inferred",
+        "image": null,
+        "segment": "flagg-wide-1",
+        "reviewed": false,
+        "reason": "court-schematic possession change near rim; edited diagram only"
+      },
+      {
+        "t": 20.6,
+        "x": 0,
+        "y": 25,
+        "status": "inferred",
+        "image": null,
+        "segment": "flagg-wide-1",
+        "reviewed": false,
+        "reason": "court-schematic inbound-pass diagram from edited baseline position to approximate receiver area; no observed airborne/bounce pixel projection"
+      },
+      {
+        "t": 21.199999,
+        "x": 11.5,
+        "y": 10,
+        "status": "inferred",
+        "image": null,
+        "segment": "flagg-wide-1",
+        "reviewed": false,
+        "reason": "court-schematic inbound-pass diagram from edited baseline position to approximate receiver area; no observed airborne/bounce pixel projection"
+      }
+    ],
+    "warning": "Edited plan-view shot/pass diagram, not measured airborne ball coordinates or a projected ball trajectory."
+  }
+}
