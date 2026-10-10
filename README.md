@@ -1,5 +1,7 @@
 # BroadcastCode「深度赛场」黑客松准备资料
 
+**10月10日AWS深度核查：** 主链已实际采用AgentCore/Bedrock、Lambda、SQS、DynamoDB、S3、CloudFront与CDK；CloudFront媒体缓存、业务观测仍有缺口，SageMaker训练独立运行但新模型未进入成片。真实能力、代码位置及边界见[AWS服务使用深度核查](docs/AWS服务使用深度核查-20261010.md)。
+
 **10 月 10 日 13:32 · 联合训练已实际进入GPU：** 云端确认Qwen2.5-3B已在NVIDIA A10G以NF4加载（加载时allocated显存2.607 GiB，不是训练峰值），SFT第1轮已完成16条训练样本，暂未出现OOM。训练前固定val/test各16题均为新协议schemaRate=0、successRate=0；这是未适配协议的真实基线，尚无训练后效果。RL阶段还未开始，新3B未上线。最新证据见[训练快照](product/rl/results/evidence-v1/status-20261010-1332.json)。
 
 **10 月 10 日 13:22 · 三层联合进入实施：** 用户明确三类数据必须用于成片并要求加快。已取得4场HOU/DAL官方boxscore，102条球员记录、83条可派生eFG/TS，结合赛季深度数据生成1993条统一证据；[两片数据包与后端交接](docs/RL三层证据后端交接-20261010.md)已交共享看板请求#7。新联合训练 `rl-scout-evidence-3b-two-teams-1010-052032` 已创建，13:21云端InProgress/Pending，尚无GPU训练步；565/149/153任务，SFT＋短RL、单卡60分钟训练评测预算。旧v4已完成，390同题MAE0.0925→0.0918，统计基线0.0910，未超统计基线；端点仍0.5B，未宣称新3B上线。一次全门禁326项通过，新监控实际读云通过；[实时接续](docs/RL-SCOUT强化学习执行文档-20261010.md)。
