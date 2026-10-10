@@ -316,8 +316,9 @@ export function createContentPanel({ onSeek = () => {}, onStory = () => {}, onCl
       body.append(node('span', 'content-badge', '正式素材 · 本地特效成片'));
       body.append(paragraph('复用 GameBuddy 视觉资产：球员高亮、战术定格、俯视示意、慢放与官方数据揭示。', 'content-lead'));
       const facts = node('dl', 'content-details');
-      facts.append(detail('时长', `${record.durationSeconds.toFixed(3)} 秒`), detail('画面', `${record.width} × ${record.height}`), detail('完整解码', record.fullVideoAudioDecode ? '通过' : '待完成'), detail('声音', record.aiNarrationUsed ? 'AI 配音' : '正式原片广播与提示音'));
-      body.append(facts, node('code', 'content-source-path', `源片 SHA-256 ${record.sourceSha256}`), node('code', 'content-source-path', `成片 SHA-256 ${record.outputSha256}`), paragraph('本轮为视觉联调版本。正式素材的 Agent 与豆包解说接入分别记录进度。', 'content-note'));
+      facts.append(detail('时长', `${record.durationSeconds.toFixed(3)} 秒`), detail('画面', `${record.width} × ${record.height}`), detail('完整解码', record.fullVideoAudioDecode ? '通过' : '待完成'), detail('声音', record.aiNarrationUsed ? 'AI 双人解说 · 豆包语音' : '正式原片广播与提示音'));
+      const audioNote = record.aiNarrationUsed ? (record.narration?.agentCore?.invoked === true ? '双人解说经 Agent 读取稿件并检查，使用豆包语音合成；保留原片广播作为独立音轨。战术图形为编辑示意。' : '双人解说使用豆包语音合成；保留原片广播作为独立音轨。战术图形为编辑示意。') : '本轮为视觉联调版本。正式素材的 Agent 与豆包解说接入分别记录进度。';
+      body.append(facts, node('code', 'content-source-path', `源片 SHA-256 ${record.sourceSha256}`), node('code', 'content-source-path', `成片 SHA-256 ${record.outputSha256}`), paragraph(audioNote, 'content-note'));
       return;
     }
     const historical = record.historical === true || !story.enhancedAvailable;

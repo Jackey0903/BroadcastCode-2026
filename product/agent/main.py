@@ -5,16 +5,20 @@ import os
 from readiness_agent import MODEL_ID, REGION, ReadinessAgent, ValidationError, make_server
 from story_agent import StoryAgent
 from story_contract import StoryValidationError
+from narration_agent import NarrationAgent
 
 
 class ProductAgent:
     def __init__(self, bucket, s3, bedrock, expected_bucket_owner=None, model_id=MODEL_ID):
         self.readiness = ReadinessAgent(bucket, s3, bedrock, expected_bucket_owner)
         self.story = StoryAgent(bucket, s3, bedrock, model_id, expected_bucket_owner)
+        self.narration = NarrationAgent(self.story)
 
     def run(self, payload):
-        if not isinstance(payload, dict) or payload.get("mode", "readiness") not in ("readiness", "story"):
-            raise ValidationError("mode must be readiness or story")
+        if not isinstance(payload, dict) or payload.get("mode", "readiness") not in ("readiness", "story", "narration"):
+            raise ValidationError("mode must be readiness, story or narration")
+        if payload.get("mode") == "narration":
+            return self.narration.run(payload)
         if payload.get("mode") == "story":
             try:
                 return self.story.run(payload)

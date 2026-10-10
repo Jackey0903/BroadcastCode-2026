@@ -1,0 +1,27 @@
+{
+  "schema": "gamebuddy-dialogue-v1",
+  "durationSeconds": 55.055,
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "visualSha256": "0a93a488fa4f79e5a3ac87c68506ff447d461c30a59bec472ebbedd16edb4019",
+  "declaration": "AI 双人解说 · 豆包语音",
+  "roles": {"A": "现场解说：专业、热情，进球时短促有力；不要模仿任何真人", "B": "战术分析：清晰、沉稳，像和搭档讨论比赛；不要朗诵或模仿真人"},
+  "facts": {"gameId": "0022500356", "eventId": 273, "player": "马克斯·克里斯蒂", "offensiveRebound": "德怀特·鲍威尔", "shot": "25英尺后撤步打板三分命中", "expectedFg": 0.3, "scoreAfter": "独行侠43：火箭44", "firstVisibleMakeOutputSecond": 30.79, "foulInThisClip": false, "officialTrackingAvailable": false},
+  "evidenceUrls": ["https://www.nba.com/game/hou-vs-dal-0022500356/play-by-play", "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500356&playerId=1631108"],
+  "cues": [
+    {"id":"hook","role":"A","start":0.18,"end":2.4,"text":"这一攻，怎么破局？","evidenceIds":["formal-frame-review"]},
+    {"id":"drive","role":"B","start":2.75,"end":6.3,"text":"克里斯蒂切入，火箭收紧防守。","evidenceIds":["formal-frame-review"]},
+    {"id":"scramble","role":"A","start":6.7,"end":10.55,"text":"来到篮下，能直接终结吗？","evidenceIds":["formal-frame-review"]},
+    {"id":"rebound","role":"B","start":12.65,"end":14.8,"text":"鲍威尔抢回前场篮板。","evidenceIds":["pbp-272"]},
+    {"id":"second-chance","role":"A","start":15.15,"end":19.15,"text":"刚才没进，但球权还在！","evidenceIds":["pbp-270","pbp-272"]},
+    {"id":"reset","role":"B","start":19.6,"end":23.1,"text":"球回到右侧，重新组织。","evidenceIds":["formal-frame-review"]},
+    {"id":"screen","role":"A","start":23.6,"end":27.35,"text":"掩护就位，克里斯蒂准备再来！","evidenceIds":["formal-frame-review"]},
+    {"id":"release","role":"B","start":27.8,"end":30.6,"text":"横移，撤步，迎着干扰出手。","evidenceIds":["formal-frame-review"]},
+    {"id":"make","role":"A","start":31.05,"end":33.25,"text":"打板！三分命中！","evidenceIds":["formal-final-shot","formal-frame-review"]},
+    {"id":"score","role":"B","start":33.6,"end":37.0,"text":"四十三比四十四，只差一分。","evidenceIds":["pbp-273"]},
+    {"id":"question","role":"A","start":37.3,"end":39.3,"text":"这球，难在哪儿？","evidenceIds":["formal-frame-review"]},
+    {"id":"replay","role":"B","start":40.65,"end":43.3,"text":"撤步之后，防守仍有干扰。","evidenceIds":["formal-frame-review"]},
+    {"id":"metric","role":"B","start":43.55,"end":47.7,"text":"官方预期命中率，百分之三十。","evidenceIds":["formal-final-shot"]},
+    {"id":"result","role":"A","start":47.9,"end":49.4,"text":"但这次，进了！","evidenceIds":["formal-final-shot"]},
+    {"id":"outro","role":"B","start":49.85,"end":54.7,"text":"篮板续命，掩护重组，撤步命中。看懂每一拍！","evidenceIds":["pbp-272","pbp-273","formal-frame-review"]}
+  ]
+}

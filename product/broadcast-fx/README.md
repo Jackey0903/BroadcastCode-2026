@@ -1,3 +1,5 @@
+**最新交付：** 正式55.055秒成片已加入豆包双人AI解说，并由正式AgentCore读取稿件/批准；根CloudFront展示最新玻璃播放器。画面继续复用本库，不重制时间线；见[配音与主页交接](../../docs/正式55秒豆包双人解说与主页发布-20261010.md)。
+
 **55秒最新版本：** 用户要求尽可能1:1复刻弗拉格版出场、结束、进球动画。`python3 product/broadcast-fx/render_formal_assets.py --variant flagg55 --workers 3`直接复用原函数，正式片55.055秒，包含三处战术暂停；输出`product/build/formal-assets/GameBuddy-正式资产联调-v2-55秒.mp4`。详细复用方法及真实状态见[55秒说明](../../docs/正式视频55秒与弗拉格动画复刻-20261010.md)。历史45秒版用`--variant v1`复现。
 
 **正式视频最新入口：** 用户要求完全复用本库的战术表达与动画。正式Christie事件273/xFG30%资产版已在[render_formal_assets.py](render_formal_assets.py)实现，45.212秒完整导出与新watch片尾通过；[formal_scene_renderer.py](formal_scene_renderer.py)直接复用本库的足圈/括号、箭头、俯视板形变、标题与字幕。源片事实/时间线/音轨见[formal/](formal/README.md)，[本轮记录](../../docs/正式素材前端与视觉联调-20261010.md)。下文弗拉格37/45秒为资产来源历史，不能作为正式片输入或数据。

@@ -1,0 +1,511 @@
+{
+  "createdAt": "2026-10-10T11:42:36.888700+00:00",
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "outputSha256": "20527a7e140799bf57cacc2523928a810a49b4598810a4183c3db4fbc462f567",
+  "sizeBytes": 58674692,
+  "durationSeconds": 55.055,
+  "frameCount": 3300,
+  "fullDecodePassed": true,
+  "visualBaseSha256": "0a93a488fa4f79e5a3ac87c68506ff447d461c30a59bec472ebbedd16edb4019",
+  "aiNarrationUsed": true,
+  "narration": {
+    "schema": "gamebuddy-dialogue-v1",
+    "provider": "doubao",
+    "apiVersion": "v3",
+    "model": "seed-tts-2.0-expressive",
+    "resource": "seed-tts-2.0",
+    "declaration": "AI 双人解说 · 豆包语音",
+    "dualHost": true,
+    "planSha256": "26fc0745b798a8d0d21ce585a9bb9455fe31a4832365924c5b564e068d029cfd",
+    "audioSha256": "52969ae3fb7f055ac70d541cad0912c467309319189497fd9346d9930af0f6b9",
+    "cues": [
+      {
+        "id": "hook",
+        "role": "A",
+        "start": 0.18,
+        "end": 2.4,
+        "text": "这一攻，怎么破局？",
+        "evidenceIds": [
+          "formal-frame-review"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "20261010192933ED196167B02A8A187175",
+        "requestId": "74f11946-46fb-4f0d-9493-b5192eba53a2",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_male_m191_uranus_bigtts",
+        "audioSha256": "c63852aa14228c796ea4b9f075831bc33e4739d19dc96829e6554107285b4f97",
+        "audioBytes": 46758,
+        "cacheHit": true,
+        "rawDurationSeconds": 2.328,
+        "fittedDurationSeconds": 2.157521,
+        "tempo": 1.077777777777778
+      },
+      {
+        "id": "drive",
+        "role": "B",
+        "start": 2.75,
+        "end": 6.3,
+        "text": "克里斯蒂切入，火箭收紧防守。",
+        "evidenceIds": [
+          "formal-frame-review"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "20261010194214375ACB8940A9381B86EF",
+        "requestId": "d5d22548-3022-433c-bad5-f4d43eee44a4",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_female_vv_uranus_bigtts",
+        "audioSha256": "e525797990c71311f1d66725719ac5d1024604b55948cd44874acf426388f25c",
+        "audioBytes": 52038,
+        "cacheHit": false,
+        "rawDurationSeconds": 2.592,
+        "fittedDurationSeconds": 2.5885,
+        "tempo": 1.0
+      },
+      {
+        "id": "scramble",
+        "role": "A",
+        "start": 6.7,
+        "end": 10.55,
+        "text": "来到篮下，能直接终结吗？",
+        "evidenceIds": [
+          "formal-frame-review"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "2026101019421582829D32DF0DB632616F",
+        "requestId": "a2fed9ff-fe31-4e99-9d83-f737ac596f08",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_male_m191_uranus_bigtts",
+        "audioSha256": "81299f50caa346d7490ed18021e7eab148dce138cdbb75ff27c7bf90b6862973",
+        "audioBytes": 46278,
+        "cacheHit": false,
+        "rawDurationSeconds": 2.304,
+        "fittedDurationSeconds": 2.301667,
+        "tempo": 1.0
+      },
+      {
+        "id": "rebound",
+        "role": "B",
+        "start": 12.65,
+        "end": 14.8,
+        "text": "鲍威尔抢回前场篮板。",
+        "evidenceIds": [
+          "pbp-272"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "202610101929367901622422970D60DD1B",
+        "requestId": "53b7eab4-3886-4316-a5d1-307e6d15a999",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_female_vv_uranus_bigtts",
+        "audioSha256": "ad0e8d46831f7d1d76b0d534601de6fb3d3f507169e27a394b72823cde73c415",
+        "audioBytes": 39558,
+        "cacheHit": true,
+        "rawDurationSeconds": 1.968,
+        "fittedDurationSeconds": 1.965583,
+        "tempo": 1.0
+      },
+      {
+        "id": "second-chance",
+        "role": "A",
+        "start": 15.15,
+        "end": 19.15,
+        "text": "刚才没进，但球权还在！",
+        "evidenceIds": [
+          "pbp-270",
+          "pbp-272"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "2026101019293795962326D59511192280",
+        "requestId": "c5032e41-e5e4-40de-98db-59a93861c5ea",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_male_m191_uranus_bigtts",
+        "audioSha256": "ec70672ab595727d66d36f4ff6e1d636abf54ebd18874e99602e3e406a1ffabe",
+        "audioBytes": 46758,
+        "cacheHit": true,
+        "rawDurationSeconds": 2.328,
+        "fittedDurationSeconds": 2.323771,
+        "tempo": 1.0
+      },
+      {
+        "id": "reset",
+        "role": "B",
+        "start": 19.6,
+        "end": 23.1,
+        "text": "球回到右侧，重新组织。",
+        "evidenceIds": [
+          "formal-frame-review"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "20261010192938D6FFA2A5EB4E2A613A94",
+        "requestId": "1688c1f1-d4be-4f4d-a97f-77ea0e11764f",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_female_vv_uranus_bigtts",
+        "audioSha256": "3de54d8938c41eaf4ff58bb26a3fb400f6025213ed5d395ba4d7bdca751699e7",
+        "audioBytes": 47718,
+        "cacheHit": true,
+        "rawDurationSeconds": 2.376,
+        "fittedDurationSeconds": 2.370542,
+        "tempo": 1.0
+      },
+      {
+        "id": "screen",
+        "role": "A",
+        "start": 23.6,
+        "end": 27.35,
+        "text": "掩护就位，克里斯蒂准备再来！",
+        "evidenceIds": [
+          "formal-frame-review"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "20261010192939D031E46002500EED52C0",
+        "requestId": "d3aed8aa-1b8c-4772-b3cf-5e5e239750a6",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_male_m191_uranus_bigtts",
+        "audioSha256": "d9971bb015d0dbd80ba0ca591140cde8425fea5a808d9222b3f5c74ee2fbba3d",
+        "audioBytes": 53958,
+        "cacheHit": true,
+        "rawDurationSeconds": 2.688,
+        "fittedDurationSeconds": 2.680146,
+        "tempo": 1.0
+      },
+      {
+        "id": "release",
+        "role": "B",
+        "start": 27.8,
+        "end": 30.6,
+        "text": "横移，撤步，迎着干扰出手。",
+        "evidenceIds": [
+          "formal-frame-review"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "202610101929403D061AC33A85DD936996",
+        "requestId": "b8a2e611-b636-4ca3-9190-d89b28e5d774",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_female_vv_uranus_bigtts",
+        "audioSha256": "26607957c896903b0c1cea5070ce0f79fce70d4b48fba547af08732db0bb1961",
+        "audioBytes": 66918,
+        "cacheHit": true,
+        "rawDurationSeconds": 3.336,
+        "fittedDurationSeconds": 2.748896,
+        "tempo": 1.217518248175182
+      },
+      {
+        "id": "make",
+        "role": "A",
+        "start": 31.05,
+        "end": 33.25,
+        "text": "打板！三分命中！",
+        "evidenceIds": [
+          "formal-final-shot",
+          "formal-frame-review"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "202610101929419F2F00DF4BD385616A5B",
+        "requestId": "7a4b52e1-5eea-4923-9c9f-b8f11dd6c5fe",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_male_m191_uranus_bigtts",
+        "audioSha256": "79f000bff914652d3b8f9f08def28c45b4884893b3c909dc02159c62755d3eda",
+        "audioBytes": 35718,
+        "cacheHit": true,
+        "rawDurationSeconds": 1.776,
+        "fittedDurationSeconds": 1.775,
+        "tempo": 1.0
+      },
+      {
+        "id": "score",
+        "role": "B",
+        "start": 33.6,
+        "end": 37.0,
+        "text": "四十三比四十四，只差一分。",
+        "evidenceIds": [
+          "pbp-273"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "202610101929423646D321D01A3C1A02C3",
+        "requestId": "4362caac-a64d-4bec-8d17-1daedb531786",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_female_vv_uranus_bigtts",
+        "audioSha256": "d2ffd1e7fca12c2390323ae9f10dd245aaba121a28e3f39e6f4d49a15c1dd953",
+        "audioBytes": 52038,
+        "cacheHit": true,
+        "rawDurationSeconds": 2.592,
+        "fittedDurationSeconds": 2.589438,
+        "tempo": 1.0
+      },
+      {
+        "id": "question",
+        "role": "A",
+        "start": 37.3,
+        "end": 39.3,
+        "text": "这球，难在哪儿？",
+        "evidenceIds": [
+          "formal-frame-review"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "2026101019294437FFB9D90B5A9F33BAB3",
+        "requestId": "837f584b-74b1-4aa9-951a-354971d0e691",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_male_m191_uranus_bigtts",
+        "audioSha256": "223d40e1370e3580b20bc1abc45e29a96a6341c36865abd3ae8356a22fb9b2b9",
+        "audioBytes": 43398,
+        "cacheHit": true,
+        "rawDurationSeconds": 2.16,
+        "fittedDurationSeconds": 1.943375,
+        "tempo": 1.1134020618556701
+      },
+      {
+        "id": "replay",
+        "role": "B",
+        "start": 40.65,
+        "end": 43.3,
+        "text": "撤步之后，防守仍有干扰。",
+        "evidenceIds": [
+          "formal-frame-review"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "202610101929455E83C5EF0D1C02166946",
+        "requestId": "8ab35282-f730-4727-bb57-8c211d311b41",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_female_vv_uranus_bigtts",
+        "audioSha256": "d5fc687d00d65f5d3201b4b4bd5446c61b974aa8c5222842ce1538c3839df144",
+        "audioBytes": 51558,
+        "cacheHit": true,
+        "rawDurationSeconds": 2.568,
+        "fittedDurationSeconds": 2.565,
+        "tempo": 1.0
+      },
+      {
+        "id": "metric",
+        "role": "B",
+        "start": 43.55,
+        "end": 47.7,
+        "text": "官方预期命中率，百分之三十。",
+        "evidenceIds": [
+          "formal-final-shot"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "2026101019294603E58848ECF2175F0F65",
+        "requestId": "25cfbae4-8948-4c4f-a3a9-e29a05de648e",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_female_vv_uranus_bigtts",
+        "audioSha256": "4ee0e6ea4952331aff0f3ed3ab4e28db8e5223ed6a65ce9ce84ea0b6f757ad5c",
+        "audioBytes": 55398,
+        "cacheHit": true,
+        "rawDurationSeconds": 2.76,
+        "fittedDurationSeconds": 2.756104,
+        "tempo": 1.0
+      },
+      {
+        "id": "result",
+        "role": "A",
+        "start": 47.9,
+        "end": 49.4,
+        "text": "但这次，进了！",
+        "evidenceIds": [
+          "formal-final-shot"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "20261010192947896FCCA01241A05C3ED9",
+        "requestId": "5a8c473a-7f43-4898-990c-2f7542e36ed8",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_male_m191_uranus_bigtts",
+        "audioSha256": "bdcd1163f52b9a062d86f04e09be2467adf187185e65cff7c3337754a5322158",
+        "audioBytes": 35718,
+        "cacheHit": true,
+        "rawDurationSeconds": 1.776,
+        "fittedDurationSeconds": 1.443917,
+        "tempo": 1.2333333333333334
+      },
+      {
+        "id": "outro",
+        "role": "B",
+        "start": 49.85,
+        "end": 54.7,
+        "text": "篮板续命，掩护重组，撤步命中。看懂每一拍！",
+        "evidenceIds": [
+          "pbp-272",
+          "pbp-273",
+          "formal-frame-review"
+        ],
+        "codes": [
+          0,
+          20000000
+        ],
+        "usage": {},
+        "logId": "202610101929481D703141D1262735F358",
+        "requestId": "06274e10-5fb7-4a1d-b484-ad937e11e0b6",
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "resource": "seed-tts-2.0",
+        "model": "seed-tts-2.0-expressive",
+        "speaker": "zh_female_vv_uranus_bigtts",
+        "audioSha256": "bb2ac565ae52bfe8544a0e2909a76a6ed95a0bf68b79822f7663e580457ba597",
+        "audioBytes": 98598,
+        "cacheHit": true,
+        "rawDurationSeconds": 4.92,
+        "fittedDurationSeconds": 4.789313,
+        "tempo": 1.0271398747390392
+      }
+    ],
+    "agentCore": {
+      "invoked": true,
+      "mode": "narration",
+      "requestId": "442ec313-1d48-444d-bada-a080467c9b7c",
+      "modelId": "global.anthropic.claude-sonnet-4-6",
+      "sourceKey": "product/data/formal-dialogue.json",
+      "sourceSha256": "e7b5babb472dd201ad9296acce581b6e25af6593e72f7e06102772f66cd3027c",
+      "trace": [
+        {
+          "round": 1,
+          "tool": "read_narration_source",
+          "status": "succeeded",
+          "sourceSha256": "e7b5babb472dd201ad9296acce581b6e25af6593e72f7e06102772f66cd3027c"
+        },
+        {
+          "round": 2,
+          "tool": "approve_dialogue",
+          "status": "succeeded",
+          "input": {
+            "approved": true,
+            "checkedCueIds": [
+              "hook",
+              "drive",
+              "scramble",
+              "rebound",
+              "second-chance",
+              "reset",
+              "screen",
+              "release",
+              "make",
+              "score",
+              "question",
+              "replay",
+              "metric",
+              "result",
+              "outro"
+            ],
+            "reasons": []
+          }
+        }
+      ],
+      "usage": [
+        {
+          "inputTokens": 1062,
+          "outputTokens": 24,
+          "totalTokens": 1086,
+          "cacheReadInputTokens": 0,
+          "cacheWriteInputTokens": 0
+        },
+        {
+          "inputTokens": 2378,
+          "outputTokens": 800,
+          "totalTokens": 3178,
+          "cacheReadInputTokens": 0,
+          "cacheWriteInputTokens": 0
+        }
+      ],
+      "audioSynthesizedByThisApproval": false,
+      "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:555726205424:runtime/Team02Readiness20261006-1cAKhm9LrD",
+      "verifiedAt": "2026-10-10T11:42:13.653208+00:00",
+      "awsRequestId": "210a3b5d-752b-47c4-932f-a324b36944d5"
+    },
+    "mix": "timed_two_hosts_with_sidechain_ducking_and_original_second_track"
+  }
+}

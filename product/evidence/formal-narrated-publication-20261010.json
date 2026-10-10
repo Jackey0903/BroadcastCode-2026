@@ -1,0 +1,61 @@
+{
+  "publishedAt": "2026-10-10T11:45:05.093512+00:00",
+  "account": "555726205424",
+  "website": "https://deky02484tknr.cloudfront.net",
+  "bucket": "broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4",
+  "objects": [
+    {
+      "key": "product/media/formal/enhanced.mp4",
+      "sha256": "20527a7e140799bf57cacc2523928a810a49b4598810a4183c3db4fbc462f567",
+      "sizeBytes": 58674692
+    },
+    {
+      "key": "index.html",
+      "sha256": "06cc223172328bb179e592ceb1d070f7aaf764fc5e4a97f768ccaecc661c2598",
+      "sizeBytes": 3506
+    },
+    {
+      "key": "product/watch/data/stories.json",
+      "sha256": "50ee337480ec25b256636c03dff307845e0fb64d29ed7c4db7b08502c13935c4",
+      "sizeBytes": 13853
+    },
+    {
+      "key": "product/media/formal/manifest.json",
+      "sha256": "a7fd9bedc374f197d456256e76d0420cd110634a2dcb46f12fcd3567bd795bbe",
+      "sizeBytes": 4887
+    }
+  ],
+  "watchUrl": "https://deky02484tknr.cloudfront.net/product/watch/index.html?story=formal&version=enhanced",
+  "outputSha256": "20527a7e140799bf57cacc2523928a810a49b4598810a4183c3db4fbc462f567",
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "aiNarrationUsed": true,
+  "agentCoreNarration": true,
+  "rootUrl": "https://deky02484tknr.cloudfront.net",
+  "cloudFrontPlaybackVerified": true,
+  "rootVerified": {
+    "url": "https://deky02484tknr.cloudfront.net/",
+    "base": "https://deky02484tknr.cloudfront.net/product/watch/",
+    "story": "formal",
+    "defaultVersion": "enhanced",
+    "durationSeconds": 55.055,
+    "readyState": 4,
+    "mediaError": null,
+    "rangeStatus": 206,
+    "contentRange": "bytes 0-1023/58674692",
+    "aiNarrationUsed": true,
+    "agentCoreNarrationApproved": true,
+    "verifiedAt": "2026-10-10T11:46:16Z"
+  },
+  "playback": {
+    "verifiedAt": "2026-10-10T11:47:05Z",
+    "naturalEnd": true,
+    "startSeconds": 0,
+    "endSeconds": 55.055,
+    "durationSeconds": 55.055,
+    "totalVideoFrames": 3300,
+    "droppedVideoFrames": 0,
+    "mediaError": null,
+    "mutedForPlaybackCheck": true,
+    "humanVoiceAudition": false
+  }
+}

@@ -187,7 +187,7 @@ class Catalog:
             return
         self.files["/product/media/formal/source.mp4"] = source
         output = receipt = None
-        for filename in ("GameBuddy-正式资产联调-v2-55秒", "GameBuddy-正式资产联调-v1"):
+        for filename in ("GameBuddy-正式55秒-豆包双人解说", "GameBuddy-正式资产联调-v2-55秒", "GameBuddy-正式资产联调-v1"):
             candidate = checked_file(self.root, f"product/build/formal-assets/{filename}.mp4")
             candidate_receipt = checked_file(self.root, f"product/build/formal-assets/{filename}.manifest.json")
             if candidate and candidate_receipt:
@@ -220,7 +220,10 @@ class Catalog:
                 "width": rendered.get("width"), "height": rendered.get("height"),
                 "createdAt": manifest.get("createdAt"), "timeline": timeline,
                 "agentCoreUsedForThisRender": False, "rlModelUsedForThisRender": False,
-                "aiNarrationUsed": False, "preservesSourceTimeline": False,
+                "aiNarrationUsed": manifest.get('aiNarrationUsed') is True,
+                "narration": {key: manifest.get('narration', {}).get(key) for key in
+                              ('provider', 'apiVersion', 'model', 'declaration', 'dualHost', 'agentCore')},
+                "preservesSourceTimeline": False,
                 "manifestUrl": "/product/media/formal/manifest.json",
                 "fullVideoAudioDecode": True,
             }
