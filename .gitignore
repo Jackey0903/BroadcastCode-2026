@@ -33,3 +33,6 @@ aws-validation/outputs.json
 # Product build outputs and generated media
 /product/build/
 /product/outputs.json
+
+# Local browser automation screenshots and traces
+/.playwright-mcp/

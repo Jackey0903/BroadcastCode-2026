@@ -1,0 +1,205 @@
+{
+  "checkedAt": "2026-10-10T19:50:41.317632+08:00",
+  "account": "555726205424",
+  "role": "NBAHackathonParticipantRole",
+  "profile": "nba",
+  "region": "us-east-1",
+  "stack": {
+    "status": "UPDATE_COMPLETE",
+    "updated": "2026-10-10 11:40:18.735000+00:00"
+  },
+  "agentCore": {
+    "status": "READY",
+    "version": "8",
+    "updated": "2026-10-10 11:40:32.159654+00:00"
+  },
+  "rlEndpoint": {
+    "status": "InService",
+    "config": "rl-scout-config-1010-144434"
+  },
+  "cloudFront": {
+    "id": "EHVA243L9H495",
+    "status": "Deployed",
+    "enabled": true,
+    "domain": "deky02484tknr.cloudfront.net"
+  },
+  "publishedAssets": {
+    "index.html": {
+      "bytes": 3506,
+      "sha256": "06cc223172328bb179e592ceb1d070f7aaf764fc5e4a97f768ccaecc661c2598",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "no-store",
+      "updated": "2026-10-10 11:45:03+00:00"
+    },
+    "product/watch/data/stories.json": {
+      "bytes": 13853,
+      "sha256": "50ee337480ec25b256636c03dff307845e0fb64d29ed7c4db7b08502c13935c4",
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "no-store",
+      "updated": "2026-10-10 11:45:04+00:00"
+    },
+    "product/media/formal/source.mp4": {
+      "bytes": 90393523,
+      "sha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+      "contentType": "video/mp4",
+      "cacheControl": "public, max-age=300",
+      "updated": "2026-10-10 11:46:06+00:00"
+    },
+    "product/media/formal/enhanced.mp4": {
+      "bytes": 58674692,
+      "sha256": "20527a7e140799bf57cacc2523928a810a49b4598810a4183c3db4fbc462f567",
+      "contentType": "video/mp4",
+      "cacheControl": "public, max-age=300",
+      "updated": "2026-10-10 11:44:24+00:00"
+    },
+    "product/media/formal/manifest.json": {
+      "bytes": 4887,
+      "sha256": "a7fd9bedc374f197d456256e76d0420cd110634a2dcb46f12fcd3567bd795bbe",
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "no-store",
+      "updated": "2026-10-10 11:45:05+00:00"
+    },
+    "formalManifest": {
+      "outputSha256": "20527a7e140799bf57cacc2523928a810a49b4598810a4183c3db4fbc462f567",
+      "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+      "durationSeconds": 55.055,
+      "aiNarrationUsed": true,
+      "agentCoreUsedForThisRender": false,
+      "rlModelUsedForThisRender": false,
+      "narration": {
+        "provider": "doubao",
+        "apiVersion": "v3",
+        "model": "seed-tts-2.0-expressive",
+        "declaration": "AI 双人解说 · 豆包语音",
+        "dualHost": true,
+        "agentCore": {
+          "invoked": true,
+          "mode": "narration",
+          "requestId": "442ec313-1d48-444d-bada-a080467c9b7c",
+          "modelId": "global.anthropic.claude-sonnet-4-6",
+          "sourceKey": "product/data/formal-dialogue.json",
+          "sourceSha256": "e7b5babb472dd201ad9296acce581b6e25af6593e72f7e06102772f66cd3027c",
+          "trace": [
+            {
+              "round": 1,
+              "tool": "read_narration_source",
+              "status": "succeeded",
+              "sourceSha256": "e7b5babb472dd201ad9296acce581b6e25af6593e72f7e06102772f66cd3027c"
+            },
+            {
+              "round": 2,
+              "tool": "approve_dialogue",
+              "status": "succeeded",
+              "input": {
+                "approved": true,
+                "checkedCueIds": [
+                  "hook",
+                  "drive",
+                  "scramble",
+                  "rebound",
+                  "second-chance",
+                  "reset",
+                  "screen",
+                  "release",
+                  "make",
+                  "score",
+                  "question",
+                  "replay",
+                  "metric",
+                  "result",
+                  "outro"
+                ],
+                "reasons": []
+              }
+            }
+          ],
+          "usage": [
+            {
+              "inputTokens": 1062,
+              "outputTokens": 24,
+              "totalTokens": 1086,
+              "cacheReadInputTokens": 0,
+              "cacheWriteInputTokens": 0
+            },
+            {
+              "inputTokens": 2378,
+              "outputTokens": 800,
+              "totalTokens": 3178,
+              "cacheReadInputTokens": 0,
+              "cacheWriteInputTokens": 0
+            }
+          ],
+          "audioSynthesizedByThisApproval": false,
+          "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:555726205424:runtime/Team02Readiness20261006-1cAKhm9LrD",
+          "verifiedAt": "2026-10-10T11:42:13.653208+00:00",
+          "awsRequestId": "210a3b5d-752b-47c4-932f-a324b36944d5"
+        }
+      }
+    }
+  },
+  "lambda": {
+    "Api": {
+      "State": "Active",
+      "LastUpdateStatus": "Successful",
+      "LastModified": "2026-10-10T09:49:59.000+0000",
+      "Timeout": 20
+    },
+    "Worker": {
+      "State": "Active",
+      "LastUpdateStatus": "Successful",
+      "LastModified": "2026-10-10T09:50:24.000+0000",
+      "Timeout": 300
+    },
+    "NativeNarrator": {
+      "State": "Active",
+      "LastUpdateStatus": "Successful",
+      "LastModified": "2026-10-10T09:50:11.000+0000",
+      "Timeout": 120
+    }
+  },
+  "monitoring": {
+    "alarms": [],
+    "DeadLetterQueue": {
+      "ApproximateNumberOfMessages": "0",
+      "ApproximateNumberOfMessagesNotVisible": "0"
+    },
+    "DeliveryEventDeadLetterQueue": {
+      "ApproximateNumberOfMessages": "0",
+      "ApproximateNumberOfMessagesNotVisible": "0"
+    },
+    "budget": {
+      "id": {
+        "S": "_budget"
+      },
+      "runs": {
+        "N": "6"
+      }
+    }
+  },
+  "scope": "Read-only AWS and repository release readiness; no deployment or new inference",
+  "businessCommit": "2a194bdb10ec849ea9aad9c409359def2a0e70ed",
+  "ci": {
+    "status": "success",
+    "url": "https://github.com/Jackey0903/BroadcastCode-2026/actions/runs/38049734863"
+  },
+  "offlineGate": {
+    "passed": true,
+    "behavioralTests": 504,
+    "skipped": 0,
+    "pythonFiles": 117,
+    "javascriptFiles": 45,
+    "cdkResources": 50,
+    "boundedRoles": 6,
+    "seconds": 18.77,
+    "mediaFixture": "synthetic; not a real deployment/media certificate"
+  },
+  "browserEvidence": "product/evidence/formal-narrated-publication-20261010.json",
+  "portalFinalSubmissionVerified": false,
+  "concurrentMerge": {
+    "observedAt": "2026-10-10T19:53:03+08:00",
+    "head": "2a194bdb10ec849ea9aad9c409359def2a0e70ed",
+    "incoming": "744132f508828ade52a34c8ee1efe68d2c73a517",
+    "unresolvedObserved": true,
+    "scope": "New frontend merge is not covered by this check; left to its owner"
+  }
+}
