@@ -1,3 +1,5 @@
+**正式素材视觉联调：** 45.212秒资产版、本地最新磨砂watch自然片尾、正式原片自然片尾及官方30%数据通过；见[成片导出](formal-asset-render-20261010.json)、[实际播放](formal-asset-watch-20261010.json)。本轮为本地编辑版，未认证正式新片Agent/RL/豆包或CloudFront发布。
+
 当前RL产品验收：`run-06ddc49b5a1840dba23e3165bdab550a.json`、`rl-audit-06ddc49b5a1840dba23e3165bdab550a.json`、`rl-independent-delivery-20261010.json`、`rl-local-browser-20261010.json`、`rl-formal-browser-20261010.json`。三层已真实烧录；本地片尾通过，正式面板通过/云端片尾缓冲。详细见[验收说明](../../docs/RL产品端到端联调验收-20261010.md)。
 
 # 关键一拍 · 产品验收记录
@@ -96,3 +98,5 @@ node --test product/tests/test_court_viewer.js product/tests/test_court_endpoint
 历史练习工程的成功证据在 [readiness-lab](../../readiness-lab/README.md)，不能替代本次产品验收。原始视频、构建 ZIP、下载成片和本机完整响应按仓库忽略规则保存在本地；本目录保留可交接的脱敏结果及来源，后续更新应保留失败历史和对应构建版本。
 
 本次代码验收与同步：`1fce2c1`已推送正式`origin/main`，[269项托管门禁](https://github.com/Jackey0903/BroadcastCode-2026/actions/runs/38021795732)成功；源码和38份白名单媒体已在本地存档并验证恢复。
+
+- [正式克里斯蒂45.21秒视觉版](formal-editorial-christie-20261010.json)：原片完整保留、官方273/xFG30%、两段人工战术定格、浏览器片尾通过；仅本地编辑，未声称Agent/RL或云发布。

@@ -161,3 +161,11 @@
 - 17:52 链路Codex：GameBuddy已接真实RL桥接，Agent typed三层契约/短叙事、Worker分段烧录、watch独立数据与攻防比较已实现；481项门禁通过，源码2c7ac0d已推origin/main。正式同Stack部署完成，仅新增本队rl-scout InvokeEndpoint权限，无重训/模型重部署。新弗拉格任务06ddc49b5a1840dba23e3165bdab550a正在真实分析，#11仍待成片验收，不将代码接线冒充完整通过。
 
 - 18:00 链路Codex：#11新06ddc49b成片实测通过，RL2次生成/2.841秒、整链61.38秒，三层/短叙事真实烧录；独立托管交付verified，哈希/完整音视频解码/本地Chrome自然片尾与数据面板通过。正式网页数据可用，60秒播放12.794秒未到片尾，保留缓冲限制。481项full通过，观看区已切新片，旧3526未回填RL；新片21.55秒与队友45秒视觉版不同，TTS分工不变。详见docs/RL产品端到端联调验收-20261010.md，正在同步证据与本地备份。
+
+- 18:25 Codex视频：正式原片已在 data/正式视频.mp4，SHA f2c0fb6a…c91；本会话正在 product/broadcast-fx/formal/ 独立复现59.94fps/45.21秒高级视觉版，T1源240/T2源719，官方273/30%已核验。请并行链路会话保留自己外层 formal_render.py/formal_case.json，我不覆盖其文件；本会话导出至 product/build/formal-video/。新片尚未完成验收，不称Agent/RL自动成片。
+
+- 18:54 链路Codex：最新磨砂132aa65已合并42f1f63并推正式main。后续只使用正式视频；watch白名单/剪辑时间映射/独立editorial记录已适配，原片自然片尾/30%面板通过，487项门禁与正式17项契约通过。本会话采用formal/事实、时间线、音轨与base renderer，另以formal_scene_renderer.py复用最新tactics的camera→board布局及动画，导出至product/build/formal-assets/；不覆盖视频会话的formal/文件。45秒成片导出中，正式Agent/RL/豆包尚未冒充接通。
+
+- 18:56 链路Codex：正式资产版45.212秒/2710帧已导出、完整解码及新磨砂watch自然片尾通过（本次丢帧1/损坏0）。MP4 SHA f419896d…c8e2a，product/build/formal-assets/GameBuddy-正式资产联调-v1.mp4；两处camera→board场景直接复用最新tactics布局/图形，未用旧Worker叠字模板。实际Agent/RL新片调用与豆包仍待下一步。代码a6f05b5已本地提交，准备推送/本地恢复备份。
+
+- 18:58 Codex视频：formal/ 独立59.94fps正式视觉版已完成，2710帧/45.211833秒，SHA3330fe41…5e5b；全片音视频解码、真实浏览器最终从0至45.212秒ended/error:null、17项专属及487项full通过。事件273/xFG30%；外层formal_render.py/网页/云链路仍由并行会话负责，本片不补标RL/Agent执行。正在仅提交本方文件、推正式origin并本地媒体备份。交接 docs/正式视频视觉复现-20261010.md。
