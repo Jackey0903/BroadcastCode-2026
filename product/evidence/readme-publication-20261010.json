@@ -1,50 +1,92 @@
 {
-  "publishedAt": "2026-10-10T11:20:36.033472+00:00",
+  "publishedAt": "2026-10-10T11:33:48.339332+00:00",
   "team": "02",
   "product": "GameBuddy",
   "account": "555726205424",
   "website": "https://deky02484tknr.cloudfront.net/readme",
   "source": "README.md",
-  "sourceSha256": "34bb201fbf3ebd1cb7fa2fb46039dc998fef0c5390cb3a3a4ca1599f1a6b6a02",
+  "sourceSha256": "ecac1159b23e83d4d121a9ae31f7116807cc5f76982d34ab79bbfd637a21d201",
   "bucket": "broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4",
   "distribution": "EHVA243L9H495",
-  "invalidationId": "I2F8XBBVCXHCG2JPDVA5L0R42R",
+  "invalidationId": "I3JG7SAVG98SWWZ3PABYO7LCE8",
   "assets": [
     {
       "key": "readme",
       "contentType": "text/html; charset=utf-8",
-      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
-      "bytes": 19455
+      "sha256": "9ae690ab90fcdbc0465d66aa8402e65b12dcffd6b123b7872a7883c5520fae42",
+      "bytes": 27597
     },
     {
       "key": "product/readme",
       "contentType": "text/html; charset=utf-8",
-      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
-      "bytes": 19455
+      "sha256": "9ae690ab90fcdbc0465d66aa8402e65b12dcffd6b123b7872a7883c5520fae42",
+      "bytes": 27597
     },
     {
       "key": "readme/index.html",
       "contentType": "text/html; charset=utf-8",
-      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
-      "bytes": 19455
+      "sha256": "9ae690ab90fcdbc0465d66aa8402e65b12dcffd6b123b7872a7883c5520fae42",
+      "bytes": 27597
     },
     {
       "key": "product/readme/index.html",
       "contentType": "text/html; charset=utf-8",
-      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
-      "bytes": 19455
+      "sha256": "9ae690ab90fcdbc0465d66aa8402e65b12dcffd6b123b7872a7883c5520fae42",
+      "bytes": 27597
     },
     {
       "key": "readme.md",
       "contentType": "text/markdown; charset=utf-8",
-      "sha256": "34bb201fbf3ebd1cb7fa2fb46039dc998fef0c5390cb3a3a4ca1599f1a6b6a02",
-      "bytes": 15924
+      "sha256": "ecac1159b23e83d4d121a9ae31f7116807cc5f76982d34ab79bbfd637a21d201",
+      "bytes": 17117
     },
     {
-      "key": "readme-assets/overview.jpg",
+      "key": "readme-assets/55s-intro.jpg",
       "contentType": "image/jpeg",
-      "sha256": "d74b0ffbe876eaa227fcc70675e205bcb88de45b50b89041077227ee3c5a637a",
-      "bytes": 161916
+      "sha256": "3510d468125fc41921c95731726b23cdf3906a34710fb36946e89e087de789e8",
+      "bytes": 77689
+    },
+    {
+      "key": "readme-assets/55s-drive.jpg",
+      "contentType": "image/jpeg",
+      "sha256": "2bf88ae3ddc612c6dfb4a8b784efffabc0471439b66fe8dcf88b81d82a7b9a0d",
+      "bytes": 271167
+    },
+    {
+      "key": "readme-assets/55s-court.jpg",
+      "contentType": "image/jpeg",
+      "sha256": "e91a932b641d22b168c021583f774d2f386b11a957f10abf099a0c18d10137c1",
+      "bytes": 139359
+    },
+    {
+      "key": "readme-assets/55s-second-chance.jpg",
+      "contentType": "image/jpeg",
+      "sha256": "74cdb10f9236b1347f4f766ca74ba9d1430819b01f41219248fae8ec92cf61a3",
+      "bytes": 146725
+    },
+    {
+      "key": "readme-assets/55s-screen-reset.jpg",
+      "contentType": "image/jpeg",
+      "sha256": "b09299ab86d433f5a54606f4bb26e9b904abf3ddc2f918ad233708fc080449a8",
+      "bytes": 149263
+    },
+    {
+      "key": "readme-assets/55s-basket.jpg",
+      "contentType": "image/jpeg",
+      "sha256": "0fa5cedd8aacb51925d7141633b590dfaa6bbbd9981f9589e361ed0be33f92af",
+      "bytes": 296495
+    },
+    {
+      "key": "readme-assets/55s-shot-quality.jpg",
+      "contentType": "image/jpeg",
+      "sha256": "a587a3235dd62d6445e5d4cd24b04745038ab7aa853ef8e77265e65ad3ff3d52",
+      "bytes": 257685
+    },
+    {
+      "key": "readme-assets/55s-recap.jpg",
+      "contentType": "image/jpeg",
+      "sha256": "e17e0aace6a9988a948f900d16b0d2f2c99e87f7235a5125bfdb85279e77fabc",
+      "bytes": 66225
     }
   ],
   "publicChecks": [
@@ -52,44 +94,184 @@
       "url": "https://deky02484tknr.cloudfront.net/readme",
       "httpStatus": 200,
       "contentType": "text/html",
-      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
-      "bytes": 19455
+      "sha256": "9ae690ab90fcdbc0465d66aa8402e65b12dcffd6b123b7872a7883c5520fae42",
+      "bytes": 27597
     },
     {
       "url": "https://deky02484tknr.cloudfront.net/product/readme",
       "httpStatus": 200,
       "contentType": "text/html",
-      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
-      "bytes": 19455
+      "sha256": "9ae690ab90fcdbc0465d66aa8402e65b12dcffd6b123b7872a7883c5520fae42",
+      "bytes": 27597
     },
     {
       "url": "https://deky02484tknr.cloudfront.net/readme/index.html",
       "httpStatus": 200,
       "contentType": "text/html",
-      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
-      "bytes": 19455
+      "sha256": "9ae690ab90fcdbc0465d66aa8402e65b12dcffd6b123b7872a7883c5520fae42",
+      "bytes": 27597
     },
     {
       "url": "https://deky02484tknr.cloudfront.net/product/readme/index.html",
       "httpStatus": 200,
       "contentType": "text/html",
-      "sha256": "b1d97c3714ddb6da2dc6dc6661d30b35f55f3f33a6ad32780f792ad255468ca8",
-      "bytes": 19455
+      "sha256": "9ae690ab90fcdbc0465d66aa8402e65b12dcffd6b123b7872a7883c5520fae42",
+      "bytes": 27597
     },
     {
       "url": "https://deky02484tknr.cloudfront.net/readme.md",
       "httpStatus": 200,
       "contentType": "text/markdown",
-      "sha256": "34bb201fbf3ebd1cb7fa2fb46039dc998fef0c5390cb3a3a4ca1599f1a6b6a02",
-      "bytes": 15924
+      "sha256": "ecac1159b23e83d4d121a9ae31f7116807cc5f76982d34ab79bbfd637a21d201",
+      "bytes": 17117
     },
     {
-      "url": "https://deky02484tknr.cloudfront.net/readme-assets/overview.jpg",
+      "url": "https://deky02484tknr.cloudfront.net/readme-assets/55s-intro.jpg",
       "httpStatus": 200,
       "contentType": "image/jpeg",
-      "sha256": "d74b0ffbe876eaa227fcc70675e205bcb88de45b50b89041077227ee3c5a637a",
-      "bytes": 161916
+      "sha256": "3510d468125fc41921c95731726b23cdf3906a34710fb36946e89e087de789e8",
+      "bytes": 77689
+    },
+    {
+      "url": "https://deky02484tknr.cloudfront.net/readme-assets/55s-drive.jpg",
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "sha256": "2bf88ae3ddc612c6dfb4a8b784efffabc0471439b66fe8dcf88b81d82a7b9a0d",
+      "bytes": 271167
+    },
+    {
+      "url": "https://deky02484tknr.cloudfront.net/readme-assets/55s-court.jpg",
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "sha256": "e91a932b641d22b168c021583f774d2f386b11a957f10abf099a0c18d10137c1",
+      "bytes": 139359
+    },
+    {
+      "url": "https://deky02484tknr.cloudfront.net/readme-assets/55s-second-chance.jpg",
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "sha256": "74cdb10f9236b1347f4f766ca74ba9d1430819b01f41219248fae8ec92cf61a3",
+      "bytes": 146725
+    },
+    {
+      "url": "https://deky02484tknr.cloudfront.net/readme-assets/55s-screen-reset.jpg",
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "sha256": "b09299ab86d433f5a54606f4bb26e9b904abf3ddc2f918ad233708fc080449a8",
+      "bytes": 149263
+    },
+    {
+      "url": "https://deky02484tknr.cloudfront.net/readme-assets/55s-basket.jpg",
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "sha256": "0fa5cedd8aacb51925d7141633b590dfaa6bbbd9981f9589e361ed0be33f92af",
+      "bytes": 296495
+    },
+    {
+      "url": "https://deky02484tknr.cloudfront.net/readme-assets/55s-shot-quality.jpg",
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "sha256": "a587a3235dd62d6445e5d4cd24b04745038ab7aa853ef8e77265e65ad3ff3d52",
+      "bytes": 257685
+    },
+    {
+      "url": "https://deky02484tknr.cloudfront.net/readme-assets/55s-recap.jpg",
+      "httpStatus": 200,
+      "contentType": "image/jpeg",
+      "sha256": "e17e0aace6a9988a948f900d16b0d2f2c99e87f7235a5125bfdb85279e77fabc",
+      "bytes": 66225
     }
   ],
-  "scope": "Static README and explicit overview image only; existing application and media are unchanged."
+  "illustrations": {
+    "capturedAt": "2026-10-10T11:25:38.564090+00:00",
+    "source": "product/build/formal-assets/GameBuddy-正式资产联调-v2-55秒.mp4",
+    "sourceSha256": "0a93a488fa4f79e5a3ac87c68506ff447d461c30a59bec472ebbedd16edb4019",
+    "durationSeconds": 55.055,
+    "frameRate": "60000/1001",
+    "frameCount": 3300,
+    "captures": [
+      {
+        "path": "docs/assets/readme-55s/intro.jpg",
+        "frameIndex": 110,
+        "outputSeconds": 1.835167,
+        "purpose": "人物出场与回合背景",
+        "width": 1280,
+        "height": 720,
+        "sha256": "3510d468125fc41921c95731726b23cdf3906a34710fb36946e89e087de789e8",
+        "bytes": 77689
+      },
+      {
+        "path": "docs/assets/readme-55s/drive.jpg",
+        "frameIndex": 470,
+        "outputSeconds": 7.841167,
+        "purpose": "真实转播画面的持球与防守标记",
+        "width": 1280,
+        "height": 720,
+        "sha256": "2bf88ae3ddc612c6dfb4a8b784efffabc0471439b66fe8dcf88b81d82a7b9a0d",
+        "bytes": 271167
+      },
+      {
+        "path": "docs/assets/readme-55s/court.jpg",
+        "frameIndex": 610,
+        "outputSeconds": 10.176833,
+        "purpose": "镜头转入俯视战术示意",
+        "width": 1280,
+        "height": 720,
+        "sha256": "e91a932b641d22b168c021583f774d2f386b11a957f10abf099a0c18d10137c1",
+        "bytes": 139359
+      },
+      {
+        "path": "docs/assets/readme-55s/second-chance.jpg",
+        "frameIndex": 1110,
+        "outputSeconds": 18.5185,
+        "purpose": "进攻篮板后的右侧重组",
+        "width": 1280,
+        "height": 720,
+        "sha256": "74cdb10f9236b1347f4f766ca74ba9d1430819b01f41219248fae8ec92cf61a3",
+        "bytes": 146725
+      },
+      {
+        "path": "docs/assets/readme-55s/screen-reset.jpg",
+        "frameIndex": 1610,
+        "outputSeconds": 26.860167,
+        "purpose": "掩护、横移与后撤出手的分步解读",
+        "width": 1280,
+        "height": 720,
+        "sha256": "b09299ab86d433f5a54606f4bb26e9b904abf3ddc2f918ad233708fc080449a8",
+        "bytes": 149263
+      },
+      {
+        "path": "docs/assets/readme-55s/basket.jpg",
+        "frameIndex": 1890,
+        "outputSeconds": 31.5315,
+        "purpose": "三分命中与比分更新",
+        "width": 1280,
+        "height": 720,
+        "sha256": "0fa5cedd8aacb51925d7141633b590dfaa6bbbd9981f9589e361ed0be33f92af",
+        "bytes": 296495
+      },
+      {
+        "path": "docs/assets/readme-55s/shot-quality.jpg",
+        "frameIndex": 2760,
+        "outputSeconds": 46.046,
+        "purpose": "出手时刻、官方点位与30% xFG",
+        "width": 1280,
+        "height": 720,
+        "sha256": "a587a3235dd62d6445e5d4cd24b04745038ab7aa853ef8e77265e65ad3ff3d52",
+        "bytes": 257685
+      },
+      {
+        "path": "docs/assets/readme-55s/recap.jpg",
+        "frameIndex": 3180,
+        "outputSeconds": 53.053,
+        "purpose": "本回合得分与官方数据收束",
+        "width": 1280,
+        "height": 720,
+        "sha256": "e17e0aace6a9988a948f900d16b0d2f2c99e87f7235a5125bfdb85279e77fabc",
+        "bytes": 66225
+      }
+    ],
+    "scope": "Decoded MP4 frames resized to 1280x720; output timestamps, original picture content and burned-in disclosures retained."
+  },
+  "scope": "Static README and explicit confirmed-movie frames only; existing application and media are unchanged."
 }

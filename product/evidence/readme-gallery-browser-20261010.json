@@ -1,0 +1,141 @@
+{
+  "schema": "gamebuddy-readme-browser-verification-v1",
+  "verifiedAt": "2026-10-10T11:34:24.510099+00:00",
+  "desktop": {
+    "url": "https://deky02484tknr.cloudfront.net/readme",
+    "title": "GameBuddy · Team02 | README",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scrollWidth": 1425,
+    "overflow": false,
+    "sections": 16,
+    "figures": 8,
+    "pairColumns": [
+      "501px 501px",
+      "501px 501px"
+    ],
+    "images": [
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-intro.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-drive.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-second-chance.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-court.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-screen-reset.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-shot-quality.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-basket.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-recap.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      }
+    ]
+  },
+  "mobile": {
+    "url": "https://deky02484tknr.cloudfront.net/readme",
+    "title": "GameBuddy · Team02 | README",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scrollWidth": 375,
+    "overflow": false,
+    "sections": 16,
+    "figures": 8,
+    "pairColumns": [
+      "339px",
+      "339px"
+    ],
+    "images": [
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-intro.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-drive.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-second-chance.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-court.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-screen-reset.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-shot-quality.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-basket.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      },
+      {
+        "src": "https://deky02484tknr.cloudfront.net/readme-assets/55s-recap.jpg",
+        "width": 1280,
+        "height": 720,
+        "complete": true
+      }
+    ]
+  },
+  "screenshots": [
+    "product/build/readme/output/playwright/readme-desktop-final.png",
+    "product/build/readme/output/playwright/readme-mobile-final.png"
+  ],
+  "scope": "Public static README and eight decoded 55-second-movie illustrations; desktop and narrow-viewport layout only."
+}

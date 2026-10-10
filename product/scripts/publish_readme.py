@@ -19,12 +19,17 @@ from urllib.parse import quote, urlsplit
 from urllib.request import Request, urlopen
 
 from deployment import load_deployment, load_outputs, validate_identity
+from capture_readme_frames import FRAMES, SOURCE_SHA256
 
 ROOT = Path(__file__).resolve().parents[2]
 BUILD = ROOT / 'product/build/readme'
 REPOSITORY = 'https://github.com/Jackey0903/BroadcastCode-2026/blob/main/'
 IMAGE_SOURCE = 'product/broadcast-fx/formal/previews/contact.jpg'
 IMAGE_KEY = 'readme-assets/overview.jpg'
+IMAGE_ASSETS = {IMAGE_SOURCE: IMAGE_KEY} | {
+    'docs/assets/readme-55s/' + name: 'readme-assets/55s-' + name
+    for name, _, _ in FRAMES
+}
 PAGE_KEYS = ('readme', 'product/readme', 'readme/index.html', 'product/readme/index.html')
 TOKEN = re.compile(r'!\[([^\]]*)\]\(([^)]+)\)|\[([^\]]+)\]\(([^)]+)\)|'
                    r'\*\*(.+?)\*\*|\*([^*]+)\*|`([^`]+)`')
@@ -53,9 +58,11 @@ def inline(value):
         result.append(html.escape(value[offset:match.start()]))
         image_label, image_path, label, target, strong, emphasis, code = match.groups()
         if image_path is not None:
-            if image_path != IMAGE_SOURCE:
+            if image_path not in IMAGE_ASSETS:
                 raise ValueError('README image is outside the public asset whitelist.')
-            result.append(f'<img src="/{IMAGE_KEY}" alt="{html.escape(image_label, quote=True)}" loading="lazy">')
+            key = IMAGE_ASSETS[image_path]
+            result.append(f'<a class="frame-link" href="/{key}" target="_blank" rel="noopener" title="查看完整配图" aria-label="查看大图：{html.escape(image_label, quote=True)}">'
+                          f'<img src="/{key}" alt="{html.escape(image_label, quote=True)}" loading="lazy" decoding="async" width="1280" height="720"></a>')
         elif target is not None:
             result.append(f'<a href="{html.escape(safe_link(target), quote=True)}">{html.escape(label)}</a>')
         elif strong is not None:
@@ -83,7 +90,13 @@ def render_readme(source):
 
     def flush():
         if paragraph:
-            blocks.append('<p>' + inline(' '.join(paragraph)) + '</p>')
+            value = ' '.join(paragraph)
+            picture = re.fullmatch(r'!\[([^\]]*)\]\(([^)]+)\)', value)
+            if picture:
+                blocks.append('<figure>' + inline(value) + '<figcaption>' +
+                              html.escape(picture[1]) + '</figcaption></figure>')
+            else:
+                blocks.append('<p>' + inline(value) + '</p>')
             paragraph.clear()
 
     for line in content.splitlines():
@@ -101,7 +114,10 @@ def render_readme(source):
             title = heading[2]
             section = re.match(r'(\d{2})\s*·', title)
             anchor = f' id="innovation-{section[1]}"' if section else ''
-            blocks.append(f'<h{level}{anchor}>{inline(title)}</h{level}>')
+            title_html = inline(title)
+            if section:
+                title_html = f'<span class="chapter-number">{section[1]}</span><span>{inline(title[section.end():].strip())}</span>'
+            blocks.append(f'<h{level}{anchor}>{title_html}</h{level}>')
         elif line.startswith('- '):
             if not list_open:
                 blocks.append('<ul>')
@@ -114,22 +130,42 @@ def render_readme(source):
     flush()
     if list_open:
         blocks.append('</ul>')
-    body = '\n'.join(blocks)
+    # Adjacent frames form a comparison row; mobile keeps the reading order.
+    grouped, pair = [], []
+    for block in blocks + ['']:
+        if block.startswith('<figure>'):
+            pair.append(block)
+            continue
+        if pair:
+            grouped.append('<div class="visual-pair">' + '\n'.join(pair) + '</div>' if len(pair) > 1 else pair[0])
+            pair.clear()
+        if block:
+            grouped.append(block)
+    body = '\n'.join(grouped)
+    quick_links = ''.join(f'<a href="#innovation-{number}"><span>{number}</span>{label}</a>'
+                          for number, label in [('01', '三层数据融合'), ('02', 'RL 数据球探'),
+                                                ('06', '关键回合可视化'), ('11', 'AI 解说'),
+                                                ('16', 'AWS 托管协同')]
+                          if f'id="innovation-{number}"' in body)
     return '''<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="GameBuddy · Team02：强化学习数据球探、三层篮球数据融合与关键回合视觉解读。">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>GameBuddy · Team02 | README</title>
+<link rel="icon" href="/readme-assets/55s-recap.jpg" type="image/jpeg">
 <style>
-:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#101416;color:#edf0ee;font:17px/1.85 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
-main{max-width:960px;margin:auto;padding:40px 24px 80px}.team{color:#91cfa6;font-size:14px;font-weight:650;letter-spacing:.04em}
-nav{display:flex;gap:24px;flex-wrap:wrap;font-size:14px;margin:12px 0 36px}a{color:#9addb1;text-underline-offset:4px}h1{font-size:clamp(38px,6vw,60px);line-height:1.2;margin:20px 0}h2{font-size:25px;line-height:1.5;margin:56px 0 18px;padding-top:24px;border-top:1px solid #344139}h3{font-size:20px;color:#bedbc9;font-weight:500}p{margin:18px 0}strong{color:#fff}em{color:#b6c0ba;font-size:15px}li{margin:7px 0}img{display:block;width:100%;height:auto;margin:28px 0;border:1px solid #344139;border-radius:8px}code{font-size:.9em}footer{margin-top:48px;font-size:14px;color:#b6c0ba}
-@media(max-width:600px){main{padding:28px 18px 56px}body{font-size:16px}h2{font-size:22px}}
+:root{color-scheme:dark;--paper:#0d1214;--ink:#e7eceb;--muted:#a9b8b6;--line:#2b383b;--accent:#ff733f;--blue:#8bd7e8}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.9 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:1080px;margin:auto;padding:46px 30px 88px}.team{color:var(--blue);font-size:13px;font-weight:650;letter-spacing:.08em}.site-nav{display:flex;gap:12px;flex-wrap:wrap;font-size:14px;margin:20px 0 36px}.site-nav a{padding:6px 15px;border:1px solid var(--line);border-radius:6px;text-decoration:none}.site-nav a:first-child{color:#12191b;background:var(--blue);border-color:var(--blue);font-weight:650}
+a{color:var(--blue);text-underline-offset:4px}a:hover{color:#fff}a:focus-visible{outline:2px solid var(--accent);outline-offset:5px}h1{font-size:clamp(44px,7vw,76px);letter-spacing:-.04em;line-height:1.12;margin:26px 0 14px}h3{font-size:clamp(17px,2vw,21px);color:#b9d2d7;font-weight:450;margin:0 0 26px}h2{display:flex;gap:18px;align-items:baseline;font-size:25px;line-height:1.55;margin:70px 0 22px;padding-top:28px;border-top:1px solid var(--line);scroll-margin-top:28px}.chapter-number{color:var(--accent);font:500 18px/1.5 ui-monospace,monospace;flex-shrink:0}p,ul{max-width:880px}p{margin:18px 0}strong{color:#fff}em{color:var(--muted);font-size:14px}li{margin:8px 0}code{font-size:.9em}
+.quick-links{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 34px}.quick-links a{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);padding:6px 12px;border-radius:5px;font-size:13px;text-decoration:none;color:#c7d3d4}.quick-links span{color:var(--accent);font-family:ui-monospace,monospace}.quick-links a:hover{border-color:var(--blue)}
+figure{margin:30px 0 28px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#151f22;box-shadow:0 18px 38px #0004}.frame-link{display:block;line-height:0}.frame-link img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}.frame-link:hover{outline:1px solid var(--blue);outline-offset:-1px}figcaption{padding:13px 18px;font-size:14px;line-height:1.75;color:#c4d2d3}.visual-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:30px 0}.visual-pair figure{margin:0;box-shadow:none}.visual-pair figcaption{font-size:13px}.image-note{font-size:13px;color:var(--muted);margin-top:0}footer{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+@media(max-width:700px){main{padding:28px 18px 56px}body{font-size:16px}h2{font-size:21px;gap:12px;margin-top:52px}.visual-pair{grid-template-columns:1fr;gap:18px}figcaption{padding:11px 14px}.quick-links{gap:7px}.quick-links a{font-size:12px;padding:5px 9px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style></head><body><main>
 <div class="team">NBA × AWS BroadcastCode · TEAM 02</div>
-<nav aria-label="作品导航"><a href="/product/">打开 GameBuddy 作品</a><a href="/readme.md" download="GameBuddy-Team02-README.md">下载 README</a></nav>
-''' + body + '''
+<nav class="site-nav" aria-label="作品导航"><a href="/product/">打开 GameBuddy 作品 ↗</a><a href="/readme.md" download="GameBuddy-Team02-README.md">下载 README</a></nav>
+''' + ('<nav class="quick-links" aria-label="创新点快捷阅读">' + quick_links + '</nav>' if quick_links else '') + body + '''
+<p class="image-note">配图直接截自55.055秒确定版成片，点击画面可查看大图。</p>
 <footer>GameBuddy · Team02。源码资料链接指向团队参赛仓库，需相应仓库访问权限。</footer>
 </main></body></html>
 '''
@@ -139,9 +175,22 @@ def build_assets(source):
     page = render_readme(source).encode('utf-8')
     assets = [{'key': key, 'body': page, 'contentType': 'text/html; charset=utf-8'} for key in PAGE_KEYS]
     assets.append({'key': 'readme.md', 'body': source.encode('utf-8'), 'contentType': 'text/markdown; charset=utf-8'})
-    if f'/{IMAGE_KEY}' in page.decode('utf-8'):
-        assets.append({'key': IMAGE_KEY, 'body': (ROOT / IMAGE_SOURCE).read_bytes(), 'contentType': 'image/jpeg'})
+    capture_manifest = None
+    for image_source, key in IMAGE_ASSETS.items():
+        if f'/{key}"' not in page.decode('utf-8'):
+            continue
+        image_body = (ROOT / image_source).read_bytes()
+        if image_source.startswith('docs/assets/readme-55s/'):
+            capture_manifest = capture_manifest or read_capture_manifest()
+            capture = next((item for item in capture_manifest['captures'] if item['path'] == image_source), None)
+            if capture_manifest['sourceSha256'] != SOURCE_SHA256 or not capture or capture['sha256'] != digest(image_body):
+                raise ValueError('README picture differs from its frozen movie-frame manifest.')
+        assets.append({'key': key, 'body': image_body, 'contentType': 'image/jpeg'})
     return assets
+
+
+def read_capture_manifest():
+    return json.loads((ROOT / 'docs/assets/readme-55s/manifest.json').read_text(encoding='utf-8'))
 
 
 def digest(body):
@@ -208,7 +257,8 @@ def main():
               'source': 'README.md', 'sourceSha256': digest(source.encode('utf-8')),
               'bucket': outputs['Bucket'], 'distribution': outputs['Distribution'],
               'invalidationId': invalidation['Id'], 'assets': manifest, 'publicChecks': checks,
-              'scope': 'Static README and explicit overview image only; existing application and media are unchanged.'}
+              'illustrations': read_capture_manifest(),
+              'scope': 'Static README and explicit confirmed-movie frames only; existing application and media are unchanged.'}
     evidence = ROOT / 'product/evidence/readme-publication-20261010.json'
     evidence.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps({'website': report['website'], 'verifiedAssets': len(checks), 'evidence': str(evidence)}, ensure_ascii=False))

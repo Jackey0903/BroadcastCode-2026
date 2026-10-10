@@ -1,6 +1,7 @@
 import unittest
+from unittest.mock import patch
 
-from publish_readme import IMAGE_SOURCE, ROOT, build_assets, inline, render_readme, safe_link
+from publish_readme import IMAGE_SOURCE, ROOT, build_assets, inline, read_capture_manifest, render_readme, safe_link
 
 
 class ReadmePublicationTests(unittest.TestCase):
@@ -48,8 +49,32 @@ class ReadmePublicationTests(unittest.TestCase):
             self.assertIn(f'id="innovation-{number:02d}"', rendered)
         self.assertEqual({asset['key'] for asset in assets}, {
             'readme', 'product/readme', 'readme/index.html', 'product/readme/index.html',
-            'readme.md', 'readme-assets/overview.jpg'})
+            'readme.md', 'readme-assets/55s-intro.jpg', 'readme-assets/55s-drive.jpg',
+            'readme-assets/55s-court.jpg', 'readme-assets/55s-second-chance.jpg',
+            'readme-assets/55s-screen-reset.jpg', 'readme-assets/55s-basket.jpg',
+            'readme-assets/55s-shot-quality.jpg', 'readme-assets/55s-recap.jpg'})
+        self.assertEqual(rendered.count('<figure>'), 8)
         self.assertTrue(all(asset['body'] == assets[0]['body'] for asset in assets[:4]))
+
+    def test_frame_source_provenance_is_required_before_publication(self):
+        source = (ROOT / 'README.md').read_text(encoding='utf-8')
+        for field in ('sourceSha256', 'captureSha256'):
+            manifest = read_capture_manifest()
+            if field == 'sourceSha256':
+                manifest[field] = '0' * 64
+            else:
+                manifest['captures'][0]['sha256'] = '0' * 64
+            with self.subTest(field=field), patch('publish_readme.read_capture_manifest', return_value=manifest):
+                with self.assertRaises(ValueError):
+                    build_assets(source)
+
+    def test_picture_caption_is_escaped_and_full_size_picture_is_linked(self):
+        rendered = render_readme('# GameBuddy\n\n![<script>caption</script>]('
+                                 'docs/assets/readme-55s/intro.jpg)\n')
+        self.assertIn('<figure>', rendered)
+        self.assertIn('<figcaption>&lt;script&gt;caption&lt;/script&gt;</figcaption>', rendered)
+        self.assertIn('href="/readme-assets/55s-intro.jpg"', rendered)
+        self.assertNotIn('<script>', rendered)
 
 
 if __name__ == '__main__':

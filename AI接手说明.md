@@ -16,7 +16,9 @@
 
 # GameBuddy · Team02：AI 接手说明
 
-**10月10日 · README 公网页面：** 已按用户提供的主办方说明，将根 README 的16项创新点发布到正式作品的 `/readme`；Team02 标识、配图和 Markdown 下载已上线，另支持 `/product/readme`。6项公开资产均通过 HTTP 200、内容类型及 SHA-256 核验。仅发布静态说明白名单，未重新部署主产品或调用模型。复现入口为 `product/scripts/publish_readme.py --publish`，实际发布使用 `readiness-lab/.venv/bin/python`、`nba` profile；证据见 [README 发布核验](product/evidence/readme-publication-20261010.json)。
+**10月10日 · README 55秒配图更新：** 用户确认视觉成片v2为确定版，README现使用其8幅真实解码截图，覆盖开场、持球防守、前场篮板、两种战术板、xFG、命中和片尾；正文时长及首次顺序播放的双时间轴例子同步更新。图片与源片哈希、帧号和成片时间保存于 [截帧清单](docs/assets/readme-55s/manifest.json)，可用 `python3 product/scripts/capture_readme_frames.py` 复现；后续公开发布只包含说明和图片，实际核验见下方发布证据。此轮截帧不改变成片或其他会话的配音/模型联调状态。
+
+**10月10日 · README 公网页面：** 已按用户提供的主办方说明，将根 README 的16项创新点发布到正式作品的 `/readme`；Team02 标识、55秒版8幅配图和 Markdown 下载已上线，另支持 `/product/readme`。最新13项公开资产均通过 HTTP 200、内容类型及 SHA-256 核验，本轮完整离线工程检查通过；1440×1000桌面与390×844窄屏均显示8图，无横向溢出，见 [浏览器记录](product/evidence/readme-gallery-browser-20261010.json)。仅发布静态说明白名单，未重新部署主产品或调用模型。复现入口为 `product/scripts/publish_readme.py --publish`，实际发布使用 `readiness-lab/.venv/bin/python`、`nba` profile；证据见 [README 发布核验](product/evidence/readme-publication-20261010.json)。
 
 **10月10日17:00 · RL加入前后端联调：** 用户已要求一起接入，RL侧已提供[统一调用入口和轻量展示数据](docs/RL前后端联调入口-20261010.md)，一条真实端点调用及456项全门禁通过；模型/冻结数据未改，无新训练。看板#11交链路Codex接Worker、叙事/烧录与watch抽屉，当前不等于成片已使用。
 

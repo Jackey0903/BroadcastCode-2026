@@ -1,0 +1,91 @@
+{
+  "capturedAt": "2026-10-10T11:25:38.564090+00:00",
+  "source": "product/build/formal-assets/GameBuddy-正式资产联调-v2-55秒.mp4",
+  "sourceSha256": "0a93a488fa4f79e5a3ac87c68506ff447d461c30a59bec472ebbedd16edb4019",
+  "durationSeconds": 55.055,
+  "frameRate": "60000/1001",
+  "frameCount": 3300,
+  "captures": [
+    {
+      "path": "docs/assets/readme-55s/intro.jpg",
+      "frameIndex": 110,
+      "outputSeconds": 1.835167,
+      "purpose": "人物出场与回合背景",
+      "width": 1280,
+      "height": 720,
+      "sha256": "3510d468125fc41921c95731726b23cdf3906a34710fb36946e89e087de789e8",
+      "bytes": 77689
+    },
+    {
+      "path": "docs/assets/readme-55s/drive.jpg",
+      "frameIndex": 470,
+      "outputSeconds": 7.841167,
+      "purpose": "真实转播画面的持球与防守标记",
+      "width": 1280,
+      "height": 720,
+      "sha256": "2bf88ae3ddc612c6dfb4a8b784efffabc0471439b66fe8dcf88b81d82a7b9a0d",
+      "bytes": 271167
+    },
+    {
+      "path": "docs/assets/readme-55s/court.jpg",
+      "frameIndex": 610,
+      "outputSeconds": 10.176833,
+      "purpose": "镜头转入俯视战术示意",
+      "width": 1280,
+      "height": 720,
+      "sha256": "e91a932b641d22b168c021583f774d2f386b11a957f10abf099a0c18d10137c1",
+      "bytes": 139359
+    },
+    {
+      "path": "docs/assets/readme-55s/second-chance.jpg",
+      "frameIndex": 1110,
+      "outputSeconds": 18.5185,
+      "purpose": "进攻篮板后的右侧重组",
+      "width": 1280,
+      "height": 720,
+      "sha256": "74cdb10f9236b1347f4f766ca74ba9d1430819b01f41219248fae8ec92cf61a3",
+      "bytes": 146725
+    },
+    {
+      "path": "docs/assets/readme-55s/screen-reset.jpg",
+      "frameIndex": 1610,
+      "outputSeconds": 26.860167,
+      "purpose": "掩护、横移与后撤出手的分步解读",
+      "width": 1280,
+      "height": 720,
+      "sha256": "b09299ab86d433f5a54606f4bb26e9b904abf3ddc2f918ad233708fc080449a8",
+      "bytes": 149263
+    },
+    {
+      "path": "docs/assets/readme-55s/basket.jpg",
+      "frameIndex": 1890,
+      "outputSeconds": 31.5315,
+      "purpose": "三分命中与比分更新",
+      "width": 1280,
+      "height": 720,
+      "sha256": "0fa5cedd8aacb51925d7141633b590dfaa6bbbd9981f9589e361ed0be33f92af",
+      "bytes": 296495
+    },
+    {
+      "path": "docs/assets/readme-55s/shot-quality.jpg",
+      "frameIndex": 2760,
+      "outputSeconds": 46.046,
+      "purpose": "出手时刻、官方点位与30% xFG",
+      "width": 1280,
+      "height": 720,
+      "sha256": "a587a3235dd62d6445e5d4cd24b04745038ab7aa853ef8e77265e65ad3ff3d52",
+      "bytes": 257685
+    },
+    {
+      "path": "docs/assets/readme-55s/recap.jpg",
+      "frameIndex": 3180,
+      "outputSeconds": 53.053,
+      "purpose": "本回合得分与官方数据收束",
+      "width": 1280,
+      "height": 720,
+      "sha256": "e17e0aace6a9988a948f900d16b0d2f2c99e87f7235a5125bfdb85279e77fabc",
+      "bytes": 66225
+    }
+  ],
+  "scope": "Decoded MP4 frames resized to 1280x720; output timestamps, original picture content and burned-in disclosures retained."
+}
