@@ -1,3 +1,5 @@
+当前RL产品验收：`run-06ddc49b5a1840dba23e3165bdab550a.json`、`rl-audit-06ddc49b5a1840dba23e3165bdab550a.json`、`rl-independent-delivery-20261010.json`、`rl-local-browser-20261010.json`、`rl-formal-browser-20261010.json`。三层已真实烧录；本地片尾通过，正式面板通过/云端片尾缓冲。详细见[验收说明](../../docs/RL产品端到端联调验收-20261010.md)。
+
 # 关键一拍 · 产品验收记录
 
 本地Claude视频接续：[45秒成片及资产证据](broadcast-fx-v3-20261010.json)、[完整交接](../../docs/Claude视频接续与视觉资产-20261010.md)。这是编辑成片与组件资产验收，未调用AgentCore/RL或发布到正式观看区。

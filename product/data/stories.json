@@ -380,10 +380,10 @@
         "没有本事件可核准的引力、防守压力或胜率变化；不显示这些指标。",
         "已进球不等于此前防守没有影响，也不能从单次结果判断出手选择必然好坏。"
       ],
-      "enhancedVideo": "https://deky02484tknr.cloudfront.net/product/outputs/3526ae13a69b42c082b2fe4f0bacfa67/enhanced.mp4",
-      "analysisUrl": "https://deky02484tknr.cloudfront.net/product/outputs/3526ae13a69b42c082b2fe4f0bacfa67/analysis.json",
-      "showcaseJobId": "3526ae13a69b42c082b2fe4f0bacfa67",
-      "showcaseOutputSha256": "f8d681433d4a49d58dd636b4307868029fabf5663de178bf800abaddead5a339"
+      "enhancedVideo": "https://deky02484tknr.cloudfront.net/product/outputs/06ddc49b5a1840dba23e3165bdab550a/enhanced.mp4",
+      "analysisUrl": "https://deky02484tknr.cloudfront.net/product/outputs/06ddc49b5a1840dba23e3165bdab550a/analysis.json",
+      "showcaseJobId": "06ddc49b5a1840dba23e3165bdab550a",
+      "showcaseOutputSha256": "f5ec3584290128ba7458c291d1ba067905fa0aed2ea9d40b5d714888cfe0b653"
     },
     {
       "id": "amen",

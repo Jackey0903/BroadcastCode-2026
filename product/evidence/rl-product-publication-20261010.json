@@ -1,0 +1,29 @@
+{
+  "uploaded": [
+    "product/outputs/06ddc49b5a1840dba23e3165bdab550a/enhanced.mp4",
+    "product/outputs/06ddc49b5a1840dba23e3165bdab550a/analysis.json",
+    "product/index.html",
+    "product/app.js",
+    "product/watch/index.html",
+    "product/watch/app.js",
+    "product/watch/content/content-panel.js",
+    "product/watch/content/content.css",
+    "product/watch/data/stories.json",
+    "product/watch/data/history.json",
+    "product/data/stories.json"
+  ],
+  "website": "https://deky02484tknr.cloudfront.net/product/",
+  "historicalRepublish": true,
+  "newInference": false,
+  "courtLabPublished": false,
+  "reuseUnchanged": true,
+  "trainingCamp": {
+    "published": false,
+    "dataValidation": "unavailable",
+    "mainPipelineIntegration": false
+  },
+  "reusedVerifiedObjects": 56,
+  "recordedAt": "2026-10-10T09:58:46.479Z",
+  "scope": "Initial frozen publication before browser record refresh",
+  "jobId": "06ddc49b5a1840dba23e3165bdab550a"
+}

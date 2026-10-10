@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Loopback-only offline product preview. Never contacts AWS or starts a new job."""
 import argparse
+import copy
 import hashlib
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
@@ -97,6 +98,11 @@ class Catalog:
                 self.issues.append(f"{sample}: 已验收成片缺失或核验失败，请恢复本地媒体存档。")
                 continue
             self.watch_history["records"].append(watch_history_record(report))
+            for field in ('scout', 'playerComparison', 'rlEvidenceSources', 'rlEvidencePeriods',
+                          'rlVideoUse', 'rlAudit'):
+                story.pop(field, None)
+                if field in report['analysis']:
+                    story[field] = copy.deepcopy(report['analysis'][field])
             local_base = f"/product/outputs/{job_id}"
             self.files[f"{local_base}/enhanced.mp4"] = media
             # Keep original analysis/provenance intact; only presentation URLs change.

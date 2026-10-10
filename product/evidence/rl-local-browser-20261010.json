@@ -1,0 +1,732 @@
+{
+  "url": "http://127.0.0.1:4173/product/watch/index.html?story=flagg&version=enhanced",
+  "jobId": "06ddc49b5a1840dba23e3165bdab550a",
+  "startedAt": "2026-10-10T09:57:04.924Z",
+  "checks": [
+    {
+      "name": "current enhanced movie selected",
+      "passed": true,
+      "media": {
+        "src": "http://127.0.0.1:4173/product/outputs/06ddc49b5a1840dba23e3165bdab550a/enhanced.mp4",
+        "time": 0,
+        "displayedCourtTime": 0,
+        "lastDecodedFrameTime": null,
+        "variant": "enhanced",
+        "status": "loading",
+        "duration": 21.548005,
+        "paused": true,
+        "ended": false,
+        "videoWidth": 1280,
+        "videoHeight": 900,
+        "quality": {
+          "totalVideoFrames": 0,
+          "droppedVideoFrames": 0,
+          "corruptedVideoFrames": 0
+        }
+      }
+    },
+    {
+      "name": "complete movie naturally reaches end with audio",
+      "passed": true,
+      "playback": {
+        "events": [
+          {
+            "type": "waiting",
+            "time": 0
+          },
+          {
+            "type": "ended",
+            "time": 21.548005
+          }
+        ],
+        "startTime": 0,
+        "startWall": 292.8999999985099,
+        "currentTime": 21.548005,
+        "ended": true,
+        "error": null,
+        "audioBytes": 346391
+      }
+    },
+    {
+      "name": "three-layer RL and official shot xFG remain distinct",
+      "passed": true,
+      "text": "预期投篮命中率 · xFG\n51.0%\n\nNBA 中国官网这次出手的原始数值为 0.51，换算显示为 51.0%。这是机会质量的参考，不是球员的个人命中保证。\n\n原始值 0.51 · 单位 ratio · 事件 666\n\n查看 NBA 原始出手记录 ↗指标定义 ↗\n官方事件\n\n末节 1:34，弗拉格突破挑篮命中两分，独行侠追至 105 比 107。\n\n比赛\n0022500701\n比赛时钟\n第 4 节 · 1:34\n事件编号\n666\n结果\n2 分命中\n逐回合记录 ↗逐次出手数据 ↗\n回看数据节点 · 00:18.5\n\nxFG 描述这次出手机会；它不是球员赛季命中率、比赛胜率或命中保证。回看节点由编辑选择，不是比赛时钟的逐帧换算。\n\nRL 数据球探\n三层证据已进入本片\n\n成片任务实时调用 · 选证已核验\n\nQwen/Qwen2.5-3B-Instruct · AWS SageMaker\n\n叙事采用 是 · 成片烧录 是\n\n基础表现\n得分\n34\n\n本场赛后统计 · 2026-01-31（NBA 东部日期） · 比赛 0022500701\n\n原始值 34 · 单位 count\n\nNBA 数据出处 ↗\ne10e1bdacb4be\n派生效率\n考虑三分价值的运动战投篮效率\n54.00%\n\n本场赛后统计 · 2026-01-31（NBA 东部日期） · 比赛 0022500701\n\n原始值 0.54 · 单位 fraction\n\nNBA 数据出处 ↗\ne09ba1fae361c\n深度 · 引力\n无球外线防守关注\n6.217\n\n2025-26 赛季来源快照 · 非本回合测量\n\n原始值 6.217 · 单位 gravity_score\n\nNBA 数据出处 ↗\nebf0d7b4f48f7\n\nRL 模型选择数据证据；程序核对来源与口径。赛季背景不证明这次防守的原因或这一球的胜负。\n\n攻防背景与同场比较\n官方数据 + 确定性计算\n\n两人的本场与赛季背景独立保留；这些比较由算术计算，不能记作 RL 推理。\n\n进攻球员背景 · 库珀弗拉格\n\n球员 1642843 · 比赛 0022500701\n\n本场进攻\n本场效率\n本场防守\n本场通用\n赛季进攻背景\n赛季防守背景\n赛季投篮背景\n赛季综合影响力\n同场计算与公式\n所选对手背景 · 阿门汤普森\n\n球员 1641708 · 比赛 0022500701\n\n本场进攻\n本场效率\n本场防守\n本场通用\n赛季进攻背景\n赛季防守背景\n赛季投篮背景\n赛季综合影响力\n同场计算与公式\n\n所选对手是同场出场球员；未核验该时刻在场或直接防守身份。\n\n同场对手名单 · 9 人\n同口径差值 · 左侧减右侧\n得分\n\n34 / 21\n\n差值 13 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n助攻\n\n5 / 9\n\n差值 -4 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n失误\n\n2 / 0\n\n差值 2 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n总篮板\n\n12 / 8\n\n差值 4 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n抢断\n\n0 / 2\n\n差值 -2 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n盖帽\n\n1 / 0\n\n差值 1 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n防守篮板\n\n11 / 3\n\n差值 8 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n考虑三分价值的运动战投篮效率\n\n54.00% / 46.67%\n\n差值 +7.33个百分点 · 百分点\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n包含罚球的投篮效率\n\n57.82% / 55.38%\n\n差值 +2.44个百分点 · 百分点\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n总体防守关注\n\n3.828 / -4.593\n\n差值 8.421 · 来源分数\n\n2025-26 赛季来源快照 · 非本回合测量\n\n无球外线防守关注\n\n6.217 / -2.273\n\n差值 8.49 · 来源分数\n\n2025-26 赛季来源快照 · 非本回合测量\n\n创造机会影响力\n\n1.77 / 1.49\n\n差值 0.28 · 来源分数\n\n2025-26 赛季来源快照 · 非本回合测量\n\n进攻影响力\n\n-0.2 / -0.18\n\n差值 -0.02 · 来源分数\n\n2025-26 赛季来源快照 · 非本回合测量\n\n防守影响力\n\n2.31 / 2.16\n\n差值 0.15 · 来源分数\n\n2025-26 赛季来源快照 · 非本回合测量\n\n持球防守影响力\n\n0.74 / 0.55\n\n差值 0.19 · 来源分数\n\n2025-26 赛季来源快照 · 非本回合测量\n\n实际运动战命中表现\n\n46.80% / 53.40%\n\n差值 -6.60个百分点 · 百分点\n\n2025-26 赛季来源快照 · 非本回合测量\n\n平均出手机会质量\n\n48.10% / 58.70%\n\n差值 -10.60个百分点 · 百分点\n\n2025-26 赛季来源快照 · 非本回合测量\n\n运动战命中率与预期的差值\n\n-1.30个百分点 / -5.30个百分点\n\n差值 +4.00个百分点 · 百分点\n\n2025-26 赛季来源快照 · 非本回合测量\n\n两人分数或效率差不等于直接对位优势；防守影响力、引力和机会质量保留来源分数，不换算为胜率。\n\n战术板的数据\n\n弗拉格样片使用编辑站位与球权示意。D / W 是匿名编号；空心点是过去的最近位置。\n\n示意点、移动线路和篮球位置未经人类专家核准，不是官方追踪数据。"
+    },
+    {
+      "name": "opponent profile and scoped deterministic comparison shown",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "networkErrors": [],
+  "screenshots": [
+    "rl-local-06ddc49b-phase-2s-20261010.png",
+    "rl-local-06ddc49b-phase-8s-20261010.png",
+    "rl-local-06ddc49b-phase-14s-20261010.png",
+    "rl-local-06ddc49b-phase-19s-20261010.png",
+    "rl-local-06ddc49b-data-drawer-20261010.png"
+  ],
+  "browser": "Chrome/154.0.8037.98",
+  "initial": {
+    "glass": {
+      "library": "liquid-gl",
+      "version": "3.0.0",
+      "sourceCommit": "88f681ab7035fd55b04f63edff1841e32c4199e9",
+      "vendorPatch": "broadcastcode-optics-smooth-v5",
+      "backend": "webgpu",
+      "ready": true,
+      "enabled": true,
+      "lenses": 9,
+      "canvases": 2,
+      "reports": [
+        {
+          "targetId": "glass-0",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 0,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4,
+            "sourcePixelSize": [
+              1,
+              1
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 10.719999999999999
+          },
+          "liveCanvasUpdates": 1,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-1",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 1,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4,
+            "sourcePixelSize": [
+              0.0006613756613756613,
+              0.001053740779768177
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 10.719999999999999
+          },
+          "liveCanvasUpdates": 1,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-2",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 1,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4,
+            "sourcePixelSize": [
+              0.0006613756613756613,
+              0.001053740779768177
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 10.719999999999999
+          },
+          "liveCanvasUpdates": 1,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-3",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 0,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4.8,
+            "sourcePixelSize": [
+              1,
+              1
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 11.52
+          },
+          "liveCanvasUpdates": 1,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-4",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 1,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4,
+            "sourcePixelSize": [
+              0.0006613756613756613,
+              0.001053740779768177
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 10.719999999999999
+          },
+          "liveCanvasUpdates": 1,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-5",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 0,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4.8,
+            "sourcePixelSize": [
+              1,
+              1
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 11.52
+          },
+          "liveCanvasUpdates": 1,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-6",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 0,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4.8,
+            "sourcePixelSize": [
+              1,
+              1
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 11.52
+          },
+          "liveCanvasUpdates": 1,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-7",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 8,
+          "destroyed": false,
+          "ancestorOpacity": 0,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4.8,
+            "sourcePixelSize": [
+              1,
+              1
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 11.52
+          },
+          "liveCanvasUpdates": 1,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        },
+        {
+          "targetId": "glass-8",
+          "backend": "webgpu",
+          "textureReady": true,
+          "width": 1512,
+          "height": 949,
+          "lenses": 1,
+          "destroyed": false,
+          "ancestorOpacity": 0,
+          "opticalPatch": "broadcastcode-optics-smooth-v5",
+          "frostKernel": "paired-gaussian-9x9-25tap",
+          "frostSamples": 25,
+          "shaderVariant": {
+            "key": 0,
+            "chromatic": false,
+            "stack": false,
+            "name": "clear-source",
+            "sourceSamples": 25,
+            "maxTextureSamples": 25
+          },
+          "opticalMetrics": {
+            "refractionCss": 1.92,
+            "bevelCss": 4.8,
+            "frostRadiusCss": 4.8,
+            "sourcePixelSize": [
+              1,
+              1
+            ],
+            "maxOffsetCss": 6.72,
+            "samplePaddingCss": 11.52
+          },
+          "liveCanvasUpdates": 0,
+          "restoredVideoRegions": 0,
+          "dynamicCanvases": [
+            {
+              "id": "ambience",
+              "frame": 0,
+              "filterBaked": false,
+              "filterMethod": "unknown",
+              "width": 300,
+              "height": 150
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "devicePixelRatio": 1,
+      "viewport": [
+        1512,
+        949
+      ],
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    "layout": {
+      "video": {
+        "x": 81.15555555555557,
+        "y": 0,
+        "width": 1349.6888888888889,
+        "height": 949
+      },
+      "panel": {
+        "x": 1512,
+        "y": 16,
+        "width": 0,
+        "height": 917
+      },
+      "controls": {
+        "x": 98.28,
+        "y": 759,
+        "width": 1315.44,
+        "height": 66
+      },
+      "open": 0,
+      "half": 0,
+      "width": 1512,
+      "height": 949
+    },
+    "mode": "immersive",
+    "media": {
+      "src": "http://127.0.0.1:4173/product/outputs/06ddc49b5a1840dba23e3165bdab550a/enhanced.mp4",
+      "time": 0,
+      "displayedCourtTime": 0,
+      "lastDecodedFrameTime": null,
+      "variant": "enhanced",
+      "status": "loading",
+      "duration": 21.548005,
+      "paused": true,
+      "ended": false,
+      "videoWidth": 1280,
+      "videoHeight": 900,
+      "quality": {
+        "totalVideoFrames": 0,
+        "droppedVideoFrames": 0,
+        "corruptedVideoFrames": 0
+      }
+    },
+    "annotations": {
+      "validHeadAnchors": 0
+    },
+    "config": {
+      "layout": {
+        "padding": 16,
+        "gap": 16,
+        "dockWidth": 72,
+        "fullWidth": 0.24,
+        "halfWidth": 0.3
+      },
+      "motion": {
+        "open": 350,
+        "morph": 300,
+        "close": 220,
+        "hideDelay": 150,
+        "controlsIdle": 2000
+      },
+      "appearance": {
+        "panelRadius": 28,
+        "videoRadius": 20,
+        "controlRadius": 22,
+        "titleSize": 28,
+        "bodySize": 16
+      },
+      "glass": {
+        "refraction": 0.012,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15,
+        "frost": 2,
+        "tintAlpha": 0.38
+      },
+      "annotations": {
+        "mascotSize": 40,
+        "labelSize": 15,
+        "enabled": true
+      },
+      "dock": {
+        "width": 72,
+        "radius": 28,
+        "iconSize": 26,
+        "gap": 18,
+        "tint": "#10131c",
+        "tintAlpha": 0.4,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 3,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "fullCourt": {
+        "width": 0.24,
+        "courtRadius": 10,
+        "radius": 28,
+        "fontSize": 16,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "woodColor": "#d9ad7a",
+        "paintColor": "#aa1734",
+        "lineColor": "#fff8ec",
+        "lineWidth": 0.24,
+        "markerSize": 2.05,
+        "tint": "#181420",
+        "tintAlpha": 0.42,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 3,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "halfCourt": {
+        "width": 0.3,
+        "courtRadius": 8,
+        "radius": 28,
+        "fontSize": 16,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "woodColor": "#d9ad7a",
+        "paintColor": "#aa1734",
+        "lineColor": "#fff8ec",
+        "lineWidth": 0.24,
+        "markerSize": 2.05,
+        "tint": "#181420",
+        "tintAlpha": 0.42,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 3,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "controls": {
+        "height": 66,
+        "radius": 22,
+        "fontSize": 17,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "iconSize": 26,
+        "gap": 16,
+        "tint": "#0c1019",
+        "tintAlpha": 0.38,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 2,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "content": {
+        "width": 370,
+        "maxHeight": 680,
+        "fontSize": 13,
+        "titleSize": 21,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "padding": 22,
+        "radius": 26,
+        "tint": "#191d24",
+        "tintAlpha": 0.56,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 3,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "menus": {
+        "width": 350,
+        "compactWidth": 120,
+        "fontSize": 16,
+        "titleSize": 19,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "padding": 22,
+        "radius": 24,
+        "itemRadius": 15,
+        "tint": "#151c26",
+        "tintAlpha": 0.64,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 3,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "topbar": {
+        "fontSize": 16,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "radius": 22,
+        "gap": 16,
+        "tint": "#10131c",
+        "tintAlpha": 0.38,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 2,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "heading": {
+        "fontSize": 28,
+        "fontFamily": "default",
+        "fontWeight": "default",
+        "tint": "#10131c",
+        "tintAlpha": 0.38,
+        "color": "#f6f7fa",
+        "refraction": 0.012,
+        "frost": 2,
+        "bevelDepth": 0.08,
+        "bevelWidth": 0.15
+      },
+      "mascot": {
+        "size": 40,
+        "color": "#ee963f",
+        "expression": "happy",
+        "style": "classic",
+        "labelSize": 15,
+        "fontFamily": "default",
+        "fontWeight": "default"
+      },
+      "courtTheme": {
+        "preset": "source"
+      }
+    }
+  },
+  "playback": {
+    "events": [
+      {
+        "type": "waiting",
+        "time": 0
+      },
+      {
+        "type": "ended",
+        "time": 21.548005
+      }
+    ],
+    "startTime": 0,
+    "startWall": 292.8999999985099,
+    "currentTime": 21.548005,
+    "ended": true,
+    "error": null,
+    "audioBytes": 346391
+  },
+  "dataText": "预期投篮命中率 · xFG\n51.0%\n\nNBA 中国官网这次出手的原始数值为 0.51，换算显示为 51.0%。这是机会质量的参考，不是球员的个人命中保证。\n\n原始值 0.51 · 单位 ratio · 事件 666\n\n查看 NBA 原始出手记录 ↗指标定义 ↗\n官方事件\n\n末节 1:34，弗拉格突破挑篮命中两分，独行侠追至 105 比 107。\n\n比赛\n0022500701\n比赛时钟\n第 4 节 · 1:34\n事件编号\n666\n结果\n2 分命中\n逐回合记录 ↗逐次出手数据 ↗\n回看数据节点 · 00:18.5\n\nxFG 描述这次出手机会；它不是球员赛季命中率、比赛胜率或命中保证。回看节点由编辑选择，不是比赛时钟的逐帧换算。\n\nRL 数据球探\n三层证据已进入本片\n\n成片任务实时调用 · 选证已核验\n\nQwen/Qwen2.5-3B-Instruct · AWS SageMaker\n\n叙事采用 是 · 成片烧录 是\n\n基础表现\n得分\n34\n\n本场赛后统计 · 2026-01-31（NBA 东部日期） · 比赛 0022500701\n\n原始值 34 · 单位 count\n\nNBA 数据出处 ↗\ne10e1bdacb4be\n派生效率\n考虑三分价值的运动战投篮效率\n54.00%\n\n本场赛后统计 · 2026-01-31（NBA 东部日期） · 比赛 0022500701\n\n原始值 0.54 · 单位 fraction\n\nNBA 数据出处 ↗\ne09ba1fae361c\n深度 · 引力\n无球外线防守关注\n6.217\n\n2025-26 赛季来源快照 · 非本回合测量\n\n原始值 6.217 · 单位 gravity_score\n\nNBA 数据出处 ↗\nebf0d7b4f48f7\n\nRL 模型选择数据证据；程序核对来源与口径。赛季背景不证明这次防守的原因或这一球的胜负。\n\n攻防背景与同场比较\n官方数据 + 确定性计算\n\n两人的本场与赛季背景独立保留；这些比较由算术计算，不能记作 RL 推理。\n\n进攻球员背景 · 库珀弗拉格\n\n球员 1642843 · 比赛 0022500701\n\n本场进攻\n本场效率\n本场防守\n本场通用\n赛季进攻背景\n赛季防守背景\n赛季投篮背景\n赛季综合影响力\n同场计算与公式\n所选对手背景 · 阿门汤普森\n\n球员 1641708 · 比赛 0022500701\n\n本场进攻\n本场效率\n本场防守\n本场通用\n赛季进攻背景\n赛季防守背景\n赛季投篮背景\n赛季综合影响力\n同场计算与公式\n\n所选对手是同场出场球员；未核验该时刻在场或直接防守身份。\n\n同场对手名单 · 9 人\n同口径差值 · 左侧减右侧\n得分\n\n34 / 21\n\n差值 13 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n助攻\n\n5 / 9\n\n差值 -4 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n失误\n\n2 / 0\n\n差值 2 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n总篮板\n\n12 / 8\n\n差值 4 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n抢断\n\n0 / 2\n\n差值 -2 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n盖帽\n\n1 / 0\n\n差值 1 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n防守篮板\n\n11 / 3\n\n差值 8 · 计数\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n考虑三分价值的运动战投篮效率\n\n54.00% / 46.67%\n\n差值 +7.33个百分点 · 百分点\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n包含罚球的投篮效率\n\n57.82% / 55.38%\n\n差值 +2.44个百分点 · 百分点\n\n本场赛后统计 · 2026-01-31（NBA 东部日期）\n\n总体防守关注\n\n3.828 / -4.593\n\n差值 8.421 · 来源分数\n\n2025-26 赛季来源快照 · 非本回合测量\n\n无球外线防守关注\n\n6.217 / -2.273\n\n差值 8.49 · 来源分数\n\n2025-26 赛季来源快照 · 非本回合测量\n\n创造机会影响力\n\n1.77 / 1.49\n\n差值 0.28 · 来源分数\n\n2025-26 赛季来源快照 · 非本回合测量\n\n进攻影响力\n\n-0.2 / -0.18\n\n差值 -0.02 · 来源分数\n\n2025-26 赛季来源快照 · 非本回合测量\n\n防守影响力\n\n2.31 / 2.16\n\n差值 0.15 · 来源分数\n\n2025-26 赛季来源快照 · 非本回合测量\n\n持球防守影响力\n\n0.74 / 0.55\n\n差值 0.19 · 来源分数\n\n2025-26 赛季来源快照 · 非本回合测量\n\n实际运动战命中表现\n\n46.80% / 53.40%\n\n差值 -6.60个百分点 · 百分点\n\n2025-26 赛季来源快照 · 非本回合测量\n\n平均出手机会质量\n\n48.10% / 58.70%\n\n差值 -10.60个百分点 · 百分点\n\n2025-26 赛季来源快照 · 非本回合测量\n\n运动战命中率与预期的差值\n\n-1.30个百分点 / -5.30个百分点\n\n差值 +4.00个百分点 · 百分点\n\n2025-26 赛季来源快照 · 非本回合测量\n\n两人分数或效率差不等于直接对位优势；防守影响力、引力和机会质量保留来源分数，不换算为胜率。\n\n战术板的数据\n\n弗拉格样片使用编辑站位与球权示意。D / W 是匿名编号；空心点是过去的最近位置。\n\n示意点、移动线路和篮球位置未经人类专家核准，不是官方追踪数据。",
+  "passed": true,
+  "finishedAt": "2026-10-10T09:57:28.511Z"
+}

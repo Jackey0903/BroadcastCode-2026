@@ -1,0 +1,3654 @@
+{
+  "verifiedAt": "2026-10-10T09:54:37.093282+00:00",
+  "jobId": "06ddc49b5a1840dba23e3165bdab550a",
+  "sample": "flagg",
+  "mode": "story",
+  "videoUrl": "https://deky02484tknr.cloudfront.net/product/outputs/06ddc49b5a1840dba23e3165bdab550a/enhanced.mp4",
+  "analysisUrl": "https://deky02484tknr.cloudfront.net/product/outputs/06ddc49b5a1840dba23e3165bdab550a/analysis.json",
+  "outputSha256": "f5ec3584290128ba7458c291d1ba067905fa0aed2ea9d40b5d714888cfe0b653",
+  "bytes": 9992636,
+  "durationSeconds": 21.548005,
+  "width": 1280,
+  "height": 900,
+  "audioPresent": true,
+  "rangeStatus": 206,
+  "modelId": "global.anthropic.claude-sonnet-4-6",
+  "usage": {
+    "outputTokens": 2153.0,
+    "totalTokens": 43924.0,
+    "inputTokens": 41771.0
+  },
+  "elapsedSeconds": 61.38,
+  "downloadTransport": "current-account S3",
+  "fullVideoAndAudioDecodePassed": true,
+  "browserPlaybackVerified": true,
+  "burnedOverlayVisuallyVerified": true,
+  "analysis": {
+    "evidence": [
+      {
+        "sourceUrl": "/samples/flagg.mp4#t=0.2",
+        "body": "第四节，独行侠落后四分。",
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "description": "第四节，独行侠落后四分。",
+        "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-00.2s.jpg",
+        "title": "画面 · 0.2 秒",
+        "scoreboard": {
+          "clock": "1:51",
+          "score": {
+            "DAL": 103.0,
+            "HOU": 107.0
+          }
+        },
+        "id": "flagg-frame-0-2",
+        "videoTime": 0.2,
+        "kind": "observation",
+        "humanExpertReviewed": false,
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。"
+      },
+      {
+        "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "id": "flagg-frame-9",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "title": "画面 · 9 秒",
+        "description": "深衣 32 号持球，附近有深衣 21 号及白衣防守人。",
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "scoreboard": {
+          "clock": "1:43"
+        },
+        "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-09s.jpg",
+        "sourceUrl": "/samples/flagg.mp4#t=9",
+        "kind": "observation",
+        "humanExpertReviewed": false,
+        "body": "深衣 32 号持球，附近有深衣 21 号及白衣防守人。",
+        "videoTime": 9.0
+      },
+      {
+        "kind": "observation",
+        "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-15.5s.jpg",
+        "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "scoreboard": {
+          "clock": "1:36"
+        },
+        "sourceUrl": "/samples/flagg.mp4#t=15.5",
+        "body": "32 号已推进到禁区附近，防守人在其身前和侧后方。",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "id": "flagg-frame-15-5",
+        "title": "画面 · 15.5 秒",
+        "humanExpertReviewed": false,
+        "description": "32 号已推进到禁区附近，防守人在其身前和侧后方。",
+        "videoTime": 15.5
+      },
+      {
+        "title": "画面 · 16.5 秒",
+        "videoTime": 16.5,
+        "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-16.5s.jpg",
+        "description": "32 号在篮下起跳，正面白衣防守人双臂举起。",
+        "body": "32 号在篮下起跳，正面白衣防守人双臂举起。",
+        "kind": "observation",
+        "id": "flagg-frame-16-5",
+        "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "scoreboard": {
+          "clock": "1:35"
+        },
+        "humanExpertReviewed": false,
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "sourceUrl": "/samples/flagg.mp4#t=16.5"
+      },
+      {
+        "title": "画面 · 17 秒",
+        "description": "球已离开出手者双手；底部和篮架时钟存在显示差异。",
+        "videoTime": 17.0,
+        "body": "球已离开出手者双手；底部和篮架时钟存在显示差异。",
+        "scoreboard": {
+          "clock": "1:35"
+        },
+        "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-17.0s.jpg",
+        "id": "flagg-frame-17",
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "kind": "observation",
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "humanExpertReviewed": false,
+        "sourceUrl": "/samples/flagg.mp4#t=17"
+      },
+      {
+        "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+        "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+        "sourceUrl": "/samples/flagg.mp4#t=21",
+        "body": "比分更新，火箭准备继续进攻。",
+        "title": "画面 · 21 秒",
+        "kind": "observation",
+        "humanExpertReviewed": false,
+        "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-21s.jpg",
+        "scoreboard": {
+          "score": {
+            "HOU": 107.0,
+            "DAL": 105.0
+          },
+          "clock": "1:34"
+        },
+        "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+        "videoTime": 21.0,
+        "id": "flagg-frame-21",
+        "description": "比分更新，火箭准备继续进攻。"
+      },
+      {
+        "period": 4.0,
+        "officialClock": "1:34",
+        "title": "NBA 官方逐回合记录",
+        "sourcePath": "playByPlay.actions[actionNumber=666 & isFieldGoal=1]",
+        "sourceLabel": "NBA.com · Play-by-Play",
+        "eventId": 666.0,
+        "description": "末节 1:34，弗拉格突破挑篮命中两分，独行侠追至 105 比 107。",
+        "sourceUrl": "https://www.nba.com/game/dal-vs-hou-0022500701/play-by-play",
+        "videoTimeMeaning": "编辑选择的数据揭示节点，不是官方出手时钟的逐帧换算。",
+        "actionNumber": 666.0,
+        "body": "末节 1:34，弗拉格突破挑篮命中两分，独行侠追至 105 比 107。",
+        "playerId": "1642843",
+        "gameId": "0022500701",
+        "videoTime": 18.5,
+        "kind": "official",
+        "actionId": 498.0,
+        "id": "flagg-pbp-666"
+      },
+      {
+        "definitionUrl": "https://china.nba.cn/inside-the-game/glossary",
+        "title": "这次出手的预期投篮命中率",
+        "gameId": "0022500701",
+        "kind": "official",
+        "sourcePath": "data.shotList[eventId=666].value",
+        "value": 0.51,
+        "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843",
+        "playerId": "1642843",
+        "display": "51.0%",
+        "sourceLabel": "NBA 中国 · 逐次出手数据",
+        "id": "flagg-xfg-666",
+        "unit": "ratio",
+        "videoTime": 18.5,
+        "body": "NBA 中国官网这次出手的原始数值为 0.51，换算显示为 51.0%。这是机会质量的参考，不是球员的个人命中保证。",
+        "description": "NBA 中国官网这次出手的原始数值为 0.51，换算显示为 51.0%。这是机会质量的参考，不是球员的个人命中保证。",
+        "eventId": 666.0
+      },
+      {
+        "title": "本场身份与号码核对",
+        "gameId": "0022500701",
+        "sourceLabel": "NBA.com · 本场名单",
+        "playerId": "1642843",
+        "kind": "official",
+        "description": "NBA 本场名单：独行侠 32 号为库珀·弗拉格，与所查看画面号码一致。",
+        "body": "NBA 本场名单：独行侠 32 号为库珀·弗拉格，与所查看画面号码一致。",
+        "sourcePath": "game.homeTeamPlayers / game.awayTeamPlayers",
+        "id": "flagg-roster",
+        "sourceUrl": "https://www.nba.com/game/dal-vs-hou-0022500701/play-by-play"
+      },
+      {
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/frames/flagg-00.2s.jpg",
+        "timestampMs": 200.0,
+        "kind": "video_frame",
+        "title": "本次实际输入帧",
+        "id": "frame-200",
+        "timeSeconds": 0.2,
+        "description": "本次实际输入帧",
+        "sourceLabel": "原始视频抽帧",
+        "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-00.2s.jpg",
+        "videoTime": 0.2
+      },
+      {
+        "timestampMs": 9000.0,
+        "title": "本次实际输入帧",
+        "kind": "video_frame",
+        "videoTime": 9.0,
+        "description": "本次实际输入帧",
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/frames/flagg-09s.jpg",
+        "timeSeconds": 9.0,
+        "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-09s.jpg",
+        "sourceLabel": "原始视频抽帧",
+        "id": "frame-9000"
+      },
+      {
+        "title": "本次实际输入帧",
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/frames/flagg-15.5s.jpg",
+        "timestampMs": 15500.0,
+        "id": "frame-15500",
+        "description": "本次实际输入帧",
+        "sourceLabel": "原始视频抽帧",
+        "kind": "video_frame",
+        "videoTime": 15.5,
+        "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-15.5s.jpg",
+        "timeSeconds": 15.5
+      },
+      {
+        "sourceLabel": "原始视频抽帧",
+        "kind": "video_frame",
+        "description": "本次实际输入帧",
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/frames/flagg-16.5s.jpg",
+        "title": "本次实际输入帧",
+        "id": "frame-16500",
+        "videoTime": 16.5,
+        "timestampMs": 16500.0,
+        "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-16.5s.jpg",
+        "timeSeconds": 16.5
+      },
+      {
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/frames/flagg-17.0s.jpg",
+        "timeSeconds": 17.0,
+        "timestampMs": 17000.0,
+        "description": "本次实际输入帧",
+        "id": "frame-17000",
+        "videoTime": 17.0,
+        "kind": "video_frame",
+        "sourceLabel": "原始视频抽帧",
+        "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-17.0s.jpg",
+        "title": "本次实际输入帧"
+      },
+      {
+        "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-21s.jpg",
+        "description": "本次实际输入帧",
+        "kind": "video_frame",
+        "videoTime": 21.0,
+        "timeSeconds": 21.0,
+        "id": "frame-21000",
+        "sourceLabel": "原始视频抽帧",
+        "timestampMs": 21000.0,
+        "title": "本次实际输入帧",
+        "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/frames/flagg-21s.jpg"
+      }
+    ],
+    "sourceVideo": {
+      "height": 1080.0,
+      "sha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+      "width": 1920.0,
+      "name": "训练_弗拉格2月1日.mp4",
+      "id": "flagg",
+      "s3_uri": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/samples/flagg.mp4",
+      "duration_ms": 21548.118
+    },
+    "outputVideo": {
+      "durationMs": 21572.0,
+      "width": 1280.0,
+      "bytes": 9992636.0,
+      "url": "https://deky02484tknr.cloudfront.net/product/outputs/06ddc49b5a1840dba23e3165bdab550a/enhanced.mp4",
+      "height": 900.0,
+      "audioStreams": 1.0,
+      "sha256": "f5ec3584290128ba7458c291d1ba067905fa0aed2ea9d40b5d714888cfe0b653"
+    },
+    "elapsedSeconds": 61.38,
+    "observations": [
+      {
+        "text": "独行侠落后，弗拉格持球推进。",
+        "timeSeconds": 0.0,
+        "evidenceIds": [
+          "flagg-frame-0-2",
+          "frame-200"
+        ]
+      },
+      {
+        "text": "弗拉格持球向禁区附近推进，防守人跟随。",
+        "timeSeconds": 9.0,
+        "evidenceIds": [
+          "flagg-frame-9",
+          "flagg-frame-15-5",
+          "flagg-roster",
+          "frame-9000",
+          "frame-15500"
+        ]
+      },
+      {
+        "timeSeconds": 15.5,
+        "evidenceIds": [
+          "flagg-frame-16-5",
+          "flagg-frame-17",
+          "frame-16500",
+          "frame-17000"
+        ],
+        "text": "弗拉格在禁区附近起跳。"
+      },
+      {
+        "evidenceIds": [
+          "flagg-pbp-666",
+          "flagg-xfg-666",
+          "flagg-frame-21",
+          "frame-21000"
+        ],
+        "timeSeconds": 17.5,
+        "text": "官方确认命中；出手机会质量见官方指标。"
+      }
+    ],
+    "renderContract": {
+      "overlaysOutsideSourcePicture": true,
+      "height": 900.0,
+      "originalAudioPreserved": true,
+      "width": 1280.0,
+      "sourcePicture": {
+        "width": 1280.0,
+        "y": 76.0,
+        "x": 0.0,
+        "height": 720.0
+      }
+    },
+    "validation": {
+      "scope": "Structural and provenance validation; not an independent factual or basketball-accuracy certification",
+      "rlEvidenceIds": [
+        "e10e1bdacb4be",
+        "e09ba1fae361c",
+        "ebf0d7b4f48f7"
+      ],
+      "protocol": "product-story-v1",
+      "chapterCount": 4.0,
+      "checks": [
+        "known_evidence_ids",
+        "cited_frames_actually_inspected",
+        "source_time_bounds",
+        "nonoverlapping_chapters",
+        "no_model_authored_numbers",
+        "official_metrics_copied_verbatim",
+        "known_causal_static_phrases_rejected",
+        "court_location_vocabulary_from_source_text",
+        "no_guessed_metric_layout_positions",
+        "rl_live_selection_and_identity",
+        "rl_typed_metric_values_and_displays",
+        "rl_official_sources_and_periods",
+        "rl_three_layers_cited",
+        "rl_narrative_scopes"
+      ],
+      "sourceDurationMs": 21548.118,
+      "passed": true,
+      "inspectedFrameIds": [
+        "frame-15500",
+        "frame-16500",
+        "frame-17000",
+        "frame-200",
+        "frame-21000",
+        "frame-9000"
+      ]
+    },
+    "trace": [
+      {
+        "elapsedMs": 556.0,
+        "round": 1.0,
+        "status": "succeeded",
+        "input": {
+          "frame_ids": [
+            "frame-200",
+            "frame-9000",
+            "frame-15500",
+            "frame-16500",
+            "frame-17000",
+            "frame-21000"
+          ]
+        },
+        "requestId": "06ddc49b5a1840dba23e3165bdab550a",
+        "step": 1.0,
+        "result": {
+          "sourceType": "actual_s3_image_bytes",
+          "frames": [
+            {
+              "bytes": 183572.0,
+              "id": "frame-200",
+              "sha256": "9549e289a2f6f2aa4c2f40aee696750ad4269619acac349eb17376f18b38de21",
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/frames/flagg-00.2s.jpg",
+              "timestamp_ms": 200.0
+            },
+            {
+              "timestamp_ms": 9000.0,
+              "sha256": "8c6c47d0edf25d1d0a584fa1f05506d2e73d9cb0624689aa1066da93795389dd",
+              "id": "frame-9000",
+              "bytes": 205602.0,
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/frames/flagg-09s.jpg"
+            },
+            {
+              "timestamp_ms": 15500.0,
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/frames/flagg-15.5s.jpg",
+              "bytes": 203239.0,
+              "id": "frame-15500",
+              "sha256": "687495fbe7688aa3d9c26897ee8db55f155d3ae69aa5b5d9072742ba7936b3c3"
+            },
+            {
+              "timestamp_ms": 16500.0,
+              "bytes": 215650.0,
+              "id": "frame-16500",
+              "sha256": "1c0acae0ef157566cdd73045fa13e0e943ae3f6cf66ed2eb56b6235f99c09c01",
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/frames/flagg-16.5s.jpg"
+            },
+            {
+              "id": "frame-17000",
+              "timestamp_ms": 17000.0,
+              "sha256": "b915b99b43c11215ab9dcda42ec89f28b6d875f37624f1eec159c5f854e7b8e6",
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/frames/flagg-17.0s.jpg",
+              "bytes": 200085.0
+            },
+            {
+              "bytes": 195091.0,
+              "timestamp_ms": 21000.0,
+              "id": "frame-21000",
+              "sha256": "ef7dd61b8ef78f03244265ad9b4a7350c47ab414500e70ce0c86352e425158df",
+              "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/frames/flagg-21s.jpg"
+            }
+          ]
+        },
+        "toolUseId": "tooluse_Gkcwhm5o1ItZF6sC0JuRcc",
+        "tool": "inspect_frames"
+      },
+      {
+        "elapsedMs": 35.0,
+        "step": 2.0,
+        "status": "succeeded",
+        "result": {
+          "officialEvent": {
+            "shotLocation": {
+              "locX": "89",
+              "side": "right",
+              "locY": "55"
+            },
+            "bindingFile": "event-bindings.json",
+            "locationLimitation": "官网出手点位，不是视频像素或逐帧轨迹；当前产品未把这些点位贴到球员脚下。",
+            "clock": "1:34",
+            "eventId": 666.0,
+            "gameId": "0022500701",
+            "made": true,
+            "evidenceUrls": [
+              "https://www.nba.com/game/dal-vs-hou-0022500701/play-by-play",
+              "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843"
+            ],
+            "actionId": 498.0,
+            "expectedFg": 0.51,
+            "method": "AI 助手实际查看抽帧后编辑锚定球员号码、节次、时钟区间与前后比分；确定性程序唯一匹配 NBA.com 出手，再以 gpShot.eventId = PBP.actionNumber 关联，并交叉校验球员、节次、命中及两分类型。",
+            "playerId": "1642843",
+            "verified": true,
+            "actionNumber": 666.0,
+            "period": 4.0,
+            "shotValue": 2.0,
+            "description": "末节 1:34，弗拉格突破挑篮命中两分，独行侠追至 105 比 107。"
+          },
+          "metrics": [
+            {
+              "playerId": "1642843",
+              "rawValue": 0.51,
+              "revealAt": 18.5,
+              "eventId": 666.0,
+              "gameId": "0022500701",
+              "evidenceId": "flagg-xfg-666",
+              "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843",
+              "barRatio": 0.51,
+              "display": "51.0%",
+              "id": "flagg-shot-metric",
+              "label": "预期投篮命中率",
+              "unit": "ratio",
+              "definition": "NBA 官方对本次出手机会的概率型参考值；不是这个球员的个人命中率或胜率。"
+            }
+          ],
+          "provenance": {
+            "association": "curated_practice_video_mapping_not_automatic_event_matching",
+            "source": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/product/data/stories.json",
+            "sha256": "e6ab97e7842053dc82312326c0e13ddd25dfc41e6f5ce7aca0ad75a489611644"
+          },
+          "storyOptions": [
+            {
+              "evidenceIds": [
+                "flagg-frame-9",
+                "flagg-frame-15-5",
+                "flagg-frame-16-5",
+                "flagg-roster"
+              ],
+              "id": "player",
+              "description": "从外线推进到篮下，再看起跳时球与防守人的相对位置。",
+              "focusTime": 15.5,
+              "label": "持球的弗拉格"
+            },
+            {
+              "focusTime": 16.5,
+              "description": "把目光放在篮下：弗拉格起跳时，正面防守人双臂举起，终结动作就在防守面前完成。",
+              "label": "篮下的防守人",
+              "id": "defender",
+              "evidenceIds": [
+                "flagg-frame-16-5",
+                "flagg-frame-17"
+              ]
+            },
+            {
+              "label": "这一球的数据",
+              "focusTime": 18.5,
+              "id": "data",
+              "evidenceIds": [
+                "flagg-pbp-666",
+                "flagg-xfg-666",
+                "flagg-frame-21"
+              ],
+              "description": "这球得到两分。再看官方的预期投篮命中率，把已经发生的结果和这次机会的质量一起读懂。"
+            }
+          ],
+          "chapterSuggestions": [
+            {
+              "kind": "observation",
+              "id": "context",
+              "caption": "末节，独行侠落后四分。",
+              "start": 0.0,
+              "end": 9.0,
+              "title": "先看局面",
+              "evidenceIds": [
+                "flagg-frame-0-2"
+              ]
+            },
+            {
+              "id": "approach",
+              "kind": "observation",
+              "end": 15.4,
+              "caption": "弗拉格持球推进，身前仍有防守。",
+              "evidenceIds": [
+                "flagg-frame-9",
+                "flagg-frame-15-5",
+                "flagg-roster"
+              ],
+              "start": 9.0,
+              "title": "从外线到篮下"
+            },
+            {
+              "end": 17.4,
+              "kind": "observation",
+              "start": 15.4,
+              "evidenceIds": [
+                "flagg-frame-16-5"
+              ],
+              "id": "key-beat",
+              "title": "慢看这一拍",
+              "caption": "起跳这一帧，正面防守人双臂举起。"
+            },
+            {
+              "start": 17.4,
+              "caption": "官方确认两分命中；机会质量与结果分开看。",
+              "end": 21.548118,
+              "evidenceIds": [
+                "flagg-pbp-666",
+                "flagg-xfg-666",
+                "flagg-frame-21"
+              ],
+              "title": "用数据回看机会",
+              "id": "record",
+              "kind": "official"
+            }
+          ],
+          "rlEvidence": {
+            "sources": {
+              "s6c922428719ea134": {
+                "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+                "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8",
+                "rowKey": "game.awayTeam.players[0].statistics",
+                "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+                "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+                "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612"
+              },
+              "s0b593ed5c6bafd4d": {
+                "rowKey": "data.players[54]",
+                "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+                "retrievedAt": "2026-10-10T11:47:13+08:00",
+                "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+                "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1"
+              }
+            },
+            "periods": {
+              "p785041440d4fa767": {
+                "gameDate": "2026-01-31",
+                "season": "2025-26",
+                "gameTimeUTC": "2026-02-01T01:30:00Z",
+                "gameDateBasis": "NBA gameEt Eastern date",
+                "seasonType": "Regular Season",
+                "range": "full_completed_game"
+              },
+              "pa71b6359d7eb4d39": {
+                "seasonType": "Regular Season",
+                "range": "source_season_snapshot",
+                "season": "2025-26"
+              }
+            },
+            "evidence": [
+              {
+                "metric": "PTS",
+                "sourceRef": "s6c922428719ea134",
+                "periodRef": "p785041440d4fa767",
+                "playerId": "1642843",
+                "label": "得分",
+                "display": "34",
+                "unit": "count",
+                "gameId": "0022500701",
+                "family": "basic",
+                "evidenceId": "e10e1bdacb4be",
+                "value": 34.0,
+                "grain": "player-game",
+                "claimType": "official_fact"
+              },
+              {
+                "gameId": "0022500701",
+                "evidenceId": "e09ba1fae361c",
+                "metric": "EFG_PCT",
+                "playerId": "1642843",
+                "value": 0.54,
+                "grain": "player-game",
+                "sourceRef": "s6c922428719ea134",
+                "display": "54.00%",
+                "claimType": "derived_arithmetic",
+                "periodRef": "p785041440d4fa767",
+                "family": "advanced",
+                "unit": "fraction",
+                "label": "考虑三分价值的运动战投篮效率"
+              },
+              {
+                "label": "无球外线防守关注",
+                "value": 6.217,
+                "claimType": "official_fact",
+                "unit": "gravity_score",
+                "gameId": null,
+                "display": "6.217",
+                "evidenceId": "ebf0d7b4f48f7",
+                "metric": "OFF_BALL_PERIM_GRAV",
+                "playerId": "1642843",
+                "family": "gravity",
+                "grain": "player-season",
+                "periodRef": "pa71b6359d7eb4d39",
+                "sourceRef": "s0b593ed5c6bafd4d"
+              }
+            ]
+          },
+          "allowedCourtLocations": [
+            "禁区附近",
+            "篮下"
+          ],
+          "evidence": [
+            {
+              "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "id": "flagg-frame-0-2",
+              "body": "第四节，独行侠落后四分。",
+              "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-00.2s.jpg",
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "kind": "observation",
+              "humanExpertReviewed": false,
+              "scoreboard": {
+                "score": {
+                  "DAL": 103.0,
+                  "HOU": 107.0
+                },
+                "clock": "1:51"
+              },
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "sourceUrl": "/samples/flagg.mp4#t=0.2",
+              "title": "画面 · 0.2 秒",
+              "videoTime": 0.2
+            },
+            {
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "title": "画面 · 9 秒",
+              "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-09s.jpg",
+              "body": "深衣 32 号持球，附近有深衣 21 号及白衣防守人。",
+              "sourceUrl": "/samples/flagg.mp4#t=9",
+              "kind": "observation",
+              "id": "flagg-frame-9",
+              "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "scoreboard": {
+                "clock": "1:43"
+              },
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "videoTime": 9.0,
+              "humanExpertReviewed": false
+            },
+            {
+              "body": "32 号已推进到禁区附近，防守人在其身前和侧后方。",
+              "kind": "observation",
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-15.5s.jpg",
+              "scoreboard": {
+                "clock": "1:36"
+              },
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "sourceUrl": "/samples/flagg.mp4#t=15.5",
+              "videoTime": 15.5,
+              "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "title": "画面 · 15.5 秒",
+              "humanExpertReviewed": false,
+              "id": "flagg-frame-15-5"
+            },
+            {
+              "body": "32 号在篮下起跳，正面白衣防守人双臂举起。",
+              "kind": "observation",
+              "sourceUrl": "/samples/flagg.mp4#t=16.5",
+              "videoTime": 16.5,
+              "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-16.5s.jpg",
+              "scoreboard": {
+                "clock": "1:35"
+              },
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "id": "flagg-frame-16-5",
+              "title": "画面 · 16.5 秒",
+              "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "humanExpertReviewed": false
+            },
+            {
+              "title": "画面 · 17 秒",
+              "kind": "observation",
+              "humanExpertReviewed": false,
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-17.0s.jpg",
+              "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "scoreboard": {
+                "clock": "1:35"
+              },
+              "body": "球已离开出手者双手；底部和篮架时钟存在显示差异。",
+              "sourceUrl": "/samples/flagg.mp4#t=17",
+              "videoTime": 17.0,
+              "id": "flagg-frame-17",
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧"
+            },
+            {
+              "videoTime": 21.0,
+              "annotationMethod": "AI 助手查看 0.2、9、15.5、16.5、17、21 秒抽帧，记录号码、节次、比赛时钟及比分；16.5 秒为编辑选定慢看节点，非精确离手帧。",
+              "kind": "observation",
+              "originalSourceUrl": "https://comfile.csdnimg.cn/file/train_video.zip",
+              "sourceUrl": "/samples/flagg.mp4#t=21",
+              "humanExpertReviewed": false,
+              "scoreboard": {
+                "score": {
+                  "DAL": 105.0,
+                  "HOU": 107.0
+                },
+                "clock": "1:34"
+              },
+              "sourceLabel": "主办方公开训练视频 · 已查看抽帧",
+              "title": "画面 · 21 秒",
+              "frameUrl": "https://deky02484tknr.cloudfront.net/frames/flagg-21s.jpg",
+              "body": "比分更新，火箭准备继续进攻。",
+              "id": "flagg-frame-21"
+            },
+            {
+              "videoTime": 18.5,
+              "body": "末节 1:34，弗拉格突破挑篮命中两分，独行侠追至 105 比 107。",
+              "sourcePath": "playByPlay.actions[actionNumber=666 & isFieldGoal=1]",
+              "actionNumber": 666.0,
+              "kind": "official",
+              "sourceLabel": "NBA.com · Play-by-Play",
+              "sourceUrl": "https://www.nba.com/game/dal-vs-hou-0022500701/play-by-play",
+              "playerId": "1642843",
+              "eventId": 666.0,
+              "actionId": 498.0,
+              "period": 4.0,
+              "title": "NBA 官方逐回合记录",
+              "videoTimeMeaning": "编辑选择的数据揭示节点，不是官方出手时钟的逐帧换算。",
+              "gameId": "0022500701",
+              "id": "flagg-pbp-666",
+              "officialClock": "1:34"
+            },
+            {
+              "videoTime": 18.5,
+              "unit": "ratio",
+              "playerId": "1642843",
+              "eventId": 666.0,
+              "value": 0.51,
+              "title": "这次出手的预期投篮命中率",
+              "gameId": "0022500701",
+              "id": "flagg-xfg-666",
+              "definitionUrl": "https://china.nba.cn/inside-the-game/glossary",
+              "sourceLabel": "NBA 中国 · 逐次出手数据",
+              "sourcePath": "data.shotList[eventId=666].value",
+              "body": "NBA 中国官网这次出手的原始数值为 0.51，换算显示为 51.0%。这是机会质量的参考，不是球员的个人命中保证。",
+              "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843",
+              "display": "51.0%",
+              "kind": "official"
+            },
+            {
+              "sourceUrl": "https://www.nba.com/game/dal-vs-hou-0022500701/play-by-play",
+              "sourcePath": "game.homeTeamPlayers / game.awayTeamPlayers",
+              "id": "flagg-roster",
+              "title": "本场身份与号码核对",
+              "sourceLabel": "NBA.com · 本场名单",
+              "body": "NBA 本场名单：独行侠 32 号为库珀·弗拉格，与所查看画面号码一致。",
+              "kind": "official",
+              "gameId": "0022500701",
+              "playerId": "1642843"
+            }
+          ]
+        },
+        "tool": "read_official_event",
+        "toolUseId": "tooluse_xtvUEEczuzsDUA7Qo7l65F",
+        "input": {},
+        "round": 1.0,
+        "requestId": "06ddc49b5a1840dba23e3165bdab550a"
+      },
+      {
+        "requestId": "06ddc49b5a1840dba23e3165bdab550a",
+        "tool": "validate_story",
+        "status": "rejected",
+        "toolUseId": "tooluse_Y5AqG7r3wKkYLe69QOIKsQ",
+        "result": {
+          "repairHints": {
+            "allowedEvidenceIds": [
+              "flagg-frame-0-2",
+              "flagg-frame-9",
+              "flagg-frame-15-5",
+              "flagg-frame-16-5",
+              "flagg-frame-17",
+              "flagg-frame-21",
+              "flagg-pbp-666",
+              "flagg-xfg-666",
+              "flagg-roster",
+              "frame-200",
+              "frame-9000",
+              "frame-15500",
+              "frame-16500",
+              "frame-17000",
+              "frame-21000"
+            ],
+            "rlNarrativeRule": "必须包含本场得分与效率、赛季所选深度指标、仅作背景；不写数字与因果。",
+            "mustCiteAtLeastOneActualFrame": [
+              "frame-15500",
+              "frame-16500",
+              "frame-17000",
+              "frame-200",
+              "frame-21000",
+              "frame-9000"
+            ],
+            "captionLimits": [
+              {
+                "chapter": 0.0,
+                "maxCaptionCharacters": 42.0
+              },
+              {
+                "chapter": 1.0,
+                "maxCaptionCharacters": 42.0
+              },
+              {
+                "chapter": 2.0,
+                "maxCaptionCharacters": 16.0
+              },
+              {
+                "maxCaptionCharacters": 32.0,
+                "chapter": 3.0
+              }
+            ],
+            "allowedCourtLocations": [
+              "禁区附近",
+              "篮下"
+            ],
+            "instruction": "Repair all fields together; use exact evidence IDs, cite an actually inspected frame, shorten captions, and do not copy numeric prose from editorial suggestions.",
+            "rlEvidenceIds": [
+              "e10e1bdacb4be",
+              "e09ba1fae361c",
+              "ebf0d7b4f48f7"
+            ]
+          },
+          "error": "Fix ALL listed generated-text fields in one revised plan; do not repair only the first item:\nsummary: court location '外线' is absent from approved source wording; allowed phrases=['禁区附近', '篮下']; keep source qualifiers or omit the location"
+        },
+        "round": 2.0,
+        "input": {
+          "plan": {
+            "chapters": [
+              {
+                "evidenceIds": [
+                  "flagg-frame-0-2",
+                  "frame-200"
+                ],
+                "id": "context",
+                "title": "独行侠落后开始进攻",
+                "end": 9.0,
+                "caption": "独行侠落后，弗拉格持球推进。",
+                "start": 0.0
+              },
+              {
+                "start": 9.0,
+                "end": 15.5,
+                "title": "持球推进至禁区附近",
+                "id": "approach",
+                "caption": "弗拉格持球向禁区附近推进，防守人跟随。",
+                "evidenceIds": [
+                  "flagg-frame-9",
+                  "flagg-frame-15-5",
+                  "flagg-roster",
+                  "frame-9000",
+                  "frame-15500"
+                ]
+              },
+              {
+                "start": 15.5,
+                "end": 17.5,
+                "evidenceIds": [
+                  "flagg-frame-16-5",
+                  "flagg-frame-17",
+                  "frame-16500",
+                  "frame-17000"
+                ],
+                "id": "key-beat",
+                "title": "起跳时防守人双臂举起",
+                "caption": "弗拉格在禁区附近起跳，正面防守人双臂举起；随后球已离手。"
+              },
+              {
+                "id": "record",
+                "start": 17.5,
+                "title": "命中与机会质量",
+                "caption": "官方确认命中；出手机会质量见官方指标。",
+                "end": 21.548,
+                "evidenceIds": [
+                  "flagg-pbp-666",
+                  "flagg-xfg-666",
+                  "flagg-frame-21",
+                  "frame-21000"
+                ]
+              }
+            ],
+            "perspective": "player",
+            "rlNarrative": "本场得分与运动战投篮效率补充比赛背景；赛季无球外线防守关注仅作背景，不能解释此回合的动作原因。",
+            "title": "弗拉格禁区附近终结",
+            "rlEvidenceIds": [
+              "e10e1bdacb4be",
+              "e09ba1fae361c",
+              "ebf0d7b4f48f7"
+            ],
+            "summary": "独行侠落后时，弗拉格从外线持球推进至禁区附近，在防守人双臂举起的情况下完成起跳出手并命中，官方数据记录了这次机会的质量与结果。"
+          }
+        },
+        "step": 3.0,
+        "elapsedMs": 3.0
+      },
+      {
+        "round": 3.0,
+        "toolUseId": "tooluse_v6zSuGqAM1GwQ4bH4eo2ib",
+        "status": "succeeded",
+        "requestId": "06ddc49b5a1840dba23e3165bdab550a",
+        "tool": "validate_story",
+        "elapsedMs": 1.0,
+        "step": 4.0,
+        "result": {
+          "passed": true,
+          "validation": {
+            "checks": [
+              "known_evidence_ids",
+              "cited_frames_actually_inspected",
+              "source_time_bounds",
+              "nonoverlapping_chapters",
+              "no_model_authored_numbers",
+              "official_metrics_copied_verbatim",
+              "known_causal_static_phrases_rejected",
+              "court_location_vocabulary_from_source_text",
+              "no_guessed_metric_layout_positions",
+              "rl_live_selection_and_identity",
+              "rl_typed_metric_values_and_displays",
+              "rl_official_sources_and_periods",
+              "rl_three_layers_cited",
+              "rl_narrative_scopes"
+            ],
+            "passed": true,
+            "protocol": "product-story-v1",
+            "inspectedFrameIds": [
+              "frame-15500",
+              "frame-16500",
+              "frame-17000",
+              "frame-200",
+              "frame-21000",
+              "frame-9000"
+            ],
+            "rlEvidenceIds": [
+              "e10e1bdacb4be",
+              "e09ba1fae361c",
+              "ebf0d7b4f48f7"
+            ],
+            "chapterCount": 4.0,
+            "sourceDurationMs": 21548.118,
+            "scope": "Structural and provenance validation; not an independent factual or basketball-accuracy certification"
+          }
+        },
+        "input": {
+          "plan": {
+            "perspective": "player",
+            "summary": "独行侠落后，弗拉格持球推进至禁区附近，在防守人双臂举起的情况下完成起跳出手并命中，官方数据记录了这次机会的质量与结果。",
+            "title": "弗拉格禁区附近终结",
+            "chapters": [
+              {
+                "caption": "独行侠落后，弗拉格持球推进。",
+                "title": "独行侠落后开始进攻",
+                "id": "context",
+                "end": 9.0,
+                "start": 0.0,
+                "evidenceIds": [
+                  "flagg-frame-0-2",
+                  "frame-200"
+                ]
+              },
+              {
+                "id": "approach",
+                "start": 9.0,
+                "evidenceIds": [
+                  "flagg-frame-9",
+                  "flagg-frame-15-5",
+                  "flagg-roster",
+                  "frame-9000",
+                  "frame-15500"
+                ],
+                "caption": "弗拉格持球向禁区附近推进，防守人跟随。",
+                "end": 15.5,
+                "title": "持球推进至禁区附近"
+              },
+              {
+                "caption": "弗拉格在禁区附近起跳。",
+                "end": 17.5,
+                "id": "key-beat",
+                "start": 15.5,
+                "evidenceIds": [
+                  "flagg-frame-16-5",
+                  "flagg-frame-17",
+                  "frame-16500",
+                  "frame-17000"
+                ],
+                "title": "起跳时防守人双臂举起"
+              },
+              {
+                "id": "record",
+                "evidenceIds": [
+                  "flagg-pbp-666",
+                  "flagg-xfg-666",
+                  "flagg-frame-21",
+                  "frame-21000"
+                ],
+                "caption": "官方确认命中；出手机会质量见官方指标。",
+                "start": 17.5,
+                "title": "命中与机会质量",
+                "end": 21.548
+              }
+            ],
+            "rlEvidenceIds": [
+              "e10e1bdacb4be",
+              "e09ba1fae361c",
+              "ebf0d7b4f48f7"
+            ],
+            "rlNarrative": "本场得分与运动战投篮效率补充比赛背景；赛季无球外线防守关注仅作背景，不能解释此回合的动作原因。"
+          }
+        }
+      }
+    ],
+    "playerComparison": {
+      "unavailableComparisons": [],
+      "matchupVerified": false,
+      "opponentChoices": [
+        {
+          "onCourtAtEventVerified": false,
+          "teamId": 1610612745.0,
+          "playerId": "1627827",
+          "displayName": "Dorian Finney-Smith",
+          "defenderAtEventVerified": false,
+          "team": "HOU",
+          "playedInGame": true
+        },
+        {
+          "playerId": "1629006",
+          "defenderAtEventVerified": false,
+          "teamId": 1610612745.0,
+          "playedInGame": true,
+          "displayName": "约什奥科吉",
+          "team": "HOU",
+          "onCourtAtEventVerified": false
+        },
+        {
+          "playerId": "1630578",
+          "displayName": "阿尔佩伦申京",
+          "teamId": 1610612745.0,
+          "team": "HOU",
+          "playedInGame": true,
+          "onCourtAtEventVerified": false,
+          "defenderAtEventVerified": false
+        },
+        {
+          "playedInGame": true,
+          "defenderAtEventVerified": false,
+          "teamId": 1610612745.0,
+          "team": "HOU",
+          "onCourtAtEventVerified": false,
+          "playerId": "1631095",
+          "displayName": "贾巴里史密斯"
+        },
+        {
+          "onCourtAtEventVerified": false,
+          "defenderAtEventVerified": false,
+          "playedInGame": true,
+          "playerId": "1631106",
+          "displayName": "塔里伊森",
+          "teamId": 1610612745.0,
+          "team": "HOU"
+        },
+        {
+          "teamId": 1610612745.0,
+          "playerId": "1641708",
+          "playedInGame": true,
+          "onCourtAtEventVerified": false,
+          "defenderAtEventVerified": false,
+          "displayName": "阿门汤普森",
+          "team": "HOU"
+        },
+        {
+          "playerId": "1642263",
+          "playedInGame": true,
+          "teamId": 1610612745.0,
+          "displayName": "里德谢泼德",
+          "team": "HOU",
+          "onCourtAtEventVerified": false,
+          "defenderAtEventVerified": false
+        },
+        {
+          "playedInGame": true,
+          "teamId": 1610612745.0,
+          "onCourtAtEventVerified": false,
+          "defenderAtEventVerified": false,
+          "playerId": "201142",
+          "team": "HOU",
+          "displayName": "凯文杜兰特"
+        },
+        {
+          "onCourtAtEventVerified": false,
+          "teamId": 1610612745.0,
+          "defenderAtEventVerified": false,
+          "displayName": "克林特卡佩拉",
+          "playedInGame": true,
+          "playerId": "203991",
+          "team": "HOU"
+        }
+      ],
+      "opponent": {
+        "derived": [
+          {
+            "gameId": "0022500701",
+            "periodRef": "p785041440d4fa767",
+            "metric": "GAME_FG_PCT",
+            "operands": [
+              {
+                "metric": "FGM",
+                "value": 7.0,
+                "evidenceId": "e509562da8549"
+              },
+              {
+                "evidenceId": "e904b5cea2607",
+                "value": 15.0,
+                "metric": "FGA"
+              }
+            ],
+            "displayValue": "46.67%",
+            "unit": "fraction",
+            "reasonCode": null,
+            "available": true,
+            "claimType": "derived_arithmetic",
+            "value": 0.4666666666666667,
+            "grain": "player-game",
+            "label": "本场投篮命中率",
+            "formula": "FGM/FGA"
+          },
+          {
+            "periodRef": "p785041440d4fa767",
+            "available": false,
+            "grain": "player-game",
+            "gameId": "0022500701",
+            "reasonCode": "zero_denominator",
+            "claimType": "derived_arithmetic",
+            "unit": "fraction",
+            "metric": "GAME_FG3_PCT",
+            "value": null,
+            "formula": "FG3M/FG3A",
+            "label": "本场三分命中率",
+            "operands": [
+              {
+                "evidenceId": "e21d66d4c9e94",
+                "metric": "FG3M",
+                "value": 0.0
+              },
+              {
+                "evidenceId": "e316a7b94734a",
+                "value": 0.0,
+                "metric": "FG3A"
+              }
+            ],
+            "displayValue": null
+          },
+          {
+            "value": 0.7777777777777778,
+            "periodRef": "p785041440d4fa767",
+            "unit": "fraction",
+            "reasonCode": null,
+            "available": true,
+            "metric": "GAME_FT_PCT",
+            "claimType": "derived_arithmetic",
+            "formula": "FTM/FTA",
+            "grain": "player-game",
+            "label": "本场罚球命中率",
+            "gameId": "0022500701",
+            "operands": [
+              {
+                "evidenceId": "ef46b60f4375d",
+                "metric": "FTM",
+                "value": 7.0
+              },
+              {
+                "value": 9.0,
+                "evidenceId": "ed6cd50a0fef7",
+                "metric": "FTA"
+              }
+            ],
+            "displayValue": "77.78%"
+          },
+          {
+            "gameId": "0022500701",
+            "metric": "GAME_AST_TOV",
+            "operands": [
+              {
+                "value": 9.0,
+                "metric": "AST",
+                "evidenceId": "edb47e23473ba"
+              },
+              {
+                "metric": "TOV",
+                "evidenceId": "e21b2c0dadb9f",
+                "value": 0.0
+              }
+            ],
+            "unit": "ratio",
+            "grain": "player-game",
+            "label": "本场助攻失误比",
+            "available": false,
+            "reasonCode": "zero_denominator",
+            "displayValue": null,
+            "claimType": "derived_arithmetic",
+            "value": null,
+            "periodRef": "p785041440d4fa767",
+            "formula": "AST/TOV"
+          },
+          {
+            "value": 0.0,
+            "claimType": "derived_arithmetic",
+            "displayValue": "0.00%",
+            "grain": "player-game",
+            "label": "本场三分出手占比",
+            "available": true,
+            "unit": "fraction",
+            "metric": "GAME_3PA_SHARE",
+            "reasonCode": null,
+            "gameId": "0022500701",
+            "formula": "FG3A/FGA",
+            "operands": [
+              {
+                "value": 0.0,
+                "evidenceId": "e316a7b94734a",
+                "metric": "FG3A"
+              },
+              {
+                "metric": "FGA",
+                "value": 15.0,
+                "evidenceId": "e904b5cea2607"
+              }
+            ],
+            "periodRef": "p785041440d4fa767"
+          },
+          {
+            "available": true,
+            "usage": "赛季快照算术差，可能有源数值舍入；非单次出手表现，不归因于某位防守人",
+            "periodRef": "pa71b6359d7eb4d39",
+            "unit": "percentage_points",
+            "displayValue": "-5.30个百分点",
+            "metric": "SEASON_FG_VS_EXPECTED_PP",
+            "formula": "100*(FGPCT-AVGSHOTQUALITY)",
+            "value": -5.299999999999994,
+            "grain": "player-season",
+            "gameId": null,
+            "operands": [
+              {
+                "evidenceId": "e843b3700431e",
+                "metric": "FGPCT",
+                "value": 0.534
+              },
+              {
+                "value": 0.587,
+                "evidenceId": "e29c297717080",
+                "metric": "AVGSHOTQUALITY"
+              }
+            ],
+            "reasonCode": null,
+            "claimType": "derived_arithmetic",
+            "label": "赛季实际与预期命中率差"
+          },
+          {
+            "reasonCode": null,
+            "usage": "赛季快照算术差，可能有源数值舍入；非单次出手表现，不归因于某位防守人",
+            "claimType": "derived_arithmetic",
+            "metric": "SEASON_FG3_VS_EXPECTED_PP",
+            "value": -18.3,
+            "displayValue": "-18.30个百分点",
+            "unit": "percentage_points",
+            "formula": "100*(FG3PCT-AVGSHOTQUALITY3PT)",
+            "available": true,
+            "operands": [
+              {
+                "evidenceId": "e2046fe4342a1",
+                "value": 0.216,
+                "metric": "FG3PCT"
+              },
+              {
+                "evidenceId": "e6d59019c19ad",
+                "metric": "AVGSHOTQUALITY3PT",
+                "value": 0.399
+              }
+            ],
+            "label": "赛季三分实际与预期命中率差",
+            "periodRef": "pa71b6359d7eb4d39",
+            "grain": "player-season",
+            "gameId": null
+          }
+        ],
+        "scopeLabels": {
+          "season": "2025–26赛季快照；非本回合测量",
+          "pressure": "该进攻球员出手时平均承受的防守压力；不是其个人防守能力",
+          "leverage": "官方分项影响力；不换算为命中率、胜率或对位优势",
+          "game": "本场赛后统计"
+        },
+        "sections": {
+          "gameOffense": [
+            "eb29df0031e14",
+            "e509562da8549",
+            "e904b5cea2607",
+            "e21d66d4c9e94",
+            "e316a7b94734a",
+            "ef46b60f4375d",
+            "ed6cd50a0fef7",
+            "edb47e23473ba",
+            "e21b2c0dadb9f",
+            "e64226412f94b"
+          ],
+          "gameEfficiency": [
+            "e9aee70a54504",
+            "e31560ff0c23f"
+          ],
+          "seasonOverall": [
+            "e9bb858b1942e",
+            "e9fd7ab15f5ee",
+            "e94ed02a87fd2"
+          ],
+          "seasonOffense": [
+            "e9dedadc98b9e",
+            "e007bc147076d",
+            "ee69ec8a36245",
+            "e1de36a2698b8",
+            "e90f29bd08d22",
+            "e2b26bca6aff2",
+            "e0fe2b07c736c",
+            "e28e0d4f2e2ab"
+          ],
+          "seasonShooting": [
+            "e843b3700431e",
+            "e29c297717080",
+            "ee49c9f42e6ac",
+            "e2046fe4342a1",
+            "e6d59019c19ad",
+            "e497392a69044",
+            "e0cf9c40baf7e",
+            "e437ccb19c4c2"
+          ],
+          "gameDefense": [
+            "e3663ce03b509",
+            "e4d5d4cee2bf1",
+            "eba544d299ce3"
+          ],
+          "seasonDefense": [
+            "ebc81e192db43",
+            "e6b777ad695ed"
+          ],
+          "gameGeneral": [
+            "e5285c79f8828",
+            "e306c3dd16655"
+          ]
+        },
+        "gameId": "0022500701",
+        "missingMetrics": [],
+        "player": {
+          "playerId": "1641708",
+          "displayName": "阿门汤普森",
+          "teamId": 1610612745.0,
+          "teamSemantics": "official_selected_game"
+        },
+        "facts": [
+          {
+            "gameId": null,
+            "grain": "player-season",
+            "display": "-8.431",
+            "unit": "gravity_score",
+            "claimType": "official_fact",
+            "metric": "OFF_BALL_INTERIOR_GRAV",
+            "playerId": "1641708",
+            "sourceRef": "s6ec014eb794c61a4",
+            "periodRef": "pa71b6359d7eb4d39",
+            "family": "gravity",
+            "value": -8.431,
+            "evidenceId": "e90f29bd08d22",
+            "label": "无球内线防守关注"
+          },
+          {
+            "display": "-2.273",
+            "playerId": "1641708",
+            "family": "gravity",
+            "metric": "OFF_BALL_PERIM_GRAV",
+            "label": "无球外线防守关注",
+            "unit": "gravity_score",
+            "grain": "player-season",
+            "claimType": "official_fact",
+            "sourceRef": "s6ec014eb794c61a4",
+            "evidenceId": "e1de36a2698b8",
+            "value": -2.273,
+            "periodRef": "pa71b6359d7eb4d39",
+            "gameId": null
+          },
+          {
+            "family": "gravity",
+            "metric": "ON_BALL_INTERIOR_GRAV",
+            "value": -13.765,
+            "gameId": null,
+            "grain": "player-season",
+            "display": "-13.765",
+            "claimType": "official_fact",
+            "playerId": "1641708",
+            "evidenceId": "ee69ec8a36245",
+            "unit": "gravity_score",
+            "sourceRef": "s6ec014eb794c61a4",
+            "label": "持球内线防守关注",
+            "periodRef": "pa71b6359d7eb4d39"
+          },
+          {
+            "metric": "ON_BALL_PERIM_GRAV",
+            "unit": "gravity_score",
+            "playerId": "1641708",
+            "periodRef": "pa71b6359d7eb4d39",
+            "gameId": null,
+            "label": "持球外线防守关注",
+            "claimType": "official_fact",
+            "value": -5.602,
+            "display": "-5.602",
+            "family": "gravity",
+            "grain": "player-season",
+            "sourceRef": "s6ec014eb794c61a4",
+            "evidenceId": "e007bc147076d"
+          },
+          {
+            "display": "-4.593",
+            "family": "gravity",
+            "metric": "OVERALL_GRAV",
+            "gameId": null,
+            "grain": "player-season",
+            "unit": "gravity_score",
+            "periodRef": "pa71b6359d7eb4d39",
+            "label": "总体防守关注",
+            "value": -4.593,
+            "evidenceId": "e9dedadc98b9e",
+            "sourceRef": "s6ec014eb794c61a4",
+            "claimType": "official_fact",
+            "playerId": "1641708"
+          },
+          {
+            "metric": "CREATION_LVG",
+            "playerId": "1641708",
+            "display": "1.49",
+            "family": "leverage",
+            "evidenceId": "e0fe2b07c736c",
+            "gameId": null,
+            "grain": "player-season",
+            "periodRef": "pa71b6359d7eb4d39",
+            "unit": "leverage_score",
+            "sourceRef": "sd99c1ccc67f67822",
+            "label": "创造机会影响力",
+            "value": 1.49,
+            "claimType": "official_fact"
+          },
+          {
+            "metric": "DEF_LVG",
+            "grain": "player-season",
+            "periodRef": "pa71b6359d7eb4d39",
+            "claimType": "official_fact",
+            "unit": "leverage_score",
+            "sourceRef": "sd99c1ccc67f67822",
+            "evidenceId": "ebc81e192db43",
+            "label": "防守影响力",
+            "value": 2.16,
+            "family": "leverage",
+            "display": "2.16",
+            "playerId": "1641708",
+            "gameId": null
+          },
+          {
+            "display": "-0.18",
+            "label": "进攻影响力",
+            "playerId": "1641708",
+            "gameId": null,
+            "grain": "player-season",
+            "claimType": "official_fact",
+            "evidenceId": "e2b26bca6aff2",
+            "sourceRef": "sd99c1ccc67f67822",
+            "metric": "OFF_LVG",
+            "periodRef": "pa71b6359d7eb4d39",
+            "family": "leverage",
+            "value": -0.18,
+            "unit": "leverage_score"
+          },
+          {
+            "metric": "ON_BALL_DEF_LVG",
+            "family": "leverage",
+            "playerId": "1641708",
+            "gameId": null,
+            "grain": "player-season",
+            "label": "持球防守影响力",
+            "unit": "leverage_score",
+            "sourceRef": "sd99c1ccc67f67822",
+            "evidenceId": "e6b777ad695ed",
+            "value": 0.55,
+            "claimType": "official_fact",
+            "display": "0.55",
+            "periodRef": "pa71b6359d7eb4d39"
+          },
+          {
+            "label": "篮板影响力",
+            "periodRef": "pa71b6359d7eb4d39",
+            "evidenceId": "e9bb858b1942e",
+            "display": "0.83",
+            "playerId": "1641708",
+            "grain": "player-season",
+            "unit": "leverage_score",
+            "claimType": "official_fact",
+            "metric": "REB_LVG",
+            "value": 0.83,
+            "family": "leverage",
+            "sourceRef": "sd99c1ccc67f67822",
+            "gameId": null
+          },
+          {
+            "metric": "SHOT_LVG",
+            "family": "leverage",
+            "label": "投篮影响力",
+            "playerId": "1641708",
+            "gameId": null,
+            "evidenceId": "e28e0d4f2e2ab",
+            "periodRef": "pa71b6359d7eb4d39",
+            "display": "-0.26",
+            "sourceRef": "sd99c1ccc67f67822",
+            "grain": "player-season",
+            "unit": "leverage_score",
+            "claimType": "official_fact",
+            "value": -0.26
+          },
+          {
+            "playerId": "1641708",
+            "gameId": null,
+            "periodRef": "pa71b6359d7eb4d39",
+            "evidenceId": "e94ed02a87fd2",
+            "metric": "TOT_LVG",
+            "label": "整体影响力",
+            "claimType": "official_fact",
+            "unit": "leverage_score",
+            "family": "leverage",
+            "display": "1.98",
+            "grain": "player-season",
+            "value": 1.98,
+            "sourceRef": "sd99c1ccc67f67822"
+          },
+          {
+            "value": -1.37,
+            "display": "-1.37",
+            "label": "失误影响力",
+            "sourceRef": "sd99c1ccc67f67822",
+            "unit": "leverage_score",
+            "gameId": null,
+            "evidenceId": "e9fd7ab15f5ee",
+            "grain": "player-season",
+            "metric": "TOV_LVG",
+            "playerId": "1641708",
+            "periodRef": "pa71b6359d7eb4d39",
+            "family": "leverage",
+            "claimType": "official_fact"
+          },
+          {
+            "evidenceId": "e437ccb19c4c2",
+            "sourceRef": "se7781534e7c118bc",
+            "unit": "pressure_score",
+            "display": "0.814",
+            "value": 0.814,
+            "metric": "AVGDEFENDERPRESSURESCORE",
+            "label": "平均防守压力分值",
+            "playerId": "1641708",
+            "gameId": null,
+            "family": "shotdifficulty",
+            "grain": "player-season",
+            "periodRef": "pa71b6359d7eb4d39",
+            "claimType": "official_fact"
+          },
+          {
+            "label": "平均出手机会质量",
+            "metric": "AVGSHOTQUALITY",
+            "periodRef": "pa71b6359d7eb4d39",
+            "claimType": "official_fact",
+            "grain": "player-season",
+            "evidenceId": "e29c297717080",
+            "gameId": null,
+            "playerId": "1641708",
+            "family": "shotdifficulty",
+            "unit": "fraction",
+            "sourceRef": "se7781534e7c118bc",
+            "display": "58.70%",
+            "value": 0.587
+          },
+          {
+            "display": "61.10%",
+            "playerId": "1641708",
+            "sourceRef": "se7781534e7c118bc",
+            "family": "shotdifficulty",
+            "unit": "fraction",
+            "claimType": "official_fact",
+            "value": 0.611,
+            "metric": "AVGSHOTQUALITY2PT",
+            "evidenceId": "e0cf9c40baf7e",
+            "gameId": null,
+            "grain": "player-season",
+            "periodRef": "pa71b6359d7eb4d39",
+            "label": "两分球平均出手机会质量"
+          },
+          {
+            "evidenceId": "e6d59019c19ad",
+            "gameId": null,
+            "display": "39.90%",
+            "metric": "AVGSHOTQUALITY3PT",
+            "grain": "player-season",
+            "periodRef": "pa71b6359d7eb4d39",
+            "sourceRef": "se7781534e7c118bc",
+            "unit": "fraction",
+            "claimType": "official_fact",
+            "playerId": "1641708",
+            "family": "shotdifficulty",
+            "label": "三分球平均出手机会质量",
+            "value": 0.399
+          },
+          {
+            "evidenceId": "e2046fe4342a1",
+            "grain": "player-season",
+            "sourceRef": "se7781534e7c118bc",
+            "claimType": "official_fact",
+            "family": "shotdifficulty",
+            "value": 0.216,
+            "unit": "fraction",
+            "display": "21.60%",
+            "playerId": "1641708",
+            "periodRef": "pa71b6359d7eb4d39",
+            "gameId": null,
+            "metric": "FG3PCT",
+            "label": "实际三分球命中表现"
+          },
+          {
+            "family": "shotdifficulty",
+            "sourceRef": "se7781534e7c118bc",
+            "value": -0.183,
+            "periodRef": "pa71b6359d7eb4d39",
+            "claimType": "official_fact",
+            "playerId": "1641708",
+            "label": "三分球命中率与预期的差值",
+            "evidenceId": "e497392a69044",
+            "display": "-18.30个百分点",
+            "metric": "FG3PCTABOVEEXPECTED",
+            "unit": "fraction_difference",
+            "gameId": null,
+            "grain": "player-season"
+          },
+          {
+            "family": "shotdifficulty",
+            "label": "实际运动战命中表现",
+            "display": "53.40%",
+            "claimType": "official_fact",
+            "unit": "fraction",
+            "value": 0.534,
+            "evidenceId": "e843b3700431e",
+            "metric": "FGPCT",
+            "gameId": null,
+            "grain": "player-season",
+            "periodRef": "pa71b6359d7eb4d39",
+            "sourceRef": "se7781534e7c118bc",
+            "playerId": "1641708"
+          },
+          {
+            "evidenceId": "ee49c9f42e6ac",
+            "grain": "player-season",
+            "value": -0.053,
+            "periodRef": "pa71b6359d7eb4d39",
+            "claimType": "official_fact",
+            "sourceRef": "se7781534e7c118bc",
+            "display": "-5.30个百分点",
+            "playerId": "1641708",
+            "unit": "fraction_difference",
+            "metric": "FGPCTABOVEEXPECTED",
+            "gameId": null,
+            "label": "运动战命中率与预期的差值",
+            "family": "shotdifficulty"
+          },
+          {
+            "playerId": "1641708",
+            "gameId": "0022500701",
+            "claimType": "derived_arithmetic",
+            "sourceRef": "s2ab9a667e1160639",
+            "value": 0.4666666666666667,
+            "periodRef": "p785041440d4fa767",
+            "label": "考虑三分价值的运动战投篮效率",
+            "metric": "EFG_PCT",
+            "grain": "player-game",
+            "unit": "fraction",
+            "display": "46.67%",
+            "evidenceId": "e9aee70a54504",
+            "family": "advanced"
+          },
+          {
+            "unit": "fraction",
+            "evidenceId": "e31560ff0c23f",
+            "label": "包含罚球的投篮效率",
+            "metric": "TS_PCT",
+            "display": "55.38%",
+            "playerId": "1641708",
+            "claimType": "derived_arithmetic",
+            "family": "advanced",
+            "value": 0.5537974683544303,
+            "grain": "player-game",
+            "gameId": "0022500701",
+            "sourceRef": "s2ab9a667e1160639",
+            "periodRef": "p785041440d4fa767"
+          },
+          {
+            "grain": "player-game",
+            "family": "basic",
+            "claimType": "official_fact",
+            "evidenceId": "edb47e23473ba",
+            "periodRef": "p785041440d4fa767",
+            "sourceRef": "s2ab9a667e1160639",
+            "gameId": "0022500701",
+            "value": 9.0,
+            "label": "助攻",
+            "playerId": "1641708",
+            "unit": "count",
+            "display": "9",
+            "metric": "AST"
+          },
+          {
+            "sourceRef": "s2ab9a667e1160639",
+            "playerId": "1641708",
+            "display": "0",
+            "evidenceId": "e4d5d4cee2bf1",
+            "family": "basic",
+            "value": 0.0,
+            "label": "盖帽",
+            "gameId": "0022500701",
+            "periodRef": "p785041440d4fa767",
+            "claimType": "official_fact",
+            "metric": "BLK",
+            "grain": "player-game",
+            "unit": "count"
+          },
+          {
+            "playerId": "1641708",
+            "gameId": "0022500701",
+            "grain": "player-game",
+            "claimType": "official_fact",
+            "family": "basic",
+            "evidenceId": "eba544d299ce3",
+            "value": 3.0,
+            "unit": "count",
+            "sourceRef": "s2ab9a667e1160639",
+            "display": "3",
+            "periodRef": "p785041440d4fa767",
+            "label": "防守篮板",
+            "metric": "DREB"
+          },
+          {
+            "display": "0",
+            "evidenceId": "e316a7b94734a",
+            "family": "basic",
+            "value": 0.0,
+            "label": "三分出手",
+            "gameId": "0022500701",
+            "playerId": "1641708",
+            "metric": "FG3A",
+            "grain": "player-game",
+            "sourceRef": "s2ab9a667e1160639",
+            "unit": "count",
+            "periodRef": "p785041440d4fa767",
+            "claimType": "official_fact"
+          },
+          {
+            "periodRef": "p785041440d4fa767",
+            "unit": "count",
+            "gameId": "0022500701",
+            "sourceRef": "s2ab9a667e1160639",
+            "grain": "player-game",
+            "playerId": "1641708",
+            "claimType": "official_fact",
+            "family": "basic",
+            "evidenceId": "e21d66d4c9e94",
+            "metric": "FG3M",
+            "label": "三分命中",
+            "value": 0.0,
+            "display": "0"
+          },
+          {
+            "metric": "FGA",
+            "label": "投篮出手",
+            "periodRef": "p785041440d4fa767",
+            "unit": "count",
+            "family": "basic",
+            "gameId": "0022500701",
+            "claimType": "official_fact",
+            "playerId": "1641708",
+            "evidenceId": "e904b5cea2607",
+            "display": "15",
+            "value": 15.0,
+            "grain": "player-game",
+            "sourceRef": "s2ab9a667e1160639"
+          },
+          {
+            "value": 7.0,
+            "grain": "player-game",
+            "playerId": "1641708",
+            "periodRef": "p785041440d4fa767",
+            "metric": "FGM",
+            "claimType": "official_fact",
+            "sourceRef": "s2ab9a667e1160639",
+            "gameId": "0022500701",
+            "evidenceId": "e509562da8549",
+            "unit": "count",
+            "display": "7",
+            "family": "basic",
+            "label": "投篮命中"
+          },
+          {
+            "metric": "FTA",
+            "unit": "count",
+            "claimType": "official_fact",
+            "display": "9",
+            "periodRef": "p785041440d4fa767",
+            "value": 9.0,
+            "gameId": "0022500701",
+            "family": "basic",
+            "sourceRef": "s2ab9a667e1160639",
+            "label": "罚球出手",
+            "evidenceId": "ed6cd50a0fef7",
+            "playerId": "1641708",
+            "grain": "player-game"
+          },
+          {
+            "metric": "FTM",
+            "sourceRef": "s2ab9a667e1160639",
+            "value": 7.0,
+            "unit": "count",
+            "label": "罚球命中",
+            "gameId": "0022500701",
+            "claimType": "official_fact",
+            "evidenceId": "ef46b60f4375d",
+            "display": "7",
+            "playerId": "1641708",
+            "grain": "player-game",
+            "family": "basic",
+            "periodRef": "p785041440d4fa767"
+          },
+          {
+            "claimType": "official_fact",
+            "family": "basic",
+            "sourceRef": "s2ab9a667e1160639",
+            "evidenceId": "e5285c79f8828",
+            "display": "40:39",
+            "grain": "player-game",
+            "unit": "mm:ss",
+            "gameId": "0022500701",
+            "value": "40:39",
+            "playerId": "1641708",
+            "periodRef": "p785041440d4fa767",
+            "label": "出场时间",
+            "metric": "MIN"
+          },
+          {
+            "evidenceId": "e64226412f94b",
+            "sourceRef": "s2ab9a667e1160639",
+            "metric": "OREB",
+            "periodRef": "p785041440d4fa767",
+            "value": 5.0,
+            "label": "进攻篮板",
+            "display": "5",
+            "gameId": "0022500701",
+            "unit": "count",
+            "playerId": "1641708",
+            "grain": "player-game",
+            "claimType": "official_fact",
+            "family": "basic"
+          },
+          {
+            "sourceRef": "s2ab9a667e1160639",
+            "value": 21.0,
+            "label": "得分",
+            "periodRef": "p785041440d4fa767",
+            "unit": "count",
+            "grain": "player-game",
+            "family": "basic",
+            "gameId": "0022500701",
+            "claimType": "official_fact",
+            "display": "21",
+            "metric": "PTS",
+            "evidenceId": "eb29df0031e14",
+            "playerId": "1641708"
+          },
+          {
+            "sourceRef": "s2ab9a667e1160639",
+            "periodRef": "p785041440d4fa767",
+            "metric": "REB",
+            "value": 8.0,
+            "unit": "count",
+            "display": "8",
+            "evidenceId": "e306c3dd16655",
+            "family": "basic",
+            "gameId": "0022500701",
+            "grain": "player-game",
+            "claimType": "official_fact",
+            "playerId": "1641708",
+            "label": "总篮板"
+          },
+          {
+            "claimType": "official_fact",
+            "metric": "STL",
+            "unit": "count",
+            "evidenceId": "e3663ce03b509",
+            "value": 2.0,
+            "display": "2",
+            "family": "basic",
+            "label": "抢断",
+            "grain": "player-game",
+            "periodRef": "p785041440d4fa767",
+            "playerId": "1641708",
+            "gameId": "0022500701",
+            "sourceRef": "s2ab9a667e1160639"
+          },
+          {
+            "value": 0.0,
+            "grain": "player-game",
+            "sourceRef": "s2ab9a667e1160639",
+            "periodRef": "p785041440d4fa767",
+            "evidenceId": "e21b2c0dadb9f",
+            "label": "失误",
+            "playerId": "1641708",
+            "claimType": "official_fact",
+            "metric": "TOV",
+            "display": "0",
+            "family": "basic",
+            "unit": "count",
+            "gameId": "0022500701"
+          }
+        ]
+      },
+      "comparisons": [
+        {
+          "label": "得分",
+          "leftValue": 34.0,
+          "differenceUnit": "count",
+          "rightValue": 21.0,
+          "sourceUnit": "count",
+          "difference": 13.0,
+          "displayDifference": "13",
+          "claimType": "derived_arithmetic",
+          "evidenceIds": [
+            "e10e1bdacb4be",
+            "eb29df0031e14"
+          ],
+          "grain": "player-game",
+          "periodRef": "p785041440d4fa767",
+          "metric": "PTS",
+          "formula": "left-right"
+        },
+        {
+          "rightValue": 9.0,
+          "sourceUnit": "count",
+          "grain": "player-game",
+          "displayDifference": "-4",
+          "evidenceIds": [
+            "e65826c75f418",
+            "edb47e23473ba"
+          ],
+          "periodRef": "p785041440d4fa767",
+          "difference": -4.0,
+          "label": "助攻",
+          "metric": "AST",
+          "differenceUnit": "count",
+          "formula": "left-right",
+          "claimType": "derived_arithmetic",
+          "leftValue": 5.0
+        },
+        {
+          "sourceUnit": "count",
+          "displayDifference": "2",
+          "formula": "left-right",
+          "evidenceIds": [
+            "e684ac84d9a35",
+            "e21b2c0dadb9f"
+          ],
+          "periodRef": "p785041440d4fa767",
+          "grain": "player-game",
+          "label": "失误",
+          "differenceUnit": "count",
+          "claimType": "derived_arithmetic",
+          "rightValue": 0.0,
+          "leftValue": 2.0,
+          "difference": 2.0,
+          "metric": "TOV"
+        },
+        {
+          "label": "总篮板",
+          "rightValue": 8.0,
+          "sourceUnit": "count",
+          "differenceUnit": "count",
+          "formula": "left-right",
+          "leftValue": 12.0,
+          "difference": 4.0,
+          "evidenceIds": [
+            "e4dfbf79f11ad",
+            "e306c3dd16655"
+          ],
+          "displayDifference": "4",
+          "claimType": "derived_arithmetic",
+          "metric": "REB",
+          "periodRef": "p785041440d4fa767",
+          "grain": "player-game"
+        },
+        {
+          "differenceUnit": "count",
+          "evidenceIds": [
+            "ee014e342739e",
+            "e3663ce03b509"
+          ],
+          "displayDifference": "-2",
+          "claimType": "derived_arithmetic",
+          "periodRef": "p785041440d4fa767",
+          "sourceUnit": "count",
+          "difference": -2.0,
+          "label": "抢断",
+          "grain": "player-game",
+          "metric": "STL",
+          "leftValue": 0.0,
+          "formula": "left-right",
+          "rightValue": 2.0
+        },
+        {
+          "leftValue": 1.0,
+          "grain": "player-game",
+          "evidenceIds": [
+            "e4d805c90b508",
+            "e4d5d4cee2bf1"
+          ],
+          "periodRef": "p785041440d4fa767",
+          "sourceUnit": "count",
+          "label": "盖帽",
+          "differenceUnit": "count",
+          "metric": "BLK",
+          "rightValue": 0.0,
+          "displayDifference": "1",
+          "formula": "left-right",
+          "claimType": "derived_arithmetic",
+          "difference": 1.0
+        },
+        {
+          "claimType": "derived_arithmetic",
+          "periodRef": "p785041440d4fa767",
+          "leftValue": 11.0,
+          "grain": "player-game",
+          "evidenceIds": [
+            "ee4b8f73ff5a6",
+            "eba544d299ce3"
+          ],
+          "sourceUnit": "count",
+          "formula": "left-right",
+          "difference": 8.0,
+          "differenceUnit": "count",
+          "rightValue": 3.0,
+          "label": "防守篮板",
+          "displayDifference": "8",
+          "metric": "DREB"
+        },
+        {
+          "metric": "EFG_PCT",
+          "differenceUnit": "percentage_points",
+          "claimType": "derived_arithmetic",
+          "sourceUnit": "fraction",
+          "periodRef": "p785041440d4fa767",
+          "label": "考虑三分价值的运动战投篮效率",
+          "grain": "player-game",
+          "evidenceIds": [
+            "e09ba1fae361c",
+            "e9aee70a54504"
+          ],
+          "displayDifference": "+7.33个百分点",
+          "formula": "(left-right)*100",
+          "difference": 7.333333333333336,
+          "rightValue": 0.4666666666666667,
+          "leftValue": 0.54
+        },
+        {
+          "leftValue": 0.5782312925170068,
+          "label": "包含罚球的投篮效率",
+          "rightValue": 0.5537974683544303,
+          "displayDifference": "+2.44个百分点",
+          "sourceUnit": "fraction",
+          "claimType": "derived_arithmetic",
+          "grain": "player-game",
+          "evidenceIds": [
+            "e7cba3bbeefc6",
+            "e31560ff0c23f"
+          ],
+          "metric": "TS_PCT",
+          "difference": 2.4433824162576445,
+          "periodRef": "p785041440d4fa767",
+          "differenceUnit": "percentage_points",
+          "formula": "(left-right)*100"
+        },
+        {
+          "formula": "left-right",
+          "claimType": "derived_arithmetic",
+          "grain": "player-season",
+          "leftValue": 3.828,
+          "rightValue": -4.593,
+          "differenceUnit": "gravity_score",
+          "label": "总体防守关注",
+          "difference": 8.421,
+          "evidenceIds": [
+            "e988fec0f4d6a",
+            "e9dedadc98b9e"
+          ],
+          "periodRef": "pa71b6359d7eb4d39",
+          "sourceUnit": "gravity_score",
+          "displayDifference": "8.421",
+          "metric": "OVERALL_GRAV"
+        },
+        {
+          "difference": 8.49,
+          "displayDifference": "8.49",
+          "grain": "player-season",
+          "evidenceIds": [
+            "ebf0d7b4f48f7",
+            "e1de36a2698b8"
+          ],
+          "label": "无球外线防守关注",
+          "periodRef": "pa71b6359d7eb4d39",
+          "claimType": "derived_arithmetic",
+          "rightValue": -2.273,
+          "differenceUnit": "gravity_score",
+          "leftValue": 6.217,
+          "metric": "OFF_BALL_PERIM_GRAV",
+          "formula": "left-right",
+          "sourceUnit": "gravity_score"
+        },
+        {
+          "metric": "CREATION_LVG",
+          "periodRef": "pa71b6359d7eb4d39",
+          "leftValue": 1.77,
+          "claimType": "derived_arithmetic",
+          "difference": 0.28,
+          "differenceUnit": "leverage_score",
+          "grain": "player-season",
+          "formula": "left-right",
+          "rightValue": 1.49,
+          "label": "创造机会影响力",
+          "evidenceIds": [
+            "ea0fe91c4ffdb",
+            "e0fe2b07c736c"
+          ],
+          "displayDifference": "0.28",
+          "sourceUnit": "leverage_score"
+        },
+        {
+          "label": "进攻影响力",
+          "displayDifference": "-0.02",
+          "grain": "player-season",
+          "sourceUnit": "leverage_score",
+          "differenceUnit": "leverage_score",
+          "claimType": "derived_arithmetic",
+          "difference": -0.020000000000000018,
+          "leftValue": -0.2,
+          "evidenceIds": [
+            "e1c1f09f44778",
+            "e2b26bca6aff2"
+          ],
+          "periodRef": "pa71b6359d7eb4d39",
+          "formula": "left-right",
+          "metric": "OFF_LVG",
+          "rightValue": -0.18
+        },
+        {
+          "displayDifference": "0.15",
+          "grain": "player-season",
+          "evidenceIds": [
+            "eb2557b69bcd9",
+            "ebc81e192db43"
+          ],
+          "label": "防守影响力",
+          "rightValue": 2.16,
+          "differenceUnit": "leverage_score",
+          "claimType": "derived_arithmetic",
+          "formula": "left-right",
+          "difference": 0.1499999999999999,
+          "leftValue": 2.31,
+          "periodRef": "pa71b6359d7eb4d39",
+          "sourceUnit": "leverage_score",
+          "metric": "DEF_LVG"
+        },
+        {
+          "displayDifference": "0.19",
+          "grain": "player-season",
+          "evidenceIds": [
+            "e7c40f098987b",
+            "e6b777ad695ed"
+          ],
+          "claimType": "derived_arithmetic",
+          "formula": "left-right",
+          "leftValue": 0.74,
+          "periodRef": "pa71b6359d7eb4d39",
+          "differenceUnit": "leverage_score",
+          "difference": 0.18999999999999995,
+          "label": "持球防守影响力",
+          "metric": "ON_BALL_DEF_LVG",
+          "rightValue": 0.55,
+          "sourceUnit": "leverage_score"
+        },
+        {
+          "difference": -6.6000000000000005,
+          "rightValue": 0.534,
+          "claimType": "derived_arithmetic",
+          "sourceUnit": "fraction",
+          "metric": "FGPCT",
+          "label": "实际运动战命中表现",
+          "leftValue": 0.468,
+          "formula": "(left-right)*100",
+          "evidenceIds": [
+            "ed2fcd7e6387f",
+            "e843b3700431e"
+          ],
+          "periodRef": "pa71b6359d7eb4d39",
+          "differenceUnit": "percentage_points",
+          "displayDifference": "-6.60个百分点",
+          "grain": "player-season"
+        },
+        {
+          "leftValue": 0.481,
+          "formula": "(left-right)*100",
+          "sourceUnit": "fraction",
+          "periodRef": "pa71b6359d7eb4d39",
+          "displayDifference": "-10.60个百分点",
+          "rightValue": 0.587,
+          "differenceUnit": "percentage_points",
+          "claimType": "derived_arithmetic",
+          "difference": -10.599999999999998,
+          "grain": "player-season",
+          "evidenceIds": [
+            "ef1672ab853b9",
+            "e29c297717080"
+          ],
+          "metric": "AVGSHOTQUALITY",
+          "label": "平均出手机会质量"
+        },
+        {
+          "sourceUnit": "fraction_difference",
+          "metric": "FGPCTABOVEEXPECTED",
+          "leftValue": -0.013,
+          "label": "运动战命中率与预期的差值",
+          "displayDifference": "+4.00个百分点",
+          "claimType": "derived_arithmetic",
+          "differenceUnit": "percentage_points",
+          "rightValue": -0.053,
+          "formula": "(left-right)*100",
+          "evidenceIds": [
+            "e78c312e4685f",
+            "ee49c9f42e6ac"
+          ],
+          "periodRef": "pa71b6359d7eb4d39",
+          "grain": "player-season",
+          "difference": 4.0
+        }
+      ],
+      "defenderPlayerId": null,
+      "trainedModelUsed": false,
+      "inferenceSource": "deterministic_official_data_and_arithmetic",
+      "attacker": {
+        "derived": [
+          {
+            "displayValue": "52.00%",
+            "reasonCode": null,
+            "formula": "FGM/FGA",
+            "gameId": "0022500701",
+            "metric": "GAME_FG_PCT",
+            "available": true,
+            "value": 0.52,
+            "grain": "player-game",
+            "operands": [
+              {
+                "evidenceId": "e235dbbd9c59f",
+                "metric": "FGM",
+                "value": 13.0
+              },
+              {
+                "metric": "FGA",
+                "value": 25.0,
+                "evidenceId": "e2424811e4b1a"
+              }
+            ],
+            "unit": "fraction",
+            "claimType": "derived_arithmetic",
+            "label": "本场投篮命中率",
+            "periodRef": "p785041440d4fa767"
+          },
+          {
+            "operands": [
+              {
+                "value": 1.0,
+                "metric": "FG3M",
+                "evidenceId": "e3fcb2f411398"
+              },
+              {
+                "evidenceId": "e9acf47164daf",
+                "metric": "FG3A",
+                "value": 4.0
+              }
+            ],
+            "periodRef": "p785041440d4fa767",
+            "label": "本场三分命中率",
+            "reasonCode": null,
+            "grain": "player-game",
+            "gameId": "0022500701",
+            "metric": "GAME_FG3_PCT",
+            "available": true,
+            "value": 0.25,
+            "unit": "fraction",
+            "claimType": "derived_arithmetic",
+            "displayValue": "25.00%",
+            "formula": "FG3M/FG3A"
+          },
+          {
+            "unit": "fraction",
+            "displayValue": "70.00%",
+            "operands": [
+              {
+                "value": 7.0,
+                "evidenceId": "e026b7e4a4380",
+                "metric": "FTM"
+              },
+              {
+                "value": 10.0,
+                "evidenceId": "ea2c879fe4010",
+                "metric": "FTA"
+              }
+            ],
+            "grain": "player-game",
+            "periodRef": "p785041440d4fa767",
+            "gameId": "0022500701",
+            "available": true,
+            "value": 0.7,
+            "claimType": "derived_arithmetic",
+            "metric": "GAME_FT_PCT",
+            "label": "本场罚球命中率",
+            "reasonCode": null,
+            "formula": "FTM/FTA"
+          },
+          {
+            "gameId": "0022500701",
+            "operands": [
+              {
+                "value": 5.0,
+                "metric": "AST",
+                "evidenceId": "e65826c75f418"
+              },
+              {
+                "evidenceId": "e684ac84d9a35",
+                "metric": "TOV",
+                "value": 2.0
+              }
+            ],
+            "periodRef": "p785041440d4fa767",
+            "available": true,
+            "displayValue": "2.5",
+            "formula": "AST/TOV",
+            "label": "本场助攻失误比",
+            "value": 2.5,
+            "metric": "GAME_AST_TOV",
+            "unit": "ratio",
+            "grain": "player-game",
+            "claimType": "derived_arithmetic",
+            "reasonCode": null
+          },
+          {
+            "label": "本场三分出手占比",
+            "value": 0.16,
+            "periodRef": "p785041440d4fa767",
+            "unit": "fraction",
+            "displayValue": "16.00%",
+            "metric": "GAME_3PA_SHARE",
+            "claimType": "derived_arithmetic",
+            "gameId": "0022500701",
+            "formula": "FG3A/FGA",
+            "available": true,
+            "reasonCode": null,
+            "grain": "player-game",
+            "operands": [
+              {
+                "evidenceId": "e9acf47164daf",
+                "metric": "FG3A",
+                "value": 4.0
+              },
+              {
+                "evidenceId": "e2424811e4b1a",
+                "metric": "FGA",
+                "value": 25.0
+              }
+            ]
+          },
+          {
+            "displayValue": "-1.30个百分点",
+            "reasonCode": null,
+            "formula": "100*(FGPCT-AVGSHOTQUALITY)",
+            "metric": "SEASON_FG_VS_EXPECTED_PP",
+            "claimType": "derived_arithmetic",
+            "gameId": null,
+            "available": true,
+            "unit": "percentage_points",
+            "value": -1.2999999999999956,
+            "label": "赛季实际与预期命中率差",
+            "grain": "player-season",
+            "operands": [
+              {
+                "value": 0.468,
+                "metric": "FGPCT",
+                "evidenceId": "ed2fcd7e6387f"
+              },
+              {
+                "evidenceId": "ef1672ab853b9",
+                "metric": "AVGSHOTQUALITY",
+                "value": 0.481
+              }
+            ],
+            "usage": "赛季快照算术差，可能有源数值舍入；非单次出手表现，不归因于某位防守人",
+            "periodRef": "pa71b6359d7eb4d39"
+          },
+          {
+            "displayValue": "-6.60个百分点",
+            "grain": "player-season",
+            "unit": "percentage_points",
+            "reasonCode": null,
+            "available": true,
+            "claimType": "derived_arithmetic",
+            "value": -6.6000000000000005,
+            "gameId": null,
+            "label": "赛季三分实际与预期命中率差",
+            "formula": "100*(FG3PCT-AVGSHOTQUALITY3PT)",
+            "operands": [
+              {
+                "value": 0.295,
+                "metric": "FG3PCT",
+                "evidenceId": "e46cbeaeb2ce1"
+              },
+              {
+                "metric": "AVGSHOTQUALITY3PT",
+                "evidenceId": "e9cd9eb3aaf24",
+                "value": 0.361
+              }
+            ],
+            "usage": "赛季快照算术差，可能有源数值舍入；非单次出手表现，不归因于某位防守人",
+            "metric": "SEASON_FG3_VS_EXPECTED_PP",
+            "periodRef": "pa71b6359d7eb4d39"
+          }
+        ],
+        "missingMetrics": [],
+        "gameId": "0022500701",
+        "scopeLabels": {
+          "game": "本场赛后统计",
+          "leverage": "官方分项影响力；不换算为命中率、胜率或对位优势",
+          "season": "2025–26赛季快照；非本回合测量",
+          "pressure": "该进攻球员出手时平均承受的防守压力；不是其个人防守能力"
+        },
+        "sections": {
+          "seasonOffense": [
+            "e988fec0f4d6a",
+            "e587b404f2a3f",
+            "e05e04a1278d5",
+            "ebf0d7b4f48f7",
+            "e32765ed8554e",
+            "e1c1f09f44778",
+            "ea0fe91c4ffdb",
+            "ed19be6b8eecb"
+          ],
+          "gameGeneral": [
+            "e3d4e38ba23f2",
+            "e4dfbf79f11ad"
+          ],
+          "seasonOverall": [
+            "e5d72b42529d5",
+            "edef52c895f69",
+            "e31b08746c194"
+          ],
+          "seasonShooting": [
+            "ed2fcd7e6387f",
+            "ef1672ab853b9",
+            "e78c312e4685f",
+            "e46cbeaeb2ce1",
+            "e9cd9eb3aaf24",
+            "e198d0d7137fd",
+            "e5b17db35c4ba",
+            "eab7e1d7ecaf3"
+          ],
+          "gameDefense": [
+            "ee014e342739e",
+            "e4d805c90b508",
+            "ee4b8f73ff5a6"
+          ],
+          "seasonDefense": [
+            "eb2557b69bcd9",
+            "e7c40f098987b"
+          ],
+          "gameOffense": [
+            "e10e1bdacb4be",
+            "e235dbbd9c59f",
+            "e2424811e4b1a",
+            "e3fcb2f411398",
+            "e9acf47164daf",
+            "e026b7e4a4380",
+            "ea2c879fe4010",
+            "e65826c75f418",
+            "e684ac84d9a35",
+            "ef2f8bc069377"
+          ],
+          "gameEfficiency": [
+            "e09ba1fae361c",
+            "e7cba3bbeefc6"
+          ]
+        },
+        "facts": [
+          {
+            "unit": "gravity_score",
+            "playerId": "1642843",
+            "periodRef": "pa71b6359d7eb4d39",
+            "display": "-2.41",
+            "claimType": "official_fact",
+            "evidenceId": "e32765ed8554e",
+            "label": "无球内线防守关注",
+            "family": "gravity",
+            "gameId": null,
+            "value": -2.41,
+            "grain": "player-season",
+            "metric": "OFF_BALL_INTERIOR_GRAV",
+            "sourceRef": "s0b593ed5c6bafd4d"
+          },
+          {
+            "grain": "player-season",
+            "family": "gravity",
+            "gameId": null,
+            "sourceRef": "s0b593ed5c6bafd4d",
+            "label": "无球外线防守关注",
+            "display": "6.217",
+            "playerId": "1642843",
+            "value": 6.217,
+            "periodRef": "pa71b6359d7eb4d39",
+            "metric": "OFF_BALL_PERIM_GRAV",
+            "claimType": "official_fact",
+            "evidenceId": "ebf0d7b4f48f7",
+            "unit": "gravity_score"
+          },
+          {
+            "label": "持球内线防守关注",
+            "display": "-2.938",
+            "family": "gravity",
+            "playerId": "1642843",
+            "value": -2.938,
+            "unit": "gravity_score",
+            "gameId": null,
+            "periodRef": "pa71b6359d7eb4d39",
+            "claimType": "official_fact",
+            "evidenceId": "e05e04a1278d5",
+            "metric": "ON_BALL_INTERIOR_GRAV",
+            "sourceRef": "s0b593ed5c6bafd4d",
+            "grain": "player-season"
+          },
+          {
+            "unit": "gravity_score",
+            "grain": "player-season",
+            "periodRef": "pa71b6359d7eb4d39",
+            "evidenceId": "e587b404f2a3f",
+            "playerId": "1642843",
+            "gameId": null,
+            "label": "持球外线防守关注",
+            "value": 2.897,
+            "family": "gravity",
+            "display": "2.897",
+            "claimType": "official_fact",
+            "sourceRef": "s0b593ed5c6bafd4d",
+            "metric": "ON_BALL_PERIM_GRAV"
+          },
+          {
+            "family": "gravity",
+            "metric": "OVERALL_GRAV",
+            "value": 3.828,
+            "unit": "gravity_score",
+            "display": "3.828",
+            "gameId": null,
+            "playerId": "1642843",
+            "grain": "player-season",
+            "evidenceId": "e988fec0f4d6a",
+            "periodRef": "pa71b6359d7eb4d39",
+            "claimType": "official_fact",
+            "sourceRef": "s0b593ed5c6bafd4d",
+            "label": "总体防守关注"
+          },
+          {
+            "value": 1.77,
+            "display": "1.77",
+            "family": "leverage",
+            "claimType": "official_fact",
+            "grain": "player-season",
+            "playerId": "1642843",
+            "evidenceId": "ea0fe91c4ffdb",
+            "metric": "CREATION_LVG",
+            "unit": "leverage_score",
+            "periodRef": "pa71b6359d7eb4d39",
+            "gameId": null,
+            "sourceRef": "sf6826f775d50add2",
+            "label": "创造机会影响力"
+          },
+          {
+            "sourceRef": "sf6826f775d50add2",
+            "value": 2.31,
+            "display": "2.31",
+            "unit": "leverage_score",
+            "evidenceId": "eb2557b69bcd9",
+            "playerId": "1642843",
+            "family": "leverage",
+            "metric": "DEF_LVG",
+            "label": "防守影响力",
+            "gameId": null,
+            "grain": "player-season",
+            "periodRef": "pa71b6359d7eb4d39",
+            "claimType": "official_fact"
+          },
+          {
+            "claimType": "official_fact",
+            "display": "-0.2",
+            "metric": "OFF_LVG",
+            "sourceRef": "sf6826f775d50add2",
+            "value": -0.2,
+            "family": "leverage",
+            "gameId": null,
+            "periodRef": "pa71b6359d7eb4d39",
+            "playerId": "1642843",
+            "grain": "player-season",
+            "unit": "leverage_score",
+            "evidenceId": "e1c1f09f44778",
+            "label": "进攻影响力"
+          },
+          {
+            "playerId": "1642843",
+            "label": "持球防守影响力",
+            "evidenceId": "e7c40f098987b",
+            "grain": "player-season",
+            "unit": "leverage_score",
+            "gameId": null,
+            "periodRef": "pa71b6359d7eb4d39",
+            "claimType": "official_fact",
+            "sourceRef": "sf6826f775d50add2",
+            "display": "0.74",
+            "value": 0.74,
+            "metric": "ON_BALL_DEF_LVG",
+            "family": "leverage"
+          },
+          {
+            "grain": "player-season",
+            "family": "leverage",
+            "gameId": null,
+            "evidenceId": "e5d72b42529d5",
+            "claimType": "official_fact",
+            "sourceRef": "sf6826f775d50add2",
+            "unit": "leverage_score",
+            "playerId": "1642843",
+            "label": "篮板影响力",
+            "display": "0.71",
+            "periodRef": "pa71b6359d7eb4d39",
+            "value": 0.71,
+            "metric": "REB_LVG"
+          },
+          {
+            "label": "投篮影响力",
+            "family": "leverage",
+            "evidenceId": "ed19be6b8eecb",
+            "sourceRef": "sf6826f775d50add2",
+            "value": -0.2,
+            "playerId": "1642843",
+            "display": "-0.2",
+            "grain": "player-season",
+            "gameId": null,
+            "periodRef": "pa71b6359d7eb4d39",
+            "claimType": "official_fact",
+            "metric": "SHOT_LVG",
+            "unit": "leverage_score"
+          },
+          {
+            "periodRef": "pa71b6359d7eb4d39",
+            "display": "2.11",
+            "label": "整体影响力",
+            "value": 2.11,
+            "unit": "leverage_score",
+            "grain": "player-season",
+            "family": "leverage",
+            "gameId": null,
+            "evidenceId": "e31b08746c194",
+            "playerId": "1642843",
+            "sourceRef": "sf6826f775d50add2",
+            "metric": "TOT_LVG",
+            "claimType": "official_fact"
+          },
+          {
+            "grain": "player-season",
+            "periodRef": "pa71b6359d7eb4d39",
+            "claimType": "official_fact",
+            "sourceRef": "sf6826f775d50add2",
+            "display": "-1.41",
+            "metric": "TOV_LVG",
+            "unit": "leverage_score",
+            "playerId": "1642843",
+            "family": "leverage",
+            "evidenceId": "edef52c895f69",
+            "label": "失误影响力",
+            "value": -1.41,
+            "gameId": null
+          },
+          {
+            "unit": "pressure_score",
+            "gameId": null,
+            "family": "shotdifficulty",
+            "display": "0.855",
+            "playerId": "1642843",
+            "claimType": "official_fact",
+            "periodRef": "pa71b6359d7eb4d39",
+            "sourceRef": "s7fb3be6b054c8945",
+            "evidenceId": "eab7e1d7ecaf3",
+            "label": "平均防守压力分值",
+            "value": 0.855,
+            "grain": "player-season",
+            "metric": "AVGDEFENDERPRESSURESCORE"
+          },
+          {
+            "playerId": "1642843",
+            "grain": "player-season",
+            "periodRef": "pa71b6359d7eb4d39",
+            "display": "48.10%",
+            "metric": "AVGSHOTQUALITY",
+            "unit": "fraction",
+            "sourceRef": "s7fb3be6b054c8945",
+            "family": "shotdifficulty",
+            "label": "平均出手机会质量",
+            "value": 0.481,
+            "evidenceId": "ef1672ab853b9",
+            "claimType": "official_fact",
+            "gameId": null
+          },
+          {
+            "display": "51.30%",
+            "value": 0.513,
+            "grain": "player-season",
+            "claimType": "official_fact",
+            "periodRef": "pa71b6359d7eb4d39",
+            "sourceRef": "s7fb3be6b054c8945",
+            "metric": "AVGSHOTQUALITY2PT",
+            "evidenceId": "e5b17db35c4ba",
+            "label": "两分球平均出手机会质量",
+            "family": "shotdifficulty",
+            "unit": "fraction",
+            "playerId": "1642843",
+            "gameId": null
+          },
+          {
+            "sourceRef": "s7fb3be6b054c8945",
+            "label": "三分球平均出手机会质量",
+            "unit": "fraction",
+            "display": "36.10%",
+            "gameId": null,
+            "value": 0.361,
+            "metric": "AVGSHOTQUALITY3PT",
+            "playerId": "1642843",
+            "evidenceId": "e9cd9eb3aaf24",
+            "periodRef": "pa71b6359d7eb4d39",
+            "grain": "player-season",
+            "family": "shotdifficulty",
+            "claimType": "official_fact"
+          },
+          {
+            "display": "29.50%",
+            "gameId": null,
+            "sourceRef": "s7fb3be6b054c8945",
+            "playerId": "1642843",
+            "periodRef": "pa71b6359d7eb4d39",
+            "evidenceId": "e46cbeaeb2ce1",
+            "label": "实际三分球命中表现",
+            "family": "shotdifficulty",
+            "claimType": "official_fact",
+            "value": 0.295,
+            "unit": "fraction",
+            "grain": "player-season",
+            "metric": "FG3PCT"
+          },
+          {
+            "label": "三分球命中率与预期的差值",
+            "claimType": "official_fact",
+            "gameId": null,
+            "display": "-6.60个百分点",
+            "playerId": "1642843",
+            "evidenceId": "e198d0d7137fd",
+            "grain": "player-season",
+            "value": -0.066,
+            "periodRef": "pa71b6359d7eb4d39",
+            "metric": "FG3PCTABOVEEXPECTED",
+            "unit": "fraction_difference",
+            "sourceRef": "s7fb3be6b054c8945",
+            "family": "shotdifficulty"
+          },
+          {
+            "value": 0.468,
+            "display": "46.80%",
+            "playerId": "1642843",
+            "gameId": null,
+            "grain": "player-season",
+            "family": "shotdifficulty",
+            "unit": "fraction",
+            "periodRef": "pa71b6359d7eb4d39",
+            "metric": "FGPCT",
+            "claimType": "official_fact",
+            "sourceRef": "s7fb3be6b054c8945",
+            "label": "实际运动战命中表现",
+            "evidenceId": "ed2fcd7e6387f"
+          },
+          {
+            "claimType": "official_fact",
+            "evidenceId": "e78c312e4685f",
+            "periodRef": "pa71b6359d7eb4d39",
+            "display": "-1.30个百分点",
+            "sourceRef": "s7fb3be6b054c8945",
+            "label": "运动战命中率与预期的差值",
+            "playerId": "1642843",
+            "grain": "player-season",
+            "value": -0.013,
+            "gameId": null,
+            "family": "shotdifficulty",
+            "unit": "fraction_difference",
+            "metric": "FGPCTABOVEEXPECTED"
+          },
+          {
+            "claimType": "derived_arithmetic",
+            "sourceRef": "s6c922428719ea134",
+            "display": "54.00%",
+            "metric": "EFG_PCT",
+            "periodRef": "p785041440d4fa767",
+            "label": "考虑三分价值的运动战投篮效率",
+            "value": 0.54,
+            "gameId": "0022500701",
+            "playerId": "1642843",
+            "unit": "fraction",
+            "evidenceId": "e09ba1fae361c",
+            "family": "advanced",
+            "grain": "player-game"
+          },
+          {
+            "playerId": "1642843",
+            "unit": "fraction",
+            "grain": "player-game",
+            "label": "包含罚球的投篮效率",
+            "family": "advanced",
+            "gameId": "0022500701",
+            "evidenceId": "e7cba3bbeefc6",
+            "value": 0.5782312925170068,
+            "metric": "TS_PCT",
+            "display": "57.82%",
+            "periodRef": "p785041440d4fa767",
+            "claimType": "derived_arithmetic",
+            "sourceRef": "s6c922428719ea134"
+          },
+          {
+            "label": "助攻",
+            "family": "basic",
+            "unit": "count",
+            "gameId": "0022500701",
+            "grain": "player-game",
+            "periodRef": "p785041440d4fa767",
+            "claimType": "official_fact",
+            "display": "5",
+            "sourceRef": "s6c922428719ea134",
+            "evidenceId": "e65826c75f418",
+            "metric": "AST",
+            "value": 5.0,
+            "playerId": "1642843"
+          },
+          {
+            "value": 1.0,
+            "sourceRef": "s6c922428719ea134",
+            "periodRef": "p785041440d4fa767",
+            "evidenceId": "e4d805c90b508",
+            "metric": "BLK",
+            "unit": "count",
+            "playerId": "1642843",
+            "family": "basic",
+            "label": "盖帽",
+            "gameId": "0022500701",
+            "grain": "player-game",
+            "display": "1",
+            "claimType": "official_fact"
+          },
+          {
+            "playerId": "1642843",
+            "gameId": "0022500701",
+            "grain": "player-game",
+            "family": "basic",
+            "periodRef": "p785041440d4fa767",
+            "claimType": "official_fact",
+            "sourceRef": "s6c922428719ea134",
+            "unit": "count",
+            "display": "11",
+            "metric": "DREB",
+            "label": "防守篮板",
+            "evidenceId": "ee4b8f73ff5a6",
+            "value": 11.0
+          },
+          {
+            "family": "basic",
+            "evidenceId": "e9acf47164daf",
+            "metric": "FG3A",
+            "unit": "count",
+            "display": "4",
+            "claimType": "official_fact",
+            "grain": "player-game",
+            "sourceRef": "s6c922428719ea134",
+            "label": "三分出手",
+            "playerId": "1642843",
+            "value": 4.0,
+            "gameId": "0022500701",
+            "periodRef": "p785041440d4fa767"
+          },
+          {
+            "value": 1.0,
+            "family": "basic",
+            "playerId": "1642843",
+            "grain": "player-game",
+            "periodRef": "p785041440d4fa767",
+            "label": "三分命中",
+            "gameId": "0022500701",
+            "claimType": "official_fact",
+            "metric": "FG3M",
+            "sourceRef": "s6c922428719ea134",
+            "unit": "count",
+            "display": "1",
+            "evidenceId": "e3fcb2f411398"
+          },
+          {
+            "evidenceId": "e2424811e4b1a",
+            "metric": "FGA",
+            "label": "投篮出手",
+            "unit": "count",
+            "sourceRef": "s6c922428719ea134",
+            "playerId": "1642843",
+            "gameId": "0022500701",
+            "value": 25.0,
+            "display": "25",
+            "grain": "player-game",
+            "family": "basic",
+            "periodRef": "p785041440d4fa767",
+            "claimType": "official_fact"
+          },
+          {
+            "periodRef": "p785041440d4fa767",
+            "sourceRef": "s6c922428719ea134",
+            "evidenceId": "e235dbbd9c59f",
+            "grain": "player-game",
+            "metric": "FGM",
+            "claimType": "official_fact",
+            "display": "13",
+            "value": 13.0,
+            "label": "投篮命中",
+            "unit": "count",
+            "family": "basic",
+            "playerId": "1642843",
+            "gameId": "0022500701"
+          },
+          {
+            "sourceRef": "s6c922428719ea134",
+            "playerId": "1642843",
+            "metric": "FTA",
+            "gameId": "0022500701",
+            "periodRef": "p785041440d4fa767",
+            "label": "罚球出手",
+            "family": "basic",
+            "grain": "player-game",
+            "value": 10.0,
+            "claimType": "official_fact",
+            "evidenceId": "ea2c879fe4010",
+            "unit": "count",
+            "display": "10"
+          },
+          {
+            "playerId": "1642843",
+            "family": "basic",
+            "evidenceId": "e026b7e4a4380",
+            "gameId": "0022500701",
+            "grain": "player-game",
+            "periodRef": "p785041440d4fa767",
+            "claimType": "official_fact",
+            "sourceRef": "s6c922428719ea134",
+            "metric": "FTM",
+            "label": "罚球命中",
+            "value": 7.0,
+            "unit": "count",
+            "display": "7"
+          },
+          {
+            "family": "basic",
+            "metric": "MIN",
+            "unit": "mm:ss",
+            "playerId": "1642843",
+            "periodRef": "p785041440d4fa767",
+            "sourceRef": "s6c922428719ea134",
+            "evidenceId": "e3d4e38ba23f2",
+            "label": "出场时间",
+            "value": "38:55",
+            "grain": "player-game",
+            "gameId": "0022500701",
+            "display": "38:55",
+            "claimType": "official_fact"
+          },
+          {
+            "playerId": "1642843",
+            "sourceRef": "s6c922428719ea134",
+            "display": "1",
+            "family": "basic",
+            "claimType": "official_fact",
+            "grain": "player-game",
+            "evidenceId": "ef2f8bc069377",
+            "gameId": "0022500701",
+            "metric": "OREB",
+            "value": 1.0,
+            "label": "进攻篮板",
+            "unit": "count",
+            "periodRef": "p785041440d4fa767"
+          },
+          {
+            "claimType": "official_fact",
+            "gameId": "0022500701",
+            "unit": "count",
+            "display": "34",
+            "label": "得分",
+            "grain": "player-game",
+            "periodRef": "p785041440d4fa767",
+            "sourceRef": "s6c922428719ea134",
+            "family": "basic",
+            "evidenceId": "e10e1bdacb4be",
+            "value": 34.0,
+            "metric": "PTS",
+            "playerId": "1642843"
+          },
+          {
+            "gameId": "0022500701",
+            "periodRef": "p785041440d4fa767",
+            "grain": "player-game",
+            "claimType": "official_fact",
+            "evidenceId": "e4dfbf79f11ad",
+            "playerId": "1642843",
+            "metric": "REB",
+            "label": "总篮板",
+            "display": "12",
+            "value": 12.0,
+            "sourceRef": "s6c922428719ea134",
+            "family": "basic",
+            "unit": "count"
+          },
+          {
+            "playerId": "1642843",
+            "gameId": "0022500701",
+            "display": "0",
+            "unit": "count",
+            "periodRef": "p785041440d4fa767",
+            "sourceRef": "s6c922428719ea134",
+            "label": "抢断",
+            "grain": "player-game",
+            "value": 0.0,
+            "claimType": "official_fact",
+            "family": "basic",
+            "evidenceId": "ee014e342739e",
+            "metric": "STL"
+          },
+          {
+            "evidenceId": "e684ac84d9a35",
+            "value": 2.0,
+            "metric": "TOV",
+            "unit": "count",
+            "label": "失误",
+            "playerId": "1642843",
+            "gameId": "0022500701",
+            "grain": "player-game",
+            "periodRef": "p785041440d4fa767",
+            "sourceRef": "s6c922428719ea134",
+            "family": "basic",
+            "claimType": "official_fact",
+            "display": "2"
+          }
+        ],
+        "player": {
+          "displayName": "库珀弗拉格",
+          "playerId": "1642843",
+          "teamSemantics": "official_selected_game",
+          "teamId": 1610612742.0
+        }
+      },
+      "selectedOpponentId": "1641708"
+    },
+    "videoUrl": "https://deky02484tknr.cloudfront.net/product/outputs/06ddc49b5a1840dba23e3165bdab550a/enhanced.mp4",
+    "usage": {
+      "outputTokens": 2153.0,
+      "totalTokens": 43924.0,
+      "inputTokens": 41771.0
+    },
+    "analysisUrl": "https://deky02484tknr.cloudfront.net/product/outputs/06ddc49b5a1840dba23e3165bdab550a/analysis.json",
+    "scout": {
+      "evidence": [
+        {
+          "display": "34",
+          "periodRef": "p785041440d4fa767",
+          "family": "basic",
+          "evidenceId": "e10e1bdacb4be",
+          "label": "得分",
+          "sourceRef": "s6c922428719ea134",
+          "unit": "count",
+          "metric": "PTS",
+          "grain": "player-game",
+          "playerId": "1642843",
+          "value": 34.0,
+          "gameId": "0022500701",
+          "claimType": "official_fact"
+        },
+        {
+          "unit": "fraction",
+          "family": "advanced",
+          "value": 0.54,
+          "metric": "EFG_PCT",
+          "playerId": "1642843",
+          "gameId": "0022500701",
+          "grain": "player-game",
+          "label": "考虑三分价值的运动战投篮效率",
+          "display": "54.00%",
+          "periodRef": "p785041440d4fa767",
+          "claimType": "derived_arithmetic",
+          "sourceRef": "s6c922428719ea134",
+          "evidenceId": "e09ba1fae361c"
+        },
+        {
+          "claimType": "official_fact",
+          "metric": "OFF_BALL_PERIM_GRAV",
+          "gameId": null,
+          "evidenceId": "ebf0d7b4f48f7",
+          "display": "6.217",
+          "grain": "player-season",
+          "sourceRef": "s0b593ed5c6bafd4d",
+          "playerId": "1642843",
+          "unit": "gravity_score",
+          "value": 6.217,
+          "family": "gravity",
+          "label": "无球外线防守关注",
+          "periodRef": "pa71b6359d7eb4d39"
+        }
+      ],
+      "trainedModelUsed": true,
+      "lineageVerified": true,
+      "selectionVerified": true,
+      "actualRL": true,
+      "modelInvoked": true,
+      "status": "verified_live_selection",
+      "statusLabel": "本次已调用模型",
+      "model": "Qwen/Qwen2.5-3B-Instruct",
+      "sourceTrainingJob": "rl-scout-evidence-3b-two-teams-1010-052032",
+      "modelIdentity": {
+        "mergedWeightsSha256": "00be65f61faef6fc3b764923f7d8ee4bd1f92acca7d4feeebc50ac73600f5f67",
+        "sagemakerModel": "rl-scout-model-1010-144434",
+        "endpointConfig": "rl-scout-config-1010-144434",
+        "adapterSha256": "9ae9cf4bbba57e2367a8b58e942c7774047ec94c4eecfae9497b49eda1e4e7a6",
+        "optimizerUpdateSteps": 7.0
+      },
+      "policy": "evidence-v1",
+      "selectedStage": "rl",
+      "available": true,
+      "endpoint": "rl-scout",
+      "modelInvokedThisRequest": true,
+      "invocationMode": "live",
+      "correctionUsed": false,
+      "elapsedSeconds": 2.841,
+      "traceSteps": [
+        {
+          "tools": [
+            "basic",
+            "advanced",
+            "gravity"
+          ],
+          "validationErrors": [],
+          "step": 1.0
+        },
+        {
+          "validationErrors": [],
+          "step": 2.0,
+          "tools": []
+        }
+      ],
+      "receipt": null,
+      "modelCalls": 2.0,
+      "error": null,
+      "relations": [
+        "game_season_attention_context",
+        "volume_efficiency_context"
+      ],
+      "threeLayersCovered": true,
+      "badge": "RL 数据球探"
+    },
+    "videoPath": "product/outputs/06ddc49b5a1840dba23e3165bdab550a/enhanced.mp4",
+    "rlVideoUse": {
+      "sourceRefs": [
+        "s6c922428719ea134",
+        "s0b593ed5c6bafd4d"
+      ],
+      "contextOnly": true,
+      "schema": "rl-burn-preparation-v1",
+      "narrativeIncluded": true,
+      "evidenceIds": [
+        "e10e1bdacb4be",
+        "e09ba1fae361c",
+        "ebf0d7b4f48f7"
+      ],
+      "successScope": "Filters prepared; actual MP4 rendering and visual acceptance are separate",
+      "evidenceIdsUsed": [
+        "e10e1bdacb4be",
+        "e09ba1fae361c",
+        "ebf0d7b4f48f7"
+      ],
+      "headerBounds": {
+        "width": 862.0,
+        "height": 64.0,
+        "x": 28.0,
+        "y": 4.0
+      },
+      "narrativeUsed": true,
+      "stagedWindows": [
+        {
+          "scopeLabel": "本场赛后统计 · NBA 官方基础数据",
+          "grain": "player-game",
+          "sourceRef": "s6c922428719ea134",
+          "periodRef": "p785041440d4fa767",
+          "title": "全场得分  34 分",
+          "kind": "evidence",
+          "evidenceId": "e10e1bdacb4be",
+          "start": 0.0,
+          "display": "34",
+          "end": 5.849373
+        },
+        {
+          "kind": "evidence",
+          "end": 11.698745,
+          "display": "54.00%",
+          "grain": "player-game",
+          "periodRef": "p785041440d4fa767",
+          "start": 5.849373,
+          "scopeLabel": "本场赛后统计 · 由官方计数计算",
+          "evidenceId": "e09ba1fae361c",
+          "sourceRef": "s6c922428719ea134",
+          "title": "全场 eFG  54.00%"
+        },
+        {
+          "sourceRef": "s0b593ed5c6bafd4d",
+          "kind": "evidence",
+          "end": 17.548118,
+          "scopeLabel": "2025–26赛季 · 深度背景，非本回合实测",
+          "grain": "player-season",
+          "display": "6.217",
+          "start": 11.698745,
+          "title": "无球外线引力  6.217",
+          "periodRef": "pa71b6359d7eb4d39",
+          "evidenceId": "ebf0d7b4f48f7"
+        },
+        {
+          "end": 21.548118,
+          "start": 17.548118,
+          "kind": "model_narrative",
+          "evidenceIds": [
+            "e10e1bdacb4be",
+            "e09ba1fae361c",
+            "ebf0d7b4f48f7"
+          ],
+          "text": "本场得分与运动战投篮效率补充比赛背景；赛季无球外线防守关注仅作背景，不能解释此回合的动作原因。"
+        }
+      ],
+      "prepared": true,
+      "verification": "worker_ffmpeg_success_and_full_media_contract",
+      "narrativeLines": [
+        "本场得分与运动战投篮效率补充比赛背景；赛季无球外线防守关注仅作背景，",
+        "不能解释此回合的动作原因。"
+      ],
+      "periodRefs": [
+        "p785041440d4fa767",
+        "pa71b6359d7eb4d39"
+      ],
+      "burnedIntoVideo": true,
+      "narrativeText": "本场得分与运动战投篮效率补充比赛背景；赛季无球外线防守关注仅作背景，不能解释此回合的动作原因。"
+    },
+    "summary": "独行侠落后，弗拉格持球推进至禁区附近，在防守人双臂举起的情况下完成起跳出手并命中，官方数据记录了这次机会的质量与结果。",
+    "rlEvidenceSources": {
+      "sf6826f775d50add2": {
+        "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+        "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+        "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+        "retrievedAt": "2026-10-10T11:47:30+08:00",
+        "rowKey": "data.players[19]"
+      },
+      "s6ec014eb794c61a4": {
+        "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+        "rowKey": "data.players[203]",
+        "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+        "retrievedAt": "2026-10-10T11:47:13+08:00",
+        "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1"
+      },
+      "se7781534e7c118bc": {
+        "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+        "rowKey": "data.shots[123]",
+        "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+        "retrievedAt": "2026-10-10T11:47:32+08:00",
+        "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55"
+      },
+      "sd99c1ccc67f67822": {
+        "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+        "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+        "rowKey": "data.players[28]",
+        "retrievedAt": "2026-10-10T11:47:30+08:00",
+        "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24"
+      },
+      "s6c922428719ea134": {
+        "rowKey": "game.awayTeam.players[0].statistics",
+        "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+        "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+        "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+        "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+        "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+      },
+      "s0b593ed5c6bafd4d": {
+        "retrievedAt": "2026-10-10T11:47:13+08:00",
+        "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+        "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+        "rowKey": "data.players[54]",
+        "path": "product/rl/data/depth/gravity-2025-26-regular.json"
+      },
+      "s7fb3be6b054c8945": {
+        "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+        "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+        "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+        "retrievedAt": "2026-10-10T11:47:32+08:00",
+        "rowKey": "data.shots[104]"
+      },
+      "s2ab9a667e1160639": {
+        "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8",
+        "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+        "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+        "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+        "rowKey": "game.homeTeam.players[4].statistics",
+        "retrievedAt": "2026-10-10T05:10:03.090876+00:00"
+      }
+    },
+    "scope": "product_story_protocol_not_organizer_evaluation_schema",
+    "inferenceSource": "bedrock_converse_tool_loop",
+    "plan": {
+      "metrics": [
+        {
+          "gameId": "0022500701",
+          "label": "预期投篮命中率",
+          "playerId": "1642843",
+          "rawValue": 0.51,
+          "revealAt": 18.5,
+          "unit": "ratio",
+          "evidenceId": "flagg-xfg-666",
+          "barRatio": 0.51,
+          "sourceUrl": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843",
+          "definition": "NBA 官方对本次出手机会的概率型参考值；不是这个球员的个人命中率或胜率。",
+          "display": "51.0%",
+          "eventId": 666.0,
+          "id": "flagg-shot-metric"
+        }
+      ],
+      "rlNarrative": "本场得分与运动战投篮效率补充比赛背景；赛季无球外线防守关注仅作背景，不能解释此回合的动作原因。",
+      "rlEvidencePeriods": {
+        "pa71b6359d7eb4d39": {
+          "season": "2025-26",
+          "range": "source_season_snapshot",
+          "seasonType": "Regular Season"
+        },
+        "p785041440d4fa767": {
+          "range": "full_completed_game",
+          "gameDateBasis": "NBA gameEt Eastern date",
+          "gameTimeUTC": "2026-02-01T01:30:00Z",
+          "season": "2025-26",
+          "seasonType": "Regular Season",
+          "gameDate": "2026-01-31"
+        }
+      },
+      "summary": "独行侠落后，弗拉格持球推进至禁区附近，在防守人双臂举起的情况下完成起跳出手并命中，官方数据记录了这次机会的质量与结果。",
+      "rlEvidenceSources": {
+        "s6c922428719ea134": {
+          "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+          "rowKey": "game.awayTeam.players[0].statistics",
+          "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8",
+          "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+          "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+          "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612"
+        },
+        "s0b593ed5c6bafd4d": {
+          "retrievedAt": "2026-10-10T11:47:13+08:00",
+          "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+          "rowKey": "data.players[54]",
+          "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+          "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1"
+        }
+      },
+      "associationMethod": "curated_practice_video_mapping_not_automatic_event_matching",
+      "rlEvidence": [
+        {
+          "evidenceId": "e10e1bdacb4be",
+          "grain": "player-game",
+          "periodRef": "p785041440d4fa767",
+          "claimType": "official_fact",
+          "playerId": "1642843",
+          "label": "得分",
+          "unit": "count",
+          "gameId": "0022500701",
+          "sourceRef": "s6c922428719ea134",
+          "metric": "PTS",
+          "display": "34",
+          "family": "basic",
+          "value": 34.0
+        },
+        {
+          "unit": "fraction",
+          "playerId": "1642843",
+          "sourceRef": "s6c922428719ea134",
+          "grain": "player-game",
+          "value": 0.54,
+          "family": "advanced",
+          "evidenceId": "e09ba1fae361c",
+          "label": "考虑三分价值的运动战投篮效率",
+          "claimType": "derived_arithmetic",
+          "display": "54.00%",
+          "metric": "EFG_PCT",
+          "gameId": "0022500701",
+          "periodRef": "p785041440d4fa767"
+        },
+        {
+          "gameId": null,
+          "grain": "player-season",
+          "label": "无球外线防守关注",
+          "value": 6.217,
+          "family": "gravity",
+          "unit": "gravity_score",
+          "claimType": "official_fact",
+          "sourceRef": "s0b593ed5c6bafd4d",
+          "evidenceId": "ebf0d7b4f48f7",
+          "display": "6.217",
+          "metric": "OFF_BALL_PERIM_GRAV",
+          "playerId": "1642843",
+          "periodRef": "pa71b6359d7eb4d39"
+        }
+      ],
+      "perspective": "player",
+      "chapters": [
+        {
+          "start": 0.0,
+          "id": "context",
+          "end": 9.0,
+          "title": "独行侠落后开始进攻",
+          "caption": "独行侠落后，弗拉格持球推进。",
+          "evidenceIds": [
+            "flagg-frame-0-2",
+            "frame-200"
+          ]
+        },
+        {
+          "end": 15.5,
+          "title": "持球推进至禁区附近",
+          "id": "approach",
+          "start": 9.0,
+          "caption": "弗拉格持球向禁区附近推进，防守人跟随。",
+          "evidenceIds": [
+            "flagg-frame-9",
+            "flagg-frame-15-5",
+            "flagg-roster",
+            "frame-9000",
+            "frame-15500"
+          ]
+        },
+        {
+          "id": "key-beat",
+          "title": "起跳时防守人双臂举起",
+          "caption": "弗拉格在禁区附近起跳。",
+          "evidenceIds": [
+            "flagg-frame-16-5",
+            "flagg-frame-17",
+            "frame-16500",
+            "frame-17000"
+          ],
+          "start": 15.5,
+          "end": 17.5
+        },
+        {
+          "caption": "官方确认命中；出手机会质量见官方指标。",
+          "title": "命中与机会质量",
+          "start": 17.5,
+          "evidenceIds": [
+            "flagg-pbp-666",
+            "flagg-xfg-666",
+            "flagg-frame-21",
+            "frame-21000"
+          ],
+          "id": "record",
+          "end": 21.548
+        }
+      ],
+      "rlEvidenceIds": [
+        "e10e1bdacb4be",
+        "e09ba1fae361c",
+        "ebf0d7b4f48f7"
+      ],
+      "title": "弗拉格禁区附近终结"
+    },
+    "sample": "flagg",
+    "rlEvidencePeriods": {
+      "pa71b6359d7eb4d39": {
+        "season": "2025-26",
+        "seasonType": "Regular Season",
+        "range": "source_season_snapshot"
+      },
+      "p785041440d4fa767": {
+        "gameTimeUTC": "2026-02-01T01:30:00Z",
+        "range": "full_completed_game",
+        "gameDateBasis": "NBA gameEt Eastern date",
+        "gameDate": "2026-01-31",
+        "seasonType": "Regular Season",
+        "season": "2025-26"
+      }
+    },
+    "mode": "story",
+    "rlAudit": {
+      "bytes": 16580.0,
+      "sha256": "671d6662fbde29f7927c57f831123499b86c4cdc7dae3b33d85ce46768efec00",
+      "url": "https://deky02484tknr.cloudfront.net/product/outputs/06ddc49b5a1840dba23e3165bdab550a/rl-audit.json",
+      "path": "product/outputs/06ddc49b5a1840dba23e3165bdab550a/rl-audit.json"
+    },
+    "runtimeSessionId": "83fe091c-dcf4-4ea1-9c0b-b93dd6bd321e",
+    "runId": "06ddc49b5a1840dba23e3165bdab550a",
+    "officialEvent": {
+      "locationLimitation": "官网出手点位，不是视频像素或逐帧轨迹；当前产品未把这些点位贴到球员脚下。",
+      "clock": "1:34",
+      "bindingFile": "event-bindings.json",
+      "gameId": "0022500701",
+      "description": "末节 1:34，弗拉格突破挑篮命中两分，独行侠追至 105 比 107。",
+      "made": true,
+      "method": "AI 助手实际查看抽帧后编辑锚定球员号码、节次、时钟区间与前后比分；确定性程序唯一匹配 NBA.com 出手，再以 gpShot.eventId = PBP.actionNumber 关联，并交叉校验球员、节次、命中及两分类型。",
+      "playerId": "1642843",
+      "verified": true,
+      "actionId": 498.0,
+      "actionNumber": 666.0,
+      "eventId": 666.0,
+      "expectedFg": 0.51,
+      "period": 4.0,
+      "evidenceUrls": [
+        "https://www.nba.com/game/dal-vs-hou-0022500701/play-by-play",
+        "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843"
+      ],
+      "shotLocation": {
+        "locY": "55",
+        "side": "right",
+        "locX": "89"
+      },
+      "shotValue": 2.0
+    },
+    "preservesSourceTimeline": true,
+    "source_frame_times_ms": [
+      200.0,
+      9000.0,
+      15500.0,
+      16500.0,
+      17000.0,
+      21000.0
+    ],
+    "protocol_version": "product-story-v1",
+    "source": {
+      "association": "curated_practice_video_mapping_not_automatic_event_matching",
+      "manifest": "s3://broadcastcodeteam02readiness20261006-files8e6940b8-zq6gguwputb4/product/data/stories.json",
+      "sha256": "e6ab97e7842053dc82312326c0e13ddd25dfc41e6f5ce7aca0ad75a489611644"
+    },
+    "modelId": "global.anthropic.claude-sonnet-4-6",
+    "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:555726205424:runtime/Team02Readiness20261006-1cAKhm9LrD"
+  },
+  "contentReview": {
+    "acceptedForShowcase": true,
+    "reviewer": "AI assistant",
+    "humanExpertReviewed": false,
+    "reviewedAt": "2026-10-10T09:55:49.854569+00:00",
+    "checks": [
+      "Actual full-source media decode and audio passed",
+      "Actual burned frames at 2/8/14/19 seconds inspected",
+      "Three selected exact source values and game/season scopes visibly distinct",
+      "GameBuddy and trained RL badge present without source picture overlap",
+      "Official event xFG remains 51.0 percent with late reveal",
+      "RL model-authored short narrative visibly burned and source IDs retained",
+      "Local real Chrome complete playback and RL/player-comparison drawer passed"
+    ],
+    "scope": "One registered Flagg training sample; not arbitrary-video or official score certification"
+  },
+  "browserPlaybackScope": {
+    "url": "http://127.0.0.1:4173/product/watch/index.html?story=flagg&version=enhanced",
+    "engine": "Chrome/154.0.8037.98",
+    "environment": "local playback of independently downloaded actual formal-account output",
+    "naturalEnd": true,
+    "audioDecoded": true,
+    "evidence": "product/evidence/rl-local-browser-20261010.json"
+  }
+}

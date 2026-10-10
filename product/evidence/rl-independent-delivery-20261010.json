@@ -1,0 +1,48 @@
+{
+  "jobId": "06ddc49b5a1840dba23e3165bdab550a",
+  "status": "completed",
+  "stage": "completed",
+  "deliveryEvent": {
+    "attemptedAt": 1791625981.0,
+    "status": "published",
+    "eventId": "3eacb9c9-3a2f-b9d7-7bd4-1cb848aaf2a1"
+  },
+  "deliveryVerification": {
+    "version": "delivery-verification-v1",
+    "verifiedAt": 1791625991.0,
+    "analysisSha256": "6d020b6332e32cbf46acb0ae51da737d0f14fe3a941dc4d8ddfc5801ccab98da",
+    "scope": "Media and source provenance checks; not human content or organizer scoring certification",
+    "idempotent": false,
+    "elapsedSeconds": 7.303,
+    "verified": true,
+    "media": {
+      "audioCodec": "aac",
+      "width": 1280.0,
+      "height": 900.0,
+      "fullDecodeVerified": true,
+      "videoCodec": "h264",
+      "durationMs": 21572.0,
+      "audioStreams": 1.0
+    },
+    "videoObject": {
+      "bytes": 9992636.0,
+      "etag": "\"78d48662f1684a8f6fd510d317418687-2\"",
+      "lastModified": "2026-10-10 09:53:01+00:00",
+      "versionId": ""
+    },
+    "status": "verified",
+    "analysisFingerprint": "adf1c9a5339727a5a69afe4f96c9c442046af2779167fc6e2d1ad7ebd0694091",
+    "outputSha256": "f5ec3584290128ba7458c291d1ba067905fa0aed2ea9d40b5d714888cfe0b653",
+    "sourceSha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+    "videoUrl": "https://deky02484tknr.cloudfront.net/product/outputs/06ddc49b5a1840dba23e3165bdab550a/enhanced.mp4",
+    "jobId": "06ddc49b5a1840dba23e3165bdab550a",
+    "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:555726205424:runtime/Team02Readiness20261006-1cAKhm9LrD",
+    "modelId": "global.anthropic.claude-sonnet-4-6",
+    "analysisObject": {
+      "etag": "\"6bed4386a22552e30e34abeb4c536b7d\"",
+      "versionId": "",
+      "lastModified": "2026-10-10 09:53:02+00:00",
+      "bytes": 88587.0
+    }
+  }
+}

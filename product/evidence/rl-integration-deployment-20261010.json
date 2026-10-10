@@ -1,0 +1,24 @@
+{
+  "recordedAt": "2026-10-10T09:51:56.033400+00:00",
+  "sourceCommit": "2c7ac0d",
+  "account": "555726205424",
+  "region": "us-east-1",
+  "deploymentCompleted": true,
+  "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:555726205424:runtime/Team02Readiness20261006-1cAKhm9LrD",
+  "worker": "BroadcastCodeTeam02Readiness2026100-Worker11F36D0F-pGhuqtEEcxBg",
+  "endpointConfig": "rl-scout-config-1010-144434",
+  "newTraining": false,
+  "newModelDeployment": false,
+  "permission": {
+    "action": "sagemaker:InvokeEndpoint",
+    "resource": "arn:aws:sagemaker:us-east-1:555726205424:endpoint/rl-scout"
+  },
+  "qualityGate": {
+    "passed": true,
+    "tests": 481,
+    "logSha256": "ee5f839548f7809ae51240ec75a40bcbd40ecfb262022746cc805134e443f31d"
+  },
+  "mediaAndProductLiveAcceptancePending": false,
+  "acceptedRun": "06ddc49b5a1840dba23e3165bdab550a",
+  "acceptanceScope": "Real formal-account model selection, Agent narrative, burned output, independent decode and local browser; formal CDN playback recorded separately"
+}
