@@ -40,6 +40,8 @@
 
 # GameBuddy · Team02：AI 接手说明
 
+**10月11日 · 论文风格整体架构图：** 按用户论文pipeline参考图，使用内置图像生成工具制作[五模块整体架构PNG](docs/ppt-materials/20261011/figures/06-gamebuddy-paper-pipeline-v3.png)，含数据、Agentic RL、多模态Agent、视频制作、交付与体验，以及AWS调度/验收/观测带；[提示词与修订](docs/ppt-materials/20261011/figures/06-gamebuddy-paper-pipeline-v3.prompt.md)已保存。球赛缩略画面为生成示意，无虚构指标或时钟；自动RL样片与编辑55秒作品分别标注，DynamoDB为状态旁路。此轮仅本地答辩资产与文档，不改业务链路或云端作品。
+
 **10月11日 · 技术答辩素材：** 已按用户五条主线整理 [技术概括与讲解素材](docs/ppt-materials/20261011/技术核心创新与答辩素材.md)，包括整体/详细架构、30轮真实RL曲线、Base/SFT/RL同题对比、13项AWS业务服务完整清单、数据融合及陪伴式体验。素材提供深色/白底PNG、SVG、DOT与CSV；生成时复核六份逐题文件的相同ID与成功计数。SFT/RL固定结果均为验证15/16、测试16/16，RL增量为0；6/6服务组合验收单独列示。SFT完整损失日志的赛后S3读取被权限边界拒绝，不补画缺失序列。此轮为本地答辩资料整理，不更新云端作品或重启训练。
 
 **10月10日 · README 55秒配图更新：** 用户确认视觉成片v2为确定版，README现使用其8幅真实解码截图，覆盖开场、持球防守、前场篮板、两种战术板、xFG、命中和片尾；正文时长及首次顺序播放的双时间轴例子同步更新。图片与源片哈希、帧号和成片时间保存于 [截帧清单](docs/assets/readme-55s/manifest.json)，可用 `python3 product/scripts/capture_readme_frames.py` 复现；后续公开发布只包含说明和图片，实际核验见下方发布证据。此轮截帧不改变成片或其他会话的配音/模型联调状态。

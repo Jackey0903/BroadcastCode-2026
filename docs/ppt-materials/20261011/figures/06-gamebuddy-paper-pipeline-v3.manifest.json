@@ -1,0 +1,35 @@
+{
+  "asset": "06-gamebuddy-paper-pipeline-v3.png",
+  "generated_on": "2026-10-11",
+  "mode": "built-in image generation",
+  "requested_model": "GPT image two",
+  "model_parameter_available": false,
+  "verified_model_id": null,
+  "size": [
+    1672,
+    941
+  ],
+  "bytes": 1977164,
+  "sha256": "e6f0192040bb72100183ad7cb38e4f1a40709b5ca89c9881448aeb04a134fc24",
+  "prompt_record": "06-gamebuddy-paper-pipeline-v3.prompt.md",
+  "reference_role": "academic pipeline style and composition only",
+  "factual_scope": "Capability architecture; automatic RL sample and editorial 55-second showcase are separately validated.",
+  "illustrative_thumbnails": true,
+  "visual_review": [
+    "five main modules",
+    "thirteen AWS business capabilities plus CDK/IAM support",
+    "video goes to visual Agent; typed data goes to data scout",
+    "DynamoDB is state persistence, not the verification trigger",
+    "no fabricated example xFG or game clocks",
+    "no automatic tracking claim"
+  ],
+  "offline_gate": {
+    "command": "python3 product/scripts/check.py --full",
+    "behavioral_checks": 514,
+    "python_files": 125,
+    "javascript_files": 53,
+    "elapsed_seconds": 17.88,
+    "passed": true,
+    "scope": "offline source and template checks only; includes concurrently developed working-tree files; no cloud deployment or media certification"
+  }
+}
