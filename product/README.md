@@ -2,6 +2,8 @@
 
 **10 月10日正式环境：** 新私有 [BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026) / main 已上传并在Team02 Portal锁定。正式账号为555726205424，活跃目标见[deployment.json](deployment.json)；旧练习CloudFront不作为当前可用入口。本次210项离线回归与新账号模板合成通过，正式产品仍待部署及端到端验收，见[正式重连](../docs/正式比赛重连与新仓库-20261010.md)。
 
+**比赛期间持续同步：** 已获用户授权，每个可验收增量整理并推送正式新 `origin/main`，同时本地存档，不逐次询问。评分与排期见[比赛冲刺](../docs/比赛冲刺与评分对齐-20261010.md)，门禁与发布修复见[工程质量](../docs/工程质量与快速迭代-20261010.md)。
+
 一个把“看见进球”推进到“看懂这次出手”的篮球视频产品。观众先看原片并选择关注点，再通过章节回放、官方出手数据和可点击证据发现关键细节。AgentCore 上的智能体按工具返回的证据组织故事，确定性渲染器输出带永久标注的完整 MP4。
 
 ## 产品主线与评分对应
@@ -68,6 +70,10 @@ python3 product/scripts/serve.py
 
 随后的桌面视觉版本共 111 项离线测试通过，含 10 项粒子与新增静态资产/MIME 回归；[视觉验收](evidence/visual-redesign-20261009.json)、[旧素材复用说明](../docs/前端视觉更新与旧素材复用-20261009.md)保存实际截图与功能核对范围。本轮以桌面评委展示为目标，未重新生成 MP4 或部署。
 
+## 快速质量检查
+
+首次安装 `npm ci --prefix product --ignore-scripts` 后，在根目录运行 `python3 product/scripts/check.py --full`。同一命令由 GitHub main／PR 自动执行，检查源码、语法、全部行为测试及正式账号 CDK 模板；快速反馈可用 `--quick`。无视频和云凭证的干净克隆也能运行。媒体层为明确合成占位，模板通过不代表真实 SDK／FFmpeg 部署包、推理或线上验收。详细范围见[工程质量与快速迭代](../docs/工程质量与快速迭代-20261010.md)。
+
 ## 服务恢复后的部署
 
 10 月 10 日正式 Portal 已重新分配账号 `555726205424`。活跃部署目标统一保存在 [deployment.json](deployment.json)，角色保持 `NBAHackathonParticipantRole`、资源区域固定 `us-east-1`，不执行 bootstrap。部署前须通过 `nba` 核对实际身份；下面是部署步骤，配置迁移与离线合成本身不代表已部署或服务可用。
@@ -85,7 +91,9 @@ readiness-lab/.venv/bin/python product/scripts/publish.py
 
 CDK 必须保留权限边界 `NBAHackathonParticipantBoundary`。Stack 名及资源 ID 保持原有产品定义，新账号部署会创建该账号的独立实例。发布、任务创建与验证脚本只接受当前 `product/outputs.json`，校验 Runtime ARN 的账号和区域，不再回退旧练习账号输出；任务地址取自新部署的 CloudFront 输出。源码在本机；云端仅是部署实例。构建产物和视频不提交 Git；依赖锁定文件、部署定义、来源证据与测试提交源码管理。
 
-`publish.py` 向当前受控桶发布页面、案例与用于模型观察的六个关键帧。它目前要求桶内原片与 `config/samples.json` 已登记；新正式账号没有旧账号的桶数据，需完成新的输入初始化，不能直接运行硬编码旧账号的 `readiness-lab/upload_inputs.py`。已验收历史案例中的增强视频 URL 仍是历史来源，正式上线须上传本地哈希校验后的媒体并生成对应新地址；俯视板的云端静态资产发布也需要纳入正式发布流程。不要无目的重新运行历史云验证或清理脚本。
+`publish.py` 默认可以初始化空桶：先在本地核验并冻结原片、每片六张有 SHA-256 来源记录的关键帧、两份已验收历史 MP4／analysis 及网页，再上传到当前输出指定的桶，同时写入 `config/samples.json` 与 `product/config/samples.json`。发布副本的原片／成片／证据帧 URL 使用当前 CloudFront，原始历史证据不改；网页明确标注历史增强成片，不伪造新账号运行，也不向任务表注入历史任务。`--web-only` 必须先确认所有当前媒体、配置和历史分析均完整且匹配，任一缺失就在写入前失败。`--dry-run` 只检查本地计划，不读取 AWS；它仍需要实际部署输出，不能用旧账号输出。
+
+本轮实际媒体离线计划核验为 33 个对象、约 200 MB，227 项全产品测试通过，见[质量与发布记录](evidence/quality-publication-20261010.json)。这不是已上传／上线验收。两个登记练习案例不能替代正式新输入；不要运行硬编码旧账号的 `readiness-lab/upload_inputs.py`。俯视板继续作为本地研究示意，未纳入正式发布。
 
 ## 内部接口（非官方评测协议）
 

@@ -1,0 +1,36 @@
+name: Offline product quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# This job reads the private repository and uploads no artifacts.
+# No deploy token, AWS credentials, or write permissions are used.
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.22.0'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.14'
+      - name: Install locked CDK dependencies
+        run: npm ci --prefix product --ignore-scripts --no-audit --no-fund
+      - name: Run offline source, behavior and infrastructure checks
+        run: python product/scripts/check.py --full

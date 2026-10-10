@@ -1,0 +1,54 @@
+{
+  "inspectedAt": "2026-10-10T09:42:36+08:00",
+  "timezone": "Asia/Shanghai",
+  "scope": "Visual inspection of a user-provided onsite scoring-board photograph; no OCR result or hidden/obscured text was inferred.",
+  "source": {
+    "kind": "user-provided onsite photograph",
+    "fileName": "codex-clipboard-4dfdbcca-5a75-435b-93ec-60281f305eae.jpg",
+    "sha256": "705190838ce371b9b959bd3dc8ed57b0bf2a64db2ac7711667a61f47cff158b3",
+    "bytes": 200571,
+    "capturedAt": null,
+    "copiedIntoRepository": true,
+    "repositoryPath": "参考资料/现场决赛评分-20261010.jpg"
+  },
+  "visiblePhotoContent": {
+    "round": "决赛",
+    "format": "一轮路演",
+    "total": 100,
+    "criteria": [
+      {
+        "name": "技术方案与架构",
+        "visibleWeight": 18
+      },
+      {
+        "name": "实现深度与难度",
+        "visibleWeight": 18
+      },
+      {
+        "name": "数据运用准确性",
+        "visibleWeight": 15
+      },
+      {
+        "name": "讲解与答辩表现",
+        "visibleWeight": 9
+      },
+      {
+        "name": "视觉与作品效果",
+        "visibleWeight": null,
+        "weightVisibility": "obscured"
+      }
+    ],
+    "boardTimerText": "12:00:00"
+  },
+  "separateGuideEvidence": {
+    "path": "docs/2026-10-06-正式指南核准更新.md",
+    "visualCriterionWeight": 40,
+    "interpretation": "The value 40 comes from the previously read official guide, not from the obscured fifth weight in this photograph."
+  },
+  "limitations": [
+    "Small explanatory text and formula details were not transcribed where legibility was insufficient.",
+    "The scoring board describes finals, not the preliminary machine and human scoring split.",
+    "The board timer is not evidence of the current remaining contest time; the verified deadline remains 2026-10-10 20:00 Asia/Shanghai.",
+    "This file records source inspection, not a competition score or certification."
+  ]
+}

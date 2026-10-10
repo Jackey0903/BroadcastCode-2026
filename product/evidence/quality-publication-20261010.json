@@ -1,0 +1,255 @@
+{
+  "verifiedAt": "2026-10-10T10:08:59.693440+08:00",
+  "baseCommitBeforeChanges": "05de16853c4179321da3ee602e7a2f655a038cbf",
+  "repository": "https://github.com/Jackey0903/BroadcastCode-2026",
+  "authorization": "Competition-period increments may be organized, committed and pushed continuously to new origin/main, with local backups; no per-push reconfirmation.",
+  "qualityGate": {
+    "command": "python3 product/scripts/check.py --full",
+    "exitCode": 0,
+    "behavioralTestsPassed": 227,
+    "skippedTests": 0,
+    "stdout": "PASS source privacy (no credentials or account notices)\nPASS syntax: 28 Python, 12 JavaScript files\nPASS behavioral tests: 227, no skips, external network blocked\nPASS offline CDK: 23 resources, 2 bounded roles, formal account/assets; synthesis-only media fixture\nPASS full quality gate in 8.69s; no deployment/inference/media-package certification\n",
+    "elapsedSeconds": 8.965,
+    "cdkMediaFixture": "SYNTHESIS_ONLY; not deployable FFmpeg/SDK certification",
+    "externalNetworkBlockedDuringTests": true
+  },
+  "publicationPlan": {
+    "verifiedAgainstActualLocalPracticeMedia": true,
+    "targetIsOfflinePlaceholder": true,
+    "awsCallsMade": false,
+    "summary": {
+      "bucket": "formal-offline-plan-only",
+      "website": "https://formal-plan-only.cloudfront.net/product/",
+      "historicalRepublish": true,
+      "newInference": false,
+      "courtLabPublished": false,
+      "objects": [
+        {
+          "key": "samples/flagg.mp4",
+          "bytes": 83907519,
+          "sha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+          "prerequisite": true
+        },
+        {
+          "key": "frames/flagg-00.2s.jpg",
+          "bytes": 183572,
+          "sha256": "9549e289a2f6f2aa4c2f40aee696750ad4269619acac349eb17376f18b38de21",
+          "prerequisite": true
+        },
+        {
+          "key": "frames/flagg-09s.jpg",
+          "bytes": 205602,
+          "sha256": "8c6c47d0edf25d1d0a584fa1f05506d2e73d9cb0624689aa1066da93795389dd",
+          "prerequisite": true
+        },
+        {
+          "key": "frames/flagg-15.5s.jpg",
+          "bytes": 203239,
+          "sha256": "687495fbe7688aa3d9c26897ee8db55f155d3ae69aa5b5d9072742ba7936b3c3",
+          "prerequisite": true
+        },
+        {
+          "key": "frames/flagg-16.5s.jpg",
+          "bytes": 215650,
+          "sha256": "1c0acae0ef157566cdd73045fa13e0e943ae3f6cf66ed2eb56b6235f99c09c01",
+          "prerequisite": true
+        },
+        {
+          "key": "frames/flagg-17.0s.jpg",
+          "bytes": 200085,
+          "sha256": "b915b99b43c11215ab9dcda42ec89f28b6d875f37624f1eec159c5f854e7b8e6",
+          "prerequisite": true
+        },
+        {
+          "key": "frames/flagg-21s.jpg",
+          "bytes": 195091,
+          "sha256": "ef7dd61b8ef78f03244265ad9b4a7350c47ab414500e70ce0c86352e425158df",
+          "prerequisite": true
+        },
+        {
+          "key": "product/outputs/81a74837370e46a890cbacb2069074e6/enhanced.mp4",
+          "bytes": 9997821,
+          "sha256": "e1b390b689d43b48bdbfb6054111e34b1b785697f16b3b9e90f8aff6afbdf3d9",
+          "prerequisite": true
+        },
+        {
+          "key": "product/outputs/81a74837370e46a890cbacb2069074e6/analysis.json",
+          "bytes": 40873,
+          "sha256": "bd052cc788d744a16f3806c28e94dfa83529d68bcb348eac931d5903ebc621a3",
+          "prerequisite": true
+        },
+        {
+          "key": "samples/amen.mp4",
+          "bytes": 87308125,
+          "sha256": "7ec745f5f1e75b0c6d6dd27d409875f67c2ac3ab76c73f7123794c96be5aee22",
+          "prerequisite": true
+        },
+        {
+          "key": "frames/amen-00s.jpg",
+          "bytes": 216113,
+          "sha256": "d15cca0502396684dbe924c58bd3531c4015fa5e98723377db3ae7e04ea72f5c",
+          "prerequisite": true
+        },
+        {
+          "key": "frames/amen-15s.jpg",
+          "bytes": 247922,
+          "sha256": "5075aba9e9cf1566011d1aefb2cd79d823a777721c5b8821205427f7b4f506bb",
+          "prerequisite": true
+        },
+        {
+          "key": "frames/amen-16.0s.jpg",
+          "bytes": 236224,
+          "sha256": "ac04d79d2d1c04bab2f82ce4a0c672a3c6f06bfe9294bc9e839919eed70793d1",
+          "prerequisite": true
+        },
+        {
+          "key": "frames/amen-17.5s.jpg",
+          "bytes": 230053,
+          "sha256": "d514a20a52ba2ddfe9d9ba949d44fefa39e342b967deb77bbee3e949c669450e",
+          "prerequisite": true
+        },
+        {
+          "key": "frames/amen-18s.jpg",
+          "bytes": 231039,
+          "sha256": "cd662b57258d6b0d3435b9e413b9bafe73633749c785fdc898cbfab04c47b3ba",
+          "prerequisite": true
+        },
+        {
+          "key": "frames/amen-21s.jpg",
+          "bytes": 250866,
+          "sha256": "811439829c00323146e4480d4f5c763035859a6fde9e7c758c05a175387a31af",
+          "prerequisite": true
+        },
+        {
+          "key": "product/outputs/ce008e75d25d4e2e8e88b57412f6c762/enhanced.mp4",
+          "bytes": 14989055,
+          "sha256": "8b0a20d36e5f63898e3c36676f3d491164ae77fe3aafc292b15fb6f7d178033f",
+          "prerequisite": true
+        },
+        {
+          "key": "product/outputs/ce008e75d25d4e2e8e88b57412f6c762/analysis.json",
+          "bytes": 37292,
+          "sha256": "2ccb6fbf748a61e0cb84aaa0a92015b7cbcf18db0543243a88ddcaf7ecd06c8a",
+          "prerequisite": true
+        },
+        {
+          "key": "config/samples.json",
+          "bytes": 2443,
+          "sha256": "6d3527f76bdd6190d9dbbf0b333186df3b3044a253b338235330c89d84171331",
+          "prerequisite": true
+        },
+        {
+          "key": "product/config/samples.json",
+          "bytes": 2443,
+          "sha256": "6d3527f76bdd6190d9dbbf0b333186df3b3044a253b338235330c89d84171331",
+          "prerequisite": true
+        },
+        {
+          "key": "product/index.html",
+          "bytes": 14584,
+          "sha256": "8cf3a00c34c793c375dbacf2644611c6314296897d472f1821851f32d2ed669d",
+          "prerequisite": false
+        },
+        {
+          "key": "product/app.js",
+          "bytes": 46071,
+          "sha256": "8396408caa281e6870c56d515ef8b1e5343a8fa8cf33a3d27522f76dafb461fa",
+          "prerequisite": false
+        },
+        {
+          "key": "product/styles.css",
+          "bytes": 32901,
+          "sha256": "74eab49ac94373b78c189dfa09ff5bc9efcadd57b927cbe58da8a8eca621e841",
+          "prerequisite": false
+        },
+        {
+          "key": "product/broadcast.css",
+          "bytes": 23635,
+          "sha256": "0422cca3e8f6092c4ef561b9c13ac41841bf805f6b8308f92cb515dc594e0cc6",
+          "prerequisite": false
+        },
+        {
+          "key": "product/atmosphere.js",
+          "bytes": 11344,
+          "sha256": "c61b44117c53173897a493be58e61f7a8abf4348a5e8c67d84132bb7e4aae912",
+          "prerequisite": false
+        },
+        {
+          "key": "product/arcade.css",
+          "bytes": 46763,
+          "sha256": "92804a132e4454d216484717c4e745b1135fdc23739249a88f4d578c0d8c2d9f",
+          "prerequisite": false
+        },
+        {
+          "key": "product/arcade.js",
+          "bytes": 17268,
+          "sha256": "55204339c959a34b0ea5b6476ea41088225653b1c68138bc469a90635d8a0388",
+          "prerequisite": false
+        },
+        {
+          "key": "product/assets/grain.svg",
+          "bytes": 396,
+          "sha256": "bd396a4cfddf2ec4607ddbc0c06cd5bcf6db7f8ed3b3283935b66a4a26c3e525",
+          "prerequisite": false
+        },
+        {
+          "key": "product/assets/fonts/OFL.txt",
+          "bytes": 4447,
+          "sha256": "6f4007802d1f082674726446865a0a37b8fb38673dd347a77ca0b1b72d86aaf8",
+          "prerequisite": false
+        },
+        {
+          "key": "product/assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2",
+          "bytes": 731360,
+          "sha256": "e902e82f30d93f2f4a29a21f7b8c5d6565be0377663ceecda093b968d8ade4a5",
+          "prerequisite": false
+        },
+        {
+          "key": "product/data/event-bindings.json",
+          "bytes": 8839,
+          "sha256": "2f3133b7aa45f989a0faf99ff5ce8b47cb894a0c8304b8c342f4aab5ae8b13b3",
+          "prerequisite": false
+        },
+        {
+          "key": "product/data/video-anchors.json",
+          "bytes": 4537,
+          "sha256": "e6b9d1a34a24edc4ec04aa5a09f57f976cb984020392947cf875884126e31fa1",
+          "prerequisite": false
+        },
+        {
+          "key": "product/data/stories.json",
+          "bytes": 35587,
+          "sha256": "d2327b27fa8698dd71d30d5c484cdbbb6ae042e027562cbcce308bdf1d68a277",
+          "prerequisite": false
+        }
+      ]
+    },
+    "totalBytes": 199878759,
+    "supportsEmptyBucketInitialization": true,
+    "webOnlyRequiresExistingVerifiedPrerequisites": true,
+    "historicalEvidenceUnmodified": true,
+    "historyIsNotSeededIntoJobTable": true
+  },
+  "sourceSha256": {
+    "product/scripts/check.py": "63950592426e12cdff5b851fe7148e3c74bef43fb59fc40f015f1c84b57998fb",
+    "product/scripts/publication.py": "fa3d4b2beaa79dc63e989de72ad492f7cce174fbb6c2b245334e81e6cfcc7b01",
+    "product/scripts/test_publication.py": "79d3d6a3dca1fdfdc8c4d7f65accd2f1bf23b42f386180a7bdb8c0e0bea6cb6c",
+    "product/scripts/publish.py": "6e1d4f3d655f4a73a47ceff65716f1586952de5e7459ee40d88a3e0a1209e617",
+    "product/web/app.js": "8396408caa281e6870c56d515ef8b1e5343a8fa8cf33a3d27522f76dafb461fa",
+    "product/web/test-app.cjs": "5699762cf3a6d7b3a7f79270e66b2519839a029affbba85cd76d280f923a9c14",
+    ".github/workflows/quality.yml": "e2cb5d31579f80492c520883a6d5f0a85ec6eb71288ddf41da97badbe79cd5ed",
+    "product/app.js": "56dbe9c361a21d25f472d747ae99b2743fe9beb06fb9618a37a7991bd2088dd8",
+    "product/deployment.json": "3ac67734b95d7afbb24248aa20f0daa7b26f121591e5adada22cdf257a23b0e9",
+    "product/cdk.json": "325fd7c1edfd412b261e53458a8c97c9be6d2932b1edc558de1dd624ed056515"
+  },
+  "limits": {
+    "cloudDeploymentPerformed": false,
+    "officialModelInferencePerformed": false,
+    "gpuValidatedInFormalAccount": false,
+    "officialEvaluationContractAdapted": false,
+    "browserPlaybackOnFormalCloudFrontValidated": false,
+    "competitionScoreCertified": false
+  },
+  "scoringEvidence": "scoring-photo-audit-20261010.json",
+  "scope": "Offline quality and verified practice-media publication preparation. Does not certify formal cloud operation, new input accuracy, official scoring or an arbitrary input adapter."
+}

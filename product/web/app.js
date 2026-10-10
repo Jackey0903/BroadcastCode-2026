@@ -70,7 +70,16 @@
     state.version = enhanced ? "enhanced" : "source"; video.dataset.version = state.version;
     $("source-mode").classList.toggle("active", !enhanced); $("source-mode").setAttribute("aria-pressed", String(!enhanced));
     $("enhanced-mode").classList.toggle("active", enhanced); $("enhanced-mode").setAttribute("aria-pressed", String(enhanced)); $("enhanced-mode").disabled = !url(state.story.enhancedVideo);
-    $("version-note").textContent = url(state.story.enhancedVideo) ? enhanced ? "成片由 Agent 生成，标注已烧录；侧栏为编辑观看指引。切换版本保留时点。" : "正在播放原始比赛画面。完整增强成片可切换观看。" : "正在播放原始画面；这个案例的完整增强成片尚未提供。";
+    const historical = state.story.publication?.historical === true;
+    $("version-note").textContent = url(state.story.enhancedVideo)
+      ? enhanced
+        ? historical
+          ? "历史增强成片 · 已验证的 Agent 生成结果，重新发布没有发起新推理；侧栏为编辑观看指引。"
+          : "成片由 Agent 生成，标注已烧录；侧栏为编辑观看指引。切换版本保留时点。"
+        : historical
+          ? "正在播放练习原片；可切换查看历史增强成片。"
+          : "正在播放原始比赛画面。完整增强成片可切换观看。"
+      : "正在播放原始画面；这个案例的完整增强成片尚未提供。";
     $("source-download").href = source; $("source-download").hidden = false; $("source-download").textContent = enhanced ? "打开完整成片 ↗" : "打开原片 ↗";
     $("video-alert").hidden = true; $("video-empty").hidden = false; $("chapter-caption").hidden = true;
     const rate = video.playbackRate || 1; const token = ++state.mediaToken; video.pause();

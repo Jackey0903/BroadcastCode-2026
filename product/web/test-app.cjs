@@ -130,6 +130,17 @@ test("missing enhanced asset cannot masquerade as a produced film", () => {
   const run = fixture(); run.state.story = story({ enhancedVideo: undefined }); run.setMedia("enhanced");
   assert.equal(run.state.version, "source"); assert.equal(run.get("story-video").src, undefined);
 });
+test("republished historical film stays labeled without disabling the live creation service", () => {
+  const run = fixture(); run.state.story = story({ publication: { historical: true } }); run.state.serviceReady = true;
+  run.setMedia("enhanced");
+  assert.match(run.get("version-note").textContent, /历史增强成片/);
+  assert.match(run.get("version-note").textContent, /没有发起新推理/);
+  run.setMedia("source");
+  assert.match(run.get("version-note").textContent, /练习原片/);
+  assert.equal(run.state.offline, false); assert.equal(run.state.serviceReady, true);
+  run.state.story = story(); run.setMedia("enhanced");
+  assert.doesNotMatch(run.get("version-note").textContent, /历史/);
+});
 test("each perspective reveals its own copy, seek point, and cited evidence", () => {
   const run = fixture(); run.state.story = story({ hook: { choices: [{ id: "player", label: "持球人", revealTitle: "看推进", revealBody: "实际观察一", focusTime: 15.5, evidenceIds: ["frame-a"] }, { id: "defender", label: "防守人", revealTitle: "看干扰", revealBody: "实际观察二", focusTime: 16.5, evidenceIds: ["frame-b"] }] }, evidence: [{ id: "frame-a", kind: "observation", title: "A", body: "画面 A" }, { id: "frame-b", kind: "observation", title: "B", body: "画面 B" }] });
   run.state.choice = "player"; run.reveal(); assert.equal(run.get("reveal-title").textContent, "看推进"); assert.equal(run.keyTime(), 15.5); assert.match(run.get("detail-evidence").children[0].className, /perspective-evidence/);
