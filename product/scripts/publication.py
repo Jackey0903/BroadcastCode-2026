@@ -6,6 +6,7 @@ model, job table or arbitrary-input adapter is invoked by this module.
 """
 import base64
 import copy
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 import hashlib
 import json
@@ -30,6 +31,8 @@ SECRET_PATTERNS = (
     re.compile(rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----'),
     re.compile(rb'\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{50,})\b'),
     re.compile(rb'(?im)^\s*(?:export\s+)?(?:AWS_SECRET_ACCESS_KEY|AWS_SESSION_TOKEN|aws_secret_access_key|aws_session_token)\s*=\s*["\x27]?[A-Za-z0-9+/]{20,}'))
+JOB_OUTPUT_KEY = re.compile(r'product/outputs/[a-f0-9]{32}/(?:enhanced\.mp4|analysis\.json)')
+VERIFIED_SOURCE_KEY = re.compile(r'(?:samples/[^/]+\.mp4|frames/[^/]+\.jpg)')
 
 
 class PublicationError(ValueError):
@@ -47,6 +50,22 @@ class Asset:
     def sha256(self):
         return hashlib.sha256(self.body).hexdigest()
 
+    @property
+    def cache_control(self):
+        """Cache frozen job results while keeping mutable manifests fresh.
+
+        A job ID addresses an accepted render snapshot. Fixed source/frame
+        names are verified before upload, but may change in a later release,
+        so their bounded cache lifetime must not claim permanent immutability.
+        """
+        if JOB_OUTPUT_KEY.fullmatch(self.key):
+            return 'public, max-age=31536000, immutable'
+        if VERIFIED_SOURCE_KEY.fullmatch(self.key):
+            return 'public, max-age=86400'
+        if self.content_type == 'application/json':
+            return 'no-store'
+        return 'public, max-age=0, must-revalidate'
+
 
 @dataclass(frozen=True)
 class PublicationPlan:
@@ -63,6 +82,7 @@ class PublicationPlan:
                                  'dataValidation': 'structure-only' if self.camp_published else 'unavailable',
                                  'mainPipelineIntegration': False},
                 'objects': [{'key': a.key, 'bytes': len(a.body), 'sha256': a.sha256,
+                             'cacheControl': a.cache_control,
                              'prerequisite': a.prerequisite} for a in self.assets]}
 
 
@@ -334,25 +354,41 @@ def build_plan(root, bucket, website, current_runtime_arn=None):
     return PublicationPlan(bucket, website, tuple(assets), has_historical_source, bool(camp_assets))
 
 
-def _remote_matches(asset, plan, s3, expected_owner, allow_missing=False):
+def _remote_matches(asset, plan, s3, expected_owner, allow_missing=False, metadata_copies=None):
     """Verify controlled existing content; transport/access failures never mean missing.
 
-    Media may be reused only by matching length and the stored SHA-256 metadata.
+    Media may be reused only by matching length, SHA-256 metadata and cache
+    policy. A matching body with an old cache policy still needs publication.
     JSON must also match every byte, because manifests control source identities
     and links. Reads are bounded by the already frozen local asset body.
     """
     try:
-        head = s3.head_object(Bucket=plan.bucket, Key=asset.key, ExpectedBucketOwner=expected_owner)
-        if head.get('ContentLength') != len(asset.body) or head.get('Metadata', {}).get('sha256') != asset.sha256:
+        head = s3.head_object(Bucket=plan.bucket, Key=asset.key, ExpectedBucketOwner=expected_owner,
+                             **({'ChecksumMode': 'ENABLED'} if metadata_copies is not None else {}))
+        if (head.get('ContentLength') != len(asset.body)
+                or head.get('Metadata', {}).get('sha256') != asset.sha256):
             return False
         if asset.content_type == 'application/json':
             response = s3.get_object(Bucket=plan.bucket, Key=asset.key, ExpectedBucketOwner=expected_owner)
             body = response['Body']
             try:
-                return body.read(len(asset.body) + 1) == asset.body
+                if body.read(len(asset.body) + 1) != asset.body:
+                    return False
             finally:
                 body.close()
-        return True
+        checksum = base64.b64encode(bytes.fromhex(asset.sha256)).decode('ascii')
+        if (metadata_copies is not None and head.get('ChecksumSHA256') is not None
+                and head['ChecksumSHA256'] != checksum):
+            return False
+        if head.get('CacheControl') == asset.cache_control:
+            return True
+        # Never optimize by trusting claimed user metadata alone. S3's actual
+        # checksum must equal the frozen local bytes, and copying is conditional
+        # on the source ETag remaining unchanged throughout this publication.
+        if (metadata_copies is not None and head.get('ChecksumSHA256') == checksum
+                and head.get('ETag') and head.get('ContentType') == asset.content_type):
+            metadata_copies[asset.key] = head
+        return False
     except Exception as error:
         code = getattr(error, 'response', {}).get('Error', {}).get('Code')
         if allow_missing and code in ('404', 'NoSuchKey'):
@@ -381,21 +417,43 @@ def publish_plan(plan, s3, expected_owner, web_only=False, progress=None, reuse_
             except Exception as error:
                 raise PublicationError(f'Missing/unreadable publication prerequisite: {asset.key}; use full publication.') from error
     candidates = [asset for asset in plan.assets if not (web_only and asset.prerequisite)]
+    metadata_copies = {}
     if reuse_unchanged:
         # Finish every read first: a late access/transport error must not leave a
         # partially updated page or consume an expensive media retransmission.
-        candidates = [asset for asset in candidates
-                      if not _remote_matches(asset, plan, s3, expected_owner, allow_missing=True)]
+        def preflight(asset):
+            copies = {}
+            matched = _remote_matches(asset, plan, s3, expected_owner, allow_missing=True,
+                                      metadata_copies=copies)
+            return asset, matched, copies.get(asset.key)
+        with ThreadPoolExecutor(max_workers=6) as pool:
+            checked = list(pool.map(preflight, candidates))
+        candidates = [asset for asset, matched, _ in checked if not matched]
+        metadata_copies = {asset.key: previous for asset, _, previous in checked if previous is not None}
     uploaded = []
     for asset in candidates:
         # A precomputed checksum retains S3 integrity validation without an
         # SDK-generated streaming checksum trailer on large local uploads.
         checksum = base64.b64encode(bytes.fromhex(asset.sha256)).decode('ascii')
-        s3.put_object(Bucket=plan.bucket, Key=asset.key, Body=asset.body, ExpectedBucketOwner=expected_owner,
-                      ContentLength=len(asset.body), ContentType=asset.content_type,
-                      ChecksumSHA256=checksum,
-                      CacheControl='no-store' if asset.content_type == 'application/json' else 'no-cache',
-                      Metadata={'sha256': asset.sha256})
+        previous = metadata_copies.get(asset.key)
+        if previous is not None:
+            preserved = {name: previous[name] for name in ('ServerSideEncryption', 'SSEKMSKeyId',
+                'BucketKeyEnabled', 'ContentDisposition', 'ContentEncoding', 'ContentLanguage', 'Expires')
+                         if name in previous}
+            response = s3.copy_object(Bucket=plan.bucket, Key=asset.key,
+                CopySource={'Bucket': plan.bucket, 'Key': asset.key}, CopySourceIfMatch=previous['ETag'],
+                ExpectedBucketOwner=expected_owner, ExpectedSourceBucketOwner=expected_owner,
+                ChecksumAlgorithm='SHA256', MetadataDirective='REPLACE',
+                ContentType=previous['ContentType'], Metadata=dict(previous['Metadata']),
+                CacheControl=asset.cache_control, **preserved)
+            if response.get('CopyObjectResult', {}).get('ChecksumSHA256') != checksum:
+                raise PublicationError(f'Server-side cache migration checksum differs: {asset.key}')
+        else:
+            s3.put_object(Bucket=plan.bucket, Key=asset.key, Body=asset.body, ExpectedBucketOwner=expected_owner,
+                          ContentLength=len(asset.body), ContentType=asset.content_type,
+                          ChecksumSHA256=checksum,
+                          CacheControl=asset.cache_control,
+                          Metadata={'sha256': asset.sha256})
         uploaded.append(asset.key)
         if progress is not None:
             progress(asset.key, len(asset.body))

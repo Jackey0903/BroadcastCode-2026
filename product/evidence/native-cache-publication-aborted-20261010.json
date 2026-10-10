@@ -1,0 +1,11 @@
+{
+  "recordedAt": "2026-10-10T06:34:22.807006+00:00",
+  "status": "aborted",
+  "errorType": "KeyboardInterrupt",
+  "reason": "Metadata-only cache migration was uploading a large same-hash original from the local machine; parent authorized stopping and replacing with owner/ETag/service-checksum guarded S3 server-side copy.",
+  "publishedObjectsReported": [],
+  "log": "product/build/native-publication-attempt1-aborted-20261010.log",
+  "newInferenceOrTraining": false,
+  "replacementVerification": "native-cache-publication-20261010.json",
+  "attemptedAtApproximate": "2026-10-10T06:27:00Z"
+}

@@ -1,0 +1,502 @@
+{
+  "version": "native-observability-live-read-v1",
+  "checkedAt": "2026-10-10T06:45:01.081075+00:00",
+  "account": "555726205424",
+  "region": "us-east-1",
+  "profile": "nba",
+  "role": "NBAHackathonParticipantRole",
+  "stackName": "BroadcastCodeTeam02Readiness20261006",
+  "readOnly": true,
+  "artificialMetricsEmitted": false,
+  "newJobsCreated": false,
+  "alarms": {
+    "expectedCount": 6,
+    "actualCount": 6,
+    "resources": [
+      {
+        "logicalId": "DeliveryDeadLettersAlarm50D757CD",
+        "name": "BroadcastCodeTeam02Readiness20261006-DeliveryDeadLettersAlarm50D757CD-bdIywv1C9Kt3"
+      },
+      {
+        "logicalId": "DeliveryPublishFailuresAlarm6C3257F3",
+        "name": "BroadcastCodeTeam02Readiness20261006-DeliveryPublishFailuresAlarm6C3257F3-94G1jQxwSdTK"
+      },
+      {
+        "logicalId": "DeliveryVerificationFailuresAlarm4B409951",
+        "name": "BroadcastCodeTeam02Readiness20261006-DeliveryVerificationFailuresAlarm4B409951-o94BCsmDIkfo"
+      },
+      {
+        "logicalId": "RenderBacklogAlarmDB590F18",
+        "name": "BroadcastCodeTeam02Readiness20261006-RenderBacklogAlarmDB590F18-BbCvq8Dl03Q1"
+      },
+      {
+        "logicalId": "RenderDeadLettersAlarm72EA3254",
+        "name": "BroadcastCodeTeam02Readiness20261006-RenderDeadLettersAlarm72EA3254-2sNOw4DYn41E"
+      },
+      {
+        "logicalId": "RenderFailuresAlarm3B95220B",
+        "name": "BroadcastCodeTeam02Readiness20261006-RenderFailuresAlarm3B95220B-wKt0i0ywTaac"
+      }
+    ],
+    "actual": [
+      {
+        "AlarmName": "BroadcastCodeTeam02Readiness20261006-DeliveryDeadLettersAlarm50D757CD-bdIywv1C9Kt3",
+        "AlarmArn": "arn:aws:cloudwatch:us-east-1:555726205424:alarm:BroadcastCodeTeam02Readiness20261006-DeliveryDeadLettersAlarm50D757CD-bdIywv1C9Kt3",
+        "ActionsEnabled": true,
+        "AlarmActions": [],
+        "StateValue": "OK",
+        "StateReason": "Threshold Crossed: no datapoints were received for 1 period and 1 missing datapoint was treated as [NonBreaching].",
+        "StateUpdatedTimestamp": "2026-10-10T14:30:50.946000+08:00",
+        "MetricName": "ApproximateNumberOfMessagesVisible",
+        "Namespace": "AWS/SQS",
+        "Statistic": "Maximum",
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": "BroadcastCodeTeam02Readiness202610-DeliveryEventDeadLetters7AE62A49-VzhJf7Epr3h2"
+          }
+        ],
+        "Period": 60,
+        "EvaluationPeriods": 1,
+        "Threshold": 1.0,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching"
+      },
+      {
+        "AlarmName": "BroadcastCodeTeam02Readiness20261006-DeliveryPublishFailuresAlarm6C3257F3-94G1jQxwSdTK",
+        "AlarmArn": "arn:aws:cloudwatch:us-east-1:555726205424:alarm:BroadcastCodeTeam02Readiness20261006-DeliveryPublishFailuresAlarm6C3257F3-94G1jQxwSdTK",
+        "ActionsEnabled": true,
+        "AlarmActions": [],
+        "StateValue": "OK",
+        "StateReason": "Threshold Crossed: no datapoints were received for 1 period and 1 missing datapoint was treated as [NonBreaching].",
+        "StateUpdatedTimestamp": "2026-10-10T14:29:05.881000+08:00",
+        "MetricName": "DeliveryEventPublishFailed",
+        "Namespace": "BroadcastCode/Product",
+        "Statistic": "Sum",
+        "Dimensions": [
+          {
+            "Name": "Service",
+            "Value": "BroadcastCodeProduct"
+          }
+        ],
+        "Period": 60,
+        "EvaluationPeriods": 1,
+        "Threshold": 1.0,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching"
+      },
+      {
+        "AlarmName": "BroadcastCodeTeam02Readiness20261006-DeliveryVerificationFailuresAlarm4B409951-o94BCsmDIkfo",
+        "AlarmArn": "arn:aws:cloudwatch:us-east-1:555726205424:alarm:BroadcastCodeTeam02Readiness20261006-DeliveryVerificationFailuresAlarm4B409951-o94BCsmDIkfo",
+        "ActionsEnabled": true,
+        "AlarmActions": [],
+        "StateValue": "OK",
+        "StateReason": "Threshold Crossed: no datapoints were received for 1 period and 1 missing datapoint was treated as [NonBreaching].",
+        "StateUpdatedTimestamp": "2026-10-10T14:43:52.625000+08:00",
+        "MetricName": "ExecutionsFailed",
+        "Namespace": "AWS/States",
+        "Statistic": "Sum",
+        "Dimensions": [
+          {
+            "Name": "StateMachineArn",
+            "Value": "arn:aws:states:us-east-1:555726205424:stateMachine:Team02ProductDelivery20261010"
+          }
+        ],
+        "Period": 60,
+        "EvaluationPeriods": 1,
+        "Threshold": 1.0,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching"
+      },
+      {
+        "AlarmName": "BroadcastCodeTeam02Readiness20261006-RenderBacklogAlarmDB590F18-BbCvq8Dl03Q1",
+        "AlarmArn": "arn:aws:cloudwatch:us-east-1:555726205424:alarm:BroadcastCodeTeam02Readiness20261006-RenderBacklogAlarmDB590F18-BbCvq8Dl03Q1",
+        "ActionsEnabled": true,
+        "AlarmActions": [],
+        "StateValue": "OK",
+        "StateReason": "Threshold Crossed: 1 datapoint [0.0 (10/10/26 06:27:00)] was not greater than or equal to the threshold (5.0).",
+        "StateUpdatedTimestamp": "2026-10-10T14:29:51.487000+08:00",
+        "MetricName": "ApproximateNumberOfMessagesVisible",
+        "Namespace": "AWS/SQS",
+        "Statistic": "Maximum",
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": "BroadcastCodeTeam02Readiness20261006-RenderQueue86559A2E-Q3Wqkox8f6OS"
+          }
+        ],
+        "Period": 60,
+        "EvaluationPeriods": 1,
+        "Threshold": 5.0,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching"
+      },
+      {
+        "AlarmName": "BroadcastCodeTeam02Readiness20261006-RenderDeadLettersAlarm72EA3254-2sNOw4DYn41E",
+        "AlarmArn": "arn:aws:cloudwatch:us-east-1:555726205424:alarm:BroadcastCodeTeam02Readiness20261006-RenderDeadLettersAlarm72EA3254-2sNOw4DYn41E",
+        "ActionsEnabled": true,
+        "AlarmActions": [],
+        "StateValue": "OK",
+        "StateReason": "Threshold Crossed: 1 datapoint [0.0 (10/10/26 06:27:00)] was not greater than or equal to the threshold (1.0).",
+        "StateUpdatedTimestamp": "2026-10-10T14:29:36.886000+08:00",
+        "MetricName": "ApproximateNumberOfMessagesVisible",
+        "Namespace": "AWS/SQS",
+        "Statistic": "Maximum",
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": "BroadcastCodeTeam02Readiness20261006-RenderDeadLetters0CA8F7C2-rzGNYWl2KieG"
+          }
+        ],
+        "Period": 60,
+        "EvaluationPeriods": 1,
+        "Threshold": 1.0,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching"
+      },
+      {
+        "AlarmName": "BroadcastCodeTeam02Readiness20261006-RenderFailuresAlarm3B95220B-wKt0i0ywTaac",
+        "AlarmArn": "arn:aws:cloudwatch:us-east-1:555726205424:alarm:BroadcastCodeTeam02Readiness20261006-RenderFailuresAlarm3B95220B-wKt0i0ywTaac",
+        "ActionsEnabled": true,
+        "AlarmActions": [],
+        "StateValue": "OK",
+        "StateReason": "Threshold Crossed: no datapoints were received for 1 period and 1 missing datapoint was treated as [NonBreaching].",
+        "StateUpdatedTimestamp": "2026-10-10T14:31:25.106000+08:00",
+        "MetricName": "Errors",
+        "Namespace": "AWS/Lambda",
+        "Statistic": "Sum",
+        "Dimensions": [
+          {
+            "Name": "FunctionName",
+            "Value": "BroadcastCodeTeam02Readiness2026100-Worker11F36D0F-pGhuqtEEcxBg"
+          }
+        ],
+        "Period": 60,
+        "EvaluationPeriods": 1,
+        "Threshold": 1.0,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching"
+      }
+    ]
+  },
+  "dashboard": {
+    "exists": true,
+    "name": "Team02ProductDelivery20261010",
+    "arn": "arn:aws:cloudwatch::555726205424:dashboard/Team02ProductDelivery20261010",
+    "widgetCount": 4,
+    "widgets": [
+      {
+        "type": "text",
+        "width": 24,
+        "height": 2,
+        "x": 0,
+        "y": 0,
+        "properties": {
+          "markdown": "## Team02 · durable video delivery\nRendered video remains available if optional narration fails. Media verification is independent from basketball and organizer scoring."
+        }
+      },
+      {
+        "type": "metric",
+        "width": 12,
+        "height": 6,
+        "x": 0,
+        "y": 2,
+        "properties": {
+          "view": "timeSeries",
+          "title": "Durable render and event outcomes",
+          "region": "us-east-1",
+          "metrics": [
+            [
+              "BroadcastCode/Product",
+              "JobCompleted",
+              "Service",
+              "BroadcastCodeProduct",
+              {
+                "period": 60,
+                "stat": "Sum"
+              }
+            ],
+            [
+              "BroadcastCode/Product",
+              "JobFailed",
+              "Service",
+              "BroadcastCodeProduct",
+              {
+                "period": 60,
+                "stat": "Sum"
+              }
+            ],
+            [
+              "BroadcastCode/Product",
+              "DeliveryEventPublished",
+              "Service",
+              "BroadcastCodeProduct",
+              {
+                "period": 60,
+                "stat": "Sum"
+              }
+            ],
+            [
+              "BroadcastCode/Product",
+              "DeliveryEventPublishFailed",
+              "Service",
+              "BroadcastCodeProduct",
+              {
+                "period": 60,
+                "stat": "Sum"
+              }
+            ]
+          ],
+          "yAxis": {}
+        }
+      },
+      {
+        "type": "metric",
+        "width": 12,
+        "height": 6,
+        "x": 12,
+        "y": 2,
+        "properties": {
+          "view": "timeSeries",
+          "title": "Delivery executions",
+          "region": "us-east-1",
+          "metrics": [
+            [
+              "AWS/States",
+              "ExecutionsSucceeded",
+              "StateMachineArn",
+              "arn:aws:states:us-east-1:555726205424:stateMachine:Team02ProductDelivery20261010",
+              {
+                "stat": "Sum"
+              }
+            ],
+            [
+              "AWS/States",
+              "ExecutionsFailed",
+              "StateMachineArn",
+              "arn:aws:states:us-east-1:555726205424:stateMachine:Team02ProductDelivery20261010",
+              {
+                "stat": "Sum"
+              }
+            ]
+          ],
+          "yAxis": {}
+        }
+      },
+      {
+        "type": "alarm",
+        "width": 24,
+        "height": 3,
+        "x": 0,
+        "y": 8,
+        "properties": {
+          "title": "Render and delivery recovery",
+          "alarms": [
+            "arn:aws:cloudwatch:us-east-1:555726205424:alarm:BroadcastCodeTeam02Readiness20261006-RenderFailuresAlarm3B95220B-wKt0i0ywTaac",
+            "arn:aws:cloudwatch:us-east-1:555726205424:alarm:BroadcastCodeTeam02Readiness20261006-RenderDeadLettersAlarm72EA3254-2sNOw4DYn41E",
+            "arn:aws:cloudwatch:us-east-1:555726205424:alarm:BroadcastCodeTeam02Readiness20261006-DeliveryDeadLettersAlarm50D757CD-bdIywv1C9Kt3",
+            "arn:aws:cloudwatch:us-east-1:555726205424:alarm:BroadcastCodeTeam02Readiness20261006-DeliveryPublishFailuresAlarm6C3257F3-94G1jQxwSdTK",
+            "arn:aws:cloudwatch:us-east-1:555726205424:alarm:BroadcastCodeTeam02Readiness20261006-DeliveryVerificationFailuresAlarm4B409951-o94BCsmDIkfo",
+            "arn:aws:cloudwatch:us-east-1:555726205424:alarm:BroadcastCodeTeam02Readiness20261006-RenderBacklogAlarmDB590F18-BbCvq8Dl03Q1"
+          ]
+        }
+      }
+    ]
+  },
+  "executionFailures": {
+    "namespace": "AWS/States",
+    "metricName": "ExecutionsFailed",
+    "dimensions": {
+      "StateMachineArn": "arn:aws:states:us-east-1:555726205424:stateMachine:Team02ProductDelivery20261010"
+    },
+    "periodSeconds": 60,
+    "statistic": "Sum",
+    "startTime": "2026-10-10T05:45:01.081075+00:00",
+    "endTime": "2026-10-10T06:45:01.081075+00:00",
+    "response": {
+      "Label": "ExecutionsFailed",
+      "Datapoints": [
+        {
+          "Timestamp": "2026-10-10T14:36:00+08:00",
+          "Sum": 1.0,
+          "Unit": "Count"
+        }
+      ]
+    },
+    "controlledFailureEvidence": "native-delivery-verifier-20261010.json"
+  },
+  "deadLetterQueues": {
+    "render": {
+      "queueUrl": "https://sqs.us-east-1.amazonaws.com/555726205424/BroadcastCodeTeam02Readiness20261006-RenderDeadLetters0CA8F7C2-rzGNYWl2KieG",
+      "attributes": {
+        "ApproximateNumberOfMessages": "0",
+        "ApproximateNumberOfMessagesNotVisible": "0",
+        "ApproximateNumberOfMessagesDelayed": "0",
+        "QueueArn": "arn:aws:sqs:us-east-1:555726205424:BroadcastCodeTeam02Readiness20261006-RenderDeadLetters0CA8F7C2-rzGNYWl2KieG"
+      }
+    },
+    "delivery": {
+      "queueUrl": "https://sqs.us-east-1.amazonaws.com/555726205424/BroadcastCodeTeam02Readiness202610-DeliveryEventDeadLetters7AE62A49-VzhJf7Epr3h2",
+      "attributes": {
+        "ApproximateNumberOfMessages": "0",
+        "ApproximateNumberOfMessagesNotVisible": "0",
+        "ApproximateNumberOfMessagesDelayed": "0",
+        "QueueArn": "arn:aws:sqs:us-east-1:555726205424:BroadcastCodeTeam02Readiness202610-DeliveryEventDeadLetters7AE62A49-VzhJf7Epr3h2"
+      }
+    }
+  },
+  "worker": {
+    "functionName": "BroadcastCodeTeam02Readiness2026100-Worker11F36D0F-pGhuqtEEcxBg",
+    "state": "Active",
+    "lastUpdateStatus": "Successful",
+    "deliveryEventBus": "Team02ProductDelivery20261010",
+    "configuredBusMatches": true,
+    "role": "arn:aws:iam::555726205424:role/BroadcastCodeTeam02Readin-WorkerServiceRole8543584E-ljXgkVviyw0T"
+  },
+  "stackRoleBoundaries": [
+    {
+      "logicalId": "ApiServiceRole1BD550DA",
+      "name": "BroadcastCodeTeam02Readiness-ApiServiceRole1BD550DA-kcvAbCWkX8nE",
+      "arn": "arn:aws:iam::555726205424:role/BroadcastCodeTeam02Readiness-ApiServiceRole1BD550DA-kcvAbCWkX8nE",
+      "permissionsBoundary": {
+        "PermissionsBoundaryType": "Policy",
+        "PermissionsBoundaryArn": "arn:aws:iam::555726205424:policy/NBAHackathonParticipantBoundary"
+      },
+      "boundaryMatchesOrganizer": true,
+      "scope": "stack IAM role, including existing API/Worker and newly added delivery roles"
+    },
+    {
+      "logicalId": "DeliveryVerifierServiceRole0D92F59D",
+      "name": "BroadcastCodeTeam02Readin-DeliveryVerifierServiceRo-Rd5lVBmvI0gS",
+      "arn": "arn:aws:iam::555726205424:role/BroadcastCodeTeam02Readin-DeliveryVerifierServiceRo-Rd5lVBmvI0gS",
+      "permissionsBoundary": {
+        "PermissionsBoundaryType": "Policy",
+        "PermissionsBoundaryArn": "arn:aws:iam::555726205424:policy/NBAHackathonParticipantBoundary"
+      },
+      "boundaryMatchesOrganizer": true,
+      "scope": "stack IAM role, including existing API/Worker and newly added delivery roles"
+    },
+    {
+      "logicalId": "DeliveryWorkflowEventsRole6B04F96F",
+      "name": "BroadcastCodeTeam02Readin-DeliveryWorkflowEventsRol-sPZGq3H1TpZX",
+      "arn": "arn:aws:iam::555726205424:role/BroadcastCodeTeam02Readin-DeliveryWorkflowEventsRol-sPZGq3H1TpZX",
+      "permissionsBoundary": {
+        "PermissionsBoundaryType": "Policy",
+        "PermissionsBoundaryArn": "arn:aws:iam::555726205424:policy/NBAHackathonParticipantBoundary"
+      },
+      "boundaryMatchesOrganizer": true,
+      "scope": "stack IAM role, including existing API/Worker and newly added delivery roles"
+    },
+    {
+      "logicalId": "DeliveryWorkflowRoleBE0F4E7D",
+      "name": "BroadcastCodeTeam02Readin-DeliveryWorkflowRoleBE0F4-tcqr3DqKtNQC",
+      "arn": "arn:aws:iam::555726205424:role/BroadcastCodeTeam02Readin-DeliveryWorkflowRoleBE0F4-tcqr3DqKtNQC",
+      "permissionsBoundary": {
+        "PermissionsBoundaryType": "Policy",
+        "PermissionsBoundaryArn": "arn:aws:iam::555726205424:policy/NBAHackathonParticipantBoundary"
+      },
+      "boundaryMatchesOrganizer": true,
+      "scope": "stack IAM role, including existing API/Worker and newly added delivery roles"
+    },
+    {
+      "logicalId": "NativeNarratorServiceRoleD459308A",
+      "name": "BroadcastCodeTeam02Readin-NativeNarratorServiceRole-NGCizRvD8g8J",
+      "arn": "arn:aws:iam::555726205424:role/BroadcastCodeTeam02Readin-NativeNarratorServiceRole-NGCizRvD8g8J",
+      "permissionsBoundary": {
+        "PermissionsBoundaryType": "Policy",
+        "PermissionsBoundaryArn": "arn:aws:iam::555726205424:policy/NBAHackathonParticipantBoundary"
+      },
+      "boundaryMatchesOrganizer": true,
+      "scope": "stack IAM role, including existing API/Worker and newly added delivery roles"
+    },
+    {
+      "logicalId": "WorkerServiceRole8543584E",
+      "name": "BroadcastCodeTeam02Readin-WorkerServiceRole8543584E-ljXgkVviyw0T",
+      "arn": "arn:aws:iam::555726205424:role/BroadcastCodeTeam02Readin-WorkerServiceRole8543584E-ljXgkVviyw0T",
+      "permissionsBoundary": {
+        "PermissionsBoundaryType": "Policy",
+        "PermissionsBoundaryArn": "arn:aws:iam::555726205424:policy/NBAHackathonParticipantBoundary"
+      },
+      "boundaryMatchesOrganizer": true,
+      "scope": "stack IAM role, including existing API/Worker and newly added delivery roles"
+    }
+  ],
+  "businessEmfMetrics": [
+    {
+      "name": "JobCompleted",
+      "namespace": "BroadcastCode/Product",
+      "dimensions": {
+        "Service": "BroadcastCodeProduct"
+      },
+      "periodSeconds": 60,
+      "statistic": "Sum",
+      "statusCode": "Complete",
+      "timestamps": [],
+      "values": [],
+      "sampleAvailable": false,
+      "scope": "awaiting a new real completed/failed story job"
+    },
+    {
+      "name": "JobFailed",
+      "namespace": "BroadcastCode/Product",
+      "dimensions": {
+        "Service": "BroadcastCodeProduct"
+      },
+      "periodSeconds": 60,
+      "statistic": "Sum",
+      "statusCode": "Complete",
+      "timestamps": [],
+      "values": [],
+      "sampleAvailable": false,
+      "scope": "awaiting a new real completed/failed story job"
+    },
+    {
+      "name": "DeliveryEventPublished",
+      "namespace": "BroadcastCode/Product",
+      "dimensions": {
+        "Service": "BroadcastCodeProduct"
+      },
+      "periodSeconds": 60,
+      "statistic": "Sum",
+      "statusCode": "Complete",
+      "timestamps": [],
+      "values": [],
+      "sampleAvailable": false,
+      "scope": "awaiting a new real completed/failed story job"
+    },
+    {
+      "name": "DeliveryEventPublishFailed",
+      "namespace": "BroadcastCode/Product",
+      "dimensions": {
+        "Service": "BroadcastCodeProduct"
+      },
+      "periodSeconds": 60,
+      "statistic": "Sum",
+      "statusCode": "Complete",
+      "timestamps": [],
+      "values": [],
+      "sampleAvailable": false,
+      "scope": "awaiting a new real completed/failed story job"
+    },
+    {
+      "name": "DeliveryEventRecordFailed",
+      "namespace": "BroadcastCode/Product",
+      "dimensions": {
+        "Service": "BroadcastCodeProduct"
+      },
+      "periodSeconds": 60,
+      "statistic": "Sum",
+      "statusCode": "Complete",
+      "timestamps": [],
+      "values": [],
+      "sampleAvailable": false,
+      "scope": "awaiting a new real completed/failed story job"
+    }
+  ],
+  "readErrors": {},
+  "limitations": [
+    "Alarm definitions and dashboard were read, not all business failure modes were induced.",
+    "Empty EMF series are awaiting a real new story job; absence is not evidence of successful business alarm triggering.",
+    "SQS queue depth attributes are approximate counts at read time; no fault was injected into dead-letter recovery."
+  ]
+}

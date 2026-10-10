@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-10T07:49:37.600440+00:00",
+  "command": "python3 product/scripts/check.py --full",
+  "passed": true,
+  "behavioralTests": 386,
+  "noSkips": true,
+  "externalNetworkBlocked": true,
+  "seconds": 21.83,
+  "pythonFiles": 75,
+  "javascriptFiles": 13,
+  "cdkResources": 50,
+  "boundedRoles": 6,
+  "scope": "Current local backend before merging frontend; not browser performance or cloud certification",
+  "logSha256": "a28ae53e43abeaec98208d1a2368b1562304d3a94d67745ec34cdac8a53fc11d"
+}

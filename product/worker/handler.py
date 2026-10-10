@@ -11,6 +11,7 @@ import time
 import uuid
 
 import readiness_worker as legacy
+from delivery_events import emit_metrics, emit_terminal_metric, error_code, publish_video_rendered
 
 try:
     from story_contract import (STORIES_KEY, STORY_PROTOCOL, StoryValidationError, evidence_catalog,
@@ -170,7 +171,20 @@ def render_story(source, output, result, context=None):
         raise legacy.JobError("FFmpeg could not render the complete story")
 
 
-def run_story_job(message, s3, table, agentcore, config, context=None, renderer=render_story, inspector=inspect_media):
+def record_render_delivery(job_id, table, events_client, bus_name):
+    """Notify the independent verifier without invalidating a completed render."""
+    receipt = publish_video_rendered(job_id, events_client, bus_name)
+    if receipt["status"] != "disabled":
+        try:
+            legacy.update_job(table, job_id, deliveryEvent=receipt)
+        except Exception as error:
+            emit_metrics("delivery_event_receipt_not_persisted", {"DeliveryEventRecordFailed": 1}, job_id,
+                         errorType=type(error).__name__, awsErrorCode=error_code(error))
+    return receipt
+
+
+def run_story_job(message, s3, table, agentcore, config, context=None, renderer=render_story,
+                  inspector=inspect_media, events_client=None):
     job_id, sample = legacy.validate_message(message)
     bucket, runtime = config["bucket"], config["runtime"]
     host = config["host"].removeprefix("https://").rstrip("/")
@@ -261,12 +275,17 @@ def run_story_job(message, s3, table, agentcore, config, context=None, renderer=
                               videoUrl=video_url, videoPath=prefix + "/enhanced.mp4", analysisUrl=analysis_url,
                               outputSha256=output_sha, outputDurationMs=media["durationMs"],
                               preservesSourceTimeline=True, elapsedSeconds=analysis["elapsedSeconds"])
+            emit_terminal_metric(job_id, "completed", elapsedSeconds=analysis["elapsedSeconds"])
+            # Publishing happens after both objects and the completed job are durable.
+            # This is a notification receipt, not a claim of independent verification.
+            record_render_delivery(job_id, table, events_client, config.get("deliveryEventBus"))
             return {"jobId": job_id, "status": "completed", "videoUrl": video_url, "analysisUrl": analysis_url}
     except Exception as error:
         print(json.dumps({"event": "story_job_failed", "jobId": job_id, "type": type(error).__name__,
                           "awsErrorCode": getattr(error, "response", {}).get("Error", {}).get("Code")}), flush=True)
         message = str(error) if isinstance(error, (legacy.JobError, StoryValidationError)) else "故事生成失败，请查看运行记录后重试。"
         legacy.update_job(table, job_id, status="failed", stage="failed", error=message, errorType=type(error).__name__)
+        emit_terminal_metric(job_id, "failed", errorType=type(error).__name__)
         return {"jobId": job_id, "status": "failed", "error": message}
     finally:
         if session_id:
@@ -281,14 +300,19 @@ def run_job(message, s3, table, agentcore, config, context=None, **kwargs):
         raise legacy.JobError("mode must be readiness or story")
     if message.get("mode") == "story":
         return run_story_job(message, s3, table, agentcore, config, context, **kwargs)
+    kwargs.pop("events_client", None)
     return legacy.run_job(message, s3, table, agentcore, config, context, **kwargs)
 
 
-def process_records(event, context, s3, table, agentcore, config):
+def process_records(event, context, s3, table, agentcore, config, events_client=None):
     failures = []
     for record in event.get("Records", []):
         try:
-            result = run_job(json.loads(record["body"]), s3, table, agentcore, config, context)
+            message = json.loads(record["body"])
+            kwargs = {"events_client": events_client} if isinstance(message, dict) and message.get("mode") == "story" and events_client is not None else {}
+            result = run_job(message, s3, table, agentcore, config, context, **kwargs)
+            if isinstance(message, dict) and message.get("mode", "readiness") == "readiness" and not result.get("idempotent"):
+                emit_terminal_metric(result.get("jobId"), result.get("status"))
             print(json.dumps({"event": "product_job_finished", **result}, ensure_ascii=False), flush=True)
         except Exception as error:
             print(json.dumps({"event": "invalid_product_job", "type": type(error).__name__}), flush=True)
@@ -298,6 +322,7 @@ def process_records(event, context, s3, table, agentcore, config):
                 continue
             try:
                 legacy.update_job(table, job_id, status="failed", stage="failed", error="任务参数或记录更新失败。", errorType=type(error).__name__)
+                emit_terminal_metric(job_id, "failed", errorType=type(error).__name__)
             except Exception as persistence_error:
                 print(json.dumps({"event": "product_terminal_status_not_persisted", "jobId": job_id,
                                   "type": type(persistence_error).__name__}), flush=True)
@@ -312,9 +337,12 @@ def handler(event, context):
     import boto3
     from botocore.config import Config
 
-    config = {"bucket": os.environ["BUCKET"], "runtime": os.environ["RUNTIME_ARN"], "host": os.environ["CLOUDFRONT_HOST"]}
+    config = {"bucket": os.environ["BUCKET"], "runtime": os.environ["RUNTIME_ARN"], "host": os.environ["CLOUDFRONT_HOST"],
+              "deliveryEventBus": os.environ.get("DELIVERY_EVENT_BUS")}
     s3 = boto3.client("s3", region_name="us-east-1")
     table = boto3.resource("dynamodb", region_name="us-east-1").Table(os.environ.get("JOBS_TABLE") or os.environ["TABLE"])
     agentcore = boto3.client("bedrock-agentcore", region_name="us-east-1",
                              config=Config(connect_timeout=8, read_timeout=220, retries={"total_max_attempts": 1}))
-    return process_records(event, context, s3, table, agentcore, config)
+    events_client = boto3.client("events", region_name="us-east-1",
+        config=Config(connect_timeout=2, read_timeout=3, retries={"total_max_attempts": 1})) if config["deliveryEventBus"] else None
+    return process_records(event, context, s3, table, agentcore, config, events_client=events_client)

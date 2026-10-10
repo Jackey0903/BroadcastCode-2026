@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-10T07:01:42.066929+00:00",
+  "sourceBaseCommit": "45b79fe9dfde422a536f3976ae88f388e5192c66",
+  "qualityGate": {
+    "command": "python3 product/scripts/check.py --full",
+    "passed": true,
+    "behavioralTests": 385,
+    "noSkips": true,
+    "externalNetworkBlocked": true,
+    "seconds": 14.61,
+    "pythonFiles": 75,
+    "javascriptFiles": 13,
+    "cdkResources": 50,
+    "boundedRoles": 6,
+    "scope": "offline source/privacy/behavior/CDK checks, not organizer scoring or live media certification"
+  },
+  "build": {
+    "mediaToolHashesVerified": true,
+    "workerAndDeliveryMatchCurrentSources": true,
+    "sdkVersions": {
+      "boto3": "1.43.108",
+      "botocore": "1.43.108",
+      "s3transfer": "0.19.2",
+      "jmespath": "1.1.0",
+      "python-dateutil": "2.9.0.post0",
+      "urllib3": "2.8.0",
+      "six": "1.17.0"
+    }
+  },
+  "files": {
+    "product/app.js": "d5abff2def3239fa6a35da2ad06ee6435878b1ff33e2010a8671dcc6badba651",
+    "product/scripts/build.py": "94daffa956840b3318a7641d810b1c333209bd93a6c10c7e15c9aff7caf93df1",
+    "product/scripts/check.py": "909076f6ad61e87cbd7288957a21da460b9264e3a7ccbc108586dafcb0f6ae5d",
+    "product/scripts/publication.py": "506fd2a0ccfdaed129e672805d9027163ecc26562cf3a14561e1a3f3ac1183d9",
+    "product/scripts/replay_delivery.py": "3d10b52d91154c86de0dc31a8c7e5089465da2ebe6f8e0b77198639d10b18994",
+    "product/worker/handler.py": "eaba4b1611edf75e295f6588deb0d5547a81085dac3310ac61678775e98f9c53",
+    "product/worker/delivery_events.py": "113e3216fd9b1cf2f887a3edcf4ecafd2feaf3f6603cd07d9ff8bc62ad538258",
+    "product/delivery/handler.py": "01114a4316110ab77767e24ca621373b154650c585f89998ed15264cbca836c2",
+    "product/delivery/narrator.py": "9ca7c8b1e58dfa1f190ef79005a73c7c1e836fe52f2584b7a9f674ed1232c8c9"
+  }
+}

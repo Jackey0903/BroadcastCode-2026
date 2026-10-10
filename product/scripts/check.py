@@ -26,7 +26,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[2]
 PRODUCT = ROOT / 'product'
 OLD_ACCOUNT = '962768510637'
-PYTHON_SUITES = {'agent': 20, 'worker': 8, 'api': 12, 'data': 16, 'scripts': 21, 'rl': 42}
+PYTHON_SUITES = {'agent': 20, 'worker': 8, 'api': 12, 'data': 16, 'scripts': 21, 'rl': 42, 'delivery': 22}
 EXCLUDED = {'node_modules', 'build', 'cdk.out', '.venv', '__pycache__', '.git'}
 
 
@@ -167,6 +167,62 @@ def run_tests(env):
         return sum(task.result() for task in tasks)
 
 
+def assert_delivery_infrastructure(resources):
+    """Check the synthesized application, never a separate hand-written fixture."""
+    buses = {key: resource['Properties'] for key, resource in resources.items()
+             if resource['Type'] == 'AWS::Events::EventBus'}
+    if len(buses) != 1:
+        raise CheckFailure('Delivery requires exactly one dedicated EventBridge event bus.')
+    workflows = {key: resource['Properties'] for key, resource in resources.items()
+                 if resource['Type'] == 'AWS::StepFunctions::StateMachine'}
+    if not workflows or any(properties.get('StateMachineType', 'STANDARD') != 'STANDARD'
+                            for properties in workflows.values()):
+        raise CheckFailure('Delivery verification must use a STANDARD Step Functions workflow.')
+    matching_rules = []
+    for resource in resources.values():
+        if resource['Type'] != 'AWS::Events::Rule':
+            continue
+        properties = resource['Properties']
+        pattern = properties.get('EventPattern', {})
+        if (pattern.get('source') == ['broadcastcode.product']
+                and pattern.get('detail-type') == ['VideoRendered']):
+            matching_rules.append(properties)
+    if not matching_rules:
+        raise CheckFailure('EventBridge must route broadcastcode.product / VideoRendered events.')
+    if not any(any(key in json.dumps(rule.get('EventBusName', {})) for key in buses)
+               and any(key in json.dumps(rule.get('Targets', [])) for key in workflows)
+               for rule in matching_rules):
+        raise CheckFailure('VideoRendered rule must connect the dedicated bus to the delivery workflow.')
+    types = [resource['Type'] for resource in resources.values()]
+    if 'AWS::CloudWatch::Dashboard' not in types or 'AWS::CloudWatch::Alarm' not in types:
+        raise CheckFailure('Delivery requires a CloudWatch dashboard and operational alarms.')
+
+    # This AWS-managed ID is the CACHING_DISABLED policy used by our CDK app.
+    disabled = '4135ea2d-6df8-44a3-9df3-4b5a84be39ad'
+    distributions = [resource['Properties']['DistributionConfig'] for resource in resources.values()
+                     if resource['Type'] == 'AWS::CloudFront::Distribution']
+    if len(distributions) != 1:
+        raise CheckFailure('Product requires one CloudFront distribution.')
+    configuration = distributions[0]
+    if configuration.get('DefaultCacheBehavior', {}).get('CachePolicyId') != disabled:
+        raise CheckFailure('Mutable product pages must retain CACHING_DISABLED.')
+    behaviors = {item['PathPattern']: item for item in configuration.get('CacheBehaviors', [])}
+    if behaviors.get('api/*', {}).get('CachePolicyId') != disabled:
+        raise CheckFailure('Job API must retain CACHING_DISABLED.')
+    for pattern in ('product/outputs/*', 'samples/*', 'frames/*'):
+        policy = behaviors.get(pattern, {}).get('CachePolicyId')
+        if not policy or policy == disabled:
+            raise CheckFailure(f'Immutable media requires an enabled cache policy: {pattern}')
+        # A custom policy must actually retain objects; a named Ref alone is
+        # insufficient if its TTLs were accidentally configured to zero.
+        if isinstance(policy, dict) and 'Ref' in policy:
+            resource = resources.get(policy['Ref'], {})
+            properties = resource.get('Properties', {}).get('CachePolicyConfig', {})
+            if (resource.get('Type') != 'AWS::CloudFront::CachePolicy'
+                    or properties.get('DefaultTTL', 0) <= 0 or properties.get('MaxTTL', 0) <= 0):
+                raise CheckFailure(f'Media cache policy has no positive retention: {pattern}')
+
+
 def cdk_check(temp, env):
     modules = PRODUCT / 'node_modules'
     if not (modules / 'aws-cdk-lib').is_dir():
@@ -192,6 +248,8 @@ def cdk_check(temp, env):
                 archive.write(file, file.name)
     shutil.copytree(PRODUCT / 'worker', build / 'worker', ignore=shutil.ignore_patterns('__pycache__'))
     shutil.copyfile(PRODUCT / 'agent' / 'story_contract.py', build / 'worker' / 'story_contract.py')
+    shutil.copytree(PRODUCT / 'delivery', build / 'delivery', ignore=shutil.ignore_patterns('__pycache__', 'test_*.py'))
+    shutil.copyfile(PRODUCT / 'agent' / 'story_contract.py', build / 'delivery' / 'story_contract.py')
     layer = stage.parent / 'readiness-lab' / 'build' / 'layer'
     layer.mkdir(parents=True)
     (layer / 'SYNTHESIS_ONLY.txt').write_text('Offline template audit placeholder; contains no deployable FFmpeg tools.\n')
@@ -207,6 +265,7 @@ def cdk_check(temp, env):
     if manifest['artifacts'][name]['environment'] != f"aws://{target['account']}/{target['region']}":
         raise CheckFailure('CDK assembly environment differs from the current allocation.')
     resources = template['Resources']
+    assert_delivery_infrastructure(resources)
     roles = [r['Properties'] for r in resources.values() if r['Type'] == 'AWS::IAM::Role']
     if len(roles) < 2 or any(boundary not in json.dumps(role.get('PermissionsBoundary')) or target['account'] not in json.dumps(role.get('PermissionsBoundary')) for role in roles):
         raise CheckFailure('A generated IAM role lacks the organizer boundary in the formal account.')

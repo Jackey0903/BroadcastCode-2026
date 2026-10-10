@@ -33,7 +33,7 @@ class FakeS3Error(Exception):
 
 class FakeS3:
     def __init__(self):
-        self.objects, self.puts, self.reads = {}, [], []
+        self.objects, self.puts, self.reads, self.copies = {}, [], [], []
 
     def put_object(self, **request):
         assert request['ExpectedBucketOwner'] == OWNER
@@ -49,7 +49,26 @@ class FakeS3:
         if request['Key'] not in self.objects:
             raise FakeS3Error('404')
         stored = self.objects[request['Key']]
-        return {'ContentLength': len(stored['Body']), 'Metadata': stored['Metadata']}
+        return {'ContentLength': len(stored['Body']), 'Metadata': stored['Metadata'],
+                'CacheControl': stored.get('CacheControl'), 'ContentType': stored['ContentType'],
+                'ETag': '"' + hashlib.md5(stored['Body']).hexdigest() + '"',
+                'ServerSideEncryption': stored.get('ServerSideEncryption', 'AES256'),
+                'ChecksumSHA256': base64.b64encode(hashlib.sha256(stored['Body']).digest()).decode('ascii')}
+
+    def copy_object(self, **request):
+        assert request['ExpectedBucketOwner'] == request['ExpectedSourceBucketOwner'] == OWNER
+        assert request['CopySource'] == {'Bucket': BUCKET, 'Key': request['Key']}
+        assert request['ChecksumAlgorithm'] == 'SHA256'
+        assert request['MetadataDirective'] == 'REPLACE'
+        previous = self.objects[request['Key']]
+        etag = '"' + hashlib.md5(previous['Body']).hexdigest() + '"'
+        if etag != request['CopySourceIfMatch']:
+            raise FakeS3Error('PreconditionFailed')
+        for field in ('ContentType', 'Metadata', 'CacheControl', 'ServerSideEncryption'):
+            previous[field] = copy.deepcopy(request[field])
+        self.copies.append(request['Key'])
+        return {'CopyObjectResult': {'ChecksumSHA256':
+            base64.b64encode(hashlib.sha256(previous['Body']).digest()).decode('ascii')}}
 
     def get_object(self, **request):
         assert request['ExpectedBucketOwner'] == OWNER
@@ -388,6 +407,94 @@ class PublicationTests(unittest.TestCase):
         for asset in plan.assets:
             expected_reads = 2 if asset.content_type == 'application/json' else 1
             self.assertEqual(self.s3.reads.count(asset.key), expected_reads)
+
+    def test_republication_preserves_immutable_job_media_and_analysis(self):
+        plan = self.plan()
+        output_keys = [asset.key for asset in plan.assets if asset.key.startswith('product/outputs/')]
+        publish_plan(plan, self.s3, OWNER)
+        originals = {key: copy.deepcopy(self.s3.objects[key]) for key in output_keys}
+        # Republishing the showcase used to overwrite Worker immutable headers
+        # with no-cache (MP4) and no-store (analysis).
+        publish_plan(plan, self.s3, OWNER)
+        for key in output_keys:
+            stored = self.s3.objects[key]
+            self.assertEqual(stored['CacheControl'], 'public, max-age=31536000, immutable')
+            self.assertEqual(stored['Body'], originals[key]['Body'])
+            self.assertEqual(stored['Metadata'], originals[key]['Metadata'])
+            self.assertEqual(stored['ChecksumSHA256'], originals[key]['ChecksumSHA256'])
+
+    def test_changed_story_manifest_and_configs_never_receive_long_lived_cache(self):
+        publish_plan(self.plan(), self.s3, OWNER)
+        self.stories[0]['title'] = 'Updated editorial title'
+        self.save('product/data/stories.json', {'stories': self.stories})
+        self.s3.puts.clear()
+        uploaded = publish_plan(self.plan(), self.s3, OWNER, reuse_unchanged=True)
+        self.assertEqual(uploaded, ['product/data/stories.json'])
+        self.assertEqual(json.loads(self.s3.objects[uploaded[0]]['Body'])['stories'][0]['title'],
+                         'Updated editorial title')
+        for key in ('product/data/stories.json', 'config/samples.json', 'product/config/samples.json'):
+            self.assertEqual(self.s3.objects[key]['CacheControl'], 'no-store')
+        self.assertEqual(self.s3.objects['samples/flagg.mp4']['CacheControl'], 'public, max-age=86400')
+        self.assertEqual(self.s3.objects['frames/flagg-00.2s.jpg']['CacheControl'], 'public, max-age=86400')
+        self.assertEqual(self.s3.objects['product/app.js']['CacheControl'],
+                         'public, max-age=0, must-revalidate')
+
+    def test_reuse_migrates_wrong_cache_policy_even_with_identical_body_and_hash(self):
+        plan = self.plan()
+        publish_plan(plan, self.s3, OWNER)
+        media = f"product/outputs/{self.reports['flagg']['jobId']}/enhanced.mp4"
+        analysis = f"product/outputs/{self.reports['flagg']['jobId']}/analysis.json"
+        policies = {media: 'no-cache', analysis: 'no-store',
+                    'product/data/stories.json': 'public, max-age=31536000, immutable'}
+        original_bodies = {key: self.s3.objects[key]['Body'] for key in policies}
+        for key, policy in policies.items():
+            self.s3.objects[key]['CacheControl'] = policy
+        self.s3.puts.clear()
+        uploaded = publish_plan(plan, self.s3, OWNER, reuse_unchanged=True)
+        self.assertEqual(set(uploaded), set(policies))
+        self.assertEqual(set(self.s3.copies), set(policies))
+        self.assertFalse(self.s3.puts)
+        for key in policies:
+            self.assertEqual(self.s3.objects[key]['Body'], original_bodies[key])
+        self.assertEqual(self.s3.objects[media]['CacheControl'], 'public, max-age=31536000, immutable')
+        self.assertEqual(self.s3.objects[analysis]['CacheControl'], 'public, max-age=31536000, immutable')
+        self.assertEqual(self.s3.objects['product/data/stories.json']['CacheControl'], 'no-store')
+
+    def test_cache_only_copy_requires_actual_service_checksum_not_claimed_metadata(self):
+        plan = self.plan()
+        publish_plan(plan, self.s3, OWNER)
+        key = 'samples/amen.mp4'
+        expected = self.s3.objects[key]['Body']
+        self.s3.objects[key]['Body'] = expected[:-1] + b'X'
+        self.s3.objects[key]['CacheControl'] = 'no-cache'
+        self.s3.puts.clear()
+        uploaded = publish_plan(plan, self.s3, OWNER, reuse_unchanged=True)
+        self.assertEqual(uploaded, [key])
+        self.assertEqual(self.s3.puts, [key])
+        self.assertFalse(self.s3.copies)
+        self.assertEqual(self.s3.objects[key]['Body'], expected)
+
+    def test_cache_only_copy_is_etag_guarded_and_retains_source_encryption_and_metadata(self):
+        plan = self.plan()
+        publish_plan(plan, self.s3, OWNER)
+        key = 'samples/amen.mp4'
+        self.s3.objects[key]['CacheControl'] = 'no-cache'
+        self.s3.objects[key]['Metadata']['retained-provenance'] = 'source-snapshot'
+        self.s3.puts.clear()
+        original_copy = self.s3.copy_object
+        def changed_before_copy(**request):
+            self.s3.objects[key]['Body'] += b'changed after preflight'
+            return original_copy(**request)
+        with patch.object(self.s3, 'copy_object', side_effect=changed_before_copy):
+            with self.assertRaises(FakeS3Error):
+                publish_plan(plan, self.s3, OWNER, reuse_unchanged=True)
+        self.assertFalse(self.s3.copies or self.s3.puts)
+        # A fresh stable snapshot preserves all existing source metadata/SSE.
+        self.s3.objects[key]['Body'] = next(a.body for a in plan.assets if a.key == key)
+        publish_plan(plan, self.s3, OWNER, reuse_unchanged=True)
+        self.assertEqual(self.s3.copies, [key])
+        self.assertEqual(self.s3.objects[key]['Metadata']['retained-provenance'], 'source-snapshot')
+        self.assertEqual(self.s3.objects[key]['ServerSideEncryption'], 'AES256')
 
     def test_reuse_same_length_different_hash_uploads_only_changed_frozen_body(self):
         plan = self.plan()

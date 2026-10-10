@@ -1,0 +1,252 @@
+{
+  "version": "native-delivery-live-check-v1",
+  "checkedAt": "2026-10-10T06:35:52.097084+00:00",
+  "account": "555726205424",
+  "region": "us-east-1",
+  "role": "NBAHackathonParticipantRole",
+  "profile": "nba",
+  "scope": "independent existing-media verification and missing-job workflow rejection; no new inference or native narration requested",
+  "initialReadAttempt": {
+    "failedBeforeAnyMutation": true,
+    "errorType": "ReadTimeoutError",
+    "endpoint": "https://555726205424.ddb.us-east-1.amazonaws.com/",
+    "recovery": "official regional DynamoDB endpoint"
+  },
+  "directVerifier": {
+    "jobId": "3526ae13a69b42c082b2fe4f0bacfa67",
+    "functionName": "BroadcastCodeTeam02Readin-DeliveryVerifier77BA7E65-43K1nPtIndBX",
+    "before": {
+      "status": "completed",
+      "mode": "story",
+      "outputSha256": "f8d681433d4a49d58dd636b4307868029fabf5663de178bf800abaddead5a339",
+      "analysisFingerprint": "9423da7f1ff4e49377da46c10a904869239f599d80929d39b77ad2bd7b32e8a1"
+    },
+    "invokeStatusCode": 200,
+    "functionError": null,
+    "result": {
+      "verified": true,
+      "status": "verified",
+      "version": "delivery-verification-v1",
+      "jobId": "3526ae13a69b42c082b2fe4f0bacfa67",
+      "verifiedAt": 1791614171,
+      "elapsedSeconds": 7.242,
+      "outputSha256": "f8d681433d4a49d58dd636b4307868029fabf5663de178bf800abaddead5a339",
+      "analysisSha256": "3b5978cc946bc30b98ab759c5546538d01f720506cb413ad54bee8e14156ca11",
+      "analysisFingerprint": "d79a0d4c3d4e1b5d026e5aa26a37adbf782555f6556413510b7525b388f54ddb",
+      "sourceSha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+      "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:555726205424:runtime/Team02Readiness20261006-1cAKhm9LrD",
+      "modelId": "global.anthropic.claude-sonnet-4-6",
+      "videoUrl": "https://deky02484tknr.cloudfront.net/product/outputs/3526ae13a69b42c082b2fe4f0bacfa67/enhanced.mp4",
+      "videoObject": {
+        "etag": "\"6949b443fbf25a3a966a6aa34437b673\"",
+        "versionId": "",
+        "bytes": 9974389,
+        "lastModified": "2026-10-10 06:36:04+00:00"
+      },
+      "analysisObject": {
+        "etag": "\"2da7e7d15934cf6a361c6dc13547c9d5\"",
+        "versionId": "",
+        "bytes": 45470,
+        "lastModified": "2026-10-10 06:36:05+00:00"
+      },
+      "media": {
+        "durationMs": 21572,
+        "width": 1280,
+        "height": 900,
+        "videoCodec": "h264",
+        "audioStreams": 1,
+        "audioCodec": "aac",
+        "fullDecodeVerified": true
+      },
+      "scope": "Media and source provenance checks; not human content or organizer scoring certification",
+      "idempotent": false
+    },
+    "after": {
+      "status": "completed",
+      "mode": "story",
+      "outputSha256": "f8d681433d4a49d58dd636b4307868029fabf5663de178bf800abaddead5a339",
+      "analysisFingerprint": "9423da7f1ff4e49377da46c10a904869239f599d80929d39b77ad2bd7b32e8a1",
+      "originalJobFieldsUnchanged": true,
+      "deliveryVerificationPersisted": true
+    }
+  },
+  "missingJobWorkflow": {
+    "jobId": "f0000000000000000000000000000000",
+    "missingBefore": true,
+    "executionArn": "arn:aws:states:us-east-1:555726205424:execution:Team02ProductDelivery20261010:missing-artifact-1791614179203829000",
+    "startDate": "2026-10-10T14:36:26.643000+08:00",
+    "execution": {
+      "executionArn": "arn:aws:states:us-east-1:555726205424:execution:Team02ProductDelivery20261010:missing-artifact-1791614179203829000",
+      "stateMachineArn": "arn:aws:states:us-east-1:555726205424:stateMachine:Team02ProductDelivery20261010",
+      "name": "missing-artifact-1791614179203829000",
+      "status": "FAILED",
+      "startDate": "2026-10-10T14:36:26.643000+08:00",
+      "stopDate": "2026-10-10T14:36:26.900000+08:00",
+      "input": "{\"jobId\":\"f0000000000000000000000000000000\"}",
+      "inputDetails": {
+        "included": true
+      },
+      "error": "DeliveryArtifactRejected",
+      "cause": "Independent media/source verification did not pass; original job state is unchanged.",
+      "redriveCount": 0,
+      "redriveStatus": "REDRIVABLE",
+      "ResponseMetadata": {
+        "RequestId": "e41d610e-6132-4dda-bc0b-eca3d12b1f12",
+        "HTTPStatusCode": 200,
+        "HTTPHeaders": {
+          "x-amzn-requestid": "e41d610e-6132-4dda-bc0b-eca3d12b1f12",
+          "date": "Sat, 10 Oct 2026 06:36:28 GMT",
+          "content-type": "application/x-amz-json-1.0",
+          "content-length": "698",
+          "connection": "keep-alive"
+        },
+        "RetryAttempts": 0
+      }
+    },
+    "history": {
+      "events": [
+        {
+          "timestamp": "2026-10-10T14:36:26.643000+08:00",
+          "type": "ExecutionStarted",
+          "id": 1,
+          "previousEventId": 0,
+          "executionStartedEventDetails": {
+            "input": "{\"jobId\":\"f0000000000000000000000000000000\"}",
+            "inputDetails": {
+              "truncated": false
+            },
+            "roleArn": "arn:aws:iam::555726205424:role/BroadcastCodeTeam02Readin-DeliveryWorkflowRoleBE0F4-tcqr3DqKtNQC"
+          }
+        },
+        {
+          "timestamp": "2026-10-10T14:36:26.665000+08:00",
+          "type": "TaskStateEntered",
+          "id": 2,
+          "previousEventId": 0,
+          "stateEnteredEventDetails": {
+            "name": "VerifyCompleteVideo",
+            "input": "{\"jobId\":\"f0000000000000000000000000000000\"}",
+            "inputDetails": {
+              "truncated": false
+            }
+          }
+        },
+        {
+          "timestamp": "2026-10-10T14:36:26.665000+08:00",
+          "type": "LambdaFunctionScheduled",
+          "id": 3,
+          "previousEventId": 2,
+          "lambdaFunctionScheduledEventDetails": {
+            "resource": "arn:aws:lambda:us-east-1:555726205424:function:BroadcastCodeTeam02Readin-DeliveryVerifier77BA7E65-43K1nPtIndBX",
+            "input": "{\"jobId\":\"f0000000000000000000000000000000\"}",
+            "inputDetails": {
+              "truncated": false
+            }
+          }
+        },
+        {
+          "timestamp": "2026-10-10T14:36:26.719000+08:00",
+          "type": "LambdaFunctionStarted",
+          "id": 4,
+          "previousEventId": 3
+        },
+        {
+          "timestamp": "2026-10-10T14:36:26.863000+08:00",
+          "type": "LambdaFunctionSucceeded",
+          "id": 5,
+          "previousEventId": 4,
+          "lambdaFunctionSucceededEventDetails": {
+            "output": "{\"verified\": false, \"status\": \"rejected\", \"version\": \"delivery-verification-v1\", \"jobId\": \"f0000000000000000000000000000000\", \"code\": \"job_not_found\", \"message\": \"No stored task matches this job ID\", \"retryable\": false, \"scope\": \"Media and source provenance checks; not human content or organizer scoring certification\"}",
+            "outputDetails": {
+              "truncated": false
+            }
+          }
+        },
+        {
+          "timestamp": "2026-10-10T14:36:26.875000+08:00",
+          "type": "TaskStateExited",
+          "id": 6,
+          "previousEventId": 5,
+          "stateExitedEventDetails": {
+            "name": "VerifyCompleteVideo",
+            "output": "{\"jobId\":\"f0000000000000000000000000000000\",\"verification\":{\"verified\":false,\"status\":\"rejected\",\"version\":\"delivery-verification-v1\",\"jobId\":\"f0000000000000000000000000000000\",\"code\":\"job_not_found\",\"message\":\"No stored task matches this job ID\",\"retryable\":false,\"scope\":\"Media and source provenance checks; not human content or organizer scoring certification\"}}",
+            "outputDetails": {
+              "truncated": false
+            }
+          }
+        },
+        {
+          "timestamp": "2026-10-10T14:36:26.875000+08:00",
+          "type": "ChoiceStateEntered",
+          "id": 7,
+          "previousEventId": 6,
+          "stateEnteredEventDetails": {
+            "name": "DeliveryPassed",
+            "input": "{\"jobId\":\"f0000000000000000000000000000000\",\"verification\":{\"verified\":false,\"status\":\"rejected\",\"version\":\"delivery-verification-v1\",\"jobId\":\"f0000000000000000000000000000000\",\"code\":\"job_not_found\",\"message\":\"No stored task matches this job ID\",\"retryable\":false,\"scope\":\"Media and source provenance checks; not human content or organizer scoring certification\"}}",
+            "inputDetails": {
+              "truncated": false
+            }
+          }
+        },
+        {
+          "timestamp": "2026-10-10T14:36:26.875000+08:00",
+          "type": "ChoiceStateExited",
+          "id": 8,
+          "previousEventId": 7,
+          "stateExitedEventDetails": {
+            "name": "DeliveryPassed",
+            "output": "{\"jobId\":\"f0000000000000000000000000000000\",\"verification\":{\"verified\":false,\"status\":\"rejected\",\"version\":\"delivery-verification-v1\",\"jobId\":\"f0000000000000000000000000000000\",\"code\":\"job_not_found\",\"message\":\"No stored task matches this job ID\",\"retryable\":false,\"scope\":\"Media and source provenance checks; not human content or organizer scoring certification\"}}",
+            "outputDetails": {
+              "truncated": false
+            }
+          }
+        },
+        {
+          "timestamp": "2026-10-10T14:36:26.875000+08:00",
+          "type": "FailStateEntered",
+          "id": 9,
+          "previousEventId": 8,
+          "stateEnteredEventDetails": {
+            "name": "ArtifactRejected",
+            "input": "{\"jobId\":\"f0000000000000000000000000000000\",\"verification\":{\"verified\":false,\"status\":\"rejected\",\"version\":\"delivery-verification-v1\",\"jobId\":\"f0000000000000000000000000000000\",\"code\":\"job_not_found\",\"message\":\"No stored task matches this job ID\",\"retryable\":false,\"scope\":\"Media and source provenance checks; not human content or organizer scoring certification\"}}",
+            "inputDetails": {
+              "truncated": false
+            }
+          }
+        },
+        {
+          "timestamp": "2026-10-10T14:36:26.900000+08:00",
+          "type": "ExecutionFailed",
+          "id": 10,
+          "previousEventId": 9,
+          "executionFailedEventDetails": {
+            "error": "DeliveryArtifactRejected",
+            "cause": "Independent media/source verification did not pass; original job state is unchanged."
+          }
+        }
+      ],
+      "ResponseMetadata": {
+        "RequestId": "4e0af692-42a3-46b9-abea-240340176537",
+        "HTTPStatusCode": 200,
+        "HTTPHeaders": {
+          "x-amzn-requestid": "4e0af692-42a3-46b9-abea-240340176537",
+          "date": "Sat, 10 Oct 2026 06:36:29 GMT",
+          "content-type": "application/x-amz-json-1.0",
+          "content-length": "4645",
+          "connection": "keep-alive"
+        },
+        "RetryAttempts": 0
+      }
+    },
+    "stateNamesEntered": [
+      "VerifyCompleteVideo",
+      "DeliveryPassed",
+      "ArtifactRejected"
+    ],
+    "failedAsExpected": true,
+    "missingAfter": true,
+    "narratorStateEntered": false,
+    "newJobCreated": false,
+    "agentOrWorkerStateEntered": false
+  }
+}

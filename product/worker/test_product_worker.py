@@ -12,6 +12,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "agent"))
 from test_story import BUCKET, FakeS3, execute, fixture
 from handler import process_records, run_job, run_story_job
+from delivery_events import EVENT_DETAIL_TYPE, EVENT_SOURCE, METRIC_NAMESPACE, SERVICE
 from readiness_worker import JobError, validate_message
 
 CONFIG = {"bucket": BUCKET, "runtime": "test-runtime", "host": "test.cloudfront.net"}
@@ -43,6 +44,20 @@ class FakeRuntime:
         self.stops += 1
 
 
+class FakeEvents:
+    def __init__(self, response=None, error=None, before_publish=None):
+        self.response = response if response is not None else {"FailedEntryCount": 0, "Entries": [{"EventId": "event-1"}]}
+        self.error, self.before_publish, self.calls = error, before_publish, []
+
+    def put_events(self, **kwargs):
+        self.calls.append(kwargs)
+        if self.before_publish:
+            self.before_publish()
+        if self.error:
+            raise self.error
+        return self.response
+
+
 def fake_renderer(source, output, result, context):
     output.write_bytes(b"offline-enhanced-video-fixture")
 
@@ -52,15 +67,119 @@ def fake_inspector(path, context):
 
 
 class WorkerTests(unittest.TestCase):
-    def run_case(self, result=None, inspector=fake_inspector, fail=False, s3=None):
+    def run_case(self, result=None, inspector=fake_inspector, fail=False, s3=None, table=None,
+                 config=None, events_client=None):
         request, _ = fixture()
         if result is None:
             result, _, _ = execute()
-        s3, table, runtime = s3 or FakeS3(request), FakeTable(), FakeRuntime(result, fail)
-        with redirect_stdout(io.StringIO()):
-            response = run_story_job({"jobId": "job-1", "sample": "flagg", "mode": "story"}, s3, table, runtime, CONFIG,
-                                     renderer=fake_renderer, inspector=inspector)
+        s3, table, runtime = s3 or FakeS3(request), table or FakeTable(), FakeRuntime(result, fail)
+        logs = io.StringIO()
+        with redirect_stdout(logs):
+            response = run_story_job({"jobId": "job-1", "sample": "flagg", "mode": "story"}, s3, table, runtime, config or CONFIG,
+                                     renderer=fake_renderer, inspector=inspector, events_client=events_client)
+        self.last_logs = [json.loads(line) for line in logs.getvalue().splitlines()]
         return response, s3, table, runtime
+
+    def test_render_event_is_sent_only_after_durable_completion_without_claiming_verification(self):
+        request, _ = fixture()
+        s3, table = FakeS3(request), FakeTable()
+        observed = []
+        events = FakeEvents(before_publish=lambda: observed.append({
+            "status": table.item["status"], "published": "product/outputs/job-1/analysis.json" in s3.objects,
+        }))
+        response, _, table, _ = self.run_case(s3=s3, table=table,
+            config={**CONFIG, "deliveryEventBus": "test-delivery-bus"}, events_client=events)
+        self.assertEqual(response["status"], "completed")
+        self.assertEqual(observed, [{"status": "completed", "published": True}])
+        entry = events.calls[0]["Entries"][0]
+        self.assertEqual(entry["EventBusName"], "test-delivery-bus")
+        self.assertEqual(entry["Source"], EVENT_SOURCE)
+        self.assertEqual(entry["DetailType"], EVENT_DETAIL_TYPE)
+        self.assertEqual(json.loads(entry["Detail"]), {"jobId": "job-1"})
+        self.assertEqual(table.item["deliveryEvent"]["status"], "published")
+        self.assertNotIn("deliveryVerification", table.item)
+        self.assertNotIn("deliveryVerification", json.loads(s3.objects["product/outputs/job-1/analysis.json"]))
+        metrics = [item for item in self.last_logs if "_aws" in item]
+        self.assertTrue(any(item.get("JobCompleted") == 1 for item in metrics))
+        self.assertTrue(any(item.get("DeliveryEventPublished") == 1 for item in metrics))
+        for item in metrics:
+            definition = item["_aws"]["CloudWatchMetrics"][0]
+            self.assertEqual(definition["Namespace"], METRIC_NAMESPACE)
+            self.assertEqual(definition["Dimensions"], [["Service"]])
+            self.assertEqual(item["Service"], SERVICE)
+
+    def test_eventbridge_http_success_with_failed_entry_keeps_render_completed(self):
+        events = FakeEvents(response={"FailedEntryCount": 1, "Entries": [{
+            "ErrorCode": "ThrottlingException", "ErrorMessage": "payload must never appear in logs",
+        }]})
+        response, s3, table, _ = self.run_case(config={**CONFIG, "deliveryEventBus": "test-bus"}, events_client=events)
+        self.assertEqual(response["status"], "completed")
+        self.assertEqual(table.item["status"], "completed")
+        self.assertEqual(table.item["deliveryEvent"]["status"], "failed")
+        self.assertEqual(table.item["deliveryEvent"]["awsErrorCode"], "ThrottlingException")
+        self.assertIn("product/outputs/job-1/analysis.json", s3.objects)
+        self.assertTrue(any(item.get("DeliveryEventPublishFailed") == 1 for item in self.last_logs))
+        self.assertFalse(any(item.get("JobFailed") for item in self.last_logs))
+        self.assertNotIn("payload must never", json.dumps(self.last_logs))
+
+    def test_event_transport_error_is_a_recoverable_receipt_without_logging_exception_payload(self):
+        events = FakeEvents(error=RuntimeError("sensitive upstream payload"))
+        response, _, table, _ = self.run_case(config={**CONFIG, "deliveryEventBus": "test-bus"}, events_client=events)
+        self.assertEqual(response["status"], "completed")
+        self.assertEqual(table.item["deliveryEvent"]["errorType"], "RuntimeError")
+        self.assertNotIn("sensitive upstream payload", json.dumps(self.last_logs))
+        self.assertTrue(any(item.get("DeliveryEventPublishFailed") == 1 for item in self.last_logs))
+
+    def test_receipt_storage_failure_does_not_undo_completed_render_or_reinfer(self):
+        class ReceiptUnavailableTable(FakeTable):
+            def update_item(self, **kwargs):
+                if "deliveryEvent" in kwargs["ExpressionAttributeNames"].values():
+                    raise RuntimeError("offline receipt write failure")
+                return super().update_item(**kwargs)
+        events = FakeEvents()
+        response, _, table, runtime = self.run_case(table=ReceiptUnavailableTable(),
+            config={**CONFIG, "deliveryEventBus": "test-bus"}, events_client=events)
+        self.assertEqual(response["status"], "completed")
+        self.assertEqual(table.item["status"], "completed")
+        self.assertEqual(runtime.calls, 1)
+        self.assertTrue(any(item.get("DeliveryEventRecordFailed") == 1 for item in self.last_logs))
+        self.assertFalse(any(item.get("JobFailed") for item in self.last_logs))
+
+    def test_terminal_redelivery_neither_republishes_nor_counts_a_second_render(self):
+        events, table = FakeEvents(), FakeTable()
+        table.item["status"] = "completed"
+        response, _, _, runtime = self.run_case(table=table,
+            config={**CONFIG, "deliveryEventBus": "test-bus"}, events_client=events)
+        self.assertTrue(response["idempotent"])
+        self.assertEqual(runtime.calls, 0)
+        self.assertEqual(events.calls, [])
+        self.assertEqual(self.last_logs, [])
+
+    def test_business_failure_is_counted_without_a_rendered_event(self):
+        events = FakeEvents()
+        response, _, table, _ = self.run_case(fail=True,
+            config={**CONFIG, "deliveryEventBus": "test-bus"}, events_client=events)
+        self.assertEqual(response["status"], "failed")
+        self.assertEqual(table.item["status"], "failed")
+        self.assertEqual(events.calls, [])
+        self.assertTrue(any(item.get("JobFailed") == 1 for item in self.last_logs))
+        self.assertFalse(any(item.get("JobCompleted") for item in self.last_logs))
+
+    def test_legacy_configuration_needs_no_eventbridge_client_or_notification_receipt(self):
+        response, _, table, _ = self.run_case()
+        self.assertEqual(response["status"], "completed")
+        self.assertNotIn("deliveryEvent", table.item)
+        self.assertTrue(any(item.get("JobCompleted") == 1 for item in self.last_logs))
+
+    def test_malformed_eventbridge_response_cannot_claim_delivery_success(self):
+        for response in ({}, {"FailedEntryCount": 0, "Entries": []},
+                         {"FailedEntryCount": 0, "Entries": [{"EventId": ""}]}):
+            with self.subTest(response=response):
+                outcome, _, table, _ = self.run_case(config={**CONFIG, "deliveryEventBus": "test-bus"},
+                    events_client=FakeEvents(response=response))
+                self.assertEqual(outcome["status"], "completed")
+                self.assertEqual(table.item["deliveryEvent"]["status"], "failed")
+                self.assertFalse(any(item.get("DeliveryEventPublished") for item in self.last_logs))
 
     def test_story_uses_separate_inputs_preserves_provenance_and_publishes_full_video(self):
         response, s3, table, runtime = self.run_case()

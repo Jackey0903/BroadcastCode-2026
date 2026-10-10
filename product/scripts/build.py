@@ -48,18 +48,22 @@ with zipfile.ZipFile(BUILD / 'agent.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
         if not path.name.startswith('test_'):
             archive.write(path, path.name)
 
-worker = BUILD / 'worker'
-if worker.exists():
-    shutil.rmtree(worker)
-worker.mkdir()
-for path, relative in sdk_files:
-    target = worker / relative
-    target.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(path, target)
-shutil.copyfile(HERE / 'agent/story_contract.py', worker / 'story_contract.py')
-for path in sorted((HERE / 'worker').glob('*.py')):
-    if not path.name.startswith('test_'):
-        shutil.copyfile(path, worker / path.name)
+lambda_artifacts = {}
+for name in ('worker', 'delivery'):
+    destination = BUILD / name
+    if destination.exists():
+        shutil.rmtree(destination)
+    destination.mkdir()
+    for path, relative in sdk_files:
+        target = destination / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(path, target)
+    shutil.copyfile(HERE / 'agent/story_contract.py', destination / 'story_contract.py')
+    for path in sorted((HERE / name).glob('*.py')):
+        if not path.name.startswith('test_'):
+            shutil.copyfile(path, destination / path.name)
+    lambda_artifacts[name] = sum(path.is_file() for path in destination.rglob('*'))
 print(json.dumps({'agentBytes': (BUILD / 'agent.zip').stat().st_size,
-                  'workerFiles': len(list(worker.rglob('*'))), 'mediaToolHashesVerified': True,
+                  'workerFiles': lambda_artifacts['worker'], 'deliveryFiles': lambda_artifacts['delivery'],
+                  'mediaToolHashesVerified': True,
                   'sdkVersions': sdk_versions}))

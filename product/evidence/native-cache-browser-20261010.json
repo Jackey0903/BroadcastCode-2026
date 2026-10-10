@@ -1,0 +1,512 @@
+{
+  "schema": "broadcastcode-browser-playback-v1",
+  "jobId": "3526ae13a69b42c082b2fe4f0bacfa67",
+  "startedAt": "2026-10-10T06:42:22.181Z",
+  "mediaUrl": "https://deky02484tknr.cloudfront.net/product/outputs/3526ae13a69b42c082b2fe4f0bacfa67/enhanced.mp4",
+  "observerTimeoutSeconds": 300,
+  "attempts": 1,
+  "predownloaded": false,
+  "method": "Independent headless Google Chrome; fresh temporary profile; one natural network-URL playback from time zero. Muted audio decoded bytes checked; no subjective audibility claim.",
+  "browser": "Chrome/154.0.8037.98",
+  "timeline": [
+    {
+      "observerWallSeconds": 0.055,
+      "currentTime": 0,
+      "readyState": 0,
+      "paused": false,
+      "buffered": []
+    },
+    {
+      "observerWallSeconds": 2.058,
+      "currentTime": 0,
+      "readyState": 1,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          0.468
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 4.061,
+      "currentTime": 1.48359,
+      "readyState": 3,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          2.2
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 6.064,
+      "currentTime": 2.825807,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          3.468
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 8.066,
+      "currentTime": 4.233462,
+      "readyState": 3,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          5.056
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 10.069,
+      "currentTime": 6.234238,
+      "readyState": 3,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          7.012426
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 12.072,
+      "currentTime": 8.2385,
+      "readyState": 3,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          8.477
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 14.075,
+      "currentTime": 8.399516,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          9.357642
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 16.078,
+      "currentTime": 9.311137,
+      "readyState": 3,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          10.28644
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 18.081,
+      "currentTime": 10.792087,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          10.983039
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 20.082,
+      "currentTime": 10.792087,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          11.842177
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 22.086,
+      "currentTime": 10.792087,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          12.817415
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 24.09,
+      "currentTime": 10.792087,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          13.746213
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 26.093,
+      "currentTime": 12.584761,
+      "readyState": 3,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          14.698231
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 28.096,
+      "currentTime": 14.587045,
+      "readyState": 3,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          15.23229
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 30.098,
+      "currentTime": 15.46397,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          15.627029
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 32.1,
+      "currentTime": 15.46397,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          16.277188
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 34.103,
+      "currentTime": 15.46397,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          16.486168
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 36.106,
+      "currentTime": 15.46397,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          16.579048
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 38.109,
+      "currentTime": 15.46397,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          16.764807
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 40.111,
+      "currentTime": 15.46397,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          17.113107
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 42.113,
+      "currentTime": 15.46397,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          17.554286
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 44.114,
+      "currentTime": 15.46397,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          17.856145
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 46.117,
+      "currentTime": 15.827522,
+      "readyState": 3,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          18.599184
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 48.121,
+      "currentTime": 17.831483,
+      "readyState": 3,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          19.573
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 50.124,
+      "currentTime": 19.834972,
+      "readyState": 3,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          20.541
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 52.125,
+      "currentTime": 20.591007,
+      "readyState": 2,
+      "paused": false,
+      "buffered": [
+        [
+          0,
+          21.245
+        ]
+      ]
+    },
+    {
+      "observerWallSeconds": 54.13,
+      "currentTime": 21.548005,
+      "readyState": 4,
+      "paused": true,
+      "buffered": [
+        [
+          0,
+          21.548005
+        ]
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "play",
+      "currentTime": 0,
+      "wallMs": 57.400000002235174,
+      "utc": "2026-10-10T06:42:23.122Z"
+    },
+    {
+      "event": "waiting",
+      "currentTime": 0,
+      "wallMs": 57.400000002235174,
+      "utc": "2026-10-10T06:42:23.122Z"
+    },
+    {
+      "event": "loadedmetadata",
+      "currentTime": 0,
+      "wallMs": 1986.699999999255,
+      "utc": "2026-10-10T06:42:25.051Z"
+    },
+    {
+      "event": "playing",
+      "currentTime": 0.000121,
+      "wallMs": 2177.900000002235,
+      "utc": "2026-10-10T06:42:25.243Z"
+    },
+    {
+      "event": "waiting",
+      "currentTime": 0.860042,
+      "wallMs": 3078.60000000149,
+      "utc": "2026-10-10T06:42:26.143Z"
+    },
+    {
+      "event": "playing",
+      "currentTime": 0.905681,
+      "wallMs": 3449.10000000149,
+      "utc": "2026-10-10T06:42:26.514Z"
+    },
+    {
+      "event": "waiting",
+      "currentTime": 2.825807,
+      "wallMs": 5411.10000000149,
+      "utc": "2026-10-10T06:42:28.476Z"
+    },
+    {
+      "event": "playing",
+      "currentTime": 2.879496,
+      "wallMs": 6678.699999999255,
+      "utc": "2026-10-10T06:42:29.743Z"
+    },
+    {
+      "event": "waiting",
+      "currentTime": 8.399516,
+      "wallMs": 12241.900000002235,
+      "utc": "2026-10-10T06:42:35.307Z"
+    },
+    {
+      "event": "playing",
+      "currentTime": 8.452855,
+      "wallMs": 15184.300000000745,
+      "utc": "2026-10-10T06:42:38.249Z"
+    },
+    {
+      "event": "waiting",
+      "currentTime": 10.792087,
+      "wallMs": 17564.800000000745,
+      "utc": "2026-10-10T06:42:40.629Z"
+    },
+    {
+      "event": "playing",
+      "currentTime": 10.844007,
+      "wallMs": 24317.400000002235,
+      "utc": "2026-10-10T06:42:47.382Z"
+    },
+    {
+      "event": "waiting",
+      "currentTime": 15.46397,
+      "wallMs": 28977.60000000149,
+      "utc": "2026-10-10T06:42:52.042Z"
+    },
+    {
+      "event": "playing",
+      "currentTime": 15.511283,
+      "wallMs": 45764.10000000149,
+      "utc": "2026-10-10T06:43:08.829Z"
+    },
+    {
+      "event": "waiting",
+      "currentTime": 20.591007,
+      "wallMs": 50887.10000000149,
+      "utc": "2026-10-10T06:43:13.952Z"
+    },
+    {
+      "event": "suspend",
+      "currentTime": 20.645019,
+      "wallMs": 52714.10000000149,
+      "utc": "2026-10-10T06:43:15.779Z"
+    },
+    {
+      "event": "playing",
+      "currentTime": 20.645073,
+      "wallMs": 52714.300000000745,
+      "utc": "2026-10-10T06:43:15.779Z"
+    },
+    {
+      "event": "pause",
+      "currentTime": 21.548005,
+      "wallMs": 53658.10000000149,
+      "utc": "2026-10-10T06:43:16.723Z"
+    },
+    {
+      "event": "ended",
+      "currentTime": 21.548005,
+      "wallMs": 53658.199999999255,
+      "utc": "2026-10-10T06:43:16.723Z"
+    }
+  ],
+  "startCurrentTime": 0,
+  "sourceSetAt": "2026-10-10T06:42:23.065Z",
+  "error": null,
+  "currentTime": 21.548005,
+  "duration": 21.548005,
+  "ended": true,
+  "paused": true,
+  "seeking": false,
+  "readyState": 4,
+  "networkState": 1,
+  "audioDecodedByteCount": 346391,
+  "videoDecodedByteCount": 9602631,
+  "playbackQuality": {},
+  "buffered": [
+    [
+      0,
+      21.548005
+    ]
+  ],
+  "finishedAt": "2026-10-10T06:43:17.202Z",
+  "initialLoadSeconds": 1.986699999999255,
+  "firstPlayingSeconds": 2.1779000000022353,
+  "totalWallSeconds": 53.658199999999255,
+  "playbackWallSeconds": 51.48029999999702,
+  "waitingCount": 7,
+  "rebufferWaitingCount": 6,
+  "stalledCount": 0,
+  "audioDecodeVerified": true,
+  "passed": true,
+  "smoothPlaybackVerified": false,
+  "reason": "Natural time-zero playback reached ended.",
+  "screenshot": "native-cache-browser-end-20261010.png",
+  "networkResponses": [
+    {
+      "status": 206,
+      "type": "Media",
+      "fromDiskCache": false,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "cloudFrontCache": "Miss from cloudfront",
+      "contentRange": "bytes 0-9974388/9974389",
+      "contentLength": "9974389"
+    }
+  ],
+  "formalSubmission": false,
+  "scope": "Single browser playback verification after cache migration; not a guarantee of smooth playback or organizer scoring",
+  "cacheOptimizationOnly": true,
+  "comparison": {
+    "previousEvidence": "submission-template-browser-20261010.json",
+    "previousTotalWallSeconds": 128.77030000000076,
+    "previousInitialLoadSeconds": 12.647,
+    "note": "Different one-time network observations; buffering remains, no general performance guarantee"
+  }
+}
