@@ -78,7 +78,7 @@ def main():
     else:
         from formal.timeline import FRAME_COUNT, DURATION, SEGMENTS
     if args.output is None:
-        args.output = ROOT / ('product/build/ppt-demo-20261011/english-v5/GameBuddy-PPT-English-v5.mp4' if args.presentation_english else
+        args.output = ROOT / ('product/build/ppt-demo-20261011/english-v6/GameBuddy-PPT-English-v6.mp4' if args.presentation_english else
                              'product/build/ppt-demo-20261011/GameBuddy-PPT-55秒-干净画面.mp4' if args.presentation_clean else
                              'product/build/formal-assets/GameBuddy-正式资产联调-v2-55秒.mp4' if args.variant == 'flagg55' else
                              'product/build/formal-assets/GameBuddy-正式资产联调-v1.mp4')
@@ -118,7 +118,7 @@ def main():
                'variant': args.variant,
                'presentationClean': args.presentation_clean, 'aiNarrationUsed': False,
                'presentationEnglish': args.presentation_english,
-               'presentationBookends': 'english-slide-v3' if args.presentation_english else None,
+               'presentationBookends': 'gamebuddy-mascot-brand-v6' if args.presentation_english else None,
                'voiceoverPending': args.presentation_clean,
                'productionNotes': 'Visual effects use editorial keyframes/interpolation, not automatic tracking. No new model inference.',
                'reuse': ['Layers', 'draw_marker', 'draw_path', 'court_geometry', 'board_points', '_title_and_notes', 'draw_burst', 'render_intro', 'render_outro', 'draw_popup', 'draw_scorecard', 'draw_ball_trail', 'render_freeze'],
@@ -136,6 +136,9 @@ def main():
         receipt['presentationSpaces'] = {'sourceFrames': SPACE_FRAMES, 'polygons': SPACES,
                                          'method': 'Source-reviewed editorial polygons; camera and board independently drawn; not measured free space'}
         receipt['playerEvidenceStoreSha256'] = digest(STORE)
+        receipt['brandMascot'] = {'asset': 'product/watch/companions/game-buddy/assets/game-buddy-crt.webp',
+                                  'sha256': digest(base.fx.GAMEBUDDY_ATLAS),
+                                  'selection': 'idle first frame at opening, waving second frame at closing'}
         for name in ('presentation_labels.py', 'presentation_court.py', 'data/formal-presentation-court.json',
                      'presentation_stats.py', 'presentation_focus.py', 'presentation_space.py'):
             receipt['rendererHashes'][name] = digest(Path(__file__).parent / name)

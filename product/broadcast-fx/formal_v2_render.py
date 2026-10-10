@@ -22,11 +22,11 @@ OUTRO = {'nameEn': 'MAX CHRISTIE', 'nameCn': '克里斯蒂  ·  DAL #00', 'point
                    ('Q2 · 4:58', fx.FLAME), ('DAL 43 — 44 HOU', fx.GREEN)]}
 PRESENTATION_INTRO = {'headline': 'DOWN BY 4', 'headlineSize': 220,
                       'contextEn': '5:13 LEFT · 2ND QTR', 'contextSubEn': 'SECOND CHANCE',
-                      'player': '#00  MAX CHRISTIE'}
+                      'player': '#00  MAX CHRISTIE', 'brand': True}
 PRESENTATION_OUTRO = {'headline': 'DOWN BY 1', 'headlineSize': 220, 'closing': True,
                       'contextEn': 'DAL 43 — 44 HOU', 'contextColor': fx.GREEN,
                       'contextSubEn': 'STEP-BACK BANK THREE · OFFICIAL xFG 30%',
-                      'player': '#00  MAX CHRISTIE'}
+                      'player': '#00  MAX CHRISTIE', 'brand': True}
 
 
 def init(workdir, presentation_english=False):

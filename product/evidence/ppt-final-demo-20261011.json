@@ -1,0 +1,55 @@
+{
+  "schema": "gamebuddy-ppt-final-demo-v1",
+  "createdAt": "2026-10-10T17:54:58.128365+00:00",
+  "finalMovie": "product/build/ppt-demo-20261011/english-v6/GameBuddy-PPT-Final-Demo-20261011.mp4",
+  "finalSha256": "7726383539b2a7eb2046f4915c0b89590efacb25ed777a827e0bca942ec24a17",
+  "finalSizeBytes": 101540170,
+  "visualMaster": "product/build/ppt-demo-20261011/english-v6/GameBuddy-PPT-English-v6.mp4",
+  "visualSha256": "78f11ab304cc31da7380dce1235d94d08f44b393f39e573d1b6b907f10218e3b",
+  "gameBuddyMascot": "product/watch/companions/game-buddy/assets/game-buddy-crt.webp",
+  "gameBuddyMascotSha256": "538dc8539ed19aaee6b3d29fe5fae6d555b19b21157ddbc0d9059b9049b28f86",
+  "voiceSource": "product/build/moss-continuous-v2/GameBuddy-55s-English-Commentary-v2.wav",
+  "voiceSha256": "3ca34fff8b00290e8589bd7145fe86160b76198e4b478afcebc0bf3ad5989411",
+  "audioMapping": {
+    "video": "0:v:0 from v6 visual master",
+    "audio": "1:a:0 from MOSS commentary WAV",
+    "originalBroadcastAudioMapped": false,
+    "originalEffectsAudioMapped": false,
+    "videoCodecCopied": true
+  },
+  "videoStreamSha256": "0d1a6cccea09663a627b473f832f33133d0fb8641420cc4455ee34a211035ec5",
+  "videoStreamEqualsVisualMaster": true,
+  "decodedFinalAudioVsVoiceWavCorrelation": 0.999716,
+  "aacRelativeRmsDifference": 0.02387,
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "duration": "55.055000",
+        "nb_frames": "3300"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "channels": 2,
+        "duration": "55.055000",
+        "nb_frames": "2582"
+      }
+    ],
+    "format": {
+      "duration": "55.055000",
+      "size": "101540170"
+    }
+  },
+  "fullAudioVideoDecodePassed": true,
+  "qualityGate": "514 existing tests passed once",
+  "editorial": true,
+  "cloudDeploymentChanged": false,
+  "formalSubmittedMediaChanged": false
+}

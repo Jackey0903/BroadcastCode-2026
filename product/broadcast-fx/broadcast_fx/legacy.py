@@ -59,6 +59,16 @@ DIN = "/System/Library/Fonts/Supplemental/DIN Condensed Bold.ttf"
 DINA = "/System/Library/Fonts/Supplemental/DIN Alternate Bold.ttf"
 CJK = "/System/Library/Fonts/Hiragino Sans GB.ttc"
 PIX = str(PIXEL_SOURCE)
+GAMEBUDDY_ATLAS = REPO_ROOT / "watch/companions/game-buddy/assets/game-buddy-crt.webp"
+
+
+@functools.lru_cache(maxsize=2)
+def gamebuddy_mascot_rgba(closing=False):
+    """Reuse the watch player's transparent GameBuddy mascot for PPT bookends."""
+    with Image.open(GAMEBUDDY_ATLAS) as atlas:
+        column, row = (1, 3) if closing else (0, 0)
+        return np.array(atlas.crop((column * 192, row * 208,
+                                    (column + 1) * 192, (row + 1) * 208)))
 
 @functools.lru_cache(maxsize=None)
 def font(path, size):
@@ -503,6 +513,18 @@ def render_intro(i, n, base_frame=None, copy=None):
     out_k = ease_in_out(clamp((t - exit_at) / 0.45))
     al = 1 - out_k
     x = 150 - (WIDTH + 400) * out_k if closing else 150
+    if copy.get('brand') and t > 0.18:
+        brand_in = ease_out((t - 0.18) / 0.42)
+        brand_alpha = brand_in * al
+        brand_x = x - 36 * (1 - brand_in)
+        L.paste(gamebuddy_mascot_rgba(closing), brand_x, 62,
+                alpha=brand_alpha, scale=0.87 + 0.07 * brand_in)
+        L.paste(text_rgba('GAMEBUDDY', DINA, 86, CHALK, 2),
+                brand_x + 188, 88, alpha=brand_alpha)
+        rect(L, brand_x + 192, 178, brand_x + 710 * brand_in, 182,
+             ORANGE, 0.9 * brand_alpha)
+        L.paste(text_rgba('YOUR AI BASKETBALL COMPANION', DIN, 29, MUTED, 3),
+                brand_x + 191, 188, alpha=brand_alpha)
     if t > 0.28:
         k = back_out(clamp((t - 0.28) / 0.2))
         L.paste(text_rgba(copy.get("headline", "DOWN 4"), DIN, copy.get('headlineSize', 250), CHALK, 6, 0, (0, 0, 0), 0.16), x, 300, alpha=al * clamp((t - 0.28) / 0.06), scale=1.4 - 0.4 * k)
@@ -524,7 +546,8 @@ def render_intro(i, n, base_frame=None, copy=None):
         L.paste(text_rgba("DAL", PIX, 24, CHALK), x + 690, 796, alpha=al * clamp((t - 1.4) / 0.2))
     if closing:
         credit = ease_out((t - 1.6) / .4) * al
-        L.paste(text_rgba('GameBuddy', DINA, 38, CHALK), x + 10, 913, alpha=credit)
+        if not copy.get('brand'):
+            L.paste(text_rgba('GameBuddy', DINA, 38, CHALK), x + 10, 913, alpha=credit)
         L.paste(text_rgba('SOURCE: NBA PLAY-BY-PLAY & SHOT QUALITY', DIN, 24, MUTED),
                 x + 10, 965, alpha=credit)
     wipe_at = exit_at - .05 if closing else 1.95
