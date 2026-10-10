@@ -1,0 +1,164 @@
+{
+  "sourceFiles": [
+    {
+      "path": "product/rl/results/evidence-v1/training-report.json",
+      "sha256": "16e2937181d4721d7b201cf8ea89b1080bce790000def677ffb39fe09db99704"
+    },
+    {
+      "path": "product/rl/results/evidence-v1/comparison.json",
+      "sha256": "1f1d134a717919f68c9ffdc81782f5160839fe8b13d05efa1bbeffaec25002cf"
+    },
+    {
+      "path": "product/rl/results/evidence-v1/rl-update-audit-20261010.json",
+      "sha256": "8293286ec2d2d666c11d8856391c9a4a299ee923fb885ebdef55aad9db3fc4e9"
+    },
+    {
+      "path": "product/rl/results/evidence-v1/evaluation-base-val.jsonl",
+      "sha256": "eead77df173f4faa13619ad77694719dbe97f170b858b9c69ffed12f9edbbee6"
+    },
+    {
+      "path": "product/rl/results/evidence-v1/evaluation-sft-val.jsonl",
+      "sha256": "4a266f3f35a0cb5ba303facb4f35240738a46358c48aae6142d7b9ffdfa61e4e"
+    },
+    {
+      "path": "product/rl/results/evidence-v1/evaluation-rl-val.jsonl",
+      "sha256": "4a266f3f35a0cb5ba303facb4f35240738a46358c48aae6142d7b9ffdfa61e4e"
+    },
+    {
+      "path": "product/rl/results/evidence-v1/evaluation-base-test.jsonl",
+      "sha256": "d478acaa447540eeb30998a6de63058284a9a5becafbfad5d2a8b937e9c87fb6"
+    },
+    {
+      "path": "product/rl/results/evidence-v1/evaluation-sft-test.jsonl",
+      "sha256": "fb2f38b7f1b57f4b961cba32765e4e067e6862315b8b7ba7d22bc86f5a7b7f40"
+    },
+    {
+      "path": "product/rl/results/evidence-v1/evaluation-rl-test.jsonl",
+      "sha256": "fb2f38b7f1b57f4b961cba32765e4e067e6862315b8b7ba7d22bc86f5a7b7f40"
+    },
+    {
+      "path": "product/rl/data/evidence/store.json",
+      "sha256": "634b4210e3cbc0b50365ae2e7693bbcf495783a982cf4d14b8fa926a17033615"
+    },
+    {
+      "path": "product/app.js",
+      "sha256": "e679bdb09b469518f56870ff6e7bd130dedf3758f901aa4e7db7a02a655ceb32"
+    },
+    {
+      "path": "product/rl/train_evidence.py",
+      "sha256": "02139098fcf6caf2247d1f4060db23447e6ce561a19892e4dbf6db01ca69ccc3"
+    },
+    {
+      "path": "product/rl/evidence_env.py",
+      "sha256": "5c2074461bf09b4566ed78fa2ad8554306fd411e109ab6e6c1404cd83b529f03"
+    },
+    {
+      "path": "product/rl/product_bridge.py",
+      "sha256": "f2812b20e8514ffa0891ed1c49c6f9165dc3460b2ef18f2c44d0c8c800ed74ec"
+    }
+  ],
+  "dataCoverage": {
+    "advanced": 166,
+    "basic": 1513,
+    "gravity": 90,
+    "leverage": 160,
+    "shotdifficulty": 64
+  },
+  "checkedSameQuestionIds": true,
+  "modelEvaluation": [
+    {
+      "stage": "base",
+      "split": "val",
+      "n": 16,
+      "successes": 0,
+      "schemaValid": 0,
+      "criticalErrors": 16,
+      "successRate": 0.0,
+      "meanReward": -1.002375
+    },
+    {
+      "stage": "base",
+      "split": "test",
+      "n": 16,
+      "successes": 0,
+      "schemaValid": 0,
+      "criticalErrors": 16,
+      "successRate": 0.0,
+      "meanReward": -1.00225
+    },
+    {
+      "stage": "sft",
+      "split": "val",
+      "n": 16,
+      "successes": 15,
+      "schemaValid": 16,
+      "criticalErrors": 1,
+      "successRate": 0.9375,
+      "meanReward": 0.87125
+    },
+    {
+      "stage": "sft",
+      "split": "test",
+      "n": 16,
+      "successes": 16,
+      "schemaValid": 16,
+      "criticalErrors": 0,
+      "successRate": 1.0,
+      "meanReward": 0.99625
+    },
+    {
+      "stage": "rl",
+      "split": "val",
+      "n": 16,
+      "successes": 15,
+      "schemaValid": 16,
+      "criticalErrors": 1,
+      "successRate": 0.9375,
+      "meanReward": 0.87125
+    },
+    {
+      "stage": "rl",
+      "split": "test",
+      "n": 16,
+      "successes": 16,
+      "schemaValid": 16,
+      "criticalErrors": 0,
+      "successRate": 1.0,
+      "meanReward": 0.99625
+    }
+  ],
+  "limits": [
+    "One seed; 16 validation and 16 test tasks.",
+    "RL increment over SFT is zero.",
+    "RL sampling rewards use changing tasks, not a fixed validation curve.",
+    "Complete SFT loss history is not locally available; no SFT loss curve was fabricated."
+  ],
+  "files": [
+    "figures/01-rl-training-curve-dark.png",
+    "figures/01-rl-training-curve-dark.svg",
+    "figures/01-rl-training-curve-light.png",
+    "figures/01-rl-training-curve-light.svg",
+    "figures/02-model-comparison-dark.png",
+    "figures/02-model-comparison-dark.svg",
+    "figures/02-model-comparison-light.png",
+    "figures/02-model-comparison-light.svg",
+    "figures/03-technical-architecture-dark.dot",
+    "figures/03-technical-architecture-dark.png",
+    "figures/03-technical-architecture-dark.svg",
+    "figures/03-technical-architecture-light.dot",
+    "figures/03-technical-architecture-light.png",
+    "figures/03-technical-architecture-light.svg",
+    "figures/04-data-centric-design-dark.dot",
+    "figures/04-data-centric-design-dark.png",
+    "figures/04-data-centric-design-dark.svg",
+    "figures/04-data-centric-design-light.dot",
+    "figures/04-data-centric-design-light.png",
+    "figures/04-data-centric-design-light.svg",
+    "figures/05-verified-system-paths-dark.dot",
+    "figures/05-verified-system-paths-dark.png",
+    "figures/05-verified-system-paths-dark.svg",
+    "figures/05-verified-system-paths-light.dot",
+    "figures/05-verified-system-paths-light.png",
+    "figures/05-verified-system-paths-light.svg"
+  ]
+}

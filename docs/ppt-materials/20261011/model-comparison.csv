@@ -1,0 +1,7 @@
+﻿stage,split,n,successes,schemaValid,criticalErrors,successRate,meanReward
+base,val,16,0,0,16,0.0,-1.002375
+base,test,16,0,0,16,0.0,-1.00225
+sft,val,16,15,16,1,0.9375,0.87125
+sft,test,16,16,16,0,1.0,0.99625
+rl,val,16,15,16,1,0.9375,0.87125
+rl,test,16,16,16,0,1.0,0.99625

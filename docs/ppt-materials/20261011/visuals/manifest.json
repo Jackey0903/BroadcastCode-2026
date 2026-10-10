@@ -1,0 +1,44 @@
+[
+  {
+    "file": "rl-basic-2s.jpg",
+    "source": "product/build/verified/06ddc49b5a1840dba23e3165bdab550a/enhanced.mp4",
+    "sourceSha256": "f5ec3584290128ba7458c291d1ba067905fa0aed2ea9d40b5d714888cfe0b653",
+    "outputSeconds": 2,
+    "sha256": "f0a41077cd726a6229a91d504c3f16635302bcd018f2a816daa7c0acd13f6441",
+    "scope": "Verified Flagg automatic RL movie; not the 55-second formal movie."
+  },
+  {
+    "file": "rl-efficiency-8s.jpg",
+    "source": "product/build/verified/06ddc49b5a1840dba23e3165bdab550a/enhanced.mp4",
+    "sourceSha256": "f5ec3584290128ba7458c291d1ba067905fa0aed2ea9d40b5d714888cfe0b653",
+    "outputSeconds": 8,
+    "sha256": "e49b939a8e6035cf8b3c1d44055e5f2f14bf556a6acbdeaeddf65788578991ee",
+    "scope": "Verified Flagg automatic RL movie; not the 55-second formal movie."
+  },
+  {
+    "file": "rl-depth-14s.jpg",
+    "source": "product/build/verified/06ddc49b5a1840dba23e3165bdab550a/enhanced.mp4",
+    "sourceSha256": "f5ec3584290128ba7458c291d1ba067905fa0aed2ea9d40b5d714888cfe0b653",
+    "outputSeconds": 14,
+    "sha256": "6803d189557072b6b61af2cbed1a00df6ee75d3346ed10f363923ab516a47caf",
+    "scope": "Verified Flagg automatic RL movie; not the 55-second formal movie."
+  },
+  {
+    "file": "formal-shot-quality.jpg",
+    "source": "docs/assets/readme-55s/shot-quality.jpg",
+    "sha256": "a587a3235dd62d6445e5d4cd24b04745038ab7aa853ef8e77265e65ad3ff3d52",
+    "scope": "Confirmed 55-second formal visual movie frame; provenance in docs/assets/readme-55s/manifest.json."
+  },
+  {
+    "file": "formal-court.jpg",
+    "source": "docs/assets/readme-55s/court.jpg",
+    "sha256": "e91a932b641d22b168c021583f774d2f386b11a957f10abf099a0c18d10137c1",
+    "scope": "Confirmed 55-second formal visual movie frame; provenance in docs/assets/readme-55s/manifest.json."
+  },
+  {
+    "file": "formal-basket.jpg",
+    "source": "docs/assets/readme-55s/basket.jpg",
+    "sha256": "0fa5cedd8aacb51925d7141633b590dfaa6bbbd9981f9589e361ed0be33f92af",
+    "scope": "Confirmed 55-second formal visual movie frame; provenance in docs/assets/readme-55s/manifest.json."
+  }
+]

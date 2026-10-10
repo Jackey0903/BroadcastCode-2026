@@ -36,6 +36,8 @@
 
 # GameBuddy · Team02：AI 接手说明
 
+**10月11日 · 技术答辩素材：** 已按用户五条主线整理 [技术概括与讲解素材](docs/ppt-materials/20261011/技术核心创新与答辩素材.md)，包括整体/详细架构、30轮真实RL曲线、Base/SFT/RL同题对比、13项AWS业务服务完整清单、数据融合及陪伴式体验。素材提供深色/白底PNG、SVG、DOT与CSV；生成时复核六份逐题文件的相同ID与成功计数。SFT/RL固定结果均为验证15/16、测试16/16，RL增量为0；6/6服务组合验收单独列示。SFT完整损失日志的赛后S3读取被权限边界拒绝，不补画缺失序列。此轮为本地答辩资料整理，不更新云端作品或重启训练。
+
 **10月10日 · README 55秒配图更新：** 用户确认视觉成片v2为确定版，README现使用其8幅真实解码截图，覆盖开场、持球防守、前场篮板、两种战术板、xFG、命中和片尾；正文时长及首次顺序播放的双时间轴例子同步更新。图片与源片哈希、帧号和成片时间保存于 [截帧清单](docs/assets/readme-55s/manifest.json)，可用 `python3 product/scripts/capture_readme_frames.py` 复现；后续公开发布只包含说明和图片，实际核验见下方发布证据。此轮截帧不改变成片或其他会话的配音/模型联调状态。
 
 **10月10日 · README 公网页面：** 已按用户提供的主办方说明，将根 README 的16项创新点发布到正式作品的 `/readme`；Team02 标识、55秒版8幅配图和 Markdown 下载已上线，另支持 `/product/readme`。最新13项公开资产均通过 HTTP 200、内容类型及 SHA-256 核验，本轮完整离线工程检查通过；1440×1000桌面与390×844窄屏均显示8图，无横向溢出，见 [浏览器记录](product/evidence/readme-gallery-browser-20261010.json)。仅发布静态说明白名单，未重新部署主产品或调用模型。复现入口为 `product/scripts/publish_readme.py --publish`，实际发布使用 `readiness-lab/.venv/bin/python`、`nba` profile；证据见 [README 发布核验](product/evidence/readme-publication-20261010.json)。

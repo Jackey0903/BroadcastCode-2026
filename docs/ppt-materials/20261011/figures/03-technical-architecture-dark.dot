@@ -1,0 +1,14 @@
+
+digraph overview {
+ graph [rankdir=LR, bgcolor="#10171c", pad=.45, nodesep=.4, ranksep=.4,
+        fontname="Arial Unicode MS", fontsize=25, label="GameBuddy 系统能力总览", labelloc=t, fontcolor="#eaf2f6"];
+ node [shape=box, style="rounded,filled", fontname="Arial Unicode MS", fontsize=22,
+       color="#33434f", fillcolor="#18242d", fontcolor="#eaf2f6", margin=".18,.16"];
+ edge [color="#abbcc8", arrowsize=.8];
+ data [label="真实数据与视频\n基础 / 高阶 / 深度\n统一证据语义"];
+ intelligence [label="多模型Agent协作\n3B数据球探\nAgentCore / Bedrock\n工具调用与事实校验"];
+ production [label="回合视觉与解说\nFFmpeg / 双时间轴\n战术定格与慢放\n数据烧录 / 双人TTS"];
+ cloud [label="AWS托管交付\nLambda / SQS / DDB\nS3 / CloudFront\n事件验收与观测"];
+ experience [label="陪伴式观赛\n三态布局\n关注点与数据回看\n人物、战术与来源"];
+ data -> intelligence -> production -> cloud -> experience;
+}

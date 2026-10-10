@@ -1,0 +1,40 @@
+
+digraph architecture {
+ graph [rankdir=LR, bgcolor="#10171c", pad=.45, nodesep=.35, ranksep=.55,
+        fontname="Arial Unicode MS", fontsize=22, label="GameBuddy 技术架构与已验证路径", labelloc=t, fontcolor="#eaf2f6"];
+ node [shape=box, style="rounded,filled", fontname="Arial Unicode MS", fontsize=18,
+       color="#33434f", fillcolor="#18242d", fontcolor="#eaf2f6", margin=".18,.14"];
+ edge [color="#abbcc8", arrowsize=.8, fontname="Arial Unicode MS", fontsize=14, fontcolor="#abbcc8"];
+ sources [label="真实比赛视频 + 官方数据\n基础统计 / 派生效率 / 深度赛场"];
+ evidence [label="统一证据层\n主体 · 事件 · 单位 · 时期 · 来源"];
+ subgraph cluster_automatic {
+  label="自动生成路径：弗拉格RL样片已验收"; fontcolor="#69c5ff"; color="#33434f";
+  queue [label="Lambda API → SQS → Worker\nDynamoDB任务状态"];
+  scout [label="SageMaker 数据球探\nQwen2.5-3B\nQLoRA SFT + Agentic RL"];
+  agent [label="视觉与叙事Agent\nAgentCore + Bedrock\n读图 / 取证 / 校验 / 修订"];
+  burn [label="FFmpeg完整成片\n数据卡片 + 来源约束"];
+  queue -> scout [label="按关注维度取证"];
+  scout -> agent [label="已核验证据"];
+  agent -> burn;
+ }
+ subgraph cluster_showcase {
+  label="55秒正式作品：编辑视觉 + Agent审核 + 双人解说"; fontcolor="#ffaf72"; color="#33434f";
+  edit [label="回合视觉编辑\n定格 / 战术板 / 慢放 / 命中动效"];
+  review [label="AgentCore审核15段稿件\n外部TTS生成双人语音"];
+  mix [label="55.055秒影音合成\n双音轨 / 双时间轴"];
+  edit -> review -> mix;
+ }
+ delivery [label="S3持久化 → CloudFront\n原片 / 增强片 / 可核对产物"];
+ viewer [label="陪伴式观赛体验\n沉浸 / 全场 / 半场\n回看 / 档案 / 来源与关注点"];
+ verifier [label="EventBridge → Step Functions\n独立媒体验收\n可选Polly / Rekognition"];
+ sources -> evidence;
+ evidence -> scout;
+ sources -> queue [label="登记素材"];
+ evidence -> edit [label="正式事件与数据"];
+ burn -> delivery;
+ mix -> delivery;
+ burn -> verifier [style=dashed, label="成片完成事件"];
+ delivery -> viewer;
+ foundation [label="工程支撑\nAWS CDK / IAM边界\nCloudWatch观测", shape=plaintext, fillcolor="#10171c"];
+ {rank=sink; viewer; foundation;}
+}

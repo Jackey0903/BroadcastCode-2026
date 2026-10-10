@@ -1,0 +1,19 @@
+
+digraph fusion {
+ graph [rankdir=LR, bgcolor="#10171c", pad=.5, nodesep=.4, ranksep=.65,
+        fontname="Arial Unicode MS", fontsize=24, label="同一套真实证据贯穿训练、调用与展示", labelloc=t, fontcolor="#eaf2f6"];
+ node [shape=box, style="rounded,filled", fontname="Arial Unicode MS", fontsize=19,
+       color="#33434f", fillcolor="#18242d", fontcolor="#eaf2f6", margin=".2,.16"];
+ edge [color="#abbcc8", arrowsize=.8, fontname="Arial Unicode MS", fontsize=14, fontcolor="#abbcc8"];
+ basic [label="基础数据：1,513条\n得分 / 篮板 / 助攻等官方计数"];
+ advanced [label="高阶派生：166条\neFG / TS\n保留官方操作数与公式"];
+ depth [label="深度赛场：314条\nGravity / Leverage / Shot Difficulty"];
+ schema [label="1,993条统一证据\n33名球员 · 4场比赛\n赛季背景分别标注\n身份 / 粒度 / 单位\n时期 / 来源哈希"];
+ train [label="训练\n867道构建任务\n工具协议、证据选择与边界拒答"];
+ invoke [label="Agent按关注维度取证\nspacing → Gravity\ncreation → Leverage\nshot_quality →\nShot Difficulty"];
+ show [label="叙事与展示\n34分 · eFG54%\n赛季引力6.217\n分时卡片 / 来源 / 比较"];
+ boundary [label="单次出手xFG独立标注\n赛季背景不等于\n本回合动作因果", shape=plaintext, fillcolor="#10171c", fontsize=16];
+ basic -> schema; advanced -> schema; depth -> schema;
+ schema -> train; schema -> invoke; schema -> show;
+ {rank=same; schema; boundary;}
+}

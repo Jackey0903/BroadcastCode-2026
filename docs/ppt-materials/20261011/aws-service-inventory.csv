@@ -1,0 +1,14 @@
+﻿service,role,implementation_value
+Amazon Bedrock AgentCore,托管工具型Agent运行时；实际多轮工具调用及正式稿件读取/审核,将读图、取证、校验和审核组织为有真实调用回执的服务。
+Amazon Bedrock,调用Claude Sonnet 4.6执行视觉理解、章节叙事与稿件审核,模型表达与项目工具约束共同工作，避免仅在页面显示预设回答。
+Amazon SageMaker,3B模型GPU训练、CPU打包及实时端点推理,单台A10G完成QLoRA/SFT/RL；训练权重有可核验身份，Worker可调用指定端点。
+AWS Lambda,API、视频Worker、独立媒体验证与可选语音处理,使用Function URL和受控Worker；计算职责分开，已实现异步任务及媒体处理。
+Amazon SQS,渲染队列、重试及死信队列,把长生成过程从网页请求解耦；Worker单并发与批次1控制资源和推理预算。
+Amazon DynamoDB,任务状态、预算、输入输出身份及验收回执,观众可查询处理阶段；“生成完成”和“独立交付验证”分别保存。
+Amazon S3,视频、帧、数据快照、模型相关产物及原始回执存储,作品与大回执持久化；SHA-256和来源记录便于重跑、核对和缓存复用。
+Amazon CloudFront,HTTPS网页与视频交付，OAC连接私有S3与Lambda源,同源目录支撑播放器和玻璃取样；媒体Range206与缓存命中均有真实记录。
+Amazon EventBridge,成片保存后发布`VideoRendered`完成事件,推理/渲染与后续验收解耦；事件重试、有效期及目标死信队列独立控制。
+AWS Step Functions,STANDARD独立交付验收工作流,根据媒体验证结果选择通过、等待复核或拒收；可选派生失败保留原成片。
+Amazon CloudWatch,日志、业务指标、告警与运行看板,有6项失败、死信及积压告警；原始任务、事件和媒体问题可以分别定位。
+Amazon Polly,已实测的可选AWS原生章节语音派生,根据实际语音时长放入章节窗口，提供额外语音版本；正式最终双人语音使用豆包。
+Amazon Rekognition,真实注册帧的场景辅助标签,独立标签调用已返回结果；用于场景辅助，不承担球员识别或逐帧追踪。
