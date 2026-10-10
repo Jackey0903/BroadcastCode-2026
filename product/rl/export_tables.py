@@ -12,5 +12,8 @@ if __name__ == "__main__":
     profiles = json.loads((HERE / "data" / "profiles.json").read_text())
     train, _ = env.split(shots)
     tables = env.References(train, profiles).to_tables()
+    import sys
+    if "--policy" in sys.argv:  # e.g. --policy v3: must match the model on the endpoint
+        tables["policy"] = sys.argv[sys.argv.index("--policy") + 1]
     (HERE / "data" / "reference_tables.json").write_text(json.dumps(tables, ensure_ascii=False))
     print(f"zone {len(tables['zone'])} · move {len(tables['move'])} · profiles {len(tables['profiles'])} · from {len(train)} training shots")

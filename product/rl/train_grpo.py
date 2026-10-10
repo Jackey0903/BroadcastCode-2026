@@ -46,6 +46,9 @@ def arguments():
     p.add_argument("--time-budget", type=int, default=0, help="seconds for the training loop; 0 = no limit")
     p.add_argument("--seed", type=int, default=7)
     p.add_argument("--reward", default=env.REWARD_VERSION, choices=sorted(env.REWARD_PRESETS))
+    p.add_argument("--extra-prompts", type=int, default=0,
+                   help="dynamic sampling: oversample prompts, drop groups with identical rewards, "
+                        "update on at most prompts-per-step groups that carry signal")
     p.add_argument("--data-dir", default=str(HERE / "data"))
     p.add_argument("--out", default=os.environ.get("RL_OUT", "/opt/ml/checkpoints"))
     args, _ = p.parse_known_args()
@@ -190,42 +193,53 @@ class Runner:
 
     def step(self, step):
         a = self.args
-        n_focus = round(a.focus_ratio * a.prompts_per_step) if self.train_focus else 0
+        dynamic = a.extra_prompts > 0
+        n_prompts = a.prompts_per_step + a.extra_prompts
+        n_focus = round(a.focus_ratio * n_prompts) if self.train_focus else 0
         shots = random.sample(self.train_focus, min(n_focus, len(self.train_focus)))
-        shots += random.sample(self.train, a.prompts_per_step - len(shots))
+        shots += random.sample(self.train, n_prompts - len(shots))
         batch = [s for s in shots for _ in range(a.group)]
         t0 = time.time()
         episodes = self.rollout(batch)
         t_gen = time.time() - t0
-        advantages, flat = [], 0
-        for g in range(a.prompts_per_step):
-            rewards = [e["total"] for e in episodes[g * a.group:(g + 1) * a.group]]
+        used, advantages, flat, groups = [], [], 0, []
+        for g in range(n_prompts):
+            members = episodes[g * a.group:(g + 1) * a.group]
+            rewards = [e["total"] for e in members]
             mean, std = statistics.fmean(rewards), statistics.pstdev(rewards)
             flat += std < 1e-6  # identical rewards: this group carries no learning signal
-            advantages += [0.0 if std < 1e-6 else (r - mean) / (std + 1e-4) for r in rewards]
+            adv = [0.0 if std < 1e-6 else (r - mean) / (std + 1e-4) for r in rewards]
+            if dynamic and (std < 1e-6 or len(groups) >= a.prompts_per_step):
+                continue
+            used += members
+            advantages += adv
+            groups.append((members, adv))
         lr = a.lr * min(1.0, (step + 1) / max(1, a.warmup))
         for group in self.opt.param_groups:
             group["lr"] = lr
         self.opt.zero_grad(set_to_none=True)
-        loss = self.policy_loss(episodes, advantages)
-        torch.nn.utils.clip_grad_norm_([p for p in self.model.parameters() if p.requires_grad], 1.0)
-        self.opt.step()
+        loss = self.policy_loss(used, advantages) if used else 0.0
+        if used:
+            torch.nn.utils.clip_grad_norm_([p for p in self.model.parameters() if p.requires_grad], 1.0)
+            self.opt.step()
         summary = env.summarize(episodes)
-        summary.update({k: round(statistics.fmean(e[k] for e in episodes), 4) for k in ("calibration", "format", "grounded")})
+        summary.update({k: round(statistics.fmean(e[k] for e in episodes), 4) for k in env.WEIGHTS})
         summary["invalidRate"] = round(statistics.fmean(1.0 if e["invalid"] else 0.0 for e in episodes), 4)
         summary["genTokens"] = round(statistics.fmean(sum(e["mask"]) for e in episodes), 1)
-        summary["flatGroups"] = round(flat / a.prompts_per_step, 3)
+        summary["flatGroups"] = round(flat / n_prompts, 3)
+        summary["updateGroups"] = len(groups)
         self.log("train", step=step, loss=round(loss, 5), lr=lr, genSeconds=round(t_gen, 1),
                  stepSeconds=round(time.time() - t0, 1), **summary)
         print(f"METRIC step={step} reward={summary['meanReward']} mae={summary['mae']} "
               f"tools={summary['toolsPerEpisode']} invalid={summary['invalidRate']}", flush=True)
-        if step % a.rollout_every == 0:
-            group = episodes[: a.group]
+        if step % a.rollout_every == 0 and groups:
+            group, adv_list = groups[0]
             with (self.out / "rollouts.jsonl").open("a") as stream:
                 stream.write(json.dumps({"step": step, "shot": group[0]["shot"], "trajectories": [
                     {"turns": e["turns"], "tools": e["toolNames"], "prediction": e["prediction"], "total": e["total"],
-                     "calibration": round(e["calibration"], 4), "advantage": round(adv, 3)}
-                    for e, adv in zip(group, advantages[: a.group])]}, ensure_ascii=False) + "\n")
+                     "calibration": round(e["calibration"], 4), "advantage": round(adv, 3),
+                     "low": e.get("low"), "high": e.get("high")}
+                    for e, adv in zip(group, adv_list)]}, ensure_ascii=False) + "\n")
 
     def evaluate(self, step, shots, name="eval", detail=False):
         rows = []
@@ -240,7 +254,8 @@ class Runner:
                     stream.write(json.dumps({"shot": e["shot"], "turns": e["turns"], "tools": e["toolNames"],
                                              "prediction": e["prediction"], "quality": e["quality"],
                                              "total": e["total"], "format": e["format"],
-                                             "grounded": e["grounded"]}, ensure_ascii=False) + "\n")
+                                             "grounded": e["grounded"], "low": e.get("low"), "high": e.get("high"),
+                                             "intervalScore": e.get("intervalScore")}, ensure_ascii=False) + "\n")
         return summary
 
     def save(self, tag):

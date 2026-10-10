@@ -142,5 +142,66 @@ class Reward(unittest.TestCase):
         self.assertEqual((summary["episodes"], summary["answered"], summary["mae"]), (2, 2, 0.15))
 
 
+class IntervalScout(unittest.TestCase):
+    """Reward v3: point estimate + central 60% interval scored by the (proper) interval score."""
+
+    def setUp(self):
+        env.use_reward("v3")
+
+    def tearDown(self):
+        env.use_reward("v1")
+
+    def test_spec_switches_prompt_tools_and_weights(self):
+        self.assertIn("player_zone", env.TOOLS)
+        self.assertIn('"low"', env.SYSTEM_PROMPT)
+        self.assertEqual(env.parse_action('{"tools": ["player_zone"]}'), ("tools", ["player_zone"], False))
+        self.assertAlmostEqual(sum(env.WEIGHTS.values()), 1.0)
+        env.use_reward("v2")
+        self.assertNotIn("player_zone", env.TOOLS)
+        self.assertEqual(env.parse_action('{"tools": ["player_zone"]}'), ("invalid", None, True))
+        self.assertNotIn('"low"', env.SYSTEM_PROMPT)
+
+    def test_interval_reward_and_ordering(self):
+        good = env.reward({"quality": 0.45, "low": 0.40, "high": 0.50, "reason": "x"}, 0.47, [], False, "")
+        self.assertEqual((good["format"], good["low"], good["high"]), (1.0, 0.4, 0.5))
+        self.assertAlmostEqual(good["intervalScore"], 0.10, places=6)
+        self.assertAlmostEqual(good["interval"], 1 - 0.10 / env.INTERVAL_SCALE, places=6)
+        missed = env.reward({"quality": 0.45, "low": 0.40, "high": 0.50, "reason": "x"}, 0.60, [], False, "")
+        self.assertAlmostEqual(missed["intervalScore"], 0.10 + (2 / 0.4) * 0.10, places=6)
+        disordered = env.reward({"quality": 0.45, "low": 0.50, "high": 0.40, "reason": "x"}, 0.47, [], False, "")
+        self.assertEqual((disordered["format"], disordered["interval"], disordered["low"]), (0.0, 0.0, None))
+        self.assertGreater(disordered["calibration"], 0.9)  # the point estimate still counts
+        point_only = env.reward({"quality": 0.45, "reason": "x"}, 0.47, [], False, "")
+        self.assertLess(point_only["total"], good["total"])
+
+    def test_interval_score_rewards_true_percentiles_over_wide_or_narrow(self):
+        values = [i / 100 for i in range(20, 81)]  # uniform 0.20..0.80 → true q20 = 0.32, q80 = 0.68
+        mean_score = lambda lo, hi: sum(env.interval_score(lo, hi, v) for v in values) / len(values)
+        true = mean_score(0.32, 0.68)
+        self.assertLess(true, mean_score(0.20, 0.80))  # too wide
+        self.assertLess(true, mean_score(0.45, 0.55))  # too narrow
+        self.assertLess(true, mean_score(0.40, 0.76))  # shifted
+
+    def test_tools_report_bands_only_for_the_interval_spec(self):
+        rows = [shot(quality=q / 100) for q in range(30, 70)]
+        refs = env.References(rows, PROFILES)
+        self.assertIn("中间 60% 区间", refs.run("zone_reference", shot()))
+        self.assertIn("球员区域：该球员在禁区·两分的平均官方质量", refs.run("player_zone", shot()))
+        self.assertIn("样本不足", refs.run("player_zone", shot(playerId="999")))
+        again = env.References.from_tables(refs.to_tables())
+        for name in env.TOOLS:
+            self.assertEqual(refs.run(name, shot()), again.run(name, shot()))
+        env.use_reward("v2")
+        self.assertNotIn("区间", refs.run("zone_reference", shot()))
+
+    def test_interval_numbers_are_grounded_and_summarised(self):
+        parts = env.reward({"quality": 0.45, "low": 0.40, "high": 0.52, "reason": "区间0.40到0.52"}, 0.47, [], False, "")
+        self.assertEqual(parts["grounded"], 1.0)
+        rows = [dict(env.reward({"quality": 0.45, "low": 0.4, "high": 0.5, "reason": "x"}, y, [], False, ""), quality=y)
+                for y in (0.45, 0.6)]
+        summary = env.summarize(rows)
+        self.assertEqual((summary["coverage"], summary["intervalRate"], summary["width"]), (0.5, 1.0, 0.1))
+
+
 if __name__ == "__main__":
     unittest.main()

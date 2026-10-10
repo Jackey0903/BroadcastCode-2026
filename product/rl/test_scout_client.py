@@ -47,6 +47,28 @@ class ScoutClient(unittest.TestCase):
         self.assertEqual(result["typicalQuality"], 0.47)
         self.assertNotIn("difficultyDelta", result)
 
+    def test_interval_policy_uses_its_prompt_and_interval_label(self):
+        data = dict(tables(), policy="v3")
+        prompts = []
+        replies = iter(['{"tools": ["zone_reference", "player_zone"]}',
+                        '{"quality": 0.50, "low": 0.46, "high": 0.56, "reason": "禁区均值0.500"}'])
+        try:
+            scout = Scout(lambda p: prompts.append(p) or next(replies), tables=data, model_name="test-v3")
+            result = scout.analyse(OFFICIAL, 1641708, official_quality=0.445)
+        finally:
+            env.use_reward("v1")
+        self.assertIn('"low"', prompts[0])
+        self.assertIn("球员区域", prompts[1])
+        self.assertEqual((result["low"], result["high"], result["policy"]), (0.46, 0.56, "v3"))
+        self.assertEqual((result["difficultyDelta"], result["label"]), (-0.055, "tougher"))  # below the interval
+
+    def test_point_policy_ignores_interval_fields(self):
+        scout = Scout(lambda p: '{"quality": 0.47, "low": 0.1, "high": 0.9, "reason": "常见"}', tables=tables())
+        result = scout.analyse(OFFICIAL, 1641708, official_quality=0.445)
+        env.use_reward("v1")
+        self.assertNotIn("low", result)
+        self.assertEqual((result["policy"], result["label"]), ("v2", "typical"))
+
     def test_failures_degrade_gracefully(self):
         def broken(_):
             raise TimeoutError("model cold start")

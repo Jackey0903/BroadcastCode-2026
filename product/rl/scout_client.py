@@ -4,6 +4,9 @@
     result = scout.analyse(official_row, player_id, official_quality)
 The model never decides the official number; the difference is computed here. Any failure
 returns {"available": False, ...} so the main pipeline can continue without the SCOUT layer.
+The prompt/tool version comes from the tables' "policy" field (absent = v2 point scout) and must match
+the model on the endpoint. Interval scouts (v3) also return low/high, and the label then compares the
+official value with that interval instead of the fixed ±0.08 threshold.
 """
 import json
 from pathlib import Path
@@ -50,6 +53,8 @@ class Scout:
     def __init__(self, invoke, tables_path=None, tables=None, model_name="rl-scout"):
         self.invoke = invoke
         data = tables if tables is not None else json.loads(Path(tables_path).read_text())
+        self.policy = data.get("policy", "v2")
+        env.use_reward(self.policy)
         self.refs = env.References.from_tables(data)
         self.model_name = model_name
 
@@ -70,12 +75,19 @@ class Scout:
             typical = float(payload["quality"])
             if not 0 <= typical <= 1:
                 return {"available": False, "error": "estimate out of range"}
+            span = env._interval(payload, typical) if env.SPEC == "interval" else None
         except Exception as error:  # the SCOUT layer is optional; never break the main pipeline
             return {"available": False, "error": f"{type(error).__name__}: {error}"}
         result = {"available": True, "typicalQuality": round(typical, 3), "reason": str(payload.get("reason", ""))[:80],
-                  "toolsUsed": tools, "model": self.model_name, "source": SOURCE}
+                  "toolsUsed": tools, "model": self.model_name, "policy": self.policy, "source": SOURCE}
+        if span:
+            result.update({"low": round(span[0], 3), "high": round(span[1], 3), "interval": "central 60%"})
         if official_quality is not None:
-            delta = round(float(official_quality) - typical, 3)
+            official = float(official_quality)
+            delta = round(official - typical, 3)
             result["difficultyDelta"] = delta
-            result["label"] = "tougher" if delta < -DELTA_THRESHOLD else "easier" if delta > DELTA_THRESHOLD else "typical"
+            if span:
+                result["label"] = "tougher" if official < span[0] else "easier" if official > span[1] else "typical"
+            else:
+                result["label"] = "tougher" if delta < -DELTA_THRESHOLD else "easier" if delta > DELTA_THRESHOLD else "typical"
         return result
