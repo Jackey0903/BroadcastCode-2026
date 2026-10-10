@@ -139,6 +139,27 @@ class StoryTests(unittest.TestCase):
         delivered = model.calls[1]["messages"][-1]["content"]
         self.assertTrue(any("image" in block for item in delivered for block in item["toolResult"]["content"]))
 
+    def test_short_chapter_requires_readable_caption_without_changing_its_time(self):
+        request, plan = fixture()
+        plan["chapters"][1].update(start=15, end=17,
+                                   caption="持球者看向篮筐，防守人双臂举起，随后持球者完成出手。")
+        with self.assertRaisesRegex(StoryValidationError, "caption exceeds reading budget"):
+            validate_plan(plan, request["story"], request)
+        plan["chapters"][1]["caption"] = "防守人双臂举起。"
+        normalized = validate_plan(plan, request["story"], request)
+        self.assertEqual(normalized["chapters"][1]["start"], 15)
+        self.assertEqual(normalized["chapters"][1]["end"], 17)
+
+    def test_official_metric_reveal_cannot_be_invalid_or_after_video_ends(self):
+        request, _ = fixture()
+        for reveal in (-1, True, float("nan"), request["story"]["durationSeconds"]):
+            story = copy.deepcopy(request["story"])
+            story["shotMetric"]["revealAt"] = reveal
+            with self.subTest(reveal=reveal), self.assertRaisesRegex(StoryValidationError, "revealAt"):
+                canonical_metrics(story)
+        story["shotMetric"]["revealAt"] = 18.5
+        self.assertEqual(canonical_metrics(story)[0]["revealAt"], 18.5)
+
     def test_bad_references_times_unseen_frames_and_model_metrics_are_rejected(self):
         request, plan = fixture()
         cases = []

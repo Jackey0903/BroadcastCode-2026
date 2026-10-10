@@ -126,10 +126,10 @@ def render_story(source, output, result, context=None):
     plan = result["plan"]
     filters = ["scale=1280:720:force_original_aspect_ratio=decrease",
                "pad=1280:720:(ow-iw)/2:(oh-ih)/2:color=black", "fps=30",
-               "pad=1280:900:0:76:color=0x111410",
-               "drawbox=x=28:y=69:w=72:h=3:color=0xcefa58:t=fill"]
+               "pad=1280:900:0:76:color=0x07080b",
+               "drawbox=x=28:y=69:w=72:h=3:color=0xf4541f:t=fill"]
 
-    def label(name, value, x, y, size, color="0xeeeee7", enable=None):
+    def label(name, value, x, y, size, color="0xf2f0ea", enable=None):
         path = work / (name + ".txt")
         path.write_text(value, encoding="utf-8")
         clause = f"drawtext=fontfile={font}:textfile={path}:expansion=none:fontcolor={color}:fontsize={size}:x={x}:y={y}"
@@ -141,23 +141,24 @@ def render_story(source, output, result, context=None):
     metrics = plan.get("metrics", [])
     if metrics:
         metric = metrics[0]
-        label("metric", "本次出手 xFG  " + metric["display"], 912, 12, 22, "0xcefa58")
-        filters.extend(["drawbox=x=912:y=44:w=280:h=6:color=0x34392d:t=fill",
-                        f"drawbox=x=912:y=44:w={max(1, round(280 * metric['barRatio']))}:h=6:color=0xcefa58:t=fill"])
-        label("metric_source", "NBA官方 · 事件 " + str(metric["eventId"]), 912, 55, 12, "0xb9beb0")
+        metric_enable = f"gte(t,{metric.get('revealAt', 0):.6f})"
+        label("metric", "本次出手 xFG  " + metric["display"], 912, 12, 22, "0xffffff", metric_enable)
+        filters.extend([f"drawbox=x=912:y=44:w=280:h=6:color=0x323848:t=fill:enable='{metric_enable}'",
+                        f"drawbox=x=912:y=44:w={max(1, round(280 * metric['barRatio']))}:h=6:color=0xf4541f:t=fill:enable='{metric_enable}'"])
+        label("metric_source", "NBA官方 · 出手机会参考", 912, 55, 12, "0x8d93a3", metric_enable)
     else:
-        label("metric_unavailable", "官方指标待核准", 958, 20, 21, "0xb9beb0")
+        label("metric_unavailable", "官方指标待核准", 958, 20, 21, "0x8d93a3")
     actual_frames = {item["id"] for item in result["evidence"] if item.get("kind") == "video_frame" and item["id"].startswith("frame-")}
     for index, chapter in enumerate(plan["chapters"]):
         enable = f"gte(t,{chapter['start']:.6f})*lt(t,{chapter['end']:.6f})"
-        label(f"chapter-{index}", chapter["title"], 28, 806, 23, "0xcefa58", enable)
-        label(f"caption-{index}", chapter["caption"], 28, 846, 25, "0xeeeee7", enable)
+        label(f"chapter-{index}", chapter["title"], 28, 806, 23, "0xf4541f", enable)
+        label(f"caption-{index}", chapter["caption"], 28, 846, 25, "0xf2f0ea", enable)
         references = chapter["evidenceIds"]
         has_metric = any(metric["evidenceId"] in references for metric in metrics)
         has_frames = bool(actual_frames.intersection(references))
         source_label = "AI解读 · " + ("NBA官方数据 + 来源画面" if has_metric and has_frames else
                                        "NBA官方数据" if has_metric else "来源画面与策展证据")
-        label(f"source-{index}", source_label, 820, 813, 14, "0xb9beb0", enable)
+        label(f"source-{index}", source_label, 820, 813, 14, "0x8d93a3", enable)
     command = [ffmpeg, "-hide_banner", "-loglevel", "error", "-nostdin", "-y", "-i", str(source),
                "-map", "0:v:0", "-map", "0:a?", "-vf", ",".join(filters),
                "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-pix_fmt", "yuv420p",

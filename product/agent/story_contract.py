@@ -12,6 +12,7 @@ from urllib.parse import urlsplit
 
 STORY_PROTOCOL = "product-story-v1"
 MAX_CHAPTERS = 5
+CAPTION_CHARACTERS_PER_SECOND = 8
 STORIES_KEY = "product/data/stories.json"
 # These are lexical guardrails for sparse-frame narration, not a substitute for
 # basketball review. Ordinary posture words such as “双臂打开” remain allowed.
@@ -251,6 +252,10 @@ def canonical_metrics(story):
     match = re.fullmatch(r"([0-9]+(?:\.[0-9]+)?)%", display)
     if not match or abs(float(match[1]) - ratio * 100) > 0.051:
         raise StoryValidationError("metric display does not match the source value")
+    reveal = metric.get("revealAt", 0)
+    duration = story.get("durationSeconds")
+    if not number(reveal) or reveal < 0 or (number(duration) and reveal >= duration):
+        raise StoryValidationError("metric revealAt must be within the source video")
     metric = copy.deepcopy(metric)
     metric["barRatio"] = ratio
     return [metric]
@@ -320,6 +325,9 @@ def validate_plan(plan, story, request, inspected_frame_ids=None):
             if number(timestamp) and not str(source.get("kind", "")).lower().startswith("official"):
                 if not start - 0.5 <= timestamp <= end + 0.5:
                     raise StoryValidationError("chapter image evidence is outside its time range; move the chapter or cite relevant frames")
+        caption_limit = max(4, min(42, math.floor((end - start) * CAPTION_CHARACTERS_PER_SECOND + 1e-6)))
+        if len(prose["chapters"][index]["caption"]) > caption_limit:
+            raise StoryValidationError(f"chapters[{index}].caption exceeds reading budget: shorten to {caption_limit} characters")
         entry = {"id": identifier, "start": start, "end": end,
                  "title": prose["chapters"][index]["title"],
                  "caption": prose["chapters"][index]["caption"],
