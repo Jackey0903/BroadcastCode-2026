@@ -1,0 +1,136 @@
+{
+  "schema": "gamebuddy-post-contest-availability-v1",
+  "checkedAt": "2026-10-11T00:22:48.825205+08:00",
+  "reportedContestResult": {
+    "place": 4,
+    "submitted": true,
+    "source": "user_statement",
+    "independentlyVerified": false
+  },
+  "target": {
+    "account": "555726205424",
+    "profile": "nba",
+    "region": "us-east-1",
+    "role": "NBAHackathonParticipantRole"
+  },
+  "controlPlane": {
+    "stack": {
+      "ok": false,
+      "errorType": "ClientError",
+      "errorCode": "AccessDenied"
+    },
+    "distribution": {
+      "ok": false,
+      "errorType": "AccessDenied",
+      "errorCode": "AccessDenied"
+    },
+    "sourceStorage": {
+      "ok": false,
+      "errorType": "ClientError",
+      "errorCode": "403"
+    },
+    "agentCore": {
+      "ok": false,
+      "errorType": "AccessDeniedException",
+      "errorCode": "AccessDeniedException"
+    },
+    "rlEndpoint": {
+      "ok": false,
+      "errorType": "ClientError",
+      "errorCode": "AccessDeniedException"
+    },
+    "alarms": {
+      "ok": false,
+      "errorType": "ClientError",
+      "errorCode": "AccessDenied"
+    },
+    "stackResources": {
+      "ok": false,
+      "errorType": "ClientError",
+      "errorCode": "AccessDenied"
+    },
+    "identity": {
+      "account": "555726205424",
+      "role": "NBAHackathonParticipantRole"
+    },
+    "checkedAtUtc": "2026-10-10T16:20:21.994223+00:00"
+  },
+  "liveCalls": {
+    "agentInvocation": {
+      "ok": false,
+      "errorType": "AccessDeniedException",
+      "errorCode": "AccessDeniedException",
+      "seconds": 1.419
+    },
+    "rlHealth": {
+      "ok": false,
+      "errorType": "ClientError",
+      "errorCode": "AccessDeniedException",
+      "seconds": 1.761
+    }
+  },
+  "publicApi": [
+    {
+      "path": "/api/status",
+      "httpStatus": 200,
+      "status": "ready",
+      "stage": null,
+      "samples": [
+        {
+          "id": "amen",
+          "name": "训练_阿门1月4日 .mp4",
+          "durationSeconds": 22.894875
+        },
+        {
+          "id": "flagg",
+          "name": "训练_弗拉格2月1日.mp4",
+          "durationSeconds": 21.548118
+        }
+      ],
+      "error": null
+    },
+    {
+      "path": "/api/jobs/06ddc49b5a1840dba23e3165bdab550a",
+      "httpStatus": 200,
+      "status": "completed",
+      "stage": "completed",
+      "samples": null,
+      "error": null
+    }
+  ],
+  "publicDelivery": [
+    {
+      "path": "/",
+      "httpStatus": 200
+    },
+    {
+      "path": "/product/watch/index.html",
+      "httpStatus": 200
+    },
+    {
+      "path": "/product/watch/data/stories.json",
+      "httpStatus": 200
+    },
+    {
+      "path": "/product/media/formal/enhanced.mp4",
+      "httpStatus": 206,
+      "range": "bytes 0-1023/58674692"
+    }
+  ],
+  "bedrockDirectCall": {
+    "ok": false,
+    "code": "AccessDeniedException",
+    "modelId": "global.anthropic.claude-sonnet-4-6",
+    "reason": "no permissions boundary allows the bedrock:InvokeModel action"
+  },
+  "cloudformationDenialReason": "no permissions boundary allows the cloudformation:DescribeStacks action",
+  "limits": [
+    "No resource was created, modified, deleted or redeployed.",
+    "No new video job, RL generation, GPU training or TTS synthesis was started.",
+    "Agent invocation and SageMaker health call were attempted but denied.",
+    "Public API readiness and historic completed task reads do not prove new generation works.",
+    "Denied metadata reads do not show whether resources were deleted.",
+    "No permission extension or expiry time was confirmed.",
+    "Video check covers a 1024-byte HTTP range, not fresh full playback."
+  ]
+}
