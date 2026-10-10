@@ -1,0 +1,458 @@
+{
+  "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+  "output": "/Users/jack/work/BroadcastCode/product/build/formal-video/GameBuddy-克里斯蒂二次进攻-正式版.mp4",
+  "outputSha256": "3330fe41bb2c654e8a229ce94d9d2dbe7a1546a7a0828f1790be2168041e5e5b",
+  "sizeBytes": 96033327,
+  "frameCount": 2710,
+  "durationSeconds": 45.21183333333333,
+  "probe": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "width": 1920,
+        "height": 1080,
+        "coded_width": 1920,
+        "coded_height": 1080,
+        "has_b_frames": 2,
+        "pix_fmt": "yuv420p",
+        "level": 42,
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "refs": 1,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "60000/1001",
+        "avg_frame_rate": "60000/1001",
+        "time_base": "1/60000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 2712710,
+        "duration": "45.211833",
+        "bit_rate": "16785244",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "2710",
+        "extradata_size": 44,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "vendor_id": "[0][0][0][0]",
+          "encoder": "Lavc62.11.100 libx264"
+        }
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "sample_fmt": "fltp",
+        "sample_rate": "48000",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 2170176,
+        "duration": "45.212000",
+        "bit_rate": "194368",
+        "nb_frames": "2121",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler",
+          "vendor_id": "[0][0][0][0]"
+        }
+      }
+    ],
+    "format": {
+      "filename": "/Users/jack/work/BroadcastCode/product/build/formal-video/GameBuddy-克里斯蒂二次进攻-正式版.mp4",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "45.212000",
+      "size": "96033327",
+      "bit_rate": "16992537",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "encoder": "Lavf62.3.100"
+      }
+    }
+  },
+  "audio": {
+    "segments": [
+      {
+        "name": "intro",
+        "start": 0,
+        "count": 120,
+        "sourceStart": 0.0,
+        "sourceRate": 0.0,
+        "outputSample": 0,
+        "sampleCount": 96096,
+        "audioKind": "procedural-sfx-no-speech"
+      },
+      {
+        "name": "live",
+        "start": 120,
+        "count": 241,
+        "sourceStart": 0.0,
+        "sourceRate": 1.0,
+        "outputSample": 96096,
+        "sampleCount": 192993,
+        "sourceSampleStart": 0,
+        "sourceSampleEndExclusive": 192993,
+        "audioKind": "original-broadcast",
+        "gain": 0.9
+      },
+      {
+        "name": "T1",
+        "start": 361,
+        "count": 210,
+        "sourceStart": 240.0,
+        "sourceRate": 0.0,
+        "outputSample": 289089,
+        "sampleCount": 168168,
+        "audioKind": "procedural-sfx-no-speech"
+      },
+      {
+        "name": "live",
+        "start": 571,
+        "count": 479,
+        "sourceStart": 241.0,
+        "sourceRate": 1.0,
+        "outputSample": 457257,
+        "sampleCount": 383583,
+        "sourceSampleStart": 192993,
+        "sourceSampleEndExclusive": 576576,
+        "audioKind": "original-broadcast",
+        "gain": 0.9
+      },
+      {
+        "name": "T2",
+        "start": 1050,
+        "count": 210,
+        "sourceStart": 719.0,
+        "sourceRate": 0.0,
+        "outputSample": 840840,
+        "sampleCount": 168168,
+        "audioKind": "procedural-sfx-no-speech"
+      },
+      {
+        "name": "live",
+        "start": 1260,
+        "count": 704,
+        "sourceStart": 720.0,
+        "sourceRate": 1.0,
+        "outputSample": 1009008,
+        "sampleCount": 563763,
+        "sourceSampleStart": 576576,
+        "sourceSampleEndExclusive": 1140339,
+        "audioKind": "original-broadcast",
+        "gain": 0.9
+      },
+      {
+        "name": "rewind",
+        "start": 1964,
+        "count": 36,
+        "sourceStart": 1423.0,
+        "sourceRate": -20.106265163408022,
+        "outputSample": 1572771,
+        "sampleCount": 28829,
+        "audioKind": "procedural-sfx-no-speech"
+      },
+      {
+        "name": "replay1",
+        "start": 2000,
+        "count": 186,
+        "sourceStart": 719.2807192807193,
+        "sourceRate": 0.5,
+        "outputSample": 1601600,
+        "sampleCount": 148949,
+        "replaySampleStart": 0,
+        "audioKind": "same-source-half-speed-broadcast",
+        "gain": 0.48
+      },
+      {
+        "name": "metric",
+        "start": 2186,
+        "count": 110,
+        "sourceStart": 812.2807192807193,
+        "sourceRate": 0.0,
+        "outputSample": 1750549,
+        "sampleCount": 88088,
+        "audioKind": "procedural-sfx-no-speech"
+      },
+      {
+        "name": "replay2",
+        "start": 2296,
+        "count": 204,
+        "sourceStart": 812.2807192807193,
+        "sourceRate": 0.5,
+        "outputSample": 1838637,
+        "sampleCount": 163363,
+        "replaySampleStart": 148949,
+        "audioKind": "same-source-half-speed-broadcast",
+        "gain": 0.48
+      },
+      {
+        "name": "outro",
+        "start": 2500,
+        "count": 210,
+        "sourceStart": 1423.0,
+        "sourceRate": 0.0,
+        "outputSample": 2002000,
+        "sampleCount": 168168,
+        "audioKind": "procedural-sfx-no-speech"
+      }
+    ],
+    "peakBeforeSafetyGain": 0.8579562306404114,
+    "safetyGain": 1.0,
+    "peak": 0.8579562306404114,
+    "sourceSha256": "f2c0fb6aa1ec10bd78ea9e6724190b7f03bf48f21af2f743c694bbdb49254c91",
+    "outputSha256": "7f01151a88f6e55d3281401b1caef024fb735a12f0910cdc2c85f2a4fb20fea9",
+    "source": "/Users/jack/work/BroadcastCode/data/正式视频.mp4",
+    "output": "/Users/jack/work/BroadcastCode/product/build/formal-video/formal-mix.wav",
+    "sampleRate": 48000,
+    "channels": 2,
+    "samples": 2170168,
+    "sampleCount": 2170168,
+    "durationSeconds": 45.21183333333333,
+    "speech": "Original formal-source broadcast only; no new TTS or AI voiceover",
+    "mediaInputs": [
+      "/Users/jack/work/BroadcastCode/data/正式视频.mp4"
+    ],
+    "legacyMediaUsed": false
+  },
+  "segments": [
+    {
+      "name": "intro",
+      "start": 0,
+      "count": 120,
+      "sourceStart": 0.0,
+      "sourceRate": 0.0
+    },
+    {
+      "name": "live",
+      "start": 120,
+      "count": 241,
+      "sourceStart": 0.0,
+      "sourceRate": 1.0
+    },
+    {
+      "name": "T1",
+      "start": 361,
+      "count": 210,
+      "sourceStart": 240.0,
+      "sourceRate": 0.0
+    },
+    {
+      "name": "live",
+      "start": 571,
+      "count": 479,
+      "sourceStart": 241.0,
+      "sourceRate": 1.0
+    },
+    {
+      "name": "T2",
+      "start": 1050,
+      "count": 210,
+      "sourceStart": 719.0,
+      "sourceRate": 0.0
+    },
+    {
+      "name": "live",
+      "start": 1260,
+      "count": 704,
+      "sourceStart": 720.0,
+      "sourceRate": 1.0
+    },
+    {
+      "name": "rewind",
+      "start": 1964,
+      "count": 36,
+      "sourceStart": 1423.0,
+      "sourceRate": -20.106265163408022
+    },
+    {
+      "name": "replay1",
+      "start": 2000,
+      "count": 186,
+      "sourceStart": 719.2807192807193,
+      "sourceRate": 0.5
+    },
+    {
+      "name": "metric",
+      "start": 2186,
+      "count": 110,
+      "sourceStart": 812.2807192807193,
+      "sourceRate": 0.0
+    },
+    {
+      "name": "replay2",
+      "start": 2296,
+      "count": 204,
+      "sourceStart": 812.2807192807193,
+      "sourceRate": 0.5
+    },
+    {
+      "name": "outro",
+      "start": 2500,
+      "count": 210,
+      "sourceStart": 1423.0,
+      "sourceRate": 0.0
+    }
+  ],
+  "renderSeconds": 182.02719402313232,
+  "fullDecodePassed": true,
+  "browserPlaybackPassed": true,
+  "editorial": true,
+  "agentCoreInvoked": false,
+  "rlInvoked": false,
+  "replayEndSourceSeconds": 15.25325,
+  "refinement": "Extended replay through visible net motion; shortened outro by 30 frames, total unchanged.",
+  "finalCodeHashes": {
+    "product/broadcast-fx/formal/timeline.py": "80cf78416f2553ea31e269bcac4f560c7725538fcf7e4729947dc5c6d9ae7503",
+    "product/broadcast-fx/formal/render.py": "ffee3ee9bf7b3b388260a37016aa562645d0434f6ef18ca84d6295f09452a76d",
+    "product/broadcast-fx/formal/test_timeline.py": "24388108b87e20098d23d2155cef24a66871c5e5479e6426895bf518a79f2149",
+    "product/broadcast-fx/formal/library.json": "29ae73ea1d2af6938e13bccca5daa199babf38f42203ca60a96eda8060d84fc6",
+    "product/broadcast-fx/formal/audio.py": "1a8701edbe0ff4195df6adbd158507190cd3b6a0f7194765b05d978be1da2b52",
+    "product/broadcast-fx/formal/test_data.py": "69001a80a16a6dbfa47674f28a9a4c7ed35780c2cc7f6b3cee7f94ac744bbaa8",
+    "product/broadcast-fx/formal/data/gpshot-christie.json": "09119ce4c5448ef7a7d74d2cb8a8beb376be57657f3ae464e4b4a2e51435788d",
+    "product/broadcast-fx/formal/data/nba-page-christie.json": "0864ff18e0a4fe4e9bdab8eebcacce9aeb63d73e6bc292d13042b86fe3f13c85",
+    "product/broadcast-fx/formal/data/official.json": "88d46126af782100ceb41c274055e2326de6ae60afbaf124e31ac54baa92ba92",
+    "product/broadcast-fx/formal/data/replay_anchors.json": "b241f0925dadc1b86278dccebfa254d105de299e2c82b8e3b7a03198cef7f5b0",
+    "product/broadcast-fx/formal/data/annotations.json": "eb63ef65257a14f9407e06aee81bb734c4448b35de19652363eea68290318f74",
+    "product/broadcast-fx/formal/data/retrieval.json": "0331db7d531c59a1159da30d659fc215b0e77b8ce9e17613d865a3ce30c2919a"
+  },
+  "validation": {
+    "fullDecodePassed": true,
+    "offlineGateTests": 487,
+    "formalDataTimelineTests": 17,
+    "sourceFramesInOrder": 1424,
+    "resolution": [
+      1920,
+      1080
+    ],
+    "frameRate": "60000/1001",
+    "sourceMediaUsed": "data/正式视频.mp4",
+    "runtimeClaims": {
+      "AgentCore": false,
+      "RL": false,
+      "automaticTracking": false,
+      "newTts": false
+    }
+  },
+  "visualReview": {
+    "title": true,
+    "twoTacticalFreezes": true,
+    "nineVisiblePlayersEachFreeze": true,
+    "hiddenFeetUseBodyMarkers": true,
+    "xfgCountUpTo30": true,
+    "finalScoreDal43Hou44": true,
+    "replayShowsNetMotion": true,
+    "originalScoreboardPreserved": true,
+    "frameCacheBoundAndHashed": true
+  },
+  "browserPlayback": {
+    "browser": "Codex In-app Browser",
+    "url": "http://127.0.0.1:8767/preview.html",
+    "currentTime": 45.212,
+    "duration": 45.212,
+    "ended": true,
+    "paused": true,
+    "error": null,
+    "readAtUtc": "2026-10-10T10:57:30.788201+00:00",
+    "events": [
+      {
+        "event": "waiting",
+        "time": 0
+      },
+      {
+        "event": "playing",
+        "time": 0
+      },
+      {
+        "event": "play",
+        "time": 44.074667
+      },
+      {
+        "event": "playing",
+        "time": 44.074667
+      },
+      {
+        "event": "play",
+        "time": 0
+      },
+      {
+        "event": "playing",
+        "time": 0
+      },
+      {
+        "event": "ended",
+        "time": 45.212
+      }
+    ],
+    "notes": "Initial seek/restart retained in log; final playback resumed at 0 and reached ended."
+  }
+}
