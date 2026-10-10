@@ -1,0 +1,131 @@
+{
+  "schema": "rl-scout-sft-val-failure-audit-v1",
+  "job": "rl-scout-evidence-3b-two-teams-1010-052032",
+  "capturedAt": "2026-10-10T14:02:10.783185+08:00",
+  "source": "s3://nba-hackathon-555726205424-team02/rl-scout/checkpoints/rl-scout-evidence-3b-two-teams-1010-052032/evaluation-sft-val.jsonl",
+  "scope": "Read all 16 SFT validation rows, inspect sole failed episode; no test evaluation read or used.",
+  "validationCounts": {
+    "episodes": 16,
+    "successes": 15,
+    "failures": 1
+  },
+  "taskId": "66da35ce2084fa0d2f53",
+  "category": "joint_three_layer",
+  "request": {
+    "asOf": null,
+    "causal": false,
+    "gameId": "0022500356",
+    "playerId": "1642263",
+    "requestedGrain": null
+  },
+  "prompt": "先选本场助攻和考虑三分价值的运动战投篮效率证据，再补充赛季运动战命中率与预期的差值背景。保留本场与赛季两个范围，给出互补关系，不作因果归因。",
+  "environmentStoreDigest": "d4968456aa2749ea42deaf0e64aa3b58ac9dec5cb145245ccb6d1c1d370bd96a",
+  "observedAnswer": {
+    "status": "ok",
+    "evidenceIds": [
+      "e36d3358d8c3e",
+      "e38b7b38470f8",
+      "e9c4e6089692d"
+    ],
+    "relations": [
+      "game_season_shotquality_context",
+      "volume_efficiency_context"
+    ],
+    "reasonCode": null
+  },
+  "expectedAnswer": {
+    "evidenceIds": [
+      "e38b7b38470f8",
+      "e49bd36bb92f6",
+      "e9c4e6089692d"
+    ],
+    "reasonCode": null,
+    "relations": [
+      "game_season_shotquality_context",
+      "volume_efficiency_context"
+    ],
+    "status": "ok"
+  },
+  "observedFacts": [
+    {
+      "evidenceId": "e36d3358d8c3e",
+      "family": "advanced",
+      "metric": "TS_PCT",
+      "value": 0.75,
+      "unit": "fraction",
+      "grain": "player-game",
+      "playerId": "1642263",
+      "gameId": "0022500356"
+    },
+    {
+      "evidenceId": "e38b7b38470f8",
+      "family": "basic",
+      "metric": "AST",
+      "value": 3,
+      "unit": "count",
+      "grain": "player-game",
+      "playerId": "1642263",
+      "gameId": "0022500356"
+    },
+    {
+      "evidenceId": "e9c4e6089692d",
+      "family": "shotdifficulty",
+      "metric": "FGPCTABOVEEXPECTED",
+      "value": 0.024,
+      "unit": "fraction_difference",
+      "grain": "player-season",
+      "playerId": "1642263",
+      "gameId": null
+    }
+  ],
+  "expectedFacts": [
+    {
+      "evidenceId": "e38b7b38470f8",
+      "family": "basic",
+      "metric": "AST",
+      "value": 3,
+      "unit": "count",
+      "grain": "player-game",
+      "playerId": "1642263",
+      "gameId": "0022500356"
+    },
+    {
+      "evidenceId": "e49bd36bb92f6",
+      "family": "advanced",
+      "metric": "EFG_PCT",
+      "value": 0.75,
+      "unit": "fraction",
+      "grain": "player-game",
+      "playerId": "1642263",
+      "gameId": "0022500356"
+    },
+    {
+      "evidenceId": "e9c4e6089692d",
+      "family": "shotdifficulty",
+      "metric": "FGPCTABOVEEXPECTED",
+      "value": 0.024,
+      "unit": "fraction_difference",
+      "grain": "player-season",
+      "playerId": "1642263",
+      "gameId": null
+    }
+  ],
+  "observedScore": {
+    "schemaValid": true,
+    "valid": false,
+    "coverage": 0.8,
+    "fact": 0.6666666666666666,
+    "evidence": 1.0,
+    "relations": 1.0,
+    "format": 1.0,
+    "toolCalls": 3,
+    "total": -1.006,
+    "criticalErrors": [
+      "unreturned_wrong_or_irrelevant_evidence"
+    ]
+  },
+  "finding": "The policy selected TS_PCT instead of explicitly requested EFG_PCT. AST, season FGPCTABOVEEXPECTED, required three tools and both relations were correct. Both efficiency values happen to equal 0.75 in this game; numeric equality does not make the metrics interchangeable.",
+  "assessment": "A model metric-selection error in this episode, not evidence of a shared parser, tool or missing-source fault. The correct EFG_PCT record was present in the returned advanced tool output.",
+  "action": "Keep this frozen failure and strict score. Do not change the running job, reward, prompt or validation target based on this audit; compare the existing RL checkpoint using its preregistered procedure.",
+  "limitations": "One validation failure does not establish the error rate on unseen games or prove a universal model weakness."
+}

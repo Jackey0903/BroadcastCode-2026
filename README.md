@@ -1,5 +1,7 @@
 # BroadcastCode「深度赛场」黑客松准备资料
 
+**10 月 10 日 14:00 · 联合监督训练完成：** 固定同题val为15/16成功（93.75%），test为16/16成功，格式合格率均100%；训练前两组均0。验证集仍有1题关键证据错误，未满足零关键错误发布门槛。RL已进入第1个采样步，但该步组内奖励相同、实际更新组数0，暂不能称RL带来提升。新3B尚未上线；这是小规模数据工具任务评测，不是视频理解准确率。见[阶段快照](product/rl/results/evidence-v1/status-20261010-1400.json)。
+
 **10月10日AWS深度核查：** 主链已实际采用AgentCore/Bedrock、Lambda、SQS、DynamoDB、S3、CloudFront与CDK；CloudFront媒体缓存、业务观测仍有缺口，SageMaker训练独立运行但新模型未进入成片。真实能力、代码位置及边界见[AWS服务使用深度核查](docs/AWS服务使用深度核查-20261010.md)。
 
 **10 月 10 日 13:32 · 联合训练已实际进入GPU：** 云端确认Qwen2.5-3B已在NVIDIA A10G以NF4加载（加载时allocated显存2.607 GiB，不是训练峰值），SFT第1轮已完成16条训练样本，暂未出现OOM。训练前固定val/test各16题均为新协议schemaRate=0、successRate=0；这是未适配协议的真实基线，尚无训练后效果。RL阶段还未开始，新3B未上线。最新证据见[训练快照](product/rl/results/evidence-v1/status-20261010-1332.json)。
