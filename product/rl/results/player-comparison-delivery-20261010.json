@@ -1,0 +1,60 @@
+{
+  "schema": "rl-scout-player-comparison-delivery-v1",
+  "generatedAt": "2026-10-10T16:10:33.050358+08:00",
+  "status": "local_data_interface_ready_backend_pending",
+  "storeContentSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+  "frozenStoreChanged": false,
+  "trainedModelUsed": false,
+  "newTrainingStarted": false,
+  "endpointChanged": false,
+  "workerIntegrated": false,
+  "renderVerified": false,
+  "artifacts": {
+    "product/rl/player_comparison.py": "2d4bf9cc1c85b1266b3d262a7e16d399eee76f047b2f8773e069671e31270919",
+    "product/rl/test_player_comparison.py": "66834e10502db2eef261db1e51d70504f82deb60d2f34cdb732e6e24a54fafe0",
+    "product/rl/data/comparisons/flagg-vs-amen-20261010.json": "5e11e617af08f11a2ae6b3d9afebd7e2ff7c11c9cc3f35616b71ee4f2e973086",
+    "product/rl/data/comparisons/amen-vs-christie-20261010.json": "b70e00bae96e8cb3398bde62184bc85a6dd19f2a7df1349651b7e631544ce80e"
+  },
+  "examples": [
+    {
+      "path": "product/rl/data/comparisons/flagg-vs-amen-20261010.json",
+      "storyId": "flagg",
+      "selectedOpponentId": "1641708",
+      "opponentChoices": 9,
+      "attackerFacts": 38,
+      "attackerCalculations": 7,
+      "comparisons": 18,
+      "matchupVerified": false
+    },
+    {
+      "path": "product/rl/data/comparisons/amen-vs-christie-20261010.json",
+      "storyId": "amen",
+      "selectedOpponentId": "1631108",
+      "opponentChoices": 10,
+      "attackerFacts": 38,
+      "attackerCalculations": 7,
+      "comparisons": 18,
+      "matchupVerified": false
+    }
+  ],
+  "validation": {
+    "newFocusedTests": {
+      "passed": 6
+    },
+    "rlScopeTests": {
+      "passed": 66,
+      "seconds": 12.507
+    },
+    "fullGate": {
+      "passed": false,
+      "attempts": 1,
+      "reason": "Three errors in concurrently edited product/scripts/test_publication.py: PublicationTests.save_json is missing; owner notified through shared board. No change to publication code by RL task."
+    }
+  },
+  "limits": [
+    "No event defender identity in verified sources",
+    "Game totals are postgame; season snapshots are retrospective",
+    "Deterministic calculations are separate from RL selection and not a new RL evaluation",
+    "Missing values and zero denominators are not zero-filled"
+  ]
+}

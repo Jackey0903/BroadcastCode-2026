@@ -1,0 +1,5018 @@
+{
+ "schema": "rl-scout-story-player-context-v1",
+ "storyId": "flagg",
+ "storeSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+ "event": {
+  "storyId": "flagg",
+  "gameId": "0022500701",
+  "eventId": 666,
+  "playerId": "1642843",
+  "teamId": 1610612742,
+  "shotDesc": "突破挑篮",
+  "shotType": "2分投篮",
+  "made": 1,
+  "xfg": 0.51,
+  "period": 4,
+  "grain": "shot-event",
+  "source": {
+   "url": "https://api.nba.cn/nba-web/api/web/inside/gpShot?gameId=0022500701&playerId=1642843",
+   "sha256": "95238bb31f32bd07c5588b0e26331fc0f1a12181567e339150058d23826d265d",
+   "path": "product/research/sources/gpshot-flagg.json",
+   "rowKey": "data.shotList[eventId=666]",
+   "retrievedAt": "2026-10-07T10:32:28.876045+00:00"
+  },
+  "mapping": "existing_verified_practice_mapping_not_automatic_video_identification"
+ },
+ "attacker": {
+  "player": {
+   "playerId": "1642843",
+   "teamId": 1610612742,
+   "displayName": "库珀弗拉格",
+   "teamSemantics": "official_selected_game"
+  },
+  "gameId": "0022500701",
+  "sections": {
+   "gameOffense": [
+    "e10e1bdacb4be",
+    "e235dbbd9c59f",
+    "e2424811e4b1a",
+    "e3fcb2f411398",
+    "e9acf47164daf",
+    "e026b7e4a4380",
+    "ea2c879fe4010",
+    "e65826c75f418",
+    "e684ac84d9a35",
+    "ef2f8bc069377"
+   ],
+   "gameDefense": [
+    "ee014e342739e",
+    "e4d805c90b508",
+    "ee4b8f73ff5a6"
+   ],
+   "gameGeneral": [
+    "e3d4e38ba23f2",
+    "e4dfbf79f11ad"
+   ],
+   "gameEfficiency": [
+    "e09ba1fae361c",
+    "e7cba3bbeefc6"
+   ],
+   "seasonOffense": [
+    "e988fec0f4d6a",
+    "e587b404f2a3f",
+    "e05e04a1278d5",
+    "ebf0d7b4f48f7",
+    "e32765ed8554e",
+    "e1c1f09f44778",
+    "ea0fe91c4ffdb",
+    "ed19be6b8eecb"
+   ],
+   "seasonDefense": [
+    "eb2557b69bcd9",
+    "e7c40f098987b"
+   ],
+   "seasonOverall": [
+    "e5d72b42529d5",
+    "edef52c895f69",
+    "e31b08746c194"
+   ],
+   "seasonShooting": [
+    "ed2fcd7e6387f",
+    "ef1672ab853b9",
+    "e78c312e4685f",
+    "e46cbeaeb2ce1",
+    "e9cd9eb3aaf24",
+    "e198d0d7137fd",
+    "e5b17db35c4ba",
+    "eab7e1d7ecaf3"
+   ]
+  },
+  "facts": [
+   {
+    "family": "gravity",
+    "metric": "OFF_BALL_INTERIOR_GRAV",
+    "value": -2.41,
+    "unit": "gravity_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+     "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+     "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+     "rowKey": "data.players[54]",
+     "retrievedAt": "2026-10-10T11:47:13+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "e32765ed8554e",
+    "label": "无球内线防守关注",
+    "displayValue": "-2.41"
+   },
+   {
+    "family": "gravity",
+    "metric": "OFF_BALL_PERIM_GRAV",
+    "value": 6.217,
+    "unit": "gravity_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+     "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+     "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+     "rowKey": "data.players[54]",
+     "retrievedAt": "2026-10-10T11:47:13+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "ebf0d7b4f48f7",
+    "label": "无球外线防守关注",
+    "displayValue": "6.217"
+   },
+   {
+    "family": "gravity",
+    "metric": "ON_BALL_INTERIOR_GRAV",
+    "value": -2.938,
+    "unit": "gravity_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+     "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+     "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+     "rowKey": "data.players[54]",
+     "retrievedAt": "2026-10-10T11:47:13+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "e05e04a1278d5",
+    "label": "持球内线防守关注",
+    "displayValue": "-2.938"
+   },
+   {
+    "family": "gravity",
+    "metric": "ON_BALL_PERIM_GRAV",
+    "value": 2.897,
+    "unit": "gravity_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+     "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+     "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+     "rowKey": "data.players[54]",
+     "retrievedAt": "2026-10-10T11:47:13+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "e587b404f2a3f",
+    "label": "持球外线防守关注",
+    "displayValue": "2.897"
+   },
+   {
+    "family": "gravity",
+    "metric": "OVERALL_GRAV",
+    "value": 3.828,
+    "unit": "gravity_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+     "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+     "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+     "rowKey": "data.players[54]",
+     "retrievedAt": "2026-10-10T11:47:13+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "e988fec0f4d6a",
+    "label": "总体防守关注",
+    "displayValue": "3.828"
+   },
+   {
+    "family": "leverage",
+    "metric": "CREATION_LVG",
+    "value": 1.77,
+    "unit": "leverage_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+     "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+     "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+     "rowKey": "data.players[19]",
+     "retrievedAt": "2026-10-10T11:47:30+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "ea0fe91c4ffdb",
+    "label": "创造机会影响力",
+    "displayValue": "1.77"
+   },
+   {
+    "family": "leverage",
+    "metric": "DEF_LVG",
+    "value": 2.31,
+    "unit": "leverage_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+     "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+     "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+     "rowKey": "data.players[19]",
+     "retrievedAt": "2026-10-10T11:47:30+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "eb2557b69bcd9",
+    "label": "防守影响力",
+    "displayValue": "2.31"
+   },
+   {
+    "family": "leverage",
+    "metric": "OFF_LVG",
+    "value": -0.2,
+    "unit": "leverage_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+     "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+     "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+     "rowKey": "data.players[19]",
+     "retrievedAt": "2026-10-10T11:47:30+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "e1c1f09f44778",
+    "label": "进攻影响力",
+    "displayValue": "-0.2"
+   },
+   {
+    "family": "leverage",
+    "metric": "ON_BALL_DEF_LVG",
+    "value": 0.74,
+    "unit": "leverage_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+     "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+     "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+     "rowKey": "data.players[19]",
+     "retrievedAt": "2026-10-10T11:47:30+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "e7c40f098987b",
+    "label": "持球防守影响力",
+    "displayValue": "0.74"
+   },
+   {
+    "family": "leverage",
+    "metric": "REB_LVG",
+    "value": 0.71,
+    "unit": "leverage_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+     "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+     "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+     "rowKey": "data.players[19]",
+     "retrievedAt": "2026-10-10T11:47:30+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "e5d72b42529d5",
+    "label": "篮板影响力",
+    "displayValue": "0.71"
+   },
+   {
+    "family": "leverage",
+    "metric": "SHOT_LVG",
+    "value": -0.2,
+    "unit": "leverage_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+     "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+     "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+     "rowKey": "data.players[19]",
+     "retrievedAt": "2026-10-10T11:47:30+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "ed19be6b8eecb",
+    "label": "投篮影响力",
+    "displayValue": "-0.2"
+   },
+   {
+    "family": "leverage",
+    "metric": "TOT_LVG",
+    "value": 2.11,
+    "unit": "leverage_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+     "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+     "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+     "rowKey": "data.players[19]",
+     "retrievedAt": "2026-10-10T11:47:30+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "e31b08746c194",
+    "label": "整体影响力",
+    "displayValue": "2.11"
+   },
+   {
+    "family": "leverage",
+    "metric": "TOV_LVG",
+    "value": -1.41,
+    "unit": "leverage_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+     "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+     "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+     "rowKey": "data.players[19]",
+     "retrievedAt": "2026-10-10T11:47:30+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "edef52c895f69",
+    "label": "失误影响力",
+    "displayValue": "-1.41"
+   },
+   {
+    "family": "shotdifficulty",
+    "metric": "AVGDEFENDERPRESSURESCORE",
+    "value": 0.855,
+    "unit": "pressure_score",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+     "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+     "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+     "rowKey": "data.shots[104]",
+     "retrievedAt": "2026-10-10T11:47:32+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "eab7e1d7ecaf3",
+    "label": "平均防守压力分值",
+    "displayValue": "0.855"
+   },
+   {
+    "family": "shotdifficulty",
+    "metric": "AVGSHOTQUALITY",
+    "value": 0.481,
+    "unit": "fraction",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+     "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+     "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+     "rowKey": "data.shots[104]",
+     "retrievedAt": "2026-10-10T11:47:32+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "ef1672ab853b9",
+    "label": "平均出手机会质量",
+    "displayValue": "48.10%"
+   },
+   {
+    "family": "shotdifficulty",
+    "metric": "AVGSHOTQUALITY2PT",
+    "value": 0.513,
+    "unit": "fraction",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+     "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+     "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+     "rowKey": "data.shots[104]",
+     "retrievedAt": "2026-10-10T11:47:32+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "e5b17db35c4ba",
+    "label": "两分球平均出手机会质量",
+    "displayValue": "51.30%"
+   },
+   {
+    "family": "shotdifficulty",
+    "metric": "AVGSHOTQUALITY3PT",
+    "value": 0.361,
+    "unit": "fraction",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+     "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+     "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+     "rowKey": "data.shots[104]",
+     "retrievedAt": "2026-10-10T11:47:32+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "e9cd9eb3aaf24",
+    "label": "三分球平均出手机会质量",
+    "displayValue": "36.10%"
+   },
+   {
+    "family": "shotdifficulty",
+    "metric": "FG3PCT",
+    "value": 0.295,
+    "unit": "fraction",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+     "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+     "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+     "rowKey": "data.shots[104]",
+     "retrievedAt": "2026-10-10T11:47:32+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "e46cbeaeb2ce1",
+    "label": "实际三分球命中表现",
+    "displayValue": "29.50%"
+   },
+   {
+    "family": "shotdifficulty",
+    "metric": "FG3PCTABOVEEXPECTED",
+    "value": -0.066,
+    "unit": "fraction_difference",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+     "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+     "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+     "rowKey": "data.shots[104]",
+     "retrievedAt": "2026-10-10T11:47:32+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "e198d0d7137fd",
+    "label": "三分球命中率与预期的差值",
+    "displayValue": "-6.60个百分点"
+   },
+   {
+    "family": "shotdifficulty",
+    "metric": "FGPCT",
+    "value": 0.468,
+    "unit": "fraction",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+     "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+     "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+     "rowKey": "data.shots[104]",
+     "retrievedAt": "2026-10-10T11:47:32+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "ed2fcd7e6387f",
+    "label": "实际运动战命中表现",
+    "displayValue": "46.80%"
+   },
+   {
+    "family": "shotdifficulty",
+    "metric": "FGPCTABOVEEXPECTED",
+    "value": -0.013,
+    "unit": "fraction_difference",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": null,
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+     "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+     "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+     "rowKey": "data.shots[104]",
+     "retrievedAt": "2026-10-10T11:47:32+08:00"
+    },
+    "claimType": "official_fact",
+    "teamSemantics": "source_snapshot_label_not_historical_membership",
+    "evidenceId": "e78c312e4685f",
+    "label": "运动战命中率与预期的差值",
+    "displayValue": "-1.30个百分点"
+   },
+   {
+    "family": "advanced",
+    "metric": "EFG_PCT",
+    "value": 0.54,
+    "unit": "fraction",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "derived_arithmetic",
+    "derivation": {
+     "kind": "derived",
+     "unit": "ratio",
+     "formula": "(FGM + 0.5 * FG3M) / FGA",
+     "operands": {
+      "FGM": 13,
+      "FG3M": 1,
+      "FGA": 25
+     },
+     "operandSource": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "definitionSource": "https://www.nba.com/stats/help/faq"
+    },
+    "teamSemantics": "event_game_team",
+    "evidenceId": "e09ba1fae361c",
+    "label": "考虑三分价值的运动战投篮效率",
+    "displayValue": "54.00%"
+   },
+   {
+    "family": "advanced",
+    "metric": "TS_PCT",
+    "value": 0.5782312925170068,
+    "unit": "fraction",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "derived_arithmetic",
+    "derivation": {
+     "kind": "derived",
+     "unit": "ratio",
+     "formula": "PTS / (2 * (FGA + 0.44 * FTA))",
+     "operands": {
+      "PTS": 34,
+      "FGA": 25,
+      "FTA": 10
+     },
+     "operandSource": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "definitionSource": "https://www.nba.com/stats/help/glossary"
+    },
+    "teamSemantics": "event_game_team",
+    "evidenceId": "e7cba3bbeefc6",
+    "label": "包含罚球的投篮效率",
+    "displayValue": "57.82%"
+   },
+   {
+    "family": "basic",
+    "metric": "AST",
+    "value": 5,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "e65826c75f418",
+    "label": "助攻",
+    "displayValue": "5"
+   },
+   {
+    "family": "basic",
+    "metric": "BLK",
+    "value": 1,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "e4d805c90b508",
+    "label": "盖帽",
+    "displayValue": "1"
+   },
+   {
+    "family": "basic",
+    "metric": "DREB",
+    "value": 11,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "ee4b8f73ff5a6",
+    "label": "防守篮板",
+    "displayValue": "11"
+   },
+   {
+    "family": "basic",
+    "metric": "FG3A",
+    "value": 4,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "e9acf47164daf",
+    "label": "三分出手",
+    "displayValue": "4"
+   },
+   {
+    "family": "basic",
+    "metric": "FG3M",
+    "value": 1,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "e3fcb2f411398",
+    "label": "三分命中",
+    "displayValue": "1"
+   },
+   {
+    "family": "basic",
+    "metric": "FGA",
+    "value": 25,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "e2424811e4b1a",
+    "label": "投篮出手",
+    "displayValue": "25"
+   },
+   {
+    "family": "basic",
+    "metric": "FGM",
+    "value": 13,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "e235dbbd9c59f",
+    "label": "投篮命中",
+    "displayValue": "13"
+   },
+   {
+    "family": "basic",
+    "metric": "FTA",
+    "value": 10,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "ea2c879fe4010",
+    "label": "罚球出手",
+    "displayValue": "10"
+   },
+   {
+    "family": "basic",
+    "metric": "FTM",
+    "value": 7,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "e026b7e4a4380",
+    "label": "罚球命中",
+    "displayValue": "7"
+   },
+   {
+    "family": "basic",
+    "metric": "MIN",
+    "value": "38:55",
+    "unit": "mm:ss",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "e3d4e38ba23f2",
+    "label": "出场时间",
+    "displayValue": "38:55"
+   },
+   {
+    "family": "basic",
+    "metric": "OREB",
+    "value": 1,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "ef2f8bc069377",
+    "label": "进攻篮板",
+    "displayValue": "1"
+   },
+   {
+    "family": "basic",
+    "metric": "PTS",
+    "value": 34,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "e10e1bdacb4be",
+    "label": "得分",
+    "displayValue": "34"
+   },
+   {
+    "family": "basic",
+    "metric": "REB",
+    "value": 12,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "e4dfbf79f11ad",
+    "label": "总篮板",
+    "displayValue": "12"
+   },
+   {
+    "family": "basic",
+    "metric": "STL",
+    "value": 0,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "ee014e342739e",
+    "label": "抢断",
+    "displayValue": "0"
+   },
+   {
+    "family": "basic",
+    "metric": "TOV",
+    "value": 2,
+    "unit": "count",
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "gameId": "0022500701",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "asOf": null,
+    "source": {
+     "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+     "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+     "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+     "rowKey": "game.awayTeam.players[0].statistics",
+     "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+     "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+    },
+    "claimType": "official_fact",
+    "participation": "played",
+    "teamSemantics": "event_game_team",
+    "evidenceId": "e684ac84d9a35",
+    "label": "失误",
+    "displayValue": "2"
+   }
+  ],
+  "derived": [
+   {
+    "metric": "GAME_FG_PCT",
+    "label": "本场投篮命中率",
+    "available": true,
+    "reasonCode": null,
+    "value": 0.52,
+    "unit": "fraction",
+    "displayValue": "52.00%",
+    "claimType": "derived_arithmetic",
+    "formula": "FGM/FGA",
+    "grain": "player-game",
+    "gameId": "0022500701",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "operands": [
+     {
+      "evidenceId": "e235dbbd9c59f",
+      "metric": "FGM",
+      "value": 13
+     },
+     {
+      "evidenceId": "e2424811e4b1a",
+      "metric": "FGA",
+      "value": 25
+     }
+    ]
+   },
+   {
+    "metric": "GAME_FG3_PCT",
+    "label": "本场三分命中率",
+    "available": true,
+    "reasonCode": null,
+    "value": 0.25,
+    "unit": "fraction",
+    "displayValue": "25.00%",
+    "claimType": "derived_arithmetic",
+    "formula": "FG3M/FG3A",
+    "grain": "player-game",
+    "gameId": "0022500701",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "operands": [
+     {
+      "evidenceId": "e3fcb2f411398",
+      "metric": "FG3M",
+      "value": 1
+     },
+     {
+      "evidenceId": "e9acf47164daf",
+      "metric": "FG3A",
+      "value": 4
+     }
+    ]
+   },
+   {
+    "metric": "GAME_FT_PCT",
+    "label": "本场罚球命中率",
+    "available": true,
+    "reasonCode": null,
+    "value": 0.7,
+    "unit": "fraction",
+    "displayValue": "70.00%",
+    "claimType": "derived_arithmetic",
+    "formula": "FTM/FTA",
+    "grain": "player-game",
+    "gameId": "0022500701",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "operands": [
+     {
+      "evidenceId": "e026b7e4a4380",
+      "metric": "FTM",
+      "value": 7
+     },
+     {
+      "evidenceId": "ea2c879fe4010",
+      "metric": "FTA",
+      "value": 10
+     }
+    ]
+   },
+   {
+    "metric": "GAME_AST_TOV",
+    "label": "本场助攻失误比",
+    "available": true,
+    "reasonCode": null,
+    "value": 2.5,
+    "unit": "ratio",
+    "displayValue": "2.5",
+    "claimType": "derived_arithmetic",
+    "formula": "AST/TOV",
+    "grain": "player-game",
+    "gameId": "0022500701",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "operands": [
+     {
+      "evidenceId": "e65826c75f418",
+      "metric": "AST",
+      "value": 5
+     },
+     {
+      "evidenceId": "e684ac84d9a35",
+      "metric": "TOV",
+      "value": 2
+     }
+    ]
+   },
+   {
+    "metric": "GAME_3PA_SHARE",
+    "label": "本场三分出手占比",
+    "available": true,
+    "reasonCode": null,
+    "value": 0.16,
+    "unit": "fraction",
+    "displayValue": "16.00%",
+    "claimType": "derived_arithmetic",
+    "formula": "FG3A/FGA",
+    "grain": "player-game",
+    "gameId": "0022500701",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "operands": [
+     {
+      "evidenceId": "e9acf47164daf",
+      "metric": "FG3A",
+      "value": 4
+     },
+     {
+      "evidenceId": "e2424811e4b1a",
+      "metric": "FGA",
+      "value": 25
+     }
+    ]
+   },
+   {
+    "metric": "SEASON_FG_VS_EXPECTED_PP",
+    "label": "赛季实际与预期命中率差",
+    "available": true,
+    "reasonCode": null,
+    "value": -1.2999999999999956,
+    "unit": "percentage_points",
+    "displayValue": "-1.30个百分点",
+    "claimType": "derived_arithmetic",
+    "formula": "100*(FGPCT-AVGSHOTQUALITY)",
+    "grain": "player-season",
+    "gameId": null,
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "operands": [
+     {
+      "evidenceId": "ed2fcd7e6387f",
+      "metric": "FGPCT",
+      "value": 0.468
+     },
+     {
+      "evidenceId": "ef1672ab853b9",
+      "metric": "AVGSHOTQUALITY",
+      "value": 0.481
+     }
+    ],
+    "usage": "赛季快照算术差，可能有源数值舍入；非单次出手表现，不归因于某位防守人"
+   },
+   {
+    "metric": "SEASON_FG3_VS_EXPECTED_PP",
+    "label": "赛季三分实际与预期命中率差",
+    "available": true,
+    "reasonCode": null,
+    "value": -6.6000000000000005,
+    "unit": "percentage_points",
+    "displayValue": "-6.60个百分点",
+    "claimType": "derived_arithmetic",
+    "formula": "100*(FG3PCT-AVGSHOTQUALITY3PT)",
+    "grain": "player-season",
+    "gameId": null,
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "operands": [
+     {
+      "evidenceId": "e46cbeaeb2ce1",
+      "metric": "FG3PCT",
+      "value": 0.295
+     },
+     {
+      "evidenceId": "e9cd9eb3aaf24",
+      "metric": "AVGSHOTQUALITY3PT",
+      "value": 0.361
+     }
+    ],
+    "usage": "赛季快照算术差，可能有源数值舍入；非单次出手表现，不归因于某位防守人"
+   }
+  ],
+  "missingMetrics": [],
+  "scopeLabels": {
+   "game": "本场赛后统计",
+   "season": "2025–26赛季快照；非本回合测量",
+   "pressure": "该进攻球员出手时平均承受的防守压力；不是其个人防守能力",
+   "leverage": "官方分项影响力；不换算为命中率、胜率或对位优势"
+  }
+ },
+ "opponentChoices": [
+  {
+   "playerId": "1627827",
+   "displayName": "Dorian Finney-Smith",
+   "teamId": 1610612745,
+   "team": "HOU",
+   "playedInGame": true,
+   "onCourtAtEventVerified": false,
+   "defenderAtEventVerified": false
+  },
+  {
+   "playerId": "1629006",
+   "displayName": "约什奥科吉",
+   "teamId": 1610612745,
+   "team": "HOU",
+   "playedInGame": true,
+   "onCourtAtEventVerified": false,
+   "defenderAtEventVerified": false
+  },
+  {
+   "playerId": "1630578",
+   "displayName": "阿尔佩伦申京",
+   "teamId": 1610612745,
+   "team": "HOU",
+   "playedInGame": true,
+   "onCourtAtEventVerified": false,
+   "defenderAtEventVerified": false
+  },
+  {
+   "playerId": "1631095",
+   "displayName": "贾巴里史密斯",
+   "teamId": 1610612745,
+   "team": "HOU",
+   "playedInGame": true,
+   "onCourtAtEventVerified": false,
+   "defenderAtEventVerified": false
+  },
+  {
+   "playerId": "1631106",
+   "displayName": "塔里伊森",
+   "teamId": 1610612745,
+   "team": "HOU",
+   "playedInGame": true,
+   "onCourtAtEventVerified": false,
+   "defenderAtEventVerified": false
+  },
+  {
+   "playerId": "1641708",
+   "displayName": "阿门汤普森",
+   "teamId": 1610612745,
+   "team": "HOU",
+   "playedInGame": true,
+   "onCourtAtEventVerified": false,
+   "defenderAtEventVerified": false
+  },
+  {
+   "playerId": "1642263",
+   "displayName": "里德谢泼德",
+   "teamId": 1610612745,
+   "team": "HOU",
+   "playedInGame": true,
+   "onCourtAtEventVerified": false,
+   "defenderAtEventVerified": false
+  },
+  {
+   "playerId": "201142",
+   "displayName": "凯文杜兰特",
+   "teamId": 1610612745,
+   "team": "HOU",
+   "playedInGame": true,
+   "onCourtAtEventVerified": false,
+   "defenderAtEventVerified": false
+  },
+  {
+   "playerId": "203991",
+   "displayName": "克林特卡佩拉",
+   "teamId": 1610612745,
+   "team": "HOU",
+   "playedInGame": true,
+   "onCourtAtEventVerified": false,
+   "defenderAtEventVerified": false
+  }
+ ],
+ "selectedOpponentId": "1641708",
+ "comparison": {
+  "schema": "rl-scout-player-comparison-v1",
+  "storeSha256": "6919c650fb789541873ddafb0f367fb674c6d782e1551cf01b50c185a2165073",
+  "gameId": "0022500701",
+  "left": {
+   "player": {
+    "playerId": "1642843",
+    "teamId": 1610612742,
+    "displayName": "库珀弗拉格",
+    "teamSemantics": "official_selected_game"
+   },
+   "gameId": "0022500701",
+   "sections": {
+    "gameOffense": [
+     "e10e1bdacb4be",
+     "e235dbbd9c59f",
+     "e2424811e4b1a",
+     "e3fcb2f411398",
+     "e9acf47164daf",
+     "e026b7e4a4380",
+     "ea2c879fe4010",
+     "e65826c75f418",
+     "e684ac84d9a35",
+     "ef2f8bc069377"
+    ],
+    "gameDefense": [
+     "ee014e342739e",
+     "e4d805c90b508",
+     "ee4b8f73ff5a6"
+    ],
+    "gameGeneral": [
+     "e3d4e38ba23f2",
+     "e4dfbf79f11ad"
+    ],
+    "gameEfficiency": [
+     "e09ba1fae361c",
+     "e7cba3bbeefc6"
+    ],
+    "seasonOffense": [
+     "e988fec0f4d6a",
+     "e587b404f2a3f",
+     "e05e04a1278d5",
+     "ebf0d7b4f48f7",
+     "e32765ed8554e",
+     "e1c1f09f44778",
+     "ea0fe91c4ffdb",
+     "ed19be6b8eecb"
+    ],
+    "seasonDefense": [
+     "eb2557b69bcd9",
+     "e7c40f098987b"
+    ],
+    "seasonOverall": [
+     "e5d72b42529d5",
+     "edef52c895f69",
+     "e31b08746c194"
+    ],
+    "seasonShooting": [
+     "ed2fcd7e6387f",
+     "ef1672ab853b9",
+     "e78c312e4685f",
+     "e46cbeaeb2ce1",
+     "e9cd9eb3aaf24",
+     "e198d0d7137fd",
+     "e5b17db35c4ba",
+     "eab7e1d7ecaf3"
+    ]
+   },
+   "facts": [
+    {
+     "family": "gravity",
+     "metric": "OFF_BALL_INTERIOR_GRAV",
+     "value": -2.41,
+     "unit": "gravity_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+      "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+      "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+      "rowKey": "data.players[54]",
+      "retrievedAt": "2026-10-10T11:47:13+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e32765ed8554e",
+     "label": "无球内线防守关注",
+     "displayValue": "-2.41"
+    },
+    {
+     "family": "gravity",
+     "metric": "OFF_BALL_PERIM_GRAV",
+     "value": 6.217,
+     "unit": "gravity_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+      "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+      "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+      "rowKey": "data.players[54]",
+      "retrievedAt": "2026-10-10T11:47:13+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "ebf0d7b4f48f7",
+     "label": "无球外线防守关注",
+     "displayValue": "6.217"
+    },
+    {
+     "family": "gravity",
+     "metric": "ON_BALL_INTERIOR_GRAV",
+     "value": -2.938,
+     "unit": "gravity_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+      "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+      "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+      "rowKey": "data.players[54]",
+      "retrievedAt": "2026-10-10T11:47:13+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e05e04a1278d5",
+     "label": "持球内线防守关注",
+     "displayValue": "-2.938"
+    },
+    {
+     "family": "gravity",
+     "metric": "ON_BALL_PERIM_GRAV",
+     "value": 2.897,
+     "unit": "gravity_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+      "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+      "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+      "rowKey": "data.players[54]",
+      "retrievedAt": "2026-10-10T11:47:13+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e587b404f2a3f",
+     "label": "持球外线防守关注",
+     "displayValue": "2.897"
+    },
+    {
+     "family": "gravity",
+     "metric": "OVERALL_GRAV",
+     "value": 3.828,
+     "unit": "gravity_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+      "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+      "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+      "rowKey": "data.players[54]",
+      "retrievedAt": "2026-10-10T11:47:13+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e988fec0f4d6a",
+     "label": "总体防守关注",
+     "displayValue": "3.828"
+    },
+    {
+     "family": "leverage",
+     "metric": "CREATION_LVG",
+     "value": 1.77,
+     "unit": "leverage_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[19]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "ea0fe91c4ffdb",
+     "label": "创造机会影响力",
+     "displayValue": "1.77"
+    },
+    {
+     "family": "leverage",
+     "metric": "DEF_LVG",
+     "value": 2.31,
+     "unit": "leverage_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[19]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "eb2557b69bcd9",
+     "label": "防守影响力",
+     "displayValue": "2.31"
+    },
+    {
+     "family": "leverage",
+     "metric": "OFF_LVG",
+     "value": -0.2,
+     "unit": "leverage_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[19]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e1c1f09f44778",
+     "label": "进攻影响力",
+     "displayValue": "-0.2"
+    },
+    {
+     "family": "leverage",
+     "metric": "ON_BALL_DEF_LVG",
+     "value": 0.74,
+     "unit": "leverage_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[19]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e7c40f098987b",
+     "label": "持球防守影响力",
+     "displayValue": "0.74"
+    },
+    {
+     "family": "leverage",
+     "metric": "REB_LVG",
+     "value": 0.71,
+     "unit": "leverage_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[19]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e5d72b42529d5",
+     "label": "篮板影响力",
+     "displayValue": "0.71"
+    },
+    {
+     "family": "leverage",
+     "metric": "SHOT_LVG",
+     "value": -0.2,
+     "unit": "leverage_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[19]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "ed19be6b8eecb",
+     "label": "投篮影响力",
+     "displayValue": "-0.2"
+    },
+    {
+     "family": "leverage",
+     "metric": "TOT_LVG",
+     "value": 2.11,
+     "unit": "leverage_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[19]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e31b08746c194",
+     "label": "整体影响力",
+     "displayValue": "2.11"
+    },
+    {
+     "family": "leverage",
+     "metric": "TOV_LVG",
+     "value": -1.41,
+     "unit": "leverage_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[19]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "edef52c895f69",
+     "label": "失误影响力",
+     "displayValue": "-1.41"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "AVGDEFENDERPRESSURESCORE",
+     "value": 0.855,
+     "unit": "pressure_score",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[104]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "eab7e1d7ecaf3",
+     "label": "平均防守压力分值",
+     "displayValue": "0.855"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "AVGSHOTQUALITY",
+     "value": 0.481,
+     "unit": "fraction",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[104]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "ef1672ab853b9",
+     "label": "平均出手机会质量",
+     "displayValue": "48.10%"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "AVGSHOTQUALITY2PT",
+     "value": 0.513,
+     "unit": "fraction",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[104]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e5b17db35c4ba",
+     "label": "两分球平均出手机会质量",
+     "displayValue": "51.30%"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "AVGSHOTQUALITY3PT",
+     "value": 0.361,
+     "unit": "fraction",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[104]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e9cd9eb3aaf24",
+     "label": "三分球平均出手机会质量",
+     "displayValue": "36.10%"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "FG3PCT",
+     "value": 0.295,
+     "unit": "fraction",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[104]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e46cbeaeb2ce1",
+     "label": "实际三分球命中表现",
+     "displayValue": "29.50%"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "FG3PCTABOVEEXPECTED",
+     "value": -0.066,
+     "unit": "fraction_difference",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[104]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e198d0d7137fd",
+     "label": "三分球命中率与预期的差值",
+     "displayValue": "-6.60个百分点"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "FGPCT",
+     "value": 0.468,
+     "unit": "fraction",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[104]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "ed2fcd7e6387f",
+     "label": "实际运动战命中表现",
+     "displayValue": "46.80%"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "FGPCTABOVEEXPECTED",
+     "value": -0.013,
+     "unit": "fraction_difference",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[104]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e78c312e4685f",
+     "label": "运动战命中率与预期的差值",
+     "displayValue": "-1.30个百分点"
+    },
+    {
+     "family": "advanced",
+     "metric": "EFG_PCT",
+     "value": 0.54,
+     "unit": "fraction",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "derived_arithmetic",
+     "derivation": {
+      "kind": "derived",
+      "unit": "ratio",
+      "formula": "(FGM + 0.5 * FG3M) / FGA",
+      "operands": {
+       "FGM": 13,
+       "FG3M": 1,
+       "FGA": 25
+      },
+      "operandSource": {
+       "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+       "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+       "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+       "rowKey": "game.awayTeam.players[0].statistics",
+       "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+       "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+      },
+      "definitionSource": "https://www.nba.com/stats/help/faq"
+     },
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e09ba1fae361c",
+     "label": "考虑三分价值的运动战投篮效率",
+     "displayValue": "54.00%"
+    },
+    {
+     "family": "advanced",
+     "metric": "TS_PCT",
+     "value": 0.5782312925170068,
+     "unit": "fraction",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "derived_arithmetic",
+     "derivation": {
+      "kind": "derived",
+      "unit": "ratio",
+      "formula": "PTS / (2 * (FGA + 0.44 * FTA))",
+      "operands": {
+       "PTS": 34,
+       "FGA": 25,
+       "FTA": 10
+      },
+      "operandSource": {
+       "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+       "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+       "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+       "rowKey": "game.awayTeam.players[0].statistics",
+       "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+       "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+      },
+      "definitionSource": "https://www.nba.com/stats/help/glossary"
+     },
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e7cba3bbeefc6",
+     "label": "包含罚球的投篮效率",
+     "displayValue": "57.82%"
+    },
+    {
+     "family": "basic",
+     "metric": "AST",
+     "value": 5,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e65826c75f418",
+     "label": "助攻",
+     "displayValue": "5"
+    },
+    {
+     "family": "basic",
+     "metric": "BLK",
+     "value": 1,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e4d805c90b508",
+     "label": "盖帽",
+     "displayValue": "1"
+    },
+    {
+     "family": "basic",
+     "metric": "DREB",
+     "value": 11,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "ee4b8f73ff5a6",
+     "label": "防守篮板",
+     "displayValue": "11"
+    },
+    {
+     "family": "basic",
+     "metric": "FG3A",
+     "value": 4,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e9acf47164daf",
+     "label": "三分出手",
+     "displayValue": "4"
+    },
+    {
+     "family": "basic",
+     "metric": "FG3M",
+     "value": 1,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e3fcb2f411398",
+     "label": "三分命中",
+     "displayValue": "1"
+    },
+    {
+     "family": "basic",
+     "metric": "FGA",
+     "value": 25,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e2424811e4b1a",
+     "label": "投篮出手",
+     "displayValue": "25"
+    },
+    {
+     "family": "basic",
+     "metric": "FGM",
+     "value": 13,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e235dbbd9c59f",
+     "label": "投篮命中",
+     "displayValue": "13"
+    },
+    {
+     "family": "basic",
+     "metric": "FTA",
+     "value": 10,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "ea2c879fe4010",
+     "label": "罚球出手",
+     "displayValue": "10"
+    },
+    {
+     "family": "basic",
+     "metric": "FTM",
+     "value": 7,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e026b7e4a4380",
+     "label": "罚球命中",
+     "displayValue": "7"
+    },
+    {
+     "family": "basic",
+     "metric": "MIN",
+     "value": "38:55",
+     "unit": "mm:ss",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e3d4e38ba23f2",
+     "label": "出场时间",
+     "displayValue": "38:55"
+    },
+    {
+     "family": "basic",
+     "metric": "OREB",
+     "value": 1,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "ef2f8bc069377",
+     "label": "进攻篮板",
+     "displayValue": "1"
+    },
+    {
+     "family": "basic",
+     "metric": "PTS",
+     "value": 34,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e10e1bdacb4be",
+     "label": "得分",
+     "displayValue": "34"
+    },
+    {
+     "family": "basic",
+     "metric": "REB",
+     "value": 12,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e4dfbf79f11ad",
+     "label": "总篮板",
+     "displayValue": "12"
+    },
+    {
+     "family": "basic",
+     "metric": "STL",
+     "value": 0,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "ee014e342739e",
+     "label": "抢断",
+     "displayValue": "0"
+    },
+    {
+     "family": "basic",
+     "metric": "TOV",
+     "value": 2,
+     "unit": "count",
+     "playerId": "1642843",
+     "teamId": 1610612742,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.awayTeam.players[0].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e684ac84d9a35",
+     "label": "失误",
+     "displayValue": "2"
+    }
+   ],
+   "derived": [
+    {
+     "metric": "GAME_FG_PCT",
+     "label": "本场投篮命中率",
+     "available": true,
+     "reasonCode": null,
+     "value": 0.52,
+     "unit": "fraction",
+     "displayValue": "52.00%",
+     "claimType": "derived_arithmetic",
+     "formula": "FGM/FGA",
+     "grain": "player-game",
+     "gameId": "0022500701",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "operands": [
+      {
+       "evidenceId": "e235dbbd9c59f",
+       "metric": "FGM",
+       "value": 13
+      },
+      {
+       "evidenceId": "e2424811e4b1a",
+       "metric": "FGA",
+       "value": 25
+      }
+     ]
+    },
+    {
+     "metric": "GAME_FG3_PCT",
+     "label": "本场三分命中率",
+     "available": true,
+     "reasonCode": null,
+     "value": 0.25,
+     "unit": "fraction",
+     "displayValue": "25.00%",
+     "claimType": "derived_arithmetic",
+     "formula": "FG3M/FG3A",
+     "grain": "player-game",
+     "gameId": "0022500701",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "operands": [
+      {
+       "evidenceId": "e3fcb2f411398",
+       "metric": "FG3M",
+       "value": 1
+      },
+      {
+       "evidenceId": "e9acf47164daf",
+       "metric": "FG3A",
+       "value": 4
+      }
+     ]
+    },
+    {
+     "metric": "GAME_FT_PCT",
+     "label": "本场罚球命中率",
+     "available": true,
+     "reasonCode": null,
+     "value": 0.7,
+     "unit": "fraction",
+     "displayValue": "70.00%",
+     "claimType": "derived_arithmetic",
+     "formula": "FTM/FTA",
+     "grain": "player-game",
+     "gameId": "0022500701",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "operands": [
+      {
+       "evidenceId": "e026b7e4a4380",
+       "metric": "FTM",
+       "value": 7
+      },
+      {
+       "evidenceId": "ea2c879fe4010",
+       "metric": "FTA",
+       "value": 10
+      }
+     ]
+    },
+    {
+     "metric": "GAME_AST_TOV",
+     "label": "本场助攻失误比",
+     "available": true,
+     "reasonCode": null,
+     "value": 2.5,
+     "unit": "ratio",
+     "displayValue": "2.5",
+     "claimType": "derived_arithmetic",
+     "formula": "AST/TOV",
+     "grain": "player-game",
+     "gameId": "0022500701",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "operands": [
+      {
+       "evidenceId": "e65826c75f418",
+       "metric": "AST",
+       "value": 5
+      },
+      {
+       "evidenceId": "e684ac84d9a35",
+       "metric": "TOV",
+       "value": 2
+      }
+     ]
+    },
+    {
+     "metric": "GAME_3PA_SHARE",
+     "label": "本场三分出手占比",
+     "available": true,
+     "reasonCode": null,
+     "value": 0.16,
+     "unit": "fraction",
+     "displayValue": "16.00%",
+     "claimType": "derived_arithmetic",
+     "formula": "FG3A/FGA",
+     "grain": "player-game",
+     "gameId": "0022500701",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "operands": [
+      {
+       "evidenceId": "e9acf47164daf",
+       "metric": "FG3A",
+       "value": 4
+      },
+      {
+       "evidenceId": "e2424811e4b1a",
+       "metric": "FGA",
+       "value": 25
+      }
+     ]
+    },
+    {
+     "metric": "SEASON_FG_VS_EXPECTED_PP",
+     "label": "赛季实际与预期命中率差",
+     "available": true,
+     "reasonCode": null,
+     "value": -1.2999999999999956,
+     "unit": "percentage_points",
+     "displayValue": "-1.30个百分点",
+     "claimType": "derived_arithmetic",
+     "formula": "100*(FGPCT-AVGSHOTQUALITY)",
+     "grain": "player-season",
+     "gameId": null,
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "operands": [
+      {
+       "evidenceId": "ed2fcd7e6387f",
+       "metric": "FGPCT",
+       "value": 0.468
+      },
+      {
+       "evidenceId": "ef1672ab853b9",
+       "metric": "AVGSHOTQUALITY",
+       "value": 0.481
+      }
+     ],
+     "usage": "赛季快照算术差，可能有源数值舍入；非单次出手表现，不归因于某位防守人"
+    },
+    {
+     "metric": "SEASON_FG3_VS_EXPECTED_PP",
+     "label": "赛季三分实际与预期命中率差",
+     "available": true,
+     "reasonCode": null,
+     "value": -6.6000000000000005,
+     "unit": "percentage_points",
+     "displayValue": "-6.60个百分点",
+     "claimType": "derived_arithmetic",
+     "formula": "100*(FG3PCT-AVGSHOTQUALITY3PT)",
+     "grain": "player-season",
+     "gameId": null,
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "operands": [
+      {
+       "evidenceId": "e46cbeaeb2ce1",
+       "metric": "FG3PCT",
+       "value": 0.295
+      },
+      {
+       "evidenceId": "e9cd9eb3aaf24",
+       "metric": "AVGSHOTQUALITY3PT",
+       "value": 0.361
+      }
+     ],
+     "usage": "赛季快照算术差，可能有源数值舍入；非单次出手表现，不归因于某位防守人"
+    }
+   ],
+   "missingMetrics": [],
+   "scopeLabels": {
+    "game": "本场赛后统计",
+    "season": "2025–26赛季快照；非本回合测量",
+    "pressure": "该进攻球员出手时平均承受的防守压力；不是其个人防守能力",
+    "leverage": "官方分项影响力；不换算为命中率、胜率或对位优势"
+   }
+  },
+  "right": {
+   "player": {
+    "playerId": "1641708",
+    "teamId": 1610612745,
+    "displayName": "阿门汤普森",
+    "teamSemantics": "official_selected_game"
+   },
+   "gameId": "0022500701",
+   "sections": {
+    "gameOffense": [
+     "eb29df0031e14",
+     "e509562da8549",
+     "e904b5cea2607",
+     "e21d66d4c9e94",
+     "e316a7b94734a",
+     "ef46b60f4375d",
+     "ed6cd50a0fef7",
+     "edb47e23473ba",
+     "e21b2c0dadb9f",
+     "e64226412f94b"
+    ],
+    "gameDefense": [
+     "e3663ce03b509",
+     "e4d5d4cee2bf1",
+     "eba544d299ce3"
+    ],
+    "gameGeneral": [
+     "e5285c79f8828",
+     "e306c3dd16655"
+    ],
+    "gameEfficiency": [
+     "e9aee70a54504",
+     "e31560ff0c23f"
+    ],
+    "seasonOffense": [
+     "e9dedadc98b9e",
+     "e007bc147076d",
+     "ee69ec8a36245",
+     "e1de36a2698b8",
+     "e90f29bd08d22",
+     "e2b26bca6aff2",
+     "e0fe2b07c736c",
+     "e28e0d4f2e2ab"
+    ],
+    "seasonDefense": [
+     "ebc81e192db43",
+     "e6b777ad695ed"
+    ],
+    "seasonOverall": [
+     "e9bb858b1942e",
+     "e9fd7ab15f5ee",
+     "e94ed02a87fd2"
+    ],
+    "seasonShooting": [
+     "e843b3700431e",
+     "e29c297717080",
+     "ee49c9f42e6ac",
+     "e2046fe4342a1",
+     "e6d59019c19ad",
+     "e497392a69044",
+     "e0cf9c40baf7e",
+     "e437ccb19c4c2"
+    ]
+   },
+   "facts": [
+    {
+     "family": "gravity",
+     "metric": "OFF_BALL_INTERIOR_GRAV",
+     "value": -8.431,
+     "unit": "gravity_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+      "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+      "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+      "rowKey": "data.players[203]",
+      "retrievedAt": "2026-10-10T11:47:13+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e90f29bd08d22",
+     "label": "无球内线防守关注",
+     "displayValue": "-8.431"
+    },
+    {
+     "family": "gravity",
+     "metric": "OFF_BALL_PERIM_GRAV",
+     "value": -2.273,
+     "unit": "gravity_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+      "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+      "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+      "rowKey": "data.players[203]",
+      "retrievedAt": "2026-10-10T11:47:13+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e1de36a2698b8",
+     "label": "无球外线防守关注",
+     "displayValue": "-2.273"
+    },
+    {
+     "family": "gravity",
+     "metric": "ON_BALL_INTERIOR_GRAV",
+     "value": -13.765,
+     "unit": "gravity_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+      "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+      "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+      "rowKey": "data.players[203]",
+      "retrievedAt": "2026-10-10T11:47:13+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "ee69ec8a36245",
+     "label": "持球内线防守关注",
+     "displayValue": "-13.765"
+    },
+    {
+     "family": "gravity",
+     "metric": "ON_BALL_PERIM_GRAV",
+     "value": -5.602,
+     "unit": "gravity_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+      "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+      "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+      "rowKey": "data.players[203]",
+      "retrievedAt": "2026-10-10T11:47:13+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e007bc147076d",
+     "label": "持球外线防守关注",
+     "displayValue": "-5.602"
+    },
+    {
+     "family": "gravity",
+     "metric": "OVERALL_GRAV",
+     "value": -4.593,
+     "unit": "gravity_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerGravity?season=2025-26&seasonType=Regular+Season",
+      "sha256": "89f70e16fc870e29e9efaa4f1f81ca5f372ac02431aa194e5a2908dcea1195a1",
+      "path": "product/rl/data/depth/gravity-2025-26-regular.json",
+      "rowKey": "data.players[203]",
+      "retrievedAt": "2026-10-10T11:47:13+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e9dedadc98b9e",
+     "label": "总体防守关注",
+     "displayValue": "-4.593"
+    },
+    {
+     "family": "leverage",
+     "metric": "CREATION_LVG",
+     "value": 1.49,
+     "unit": "leverage_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[28]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e0fe2b07c736c",
+     "label": "创造机会影响力",
+     "displayValue": "1.49"
+    },
+    {
+     "family": "leverage",
+     "metric": "DEF_LVG",
+     "value": 2.16,
+     "unit": "leverage_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[28]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "ebc81e192db43",
+     "label": "防守影响力",
+     "displayValue": "2.16"
+    },
+    {
+     "family": "leverage",
+     "metric": "OFF_LVG",
+     "value": -0.18,
+     "unit": "leverage_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[28]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e2b26bca6aff2",
+     "label": "进攻影响力",
+     "displayValue": "-0.18"
+    },
+    {
+     "family": "leverage",
+     "metric": "ON_BALL_DEF_LVG",
+     "value": 0.55,
+     "unit": "leverage_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[28]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e6b777ad695ed",
+     "label": "持球防守影响力",
+     "displayValue": "0.55"
+    },
+    {
+     "family": "leverage",
+     "metric": "REB_LVG",
+     "value": 0.83,
+     "unit": "leverage_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[28]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e9bb858b1942e",
+     "label": "篮板影响力",
+     "displayValue": "0.83"
+    },
+    {
+     "family": "leverage",
+     "metric": "SHOT_LVG",
+     "value": -0.26,
+     "unit": "leverage_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[28]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e28e0d4f2e2ab",
+     "label": "投篮影响力",
+     "displayValue": "-0.26"
+    },
+    {
+     "family": "leverage",
+     "metric": "TOT_LVG",
+     "value": 1.98,
+     "unit": "leverage_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[28]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e94ed02a87fd2",
+     "label": "整体影响力",
+     "displayValue": "1.98"
+    },
+    {
+     "family": "leverage",
+     "metric": "TOV_LVG",
+     "value": -1.37,
+     "unit": "leverage_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/playerLeverage?season=2025-26&seasonType=Regular+Season",
+      "sha256": "ebdde198bd0846897863a5dbf34371be626f591b5989aa2d3dc22372a5fd5a24",
+      "path": "product/rl/data/depth/leverage-2025-26-regular.json",
+      "rowKey": "data.players[28]",
+      "retrievedAt": "2026-10-10T11:47:30+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e9fd7ab15f5ee",
+     "label": "失误影响力",
+     "displayValue": "-1.37"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "AVGDEFENDERPRESSURESCORE",
+     "value": 0.814,
+     "unit": "pressure_score",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[123]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e437ccb19c4c2",
+     "label": "平均防守压力分值",
+     "displayValue": "0.814"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "AVGSHOTQUALITY",
+     "value": 0.587,
+     "unit": "fraction",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[123]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e29c297717080",
+     "label": "平均出手机会质量",
+     "displayValue": "58.70%"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "AVGSHOTQUALITY2PT",
+     "value": 0.611,
+     "unit": "fraction",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[123]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e0cf9c40baf7e",
+     "label": "两分球平均出手机会质量",
+     "displayValue": "61.10%"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "AVGSHOTQUALITY3PT",
+     "value": 0.399,
+     "unit": "fraction",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[123]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e6d59019c19ad",
+     "label": "三分球平均出手机会质量",
+     "displayValue": "39.90%"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "FG3PCT",
+     "value": 0.216,
+     "unit": "fraction",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[123]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e2046fe4342a1",
+     "label": "实际三分球命中表现",
+     "displayValue": "21.60%"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "FG3PCTABOVEEXPECTED",
+     "value": -0.183,
+     "unit": "fraction_difference",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[123]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e497392a69044",
+     "label": "三分球命中率与预期的差值",
+     "displayValue": "-18.30个百分点"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "FGPCT",
+     "value": 0.534,
+     "unit": "fraction",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[123]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "e843b3700431e",
+     "label": "实际运动战命中表现",
+     "displayValue": "53.40%"
+    },
+    {
+     "family": "shotdifficulty",
+     "metric": "FGPCTABOVEEXPECTED",
+     "value": -0.053,
+     "unit": "fraction_difference",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": null,
+     "grain": "player-season",
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://api.nba.cn/nba-web/api/web/inside/season/shotDifficulty?season=2025-26&seasonType=Regular+Season",
+      "sha256": "4da37636619135883f2b7e5e5ad331737d63256fefa7719d3dc0078a3bd3ae55",
+      "path": "product/rl/data/depth/shotdifficulty-2025-26-regular.json",
+      "rowKey": "data.shots[123]",
+      "retrievedAt": "2026-10-10T11:47:32+08:00"
+     },
+     "claimType": "official_fact",
+     "teamSemantics": "source_snapshot_label_not_historical_membership",
+     "evidenceId": "ee49c9f42e6ac",
+     "label": "运动战命中率与预期的差值",
+     "displayValue": "-5.30个百分点"
+    },
+    {
+     "family": "advanced",
+     "metric": "EFG_PCT",
+     "value": 0.4666666666666667,
+     "unit": "fraction",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "derived_arithmetic",
+     "derivation": {
+      "kind": "derived",
+      "unit": "ratio",
+      "formula": "(FGM + 0.5 * FG3M) / FGA",
+      "operands": {
+       "FGM": 7,
+       "FG3M": 0,
+       "FGA": 15
+      },
+      "operandSource": {
+       "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+       "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+       "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+       "rowKey": "game.homeTeam.players[4].statistics",
+       "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+       "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+      },
+      "definitionSource": "https://www.nba.com/stats/help/faq"
+     },
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e9aee70a54504",
+     "label": "考虑三分价值的运动战投篮效率",
+     "displayValue": "46.67%"
+    },
+    {
+     "family": "advanced",
+     "metric": "TS_PCT",
+     "value": 0.5537974683544303,
+     "unit": "fraction",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "derived_arithmetic",
+     "derivation": {
+      "kind": "derived",
+      "unit": "ratio",
+      "formula": "PTS / (2 * (FGA + 0.44 * FTA))",
+      "operands": {
+       "PTS": 21,
+       "FGA": 15,
+       "FTA": 9
+      },
+      "operandSource": {
+       "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+       "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+       "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+       "rowKey": "game.homeTeam.players[4].statistics",
+       "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+       "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+      },
+      "definitionSource": "https://www.nba.com/stats/help/glossary"
+     },
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e31560ff0c23f",
+     "label": "包含罚球的投篮效率",
+     "displayValue": "55.38%"
+    },
+    {
+     "family": "basic",
+     "metric": "AST",
+     "value": 9,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "edb47e23473ba",
+     "label": "助攻",
+     "displayValue": "9"
+    },
+    {
+     "family": "basic",
+     "metric": "BLK",
+     "value": 0,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e4d5d4cee2bf1",
+     "label": "盖帽",
+     "displayValue": "0"
+    },
+    {
+     "family": "basic",
+     "metric": "DREB",
+     "value": 3,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "eba544d299ce3",
+     "label": "防守篮板",
+     "displayValue": "3"
+    },
+    {
+     "family": "basic",
+     "metric": "FG3A",
+     "value": 0,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e316a7b94734a",
+     "label": "三分出手",
+     "displayValue": "0"
+    },
+    {
+     "family": "basic",
+     "metric": "FG3M",
+     "value": 0,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e21d66d4c9e94",
+     "label": "三分命中",
+     "displayValue": "0"
+    },
+    {
+     "family": "basic",
+     "metric": "FGA",
+     "value": 15,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e904b5cea2607",
+     "label": "投篮出手",
+     "displayValue": "15"
+    },
+    {
+     "family": "basic",
+     "metric": "FGM",
+     "value": 7,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e509562da8549",
+     "label": "投篮命中",
+     "displayValue": "7"
+    },
+    {
+     "family": "basic",
+     "metric": "FTA",
+     "value": 9,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "ed6cd50a0fef7",
+     "label": "罚球出手",
+     "displayValue": "9"
+    },
+    {
+     "family": "basic",
+     "metric": "FTM",
+     "value": 7,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "ef46b60f4375d",
+     "label": "罚球命中",
+     "displayValue": "7"
+    },
+    {
+     "family": "basic",
+     "metric": "MIN",
+     "value": "40:39",
+     "unit": "mm:ss",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e5285c79f8828",
+     "label": "出场时间",
+     "displayValue": "40:39"
+    },
+    {
+     "family": "basic",
+     "metric": "OREB",
+     "value": 5,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e64226412f94b",
+     "label": "进攻篮板",
+     "displayValue": "5"
+    },
+    {
+     "family": "basic",
+     "metric": "PTS",
+     "value": 21,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "eb29df0031e14",
+     "label": "得分",
+     "displayValue": "21"
+    },
+    {
+     "family": "basic",
+     "metric": "REB",
+     "value": 8,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e306c3dd16655",
+     "label": "总篮板",
+     "displayValue": "8"
+    },
+    {
+     "family": "basic",
+     "metric": "STL",
+     "value": 2,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e3663ce03b509",
+     "label": "抢断",
+     "displayValue": "2"
+    },
+    {
+     "family": "basic",
+     "metric": "TOV",
+     "value": 0,
+     "unit": "count",
+     "playerId": "1641708",
+     "teamId": 1610612745,
+     "gameId": "0022500701",
+     "grain": "player-game",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "asOf": null,
+     "source": {
+      "url": "https://www.nba.com/game/dal-vs-hou-0022500701/box-score",
+      "sha256": "a549f75ea849dfa00ea1bea875b4ad3299d12fade73f07af14be061cd2e95612",
+      "path": "product/rl/data/three_layer/boxscore-0022500701.json",
+      "rowKey": "game.homeTeam.players[4].statistics",
+      "retrievedAt": "2026-10-10T05:10:03.090876+00:00",
+      "htmlSha256": "60730f95be4e65a553d057e902a53ea8e38d1ee099e6c40aeaeef44345347af8"
+     },
+     "claimType": "official_fact",
+     "participation": "played",
+     "teamSemantics": "event_game_team",
+     "evidenceId": "e21b2c0dadb9f",
+     "label": "失误",
+     "displayValue": "0"
+    }
+   ],
+   "derived": [
+    {
+     "metric": "GAME_FG_PCT",
+     "label": "本场投篮命中率",
+     "available": true,
+     "reasonCode": null,
+     "value": 0.4666666666666667,
+     "unit": "fraction",
+     "displayValue": "46.67%",
+     "claimType": "derived_arithmetic",
+     "formula": "FGM/FGA",
+     "grain": "player-game",
+     "gameId": "0022500701",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "operands": [
+      {
+       "evidenceId": "e509562da8549",
+       "metric": "FGM",
+       "value": 7
+      },
+      {
+       "evidenceId": "e904b5cea2607",
+       "metric": "FGA",
+       "value": 15
+      }
+     ]
+    },
+    {
+     "metric": "GAME_FG3_PCT",
+     "label": "本场三分命中率",
+     "available": false,
+     "reasonCode": "zero_denominator",
+     "value": null,
+     "unit": "fraction",
+     "displayValue": null,
+     "claimType": "derived_arithmetic",
+     "formula": "FG3M/FG3A",
+     "grain": "player-game",
+     "gameId": "0022500701",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "operands": [
+      {
+       "evidenceId": "e21d66d4c9e94",
+       "metric": "FG3M",
+       "value": 0
+      },
+      {
+       "evidenceId": "e316a7b94734a",
+       "metric": "FG3A",
+       "value": 0
+      }
+     ]
+    },
+    {
+     "metric": "GAME_FT_PCT",
+     "label": "本场罚球命中率",
+     "available": true,
+     "reasonCode": null,
+     "value": 0.7777777777777778,
+     "unit": "fraction",
+     "displayValue": "77.78%",
+     "claimType": "derived_arithmetic",
+     "formula": "FTM/FTA",
+     "grain": "player-game",
+     "gameId": "0022500701",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "operands": [
+      {
+       "evidenceId": "ef46b60f4375d",
+       "metric": "FTM",
+       "value": 7
+      },
+      {
+       "evidenceId": "ed6cd50a0fef7",
+       "metric": "FTA",
+       "value": 9
+      }
+     ]
+    },
+    {
+     "metric": "GAME_AST_TOV",
+     "label": "本场助攻失误比",
+     "available": false,
+     "reasonCode": "zero_denominator",
+     "value": null,
+     "unit": "ratio",
+     "displayValue": null,
+     "claimType": "derived_arithmetic",
+     "formula": "AST/TOV",
+     "grain": "player-game",
+     "gameId": "0022500701",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "operands": [
+      {
+       "evidenceId": "edb47e23473ba",
+       "metric": "AST",
+       "value": 9
+      },
+      {
+       "evidenceId": "e21b2c0dadb9f",
+       "metric": "TOV",
+       "value": 0
+      }
+     ]
+    },
+    {
+     "metric": "GAME_3PA_SHARE",
+     "label": "本场三分出手占比",
+     "available": true,
+     "reasonCode": null,
+     "value": 0.0,
+     "unit": "fraction",
+     "displayValue": "0.00%",
+     "claimType": "derived_arithmetic",
+     "formula": "FG3A/FGA",
+     "grain": "player-game",
+     "gameId": "0022500701",
+     "period": {
+      "gameDate": "2026-01-31",
+      "gameDateBasis": "NBA gameEt Eastern date",
+      "gameTimeUTC": "2026-02-01T01:30:00Z",
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "full_completed_game"
+     },
+     "operands": [
+      {
+       "evidenceId": "e316a7b94734a",
+       "metric": "FG3A",
+       "value": 0
+      },
+      {
+       "evidenceId": "e904b5cea2607",
+       "metric": "FGA",
+       "value": 15
+      }
+     ]
+    },
+    {
+     "metric": "SEASON_FG_VS_EXPECTED_PP",
+     "label": "赛季实际与预期命中率差",
+     "available": true,
+     "reasonCode": null,
+     "value": -5.299999999999994,
+     "unit": "percentage_points",
+     "displayValue": "-5.30个百分点",
+     "claimType": "derived_arithmetic",
+     "formula": "100*(FGPCT-AVGSHOTQUALITY)",
+     "grain": "player-season",
+     "gameId": null,
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "operands": [
+      {
+       "evidenceId": "e843b3700431e",
+       "metric": "FGPCT",
+       "value": 0.534
+      },
+      {
+       "evidenceId": "e29c297717080",
+       "metric": "AVGSHOTQUALITY",
+       "value": 0.587
+      }
+     ],
+     "usage": "赛季快照算术差，可能有源数值舍入；非单次出手表现，不归因于某位防守人"
+    },
+    {
+     "metric": "SEASON_FG3_VS_EXPECTED_PP",
+     "label": "赛季三分实际与预期命中率差",
+     "available": true,
+     "reasonCode": null,
+     "value": -18.3,
+     "unit": "percentage_points",
+     "displayValue": "-18.30个百分点",
+     "claimType": "derived_arithmetic",
+     "formula": "100*(FG3PCT-AVGSHOTQUALITY3PT)",
+     "grain": "player-season",
+     "gameId": null,
+     "period": {
+      "season": "2025-26",
+      "seasonType": "Regular Season",
+      "range": "source_season_snapshot"
+     },
+     "operands": [
+      {
+       "evidenceId": "e2046fe4342a1",
+       "metric": "FG3PCT",
+       "value": 0.216
+      },
+      {
+       "evidenceId": "e6d59019c19ad",
+       "metric": "AVGSHOTQUALITY3PT",
+       "value": 0.399
+      }
+     ],
+     "usage": "赛季快照算术差，可能有源数值舍入；非单次出手表现，不归因于某位防守人"
+    }
+   ],
+   "missingMetrics": [],
+   "scopeLabels": {
+    "game": "本场赛后统计",
+    "season": "2025–26赛季快照；非本回合测量",
+    "pressure": "该进攻球员出手时平均承受的防守压力；不是其个人防守能力",
+    "leverage": "官方分项影响力；不换算为命中率、胜率或对位优势"
+   }
+  },
+  "comparisons": [
+   {
+    "metric": "PTS",
+    "label": "得分",
+    "leftValue": 34,
+    "rightValue": 21,
+    "sourceUnit": "count",
+    "difference": 13,
+    "differenceUnit": "count",
+    "displayDifference": "13",
+    "formula": "left-right",
+    "claimType": "derived_arithmetic",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "evidenceIds": [
+     "e10e1bdacb4be",
+     "eb29df0031e14"
+    ]
+   },
+   {
+    "metric": "AST",
+    "label": "助攻",
+    "leftValue": 5,
+    "rightValue": 9,
+    "sourceUnit": "count",
+    "difference": -4,
+    "differenceUnit": "count",
+    "displayDifference": "-4",
+    "formula": "left-right",
+    "claimType": "derived_arithmetic",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "evidenceIds": [
+     "e65826c75f418",
+     "edb47e23473ba"
+    ]
+   },
+   {
+    "metric": "TOV",
+    "label": "失误",
+    "leftValue": 2,
+    "rightValue": 0,
+    "sourceUnit": "count",
+    "difference": 2,
+    "differenceUnit": "count",
+    "displayDifference": "2",
+    "formula": "left-right",
+    "claimType": "derived_arithmetic",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "evidenceIds": [
+     "e684ac84d9a35",
+     "e21b2c0dadb9f"
+    ]
+   },
+   {
+    "metric": "REB",
+    "label": "总篮板",
+    "leftValue": 12,
+    "rightValue": 8,
+    "sourceUnit": "count",
+    "difference": 4,
+    "differenceUnit": "count",
+    "displayDifference": "4",
+    "formula": "left-right",
+    "claimType": "derived_arithmetic",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "evidenceIds": [
+     "e4dfbf79f11ad",
+     "e306c3dd16655"
+    ]
+   },
+   {
+    "metric": "STL",
+    "label": "抢断",
+    "leftValue": 0,
+    "rightValue": 2,
+    "sourceUnit": "count",
+    "difference": -2,
+    "differenceUnit": "count",
+    "displayDifference": "-2",
+    "formula": "left-right",
+    "claimType": "derived_arithmetic",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "evidenceIds": [
+     "ee014e342739e",
+     "e3663ce03b509"
+    ]
+   },
+   {
+    "metric": "BLK",
+    "label": "盖帽",
+    "leftValue": 1,
+    "rightValue": 0,
+    "sourceUnit": "count",
+    "difference": 1,
+    "differenceUnit": "count",
+    "displayDifference": "1",
+    "formula": "left-right",
+    "claimType": "derived_arithmetic",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "evidenceIds": [
+     "e4d805c90b508",
+     "e4d5d4cee2bf1"
+    ]
+   },
+   {
+    "metric": "DREB",
+    "label": "防守篮板",
+    "leftValue": 11,
+    "rightValue": 3,
+    "sourceUnit": "count",
+    "difference": 8,
+    "differenceUnit": "count",
+    "displayDifference": "8",
+    "formula": "left-right",
+    "claimType": "derived_arithmetic",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "evidenceIds": [
+     "ee4b8f73ff5a6",
+     "eba544d299ce3"
+    ]
+   },
+   {
+    "metric": "EFG_PCT",
+    "label": "考虑三分价值的运动战投篮效率",
+    "leftValue": 0.54,
+    "rightValue": 0.4666666666666667,
+    "sourceUnit": "fraction",
+    "difference": 7.333333333333336,
+    "differenceUnit": "percentage_points",
+    "displayDifference": "+7.33个百分点",
+    "formula": "(left-right)*100",
+    "claimType": "derived_arithmetic",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "evidenceIds": [
+     "e09ba1fae361c",
+     "e9aee70a54504"
+    ]
+   },
+   {
+    "metric": "TS_PCT",
+    "label": "包含罚球的投篮效率",
+    "leftValue": 0.5782312925170068,
+    "rightValue": 0.5537974683544303,
+    "sourceUnit": "fraction",
+    "difference": 2.4433824162576445,
+    "differenceUnit": "percentage_points",
+    "displayDifference": "+2.44个百分点",
+    "formula": "(left-right)*100",
+    "claimType": "derived_arithmetic",
+    "grain": "player-game",
+    "period": {
+     "gameDate": "2026-01-31",
+     "gameDateBasis": "NBA gameEt Eastern date",
+     "gameTimeUTC": "2026-02-01T01:30:00Z",
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "full_completed_game"
+    },
+    "evidenceIds": [
+     "e7cba3bbeefc6",
+     "e31560ff0c23f"
+    ]
+   },
+   {
+    "metric": "OVERALL_GRAV",
+    "label": "总体防守关注",
+    "leftValue": 3.828,
+    "rightValue": -4.593,
+    "sourceUnit": "gravity_score",
+    "difference": 8.421,
+    "differenceUnit": "gravity_score",
+    "displayDifference": "8.421",
+    "formula": "left-right",
+    "claimType": "derived_arithmetic",
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "evidenceIds": [
+     "e988fec0f4d6a",
+     "e9dedadc98b9e"
+    ]
+   },
+   {
+    "metric": "OFF_BALL_PERIM_GRAV",
+    "label": "无球外线防守关注",
+    "leftValue": 6.217,
+    "rightValue": -2.273,
+    "sourceUnit": "gravity_score",
+    "difference": 8.49,
+    "differenceUnit": "gravity_score",
+    "displayDifference": "8.49",
+    "formula": "left-right",
+    "claimType": "derived_arithmetic",
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "evidenceIds": [
+     "ebf0d7b4f48f7",
+     "e1de36a2698b8"
+    ]
+   },
+   {
+    "metric": "CREATION_LVG",
+    "label": "创造机会影响力",
+    "leftValue": 1.77,
+    "rightValue": 1.49,
+    "sourceUnit": "leverage_score",
+    "difference": 0.28,
+    "differenceUnit": "leverage_score",
+    "displayDifference": "0.28",
+    "formula": "left-right",
+    "claimType": "derived_arithmetic",
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "evidenceIds": [
+     "ea0fe91c4ffdb",
+     "e0fe2b07c736c"
+    ]
+   },
+   {
+    "metric": "OFF_LVG",
+    "label": "进攻影响力",
+    "leftValue": -0.2,
+    "rightValue": -0.18,
+    "sourceUnit": "leverage_score",
+    "difference": -0.020000000000000018,
+    "differenceUnit": "leverage_score",
+    "displayDifference": "-0.02",
+    "formula": "left-right",
+    "claimType": "derived_arithmetic",
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "evidenceIds": [
+     "e1c1f09f44778",
+     "e2b26bca6aff2"
+    ]
+   },
+   {
+    "metric": "DEF_LVG",
+    "label": "防守影响力",
+    "leftValue": 2.31,
+    "rightValue": 2.16,
+    "sourceUnit": "leverage_score",
+    "difference": 0.1499999999999999,
+    "differenceUnit": "leverage_score",
+    "displayDifference": "0.15",
+    "formula": "left-right",
+    "claimType": "derived_arithmetic",
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "evidenceIds": [
+     "eb2557b69bcd9",
+     "ebc81e192db43"
+    ]
+   },
+   {
+    "metric": "ON_BALL_DEF_LVG",
+    "label": "持球防守影响力",
+    "leftValue": 0.74,
+    "rightValue": 0.55,
+    "sourceUnit": "leverage_score",
+    "difference": 0.18999999999999995,
+    "differenceUnit": "leverage_score",
+    "displayDifference": "0.19",
+    "formula": "left-right",
+    "claimType": "derived_arithmetic",
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "evidenceIds": [
+     "e7c40f098987b",
+     "e6b777ad695ed"
+    ]
+   },
+   {
+    "metric": "FGPCT",
+    "label": "实际运动战命中表现",
+    "leftValue": 0.468,
+    "rightValue": 0.534,
+    "sourceUnit": "fraction",
+    "difference": -6.6000000000000005,
+    "differenceUnit": "percentage_points",
+    "displayDifference": "-6.60个百分点",
+    "formula": "(left-right)*100",
+    "claimType": "derived_arithmetic",
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "evidenceIds": [
+     "ed2fcd7e6387f",
+     "e843b3700431e"
+    ]
+   },
+   {
+    "metric": "AVGSHOTQUALITY",
+    "label": "平均出手机会质量",
+    "leftValue": 0.481,
+    "rightValue": 0.587,
+    "sourceUnit": "fraction",
+    "difference": -10.599999999999998,
+    "differenceUnit": "percentage_points",
+    "displayDifference": "-10.60个百分点",
+    "formula": "(left-right)*100",
+    "claimType": "derived_arithmetic",
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "evidenceIds": [
+     "ef1672ab853b9",
+     "e29c297717080"
+    ]
+   },
+   {
+    "metric": "FGPCTABOVEEXPECTED",
+    "label": "运动战命中率与预期的差值",
+    "leftValue": -0.013,
+    "rightValue": -0.053,
+    "sourceUnit": "fraction_difference",
+    "difference": 4.0,
+    "differenceUnit": "percentage_points",
+    "displayDifference": "+4.00个百分点",
+    "formula": "(left-right)*100",
+    "claimType": "derived_arithmetic",
+    "grain": "player-season",
+    "period": {
+     "season": "2025-26",
+     "seasonType": "Regular Season",
+     "range": "source_season_snapshot"
+    },
+    "evidenceIds": [
+     "e78c312e4685f",
+     "ee49c9f42e6ac"
+    ]
+   }
+  ],
+  "unavailable": [],
+  "inferenceSource": "deterministic_official_evidence_comparison",
+  "trainedModelUsed": false,
+  "matchupVerified": false,
+  "defenderPlayerId": null,
+  "comparisonMeaning": "左侧减右侧；同场或同赛季快照的同指标差，不代表两人直接交手、限制效果或因果"
+ },
+ "defenderIdentity": {
+  "verified": false,
+  "playerId": null,
+  "reasonCode": "event_defender_not_in_verified_sources"
+ },
+ "inferenceSource": "deterministic_official_evidence_assembly",
+ "trainedModelUsed": false,
+ "usage": "选择对手查看其防守数据；未核实主防人前标为对手球员对比，不标为本回合对位。"
+}
