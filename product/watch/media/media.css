@@ -22,3 +22,5 @@
 .player-controls .rate-menu>.glass-target{z-index:-1}
 .player-controls .rate-menu .glass-content{background:#151c2644;border-radius:inherit;padding:6px;font-size:var(--menus-font-size,16px)}
 .player-controls .rate-menu button{border-radius:var(--menus-item-radius,15px);color:var(--menus-color,#f6f7fa)}
+
+.volume-slider-label{background:transparent;border:0;box-shadow:none;isolation:isolate}.volume-slider-label>.glass-target{z-index:-1}.volume-slider{position:relative}

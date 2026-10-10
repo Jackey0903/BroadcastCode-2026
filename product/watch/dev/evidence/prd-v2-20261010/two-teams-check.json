@@ -1,0 +1,23 @@
+{
+  "verification": "Codex in-app browser on localhost:4188",
+  "options": [
+    "独行侠",
+    "火箭"
+  ],
+  "default": "dallas",
+  "inspectedThemes": [
+    "dallas",
+    "houston"
+  ],
+  "views": [
+    "full",
+    "half"
+  ],
+  "removedSubtitleNodes": 0,
+  "markerComputedColors": {
+    "white": "rgb(170, 23, 52)",
+    "dark": "rgb(232, 237, 245)"
+  },
+  "consoleErrors": [],
+  "offlineTestsPassed": 68
+}

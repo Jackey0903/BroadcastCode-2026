@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 2,
+  "presetId": "broadcastcode-local",
+  "config": {
+    "layout": {
+      "padding": 16,
+      "gap": 16,
+      "dockWidth": 72,
+      "fullWidth": 0.24,
+      "halfWidth": 0.3
+    },
+    "motion": {
+      "open": 350,
+      "morph": 300,
+      "close": 220,
+      "hideDelay": 150,
+      "controlsIdle": 2000
+    },
+    "appearance": {
+      "panelRadius": 28,
+      "videoRadius": 20,
+      "controlRadius": 22,
+      "titleSize": 28,
+      "bodySize": 16
+    },
+    "glass": {
+      "refraction": 0.012,
+      "bevelDepth": 0.08,
+      "bevelWidth": 0.15,
+      "frost": 2,
+      "tintAlpha": 0.38
+    },
+    "annotations": {
+      "mascotSize": 40,
+      "labelSize": 15,
+      "enabled": true
+    },
+    "dock": {
+      "width": 72,
+      "radius": 28,
+      "iconSize": 26,
+      "gap": 18,
+      "tint": "#10131c",
+      "tintAlpha": 0.4,
+      "color": "#f6f7fa",
+      "refraction": 0.012,
+      "frost": 3,
+      "bevelDepth": 0.08,
+      "bevelWidth": 0.15
+    },
+    "fullCourt": {
+      "width": 0.24,
+      "courtRadius": 10,
+      "radius": 28,
+      "fontSize": 16,
+      "fontFamily": "default",
+      "fontWeight": "default",
+      "woodColor": "#d9ad7a",
+      "paintColor": "#aa1734",
+      "lineColor": "#fff8ec",
+      "lineWidth": 0.24,
+      "markerSize": 2.05,
+      "tint": "#181420",
+      "tintAlpha": 0.42,
+      "color": "#f6f7fa",
+      "refraction": 0.012,
+      "frost": 3,
+      "bevelDepth": 0.08,
+      "bevelWidth": 0.15
+    },
+    "halfCourt": {
+      "width": 0.3,
+      "courtRadius": 8,
+      "radius": 28,
+      "fontSize": 16,
+      "fontFamily": "default",
+      "fontWeight": "default",
+      "woodColor": "#d9ad7a",
+      "paintColor": "#aa1734",
+      "lineColor": "#fff8ec",
+      "lineWidth": 0.24,
+      "markerSize": 2.05,
+      "tint": "#181420",
+      "tintAlpha": 0.42,
+      "color": "#f6f7fa",
+      "refraction": 0.012,
+      "frost": 3,
+      "bevelDepth": 0.08,
+      "bevelWidth": 0.15
+    },
+    "controls": {
+      "height": 66,
+      "radius": 22,
+      "fontSize": 17,
+      "fontFamily": "default",
+      "fontWeight": "default",
+      "iconSize": 26,
+      "gap": 16,
+      "tint": "#0c1019",
+      "tintAlpha": 0.38,
+      "color": "#f6f7fa",
+      "refraction": 0.012,
+      "frost": 2,
+      "bevelDepth": 0.08,
+      "bevelWidth": 0.15
+    },
+    "content": {
+      "width": 370,
+      "maxHeight": 680,
+      "fontSize": 13,
+      "titleSize": 21,
+      "fontFamily": "default",
+      "fontWeight": "default",
+      "padding": 22,
+      "radius": 26,
+      "tint": "#191d24",
+      "tintAlpha": 0.56,
+      "color": "#f6f7fa",
+      "refraction": 0.012,
+      "frost": 3,
+      "bevelDepth": 0.08,
+      "bevelWidth": 0.15
+    },
+    "menus": {
+      "width": 350,
+      "compactWidth": 120,
+      "fontSize": 16,
+      "titleSize": 19,
+      "fontFamily": "default",
+      "fontWeight": "default",
+      "padding": 22,
+      "radius": 24,
+      "itemRadius": 15,
+      "tint": "#151c26",
+      "tintAlpha": 0.64,
+      "color": "#f6f7fa",
+      "refraction": 0.012,
+      "frost": 3,
+      "bevelDepth": 0.08,
+      "bevelWidth": 0.15
+    },
+    "topbar": {
+      "fontSize": 16,
+      "fontFamily": "default",
+      "fontWeight": "default",
+      "radius": 22,
+      "gap": 16,
+      "tint": "#10131c",
+      "tintAlpha": 0.38,
+      "color": "#f6f7fa",
+      "refraction": 0.012,
+      "frost": 2,
+      "bevelDepth": 0.08,
+      "bevelWidth": 0.15
+    },
+    "heading": {
+      "fontSize": 28,
+      "fontFamily": "default",
+      "fontWeight": "default",
+      "tint": "#10131c",
+      "tintAlpha": 0.38,
+      "color": "#f6f7fa",
+      "refraction": 0.012,
+      "frost": 2,
+      "bevelDepth": 0.08,
+      "bevelWidth": 0.15
+    },
+    "mascot": {
+      "size": 40,
+      "color": "#ee963f",
+      "expression": "happy",
+      "style": "classic",
+      "labelSize": 15,
+      "fontFamily": "default",
+      "fontWeight": "default"
+    },
+    "courtTheme": {
+      "preset": "source"
+    }
+  }
+}

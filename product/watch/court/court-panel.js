@@ -1,42 +1,37 @@
 import { createCourtGeometry, svgNode, toVerticalCourt } from './court-geometry.js';
 import { getCourtTheme } from './themes.js';
-import { mascotSVG } from '../annotations/mascot.js';
 
 const finite = Number.isFinite;
 const clock = t => `${Math.floor(Math.max(0, t) / 60)}:${String(Math.floor(Math.max(0, t) % 60)).padStart(2, '0')}`;
-const cleanLabel = text => String(text || '').replace(/（[^）]*）/g, '');
 
 /** Court content only. Stage owns its glass shell, screen position and animation. */
-export function createCourtPanel({ onMode = () => {}, onSelect = () => {}, onEvidence = () => {} } = {}) {
+export function createCourtPanel({ onMode = () => {}, onSelect = () => {}, onTheme = () => {} } = {}) {
   const element = document.createElement('section');
   element.className = 'court-content'; element.dataset.component = 'halfCourt';
   element.innerHTML = `<header class="court-header">
-    <span class="court-team-badge" aria-label="球队文字占位；球队 Logo 未提供">HOU</span>
-    <div class="court-team-heading"><span class="court-city">HOUSTON</span><strong class="court-team-name">ROCKETS</strong></div>
+    <span class="court-team-badge"><img class="court-team-logo" alt="" hidden><span class="court-team-short">DAL</span></span>
+    <div class="court-team-heading"><span class="court-city">DALLAS</span><strong class="court-team-name">MAVERICKS</strong></div>
   </header>
   <div class="court-segments" role="group" aria-label="球场视野">
     <button type="button" data-court-mode="fullCourt" aria-pressed="true">全场</button>
     <button type="button" data-court-mode="halfCourt" aria-pressed="false">半场</button>
     <span class="court-segment-highlight" aria-hidden="true"></span>
   </div>
-  <div class="court-caption"><h2><i></i><span class="court-view-title">全场战术板</span></h2><button type="button" class="court-evidence" title="打开示意数据的来源与限制">编辑示意 <span>↗</span></button></div>
-  <div class="court-view-zone"><div class="court-floor-frame"><div class="court-baseline top">HOUSTON ROCKETS</div><div class="court-drawing"></div><div class="court-baseline bottom">HOUSTON ROCKETS</div></div>
+  <label class="court-theme-choice"><select aria-label="球场"><option value="mavericks">独行侠</option><option value="rockets">火箭</option></select></label>
+  <div class="court-view-zone"><div class="court-floor-frame"><div class="court-baseline top">DALLAS MAVERICKS</div><div class="court-drawing"></div><div class="court-baseline bottom">DALLAS MAVERICKS</div></div>
     <p class="court-empty">此素材尚无球场坐标</p>
   </div>
   <div class="court-legend" aria-label="战术图例">
-    <span><i class="white-team"></i>浅衣 · W</span><span><i class="dark-team"></i>深衣 · D</span>
+    <span><i class="white-team"></i>红色 · 火箭</span><span><i class="dark-team"></i>浅色 · 独行侠</span>
     <span><i class="route-swatch"></i>示意移动</span><span><i class="held-swatch"></i>过去位置</span>
   </div>
-  <button type="button" class="court-moment" aria-label="查看当前战术示意来源">
-    <span class="court-moment-mascot"></span><span class="court-moment-copy"><span class="court-moment-eyebrow">当前画面 <time>0:00</time></span><strong class="court-moment-title">等待视频画面</strong><span class="court-moment-description">匿名编号 · 编辑示意未经人工复核</span></span>
-  </button>
-  <div class="court-data-note"><span class="court-direction-note">左端观察 · 编辑配置</span><span>未经复核</span></div>`;
+`;
   const q = selector => element.querySelector(selector);
   const geometry = createCourtGeometry(); q('.court-drawing').append(geometry.svg);
   const zone = q('.court-view-zone'), floorFrame = q('.court-floor-frame');
-  const markers = new Map(); let progress = 0, data = null, story = null, time = 0, focusId = null;
-  let theme = getCourtTheme('houston'), modeStyle = {}, mascotStyle = {}, destroyed = false;
-  let lastMoment = '', lastAvailable = null, lastStyleKey = '', cachedZone = { width: 0, height: 0 };
+  const markers = new Map(); let progress = 0, data = null, time = 0, focusId = null;
+  let theme = getCourtTheme('dallas'), modeStyle = {}, destroyed = false;
+  let lastAvailable = null, lastStyleKey = '', cachedZone = { width: 0, height: 0 };
   const ballNode = svgNode('g', { class: 'court-ball' });
   ballNode.innerHTML = '<circle r="1.05"/><path d="M-1 0H1M0-1V1M-.7-.7Q.5 0-.7.7M.7-.7Q-.5 0 .7 .7"/>';
   geometry.ball.append(ballNode);
@@ -64,8 +59,6 @@ export function createCourtPanel({ onMode = () => {}, onSelect = () => {}, onEvi
     element.style.setProperty('--court-half-progress', progress);
     geometry.svg.setAttribute('viewBox', `0 0 50 ${94 - 47 * progress}`);
     markers.forEach(node => node.setAttribute('tabindex', node.style.display !== 'none' && Number(node.dataset.courtY) <= 94 - 47 * progress ? '0' : '-1'));
-    q('.court-view-title').textContent = half ? '半场战术板' : '全场战术板';
-    q('.court-caption').inert = progress < .02;
     element.querySelectorAll('[data-court-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.courtMode === (half ? 'halfCourt' : 'fullCourt'))));
     // Read this frame's new panel/auxiliary geometry before fitting the same SVG.
     // Relying only on ResizeObserver would retain the previous frame's court size.
@@ -73,8 +66,18 @@ export function createCourtPanel({ onMode = () => {}, onSelect = () => {}, onEvi
   }
   function applyTheme() {
     q('.court-city').textContent = theme.city; q('.court-team-name').textContent = theme.name;
-    q('.court-team-badge').textContent = theme.short;
-    q('.court-team-badge').title = `${theme.caption} · 文字占位，无球队 Logo`;
+    const badge = q('.court-team-badge'), logo = q('.court-team-logo'), centerLogo = q('.court-center-logo');
+    const hasLogo = Boolean(theme.logo);
+    badge.classList.toggle('has-logo', hasLogo);
+    badge.title = theme.caption;
+    logo.hidden = !hasLogo; logo.alt = hasLogo ? `${theme.caption} Logo` : '';
+    q('.court-team-short').textContent = theme.short;
+    q('.court-team-short').hidden = hasLogo;
+    centerLogo.style.display = hasLogo ? '' : 'none';
+    if (hasLogo) { logo.src = theme.logo; centerLogo.setAttribute('href', theme.logo); }
+    else { logo.removeAttribute('src'); centerLogo.removeAttribute('href'); }
+    centerLogo.setAttribute('aria-label', `${theme.caption} Logo`);
+    q('.court-center-mark').style.display = hasLogo ? 'none' : '';
     element.querySelectorAll('.court-baseline').forEach(node => { node.textContent = `${theme.city} ${theme.name}`; });
     q('.court-center-mark').textContent = theme.short;
     element.style.setProperty('--court-theme-paint', theme.paint);
@@ -98,19 +101,8 @@ export function createCourtPanel({ onMode = () => {}, onSelect = () => {}, onEvi
     for (const marker of markers.values()) marker.querySelector('circle').setAttribute('r', String(next.markerSize || 2.05));
     measure();
   }
-  function setMascotStyle(next = {}) {
-    mascotStyle = next;
-    const size = Math.max(16, Math.min(100, Number(next.size) || 40));
-    element.style.setProperty('--court-mascot-size', `${size}px`);
-    q('.court-moment-mascot').innerHTML = mascotSVG(size, next);
-    measure();
-  }
-  function setStory(next) {
-    story = next; lastMoment = ''; data = null; update(null, 0, null);
-    // Source configuration, never a guess from uniforms or a pointer click.
-    const home = next?.homeTeamId || next?.game?.homeTeam;
-    if (home) setTheme(home);
-    q('.court-direction-note').textContent = next?.sample === 'flagg' ? '左端观察 · 编辑配置' : '方向未指定';
+  function setStory() {
+    data = null; update(null, 0, null);
   }
   function playerNode(position) {
     let node = markers.get(position.id);
@@ -165,17 +157,11 @@ export function createCourtPanel({ onMode = () => {}, onSelect = () => {}, onEvi
     const showBall = ball && finite(ball.x) && finite(ball.y);
     ballNode.style.display = showBall ? '' : 'none';
     if (showBall) { const point = toVerticalCourt(ball.x, ball.y); ballNode.setAttribute('transform', `translate(${point.x + (ball.holder ? 2.3 : 0)} ${point.y + (ball.holder ? 1.4 : 0)})`); ballNode.classList.toggle('is-held-position', ball.heldPosition === true); }
-    q('.court-moment time').textContent = clock(time);
-    const held = positions.filter(p => p.held).length;
-    q('.court-data-note span:last-child').textContent = held ? '含过去位置 · 未复核' : '未经复核';
-    const momentTitle = ball ? cleanLabel(ball.label) : '当前素材暂无站位';
-    const description = held ? `含 ${held} 个过去位置；虚线标记不是实时跟踪` : '匿名编号 · 编辑示意未经人工复核';
-    const momentKey = momentTitle + description;
-    if (lastMoment !== momentKey) { q('.court-moment-title').textContent = momentTitle; q('.court-moment-description').textContent = description; lastMoment = momentKey; }
+
   }
   element.querySelectorAll('[data-court-mode]').forEach(button => button.addEventListener('click', () => onMode(button.dataset.courtMode)));
-  q('.court-evidence').addEventListener('click', onEvidence); q('.court-moment').addEventListener('click', onEvidence);
+  q('.court-theme-choice select').addEventListener('change', e => onTheme(e.target.value));
   const observer = new ResizeObserver(measure); observer.observe(zone);
-  setMascotStyle(); applyTheme(); setView(0); update(null, 0, null);
-  return { element, setView, update, setTheme, setStyle, setStory, setMascotStyle, destroy() { destroyed = true; observer.disconnect(); markers.clear(); element.remove(); } };
+  applyTheme(); setView(0); update(null, 0, null);
+  return { element, setThemeChoice(value) { q('.court-theme-choice select').value = value; }, setView, update, setTheme, setStyle, setStory, destroy() { destroyed = true; observer.disconnect(); markers.clear(); element.remove(); } };
 }

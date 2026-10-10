@@ -1,0 +1,90 @@
+
+> broadcastcode-three-state-ui@1.0.0 test
+> node --test tests/*.test.js annotations/*.test.js glass/*.test.js adapters/*.test.js content/*.test.js
+
+✔ same-origin registered enhanced pair stays available; current run does not inherit October 7 history (1.10325ms)
+✔ external, credentialed, query-bearing, alternate-job and incomplete enhanced pairs cannot play (0.28325ms)
+✔ source rejects external host, unregistered sample, and missing identity (0.179542ms)
+✔ requested current record preserves exact job, accepted review and original verification time (0.291458ms)
+✔ record from another job or source cannot be attributed to displayed run (0.309375ms)
+✔ static historical records do not fetch or initiate inference (0.0695ms)
+✔ head markers require explicit current head coordinates; court foot points never qualify (0.9515ms)
+✔ future, stale, occluded, and last-known head positions disappear instead of being extended (0.104459ms)
+✔ media, camera and player identity constraints prevent cross-shot or cross-person attachment (0.099667ms)
+✔ court projection uses broadcast near-left orientation without scaling or changing distances (0.839667ms)
+✔ standalone model success and legacy movies cannot claim burned RL (0.845541ms)
+✔ replayed service and real current model call have distinct provenance (0.126666ms)
+✔ whole-game and season cards retain distinct statistical scopes (0.118042ms)
+✔ software backdrop bakes brightness into uniform pixels including edges (1.322084ms)
+✔ software backdrop bakes saturation without leaving sharp source colors (0.325209ms)
+✔ software blur spreads a source edge across both axes and does not wrap edges (2.098125ms)
+✔ smooth frost kernel is positive, normalized and symmetric, with zero positional bias (1.802292ms)
+✔ the common runtime selects static colorless and unstacked shader paths with 25 source fetches (1.441708ms)
+✔ every adjacent fragment receives the same blur: constant and affine scenes retain smooth pixels (5.297583ms)
+✔ fixed frost softens a contrast edge continuously without overshoot or separated bright copies (0.400542ms)
+✔ frost zero remains a genuinely clear sample, and supported values continuously increase bounded softness (0.307792ms)
+✔ edge refraction is a bounded CSS-pixel distance independent of source size and DPR (0.148833ms)
+(node:54368) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ normal startup uses CSS without initializing liquidGL or changing saved optics (2.080291ms)
+✔ returning from an explicitly enabled effect destroys lenses and returns to CSS (0.126416ms)
+✔ CSS mode suppresses stale ambience resize callbacks before any video/canvas access (0.215208ms)
+(node:54369) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ all eight visual surfaces expose complete independent glass schema and baseline values (4.848417ms)
+✔ changing any individual glass surface preserves every other surface exactly (8.878167ms)
+✔ the explicit batch glass group updates eight surfaces and allows a same-patch scoped override (2.588166ms)
+(node:54370) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ old full display files preserve all remaining settings and export only current fields (6.427625ms)
+✔ pre-typography display files migrate without changing layout or optics (4.69075ms)
+✔ stored current and named legacy presets remain readable without silently overwriting storage (4.969333ms)
+✔ malformed legacy fields fail atomically and cannot bypass the configuration boundary (2.810166ms)
+✔ two court skins default to Dallas and retired saved choices migrate without changing other settings (2.753667ms)
+(node:54371) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ reference baseline is deeply frozen and returned settings are independent copies (5.12ms)
+✔ component settings stay independent, with only documented legacy aliases and bulk groups propagating (9.399625ms)
+✔ resetting a group preserves other customized groups (1.83025ms)
+✔ export/import round-trips exact display values and imported objects are copied (2.292042ms)
+✔ new edits after undo clear the redo branch, while invalid edits leave it intact (2.001ms)
+✔ numeric and boolean fields reject illegal types, nonfinite numbers and out-of-range imports atomically (202.410875ms)
+✔ legal minimum and maximum numeric display values are accepted (32.664333ms)
+✔ reference half court is wider, while customized full/half widths accept their own declared ranges (2.448709ms)
+✔ legacy bulk glass changes propagate while explicit component overrides and sibling independence remain intact (2.243417ms)
+✔ valid colors and enum options round-trip without entering content or data fields (32.376ms)
+✔ one continuous parameter edit undoes as one action (2.1165ms)
+✔ unknown fields, resource URLs, data facts and prototype pollution keys cannot enter configuration (2.725417ms)
+✔ malformed, partial, wrong-version and oversize imports cannot replace valid settings (2.605ms)
+✔ patch validation is transactional when one group is valid and another is invalid (1.544834ms)
+✔ broadcast court puts the camera-near sideline left and the far sideline right (1.77025ms)
+✔ 13s visible near/far players retain the broadcast side relationship (0.1205ms)
+✔ last-frame ball holder and defender retain the same near-side ordering (0.079542ms)
+✔ a route and its held endpoint keep one mapping through full/half view crops (0.136667ms)
+(node:54373) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ fitContain preserves both raw and historical enhanced-video aspect ratios (1.006583ms)
+✔ 1672×941, aspect 1.7777777777777777: every transition stays disjoint and inside the viewport at legal layout extremes (113.648583ms)
+✔ 1672×941, aspect 1.4222222222222223: every transition stays disjoint and inside the viewport at legal layout extremes (103.621583ms)
+✔ 1440×900, aspect 1.7777777777777777: every transition stays disjoint and inside the viewport at legal layout extremes (105.263875ms)
+✔ 1440×900, aspect 1.4222222222222223: every transition stays disjoint and inside the viewport at legal layout extremes (102.136542ms)
+✔ 1920×1080, aspect 1.7777777777777777: every transition stays disjoint and inside the viewport at legal layout extremes (102.786042ms)
+✔ 1920×1080, aspect 1.4222222222222223: every transition stays disjoint and inside the viewport at legal layout extremes (106.036ms)
+✔ 1280×720, aspect 1.7777777777777777: every transition stays disjoint and inside the viewport at legal layout extremes (103.88925ms)
+✔ 1280×720, aspect 1.4222222222222223: every transition stays disjoint and inside the viewport at legal layout extremes (100.910625ms)
+✔ interrupted and reversed transitions are safe for independent open/half values (207.932833ms)
+✔ full court remains a distinct manually holdable state (1.051791ms)
+✔ the geometry function is pure and transition geometry is continuous (1.666458ms)
+✔ current source roster supports both teams without guessing anonymous court identities (1.908792ms)
+✔ real attack and defense reminders preserve source words and start no earlier than source frames (0.566583ms)
+✔ one sparse reminder at a time; future results never become chapter-start alerts (0.135541ms)
+✔ preferences persist independently and invalid player resets only the selection (0.173958ms)
+✔ explicit mappings expire; absent, future, unverified and unsupported references cannot attach (0.14675ms)
+ℹ tests 68
+ℹ suites 0
+ℹ pass 68
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1319.087167

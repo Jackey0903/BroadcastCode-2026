@@ -1,0 +1,23 @@
+{
+  "product/watch/README.md": "ab06fd8554cf96fc292b9f244215bcffb8e637b2cb20fe3396214c0fa4d957e1",
+  "product/watch/adapters/catalog.js": "ad19306cff3699eb91b0d949a8852531825aea24d4394064e6502dfe76221a8f",
+  "product/watch/app.js": "df98ebb68d12bbfe61a24a30731d739b76aacf08a05169a86fcf456dfe870188",
+  "product/watch/content/content-panel.js": "e2c734995f700751915076c17d0a5ed4e5852ac0aa1f1871b4a41d86def8b6fa",
+  "product/watch/content/content.css": "4e3b685d824d4ee1c8030811855b48139fd07998e93f538e8ec5873dc2235515",
+  "product/watch/court/court-panel.js": "619169ef0bcbcac7b7efb67609520caa9acdfc3f9bafadc5997a11b44a90729b",
+  "product/watch/court/court.css": "4cb2073d1fa9b1204531067f875231602928f023efc3b0d7e3beb3a21cce6895",
+  "product/watch/dev/inspector.js": "2b6b9894f5507ca77b90c4d0200f196f2abf88324199b31d8cc03b3961029a93",
+  "product/watch/index.html": "3a7a503a61afcff470b8f4d712d618557233a3ac6a56e135bd09e7829e9d695a",
+  "product/watch/media/media.css": "af320fb69affe0448842e59a95db7f266ddf130411db37a81a7d4c7f6b830a47",
+  "product/watch/media/player-controls.js": "507b34ccf220d04e231e61e930a6a9e1f80e8ca7f06c87f57c83f3959707718e",
+  "product/watch/navigation/drawer.js": "065997ffeefe29df0c3d8fc03f10112eab25a9bdd4812ab17682a42b8f2e752d",
+  "product/watch/package.json": "8d18e98537ea1d0f6f7570cabb4911bcebc9a0cbb67fd0825cb195aba567b883",
+  "product/watch/stage/stage.css": "516084a893a5cea65dd7a1393294db7304a6f0794430c926b833491c0e3dea9c",
+  "product/watch/adapters/catalog.test.js": "8327028b7fc4c68926c81f67fe473f2fcf723759daa50ac1ccccc272093ff504",
+  "product/watch/content/rl-content.test.js": "d7681b0cc69e6e9d69585dbde12c544a02c0785e3c58943993006204094f3f89",
+  "product/watch/tests/preferences.test.js": "041ae484e72523930d7d9e90f6186b3bcb506b1f89aefad26a468cd8e7680acb",
+  "product/watch/dev/verify-prd-v2.cjs": "185838b49a5d965792da8df67830c58f5b8ce8b1807cac2f292c316cc78267e1",
+  "product/watch/dev/verify-prd-v2-extra.cjs": "2c6ce0e748d749f2bd5df5509bfbdacb20347e93553dc833ab8b9343713f7cc3",
+  "product/watch/dev/measure-prd-v2.cjs": "2b4bb12b27b0da43c807b6ce4b616b479fc97382b8894df7c573c60857dbdba2",
+  "product/watch/docs/PRD-v2-\u672c\u5730\u9a8c\u6536-20261010.md": "ca829e3ff1736b13978022731548ad20b0dbfe66ee19015568e6a41d1f509416"
+}

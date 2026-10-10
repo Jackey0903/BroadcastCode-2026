@@ -9,18 +9,15 @@ const labels = {
   controls: ['播放控制条', { height: '控制条高度 · px', radius: '控制条圆角 · px', fontSize: '时间字号 · px', ...typographyLabels, iconSize: '图标尺寸 · px', gap: '控件间距 · px', ...glassLabels }],
   content: ['内容抽屉', { width: '抽屉宽度 · px', maxHeight: '抽屉最大高度 · px', fontSize: '内容基础字号 · px', titleSize: '标题字号 · px', ...typographyLabels, padding: '内部边距 · px', radius: '抽屉圆角 · px', ...glassLabels }],
   menus: ['设置与菜单', { width: '观看设置宽度 · px', compactWidth: '紧凑菜单宽度 · px', fontSize: '菜单基础字号 · px', titleSize: '设置标题字号 · px', ...typographyLabels, padding: '内部边距 · px', radius: '菜单圆角 · px', itemRadius: '选项圆角 · px', ...glassLabels }],
-  topbar: ['顶部功能栏', { fontSize: '按钮字号 · px', ...typographyLabels, radius: '功能栏圆角 · px', gap: '按钮间距 · px', ...glassLabels }],
   heading: ['视频标题', { fontSize: '标题字号 · px', ...typographyLabels, ...glassLabels, color: '标题文字颜色' }],
-  mascot: ['篮球吉祥物', { size: '吉祥物尺寸 · px', color: '篮球主体颜色', expression: '表情', style: '绘制样式', labelSize: '关联标签字号 · px', fontFamily: '关联标签字体', fontWeight: '关联标签字重' }],
   courtTheme: ['球队皮肤', { preset: '球场主题' }],
   layout: ['整体空间', { padding: '舞台边距 · px', gap: '视频与侧板间距 · px', dockWidth: '左抽屉宽度 · px', fullWidth: '全场宽度 · 视口比例', halfWidth: '半场宽度 · 视口比例' }],
   motion: ['动画速度', { open: '打开总时长 · ms', morph: '全半场切换 · ms', close: '收起时长 · ms', hideDelay: '离开后收起等待 · ms', controlsIdle: '控件静置隐藏 · ms' }],
   appearance: ['整体外观', { panelRadius: '两侧板统一圆角 · px', videoRadius: '视频圆角 · px', controlRadius: '控制条圆角 · px', titleSize: '标题字号 · px', bodySize: '正文字号 · px' }],
-  annotations: ['标注开关', { mascotSize: '吉祥物尺寸 · px', labelSize: '标注字号 · px', enabled: '显示视频分析标注' }],
-  glass: ['批量玻璃参数', { refraction: '全部组件折射', bevelDepth: '全部组件边缘深度', bevelWidth: '全部组件边缘宽度', frost: '全部组件磨砂强度', tintAlpha: '全部组件染色不透明度' }],
+  annotations: ['标注开关', { labelSize: '标注字号 · px', enabled: '显示视频分析标注', ...typographyLabels }],
 };
-const enumLabels = { default: '原图默认', system: '系统字体', pingfang: '苹方', songti: '宋体', mono: '等宽', '300': '300 · 细', '400': '400 · 常规', '500': '500 · 中等', '600': '600 · 半粗', '700': '700 · 粗体', '800': '800 · 特粗', happy: '微笑', focus: '专注', classic: '经典篮球', minimal: '简洁篮球', source: '跟随当前比赛', neutral: '中性球场', rockets: '休斯顿火箭', mavericks: '达拉斯独行侠' };
-const referenceStates = [ ['immersive','01_immersive.png','沉浸式'], ['fullCourt','02_full_court.png','全场'], ['halfCourt','03_half_court.png','半场'] ];
+const enumLabels = { default: '原图默认', system: '系统字体', pingfang: '苹方', songti: '宋体', mono: '等宽', '300': '300 · 细', '400': '400 · 常规', '500': '500 · 中等', '600': '600 · 半粗', '700': '700 · 粗体', '800': '800 · 特粗', rockets: '火箭', mavericks: '独行侠' };
+const referenceStates = [ ['immersive','沉浸式'], ['fullCourt','全场'], ['halfCourt','半场'] ];
 const emit = (name, detail) => window.dispatchEvent(new CustomEvent(name, { detail }));
 
 export function createInspector() {
@@ -28,14 +25,14 @@ export function createInspector() {
   element.className = 'config-inspector'; element.dataset.liquidIgnore = '';
   element.setAttribute('aria-label', '中文可视化调参');
   element.innerHTML = `<div class="inspector-heading"><div><h2>可视化调参</h2><p>点选组件 · 实时预览 · 仅本机保存</p></div><button type="button" class="inspector-close" aria-label="关闭调参">×</button></div>
-    <label class="inspector-group-picker">材质模式<select class="material-mode" aria-label="材质模式"><option value="css">CSS 毛玻璃 · 比赛默认</option><option value="liquid">Liquid Glass · 备用光学效果</option></select></label><p class="inspector-material-note"></p>
+    <p class="material-mode">经典毛玻璃 · 已锁定</p><p class="inspector-material-note"></p>
     <div class="inspector-tools"><button type="button" data-action="pick">在画面中点选</button><button type="button" data-action="undo">撤销</button><button type="button" data-action="redo">重做</button></div>
-    <div class="inspector-component-grid" aria-label="选择组件">${['dock','fullCourt','halfCourt','controls','content','menus','topbar','heading','mascot','courtTheme'].map(group => `<button type="button" data-component-choice="${group}">${labels[group][0]}</button>`).join('')}</div>
+    <div class="inspector-component-grid" aria-label="选择组件">${['dock','fullCourt','halfCourt','controls','content','menus','heading','courtTheme'].map(group => `<button type="button" data-component-choice="${group}">${labels[group][0]}</button>`).join('')}</div>
     <label class="inspector-group-picker">正在调整<select class="group-select" aria-label="参数组">${Object.entries(labels).map(([group, [title]]) => `<option value="${group}">${title}</option>`).join('')}</select></label>
     <p class="inspector-scope-note">每个组件的玻璃独立生效；调整全场不会改变半场。</p>
     <div class="inspector-fields"></div>
     <button type="button" data-action="reset-group" class="inspector-reset-group">恢复当前组件</button>
-    <details class="inspector-reference"><summary>三张原图基准 · 一键恢复</summary><div class="inspector-reference-grid">${referenceStates.map(([mode,file,title]) => `<button type="button" data-reference="${mode}"><img src="${new URL('./references/' + file, import.meta.url).href}" alt="${title}原图"><span>恢复${title}</span></button>`).join('')}</div><p>恢复全部显示参数并进入对应形态，可撤销参数。</p></details>
+    <details class="inspector-reference"><summary>三态布局基准 · 一键恢复</summary><div class="inspector-reference-grid">${referenceStates.map(([mode,title]) => `<button type="button" data-reference="${mode}"><span>恢复${title}</span></button>`).join('')}</div><p>恢复全部显示参数并进入对应形态，可撤销参数。</p></details>
     <details class="inspector-presets"><summary>命名预设 · 仅本机浏览器</summary><div class="preset-save-row"><input class="preset-name" type="text" maxlength="48" placeholder="新预设名称" aria-label="预设名称"><button type="button" data-action="preset-create">新建</button></div><select class="preset-select" aria-label="已保存预设"><option value="">尚无命名预设</option></select><div class="preset-actions"><button type="button" data-action="preset-load">应用</button><button type="button" data-action="preset-update">更新</button><button type="button" data-action="preset-rename">重命名</button><button type="button" data-action="preset-delete">删除</button></div></details>
     <details class="inspector-diagnostics"><summary>实际材质与渲染状态</summary><pre aria-live="off"></pre></details>
     <p class="inspector-note">调参只影响界面与球场皮肤；球员身份、坐标、比分与来源保持只读。</p><p class="inspector-message" role="status" aria-live="polite"></p>
@@ -49,9 +46,10 @@ export function createInspector() {
   function run(action, success) { endConfigEdit(); try { action(); if (success) setMessage(success); } catch (error) { setMessage(error.message, true); sync(); } }
   function renderGroup() {
     const group = picker.value; fields.replaceChildren();
-    $('.inspector-scope-note').textContent = group === 'glass' ? '批量操作：同时修改左抽屉、内容抽屉、全场、半场、控制条、菜单、顶部功能栏和标题胶囊八组玻璃。' : ['dock','fullCourt','halfCourt','controls','content','menus','topbar','heading'].includes(group) ? '当前组件独立生效；字体、字重、玻璃、尺寸和颜色不会串到其他组件。原图默认保留原有字体层次。' : group === 'courtTheme' ? '皮肤只改变场地外观，不改变当前比赛与球员资料。' : '调整会立即作用于画面；拖动面板标题可移动此调参窗口。';
+    $('.inspector-scope-note').textContent = group === 'glass' ? '批量操作：同时修改左抽屉、内容抽屉、全场、半场、控制条、菜单、顶部功能栏和标题胶囊八组玻璃。' : ['dock','fullCourt','halfCourt','controls','content','menus','heading'].includes(group) ? '当前组件的尺寸、字体与文字颜色独立调整。毛玻璃材质已锁定。' : group === 'courtTheme' ? '皮肤只改变场地外观，不改变当前比赛与球员资料。' : '调整会立即作用于画面；拖动面板标题可移动此调参窗口。';
     element.querySelectorAll('[data-component-choice]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.componentChoice === group)));
     for (const [key, rule] of Object.entries(schema[group])) {
+      if (['tint','tintAlpha','refraction','frost','bevelDepth','bevelWidth'].includes(key)) continue;
       const label = document.createElement('label'); label.className = 'inspector-field';
       const text = document.createElement('span'); text.textContent = labels[group][1][key];
       const inputs = document.createElement('span'); inputs.className = 'inspector-field-inputs';
@@ -79,16 +77,8 @@ export function createInspector() {
   function sync() {
     const config = getConfig(), status = getConfigStatus();
     const liquid = !!window.broadcastUI?.glass()?.enabled;
-    $('.material-mode').value = liquid ? 'liquid' : 'css';
-    $('.inspector-material-note').textContent = liquid
-      ? '液态光学效果已请求启用；实际初始化结果见下方渲染状态。切换材质不会覆盖预设。'
-      : 'CSS 模式：折射、边缘深度和边缘宽度仅保留配置，暂不生效。小组件磨砂映射为 6–10px 模糊，染色不透明度按保存值的 28% 呈现；战术板按 65% 呈现、不做模糊。内容抽屉保留至少 42% 底色以保证阅读。';
-    fields.querySelectorAll('[data-key]').forEach(input => {
-      const opticalOnly = ['refraction','bevelDepth','bevelWidth'].includes(input.dataset.key);
-      const largeFrost = input.dataset.key === 'frost' && ['fullCourt','halfCourt','content'].includes(picker.value);
-      input.disabled = !liquid && (opticalOnly || largeFrost);
-      input.title = input.disabled ? '参数已保留，仅在 Liquid Glass 模式生效' : '';
-    });
+
+    $('.inspector-material-note').textContent = '已锁定：3px · 底色 0.36 · 饱和度 118% · 边缘 0.10 · 高光 0.08 · 选中 0.15。大面板无模糊；旧光学参数仅兼容保留。';
     fields.querySelectorAll('[data-key]').forEach(input => { const value = config[picker.value][input.dataset.key]; if (input.type === 'checkbox') input.checked = value; else if (input !== document.activeElement || input.type !== 'number') input.value = value; });
     fields.querySelectorAll('[data-color-for]').forEach(output => { output.textContent = config[picker.value][output.dataset.colorFor]; });
     $('[data-action="undo"]').disabled = !status.canUndo; $('[data-action="redo"]').disabled = !status.canRedo;
@@ -116,7 +106,6 @@ export function createInspector() {
   function onPickClick(event) { if (!picking) return; const target = pickTarget(event.target); if (!target || !Object.hasOwn(labels,target.dataset.component)) return; event.preventDefault(); event.stopImmediatePropagation(); const group = target.dataset.component; clearPicking(); selectComponent(group); open(); }
   function onPickKey(event) { if (picking && event.key === 'Escape') { event.preventDefault(); event.stopImmediatePropagation(); clearPicking(); open(); } }
   document.addEventListener('pointermove', onPickMove, true); document.addEventListener('click', onPickClick, true); document.addEventListener('keydown', onPickKey, true);
-  $('.material-mode').addEventListener('change', () => { window.broadcastUI?.glass()?.setEnabled($('.material-mode').value === 'liquid'); sync(); diagnostics(); });
   picker.addEventListener('change', () => selectComponent(picker.value));
   $('.inspector-close').addEventListener('click', close); element.addEventListener('close', () => clearInterval(diagnosticTimer));
   element.addEventListener('keydown', event => { if (event.key === 'Escape') { event.stopPropagation(); close(); } });
@@ -127,7 +116,7 @@ export function createInspector() {
   element.addEventListener('click', event => {
     const choice = event.target.closest('[data-component-choice]')?.dataset.componentChoice; if (choice) selectComponent(choice);
     const reference = event.target.closest('[data-reference]')?.dataset.reference;
-    if (reference) run(() => { resetConfig(); emit('broadcast-layout-request', { layout: reference }); }, `已恢复${referenceStates.find(item => item[0] === reference)[2]}原图基线。`);
+    if (reference) run(() => { resetConfig(); emit('broadcast-layout-request', { layout: reference }); }, `已恢复${referenceStates.find(item => item[0] === reference)[1]}布局基线。`);
     const action = event.target.closest('[data-action]')?.dataset.action;
     if (action === 'pick') startPicking();
     if (action === 'undo') run(undo, '已撤销上一步调参。');

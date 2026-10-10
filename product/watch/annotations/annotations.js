@@ -1,6 +1,3 @@
-import { mascotSVG } from './mascot.js';
-export { mascotSVG };
-
 /** Pure validation kept separate for meaningful data-boundary tests.
  * Never consumes CourtLab `image`: those points are foot/floor observations.
  * Only explicit, unexpired normalized head landmarks can become a marker.
@@ -27,18 +24,16 @@ export function createAnnotationLayer({ video, onSelect = () => {} } = {}) {
   const element = document.createElement('div');
   element.className = 'annotation-layer'; element.dataset.component = 'annotations';
   element.setAttribute('aria-label', '比赛画面头部锚点标注');
-  let style = { size: 40, color: '#f69529', expression: 'happy', style: 'classic', labelSize: 15 };
+  let style = { labelSize: 15 };
   let last = null;
-  const marker = document.createElement('button'); marker.type = 'button'; marker.className = 'mascot-marker';
-  marker.innerHTML = '<span class="mascot-art"></span><span class="mascot-label"></span><span class="mascot-connector"></span>';
+  const marker = document.createElement('button'); marker.type = 'button'; marker.className = 'annotation-marker';
+  marker.innerHTML = '<span class="annotation-label"></span><span class="annotation-connector"></span>';
   marker.hidden = true; element.append(marker);
-  const art = marker.querySelector('.mascot-art'), label = marker.querySelector('.mascot-label');
+  const label = marker.querySelector('.annotation-label');
   marker.addEventListener('click', () => onSelect(marker.dataset.playerId));
   function setStyle(next = {}) {
     style = { ...style, ...next };
-    element.style.setProperty('--annotation-mascot-size', `${Math.max(16, Math.min(100, Number(style.size) || 40))}px`);
     element.style.setProperty('--annotation-label-size', `${Math.max(10, Math.min(26, Number(style.labelSize) || 15))}px`);
-    art.innerHTML = mascotSVG(style.size, style);
     if (last) update(last);
   }
   function update(input) {

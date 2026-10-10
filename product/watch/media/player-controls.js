@@ -23,9 +23,8 @@ export function createPlayerControls({ video, stage, onSettings, onError = () =>
       <button class="control-button play-toggle" type="button" aria-label="播放">${svg('play')}</button>
       <span class="media-time" aria-live="off"><span class="current-time">0:00</span><span class="time-divider"> / </span><span class="duration-time">--:--</span></span>
       <label class="seek-control"><span class="sr-only">播放进度</span><input class="seek-slider" type="range" min="0" max="0" step="0.01" value="0" aria-label="播放进度" disabled></label>
-      <span class="media-resolution" title="源视频实际分辨率">载入中</span>
       <div class="rate-control"><button class="control-button rate-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="播放速度">1×</button><div class="rate-menu" data-component="menus" role="menu" aria-label="播放速度" hidden><div class="glass-target"></div><div class="glass-content">${[.5, .75, 1, 1.25, 1.5, 2].map(rate => `<button type="button" role="menuitemradio" data-rate="${rate}" aria-checked="${rate === 1}">${rate}×</button>`).join('')}</div></div></div>
-      <div class="volume-control"><button class="control-button mute-toggle" type="button" aria-label="静音">${svg('volume')}</button><label class="volume-slider-label"><span class="sr-only">音量</span><input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="音量"></label></div>
+      <div class="volume-control"><button class="control-button mute-toggle" type="button" aria-label="静音">${svg('volume')}</button><label class="volume-slider-label"><span class="glass-target"></span><span class="sr-only">音量</span><input class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="音量"></label></div>
       ${onSettings ? `<button class="control-button settings-toggle" type="button" aria-label="显示设置">${svg('settings')}</button>` : ''}
       <button class="control-button fullscreen-toggle" type="button" aria-label="进入全屏">${svg('fullscreen')}</button>
     </div>`;
@@ -57,8 +56,6 @@ export function createPlayerControls({ video, stage, onSettings, onError = () =>
     volume.value = String(video.muted ? 0 : video.volume); paintRange(volume);
     rate.textContent = `${video.playbackRate}×`;
     menu.querySelectorAll('[data-rate]').forEach(button => button.setAttribute('aria-checked', String(+button.dataset.rate === video.playbackRate)));
-    const resolution = $('.media-resolution'); resolution.textContent = video.videoHeight ? `${video.videoHeight}P` : '载入中';
-    resolution.title = video.videoWidth ? `源视频 ${video.videoWidth} × ${video.videoHeight}，无转码画质选项` : '等待真实媒体元信息';
     fullscreen.setAttribute('aria-label', document.fullscreenElement ? '退出全屏' : '进入全屏');
   }
   async function togglePlay() { try { if (video.paused || video.ended) await video.play(); else video.pause(); } catch (error) { report(error); } refresh(); }

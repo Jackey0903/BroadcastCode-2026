@@ -1,0 +1,148 @@
+{
+  "checks": [
+    "keyboard Enter opens",
+    "rate submenu Esc leaves board open",
+    "keyboard Space opens",
+    "keyboard volume",
+    "all four combinations preserve media and layout",
+    "actual unavailable enhanced assets are disabled",
+    "real historical record accessible",
+    "chapter slow replay stops at end and restores speed",
+    "only local read requests; no runtime errors"
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:4188/",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/stage/stage.css",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/court/court.css",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/annotations/annotations.css",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/media/media.css",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/content/content.css",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/dev/inspector.css",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/vendor/court-viewer.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/app.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/config/config.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/stage/layout.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/glass/glass-manager.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/glass/ambience-source.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/media/player-controls.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/navigation/drawer.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/adapters/catalog.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/content/content-panel.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/court/court-panel.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/court/themes.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/annotations/annotations.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/dev/inspector.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/vendor/liquid-gl/liquidGL.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/court/court-geometry.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/adapters/historical-records.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/glass/optics-model.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/data/stories.json",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/teams/houston-rockets.svg",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/data/flagg.json",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/samples/flagg.mp4",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/samples/flagg.mp4",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/assets/teams/dallas-mavericks.svg",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/samples/amen.mp4",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4188/samples/amen.mp4",
+      "method": "GET"
+    }
+  ],
+  "errors": []
+}
