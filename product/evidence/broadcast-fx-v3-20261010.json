@@ -1,0 +1,180 @@
+{
+  "schema": "gamebuddy-editorial-video-acceptance-v1",
+  "recordedAt": "2026-10-10T17:50:56.953736+08:00",
+  "product": "GameBuddy",
+  "scope": "Local editorial continuation of the preserved Claude prototype; reusable visual assets, no cloud/Agent/RL execution",
+  "source": {
+    "path": "data/reference/train_video/train_video/训练_弗拉格2月1日.mp4",
+    "sha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce"
+  },
+  "preservedOriginal": {
+    "path": "product/build/broadcast-fx/Claude-弗拉格-v2-37秒.mp4",
+    "sha256": "19ea313787a9ff6ec60a918946de49cc4958fbc84dcaab0dafd031188f1448c5",
+    "durationSeconds": 37.721
+  },
+  "output": {
+    "path": "product/build/broadcast-fx/GameBuddy-弗拉格战术解读-v3.mp4",
+    "sha256": "4a468f642f585bbbcc56fba15cf906d71a702235e6d3caeb18d782273f9859b4",
+    "bytes": 76126038
+  },
+  "renderManifest": "product/build/broadcast-fx/GameBuddy-弗拉格战术解读-v3.manifest.json",
+  "library": "product/broadcast-fx/library.json",
+  "assetManifest": "product/broadcast-fx/data/manifest.json",
+  "verification": {
+    "frameCount": 2701,
+    "videoDuration": 45.061683,
+    "audioDuration": 45.062,
+    "formatDuration": 45.062,
+    "width": 1920,
+    "height": 1080,
+    "frameRate": "60000/1001",
+    "fullDecodePassed": true
+  },
+  "audio": {
+    "sampleRate": 48000,
+    "channels": 2,
+    "sampleCount": 2162961,
+    "audioVideoDurationDifferenceSeconds": 0.000317,
+    "newVoiceover": false,
+    "description": "Original broadcast plus procedural SFX; insertions preserve source sample alignment"
+  },
+  "browser": {
+    "engine": "Codex in-app browser",
+    "url": "http://127.0.0.1:8766/preview.html",
+    "sourceHashQuery": "4a468f642f585bbb",
+    "startedFrom": 0,
+    "playbackRate": 1,
+    "naturalEnd": true,
+    "ended": true,
+    "currentTime": 45.062,
+    "duration": 45.062,
+    "pausedAtEnd": true,
+    "error": null,
+    "readyStateAtEnd": 4,
+    "width": 1920,
+    "height": 1080,
+    "events": [
+      {
+        "name": "seeking",
+        "time": 0,
+        "at": 1791625741143
+      },
+      {
+        "name": "play",
+        "time": 0.004272,
+        "at": 1791625741144
+      },
+      {
+        "name": "waiting",
+        "time": 0.004338,
+        "at": 1791625741144
+      },
+      {
+        "name": "seeked",
+        "time": 0.004456,
+        "at": 1791625741144
+      },
+      {
+        "name": "playing",
+        "time": 0.004492,
+        "at": 1791625741144
+      },
+      {
+        "name": "ended",
+        "time": 45.062,
+        "at": 1791625786260
+      }
+    ],
+    "elapsedFromPlayingToEndedSeconds": 45.116,
+    "midPlaybackWaitingEvents": 0,
+    "performanceMetrics": "getVideoPlaybackQuality was unavailable through this browser inspection surface; no FPS/drop claim"
+  },
+  "contentReview": {
+    "method": "AI assistant visual inspection of source and actual encoded frames; independent tactical review",
+    "humanExpertReviewed": false,
+    "tacticalScenes": [
+      "T1 high screen and spacing, source frame 500",
+      "T2 drive and help direction, source frame 920"
+    ],
+    "fixes": [
+      "D31 corrected from historical D3",
+      "Occluded feet use body brackets and foot=null",
+      "Unknown jerseys remain anonymous",
+      "Official single-shot point removed from editorial motion path",
+      "Help-direction arrow starts at Wb, short schematic direction only",
+      "Made-basket caption begins at source 17.40 seconds",
+      "Unsupported 58% comparison removed"
+    ],
+    "userDirection": "Preserve the xFG 0-to-51% count-up animation and progress bar; settled official value is 51%",
+    "officialEvent": {
+      "gameId": "0022500701",
+      "actionNumber": 666,
+      "xfg": 0.51,
+      "playerPointsAfterBasket": 34,
+      "distanceFeet": 5,
+      "period": 4,
+      "clock": "1:34",
+      "score": "DAL 105 — 107 HOU"
+    }
+  },
+  "checks": {
+    "assetTests": {
+      "count": 10,
+      "passed": true
+    },
+    "freshAudioGeneration": {
+      "passed": true,
+      "sampleCount": 2162961
+    },
+    "isolatedFullGate": {
+      "baseCommit": "9199490031c79475ba35be0ce0d8c3a6316936e5",
+      "scope": "base plus broadcast-fx and own documentation changes",
+      "behavioralTests": 456,
+      "passed": true,
+      "seconds": 18.56,
+      "cdkResources": 50,
+      "boundedRoles": 6
+    },
+    "earlierSharedGateFailures": [
+      {
+        "test": "test_replay_unavailable_or_missing_live_flags_add_no_badge",
+        "reason": "Concurrent RL prepared=True assertion failure"
+      },
+      {
+        "test": "test_verified_live_selection_reaches_agent_and_successful_render_usage",
+        "reason": "Concurrent RL Decimal(0.51) versus float 0.51 assertion failure"
+      }
+    ],
+    "sharedFullGateAfterConcurrentFix": {
+      "passed": true,
+      "behavioralTests": 481,
+      "seconds": 18.34,
+      "head": "2c7ac0d107d3d7457c49ad5b3667965ee70cf28f",
+      "scope": "Shared working tree after the other session committed RL integration; includes its uncommitted serve.py change, which this video commit does not stage",
+      "cdkResources": 50,
+      "boundedRoles": 6
+    }
+  },
+  "earlierPlaybackAttempt": {
+    "completed": false,
+    "reason": "Separate Playwright browser context closed before natural-end result; superseded by dedicated in-app browser verification"
+  },
+  "backup": {
+    "directoryName": "20261010-1750-broadcast-fx-v3",
+    "locationRelativeToRepository": "../BroadcastCode-backups/20261010-1750-broadcast-fx-v3",
+    "mediaFileCount": 1854,
+    "mediaBytes": 1080499887,
+    "allCopiedHashesVerified": true,
+    "mediaManifest": "media-manifest.json",
+    "sourceRecoveryReceipt": "backup-receipt.json in that backup directory, created from the finalized commit"
+  },
+  "boundaries": {
+    "production": "Local editorial cut assembled by AI coding assistants; manually specified timeline and labels",
+    "agentInvoked": false,
+    "cloudDeploymentPerformed": false,
+    "tactics": "Editorial interpretation of visible source frames, not verified player intent or official tracking",
+    "playerEffects": "Short frozen-frame visual highlights; no automatic identities or reconstructed trajectories",
+    "audio": "Original broadcast audio and procedural SFX; no new AI voiceover",
+    "acceptance": "Technical media validation; human basketball/editorial approval remains separate"
+  }
+}

@@ -1,0 +1,773 @@
+{
+  "schema": "gamebuddy-editorial-tactics-v1",
+  "sourceSha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+  "canvas": [
+    1920,
+    1080
+  ],
+  "coordinateSpace": "source image pixels; court values for schematic projection only",
+  "sourceFps": "60000/1001",
+  "review": "Assistant visual review of source frames; not a human basketball expert validation",
+  "corrections": [
+    "T2 D3 corrected to visible jersey D31",
+    "Removed official shot coordinate appended to manual D32 path",
+    "Occluded feet use body brackets and foot=null",
+    "Added visible far-side teammate without assigning identity",
+    "T2 help_inner starts at far-side Wb, shortened to a directional arrow; no claimed observed endpoint"
+  ],
+  "scenes": {
+    "T1": {
+      "frame": 500,
+      "H": [
+        [
+          21.60751211314826,
+          -14.409995322818837,
+          742.6011429879808
+        ],
+        [
+          -1.6875373974056487,
+          2.59861767749196,
+          385.0227295334858
+        ],
+        [
+          -0.004407946138826804,
+          -0.008533117572363979,
+          1.0
+        ]
+      ],
+      "players": [
+        {
+          "id": "D32",
+          "team": "offense",
+          "number": "32",
+          "image": [
+            1695,
+            595
+          ],
+          "court": [
+            32.709,
+            23.371
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            1695,
+            595
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "D21",
+          "team": "offense",
+          "number": "21",
+          "image": [
+            1330,
+            647
+          ],
+          "court": [
+            24.586,
+            28.739
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            1330,
+            647
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "D31",
+          "team": "offense",
+          "number": "31",
+          "image": [
+            225,
+            720
+          ],
+          "court": [
+            1.65,
+            44.68
+          ],
+          "anchorKind": "body-only",
+          "foot": null,
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "D00",
+          "team": "offense",
+          "number": "00",
+          "image": [
+            705,
+            770
+          ],
+          "court": [
+            13.86,
+            45.14
+          ],
+          "anchorKind": "body-only",
+          "foot": null,
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "Dfar",
+          "team": "offense",
+          "number": null,
+          "image": [
+            935,
+            380
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            935,
+            380
+          ],
+          "court": [
+            6.0,
+            3.0
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "editorial schematic corner placement; image anchor independently observed",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "W17",
+          "team": "defense",
+          "number": "17",
+          "image": [
+            1445,
+            590
+          ],
+          "court": [
+            26.864,
+            23.64
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            1445,
+            590
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "W28",
+          "team": "defense",
+          "number": "28",
+          "image": [
+            1205,
+            640
+          ],
+          "court": [
+            21.563,
+            28.603
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            1205,
+            640
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "W1",
+          "team": "defense",
+          "number": "1",
+          "image": [
+            790,
+            798
+          ],
+          "court": [
+            14.447,
+            41.086
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            790,
+            798
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "Wa",
+          "team": "defense",
+          "number": null,
+          "image": [
+            470,
+            742
+          ],
+          "court": [
+            5.607,
+            38.98
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            470,
+            742
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "Wb",
+          "team": "defense",
+          "number": null,
+          "image": [
+            872,
+            470
+          ],
+          "court": [
+            8.47,
+            12.365
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            872,
+            470
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        }
+      ],
+      "paths": {
+        "D21_screen": [
+          [
+            24.73,
+            28.56
+          ],
+          [
+            24.27,
+            27.41
+          ],
+          [
+            27.1,
+            24.05
+          ]
+        ],
+        "W28_drop": [
+          [
+            21.56,
+            28.6
+          ],
+          [
+            17.09,
+            23.27
+          ]
+        ],
+        "W17_chase": [
+          [
+            26.91,
+            23.63
+          ],
+          [
+            28.92,
+            25.27
+          ],
+          [
+            31.46,
+            25.34
+          ]
+        ],
+        "D32_drive": [
+          [
+            32.709,
+            23.371
+          ],
+          [
+            33.48,
+            23.34
+          ],
+          [
+            33.74,
+            23.49
+          ],
+          [
+            34.02,
+            23.78
+          ],
+          [
+            34.34,
+            24.28
+          ],
+          [
+            34.66,
+            24.91
+          ],
+          [
+            34.93,
+            25.49
+          ],
+          [
+            35.09,
+            25.83
+          ],
+          [
+            35.12,
+            25.8
+          ],
+          [
+            35.02,
+            25.36
+          ],
+          [
+            34.82,
+            24.6
+          ],
+          [
+            34.52,
+            23.7
+          ],
+          [
+            34.13,
+            22.85
+          ],
+          [
+            33.53,
+            22.12
+          ],
+          [
+            32.58,
+            21.44
+          ],
+          [
+            31.29,
+            20.8
+          ],
+          [
+            29.83,
+            20.24
+          ],
+          [
+            28.41,
+            19.82
+          ],
+          [
+            27.14,
+            19.57
+          ],
+          [
+            25.97,
+            19.4
+          ],
+          [
+            24.85,
+            19.27
+          ],
+          [
+            23.79,
+            19.16
+          ],
+          [
+            22.79,
+            19.06
+          ],
+          [
+            21.83,
+            18.98
+          ],
+          [
+            20.88,
+            18.91
+          ],
+          [
+            19.98,
+            18.85
+          ],
+          [
+            19.22,
+            18.79
+          ],
+          [
+            18.69,
+            18.71
+          ]
+        ]
+      },
+      "key": "T1",
+      "titleEn": "SCREEN & SPACE",
+      "titleCn": "高位掩护 · 拉开空间",
+      "badge": "01 / SCREEN",
+      "captionCn": "21号上提掩护，外线队友保持宽度。",
+      "captionEn": "21 SCREENS. TEAMMATES KEEP THE FLOOR SPREAD.",
+      "steps": [
+        [
+          "SCREEN",
+          "21号上提掩护"
+        ],
+        [
+          "WIDTH",
+          "外线保持宽度"
+        ],
+        [
+          "TURN",
+          "持球绕过掩护"
+        ]
+      ],
+      "aside": [
+        "先看掩护位置",
+        "再看弱侧站位",
+        "把注意力放回持球人"
+      ],
+      "pathsBasis": "Editorial direction illustration from manually anchored frames. Not official motion trajectories."
+    },
+    "T2": {
+      "frame": 920,
+      "H": [
+        [
+          25.67252705840639,
+          -15.449066276120568,
+          715.9107792856976
+        ],
+        [
+          -1.987146222433995,
+          3.4069527620555133,
+          450.8761784964592
+        ],
+        [
+          -0.0035876610734604394,
+          -0.007808336512026619,
+          1.0
+        ]
+      ],
+      "players": [
+        {
+          "id": "D32",
+          "team": "offense",
+          "number": "32",
+          "image": [
+            1330,
+            495
+          ],
+          "court": [
+            21.283,
+            6.686
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            1330,
+            495
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "D21",
+          "team": "offense",
+          "number": "21",
+          "image": [
+            430,
+            800
+          ],
+          "court": [
+            5.345,
+            35.676
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            430,
+            800
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "D31",
+          "team": "offense",
+          "number": "31",
+          "image": [
+            745,
+            843
+          ],
+          "court": [
+            14.78,
+            43.32
+          ],
+          "anchorKind": "body-only",
+          "foot": null,
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "D00",
+          "team": "offense",
+          "number": "00",
+          "image": [
+            1405,
+            820
+          ],
+          "court": [
+            28.05,
+            38.26
+          ],
+          "anchorKind": "body-only",
+          "foot": null,
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "Dfar",
+          "team": "offense",
+          "number": null,
+          "image": [
+            916,
+            320
+          ],
+          "anchorKind": "body-only",
+          "foot": null,
+          "court": [
+            2.5,
+            5.0
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "W17",
+          "team": "defense",
+          "number": "17",
+          "image": [
+            1255,
+            555
+          ],
+          "court": [
+            20.382,
+            13.441
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            1255,
+            555
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "Wc",
+          "team": "defense",
+          "number": null,
+          "image": [
+            665,
+            540
+          ],
+          "court": [
+            4.17,
+            17.61
+          ],
+          "anchorKind": "body-only",
+          "foot": null,
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "Wd",
+          "team": "defense",
+          "number": null,
+          "image": [
+            632,
+            873
+          ],
+          "court": [
+            12.028,
+            39.942
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            632,
+            873
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "W1",
+          "team": "defense",
+          "number": "1",
+          "image": [
+            1295,
+            888
+          ],
+          "court": [
+            26.011,
+            39.257
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            1295,
+            888
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        },
+        {
+          "id": "Wb",
+          "team": "defense",
+          "number": null,
+          "image": [
+            913,
+            514
+          ],
+          "court": [
+            9.305,
+            8.686
+          ],
+          "anchorKind": "visible-foot",
+          "foot": [
+            913,
+            514
+          ],
+          "positionBasis": "editorial source-frame annotation",
+          "courtBasis": "approximate schematic layout, not official coordinates",
+          "humanExpertReviewed": false
+        }
+      ],
+      "paths": {
+        "D32_drive": [
+          [
+            21.283,
+            6.686
+          ],
+          [
+            18.8,
+            8.0
+          ],
+          [
+            17.88,
+            8.13
+          ],
+          [
+            16.98,
+            8.25
+          ],
+          [
+            16.1,
+            8.39
+          ],
+          [
+            15.25,
+            8.55
+          ],
+          [
+            14.42,
+            8.8
+          ],
+          [
+            13.61,
+            9.24
+          ],
+          [
+            12.86,
+            9.98
+          ],
+          [
+            12.22,
+            11.07
+          ],
+          [
+            11.72,
+            12.53
+          ],
+          [
+            11.35,
+            14.14
+          ],
+          [
+            10.99,
+            15.53
+          ],
+          [
+            10.52,
+            16.34
+          ],
+          [
+            9.96,
+            16.61
+          ],
+          [
+            9.38,
+            16.59
+          ],
+          [
+            8.89,
+            16.54
+          ],
+          [
+            8.52,
+            16.52
+          ],
+          [
+            8.26,
+            16.54
+          ]
+        ],
+        "help_inner": [
+          [
+            9.305,
+            8.686
+          ],
+          [
+            9.082,
+            11.176
+          ]
+        ],
+        "help_trailer": [
+          [
+            20.382,
+            13.441
+          ],
+          [
+            11.96,
+            15.11
+          ]
+        ]
+      },
+      "key": "T2",
+      "titleEn": "DRIVE & HELP",
+      "titleCn": "切入禁区 · 读取协防",
+      "badge": "02 / DRIVE",
+      "captionCn": "32号切入，追防与内线协防同时靠近。",
+      "captionEn": "32 DRIVES. THE TRAILER AND HELP DEFENDER CONVERGE.",
+      "steps": [
+        [
+          "DRIVE",
+          "持球切入禁区"
+        ],
+        [
+          "TRAIL",
+          "身后防守继续跟随"
+        ],
+        [
+          "HELP",
+          "内线防守收拢"
+        ]
+      ],
+      "aside": [
+        "观察突破方向",
+        "关注身后追防",
+        "看内线如何收拢"
+      ],
+      "pathsBasis": "Editorial direction illustration from manually anchored frames. Not official motion trajectories.",
+      "pathBasis": "Editorial direction arrows, not reconstructed movement. help_inner begins at the visually checked far-side Wb and ends 2.5 schematic feet along the interpreted help direction; the endpoint is not an observed location."
+    }
+  }
+}

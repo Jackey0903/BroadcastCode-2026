@@ -1,0 +1,590 @@
+{
+  "schema": "gamebuddy-visual-library-v1",
+  "schema_scope": "Internal project component catalog; not an official evaluation protocol.",
+  "product": "GameBuddy",
+  "language": "zh-CN",
+  "import_root": ".",
+  "import_note": "Run from this directory or add product/broadcast-fx to PYTHONPATH when starting from the repository root.",
+  "readme": "README.md",
+  "requirements": "requirements.txt",
+  "source_binding": {
+    "filename": "训练_弗拉格2月1日.mp4",
+    "sha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+    "asset_manifest": "data/manifest.json",
+    "active_tactics": "data/tactics_reviewed.json",
+    "historical_tactics": [
+      "data/tac/tactics.json",
+      "data/tac/H.json"
+    ],
+    "new_footage": "Reuse generic drawing primitives. New footage requires new source-verified annotations, identities, visibility labels, timing, official-event matching and an asset manifest; do not bypass the existing hash check."
+  },
+  "video_contract": {
+    "width": 1920,
+    "height": 1080,
+    "frame_rate": "60000/1001",
+    "frame_count": 2701,
+    "duration_seconds": 45.061683333333335,
+    "frame_indexing": "zero-based; half-open timeline ranges",
+    "render_result": {
+      "type": "numpy.ndarray",
+      "shape": [
+        1080,
+        1920,
+        3
+      ],
+      "dtype": "uint8",
+      "channel_order": "BGR"
+    },
+    "drawing_colors": "BGR",
+    "text_texture_result": "RGBA; use Layers.paste",
+    "state": "legacy and tactics use process-local mutable configuration; configure once per worker and do not interleave multiple sources in one process."
+  },
+  "initializers": [
+    {
+      "module": "broadcast_fx.legacy",
+      "symbol": "broadcast_fx.legacy.configure",
+      "file": "broadcast_fx/legacy.py",
+      "signature": "configure(workdir)"
+    },
+    {
+      "module": "broadcast_fx.tactics",
+      "symbol": "broadcast_fx.tactics.configure",
+      "file": "broadcast_fx/tactics.py",
+      "signature": "configure(workdir)"
+    },
+    {
+      "module": "render_video",
+      "symbol": "render_video.configure",
+      "file": "render_video.py",
+      "signature": "configure(workdir: str)"
+    }
+  ],
+  "components": [
+    {
+      "id": "layers",
+      "label": "画面与特效合成",
+      "module": "broadcast_fx.legacy",
+      "symbol": "broadcast_fx.legacy.Layers",
+      "file": "broadcast_fx/legacy.py",
+      "signature": "Layers(base)",
+      "initialization": [],
+      "returns": {
+        "type": "broadcast_fx.legacy.Layers"
+      },
+      "scope": "generic-1920x1080",
+      "notes": "base must be a BGR 1920x1080 array.",
+      "related_api": [
+        {
+          "module": "broadcast_fx.legacy",
+          "symbol": "broadcast_fx.legacy.Layers.paste",
+          "file": "broadcast_fx/legacy.py",
+          "signature": "paste(self, rgba, x, y, alpha=1.0, scale=1.0, anchor='lt')"
+        },
+        {
+          "module": "broadcast_fx.legacy",
+          "symbol": "broadcast_fx.legacy.Layers.compose",
+          "file": "broadcast_fx/legacy.py",
+          "signature": "compose(self, glow_gain=1.0)"
+        }
+      ]
+    },
+    {
+      "id": "player-energy-ring",
+      "label": "主角光圈与进攻时间弧",
+      "module": "broadcast_fx.legacy",
+      "symbol": "broadcast_fx.legacy.draw_ring",
+      "file": "broadcast_fx/legacy.py",
+      "signature": "draw_ring(L, f, t, color, energy, alpha=1.0, pulse=0.0, grow=1.0)",
+      "initialization": [
+        "broadcast_fx.legacy.configure(workdir)"
+      ],
+      "returns": {
+        "type": "None",
+        "effect": "Mutates the provided legacy.Layers instance; call layer.compose() to obtain a BGR uint8 frame."
+      },
+      "scope": "bound-to-current-source",
+      "notes": "f is a source-frame number; position is read from track.json. energy is normally a 0..1 fraction; None omits the arc. Cosmetic interpolation is not tracking."
+    },
+    {
+      "id": "player-marker",
+      "label": "球员标记与遮挡身体括号",
+      "module": "broadcast_fx.tactics",
+      "symbol": "broadcast_fx.tactics.draw_marker",
+      "file": "broadcast_fx/tactics.py",
+      "signature": "draw_marker(layer, position, color, label, t, alpha=1, active=False, perspective=1, body_only=False)",
+      "initialization": [
+        "broadcast_fx.legacy.configure(workdir)"
+      ],
+      "returns": {
+        "type": "None",
+        "effect": "Mutates the provided legacy.Layers instance; call layer.compose() to obtain a BGR uint8 frame."
+      },
+      "scope": "generic-with-reviewed-positions",
+      "notes": "position is a supplied image or diagram point. With an occluded foot use body_only=True and a visible body anchor; never invent a foot coordinate. perspective=1 uses camera-view geometry and perspective=0 uses diagram geometry. label may be null for an unknown number."
+    },
+    {
+      "id": "direction-arrow",
+      "label": "动作方向箭头",
+      "module": "broadcast_fx.tactics",
+      "symbol": "broadcast_fx.tactics.draw_path",
+      "file": "broadcast_fx/tactics.py",
+      "signature": "draw_path(layer, points, color, reveal=1.0, alpha=1.0, width=5, arrow=True, dashed=False)",
+      "initialization": [
+        "broadcast_fx.legacy.configure(workdir)"
+      ],
+      "returns": {
+        "type": "None",
+        "effect": "Mutates the provided legacy.Layers instance; call layer.compose() to obtain a BGR uint8 frame."
+      },
+      "scope": "generic-with-editorial-points",
+      "notes": "points is an Nx2 array in output pixels; reveal is 0..1; arrow=False omits the arrowhead; dashed=True uses a dashed stroke. This draws an editorial direction illustration, not observed motion."
+    },
+    {
+      "id": "project-points",
+      "label": "图形投影",
+      "module": "broadcast_fx.tactics",
+      "symbol": "broadcast_fx.tactics.project_points",
+      "file": "broadcast_fx/tactics.py",
+      "signature": "project_points(points, homography)",
+      "initialization": [],
+      "returns": {
+        "type": "numpy.ndarray",
+        "shape": [
+          "N",
+          2
+        ],
+        "dtype": "float64"
+      },
+      "scope": "generic-geometry",
+      "notes": "points is Nx2; homography is 3x3. Raises ValueError for invalid projections. Does not calibrate cameras or produce official coordinates.",
+      "related_api": [
+        {
+          "module": "broadcast_fx.tactics",
+          "symbol": "broadcast_fx.tactics.board_points",
+          "file": "broadcast_fx/tactics.py",
+          "signature": "board_points(points)"
+        },
+        {
+          "module": "broadcast_fx.tactics",
+          "symbol": "broadcast_fx.tactics.scene_project",
+          "file": "broadcast_fx/tactics.py",
+          "signature": "scene_project(scene, points, morph)"
+        }
+      ]
+    },
+    {
+      "id": "text-rgba",
+      "label": "文字贴图",
+      "module": "broadcast_fx.legacy",
+      "symbol": "broadcast_fx.legacy.text_rgba",
+      "file": "broadcast_fx/legacy.py",
+      "signature": "text_rgba(text, path, size, color, track=0, stroke=0, stroke_color=(0, 0, 0), shear=0.0)",
+      "initialization": [
+        "broadcast_fx.legacy.configure(workdir)"
+      ],
+      "returns": {
+        "type": "numpy.ndarray",
+        "shape": [
+          "text_height",
+          "text_width",
+          4
+        ],
+        "dtype": "uint8",
+        "channel_order": "RGBA"
+      },
+      "scope": "generic",
+      "notes": "color is BGR despite the RGBA return image. Compose with Layers.paste. Font defaults prefer local macOS fonts and fall back to repository Fusion Pixel under OFL."
+    },
+    {
+      "id": "bilingual-caption",
+      "label": "中英字幕条",
+      "module": "broadcast_fx.legacy",
+      "symbol": "broadcast_fx.legacy.draw_caption",
+      "file": "broadcast_fx/legacy.py",
+      "signature": "draw_caption(L, t, a, b, en, cn, color=ORANGE)",
+      "initialization": [
+        "broadcast_fx.legacy.configure(workdir)"
+      ],
+      "returns": {
+        "type": "None",
+        "effect": "Mutates the provided legacy.Layers instance; call layer.compose() to obtain a BGR uint8 frame."
+      },
+      "scope": "generic",
+      "notes": "t, a and b are seconds on the same local segment clock. en/cn are caller-supplied text; caller retains source and uncertainty labels."
+    },
+    {
+      "id": "player-card",
+      "label": "球员信息卡",
+      "module": "broadcast_fx.legacy",
+      "symbol": "broadcast_fx.legacy.tag_cached",
+      "file": "broadcast_fx/legacy.py",
+      "signature": "tag_cached(num, name, sub, accent)",
+      "initialization": [
+        "broadcast_fx.legacy.configure(workdir)"
+      ],
+      "returns": {
+        "type": "numpy.ndarray",
+        "shape": [
+          "card_height",
+          "card_width",
+          4
+        ],
+        "dtype": "uint8",
+        "channel_order": "RGBA"
+      },
+      "scope": "generic-text-card",
+      "notes": "num/name/sub/accent are supplied explicitly. The related draw_tag convenience wrapper uses the current Flagg source annotations and hard-coded player identity.",
+      "related_api": [
+        {
+          "module": "broadcast_fx.legacy",
+          "symbol": "broadcast_fx.legacy.draw_tag",
+          "file": "broadcast_fx/legacy.py",
+          "signature": "draw_tag(L, f, t, alpha, sub='弗拉格 · 本场 32 分', color=BLUE)"
+        }
+      ]
+    },
+    {
+      "id": "score-card",
+      "label": "比分卡",
+      "module": "broadcast_fx.legacy",
+      "symbol": "broadcast_fx.legacy.draw_scorecard",
+      "file": "broadcast_fx/legacy.py",
+      "signature": "draw_scorecard(L, t, t0, alpha)",
+      "initialization": [
+        "broadcast_fx.legacy.configure(workdir)"
+      ],
+      "returns": {
+        "type": "None",
+        "effect": "Mutates the provided legacy.Layers instance; call layer.compose() to obtain a BGR uint8 frame."
+      },
+      "scope": "bound-to-current-source",
+      "notes": "Current values are fixed to this event: DAL 103 transitions to 105, HOU 107. It is not a parameterized scoreboard API; new events require a reviewed implementation change."
+    },
+    {
+      "id": "official-shot-card",
+      "label": "官方出手指标与出手定格",
+      "module": "broadcast_fx.legacy",
+      "symbol": "broadcast_fx.legacy.render_freeze",
+      "file": "broadcast_fx/legacy.py",
+      "signature": "render_freeze(L, ft, dur)",
+      "initialization": [
+        "broadcast_fx.legacy.configure(workdir)"
+      ],
+      "returns": {
+        "type": "None",
+        "effect": "Mutates the provided legacy.Layers instance; call layer.compose() to obtain a BGR uint8 frame."
+      },
+      "scope": "bound-to-current-source",
+      "notes": "ft/dur are freeze-local seconds. Current panel uses NBA event 666, xFG 51%, 5 FT, Q4 1:34 and the source-frame 1007 ball anchor. Previous RL 58% comparison was removed. New events need their own verified data.",
+      "related_api": [
+        {
+          "module": "broadcast_fx.legacy",
+          "symbol": "broadcast_fx.legacy.court_card",
+          "file": "broadcast_fx/legacy.py",
+          "signature": "court_card()"
+        }
+      ]
+    },
+    {
+      "id": "hit-burst",
+      "label": "命中扩散特效",
+      "module": "broadcast_fx.legacy",
+      "symbol": "broadcast_fx.legacy.draw_burst",
+      "file": "broadcast_fx/legacy.py",
+      "signature": "draw_burst(L, t, t0, center, color, dur=0.75, big=1.0)",
+      "initialization": [
+        "broadcast_fx.legacy.configure(workdir)"
+      ],
+      "returns": {
+        "type": "None",
+        "effect": "Mutates the provided legacy.Layers instance; call layer.compose() to obtain a BGR uint8 frame."
+      },
+      "scope": "generic-with-reviewed-anchor",
+      "notes": "center is a caller-supplied pixel point; t/t0/dur are seconds on the same clock. The visual effect is not evidence of a scored basket."
+    },
+    {
+      "id": "action-popup",
+      "label": "动作与得分弹字",
+      "module": "broadcast_fx.legacy",
+      "symbol": "broadcast_fx.legacy.draw_popup",
+      "file": "broadcast_fx/legacy.py",
+      "signature": "draw_popup(L, t, t0, text, pos, color, size=170, dur=1.05, sub=None, sub_color=None)",
+      "initialization": [
+        "broadcast_fx.legacy.configure(workdir)"
+      ],
+      "returns": {
+        "type": "None",
+        "effect": "Mutates the provided legacy.Layers instance; call layer.compose() to obtain a BGR uint8 frame."
+      },
+      "scope": "generic",
+      "notes": "Text and position are caller-supplied; optional sub is a subtitle. It does not detect an action or score."
+    },
+    {
+      "id": "disclosure",
+      "label": "来源与AI字幕声明",
+      "module": "broadcast_fx.legacy",
+      "symbol": "broadcast_fx.legacy.draw_disclosure",
+      "file": "broadcast_fx/legacy.py",
+      "signature": "draw_disclosure(L, alpha)",
+      "initialization": [
+        "broadcast_fx.legacy.configure(workdir)"
+      ],
+      "returns": {
+        "type": "None",
+        "effect": "Mutates the provided legacy.Layers instance; call layer.compose() to obtain a BGR uint8 frame."
+      },
+      "scope": "current-production-disclosure",
+      "notes": "Draws the current AI interpretation / manual-keyframe interpolation / non-tracking disclosure. Different production methods require an accurate disclosure update."
+    },
+    {
+      "id": "scene-t1",
+      "label": "T1 高位掩护与空间",
+      "module": "broadcast_fx.tactics",
+      "symbol": "broadcast_fx.tactics.render_scene",
+      "file": "broadcast_fx/tactics.py",
+      "signature": "render_scene(name, i, n)",
+      "initialization": [
+        "broadcast_fx.legacy.configure(workdir)",
+        "broadcast_fx.tactics.configure(workdir)"
+      ],
+      "returns": {
+        "type": "numpy.ndarray",
+        "shape": [
+          1080,
+          1920,
+          3
+        ],
+        "dtype": "uint8",
+        "channel_order": "BGR"
+      },
+      "scope": "bound-to-current-source",
+      "notes": "Frozen source frame 500; camera-view player effects transition into an editorial diagram. i is zero-based local output frame.",
+      "arguments": {
+        "name": "T1",
+        "i_range": [
+          0,
+          219
+        ],
+        "n": 220
+      },
+      "active_annotations": "data/tactics_reviewed.json"
+    },
+    {
+      "id": "scene-t2",
+      "label": "T2 切入与协防",
+      "module": "broadcast_fx.tactics",
+      "symbol": "broadcast_fx.tactics.render_scene",
+      "file": "broadcast_fx/tactics.py",
+      "signature": "render_scene(name, i, n)",
+      "initialization": [
+        "broadcast_fx.legacy.configure(workdir)",
+        "broadcast_fx.tactics.configure(workdir)"
+      ],
+      "returns": {
+        "type": "numpy.ndarray",
+        "shape": [
+          1080,
+          1920,
+          3
+        ],
+        "dtype": "uint8",
+        "channel_order": "BGR"
+      },
+      "scope": "bound-to-current-source",
+      "notes": "Frozen source frame 920; uses reviewed number D31 and separates occluded bodies from visible feet. Intent is editorial interpretation, not verified mental state.",
+      "arguments": {
+        "name": "T2",
+        "i_range": [
+          0,
+          219
+        ],
+        "n": 220
+      },
+      "active_annotations": "data/tactics_reviewed.json"
+    },
+    {
+      "id": "timeline",
+      "label": "完整时间线",
+      "module": "broadcast_fx.timeline",
+      "symbol": "broadcast_fx.timeline.build_timeline",
+      "file": "broadcast_fx/timeline.py",
+      "signature": "build_timeline()",
+      "initialization": [],
+      "returns": {
+        "type": "tuple[broadcast_fx.timeline.Segment, ...]"
+      },
+      "scope": "current-edit-timeline",
+      "notes": "Zero-based, half-open frame ranges. 2261 preserved frames plus two 220-frame inserts. Original live source frames continue in order after each pause.",
+      "related_api": [
+        {
+          "module": "broadcast_fx.timeline",
+          "symbol": "broadcast_fx.timeline.locate_frame",
+          "file": "broadcast_fx/timeline.py",
+          "signature": "locate_frame(frame: int)"
+        },
+        {
+          "module": "broadcast_fx.timeline",
+          "symbol": "broadcast_fx.timeline.frame_sample",
+          "file": "broadcast_fx/timeline.py",
+          "signature": "frame_sample(frame: int, sample_rate: int=SAMPLE_RATE)"
+        },
+        {
+          "module": "broadcast_fx.timeline",
+          "symbol": "broadcast_fx.timeline.audio_insertions",
+          "file": "broadcast_fx/timeline.py",
+          "signature": "audio_insertions()"
+        }
+      ]
+    },
+    {
+      "id": "render-output-frame",
+      "label": "按完整时间线渲染单帧",
+      "module": "render_video",
+      "symbol": "render_video.render_frame",
+      "file": "render_video.py",
+      "signature": "render_frame(frame: int)",
+      "initialization": [
+        "render_video.configure(str(workdir))"
+      ],
+      "returns": {
+        "type": "numpy.ndarray",
+        "shape": [
+          1080,
+          1920,
+          3
+        ],
+        "dtype": "uint8",
+        "channel_order": "BGR"
+      },
+      "scope": "bound-to-current-source",
+      "notes": "frame is a zero-based final-output frame in [0,2701). Uses the preserved renderer or the active T1/T2 scene."
+    },
+    {
+      "id": "tactical-sfx",
+      "label": "战术段程序音效",
+      "module": "broadcast_fx.audio",
+      "symbol": "broadcast_fx.audio.tactical_sfx",
+      "file": "broadcast_fx/audio.py",
+      "signature": "tactical_sfx(samples: int, index: int=0)",
+      "initialization": [],
+      "returns": {
+        "type": "numpy.ndarray",
+        "shape": [
+          "samples",
+          2
+        ],
+        "dtype": "float32",
+        "sample_rate": 48000
+      },
+      "scope": "generic-synthetic-audio",
+      "notes": "samples is an integer sample count; index selects the deterministic variant. Returns procedural tones, not speech."
+    },
+    {
+      "id": "audio-timeline",
+      "label": "完整时间线混音",
+      "module": "broadcast_fx.audio",
+      "symbol": "broadcast_fx.audio.build_audio",
+      "file": "broadcast_fx/audio.py",
+      "signature": "build_audio(workdir: Path, source: Path, output: Path)",
+      "initialization": [],
+      "returns": {
+        "type": "dict",
+        "effect": "Writes a 48 kHz stereo 16-bit WAV at output and returns audio metadata."
+      },
+      "scope": "bound-to-current-source-and-timeline",
+      "notes": "workdir/source/output are pathlib.Path values. Uses workdir/out/audio.wav or rebuilds the preserved mix, then inserts tactical SFX at exact frame/sample boundaries. No new TTS or AI voiceover.",
+      "related_api": [
+        {
+          "module": "broadcast_fx.audio",
+          "symbol": "broadcast_fx.audio.splice_audio",
+          "file": "broadcast_fx/audio.py",
+          "signature": "splice_audio(original: np.ndarray)"
+        },
+        {
+          "module": "legacy_audio",
+          "symbol": "legacy_audio.build",
+          "file": "legacy_audio.py",
+          "signature": "build(workdir, source)"
+        }
+      ]
+    },
+    {
+      "id": "prepare-assets",
+      "label": "源片校验与素材准备",
+      "module": "prepare",
+      "symbol": "prepare.prepare",
+      "file": "prepare.py",
+      "signature": "prepare(source, workdir, assets_only=False)",
+      "initialization": [],
+      "returns": {
+        "type": "dict",
+        "effect": "Writes annotation/font copies and preparation.json; optionally extracts full and slow JPG caches."
+      },
+      "scope": "bound-to-current-source",
+      "notes": "source and workdir accept path-like values. assets_only=True copies persistent assets without extracting missing frames. Source hash must match the bound Flagg clip."
+    }
+  ],
+  "command_line": [
+    {
+      "file": "prepare.py",
+      "arguments": [
+        "--source",
+        "SOURCE",
+        "--workdir",
+        "WORKDIR"
+      ],
+      "optional_arguments": [
+        "--assets-only"
+      ],
+      "purpose": "Verify exact source hash, persist working assets, and extract frame caches unless assets-only."
+    },
+    {
+      "file": "render_video.py",
+      "arguments": [
+        "--source",
+        "SOURCE",
+        "--workdir",
+        "WORKDIR",
+        "--output",
+        "OUTPUT.mp4"
+      ],
+      "optional_arguments": [
+        "--workers",
+        "3",
+        "--preview",
+        "700,800,1350,1440,2140,2500"
+      ],
+      "purpose": "Render final media; --preview only emits JPEGs and does not render MP4."
+    },
+    {
+      "file": "legacy_audio.py",
+      "arguments": [
+        "WORKDIR",
+        "SOURCE"
+      ],
+      "purpose": "Rebuild original 37.721-second broadcast plus SFX mix at WORKDIR/out/audio.wav."
+    }
+  ],
+  "boundaries": {
+    "agent_invoked_for_this_edit": false,
+    "trained_model_used_for_this_edit": false,
+    "new_ai_voiceover": false,
+    "audio": "Original broadcast plus locally generated SFX",
+    "captions": "AI interpretation subtitles with disclosure",
+    "tactics": "Editorial interpretation of source frames; no automatic player tracking or verified intent",
+    "review": "Assistant visual review; not human basketball-expert acceptance",
+    "occlusion": "body-only anchors retain foot=null; unknown numbers retain number=null",
+    "official_data": "Official xFG 51% remains. Removed prior 58% comparison. Official shot coordinates are not appended to editorial motion paths.",
+    "geometry": "Image homographies and diagram court values are approximate visual-layout aids; not official tracking coordinates."
+  },
+  "evidence": {
+    "asset_provenance": "data/manifest.json",
+    "render_evidence": "Successful full renders produce OUTPUT.manifest.json beside OUTPUT.mp4; inspect its actual hashes and verification fields.",
+    "acceptance": "This catalog does not assert rendering, browser playback, basketball-content or deployment acceptance."
+  },
+  "storage": {
+    "git": "Python code, JSON annotations, library catalog and documentation",
+    "generated_media": "../build/broadcast-fx/ is ignored by Git; preserve original media, frame caches, outputs and manifests in a separate local backup.",
+    "fonts": "Repository Fusion Pixel under OFL or locally installed system fonts. Do not redistribute system fonts."
+  }
+}

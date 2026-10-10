@@ -1,0 +1,72 @@
+{
+  "schema": "gamebuddy-broadcast-assets-v1",
+  "source": {
+    "filename": "训练_弗拉格2月1日.mp4",
+    "sha256": "9c3e4606d04e7f79e29a112952fcf069ebab202af207af500bfbc3338bc079ce",
+    "width": 1920,
+    "height": 1080,
+    "fps": "60000/1001"
+  },
+  "provenance": "Preserved from the local Claude highlight prototype on 2026-10-10. Source media and generated frames are excluded from Git.",
+  "review_status": "editorial; not official or automatic player tracking",
+  "coordinate_scope": "1920x1080 source pixels, zero-based source frame numbers. Coordinates apply only to the exact source hash.",
+  "source_frame_mapping": {
+    "full": "fNNNN.jpg = source frame NNNN",
+    "slow_start_seconds": 14.9,
+    "slow_interpolation_fps": "179.82",
+    "render_fps": "60000/1001",
+    "slow_render_source_frame": "14.9 * (60000/1001) + j/3",
+    "slow_motion_speed": 0.3333333333333333,
+    "slow_duration_input_seconds": 3.0
+  },
+  "semantics": {
+    "track.json": "Main-player manual keyframes, interpolation and camera compensation. Not automatically detected or independently verified per-frame ground truth.",
+    "camera2.json": "Estimated image-to-image similarity transforms for cosmetic alignment; no official tracking coordinates.",
+    "shotclock_changes.json": "Editorial observations of broadcast scoreboard transitions.",
+    "tac/tactics.json": "Editorial short-frame tactical annotations; identities and intent require separate review.",
+    "tac/H.json": "Editorial image/court mapping for illustrative diagrams; not camera calibration ground truth.",
+    "tactics_reviewed.json": "Active tactical scenes: source-frame visual review, corrected #31, no official coordinate appended to paths, occluded feet=null. Original tac/tactics.json is preserved historical input only."
+  },
+  "files": [
+    {
+      "path": "track.json",
+      "sha256": "7fae97acf59302621da706f23c7d11408934bdeba33a3d8697fd5ed8402a1e18",
+      "bytes": 254113
+    },
+    {
+      "path": "camera2.json",
+      "sha256": "761df78920c60c2b3da8a73dfe6c30ded6b58f839c772faaf04eff89d3352726",
+      "bytes": 173951
+    },
+    {
+      "path": "shotclock_changes.json",
+      "sha256": "5998c8797d9bbd7460145afb8d1240fc4d748f0927c172c159ec9daf929e8355",
+      "bytes": 277
+    },
+    {
+      "path": "tac/tactics.json",
+      "sha256": "e6b17094eeaa29506e980a0a3430ca2cfff00c64207868f16b94c9e09613315f",
+      "bytes": 5862
+    },
+    {
+      "path": "tac/H.json",
+      "sha256": "971b4eb80e610dd38b32f9a45ec3f0a1b7c8495be88fae3e1ccffaca600281ea",
+      "bytes": 368
+    },
+    {
+      "path": "source-tools/track.py",
+      "sha256": "3c355e3da4b4330d2279700fa12091bcf6049efb3aeed41df6ea11e781b13dc0",
+      "bytes": 2816
+    },
+    {
+      "path": "source-tools/camera2.py",
+      "sha256": "aea5678d0f5810bcaac475445793ff77a503f5691feaf84e2e1394b33aac07b9",
+      "bytes": 1423
+    },
+    {
+      "path": "tactics_reviewed.json",
+      "sha256": "9146e05cfc64be3235c655092f6f4f266bf6f629db9357d0f399c6fe52801d16",
+      "bytes": 17577
+    }
+  ]
+}

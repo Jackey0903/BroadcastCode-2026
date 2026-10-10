@@ -1,5 +1,7 @@
 # 关键一拍 · 产品验收记录
 
+本地Claude视频接续：[45秒成片及资产证据](broadcast-fx-v3-20261010.json)、[完整交接](../../docs/Claude视频接续与视觉资产-20261010.md)。这是编辑成片与组件资产验收，未调用AgentCore/RL或发布到正式观看区。
+
 最新watch联调证据：`watch-integration-quality-20261010.json`（450项）、`watch-local-integration-20261010.json`（实际界面/播放与有限性能）、`watch-formal-publication-20261010.json`（真实上传），保留旧缺失资产与工具诊断失败记录；线上核查另存`watch-formal-integration-20261010.json`。说明见[前端联调](../../docs/前端合并与联调-20261010.md)。
 
 **10月10日15:06 · AWS托管交付增量与交接：** [独立验证/负例](native-delivery-verifier-20261010.json)、[33对象缓存迁移/真实Hit](native-cache-publication-20261010.json)、[完整Chrome播放](native-cache-browser-20261010.json)、[监控/边界](native-observability-20261010.json)和[385项门禁](native-quality-20261010.json)通过。[EventBridge正例与后续未知发布](native-delivery-workflow-20261010.json)证明原片verified:true、真实场景标签，但首配音失败；新版兼容修复虽部署，仍未云验收。保留[失败配音](native-media-failed-20261010.json)与[慢上传中止](native-cache-publication-aborted-20261010.json)。完整下一步见[交接](../../docs/Agent交接-20261010-1506.md)，不把SFN成功当可选媒体完成。
