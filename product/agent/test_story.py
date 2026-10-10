@@ -191,6 +191,18 @@ class StoryTests(unittest.TestCase):
         for unsupported in ("弧顶附近", "等待", "打开了出手空间"):
             self.assertIn(unsupported, str(caught.exception))
 
+    def test_shot_clock_judgments_are_rejected_before_temporal_grounding_exists(self):
+        request, plan = fixture()
+        for phrase in ("进攻时钟紧张。", "时间所剩不多。", "读秒时起跳。", "shot clock urgency"):
+            for field in ("title", "summary", "chapter.title", "chapter.caption", "chapter.focus"):
+                bad = copy.deepcopy(plan)
+                target, key = (bad["chapters"][0], field.split(".")[1]) if "." in field else (bad, field)
+                target[key] = phrase
+                with self.subTest(phrase=phrase, field=field), self.assertRaisesRegex(StoryValidationError, "shot-clock"):
+                    validate_plan(bad, request["story"], request)
+        plan["chapters"][0]["caption"] = "持球人准备推进。"
+        self.assertEqual(validate_plan(plan, request["story"], request)["chapters"][0]["caption"], "持球人准备推进。")
+
     def test_court_location_sources_exclude_editorial_hints_and_keep_qualifiers(self):
         request, plan = fixture()
         story = request["story"]

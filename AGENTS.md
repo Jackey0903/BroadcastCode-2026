@@ -4,18 +4,18 @@
 
 ## 当前状态
 
-- 2026-10-10 最新用户授权：正式比赛重新连接、新建私有 `Jackey0903/BroadcastCode-2026`、绑定 Team02 并迁入既有代码后继续开发。本次 Portal 已锁定新仓库，App 仅对它读取代码和元数据；`origin` 为新仓库，`practice` 为旧仓库，默认 main。旧“不能重新绑定”针对练习阶段，已被正式 Portal 重置和本次明确指令取代；新绑定完成后勿再次更换。正式 AWS 账号为 `555726205424`，身份和预置资源已只读验证；产品配置迁移和210项离线测试通过，尚未正式部署/调用模型/GPU。见[正式重连](docs/正式比赛重连与新仓库-20261010.md)、[审计](product/evidence/formal-account-audit-20261010.json)、[绑定](product/evidence/formal-repository-binding-20261010.json)。用户最新进一步授权：比赛期间所有验收增量持续整理、提交并推送新 `origin/main`，并本地存档，不逐次询问，不向旧 `practice` 推送。
-- 2026-10-10 评分与质量：先读[冲刺与评分对齐](docs/比赛冲刺与评分对齐-20261010.md)和[快速迭代门禁](docs/工程质量与快速迭代-20261010.md)。初赛机器35/准确30/体验25/问答4/投篮6，决赛18/18/15/9/40；现场照片第五项遮挡，40依据核准指南。有效服务协同、真实完整成片和可重跑优先，不按服务数量堆资源。每个增量运行 `python3 product/scripts/check.py --full`；GitHub main/PR自动执行同一离线门禁。门禁使用明确合成媒体占位，只核验模板，不认证实际媒体部署包、模型或上线。当前官方输入/schema仍待取得，俯视板维持本地研究示意，不包装成正式自动追踪。
+- 2026-10-10 最新用户授权：正式比赛重新连接、新建私有 `Jackey0903/BroadcastCode-2026`、绑定 Team02 并迁入既有代码后继续开发。本次 Portal 已锁定新仓库，App 仅对它读取代码和元数据；`origin` 为新仓库，`practice` 为旧仓库，默认 main。旧“不能重新绑定”针对练习阶段，已被正式 Portal 重置和本次明确指令取代；新绑定完成后勿再次更换。正式 AWS 账号为 `555726205424`，身份已核对，product/ CDK 已实际创建／更新，AgentCore READY，原片／帧／配置／网页已发布。正式端到端链路已跑通：弗拉格d143c261ef194f27ab1683b9fff1b15e由网页创建、真实生成、独立核验、Chrome完整播放及内容通过，选为观看区成片。阿门7a2a70d1c2b348ceb16b5129ef1a4bd1技术成功但早段时钟措辞内容拒收，保留失败；观看区阿门沿用已验收历史ce008e75d25d4e2e8e88b57412f6c762并标注historical。时钟防护已部署；用户收敛为整链路跑通即收尾，不追加阿门重跑。见[正式验收](docs/正式账号端到端验收-20261010.md)。最新269项核心门禁通过；此前262项CI成功，最新CI另核对对应提交，本轮主链路不验证GPU或RL集成。见[正式重连](docs/正式比赛重连与新仓库-20261010.md)、[审计](product/evidence/formal-account-audit-20261010.json)、[绑定](product/evidence/formal-repository-binding-20261010.json)。用户最新进一步授权：比赛期间所有验收增量持续整理、提交并推送新 `origin/main`，并本地存档，不逐次询问，不向旧 `practice` 推送。
+- 2026-10-10 评分与质量：先读[冲刺与评分对齐](docs/比赛冲刺与评分对齐-20261010.md)和[快速迭代门禁](docs/工程质量与快速迭代-20261010.md)。初赛机器35/准确30/体验25/问答4/投篮6，决赛18/18/15/9/40；现场照片第五项遮挡，40依据核准指南。有效服务协同、真实完整成片和可重跑优先，不按服务数量堆资源。每个增量运行 `python3 product/scripts/check.py --full`；GitHub main/PR自动执行同一离线门禁。门禁使用明确合成媒体占位，只核验模板，不认证实际媒体部署包、模型或上线。用户确认目前仍用Portal两训练片、没有另发材料；受控注册表与本地新素材登记已实现，完整官方评测schema仍待取得，俯视板维持本地研究示意，不包装成正式自动追踪。
 - 10 月 9 日历史安排：Claude 前端已合并；俯视底角与路线优化完成202项测试并本地存档，现已迁入正式仓库。保留像素街机风格与来源边界，见[Claude 接手](docs/Claude前端接手说明.md)及[俯视证据](product/evidence/court-clarity-20261009.json)。
 - 10 月 9 日最新 `product/court-lab/` 覆盖弗拉格全片 0–21.548118 秒，31 源帧 × 10 匿名编号，9 段编辑球权 D5→出手命中→W3→传球→W2（W4 接球猜测已否定）。estimated 足点、inferred/image:null 粗略站位、last-known 历史快照明确不同；全部 reviewed:false。保留过去位置不计当前更新、不延伸轨迹或原片标记，未入镜不倒填未来。半场/全场、跟随持球、1秒/3秒/全段轨迹、阶段解析均已测试；184 项离线测试及全片浏览器播放见[最新证据](product/evidence/court-full-20261009.json)与[复现说明](product/court-lab/README.md)。旧三秒、失败光流和独立检测为历史，非默认来源。未接入云端、Agent 或增强成片，仍是编辑示意，不称自动/官方追踪或已获正式许可。
 - 10 月 9 日用户要求只做桌面网页展示，优先复用上一场 `/Users/jack/draftcode` 前端素材，不采用外部 skill 方案。当前视觉为像素街机 × 极简黑场（`product/web/arcade.css` / `arcade.js`，俯视板 `product/court-lab/lab.css`），中英双语短标签，见[像素街机视觉系统](docs/前端像素街机视觉系统-20261009.md)；此前暖纸视觉见[旧素材复用](docs/前端视觉更新与旧素材复用-20261009.md)。像素字标与球场带等装饰不得包装成追踪结果；来源与边界说明可以压缩，不能删除。
 - 10 月 9 日本地预览已去掉云代理，运行 `python3 product/scripts/serve.py`，入口 http://127.0.0.1:4173/product/。原片/最终成片按 SHA-256 核对，本地历史记录明确标注，不启动新推理；含后续视觉回归的 111 项离线测试通过。详见[本地开发进度](docs/本地开发进度-20261009.md)。10 月 8 日参赛角色被拒绝、原 CloudFront 地址不可用；旧账号资源是否删除未知；正式新账号已按10月10日顶部状态重连，不用历史保留结论冒充当前可用。
 - 10 月 9 日用户明确先在本地开发。本轮可以提交本地 Git 并存档，**10 月 9 日晚已按用户授权同步推送 `main`；10 月 10 日比赛期间持续推送授权已覆盖旧逐次询问约束**。此前准备工程已推送为既有事实。服务器仅保存部署副本，源码、依赖锁定文件、CDK 与说明都须在本地；运行 `python3 scripts/archive-source.py` 可生成可恢复的源码/Git/媒体存档。赛前成果正式复用边界仍待主办方确认。
 
-- 用户本轮已授权产品开发，当前工程 **`product/`**，旧练习入口 https://d2x8td5d05xg8h.cloudfront.net/product/（已不可用）；正式产品尚待部署 。交互、两样片官方事件匹配和工具型 Agent 已实现，实时完成与验收以[产品实测](product/evidence/README.md)为准；不要用旧练习报告冒充本轮验收。下一次部署从 product/ 执行，复用同一 Stack；从 readiness-lab/ 部署会覆盖新后端。
+- 用户本轮已授权产品开发，当前工程 **`product/`**，旧练习入口 https://d2x8td5d05xg8h.cloudfront.net/product/（已不可用）；正式产品已部署于 https://deky02484tknr.cloudfront.net/product/，本轮完整验收见[正式验收](docs/正式账号端到端验收-20261010.md)。交互、两样片官方事件匹配和工具型 Agent 已实现，实时完成与验收以[产品实测](product/evidence/README.md)为准；不要用旧练习报告冒充本轮验收。下一次部署从 product/ 执行，复用同一 Stack；从 readiness-lab/ 部署会覆盖新后端。
 - 10 月 7 日最后部署的产品版本：85 项产品离线测试通过；最终展示成片任务为 `81a74837370e46a890cbacb2069074e6`（弗拉格）、`ce008e75d25d4e2e8e88b57412f6c762`（阿门）。真实推理、媒体与浏览器证据在 product/evidence；保留失败及内容拒收记录。仍不代表正式评分、新输入或人类专家验收。
 - 产品采用两种明确不同的内容：观看区为编辑策展的三视角；创作区为 AgentCore 真实读图、取官方快照和多轮计划。观看选择尚未传给创作 Agent。不得将编辑锚点说成自动 OCR 或把内部 product-story-v1 说成官方评测协议。
-- 两段公开练习片已匹配具体官方事件：弗拉格 game 0022500701 / event 666 / xFG 51.0%，阿门 game 0022500491 / event 396 / xFG 44.5%；PBP 关联键是 actionNumber。原值、原始数据、图像锚点与核对程序在 product/data 和 product/research。正式考试素材仍需重新适配。
+- 两段公开练习片已匹配具体官方事件：弗拉格 game 0022500701 / event 666 / xFG 51.0%，阿门 game 0022500491 / event 396 / xFG 44.5%；PBP 关联键是 actionNumber。原值、原始数据、图像锚点与核对程序在 product/data 和 product/research。当前两训练片已在正式账号登记发布；新考试素材仍按实际来源适配，不能称任意新视频已验收。
 - 最新终极指南与新版 Quick Start 已读取；规则、账号和历史服务/GPU 验证已完成。旧 `aws-validation/` 资源已删除，其 URL、ARN、桶名仅作历史证据。
 - 本轮已通过 CDK 部署 `readiness-lab/` 练习流水线：CloudFront → Lambda API → SQS → 视频 Worker → AgentCore/Claude → 完整 MP4 → S3/CloudFront，含 DynamoDB 任务状态。[旧练习入口](https://d2x8td5d05xg8h.cloudfront.net)对应旧账号 Stack `BroadcastCodeTeam02Readiness20261006` **保留**，不要按旧测试清理结论删除新资源。先读[本轮实测报告](readiness-lab/赛前准备实测报告-20261006.md)和[工程说明](readiness-lab/README.md)。
 - 弗拉格任务 `030eb6203d694a9d9e8a97c25755f9c1`（21.548 秒）与阿门任务 `4da872a6dac44ad49607b98865c43705`（22.895 秒）均完成，成片均在浏览器播放到末尾；独立下载、哈希、媒体时长、音轨、HTTP Range 206 和永久字幕检查通过。32 项离线测试通过。练习字幕为稀疏图像的模型观察，不是已对齐的官方深度数据；练习工程不是正式参赛产品或评分认证。
@@ -40,10 +40,10 @@
 - 部署前核对身份：正式目标账号 `555726205424`，角色 `NBAHackathonParticipantRole`。新会话或新机器不能假定登录缓存仍有效。
 - 主办方已完成 bootstrap，**不要执行 `cdk bootstrap`**。通用教程中的 bootstrap 步骤不适用于本赛事。
 - 实际项目的 `cdk.json` 必须合并 `context["@aws-cdk/core:permissionsBoundary"] = { "name": "NBAHackathonParticipantBoundary" }`，保留已有配置；Stack 的账号和区域也须正确。
-- 直接通过 CLI / SDK 创建需要执行角色的服务时，正式账号预置执行角色已查到 `arn:aws:iam::555726205424:role/NBAHackathonWorkloadRole`，新服务的 PassRole/运行仍待正式部署验证；旧账号可传递结论不当作新实测。CDK 创建新角色需走已有部署路径并带指定边界。不要尝试更改主办方 IAM 限制。
-- 旧练习账号已实测的模型为 `global.anthropic.claude-sonnet-4-6`、`qwen.qwen3-vl-235b-a22b`；请求从 `us-east-1` 发出。模型目录条目不代表调用权限，Nova Lite 已被策略拒绝。
+- 直接通过 CLI / SDK 创建需要执行角色的服务时，正式账号预置执行角色已查到 `arn:aws:iam::555726205424:role/NBAHackathonWorkloadRole`，AgentCore已使用此角色达到READY并完成正式Claude故事任务；该结果只覆盖本次部署路径，不推导所有服务PassRole均可用。CDK 创建新角色需走已有部署路径并带指定边界。不要尝试更改主办方 IAM 限制。
+- 正式账号已通过阿门任务实测 `global.anthropic.claude-sonnet-4-6`；Qwen、Haiku、Nova和GPU不在本轮主链路验收。旧练习账号已实测的模型为 `global.anthropic.claude-sonnet-4-6`、`qwen.qwen3-vl-235b-a22b`；请求从 `us-east-1` 发出。模型目录条目不代表调用权限，Nova Lite 已被策略拒绝。
 - 正式指南中的“GPU 配额为 0”、Quick Start 的 Nova Lite / Haiku 建议和旧 `us.` Claude 前缀不能覆盖本队后续通知与实测：SageMaker GPU 已验证，Nova Lite 已拒绝，Claude 保持已验证 `global.` ID；Haiku 未被验证可用。
-- GPU 按通知走 SageMaker；正式555账号尚未核查配额或启动，需按具体机型和用途验证。下列30个配额/T4结果仅旧练习账号。30 个已查询的 g4dn/g5/g6/g6e 尺寸 Processing 配额为 0。仅 `ml.g4dn.xlarge` Training 做过实际启动验证。
+- GPU 按通知走 SageMaker；正式555账号主链路未核查或启动GPU；并行研发如有结果，须按其自己的用途、配额和运行证据核对，不能由本轮成片推断。下列30个配额/T4结果仅旧练习账号。30 个已查询的 g4dn/g5/g6/g6e 尺寸 Processing 配额为 0。仅 `ml.g4dn.xlarge` Training 做过实际启动验证。
 - 测试清理只针对本次自己创建的资源；保留主办方 `CDKToolkit`、预置执行角色及其他团队或共享资源。
 
 ## 数据、规则和文档

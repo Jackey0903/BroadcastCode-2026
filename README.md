@@ -1,6 +1,6 @@
 # BroadcastCode「深度赛场」黑客松准备资料
 
-**2026-10-10 正式比赛：** 用户授权重新连接、创建并绑定新私有仓库。Team02 Portal 已锁定 [Jackey0903/BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026)，默认 `main`；赛事 App 仅对这个仓库读取代码和元数据。正式 AWS 账号为 **`555726205424`**，`nba` 身份验证成功，主办方 bootstrap／执行角色／权限边界存在。活跃产品配置已迁移，210 项离线测试通过；正式账号尚未部署产品、调用模型或验证 GPU，旧练习记录不替代新验收。见[正式重连说明](docs/正式比赛重连与新仓库-20261010.md)、[账号审计](product/evidence/formal-account-audit-20261010.json)及[绑定证据](product/evidence/formal-repository-binding-20261010.json)。用户最新授权比赛期间持续整理、提交并推送此新仓库的 `main`，每个验收增量及时同步并本地存档，不逐次询问；不向旧 `practice` 推送。
+**2026-10-10 正式比赛：** 用户授权重新连接、创建并绑定新私有仓库。Team02 Portal 已锁定 [Jackey0903/BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026)，默认 `main`；赛事 App 仅对这个仓库读取代码和元数据。正式 AWS 账号为 **`555726205424`**，`nba` 身份验证成功，主办方 bootstrap／执行角色／权限边界存在。正式账号产品已通过 CDK 创建并更新，AgentCore 为 READY，两段原片、输入帧、配置与网页已发布。正式账号端到端链路已跑通：弗拉格网页创建、真实Agent调用、完整成片、Chrome片尾播放和内容复核通过，已选为观看区成片。本轮阿门7a2任务技术完成但内容拒收，永久保留失败证据；观看区阿门继续使用已验收历史任务ce008…，明确历史来源。本轮按用户要求收尾，不追加阿门重跑。最新269项核心离线检查通过；此前262项对应GitHub CI通过，新增量CI待对应推送核对；正式 GPU 未在此链路验证。当前入口为[正式产品](https://deky02484tknr.cloudfront.net/product/)，详见[本轮正式验收](docs/正式账号端到端验收-20261010.md)，不以旧练习记录代替。见[正式重连说明](docs/正式比赛重连与新仓库-20261010.md)、[账号审计](product/evidence/formal-account-audit-20261010.json)及[绑定证据](product/evidence/formal-repository-binding-20261010.json)。用户最新授权比赛期间持续整理、提交并推送此新仓库的 `main`，每个验收增量及时同步并本地存档，不逐次询问；不向旧 `practice` 推送。
 
 
 **10 月 10 日评分与质量：** 已重新核对[完整 Quick Start](<NBA × AWS Hackathon｜赛制与选手快速上手 Rules & Quick Start.md>)和[现场决赛评分照片](参考资料/现场决赛评分-20261010.jpg)。初赛优先完整真实链路与准确性，决赛视觉 40、架构／深度合计 36；不是按服务数量加分。评分目标、剩余缺口、时间检查点和故事线见[比赛冲刺与评分对齐](docs/比赛冲刺与评分对齐-20261010.md)。统一离线门禁 `python3 product/scripts/check.py --full` 和 GitHub CI 已加入；执行结果及发布修复状态以[工程质量与快速迭代](docs/工程质量与快速迭代-20261010.md)为准，不能当作正式云端或评分验收。
@@ -20,9 +20,9 @@
 
 本项目的目标是参加 NBA / AWS BroadcastCode 12h 黑客松：用官方比赛视频和数据驱动 AI Agent 分析关键事件与战术，将真实数据标注烧录成完整增强视频，并通过 CloudFront 交互网页交付评委体验；解说可选。
 
-**已实现「关键一拍 / THE HIDDEN PLAY」本地产品：** [旧练习在线地址（已失效）](https://d2x8td5d05xg8h.cloudfront.net/product/)包含观看原片、选择关注点、关键动作慢放、官方出手数据与证据回看，以及真实 Agent 创作入口。产品工程在 [product/](product/README.md)，现场讲解在 [5 分钟演示脚本](product/PITCH.md)。两段公开练习片已与官方具体出手唯一匹配；两段均已有真实 Agent 生成并完整播放的增强成片；最新回归与内容验收状态以[产品证据](product/evidence/README.md)为准。
+**已部署「关键一拍 / THE HIDDEN PLAY」正式产品：** [当前正式入口](https://deky02484tknr.cloudfront.net/product/)包含观看原片、选择关注点、关键动作慢放、官方出手数据与证据回看，以及真实 Agent 创作入口。产品工程在 [product/](product/README.md)，现场讲解在 [5 分钟演示脚本](product/PITCH.md)。两段公开练习片已与官方具体出手唯一匹配；两段旧练习成片保留为历史，当前正式账号新任务及浏览器完成情况见[本轮验收](docs/正式账号端到端验收-20261010.md)；最新回归与内容验收状态以[产品证据](product/evidence/README.md)为准。
 
-原[练习入口](https://d2x8td5d05xg8h.cloudfront.net)与产品此前复用 Stack `BroadcastCodeTeam02Readiness20261006`，后续应从 `product/` 部署，避免旧工程覆盖新功能。旧 `aws-validation/` 对应资源已删除。正式评测协议与新素材适配仍待完成。
+原[练习入口](https://d2x8td5d05xg8h.cloudfront.net)与产品此前复用 Stack `BroadcastCodeTeam02Readiness20261006`，后续应从 `product/` 部署，避免旧工程覆盖新功能。旧 `aws-validation/` 对应资源已删除。正式账号当前从 `product/` 部署同名独立 Stack；受控输入接口已适配，完整官方评测协议与新考试素材验收仍待实际样例。
 
 ## 给新 AI 的阅读顺序
 
@@ -50,18 +50,18 @@
 |关键一拍产品|已实现交互前端、工具型 Agent、官方数据关联和完整成片渲染；实测状态见产品证据|
 |上交 AI for Sports 研究借鉴|已核查 BasketballSkills、BasketEvent 等论文及公开实现；交流问题已整理，尚未联系作者或运行模型|
 |正确 Team Portal 登录与队伍账号切换|10 月 10 日已成功，正式账号 `555726205424`，CLI 为 `nba`|
-|正式部署基础|bootstrap 完成、执行角色与权限边界存在；当前产品模板已改新账号并离线合成，正式产品尚未部署|
-|Claude Sonnet 4.6、Qwen3-VL|旧练习账号调用成功；正式账号模型目录可读，推理许可待实际调用|
-|AgentCore Runtime|旧账号曾生成完整 MP4；正式账号列表可读、当前 Runtime 为 0|
+|正式部署基础|当前账号 CDK 创建／更新成功，两新建角色带边界，当前媒体／配置／网页已发布；见[正式验收](docs/正式账号端到端验收-20261010.md)|
+|Claude Sonnet 4.6、Qwen3-VL|正式账号 Claude Sonnet 4.6 已在阿门任务实际调用；Qwen 的当前调用未在本轮验证|
+|AgentCore Runtime|正式Runtime READY；弗拉格真实网页任务、完整成片／播放／内容通过。时钟防护增量已部署|
 |SageMaker GPU|旧练习账号 T4 CUDA 运算成功；正式账号尚未核查配额或启动|
-|资源状态|旧 `aws-validation/` 已清理；新 Stack 原计划保留，但到期后实际状态未知；本队未保留 GPU 作业|
+|资源状态|旧账号资源到期后状态未知；正式账号同名 Stack 已创建并更新成功，保留用于比赛；本次主链路不启动 GPU|
 |公开训练样片|两段已下载并检查媒体信息、26 张关键帧；合计约 44.44 秒，见[核查报告](docs/research/公开训练样片核查.md)|
 |官网深度数据参考|10 份真实 JSON 已保存并复制到[可随仓库克隆的 fixtures](readiness-lab/fixtures/official/)；另有 product/ 中的两段样片事件映射，仍不是正式评测 schema|
-|练习完整成片|弗拉格和阿门两段均生成完整 MP4、浏览器播放到末尾并核对永久字幕；产品招牌交互已实现，正式评测输入仍待适配|
-|离线验证|10 月 10 日 210 项通过，含新增 8 项正式账号／旧输出拒绝测试；不等于云端或官方评分认证|
+|完整成片|弗拉格采用已验收正式任务d143…；阿门采用已验收历史ce008…并标注historical。阿门7a2内容拒收保留，不追加重跑|
+|离线验证|269项核心门禁通过、无跳过；此前262项对应GitHub CI成功，新增量CI单独核对；实际部署包另有审计，不等于官方评分或 RL 验收|
 |私有参赛仓库和 Portal 绑定|[Jackey0903/BroadcastCode-2026](https://github.com/Jackey0903/BroadcastCode-2026) 已推送、Portal 已锁定；[正式绑定证据](product/evidence/formal-repository-binding-20261010.json)|
 
-服务和配额结论是 **2026-10-05 至 10-06 的实测快照**。后续会话先核对当前身份、权限有效期和主办方更新，再部署。练习账号通知写明权限至 **2026-10-08 09:00**；[本轮 IAM 只读核查](readiness-lab/account-expiry-audit.json)未发现可见时间条件，但这不能证明续期，正式账号现已分配为 `555726205424`；旧练习报告保留为历史。
+服务和配额结论是 **2026-10-05 至 10-06 的实测快照**。后续会话先核对当前身份、权限有效期和主办方更新，再部署。练习账号通知写明权限至 **2026-10-08 09:00**；[本轮 IAM 只读核查](readiness-lab/account-expiry-audit.json)未发现可见时间条件，但这不能证明续期，正式账号现已分配为 `555726205424`；旧练习报告保留为历史；正式部署及模型真实调用见[本轮验收](docs/正式账号端到端验收-20261010.md)。
 
 ## 最新规则要点
 
@@ -83,4 +83,4 @@
 
 可以把下面这段话交给下一位 AI：
 
-> 请先阅读 README.md、AGENTS.md、AI接手说明.md 和 docs/正式比赛重连与新仓库-20261010.md。正式 Portal 已锁定 Jackey0903/BroadcastCode-2026 / main，AWS 目标为 555726205424 / NBAHackathonParticipantRole / us-east-1，操作使用 nba。活跃工程为 product/；旧962账号与旧CloudFront及服务/GPU结果只作历史。产品配置已迁移，210项离线测试通过，正式云端部署和评测适配尚待完成。依当前用户授权继续开发，不重复绑定，不执行 bootstrap，不从 readiness-lab 部署，不上传密码或SSO缓存。
+> 请先阅读 README.md、AGENTS.md、AI接手说明.md 和 docs/正式比赛重连与新仓库-20261010.md。正式 Portal 已锁定 Jackey0903/BroadcastCode-2026 / main，AWS 目标为 555726205424 / NBAHackathonParticipantRole / us-east-1，操作使用 nba。活跃工程为 product/；旧962账号与旧CloudFront及服务/GPU结果只作历史。正式账号 CDK 部署、媒体发布、AgentCore READY 和 Claude 新任务已实测；最新269项核心门禁通过；此前262项CI成功，最新CI另核对对应提交。请读 docs/正式账号端到端验收-20261010.md 的已跑通的正式链路、当前展示片来源和内部接口边界；官方schema仍未取得。依当前用户授权继续开发，不重复绑定，不执行 bootstrap，不从 readiness-lab 部署，不上传密码或SSO缓存。

@@ -23,6 +23,9 @@ CAUSAL_INTENT = re.compile(
     r"|让[^，。；！？]{0,12}(?:起跳|失位|失衡|空间|空位|空当|机会)"
 )
 STATIC_ASSERTION = re.compile(r"未动|没动|不动|静止|没有移动|未曾移动|毫无动作|停在原地|站在原地|停住")
+# Sparse chapters can span changing shot-clock states. Until a temporal clock
+# contract exists, leave urgency judgments out of generated prose altogether.
+CLOCK_ASSERTION = re.compile(r"进攻时钟|投篮时钟|读秒|所剩不多|时间紧迫|时间紧张|时间有限|时间所剩|shot\s*clock", re.I)
 COURT_REGIONS = (
     "罚球线延长线", "合理冲撞区", "限制区", "油漆区", "三秒区", "三分线", "三分弧",
     "罚球线", "罚球弧", "罚球圈", "弧顶", "肘区", "肘部", "低位", "高位", "禁区", "篮下",
@@ -119,6 +122,11 @@ def grounded_model_text(value, label, maximum, allowed_locations):
         problems.append(
             f"{label}: static-motion phrases {static!r} cannot be established from sparse frames; "
             "use an observed posture such as 仍持球, without asserting no movement")
+    clock = sorted({match.group(0) for match in CLOCK_ASSERTION.finditer(value)})
+    if clock:
+        problems.append(
+            f"{label}: shot-clock phrases {clock!r} require time-aligned clock evidence; "
+            "omit urgency judgments, especially in opening chapters; describe the sourced score or visible action")
     layout = sorted({match.group(0) for match in LAYOUT_REFERENCE.finditer(value)})
     if layout:
         problems.append(f"{label}: layout phrases {layout!r} must not guess rendered positions; use 官方出手数据见指标")

@@ -44,6 +44,7 @@ def main():
     print(json.dumps({'uploaded': uploaded, 'website': plan.website + '/product/',
                       'historicalRepublish': plan.historical_republish, 'newInference': False, 'courtLabPublished': False,
                       'reuseUnchanged': args.reuse_unchanged,
+                      'trainingCamp': plan.summary()['trainingCamp'],
                       'reusedVerifiedObjects': len(plan.assets) - len(uploaded) if args.reuse_unchanged else 0}, ensure_ascii=False))
     return 0
 

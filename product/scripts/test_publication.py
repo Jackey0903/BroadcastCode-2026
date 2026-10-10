@@ -12,7 +12,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'agent'))
 from readiness_agent import PROTOCOL, validate_request
-from publication import (FRAME_NAMES, WEB_FILES, PublicationError, build_plan, publish_plan)
+from publication import (CAMP_DATA, CAMP_FILES, FRAME_NAMES, WEB_FILES, PublicationError, build_plan, publish_plan)
 from serve import SOURCES
 
 OWNER = '555726205424'
@@ -126,6 +126,89 @@ class PublicationTests(unittest.TestCase):
 
     def report_path(self, sample='amen'):
         return f"product/evidence/run-{self.reports[sample]['jobId']}.json"
+
+    def camp_fixture(self):
+        # Rendering-contract fixture only; no real training or scores claimed.
+        data = {'job': 'synthetic-offline-job', 'model': 'synthetic-test-model', 'status': 'training',
+                'data': {'source': 'synthetic offline fixture', 'shots': 1},
+                'curve': [{'step': 1, 'mae': .2, 'meanReward': .4, 'toolsPerEpisode': 1}],
+                'evalCurve': [], 'groups': [{'step': 1,
+                    'shot': {'desc': 'fixture', 'zone': 'paint', 'type': '2PT', 'distanceFt': 3, 'official': .4},
+                    'trajectories': [{'tools': ['zone_reference'], 'prediction': .5, 'reward': .4,
+                                      'advantage': 0, 'say': 'fixture'}]}],
+                'scoreboard': {'h2h': {'trained': None}, 'league': {'trained': None}},
+                'calibration': {'base': [], 'trained': []}, 'honesty': ['synthetic fixture']}
+        self.save(CAMP_DATA, data)
+        for name in CAMP_FILES:
+            self.write('product/web/' + name, b'public-camp-fixture')
+        self.write('product/web/index.html', b'<nav><a href="./">WATCH</a><a class="nav-link" href="./camp.html"><b>CAMP</b></a></nav>')
+        return data
+
+    def test_unready_optional_camp_link_is_hidden_only_in_publication_copy(self):
+        self.camp_fixture()
+        (self.root / CAMP_DATA).unlink()
+        original = (self.root / 'product/web/index.html').read_bytes()
+        plan = self.plan()
+        assets = {a.key: a for a in plan.assets}
+        self.assertNotIn(b'camp.html', assets['product/index.html'].body)
+        self.assertIn(b'WATCH', assets['product/index.html'].body)
+        self.assertEqual((self.root / 'product/web/index.html').read_bytes(), original)
+        self.assertFalse(any(a.key.startswith('product/camp.') for a in plan.assets))
+        self.assertFalse(plan.summary()['trainingCamp']['published'])
+
+    def test_ready_camp_publishes_exact_data_and_every_dependency_before_navigation(self):
+        data = self.camp_fixture()
+        plan = self.plan()
+        assets = {a.key: a for a in plan.assets}
+        self.assertEqual(json.loads(assets[CAMP_DATA].body), data)
+        self.assertIn(b'./camp.html', assets['product/index.html'].body)
+        keys = [a.key for a in plan.assets]
+        for key in [CAMP_DATA] + ['product/' + name for name in CAMP_FILES]:
+            self.assertLess(keys.index(key), keys.index('product/index.html'))
+        self.assertEqual(plan.summary()['trainingCamp'], {'published': True,
+            'dataValidation': 'structure-only', 'mainPipelineIntegration': False})
+
+    def test_partial_real_run_contract_keeps_absent_comparisons_null(self):
+        data = self.camp_fixture()
+        data['groups'] = []
+        data['curve'][0]['mae'] = None
+        self.save(CAMP_DATA, data)
+        assets = {a.key: a for a in self.plan().assets}
+        result = json.loads(assets[CAMP_DATA].body)
+        self.assertIsNone(result['scoreboard']['h2h']['trained'])
+        self.assertIsNone(result['curve'][0]['mae'])
+        self.assertEqual(result['groups'], [])
+
+    def test_invalid_optional_camp_data_does_not_block_verified_main_video_pipeline(self):
+        original = self.camp_fixture()
+        cases = [dict(original, curve=[{'step': 1, 'mae': float('nan')}]),
+                 dict(original, calibration={'base': [[1.1, .2]], 'trained': []}),
+                 dict(original, groups=[{'step': 1, 'shot': {}, 'trajectories': []}]),
+                 dict(original, status='assumed-success'), dict(original, honesty=[])]
+        for data in cases:
+            with self.subTest(data=data):
+                self.save(CAMP_DATA, data)
+                plan = self.plan()
+                keys = [a.key for a in plan.assets]
+                self.assertNotIn(CAMP_DATA, keys)
+                self.assertIn('product/data/stories.json', keys)
+                self.assertFalse(plan.camp_published)
+
+    def test_missing_optional_camp_static_dependency_withholds_all_camp_links(self):
+        self.camp_fixture()
+        (self.root / 'product/web/camp.js').unlink()
+        assets = {a.key: a for a in self.plan().assets}
+        self.assertNotIn(CAMP_DATA, assets)
+        self.assertNotIn('product/camp.html', assets)
+        self.assertNotIn(b'camp.html', assets['product/index.html'].body)
+
+    def test_optional_camp_credentials_are_never_frozen_for_publication(self):
+        data = self.camp_fixture()
+        data['secret'] = 'ASIA' + 'A' * 16
+        self.save(CAMP_DATA, data)
+        plan = self.plan()
+        self.assertFalse(plan.camp_published)
+        self.assertFalse(any(b'ASIA' + b'A' * 16 in a.body for a in plan.assets))
 
     def test_full_initializes_empty_bucket_with_both_configs_and_every_url_dependency(self):
         plan = self.plan()

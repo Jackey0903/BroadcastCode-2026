@@ -19,6 +19,9 @@ from serve import SOURCES, checked_file
 WEB_FILES = ('index.html', 'app.js', 'styles.css', 'broadcast.css', 'atmosphere.js',
              'arcade.css', 'arcade.js', 'assets/grain.svg', 'assets/fonts/OFL.txt',
              'assets/fonts/fusion-pixel-12px-monospaced-zh_hans.otf.woff2')
+CAMP_FILES = ('camp.css', 'camp.js', 'camp.html')
+CAMP_DATA = 'product/data/rl/training-camp.json'
+CAMP_LINK = re.compile(rb'<a\b(?=[^>]*\bhref\s*=\s*["\x27](?:\./|/product/)?camp\.html["\x27])[^>]*>.*?</a\s*>', re.I | re.S)
 FRAME_NAMES = {'flagg': ('00.2s', '09s', '15.5s', '16.5s', '17.0s', '21s'),
                'amen': ('00s', '15s', '16.0s', '17.5s', '18s', '21s')}
 NOTICE = '已验收的真实生成结果，按原哈希发布；回看不会发起新推理，非官方评分结果。'
@@ -51,10 +54,14 @@ class PublicationPlan:
     website: str
     assets: tuple
     historical_republish: bool = True
+    camp_published: bool = False
 
     def summary(self):
         return {'bucket': self.bucket, 'website': self.website + '/product/',
                 'historicalRepublish': self.historical_republish, 'newInference': False, 'courtLabPublished': False,
+                'trainingCamp': {'published': self.camp_published,
+                                 'dataValidation': 'structure-only' if self.camp_published else 'unavailable',
+                                 'mainPipelineIntegration': False},
                 'objects': [{'key': a.key, 'bytes': len(a.body), 'sha256': a.sha256,
                              'prerequisite': a.prerequisite} for a in self.assets]}
 
@@ -118,6 +125,90 @@ def _dimension(value, label):
     if not isinstance(value, int) or isinstance(value, bool) or not 1 <= value <= 8192:
         raise PublicationError(f'Invalid integer video dimension: {label}')
     return value
+
+
+def _camp_structure(data):
+    """Check the optional dashboard's rendering contract, never its RL scores.
+
+    Partial real runs are allowed; missing comparisons stay null. This does not
+    certify SageMaker execution, cohort equivalence or improvement claims.
+    """
+    def finite(value):
+        return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+
+    def require(condition):
+        if not condition:
+            raise PublicationError('Optional training camp data is not renderable.')
+
+    def all_finite(value):
+        if isinstance(value, dict):
+            return all(all_finite(v) for v in value.values())
+        if isinstance(value, list):
+            return all(all_finite(v) for v in value)
+        return not isinstance(value, float) or math.isfinite(value)
+
+    require(all_finite(data) and data.get('status') in ('training', 'done'))
+    require(all(isinstance(data.get(k), str) and data[k].strip() for k in ('job', 'model')))
+    require(isinstance(data.get('data'), dict) and isinstance(data['data'].get('source'), str))
+    require(isinstance(data.get('honesty'), list) and bool(data['honesty'])
+            and all(isinstance(v, str) and v.strip() for v in data['honesty']))
+    for key in ('curve', 'evalCurve'):
+        require(isinstance(data.get(key), list))
+        for row in data[key]:
+            require(isinstance(row, dict) and isinstance(row.get('step'), int)
+                    and not isinstance(row['step'], bool) and row['step'] >= 0)
+            require(all(v is None or finite(v) for k, v in row.items() if k != 'step'))
+    require(bool(data['curve']))
+    require(isinstance(data.get('groups'), list))
+    for group in data['groups']:
+        require(isinstance(group, dict) and isinstance(group.get('step'), int))
+        shot, trajectories = group.get('shot'), group.get('trajectories')
+        require(isinstance(shot, dict) and all(isinstance(shot.get(k), str) for k in ('desc', 'zone', 'type')))
+        require(finite(shot.get('distanceFt')) and finite(shot.get('official')) and 0 <= shot['official'] <= 1)
+        require(isinstance(trajectories, list) and bool(trajectories))
+        for row in trajectories:
+            require(isinstance(row, dict) and finite(row.get('reward')) and finite(row.get('advantage')))
+            prediction = row.get('prediction')
+            require(prediction is None or finite(prediction) and 0 <= prediction <= 1)
+            require(isinstance(row.get('say'), str))
+            tools = row.get('tools')
+            require(isinstance(tools, int) and not isinstance(tools, bool) and tools >= 0
+                    or isinstance(tools, list) and all(isinstance(t, str) for t in tools))
+    require(isinstance(data.get('scoreboard'), dict) and isinstance(data.get('calibration'), dict))
+    for cohort in ('h2h', 'league'):
+        board = data['scoreboard'].get(cohort)
+        require(isinstance(board, dict))
+        for row in board.values():
+            require(row is None or isinstance(row, dict))
+            if row is not None:
+                require(all(row.get(k) is None or finite(row[k]) for k in ('mae', 'toolsPerEpisode', 'groundedRate', 'meanReward')))
+    for label in ('base', 'trained'):
+        points = data['calibration'].get(label)
+        require(isinstance(points, list) and all(isinstance(p, list) and len(p) == 2
+                and all(finite(v) and 0 <= v <= 1 for v in p) for p in points))
+
+
+def _camp_assets(root):
+    """Publish the optional view only with local data and all its static files.
+
+    An unfinished parallel feature must not block the verified video pipeline
+    or expose a broken navigation link. Source files are never changed.
+    """
+    if checked_file(root, CAMP_DATA) is None:
+        return ()
+    try:
+        if len(_read(root, CAMP_DATA)) > 2 * 1024 * 1024:
+            return ()
+        data = _json(root, CAMP_DATA)
+        _camp_structure(data)
+        assets = [_json_asset(CAMP_DATA, data)]
+        for name in CAMP_FILES:
+            body = _read(root, 'product/web/' + name)
+            _private_check(body, 'product/web/' + name)
+            assets.append(Asset('product/' + name, body, mimetypes.guess_type(name)[0] or 'application/octet-stream'))
+        return tuple(assets)
+    except (PublicationError, OSError, RecursionError):
+        return ()
 
 
 def build_plan(root, bucket, website, current_runtime_arn=None):
@@ -225,8 +316,12 @@ def build_plan(root, bucket, website, current_runtime_arn=None):
                                 'newInference': False, 'notice': NOTICE}
     assets.extend([_json_asset('config/samples.json', manifest, True),
                    _json_asset('product/config/samples.json', manifest, True)])
+    camp_assets = _camp_assets(root)
+    assets.extend(camp_assets)
     for name in WEB_FILES:
         body = _read(root, 'product/web/' + name)
+        if name == 'index.html' and not camp_assets:
+            body = CAMP_LINK.sub(b'', body)
         if not name.endswith('.woff2'):
             _private_check(body, 'product/web/' + name)
         assets.append(Asset('product/' + name, body, mimetypes.guess_type(name)[0] or 'application/octet-stream'))
@@ -236,7 +331,7 @@ def build_plan(root, bucket, website, current_runtime_arn=None):
     assets.append(_json_asset('product/data/stories.json', published))
     if len({a.key for a in assets}) != len(assets):
         raise PublicationError('Duplicate publication asset key.')
-    return PublicationPlan(bucket, website, tuple(assets), has_historical_source)
+    return PublicationPlan(bucket, website, tuple(assets), has_historical_source, bool(camp_assets))
 
 
 def _remote_matches(asset, plan, s3, expected_owner, allow_missing=False):

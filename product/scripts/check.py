@@ -26,7 +26,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[2]
 PRODUCT = ROOT / 'product'
 OLD_ACCOUNT = '962768510637'
-PYTHON_SUITES = {'agent': 19, 'worker': 8, 'api': 12, 'data': 16, 'scripts': 21}
+PYTHON_SUITES = {'agent': 20, 'worker': 8, 'api': 12, 'data': 16, 'scripts': 21}
 EXCLUDED = {'node_modules', 'build', 'cdk.out', '.venv', '__pycache__', '.git'}
 
 

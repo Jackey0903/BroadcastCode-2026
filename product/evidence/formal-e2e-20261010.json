@@ -1,0 +1,51 @@
+{
+  "verifiedAt": "2026-10-10T03:40:57.803363+00:00",
+  "scope": "Formal account product pipeline, not organizer scoring certification",
+  "account": "555726205424",
+  "region": "us-east-1",
+  "profile": "nba",
+  "website": "https://deky02484tknr.cloudfront.net/product/",
+  "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:555726205424:runtime/Team02Readiness20261006-1cAKhm9LrD",
+  "formalEndToEndPassed": true,
+  "webCreatedJob": "d143c261ef194f27ab1683b9fff1b15e",
+  "media": {
+    "durationSeconds": 21.548005,
+    "outputSha256": "cb7dc8d110059fc925f4ca889121a12443440f15be866572f8a358ad62c0fe48",
+    "audioPresent": true,
+    "rangeStatus": 206,
+    "modelId": "global.anthropic.claude-sonnet-4-6",
+    "elapsedSeconds": 70.59,
+    "browserPlaybackVerified": true,
+    "burnedOverlayVisuallyVerified": true
+  },
+  "currentMaterials": [
+    "flagg",
+    "amen"
+  ],
+  "additionalOrganizerInputsProvided": false,
+  "officialEvaluationSchemaProvided": false,
+  "internalReplayProtocol": "POST /api/jobs {sample,mode:story}, then GET same jobId; product-story-v1",
+  "rejectedContentJob": "7a2a70d1c2b348ceb16b5129ef1a4bd1",
+  "coreOfflineTests": 269,
+  "coreGateSeconds": 9.39,
+  "unverifiedServicesNotClaimed": [
+    "GPU capacity",
+    "other models",
+    "RL-SCOUT main pipeline integration"
+  ],
+  "publicationStatus": "completed",
+  "publication": {
+    "verifiedAt": "2026-10-10T03:46:00.438159+00:00",
+    "uploadedObjects": 5,
+    "unchangedObjectsVerifiedAndReused": 28,
+    "flaggHistorical": false,
+    "amenHistorical": true,
+    "servedAppMatchesSource": true,
+    "trainingCampPublished": false
+  },
+  "clockGuardDeployment": {
+    "completed": true,
+    "cloudFormationUpdateSeconds": 91.27,
+    "newAmenContentRerun": false
+  }
+}
