@@ -11,6 +11,7 @@
 - 比赛根目录的规则、账号说明和 AI 协同流水归入 `docs/archive/competition-2026/`；历史成功与失败回执没有删除。
 - 重复 PPT 交付 ZIP / 解压副本移入忽略的 `product/build/handoff-20261011/`；三页 PPT 与讲稿保留在 `docs/ppt-materials/20261011/three-slides-output/`。
 - 比赛合影原样保存，新首页配图从最终英文 55 秒答辩片截取；来源见 `docs/assets/project/sources.json`。
+- 旧 `BroadcastCode-backups/` 目录已按用户要求从工作区移走；历史文档中提到的该目录只是当时的存档记录，不可作为当前恢复路径。
 
 ## 维护时必须保留的事实
 
