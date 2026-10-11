@@ -1,0 +1,36 @@
+{
+  "source": "product/build/ppt-demo-20261011/english-v6/GameBuddy-PPT-Final-Demo-20261011.mp4",
+  "sourceSha256": "7726383539b2a7eb2046f4915c0b89590efacb25ed777a827e0bca942ec24a17",
+  "captures": [
+    {
+      "file": "demo-intro.jpg",
+      "seconds": 1.84,
+      "sha256": "1e98879e3311edda7c528cd8d6f2be473b671feeedb5428309d363940299789d"
+    },
+    {
+      "file": "demo-drive.jpg",
+      "seconds": 10.18,
+      "sha256": "0bb265108262a3e633119e6d223e7e5b23e5870b23a8a2acdd1efb8a4cc1735d"
+    },
+    {
+      "file": "demo-rebound.jpg",
+      "seconds": 18.52,
+      "sha256": "c250b811210a27198b7127809f903934d1c27dce6f20d38c91829d6b444ecdcc"
+    },
+    {
+      "file": "demo-tactics.jpg",
+      "seconds": 26.86,
+      "sha256": "b6f7a684fb595ef3876ca8067e216578172bffefcdd4b29e19bd14a8474fad51"
+    },
+    {
+      "file": "demo-shot.jpg",
+      "seconds": 46.05,
+      "sha256": "c0dcdb987752c202c5eb1df98518f586112993c52f8cc5ce0c6f16fc1b17fc67"
+    }
+  ],
+  "photo": {
+    "file": "hackathon-group.jpg",
+    "source": "User-provided competition group photo; preserved unchanged"
+  },
+  "scope": "Frames from the final local English presentation movie, not a new cloud render or model run."
+}

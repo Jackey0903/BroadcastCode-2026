@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the root innovation README; publish only its explicit public assets.
+"""Render the frozen competition showcase; publish only its explicit public assets.
 
 Preview: python3 product/scripts/publish_readme.py
 Publish: readiness-lab/.venv/bin/python product/scripts/publish_readme.py --publish
@@ -22,6 +22,7 @@ from deployment import load_deployment, load_outputs, validate_identity
 from capture_readme_frames import FRAMES, SOURCE_SHA256
 
 ROOT = Path(__file__).resolve().parents[2]
+SHOWCASE_SOURCE = ROOT / 'SHOWCASE.md'
 BUILD = ROOT / 'product/build/readme'
 REPOSITORY = 'https://github.com/Jackey0903/BroadcastCode-2026/blob/main/'
 IMAGE_SOURCE = 'product/broadcast-fx/formal/previews/contact.jpg'
@@ -219,7 +220,7 @@ def main():
     args = parser.parse_args()
     target = load_deployment()
     outputs = load_outputs(target=target)
-    source = (ROOT / 'README.md').read_text(encoding='utf-8')
+    source = SHOWCASE_SOURCE.read_text(encoding='utf-8')
     assets = build_assets(source)
     BUILD.mkdir(parents=True, exist_ok=True)
     (BUILD / 'index.html').write_bytes(assets[0]['body'])
@@ -254,7 +255,7 @@ def main():
     checks = verify_public(outputs['Website'], assets)
     report = {'publishedAt': datetime.now(timezone.utc).isoformat(), 'team': '02', 'product': 'GameBuddy',
               'account': target['account'], 'website': outputs['Website'] + '/readme',
-              'source': 'README.md', 'sourceSha256': digest(source.encode('utf-8')),
+              'source': 'SHOWCASE.md', 'sourceSha256': digest(source.encode('utf-8')),
               'bucket': outputs['Bucket'], 'distribution': outputs['Distribution'],
               'invalidationId': invalidation['Id'], 'assets': manifest, 'publicChecks': checks,
               'illustrations': read_capture_manifest(),

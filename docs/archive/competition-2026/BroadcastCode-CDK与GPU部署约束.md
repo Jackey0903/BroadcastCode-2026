@@ -1,6 +1,6 @@
 # BroadcastCode CDK 与 GPU 部署约束
 
-更新日期：2026 年 10 月 10 日。正式账号已换为555726205424，旧GPU结果只作练习快照；本次核查见[正式账号审计](product/evidence/formal-account-audit-20261010.json)。赛事专属要求来自用户转交的主办方 CDK 通知和 GPU 配额截图；AWS 官方资料用于核验技术含义。
+更新日期：2026 年 10 月 10 日。正式账号已换为555726205424，旧GPU结果只作练习快照；本次核查见[正式账号审计](../../../product/evidence/formal-account-audit-20261010.json)。赛事专属要求来自用户转交的主办方 CDK 通知和 GPU 配额截图；AWS 官方资料用于核验技术含义。
 
 ## CDK 的必需配置
 
@@ -90,7 +90,7 @@ AWS_REGION=us-east-1 AWS_DEFAULT_REGION=us-east-1 npx --no-install cdk deploy --
 |`ml.p3.2xlarge`|1|0|0|2|0|
 |`ml.trn1.2xlarge`|0|1|0|0|0|
 
-[查看原始配额截图](参考资料/SageMaker-GPU-配额-20261005.jpg)。区间与斜线写法沿用截图；选择具体尺寸时，应读取本队账号该机型、用途的实际配额。截图没有给出 Processing 等其他用途的配额，不能自行套用 Training 列。
+[查看原始配额截图](../../../参考资料/SageMaker-GPU-配额-20261005.jpg)。区间与斜线写法沿用截图；选择具体尺寸时，应读取本队账号该机型、用途的实际配额。截图没有给出 Processing 等其他用途的配额，不能自行套用 Training 列。
 
 配额是账号与区域的资源上限，不能理解成预留了现成实例；实际启动还取决于对应机型的可用容量。[AWS 配额定义](https://docs.aws.amazon.com/general/latest/gr/sagemaker.html)、[AWS 训练容量说明](https://docs.aws.amazon.com/en_en/sagemaker/latest/dg/train-instance-preferences.html)
 
@@ -111,4 +111,4 @@ AWS_REGION=us-east-1 AWS_DEFAULT_REGION=us-east-1 npx --no-install cdk deploy --
 
 前三项与截图对应值一致。第四项说明：即使同一机型能创建推理 Endpoint，也不能据此创建 Processing 任务。选择视频分析的 GPU 执行方案时，应先确认具体 SageMaker 用途的配额。
 
-后续已核准 32 个机型尺寸的实际配额，并实际运行 `ml.g4dn.xlarge` Training：T4 GPU 的 CUDA 运算成功，任务 Completed，计费时长 199 秒后计算实例自动释放。其他尺寸和用途未逐一启动。完整配额见 [实际 GPU 配额表](aws-validation/SageMaker-实际GPU配额.md)，实际调用证据见上述报告。
+后续已核准 32 个机型尺寸的实际配额，并实际运行 `ml.g4dn.xlarge` Training：T4 GPU 的 CUDA 运算成功，任务 Completed，计费时长 199 秒后计算实例自动释放。其他尺寸和用途未逐一启动。完整配额见 [实际 GPU 配额表](../../../aws-validation/SageMaker-实际GPU配额.md)，实际调用证据见上述报告。

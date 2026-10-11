@@ -7,7 +7,7 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# This job reads the private repository and uploads no artifacts.
+# This job reads the repository and uploads no artifacts.
 # No deploy token, AWS credentials, or write permissions are used.
 permissions:
   contents: read

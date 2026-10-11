@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from publish_readme import IMAGE_SOURCE, ROOT, build_assets, inline, read_capture_manifest, render_readme, safe_link
+from publish_readme import IMAGE_SOURCE, SHOWCASE_SOURCE, build_assets, inline, read_capture_manifest, render_readme, safe_link
 
 
 class ReadmePublicationTests(unittest.TestCase):
@@ -42,7 +42,7 @@ class ReadmePublicationTests(unittest.TestCase):
             render_readme('# GameBuddy\n\n```javascript\n')
 
     def test_real_readme_has_all_innovations_and_bounded_assets(self):
-        source = (ROOT / 'README.md').read_text(encoding='utf-8')
+        source = SHOWCASE_SOURCE.read_text(encoding='utf-8')
         assets = build_assets(source)
         rendered = assets[0]['body'].decode('utf-8')
         for number in range(1, 17):
@@ -57,7 +57,7 @@ class ReadmePublicationTests(unittest.TestCase):
         self.assertTrue(all(asset['body'] == assets[0]['body'] for asset in assets[:4]))
 
     def test_frame_source_provenance_is_required_before_publication(self):
-        source = (ROOT / 'README.md').read_text(encoding='utf-8')
+        source = SHOWCASE_SOURCE.read_text(encoding='utf-8')
         for field in ('sourceSha256', 'captureSha256'):
             manifest = read_capture_manifest()
             if field == 'sourceSha256':

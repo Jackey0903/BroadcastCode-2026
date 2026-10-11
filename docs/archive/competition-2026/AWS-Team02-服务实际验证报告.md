@@ -2,7 +2,7 @@
 
 完成实际功能验证：2026 年 10 月 06 日 00:05（北京时间）。测试横跨 10 月 5 日夜间和 10 月 6 日；测试资源清理已完成。
 
-这是凌晨的历史服务验证报告。10 月 6 日下午新建并保留了独立的网页→Agent→完整视频流水线，最新入口、仓库绑定和两段真实视频结果见[赛前准备实测报告](readiness-lab/赛前准备实测报告-20261006.md)。下文“已清理”只指旧 `aws-validation/` 资源。
+这是凌晨的历史服务验证报告。10 月 6 日下午新建并保留了独立的网页→Agent→完整视频流水线，最新入口、仓库绑定和两段真实视频结果见[赛前准备实测报告](../../../readiness-lab/赛前准备实测报告-20261006.md)。下文“已清理”只指旧 `aws-validation/` 资源。
 
 目标账号 `962768510637`，角色 `NBAHackathonParticipantRole`，配置 `nba`，区域 `us-east-1`。
 
@@ -38,14 +38,14 @@ GPU 的 nvidia-smi 报告为 `Tesla T4, 15360 MiB`，PyTorch 为 `2.9.0+cu130`�
 4. **CLI 的服务执行角色有要求。** 需要传递执行角色时，当前参赛身份仅被允许传递预置 `arn:aws:iam::962768510637:role/NBAHackathonWorkloadRole`。本次 SageMaker 和 AgentCore 直接调用使用该角色。直接修改 IAM 被限制；通过 CDK 创建的新角色必须带指定权限边界，本次已经验证此路径成功。
 5. **其他 GPU 尺寸只核准了配额。** 实际计算测试覆盖 ml.g4dn.xlarge Training；没有启动全部 32 个尺寸或所有用途。配额不保证某个时间点的硬件容量，也不能证明任意模型都装得进显存。
 
-完整配额见 [SageMaker 实际 GPU 配额](aws-validation/SageMaker-实际GPU配额.md)。
+完整配额见 [SageMaker 实际 GPU 配额](../../../aws-validation/SageMaker-实际GPU配额.md)。
 
 ## 测试证据与边界
 
-- [模型图片调用结果](aws-validation/model-tests.json)
-- [Lambda、CloudFront、AgentCore 调用结果](aws-validation/live-tests.json)
-- [GPU 运算结果](aws-validation/gpu-result.json)
-- [GPU 任务状态与计费秒数](aws-validation/gpu-job.json)
+- [模型图片调用结果](../../../aws-validation/model-tests.json)
+- [Lambda、CloudFront、AgentCore 调用结果](../../../aws-validation/live-tests.json)
+- [GPU 运算结果](../../../aws-validation/gpu-result.json)
+- [GPU 任务状态与计费秒数](../../../aws-validation/gpu-job.json)
 
 本次是账号和服务能力验证，未覆盖最终篮球应用、真实视频流程、并发性能或评分细则。临时测试页面不是正式参赛作品。
 
@@ -53,4 +53,4 @@ GPU 的 nvidia-smi 报告为 `Tesla T4, 15360 MiB`，PyTorch 为 `2.9.0+cu130`�
 
 GPU 任务已完成并释放计算实例；AgentCore 会话、Runtime、自动创建的工作负载身份和运行日志已清理。CDK 测试栈已删除；随后分别核实测试 S3 桶、Lambda、DynamoDB 表、CloudFront 分发及新建 IAM 角色均已不存在，发布到 bootstrap 桶的本次测试模板也已删除。主办方现有 bootstrap 和预置执行角色保留。SageMaker 保留 Completed 任务的历史记录，计算实例已停止。
 
-[查看清理核验结果](aws-validation/cleanup.json)。
+[查看清理核验结果](../../../aws-validation/cleanup.json)。

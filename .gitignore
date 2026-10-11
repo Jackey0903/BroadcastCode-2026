@@ -36,3 +36,15 @@ aws-validation/outputs.json
 
 # Local browser automation screenshots and traces
 /.playwright-mcp/
+
+# Keep local media, model checkpoints and export bundles out of source control
+/product/local-media/
+/product/watch/local-media/
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.safetensors
+*.pt
+*.pth
+/docs/ppt-materials/*/*交付包*.zip
