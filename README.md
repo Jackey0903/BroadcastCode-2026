@@ -269,7 +269,7 @@ Worker 使用单并发与批次 1 控制生成资源和推理预算。可选语�
 需要 **Python 3.11+**；推荐近期桌面 Chrome 或 Edge。前端采用原生 ESM，默认本地预览不需要安装 npm 依赖，也不需要 AWS 账号。
 
 ```bash
-git clone https://github.com/Jackey0903/BroadcastCode-2026.git
+git clone https://github.com/imhaojie/BroadcastCode-2026.git
 cd BroadcastCode-2026
 python3 product/watch/preview.py --port 4178
 ```
