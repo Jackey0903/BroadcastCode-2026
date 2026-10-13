@@ -26,6 +26,7 @@
 
 ## 视频与观赛体验
 
+- [最终答辩展示视频](https://github.com/imhaojie/BroadcastCode-2026/releases/tag/presentation-demos)：回合解读与 GameBuddy 介绍。
 - [正式 55 秒豆包双人解说与发布](正式55秒豆包双人解说与主页发布-20261010.md)
 - [英文画面、攻防数据与战术板](PPT英文画面与战术板精修-20261011.md)
 - [连续 MOSS 英文双人解说](连续MOSS双人解说与最新画面合成-20261011.md)

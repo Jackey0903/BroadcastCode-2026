@@ -1,0 +1,63 @@
+{
+  "presentation": "最终.pptx",
+  "presentationSha256": "25a0bf26389afc94ec67ce277a295dd73857bee988cd0dc5499bd9aadd802ae5",
+  "release": "https://github.com/imhaojie/BroadcastCode-2026/releases/tag/presentation-demos",
+  "videos": [
+    {
+      "slide": 6,
+      "source": "ppt/media/media1.mov",
+      "sourceSha256": "e87cfda4724658d346d6540b3fc4cba4b3ea243e5dddd5c19d95003f62cbdbdd",
+      "releaseFile": "gamebuddy-possession-demo.mp4",
+      "sha256": "63a2776321f539384dba13fdbede87f6de248b7e589ec7001895b064fc0fe054",
+      "bytes": 114972345,
+      "durationSeconds": 55.066667,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "conversion": "MOV to MP4 container only, video and audio stream copy",
+      "url": "https://github.com/imhaojie/BroadcastCode-2026/releases/download/presentation-demos/gamebuddy-possession-demo.mp4",
+      "poster": "presentation-possession.jpg",
+      "posterSeconds": 26.86,
+      "posterSha256": "f6eb6c02d8ed6524c6d0a40c8feb2af4e83e99f7ac3bd289f9fe96379f5ca897"
+    },
+    {
+      "slide": 8,
+      "source": "ppt/media/media2.mp4",
+      "sourceSha256": "c780e1c7f0051d56a5d726f603ca0e1f1fdd285590e1cfda8e5143cc7a743a39",
+      "releaseFile": "gamebuddy-introduction.mp4",
+      "sha256": "c780e1c7f0051d56a5d726f603ca0e1f1fdd285590e1cfda8e5143cc7a743a39",
+      "bytes": 34367661,
+      "durationSeconds": 55.0,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30/1"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "conversion": "Original embedded MP4, unchanged",
+      "url": "https://github.com/imhaojie/BroadcastCode-2026/releases/download/presentation-demos/gamebuddy-introduction.mp4",
+      "poster": "presentation-introduction.jpg",
+      "posterSeconds": 3,
+      "posterSha256": "49075453584d907a0d79c13a552f7f0538c77aca96a60f8ac2e4c3a2f0e5c318"
+    }
+  ]
+}

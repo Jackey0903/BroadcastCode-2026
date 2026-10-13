@@ -1,6 +1,6 @@
 # GameBuddy · 当前维护交接
 
-2026-10-12。比赛已经结束，用户确认 **Team02 获得银奖**。当前工作转为仓库整理与开源文档，主入口是 [README.md](README.md)。原逐轮交接完整保留在[比赛期间接手说明](docs/archive/competition-2026/AI接手说明-比赛期间.md)，协同日志在[归档目录](docs/archive/competition-2026/README.md)。
+2026-10-14。比赛已经结束，用户确认 **Team02 获得银奖**。当前工作转为仓库整理与开源文档，主入口是 [README.md](README.md)。原逐轮交接完整保留在[比赛期间接手说明](docs/archive/competition-2026/AI接手说明-比赛期间.md)，协同日志在[归档目录](docs/archive/competition-2026/README.md)。
 
 ## 当前结构
 
@@ -11,12 +11,13 @@
 - 比赛根目录的规则、账号说明和 AI 协同流水归入 `docs/archive/competition-2026/`；历史成功与失败回执没有删除。
 - 重复 PPT 交付 ZIP / 解压副本移入忽略的 `product/build/handoff-20261011/`；三页 PPT 与讲稿保留在 `docs/ppt-materials/20261011/three-slides-output/`。
 - 比赛合影原样保存，新首页配图从最终英文 55 秒答辩片截取；来源见 `docs/assets/project/sources.json`。
+- 用户提供的 `最终.pptx` 第 6、8 页内嵌回合解读与 GameBuddy 介绍视频。展示视频通过 GitHub Releases 的 `presentation-demos` 发布，README 用封面图链接；文件身份与转换记录见 `docs/assets/project/presentation-videos.json`。原 PPT 和视频保留本地，不加入 Git。
 - 旧 `BroadcastCode-backups/` 目录已按用户要求从工作区移走；历史文档中提到的该目录只是当时的存档记录，不可作为当前恢复路径。
-- 旧私有 GitHub 仓库 `Jackey0903/BroadcastCode` 已按用户要求删除；当前唯一项目远端是 `Jackey0903/BroadcastCode-2026`。
+- 旧私有 GitHub 仓库 `Jackey0903/BroadcastCode` 已按用户要求删除；当前项目为 `imhaojie/BroadcastCode-2026`，旧 `Jackey0903/BroadcastCode-2026` 地址仍重定向到它。
 
 ## 维护时必须保留的事实
 
-自动弗拉格 RL 样片真实调用训练后 Qwen2.5-3B，三层证据进入 Agent 叙事与 MP4。正式 55 秒 Christie 作品使用编辑视觉和 AgentCore 稿件审核，提交版豆包双人语音与赛后英文 MOSS 版分别记录。最新本地答辩片仍是 `product/build/ppt-demo-20261011/english-v6/GameBuddy-PPT-Final-Demo-20261011.mp4`；媒体不随 Git 分发。
+自动弗拉格 RL 样片真实调用训练后 Qwen2.5-3B，三层证据进入 Agent 叙事与 MP4。正式 55 秒 Christie 作品使用编辑视觉和 AgentCore 稿件审核，提交版豆包双人语音与赛后英文 MOSS 版分别记录。渲染母版保留在 `product/build/ppt-demo-20261011/english-v6/GameBuddy-PPT-Final-Demo-20261011.mp4`；最新答辩展示以用户提供的 `最终.pptx` 内嵌媒体为准。
 
 RL 实验相对 SFT 无额外增益，原失败保留；6/6 指模型、程序语义检查与有限纠错的已知案例组合验收。三层证据共 1,993 条：基础 1,513、高阶派生 166、深度 314。官方 xFG 事件记录单独保存，赛季快照不能冒充实时数据。
 

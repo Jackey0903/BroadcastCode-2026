@@ -48,3 +48,6 @@ aws-validation/outputs.json
 *.pt
 *.pth
 /docs/ppt-materials/*/*交付包*.zip
+
+# Final presentation with embedded videos is kept locally; demos use Releases
+/最终.pptx
